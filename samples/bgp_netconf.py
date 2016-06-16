@@ -24,104 +24,21 @@
 
 
 from ydk.types import Empty
-from ydk.providers import NetconfServiceProvider
-from ydk.services import NetconfService
-
-from samples.session_mgr import init_logging
+from ydk.providers import NetconfServiceProvider, CodecServiceProvider
+from ydk.services import CRUDService, NetconfService, CodecService, Datastore
 from ydk.models.bgp import bgp
-from ydk.models.bgp.bgp_types import Ipv4Unicast_Identity
-from ydk.models.bgp.bgp_types import Ipv6Unicast_Identity
 from ydk.models.routing.routing_policy import RoutingPolicy
-from ydk.errors import YPYError
-from ydk.services import Datastore
 
-
-
-# <bgp xmlns="http://openconfig.net/yang/bgp">
-#  <global>
-#    <config>
-#      <as>65172</as>
-#    </config>
-#    <afi-safi>
-#      <afi-safi>
-#        <afi-safi-name>l3vpn-ipv4-unicast</afi-safi-name>
-#        <config>
-#          <afi-safi-name>l3vpn-ipv4-unicast</afi-safi-name>
-#          <enabled>true</enabled>
-#        </config>
-#      </afi-safi>
-#    </afi-safis>
-#  </global>
-#  <neighbors>
-#    <neighbor>
-#      <neighbor-address>172.16.255.2</neighbor-address>
-#      <config>
-#        <neighbor-address>172.16.255.2</neighbor-address>
-#        <peer-as>65172</peer-as>
-#      </config>
-#      <afi-safis>
-#        <afi-safi>
-#          <afi-safi-name>l3vpn-ipv4-unicast</afi-safi-name>
-#          <config>
-#            <afi-safi-name>l3vpn-ipv4-unicast</afi-safi-name>
-#            <enabled>true</enabled>
-#          </config>
-#        </afi-safi>
-#      </afi-safis>
-#    </neighbor>
-#  </neighbors>
-# </bgp>
+from samples._config_builder import _get_bgp_config, _get_routing_cfg, _get_bgp_routing_multiple_object
 
 
 
 def bgp_run(netconf_service, session):
-    bgp_cfg = bgp.Bgp()
-
     # set up routing policy definition
-    routing_policy = RoutingPolicy()
-
-    pass_all_policy_defn = RoutingPolicy.PolicyDefinitions.PolicyDefinition()
-    pass_all_policy_defn.name = 'PASS-ALL'
-
-    routing_policy.policy_definitions.policy_definition.append(pass_all_policy_defn)
-    pass_all_policy_defn._parent = routing_policy.policy_definitions
-
+    routing_policy = _get_routing_cfg()
     netconf_service.edit_config(session, Datastore.candidate, routing_policy)
 
-    bgp_cfg.global_.config.as_ = 65001
-
-    ipv4_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
-    ipv4_afsf.afi_safi_name = 'ipv4-unicast'
-    ipv4_afsf.config.afi_safi_name = 'ipv4-unicast'
-    ipv4_afsf.config.enabled = True
-
-    ipv6_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
-    ipv6_afsf.afi_safi_name = 'ipv6-unicast'
-    ipv6_afsf.config.afi_safi_name = 'ipv6-unicast'
-    ipv6_afsf.config.enabled = True
-
-    bgp_cfg.global_.afi_safis.afi_safi.append(ipv4_afsf)
-    bgp_cfg.global_.afi_safis.afi_safi.append(ipv6_afsf)
-    # Global config done
-
-    # IPv4 Neighbor instance config
-    nbr_ipv4 = bgp_cfg.neighbors.Neighbor()
-    nbr_ipv4.neighbor_address = '192.168.1.1'
-    nbr_ipv4.config.neighbor_address = '192.168.1.1'
-    nbr_ipv4.config.peer_as = 65002
-
-    nbr_ipv4_afsf = nbr_ipv4.afi_safis.AfiSafi()
-    nbr_ipv4_afsf.afi_safi_name = 'ipv4-unicast'
-    nbr_ipv4_afsf.config.peer_as = 65002
-    nbr_ipv4_afsf.config.afi_safi_name = 'ipv4-unicast'
-    nbr_ipv4_afsf.config.enabled = True
-
-    # Create afi-safi policy instances
-    nbr_ipv4.afi_safis.afi_safi.append(nbr_ipv4_afsf)
-
-    bgp_cfg.neighbors.neighbor.append(nbr_ipv4)
-    nbr_ipv4.parent = bgp_cfg.neighbors
-
+    bgp_cfg = _get_bgp_config()
     # IPv4 Neighbor instance config done
     netconf_service.edit_config(session, Datastore.candidate, bgp_cfg)
 
@@ -153,9 +70,43 @@ def bgp_run(netconf_service, session):
     print nbr_ipv6_read
 
 
+def run_multiple_routing_bgp(netconf_service, session):
+    crud = CRUDService()
+    codec = CodecService()
+    codec_provider = CodecServiceProvider()
+
+    crud.delete(session, bgp())
+    crud.delete(session, RoutingPolicy())
+
+    multi_cfg = _get_bgp_routing_multiple_object()
+    multi_payload_expected = codec.encode(codec_provider, multi_cfg)
+
+    result = netconf_service.edit_config(session, Datastore.candidate, multi_cfg)
+    assert 'ok' in result
+
+    multi_filter = {'bgp':bgp(), 'routing-policy':RoutingPolicy()}
+    multi_entity_read = netconf_service.get_config(session, Datastore.candidate, multi_filter)
+
+    multi_payload_actual = codec.encode(codec_provider, multi_entity_read)
+
+    assert multi_payload_expected == multi_payload_actual
+
+
+def init_logging():
+    import logging
+    logger = logging.getLogger("ydk")
+    logger.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(("%(asctime)s - %(name)s - "
+                                  "%(levelname)s - %(message)s"))
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+
+
 if __name__ == "__main__":
     init_logging()
     provider = NetconfServiceProvider(address='127.0.0.1', username='admin', password='admin', protocol='ssh', port=12022)
     netconf_service = NetconfService()
     bgp_run(netconf_service, provider)
+    # run_multiple_routing_bgp(netconf_service, provider)
     exit()

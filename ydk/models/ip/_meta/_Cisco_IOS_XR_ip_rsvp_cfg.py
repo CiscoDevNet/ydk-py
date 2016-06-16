@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -40,6 +40,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Neighbors.Neighbor.Authentication',
             False, 
             [
+            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Key chain to authenticate RSVP signalling
+                messages
+                ''',
+                'key_chain',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
                 [(30, 86400)], [], 
                 '''                Life time (in seconds) for each security
@@ -53,13 +60,6 @@ _meta_table = {
                 messages
                 ''',
                 'window_size',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Key chain to authenticate RSVP signalling
-                messages
-                ''',
-                'key_chain',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -201,17 +201,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.GlobalLogging',
             False, 
             [
-            _MetaInfoClassMember('log-nsr-status', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable NSR Status Logging
-                ''',
-                'log_nsr_status',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('log-issu-status', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable ISSU Status Logging
                 ''',
                 'log_issu_status',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('log-nsr-status', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable NSR Status Logging
+                ''',
+                'log_nsr_status',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -224,12 +224,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam',
             False, 
             [
-            _MetaInfoClassMember('max-res-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
-                '''                Default maximum reservable I/F % B/W 
-                ''',
-                'max_res_percent',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc0-percent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 10000)], [], 
                 '''                Default BC0 pool I/F % B/W 
@@ -241,6 +235,12 @@ _meta_table = {
                 '''                Default BC1 pool I/F % B/W 
                 ''',
                 'bc1_percent',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('max-res-percent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10000)], [], 
+                '''                Default maximum reservable I/F % B/W 
+                ''',
+                'max_res_percent',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -318,18 +318,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction',
             False, 
             [
+            _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 65000)], [], 
+                '''                Configure maximum size of a single RSVP
+                Bundle message
+                ''',
+                'bundle_message_max_size',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable refresh reduction
                 ''',
                 'disable',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('reliable-ack-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(20, 65000)], [], 
-                '''                Configure max size of a single RSVP ACK
-                message
-                ''',
-                'reliable_ack_max_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('reliable-ack-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(100, 5000)], [], 
@@ -337,6 +337,13 @@ _meta_table = {
                 message(s)
                 ''',
                 'reliable_ack_hold_time',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('reliable-ack-max-size', ATTRIBUTE, 'int' , None, None, 
+                [(20, 65000)], [], 
+                '''                Configure max size of a single RSVP ACK
+                message
+                ''',
+                'reliable_ack_max_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('reliable-retransmit-time', ATTRIBUTE, 'int' , None, None, 
                 [(100, 10000)], [], 
@@ -359,13 +366,6 @@ _meta_table = {
                 ''',
                 'summary_max_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 65000)], [], 
-                '''                Configure maximum size of a single RSVP
-                Bundle message
-                ''',
-                'bundle_message_max_size',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
             'refresh-reduction',
@@ -377,17 +377,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.IfSignalling.IntervalRate',
             False, 
             [
-            _MetaInfoClassMember('messages-per-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 500)], [], 
-                '''                Number of messages to be sent per interval
-                ''',
-                'messages_per_interval',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('interval-size', ATTRIBUTE, 'int' , None, None, 
                 [(250, 2000)], [], 
                 '''                Size of an interval (milliseconds)
                 ''',
                 'interval_size',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('messages-per-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 500)], [], 
+                '''                Number of messages to be sent per interval
+                ''',
+                'messages_per_interval',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -426,11 +426,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.IfSignalling',
             False, 
             [
-            _MetaInfoClassMember('refresh-reduction', REFERENCE_CLASS, 'RefreshReduction' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction', 
-                [], [], 
-                '''                Configure RSVP Refresh Reduction parameters
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                Differentiated Services Code Point (DSCP)
                 ''',
-                'refresh_reduction',
+                'dscp',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('hello-graceful-restart-if-based', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable IF-based Hello adjacency on a RSVP
+                interface
+                ''',
+                'hello_graceful_restart_if_based',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('interval-rate', REFERENCE_CLASS, 'IntervalRate' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling.IntervalRate', 
                 [], [], 
@@ -439,12 +446,6 @@ _meta_table = {
                 ''',
                 'interval_rate',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                Differentiated Services Code Point (DSCP)
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('missed-messages', ATTRIBUTE, 'int' , None, None, 
                 [(1, 8)], [], 
                 '''                Configure max number of consecutive missed
@@ -452,12 +453,11 @@ _meta_table = {
                 ''',
                 'missed_messages',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('hello-graceful-restart-if-based', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('out-of-band', REFERENCE_CLASS, 'OutOfBand' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling.OutOfBand', 
                 [], [], 
-                '''                Enable IF-based Hello adjacency on a RSVP
-                interface
+                '''                Configure RSVP out-of-band signalling parameters
                 ''',
-                'hello_graceful_restart_if_based',
+                'out_of_band',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('pacing', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -472,11 +472,11 @@ _meta_table = {
                 ''',
                 'refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('out-of-band', REFERENCE_CLASS, 'OutOfBand' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling.OutOfBand', 
+            _MetaInfoClassMember('refresh-reduction', REFERENCE_CLASS, 'RefreshReduction' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction', 
                 [], [], 
-                '''                Configure RSVP out-of-band signalling parameters
+                '''                Configure RSVP Refresh Reduction parameters
                 ''',
-                'out_of_band',
+                'refresh_reduction',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -489,6 +489,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Bandwidth.Mam',
             False, 
             [
+            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
+                [], [], 
+                '''                Absolute or Percentage bandwidth mode
+                ''',
+                'bandwidth_mode',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('bc0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reservable bandwidth in BC0 (Kbps or percent
+                of physical bandwidth)
+                ''',
+                'bc0_bandwidth',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('bc1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Reservable bandwidth in BC1 (Kbps or percent
+                of physical bandwidth)
+                ''',
+                'bc1_bandwidth',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('max-resv-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Maximum reservable bandwidth (Kbps or
@@ -503,26 +523,6 @@ _meta_table = {
                 ''',
                 'max_resv_flow',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bc0-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reservable bandwidth in BC0 (Kbps or percent
-                of physical bandwidth)
-                ''',
-                'bc0_bandwidth',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bc1-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Reservable bandwidth in BC1 (Kbps or percent
-                of physical bandwidth)
-                ''',
-                'bc1_bandwidth',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
-                [], [], 
-                '''                Absolute or Percentage bandwidth mode
-                ''',
-                'bandwidth_mode',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
             'mam',
@@ -534,12 +534,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Bandwidth.Rdm',
             False, 
             [
-            _MetaInfoClassMember('max-resv-flow', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Largest reservable flow (Kbps or percent of
-                physical bandwidth)
+            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
+                [], [], 
+                '''                Absolute or Percentage bandwidth mode
                 ''',
-                'max_resv_flow',
+                'bandwidth_mode',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc0-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -548,6 +547,12 @@ _meta_table = {
                 ''',
                 'bc0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('bc0-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc0Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc0Enum', 
+                [], [], 
+                '''                Set requests should always use BC0
+                ''',
+                'bc0_keyword',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Reservable bandwidth in BC1 (Kbps or percent
@@ -555,29 +560,24 @@ _meta_table = {
                 ''',
                 'bc1_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('rdm-keyword', REFERENCE_ENUM_CLASS, 'RsvpRdmEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpRdmEnum', 
-                [], [], 
-                '''                Set requests should always use RDM
-                ''',
-                'rdm_keyword',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bc0-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc0Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc0Enum', 
-                [], [], 
-                '''                Set requests should always use BC0
-                ''',
-                'bc0_keyword',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc1Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc1Enum', 
                 [], [], 
                 '''                Set requests should always use BC1
                 ''',
                 'bc1_keyword',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
-                [], [], 
-                '''                Absolute or Percentage bandwidth mode
+            _MetaInfoClassMember('max-resv-flow', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Largest reservable flow (Kbps or percent of
+                physical bandwidth)
                 ''',
-                'bandwidth_mode',
+                'max_resv_flow',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('rdm-keyword', REFERENCE_ENUM_CLASS, 'RsvpRdmEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpRdmEnum', 
+                [], [], 
+                '''                Set requests should always use RDM
+                ''',
+                'rdm_keyword',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -613,6 +613,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Authentication',
             False, 
             [
+            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Key chain to authenticate RSVP signalling
+                messages
+                ''',
+                'key_chain',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
                 [(30, 86400)], [], 
                 '''                Life time (in seconds) for each security
@@ -626,13 +633,6 @@ _meta_table = {
                 messages
                 ''',
                 'window_size',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Key chain to authenticate RSVP signalling
-                messages
-                ''',
-                'key_chain',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -651,11 +651,11 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-ip-rsvp-cfg', True),
-            _MetaInfoClassMember('if-signalling', REFERENCE_CLASS, 'IfSignalling' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.Authentication', 
                 [], [], 
-                '''                Configure RSVP signalling parameters
+                '''                Configure RSVP authentication
                 ''',
-                'if_signalling',
+                'authentication',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.Bandwidth', 
                 [], [], 
@@ -669,11 +669,11 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.Authentication', 
+            _MetaInfoClassMember('if-signalling', REFERENCE_CLASS, 'IfSignalling' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces.Interface.IfSignalling', 
                 [], [], 
-                '''                Configure RSVP authentication
+                '''                Configure RSVP signalling parameters
                 ''',
-                'authentication',
+                'if_signalling',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -761,19 +761,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Signalling.PrefixFiltering',
             False, 
             [
-            _MetaInfoClassMember('default-deny-action', REFERENCE_CLASS, 'DefaultDenyAction' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.PrefixFiltering.DefaultDenyAction', 
-                [], [], 
-                '''                Configure RSVP behaviour for scenarios where
-                ACL match yields a default (implicit) deny
-                ''',
-                'default_deny_action',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('acl', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Configure an ACL to perform prefix filtering
                 of RSVP Router Alert messages
                 ''',
                 'acl',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('default-deny-action', REFERENCE_CLASS, 'DefaultDenyAction' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.PrefixFiltering.DefaultDenyAction', 
+                [], [], 
+                '''                Configure RSVP behaviour for scenarios where
+                ACL match yields a default (implicit) deny
+                ''',
+                'default_deny_action',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -820,6 +820,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Signalling',
             False, 
             [
+            _MetaInfoClassMember('checksum', REFERENCE_CLASS, 'Checksum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.Checksum', 
+                [], [], 
+                '''                RSVP message checksum computation
+                ''',
+                'checksum',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('global-out-of-band', REFERENCE_CLASS, 'GlobalOutOfBand' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.GlobalOutOfBand', 
                 [], [], 
                 '''                Configure out-of-band signalling parameters
@@ -832,23 +838,12 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('prefix-filtering', REFERENCE_CLASS, 'PrefixFiltering' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.PrefixFiltering', 
-                [], [], 
-                '''                Configure prefix filtering parameters
+            _MetaInfoClassMember('hello-graceful-restart-interval', ATTRIBUTE, 'int' , None, None, 
+                [(3000, 30000)], [], 
+                '''                Configure interval between successive Hello
+                messages
                 ''',
-                'prefix_filtering',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('pesr', REFERENCE_CLASS, 'Pesr' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.Pesr', 
-                [], [], 
-                '''                Sending Path Error with State-Removal flag
-                ''',
-                'pesr',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('checksum', REFERENCE_CLASS, 'Checksum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.Checksum', 
-                [], [], 
-                '''                RSVP message checksum computation
-                ''',
-                'checksum',
+                'hello_graceful_restart_interval',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('hello-graceful-restart-misses', ATTRIBUTE, 'int' , None, None, 
                 [(1, 10)], [], 
@@ -857,12 +852,17 @@ _meta_table = {
                 ''',
                 'hello_graceful_restart_misses',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('hello-graceful-restart-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 30000)], [], 
-                '''                Configure interval between successive Hello
-                messages
+            _MetaInfoClassMember('pesr', REFERENCE_CLASS, 'Pesr' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.Pesr', 
+                [], [], 
+                '''                Sending Path Error with State-Removal flag
                 ''',
-                'hello_graceful_restart_interval',
+                'pesr',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('prefix-filtering', REFERENCE_CLASS, 'PrefixFiltering' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling.PrefixFiltering', 
+                [], [], 
+                '''                Configure prefix filtering parameters
+                ''',
+                'prefix_filtering',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
@@ -875,6 +875,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Authentication',
             False, 
             [
+            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Key chain to authenticate RSVP signalling
+                messages
+                ''',
+                'key_chain',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
                 [(30, 86400)], [], 
                 '''                Life time (in seconds) for each security
@@ -889,13 +896,6 @@ _meta_table = {
                 ''',
                 'window_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Key chain to authenticate RSVP signalling
-                messages
-                ''',
-                'key_chain',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',
             'authentication',
@@ -907,11 +907,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp',
             False, 
             [
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Neighbors', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Authentication', 
                 [], [], 
-                '''                RSVP Neighbor Table
+                '''                Configure RSVP authentication
                 ''',
-                'neighbors',
+                'authentication',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('controllers', REFERENCE_CLASS, 'Controllers' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Controllers', 
                 [], [], 
@@ -919,17 +919,17 @@ _meta_table = {
                 ''',
                 'controllers',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('global-logging', REFERENCE_CLASS, 'GlobalLogging' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.GlobalLogging', 
-                [], [], 
-                '''                Global Logging
-                ''',
-                'global_logging',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('global-bandwidth', REFERENCE_CLASS, 'GlobalBandwidth' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.GlobalBandwidth', 
                 [], [], 
                 '''                Configure Global Bandwidth Parameters
                 ''',
                 'global_bandwidth',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('global-logging', REFERENCE_CLASS, 'GlobalLogging' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.GlobalLogging', 
+                [], [], 
+                '''                Global Logging
+                ''',
+                'global_logging',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Interfaces', 
                 [], [], 
@@ -937,17 +937,17 @@ _meta_table = {
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Neighbors', 
+                [], [], 
+                '''                RSVP Neighbor Table
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('signalling', REFERENCE_CLASS, 'Signalling' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Signalling', 
                 [], [], 
                 '''                Configure Global RSVP signalling parameters
                 ''',
                 'signalling',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'Rsvp.Authentication', 
-                [], [], 
-                '''                Configure RSVP authentication
-                ''',
-                'authentication',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-cfg',

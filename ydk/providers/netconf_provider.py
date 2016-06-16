@@ -48,6 +48,7 @@ class NetconfServiceProvider(ServiceProvider):
         self.password = kwargs.get('password', 'admin')
         self.protocol = kwargs.get('protocol', 'ssh')
         self.timeout = kwargs.get('timeout', 60)
+        self.sp_instance = None
 
         if self.protocol == 'tcp':
             self.session_config = _SessionConfig(
@@ -64,25 +65,29 @@ class NetconfServiceProvider(ServiceProvider):
                                            self.username,
                                            self.password)
 
-        self.netconf_sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+        self.netconf_sp_logger = logging.getLogger(__name__)
         self._connect()
         self.netconf_sp_logger.info('NetconfServiceProvider connected to %s:%s using %s'
                                % (self.address, self.port, self.protocol))
 
     def _connect(self):
         self.sp_instance = _NCClientSPPlugin(self.timeout)
-        self.sp_instance._connect(self.session_config)
-        return True
-
-    def _disconnect(self):
-        self.sp_instance._nc_manager.close_session()
-        return True
+        self.sp_instance.connect(self.session_config)
 
     def close(self):
         """ Closes the netconf session """
-        self._disconnect()
+        self.sp_instance.disconnect()
         self.netconf_sp_logger.info('\nNetconfServiceProvider disconnected from %s:%s using %s'
                                % (self.address, self.port, self.protocol))
+
+    def encode(self, entity, operation, only_config=False):
+        return self.sp_instance.encode(entity, operation, only_config)
+
+    def decode(self, payload, read_filter):
+        return self.sp_instance.decode(payload, read_filter)
+
+    def execute(self, payload, operation):
+        return self.sp_instance.execute_operation(payload, operation)
 
     def _get_capabilities(self):
         return self.sp_instance._nc_manager.server_capabilities

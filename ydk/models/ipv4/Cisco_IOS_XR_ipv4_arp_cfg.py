@@ -26,7 +26,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -239,13 +239,6 @@ class Arpgmp(object):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: mac_address
-                
-                	MAC Address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
                 .. attribute:: encapsulation
                 
                 	Encapsulation type
@@ -255,6 +248,13 @@ class Arpgmp(object):
                 
                 	Entry type
                 	**type**\: :py:class:`ArpEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntryEnum>`
+                
+                .. attribute:: mac_address
+                
+                	MAC Address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 
 
@@ -266,16 +266,16 @@ class Arpgmp(object):
                 def __init__(self):
                     self.parent = None
                     self.address = None
-                    self.mac_address = None
                     self.encapsulation = None
                     self.entry_type = None
+                    self.mac_address = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.address is None:
-                        raise YPYDataValidationError('Key property address is None')
+                        raise YPYModelError('Key property address is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entry[Cisco-IOS-XR-ipv4-arp-cfg:address = ' + str(self.address) + ']'
 
@@ -289,13 +289,13 @@ class Arpgmp(object):
                     if self.address is not None:
                         return True
 
-                    if self.mac_address is not None:
-                        return True
-
                     if self.encapsulation is not None:
                         return True
 
                     if self.entry_type is not None:
+                        return True
+
+                    if self.mac_address is not None:
                         return True
 
                     return False
@@ -308,7 +308,7 @@ class Arpgmp(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entries'
 
@@ -334,7 +334,7 @@ class Arpgmp(object):
         @property
         def _common_path(self):
             if self.vrf_name is None:
-                raise YPYDataValidationError('Key property vrf_name is None')
+                raise YPYModelError('Key property vrf_name is None')
 
             return '/Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/Cisco-IOS-XR-ipv4-arp-cfg:vrf[Cisco-IOS-XR-ipv4-arp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -407,20 +407,20 @@ class ArpRedundancy(object):
         """
         Configure parameter for ARP Geo redundancy
         
-        .. attribute:: groups
+        .. attribute:: enable
         
-        	Table of Group
-        	**type**\: :py:class:`Groups <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
+        	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: _is_presence
         
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: enable
+        .. attribute:: groups
         
-        	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Table of Group
+        	**type**\: :py:class:`Groups <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
         
         .. attribute:: _is_presence
         
@@ -438,9 +438,9 @@ class ArpRedundancy(object):
 
         def __init__(self):
             self.parent = None
+            self.enable = None
             self.groups = ArpRedundancy.Redundancy.Groups()
             self.groups.parent = self
-            self.enable = None
 
 
         class Groups(object):
@@ -477,15 +477,15 @@ class ArpRedundancy(object):
                 
                 	**range:** 1..32
                 
-                .. attribute:: peers
-                
-                	Table of Peer
-                	**type**\: :py:class:`Peers <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers>`
-                
                 .. attribute:: interface_list
                 
                 	List of Interfaces for this Group
                 	**type**\: :py:class:`InterfaceList <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList>`
+                
+                .. attribute:: peers
+                
+                	Table of Peer
+                	**type**\: :py:class:`Peers <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers>`
                 
                 .. attribute:: source_interface
                 
@@ -504,9 +504,9 @@ class ArpRedundancy(object):
                 def __init__(self):
                     self.parent = None
                     self.group_id = None
+                    self.interface_list = None
                     self.peers = ArpRedundancy.Redundancy.Groups.Group.Peers()
                     self.peers.parent = self
-                    self.interface_list = None
                     self.source_interface = None
 
 
@@ -568,9 +568,9 @@ class ArpRedundancy(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.prefix_string is None:
-                                raise YPYDataValidationError('Key property prefix_string is None')
+                                raise YPYModelError('Key property prefix_string is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peer[Cisco-IOS-XR-ipv4-arp-cfg:prefix-string = ' + str(self.prefix_string) + ']'
 
@@ -594,7 +594,7 @@ class ArpRedundancy(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peers'
 
@@ -622,20 +622,20 @@ class ArpRedundancy(object):
                     """
                     List of Interfaces for this Group
                     
-                    .. attribute:: interfaces
+                    .. attribute:: enable
                     
-                    	Table of Interface
-                    	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
+                    	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: enable
+                    .. attribute:: interfaces
                     
-                    	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	Table of Interface
+                    	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
                     
                     .. attribute:: _is_presence
                     
@@ -653,9 +653,9 @@ class ArpRedundancy(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.enable = None
                         self.interfaces = ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces()
                         self.interfaces.parent = self
-                        self.enable = None
 
 
                     class Interfaces(object):
@@ -714,9 +714,9 @@ class ArpRedundancy(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:interface[Cisco-IOS-XR-ipv4-arp-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -743,7 +743,7 @@ class ArpRedundancy(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:interfaces'
 
@@ -769,7 +769,7 @@ class ArpRedundancy(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:interface-list'
 
@@ -780,10 +780,10 @@ class ArpRedundancy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.interfaces is not None and self.interfaces._has_data():
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
                         return False
@@ -796,7 +796,7 @@ class ArpRedundancy(object):
                 @property
                 def _common_path(self):
                     if self.group_id is None:
-                        raise YPYDataValidationError('Key property group_id is None')
+                        raise YPYModelError('Key property group_id is None')
 
                     return '/Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/Cisco-IOS-XR-ipv4-arp-cfg:redundancy/Cisco-IOS-XR-ipv4-arp-cfg:groups/Cisco-IOS-XR-ipv4-arp-cfg:group[Cisco-IOS-XR-ipv4-arp-cfg:group-id = ' + str(self.group_id) + ']'
 
@@ -810,10 +810,10 @@ class ArpRedundancy(object):
                     if self.group_id is not None:
                         return True
 
-                    if self.peers is not None and self.peers._has_data():
+                    if self.interface_list is not None and self.interface_list._has_data():
                         return True
 
-                    if self.interface_list is not None and self.interface_list._has_data():
+                    if self.peers is not None and self.peers._has_data():
                         return True
 
                     if self.source_interface is not None:
@@ -862,10 +862,10 @@ class ArpRedundancy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.groups is not None and self.groups._has_data():
+            if self.enable is not None:
                 return True
 
-            if self.enable is not None:
+            if self.groups is not None and self.groups._has_data():
                 return True
 
             return False

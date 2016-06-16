@@ -21,16 +21,13 @@
 #  open-config bgp yang module.
 #
 
+from ydk.models.bgp import bgp
+from ydk.models.routing.routing_policy import RoutingPolicy
 
 from ydk.providers import CodecServiceProvider
 from ydk.services import CodecService
 
-from ydk.models.bgp import bgp
-from ydk.models.routing.routing_policy import RoutingPolicy
-from ydk.models.policy.policy_types import  MatchSetOptionsTypeEnum
-from ydk.types import Empty
-
-def bgp_run(codec_service, provider):
+def _get_bgp_config():
     bgp_cfg = bgp.Bgp()
 
     bgp_cfg.global_.config.as_ = 65001
@@ -47,7 +44,6 @@ def bgp_run(codec_service, provider):
 
     bgp_cfg.global_.afi_safis.afi_safi.append(ipv4_afsf)
     bgp_cfg.global_.afi_safis.afi_safi.append(ipv6_afsf)
-    print codec_service.encode(provider, bgp_cfg)
     # Global config done
 
     # IPv4 Neighbor instance config
@@ -67,51 +63,72 @@ def bgp_run(codec_service, provider):
 
     bgp_cfg.neighbors.neighbor.append(nbr_ipv4)
     nbr_ipv4.parent = bgp_cfg.neighbors
-    bgp_payload = codec_service.encode(provider, bgp_cfg)
-    bgp_entity = codec_service.decode(provider, bgp_payload)
-    print 'Encoded payload:\n', bgp_payload, \
-            '\nRe-encode the decoded payload:\n', codec_service.encode(provider, bgp_entity)
-    assert bgp_payload == codec_service.encode(provider, bgp_entity)
+
+    return bgp_cfg
 
 
-def run_routing(codec_service, provider):
-    # set up routing policy definition
+def _get_routing_cfg():
     routing_policy = RoutingPolicy()
 
     pass_all_policy_defn = RoutingPolicy.PolicyDefinitions.PolicyDefinition()
     pass_all_policy_defn.name = 'PASS-ALL'
-
-    stmt = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement()
-    stmt.name="community-set1"
-    stmt.conditions.bgp_conditions.match_community_set = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet()
-    stmt.conditions.bgp_conditions.match_community_set.community_set="COMMUNITY-SET1"
-    stmt.conditions.bgp_conditions.match_community_set.match_set_options=MatchSetOptionsTypeEnum.ALL
-    stmt.actions.accept_route=Empty()
-    pass_all_policy_defn.statements.statement.append(stmt)
 
     routing_policy.policy_definitions.policy_definition.append(pass_all_policy_defn)
     pass_all_policy_defn._parent = routing_policy.policy_definitions
 
     comm_set = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet()
     comm_set.community_set_name = 'testing'
-    comm_set.community_member.append("oooo")
-    comm_set.community_member.append("a")
+    comm_set.community_member.append("testing123")
+    comm_set.community_member.append("testing456")
     routing_policy.defined_sets.bgp_defined_sets.community_sets.community_set.append(comm_set)
+    return routing_policy
 
+
+def _get_bgp_routing_multiple_object():
+    bgp_cfg = _get_bgp_config()
+    routing_policy = _get_routing_cfg()
+    return {'bgp':bgp_cfg, 'routing-policy':routing_policy}
+    
+
+def bgp_run(codec_service, provider):
+    bgp_cfg = _get_bgp_config()
+    bgp_payload = codec_service.encode(provider, bgp_cfg)
+    bgp_entity = codec_service.decode(provider, bgp_payload)
+#     print 'Encoded payload:\n', bgp_payload, \
+#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, bgp_entity)
+    assert bgp_payload == codec_service.encode(provider, bgp_entity)
+
+
+def run_routing(codec_service, provider):
+    routing_policy = _get_routing_cfg()
     routing_payload = codec_service.encode(provider, routing_policy)
     print routing_payload
     routing_entity = codec_service.decode(provider, routing_payload)
-    print 'Encoded payload:\n', routing_payload, \
-            '\nRe-encode the decoded payload:\n', codec_service.encode(provider, routing_entity)
+#     print 'Encoded payload:\n', routing_payload, \
+#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, routing_entity)
     assert routing_payload == codec_service.encode(provider, routing_entity)
+
+
+def run_multiple_routing_bgp(codec_service, provider):
+    multi_cfg = _get_bgp_routing_multiple_object()
+    multi_payload = codec_service.encode(provider, multi_cfg)
+    # print routing_payload
+    multi_entity = codec_service.decode(provider, multi_payload)
+#     print 'Encoded payload:\n', multi_payload, \
+#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, multi_entity)
+    assert multi_payload == codec_service.encode(provider, multi_entity)
 
 
 def init_logging():
     import logging
-    log = logging.getLogger('ydk')
-    log.setLevel(logging.DEBUG)
-    ch = logging.StreamHandler()
-    log.addHandler(ch)
+    logger = logging.getLogger("ydk")
+    logger.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(("%(asctime)s - %(name)s - "
+                                  "%(levelname)s - %(message)s"))
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+
 
 if __name__ == "__main__":
     init_logging()
@@ -119,5 +136,5 @@ if __name__ == "__main__":
     codec_service = CodecService()
     bgp_run(codec_service, provider)
     run_routing(codec_service, provider)
+    run_multiple_routing_bgp(codec_service, provider)
     exit()
-

@@ -34,7 +34,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.bgp.bgp_types import CommunityTypeEnum
@@ -99,41 +99,6 @@ class Bgp(object):
         """
         Global configuration for the BGP router
         
-        .. attribute:: config
-        
-        	Configuration parameters relating to the global BGP router
-        	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.Config>`
-        
-        .. attribute:: state
-        
-        	State information relating to the global BGP router
-        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.State>`
-        
-        .. attribute:: route_selection_options
-        
-        	Parameters relating to options for route selection
-        	**type**\: :py:class:`RouteSelectionOptions <ydk.models.bgp.bgp.Bgp.Global.RouteSelectionOptions>`
-        
-        .. attribute:: default_route_distance
-        
-        	Administrative distance (or preference) assigned to routes received from different sources (external, internal, and local)
-        	**type**\: :py:class:`DefaultRouteDistance <ydk.models.bgp.bgp.Bgp.Global.DefaultRouteDistance>`
-        
-        .. attribute:: confederation
-        
-        	Parameters indicating whether the local system acts as part of a BGP confederation
-        	**type**\: :py:class:`Confederation <ydk.models.bgp.bgp.Bgp.Global.Confederation>`
-        
-        .. attribute:: use_multiple_paths
-        
-        	Parameters related to the use of multiple paths for the same NLRI
-        	**type**\: :py:class:`UseMultiplePaths <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths>`
-        
-        .. attribute:: graceful_restart
-        
-        	Parameters relating the graceful restart mechanism for BGP
-        	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Global.GracefulRestart>`
-        
         .. attribute:: afi_safis
         
         	Address family specific configuration
@@ -144,6 +109,41 @@ class Bgp(object):
         	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
         	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Global.ApplyPolicy>`
         
+        .. attribute:: confederation
+        
+        	Parameters indicating whether the local system acts as part of a BGP confederation
+        	**type**\: :py:class:`Confederation <ydk.models.bgp.bgp.Bgp.Global.Confederation>`
+        
+        .. attribute:: config
+        
+        	Configuration parameters relating to the global BGP router
+        	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.Config>`
+        
+        .. attribute:: default_route_distance
+        
+        	Administrative distance (or preference) assigned to routes received from different sources (external, internal, and local)
+        	**type**\: :py:class:`DefaultRouteDistance <ydk.models.bgp.bgp.Bgp.Global.DefaultRouteDistance>`
+        
+        .. attribute:: graceful_restart
+        
+        	Parameters relating the graceful restart mechanism for BGP
+        	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Global.GracefulRestart>`
+        
+        .. attribute:: route_selection_options
+        
+        	Parameters relating to options for route selection
+        	**type**\: :py:class:`RouteSelectionOptions <ydk.models.bgp.bgp.Bgp.Global.RouteSelectionOptions>`
+        
+        .. attribute:: state
+        
+        	State information relating to the global BGP router
+        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.State>`
+        
+        .. attribute:: use_multiple_paths
+        
+        	Parameters related to the use of multiple paths for the same NLRI
+        	**type**\: :py:class:`UseMultiplePaths <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths>`
+        
         
 
         """
@@ -153,24 +153,24 @@ class Bgp(object):
 
         def __init__(self):
             self.parent = None
-            self.config = Bgp.Global.Config()
-            self.config.parent = self
-            self.state = Bgp.Global.State()
-            self.state.parent = self
-            self.route_selection_options = Bgp.Global.RouteSelectionOptions()
-            self.route_selection_options.parent = self
-            self.default_route_distance = Bgp.Global.DefaultRouteDistance()
-            self.default_route_distance.parent = self
-            self.confederation = Bgp.Global.Confederation()
-            self.confederation.parent = self
-            self.use_multiple_paths = Bgp.Global.UseMultiplePaths()
-            self.use_multiple_paths.parent = self
-            self.graceful_restart = Bgp.Global.GracefulRestart()
-            self.graceful_restart.parent = self
             self.afi_safis = Bgp.Global.AfiSafis()
             self.afi_safis.parent = self
             self.apply_policy = Bgp.Global.ApplyPolicy()
             self.apply_policy.parent = self
+            self.confederation = Bgp.Global.Confederation()
+            self.confederation.parent = self
+            self.config = Bgp.Global.Config()
+            self.config.parent = self
+            self.default_route_distance = Bgp.Global.DefaultRouteDistance()
+            self.default_route_distance.parent = self
+            self.graceful_restart = Bgp.Global.GracefulRestart()
+            self.graceful_restart.parent = self
+            self.route_selection_options = Bgp.Global.RouteSelectionOptions()
+            self.route_selection_options.parent = self
+            self.state = Bgp.Global.State()
+            self.state.parent = self
+            self.use_multiple_paths = Bgp.Global.UseMultiplePaths()
+            self.use_multiple_paths.parent = self
 
 
         class Config(object):
@@ -341,14 +341,19 @@ class Bgp(object):
                 Configuration parameters relating to route selection
                 options
                 
+                .. attribute:: advertise_inactive_routes
+                
+                	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                	**type**\: bool
+                
                 .. attribute:: always_compare_med
                 
                 	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                 	**type**\: bool
                 
-                .. attribute:: ignore_as_path_length
+                .. attribute:: enable_aigp
                 
-                	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                 	**type**\: bool
                 
                 .. attribute:: external_compare_router_id
@@ -356,14 +361,9 @@ class Bgp(object):
                 	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                 	**type**\: bool
                 
-                .. attribute:: advertise_inactive_routes
+                .. attribute:: ignore_as_path_length
                 
-                	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                	**type**\: bool
-                
-                .. attribute:: enable_aigp
-                
-                	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                 	**type**\: bool
                 
                 .. attribute:: ignore_next_hop_igp_metric
@@ -380,11 +380,11 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.always_compare_med = None
-                    self.ignore_as_path_length = None
-                    self.external_compare_router_id = None
                     self.advertise_inactive_routes = None
+                    self.always_compare_med = None
                     self.enable_aigp = None
+                    self.external_compare_router_id = None
+                    self.ignore_as_path_length = None
                     self.ignore_next_hop_igp_metric = None
 
                 @property
@@ -399,19 +399,19 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.advertise_inactive_routes is not None:
+                        return True
+
                     if self.always_compare_med is not None:
                         return True
 
-                    if self.ignore_as_path_length is not None:
+                    if self.enable_aigp is not None:
                         return True
 
                     if self.external_compare_router_id is not None:
                         return True
 
-                    if self.advertise_inactive_routes is not None:
-                        return True
-
-                    if self.enable_aigp is not None:
+                    if self.ignore_as_path_length is not None:
                         return True
 
                     if self.ignore_next_hop_igp_metric is not None:
@@ -429,14 +429,19 @@ class Bgp(object):
                 """
                 State information for the route selection options
                 
+                .. attribute:: advertise_inactive_routes
+                
+                	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                	**type**\: bool
+                
                 .. attribute:: always_compare_med
                 
                 	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                 	**type**\: bool
                 
-                .. attribute:: ignore_as_path_length
+                .. attribute:: enable_aigp
                 
-                	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                 	**type**\: bool
                 
                 .. attribute:: external_compare_router_id
@@ -444,14 +449,9 @@ class Bgp(object):
                 	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                 	**type**\: bool
                 
-                .. attribute:: advertise_inactive_routes
+                .. attribute:: ignore_as_path_length
                 
-                	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                	**type**\: bool
-                
-                .. attribute:: enable_aigp
-                
-                	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                 	**type**\: bool
                 
                 .. attribute:: ignore_next_hop_igp_metric
@@ -468,11 +468,11 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.always_compare_med = None
-                    self.ignore_as_path_length = None
-                    self.external_compare_router_id = None
                     self.advertise_inactive_routes = None
+                    self.always_compare_med = None
                     self.enable_aigp = None
+                    self.external_compare_router_id = None
+                    self.ignore_as_path_length = None
                     self.ignore_next_hop_igp_metric = None
 
                 @property
@@ -487,19 +487,19 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.advertise_inactive_routes is not None:
+                        return True
+
                     if self.always_compare_med is not None:
                         return True
 
-                    if self.ignore_as_path_length is not None:
+                    if self.enable_aigp is not None:
                         return True
 
                     if self.external_compare_router_id is not None:
                         return True
 
-                    if self.advertise_inactive_routes is not None:
-                        return True
-
-                    if self.enable_aigp is not None:
+                    if self.ignore_as_path_length is not None:
                         return True
 
                     if self.ignore_next_hop_igp_metric is not None:
@@ -910,11 +910,6 @@ class Bgp(object):
             	Configuration parameters relating to multipath
             	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths.Config>`
             
-            .. attribute:: state
-            
-            	State parameters relating to multipath
-            	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths.State>`
-            
             .. attribute:: ebgp
             
             	Multipath parameters for eBGP
@@ -924,6 +919,11 @@ class Bgp(object):
             
             	Multipath parameters for iBGP
             	**type**\: :py:class:`Ibgp <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths.Ibgp>`
+            
+            .. attribute:: state
+            
+            	State parameters relating to multipath
+            	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.UseMultiplePaths.State>`
             
             
 
@@ -936,12 +936,12 @@ class Bgp(object):
                 self.parent = None
                 self.config = Bgp.Global.UseMultiplePaths.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.UseMultiplePaths.State()
-                self.state.parent = self
                 self.ebgp = Bgp.Global.UseMultiplePaths.Ebgp()
                 self.ebgp.parent = self
                 self.ibgp = Bgp.Global.UseMultiplePaths.Ibgp()
                 self.ibgp.parent = self
+                self.state = Bgp.Global.UseMultiplePaths.State()
+                self.state.parent = self
 
 
             class Config(object):
@@ -1350,13 +1350,13 @@ class Bgp(object):
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.state is not None and self.state._has_data():
-                    return True
-
                 if self.ebgp is not None and self.ebgp._has_data():
                     return True
 
                 if self.ibgp is not None and self.ibgp._has_data():
+                    return True
+
+                if self.state is not None and self.state._has_data():
                     return True
 
                 return False
@@ -1405,6 +1405,11 @@ class Bgp(object):
                 	Enable or disable the graceful\-restart capability
                 	**type**\: bool
                 
+                .. attribute:: helper_only
+                
+                	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                	**type**\: bool
+                
                 .. attribute:: restart_time
                 
                 	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -1419,11 +1424,6 @@ class Bgp(object):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
-                .. attribute:: helper_only
-                
-                	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                	**type**\: bool
-                
                 
 
                 """
@@ -1434,9 +1434,9 @@ class Bgp(object):
                 def __init__(self):
                     self.parent = None
                     self.enabled = None
+                    self.helper_only = None
                     self.restart_time = None
                     self.stale_routes_time = None
-                    self.helper_only = None
 
                 @property
                 def _common_path(self):
@@ -1453,13 +1453,13 @@ class Bgp(object):
                     if self.enabled is not None:
                         return True
 
+                    if self.helper_only is not None:
+                        return True
+
                     if self.restart_time is not None:
                         return True
 
                     if self.stale_routes_time is not None:
-                        return True
-
-                    if self.helper_only is not None:
                         return True
 
                     return False
@@ -1479,6 +1479,11 @@ class Bgp(object):
                 	Enable or disable the graceful\-restart capability
                 	**type**\: bool
                 
+                .. attribute:: helper_only
+                
+                	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                	**type**\: bool
+                
                 .. attribute:: restart_time
                 
                 	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -1493,11 +1498,6 @@ class Bgp(object):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
-                .. attribute:: helper_only
-                
-                	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                	**type**\: bool
-                
                 
 
                 """
@@ -1508,9 +1508,9 @@ class Bgp(object):
                 def __init__(self):
                     self.parent = None
                     self.enabled = None
+                    self.helper_only = None
                     self.restart_time = None
                     self.stale_routes_time = None
-                    self.helper_only = None
 
                 @property
                 def _common_path(self):
@@ -1527,13 +1527,13 @@ class Bgp(object):
                     if self.enabled is not None:
                         return True
 
+                    if self.helper_only is not None:
+                        return True
+
                     if self.restart_time is not None:
                         return True
 
                     if self.stale_routes_time is not None:
-                        return True
-
-                    if self.helper_only is not None:
                         return True
 
                     return False
@@ -1602,80 +1602,80 @@ class Bgp(object):
                 	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                 	**type**\: str
                 
-                .. attribute:: graceful_restart
+                .. attribute:: apply_policy
                 
-                	Parameters relating to BGP graceful\-restart
-                	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart>`
+                	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
+                	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters for the AFI\-SAFI
                 	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Config>`
                 
-                .. attribute:: state
+                .. attribute:: graceful_restart
                 
-                	State information relating to the AFI\-SAFI
-                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.State>`
-                
-                .. attribute:: apply_policy
-                
-                	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy>`
-                
-                .. attribute:: ipv4_unicast
-                
-                	IPv4 unicast configuration options
-                	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast>`
-                
-                .. attribute:: ipv6_unicast
-                
-                	IPv6 unicast configuration options
-                	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast>`
+                	Parameters relating to BGP graceful\-restart
+                	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart>`
                 
                 .. attribute:: ipv4_labelled_unicast
                 
                 	IPv4 Labelled Unicast configuration options
                 	**type**\: :py:class:`Ipv4LabelledUnicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                 
+                .. attribute:: ipv4_unicast
+                
+                	IPv4 unicast configuration options
+                	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast>`
+                
                 .. attribute:: ipv6_labelled_unicast
                 
                 	IPv6 Labelled Unicast configuration options
                 	**type**\: :py:class:`Ipv6LabelledUnicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                 
-                .. attribute:: l3vpn_ipv4_unicast
+                .. attribute:: ipv6_unicast
                 
-                	Unicast IPv4 L3VPN configuration options
-                	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
-                
-                .. attribute:: l3vpn_ipv6_unicast
-                
-                	Unicast IPv6 L3VPN configuration options
-                	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
-                
-                .. attribute:: l3vpn_ipv4_multicast
-                
-                	Multicast IPv4 L3VPN configuration options
-                	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
-                
-                .. attribute:: l3vpn_ipv6_multicast
-                
-                	Multicast IPv6 L3VPN configuration options
-                	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
-                
-                .. attribute:: l2vpn_vpls
-                
-                	BGP\-signalled VPLS configuration options
-                	**type**\: :py:class:`L2VpnVpls <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls>`
+                	IPv6 unicast configuration options
+                	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast>`
                 
                 .. attribute:: l2vpn_evpn
                 
                 	BGP EVPN configuration options
                 	**type**\: :py:class:`L2VpnEvpn <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn>`
                 
+                .. attribute:: l2vpn_vpls
+                
+                	BGP\-signalled VPLS configuration options
+                	**type**\: :py:class:`L2VpnVpls <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls>`
+                
+                .. attribute:: l3vpn_ipv4_multicast
+                
+                	Multicast IPv4 L3VPN configuration options
+                	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                
+                .. attribute:: l3vpn_ipv4_unicast
+                
+                	Unicast IPv4 L3VPN configuration options
+                	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                
+                .. attribute:: l3vpn_ipv6_multicast
+                
+                	Multicast IPv6 L3VPN configuration options
+                	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                
+                .. attribute:: l3vpn_ipv6_unicast
+                
+                	Unicast IPv6 L3VPN configuration options
+                	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                
                 .. attribute:: route_selection_options
                 
                 	Parameters relating to options for route selection
                 	**type**\: :py:class:`RouteSelectionOptions <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions>`
+                
+                .. attribute:: state
+                
+                	State information relating to the AFI\-SAFI
+                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.State>`
                 
                 .. attribute:: use_multiple_paths
                 
@@ -1692,36 +1692,36 @@ class Bgp(object):
                 def __init__(self):
                     self.parent = None
                     self.afi_safi_name = None
-                    self.graceful_restart = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart()
-                    self.graceful_restart.parent = self
-                    self.config = Bgp.Global.AfiSafis.AfiSafi.Config()
-                    self.config.parent = self
-                    self.state = Bgp.Global.AfiSafis.AfiSafi.State()
-                    self.state.parent = self
                     self.apply_policy = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy()
                     self.apply_policy.parent = self
-                    self.ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast()
-                    self.ipv4_unicast.parent = self
-                    self.ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast()
-                    self.ipv6_unicast.parent = self
+                    self.config = Bgp.Global.AfiSafis.AfiSafi.Config()
+                    self.config.parent = self
+                    self.graceful_restart = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart()
+                    self.graceful_restart.parent = self
                     self.ipv4_labelled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast()
                     self.ipv4_labelled_unicast.parent = self
+                    self.ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast()
+                    self.ipv4_unicast.parent = self
                     self.ipv6_labelled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast()
                     self.ipv6_labelled_unicast.parent = self
-                    self.l3vpn_ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
-                    self.l3vpn_ipv4_unicast.parent = self
-                    self.l3vpn_ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
-                    self.l3vpn_ipv6_unicast.parent = self
-                    self.l3vpn_ipv4_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
-                    self.l3vpn_ipv4_multicast.parent = self
-                    self.l3vpn_ipv6_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
-                    self.l3vpn_ipv6_multicast.parent = self
-                    self.l2vpn_vpls = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls()
-                    self.l2vpn_vpls.parent = self
+                    self.ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast()
+                    self.ipv6_unicast.parent = self
                     self.l2vpn_evpn = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn()
                     self.l2vpn_evpn.parent = self
+                    self.l2vpn_vpls = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls()
+                    self.l2vpn_vpls.parent = self
+                    self.l3vpn_ipv4_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
+                    self.l3vpn_ipv4_multicast.parent = self
+                    self.l3vpn_ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
+                    self.l3vpn_ipv4_unicast.parent = self
+                    self.l3vpn_ipv6_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
+                    self.l3vpn_ipv6_multicast.parent = self
+                    self.l3vpn_ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
+                    self.l3vpn_ipv6_unicast.parent = self
                     self.route_selection_options = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions()
                     self.route_selection_options.parent = self
+                    self.state = Bgp.Global.AfiSafis.AfiSafi.State()
+                    self.state.parent = self
                     self.use_multiple_paths = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths()
                     self.use_multiple_paths.parent = self
 
@@ -1778,7 +1778,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -1823,7 +1823,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -1847,7 +1847,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:graceful-restart'
 
@@ -1901,7 +1901,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -1971,7 +1971,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -2038,10 +2038,10 @@ class Bgp(object):
                         """
                         Policy configuration data.
                         
-                        .. attribute:: import_policy
+                        .. attribute:: default_export_policy
                         
-                        	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                        	**type**\: list of str
+                        	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                        	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                         
                         .. attribute:: default_import_policy
                         
@@ -2053,10 +2053,10 @@ class Bgp(object):
                         	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\: list of str
                         
-                        .. attribute:: default_export_policy
+                        .. attribute:: import_policy
                         
-                        	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                        	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                        	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                        	**type**\: list of str
                         
                         
 
@@ -2067,19 +2067,19 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.import_policy = YLeafList()
-                            self.import_policy.parent = self
-                            self.import_policy.name = 'import_policy'
+                            self.default_export_policy = None
                             self.default_import_policy = None
                             self.export_policy = YLeafList()
                             self.export_policy.parent = self
                             self.export_policy.name = 'export_policy'
-                            self.default_export_policy = None
+                            self.import_policy = YLeafList()
+                            self.import_policy.parent = self
+                            self.import_policy.name = 'import_policy'
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -2090,10 +2090,8 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.import_policy is not None:
-                                for child in self.import_policy:
-                                    if child is not None:
-                                        return True
+                            if self.default_export_policy is not None:
+                                return True
 
                             if self.default_import_policy is not None:
                                 return True
@@ -2103,8 +2101,10 @@ class Bgp(object):
                                     if child is not None:
                                         return True
 
-                            if self.default_export_policy is not None:
-                                return True
+                            if self.import_policy is not None:
+                                for child in self.import_policy:
+                                    if child is not None:
+                                        return True
 
                             return False
 
@@ -2118,10 +2118,10 @@ class Bgp(object):
                         """
                         Operational state for routing policy
                         
-                        .. attribute:: import_policy
+                        .. attribute:: default_export_policy
                         
-                        	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                        	**type**\: list of str
+                        	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                        	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                         
                         .. attribute:: default_import_policy
                         
@@ -2133,10 +2133,10 @@ class Bgp(object):
                         	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\: list of str
                         
-                        .. attribute:: default_export_policy
+                        .. attribute:: import_policy
                         
-                        	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                        	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                        	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                        	**type**\: list of str
                         
                         
 
@@ -2147,19 +2147,19 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.import_policy = YLeafList()
-                            self.import_policy.parent = self
-                            self.import_policy.name = 'import_policy'
+                            self.default_export_policy = None
                             self.default_import_policy = None
                             self.export_policy = YLeafList()
                             self.export_policy.parent = self
                             self.export_policy.name = 'export_policy'
-                            self.default_export_policy = None
+                            self.import_policy = YLeafList()
+                            self.import_policy.parent = self
+                            self.import_policy.name = 'import_policy'
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -2170,10 +2170,8 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.import_policy is not None:
-                                for child in self.import_policy:
-                                    if child is not None:
-                                        return True
+                            if self.default_export_policy is not None:
+                                return True
 
                             if self.default_import_policy is not None:
                                 return True
@@ -2183,8 +2181,10 @@ class Bgp(object):
                                     if child is not None:
                                         return True
 
-                            if self.default_export_policy is not None:
-                                return True
+                            if self.import_policy is not None:
+                                for child in self.import_policy:
+                                    if child is not None:
+                                        return True
 
                             return False
 
@@ -2196,7 +2196,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:apply-policy'
 
@@ -2225,15 +2225,15 @@ class Bgp(object):
                     """
                     IPv4 unicast configuration options
                     
-                    .. attribute:: prefix_limit
-                    
-                    	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
-                    
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                     	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Configure the maximum number of prefixes that will be accepted from a peer
+                    	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                     
                     .. attribute:: state
                     
@@ -2249,10 +2249,10 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
-                        self.prefix_limit.parent = self
                         self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config()
                         self.config.parent = self
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
+                        self.prefix_limit.parent = self
                         self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State()
                         self.state.parent = self
 
@@ -2299,19 +2299,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -2323,13 +2323,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -2343,10 +2343,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -2369,19 +2369,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -2393,13 +2393,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -2413,10 +2413,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -2429,7 +2429,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -2478,7 +2478,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -2524,7 +2524,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -2548,7 +2548,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ipv4-unicast'
 
@@ -2559,10 +2559,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.prefix_limit is not None and self.prefix_limit._has_data():
+                        if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config._has_data():
+                        if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
                         if self.state is not None and self.state._has_data():
@@ -2580,15 +2580,15 @@ class Bgp(object):
                     """
                     IPv6 unicast configuration options
                     
-                    .. attribute:: prefix_limit
-                    
-                    	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
-                    
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                     	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Configure the maximum number of prefixes that will be accepted from a peer
+                    	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                     
                     .. attribute:: state
                     
@@ -2604,10 +2604,10 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
-                        self.prefix_limit.parent = self
                         self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config()
                         self.config.parent = self
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
+                        self.prefix_limit.parent = self
                         self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State()
                         self.state.parent = self
 
@@ -2654,19 +2654,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -2678,13 +2678,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -2698,10 +2698,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -2724,19 +2724,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -2748,13 +2748,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -2768,10 +2768,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -2784,7 +2784,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -2833,7 +2833,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -2879,7 +2879,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -2903,7 +2903,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ipv6-unicast'
 
@@ -2914,10 +2914,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.prefix_limit is not None and self.prefix_limit._has_data():
+                        if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config._has_data():
+                        if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
                         if self.state is not None and self.state._has_data():
@@ -2995,19 +2995,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3019,13 +3019,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -3039,10 +3039,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3065,19 +3065,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3089,13 +3089,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -3109,10 +3109,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3125,7 +3125,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -3152,7 +3152,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ipv4-labelled-unicast'
 
@@ -3238,19 +3238,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3262,13 +3262,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -3282,10 +3282,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3308,19 +3308,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3332,13 +3332,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -3352,10 +3352,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3368,7 +3368,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -3395,7 +3395,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ipv6-labelled-unicast'
 
@@ -3481,19 +3481,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3505,13 +3505,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -3525,10 +3525,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3551,19 +3551,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3575,13 +3575,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -3595,10 +3595,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3611,7 +3611,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -3638,7 +3638,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l3vpn-ipv4-unicast'
 
@@ -3724,19 +3724,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3748,13 +3748,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -3768,10 +3768,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3794,19 +3794,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3818,13 +3818,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -3838,10 +3838,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -3854,7 +3854,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -3881,7 +3881,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l3vpn-ipv6-unicast'
 
@@ -3967,19 +3967,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -3991,13 +3991,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -4011,10 +4011,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4037,19 +4037,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4061,13 +4061,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -4081,10 +4081,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4097,7 +4097,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -4124,7 +4124,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l3vpn-ipv4-multicast'
 
@@ -4210,19 +4210,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4234,13 +4234,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -4254,10 +4254,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4280,19 +4280,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4304,13 +4304,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -4324,10 +4324,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4340,7 +4340,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -4367,7 +4367,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l3vpn-ipv6-multicast'
 
@@ -4453,19 +4453,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4477,13 +4477,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -4497,10 +4497,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4523,19 +4523,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4547,13 +4547,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -4567,10 +4567,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4583,7 +4583,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -4610,7 +4610,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l2vpn-vpls'
 
@@ -4696,19 +4696,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4720,13 +4720,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -4740,10 +4740,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4766,19 +4766,19 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: shutdown_threshold_pct
-                            
-                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                             	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            .. attribute:: shutdown_threshold_pct
+                            
+                            	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                            	**type**\: int
+                            
+                            	**range:** 0..100
                             
                             
 
@@ -4790,13 +4790,13 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.max_prefixes = None
-                                self.shutdown_threshold_pct = None
                                 self.restart_timer = None
+                                self.shutdown_threshold_pct = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -4810,10 +4810,10 @@ class Bgp(object):
                                 if self.max_prefixes is not None:
                                     return True
 
-                                if self.shutdown_threshold_pct is not None:
+                                if self.restart_timer is not None:
                                     return True
 
-                                if self.restart_timer is not None:
+                                if self.shutdown_threshold_pct is not None:
                                     return True
 
                                 return False
@@ -4826,7 +4826,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -4853,7 +4853,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:l2vpn-evpn'
 
@@ -4909,14 +4909,19 @@ class Bgp(object):
                         Configuration parameters relating to route selection
                         options
                         
+                        .. attribute:: advertise_inactive_routes
+                        
+                        	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                        	**type**\: bool
+                        
                         .. attribute:: always_compare_med
                         
                         	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                         	**type**\: bool
                         
-                        .. attribute:: ignore_as_path_length
+                        .. attribute:: enable_aigp
                         
-                        	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                        	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                         	**type**\: bool
                         
                         .. attribute:: external_compare_router_id
@@ -4924,14 +4929,9 @@ class Bgp(object):
                         	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                         	**type**\: bool
                         
-                        .. attribute:: advertise_inactive_routes
+                        .. attribute:: ignore_as_path_length
                         
-                        	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                        	**type**\: bool
-                        
-                        .. attribute:: enable_aigp
-                        
-                        	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                        	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                         	**type**\: bool
                         
                         .. attribute:: ignore_next_hop_igp_metric
@@ -4948,17 +4948,17 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.always_compare_med = None
-                            self.ignore_as_path_length = None
-                            self.external_compare_router_id = None
                             self.advertise_inactive_routes = None
+                            self.always_compare_med = None
                             self.enable_aigp = None
+                            self.external_compare_router_id = None
+                            self.ignore_as_path_length = None
                             self.ignore_next_hop_igp_metric = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -4969,19 +4969,19 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.advertise_inactive_routes is not None:
+                                return True
+
                             if self.always_compare_med is not None:
                                 return True
 
-                            if self.ignore_as_path_length is not None:
+                            if self.enable_aigp is not None:
                                 return True
 
                             if self.external_compare_router_id is not None:
                                 return True
 
-                            if self.advertise_inactive_routes is not None:
-                                return True
-
-                            if self.enable_aigp is not None:
+                            if self.ignore_as_path_length is not None:
                                 return True
 
                             if self.ignore_next_hop_igp_metric is not None:
@@ -4999,14 +4999,19 @@ class Bgp(object):
                         """
                         State information for the route selection options
                         
+                        .. attribute:: advertise_inactive_routes
+                        
+                        	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                        	**type**\: bool
+                        
                         .. attribute:: always_compare_med
                         
                         	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                         	**type**\: bool
                         
-                        .. attribute:: ignore_as_path_length
+                        .. attribute:: enable_aigp
                         
-                        	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                        	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                         	**type**\: bool
                         
                         .. attribute:: external_compare_router_id
@@ -5014,14 +5019,9 @@ class Bgp(object):
                         	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                         	**type**\: bool
                         
-                        .. attribute:: advertise_inactive_routes
+                        .. attribute:: ignore_as_path_length
                         
-                        	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                        	**type**\: bool
-                        
-                        .. attribute:: enable_aigp
-                        
-                        	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                        	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                         	**type**\: bool
                         
                         .. attribute:: ignore_next_hop_igp_metric
@@ -5038,17 +5038,17 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.always_compare_med = None
-                            self.ignore_as_path_length = None
-                            self.external_compare_router_id = None
                             self.advertise_inactive_routes = None
+                            self.always_compare_med = None
                             self.enable_aigp = None
+                            self.external_compare_router_id = None
+                            self.ignore_as_path_length = None
                             self.ignore_next_hop_igp_metric = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -5059,19 +5059,19 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.advertise_inactive_routes is not None:
+                                return True
+
                             if self.always_compare_med is not None:
                                 return True
 
-                            if self.ignore_as_path_length is not None:
+                            if self.enable_aigp is not None:
                                 return True
 
                             if self.external_compare_router_id is not None:
                                 return True
 
-                            if self.advertise_inactive_routes is not None:
-                                return True
-
-                            if self.enable_aigp is not None:
+                            if self.ignore_as_path_length is not None:
                                 return True
 
                             if self.ignore_next_hop_igp_metric is not None:
@@ -5087,7 +5087,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:route-selection-options'
 
@@ -5122,11 +5122,6 @@ class Bgp(object):
                     	Configuration parameters relating to multipath
                     	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                     
-                    .. attribute:: state
-                    
-                    	State parameters relating to multipath
-                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State>`
-                    
                     .. attribute:: ebgp
                     
                     	Multipath parameters for eBGP
@@ -5136,6 +5131,11 @@ class Bgp(object):
                     
                     	Multipath parameters for iBGP
                     	**type**\: :py:class:`Ibgp <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
+                    
+                    .. attribute:: state
+                    
+                    	State parameters relating to multipath
+                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                     
                     
 
@@ -5148,12 +5148,12 @@ class Bgp(object):
                         self.parent = None
                         self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                         self.config.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State()
-                        self.state.parent = self
                         self.ebgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
                         self.ebgp.parent = self
                         self.ibgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
                         self.ibgp.parent = self
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State()
+                        self.state.parent = self
 
 
                     class Config(object):
@@ -5179,7 +5179,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -5224,7 +5224,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -5306,7 +5306,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -5362,7 +5362,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -5389,7 +5389,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ebgp'
 
@@ -5468,7 +5468,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -5515,7 +5515,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -5539,7 +5539,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ibgp'
 
@@ -5566,7 +5566,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:use-multiple-paths'
 
@@ -5580,13 +5580,13 @@ class Bgp(object):
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
-                            return True
-
                         if self.ebgp is not None and self.ebgp._has_data():
                             return True
 
                         if self.ibgp is not None and self.ibgp._has_data():
+                            return True
+
+                        if self.state is not None and self.state._has_data():
                             return True
 
                         return False
@@ -5599,7 +5599,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.afi_safi_name is None:
-                        raise YPYDataValidationError('Key property afi_safi_name is None')
+                        raise YPYModelError('Key property afi_safi_name is None')
 
                     return '/bgp:bgp/bgp:global/bgp:afi-safis/bgp:afi-safi[bgp:afi-safi-name = ' + str(self.afi_safi_name) + ']'
 
@@ -5613,49 +5613,49 @@ class Bgp(object):
                     if self.afi_safi_name is not None:
                         return True
 
-                    if self.graceful_restart is not None and self.graceful_restart._has_data():
+                    if self.apply_policy is not None and self.apply_policy._has_data():
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.apply_policy is not None and self.apply_policy._has_data():
-                        return True
-
-                    if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
-                        return True
-
-                    if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
+                    if self.graceful_restart is not None and self.graceful_restart._has_data():
                         return True
 
                     if self.ipv4_labelled_unicast is not None and self.ipv4_labelled_unicast._has_data():
                         return True
 
+                    if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
+                        return True
+
                     if self.ipv6_labelled_unicast is not None and self.ipv6_labelled_unicast._has_data():
                         return True
 
-                    if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
-                        return True
-
-                    if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
-                        return True
-
-                    if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
-                        return True
-
-                    if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
-                        return True
-
-                    if self.l2vpn_vpls is not None and self.l2vpn_vpls._has_data():
+                    if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
                         return True
 
                     if self.l2vpn_evpn is not None and self.l2vpn_evpn._has_data():
                         return True
 
+                    if self.l2vpn_vpls is not None and self.l2vpn_vpls._has_data():
+                        return True
+
+                    if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
+                        return True
+
+                    if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
+                        return True
+
+                    if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
+                        return True
+
+                    if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
+                        return True
+
                     if self.route_selection_options is not None and self.route_selection_options._has_data():
+                        return True
+
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
@@ -5729,10 +5729,10 @@ class Bgp(object):
                 """
                 Policy configuration data.
                 
-                .. attribute:: import_policy
+                .. attribute:: default_export_policy
                 
-                	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                	**type**\: list of str
+                	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                 
                 .. attribute:: default_import_policy
                 
@@ -5744,10 +5744,10 @@ class Bgp(object):
                 	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\: list of str
                 
-                .. attribute:: default_export_policy
+                .. attribute:: import_policy
                 
-                	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                	**type**\: list of str
                 
                 
 
@@ -5758,14 +5758,14 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.import_policy = YLeafList()
-                    self.import_policy.parent = self
-                    self.import_policy.name = 'import_policy'
+                    self.default_export_policy = None
                     self.default_import_policy = None
                     self.export_policy = YLeafList()
                     self.export_policy.parent = self
                     self.export_policy.name = 'export_policy'
-                    self.default_export_policy = None
+                    self.import_policy = YLeafList()
+                    self.import_policy.parent = self
+                    self.import_policy.name = 'import_policy'
 
                 @property
                 def _common_path(self):
@@ -5779,10 +5779,8 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.import_policy is not None:
-                        for child in self.import_policy:
-                            if child is not None:
-                                return True
+                    if self.default_export_policy is not None:
+                        return True
 
                     if self.default_import_policy is not None:
                         return True
@@ -5792,8 +5790,10 @@ class Bgp(object):
                             if child is not None:
                                 return True
 
-                    if self.default_export_policy is not None:
-                        return True
+                    if self.import_policy is not None:
+                        for child in self.import_policy:
+                            if child is not None:
+                                return True
 
                     return False
 
@@ -5807,10 +5807,10 @@ class Bgp(object):
                 """
                 Operational state for routing policy
                 
-                .. attribute:: import_policy
+                .. attribute:: default_export_policy
                 
-                	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                	**type**\: list of str
+                	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                 
                 .. attribute:: default_import_policy
                 
@@ -5822,10 +5822,10 @@ class Bgp(object):
                 	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\: list of str
                 
-                .. attribute:: default_export_policy
+                .. attribute:: import_policy
                 
-                	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                	**type**\: list of str
                 
                 
 
@@ -5836,14 +5836,14 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.import_policy = YLeafList()
-                    self.import_policy.parent = self
-                    self.import_policy.name = 'import_policy'
+                    self.default_export_policy = None
                     self.default_import_policy = None
                     self.export_policy = YLeafList()
                     self.export_policy.parent = self
                     self.export_policy.name = 'export_policy'
-                    self.default_export_policy = None
+                    self.import_policy = YLeafList()
+                    self.import_policy.parent = self
+                    self.import_policy.name = 'import_policy'
 
                 @property
                 def _common_path(self):
@@ -5857,10 +5857,8 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.import_policy is not None:
-                        for child in self.import_policy:
-                            if child is not None:
-                                return True
+                    if self.default_export_policy is not None:
+                        return True
 
                     if self.default_import_policy is not None:
                         return True
@@ -5870,8 +5868,10 @@ class Bgp(object):
                             if child is not None:
                                 return True
 
-                    if self.default_export_policy is not None:
-                        return True
+                    if self.import_policy is not None:
+                        for child in self.import_policy:
+                            if child is not None:
+                                return True
 
                     return False
 
@@ -5917,31 +5917,31 @@ class Bgp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.config is not None and self.config._has_data():
+            if self.afi_safis is not None and self.afi_safis._has_data():
                 return True
 
-            if self.state is not None and self.state._has_data():
-                return True
-
-            if self.route_selection_options is not None and self.route_selection_options._has_data():
-                return True
-
-            if self.default_route_distance is not None and self.default_route_distance._has_data():
+            if self.apply_policy is not None and self.apply_policy._has_data():
                 return True
 
             if self.confederation is not None and self.confederation._has_data():
                 return True
 
-            if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
+            if self.config is not None and self.config._has_data():
+                return True
+
+            if self.default_route_distance is not None and self.default_route_distance._has_data():
                 return True
 
             if self.graceful_restart is not None and self.graceful_restart._has_data():
                 return True
 
-            if self.afi_safis is not None and self.afi_safis._has_data():
+            if self.route_selection_options is not None and self.route_selection_options._has_data():
                 return True
 
-            if self.apply_policy is not None and self.apply_policy._has_data():
+            if self.state is not None and self.state._has_data():
+                return True
+
+            if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
                 return True
 
             return False
@@ -5997,10 +5997,55 @@ class Bgp(object):
             
             
             ----
+            .. attribute:: add_paths
+            
+            	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
+            	**type**\: :py:class:`AddPaths <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AddPaths>`
+            
+            .. attribute:: afi_safis
+            
+            	Per\-address\-family configuration parameters associated with the neighbor or group
+            	**type**\: :py:class:`AfiSafis <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis>`
+            
+            .. attribute:: apply_policy
+            
+            	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
+            	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.ApplyPolicy>`
+            
+            .. attribute:: as_path_options
+            
+            	AS\_PATH manipulation parameters for the BGP neighbor or group
+            	**type**\: :py:class:`AsPathOptions <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AsPathOptions>`
+            
             .. attribute:: config
             
             	Configuration parameters relating to the BGP neighbor or group
             	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.Config>`
+            
+            .. attribute:: ebgp_multihop
+            
+            	eBGP multi\-hop parameters for the BGP neighbor or group
+            	**type**\: :py:class:`EbgpMultihop <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.EbgpMultihop>`
+            
+            .. attribute:: error_handling
+            
+            	Error handling parameters used for the BGP neighbor or group
+            	**type**\: :py:class:`ErrorHandling <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.ErrorHandling>`
+            
+            .. attribute:: graceful_restart
+            
+            	Parameters relating the graceful restart mechanism for BGP
+            	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.GracefulRestart>`
+            
+            .. attribute:: logging_options
+            
+            	Logging options for events related to the BGP neighbor or group
+            	**type**\: :py:class:`LoggingOptions <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.LoggingOptions>`
+            
+            .. attribute:: route_reflector
+            
+            	Route reflector parameters for the BGP neighbor or group
+            	**type**\: :py:class:`RouteReflector <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.RouteReflector>`
             
             .. attribute:: state
             
@@ -6017,51 +6062,6 @@ class Bgp(object):
             	Transport session parameters for the BGP neighbor or group
             	**type**\: :py:class:`Transport <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.Transport>`
             
-            .. attribute:: error_handling
-            
-            	Error handling parameters used for the BGP neighbor or group
-            	**type**\: :py:class:`ErrorHandling <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.ErrorHandling>`
-            
-            .. attribute:: logging_options
-            
-            	Logging options for events related to the BGP neighbor or group
-            	**type**\: :py:class:`LoggingOptions <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.LoggingOptions>`
-            
-            .. attribute:: ebgp_multihop
-            
-            	eBGP multi\-hop parameters for the BGP neighbor or group
-            	**type**\: :py:class:`EbgpMultihop <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.EbgpMultihop>`
-            
-            .. attribute:: route_reflector
-            
-            	Route reflector parameters for the BGP neighbor or group
-            	**type**\: :py:class:`RouteReflector <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.RouteReflector>`
-            
-            .. attribute:: as_path_options
-            
-            	AS\_PATH manipulation parameters for the BGP neighbor or group
-            	**type**\: :py:class:`AsPathOptions <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AsPathOptions>`
-            
-            .. attribute:: add_paths
-            
-            	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
-            	**type**\: :py:class:`AddPaths <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AddPaths>`
-            
-            .. attribute:: afi_safis
-            
-            	Per\-address\-family configuration parameters associated with the neighbor or group
-            	**type**\: :py:class:`AfiSafis <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis>`
-            
-            .. attribute:: graceful_restart
-            
-            	Parameters relating the graceful restart mechanism for BGP
-            	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.GracefulRestart>`
-            
-            .. attribute:: apply_policy
-            
-            	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-            	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.ApplyPolicy>`
-            
             .. attribute:: use_multiple_paths
             
             	Parameters related to the use of multiple\-paths for the same NLRI when they are received only from this neighbor
@@ -6077,32 +6077,32 @@ class Bgp(object):
             def __init__(self):
                 self.parent = None
                 self.neighbor_address = None
+                self.add_paths = Bgp.Neighbors.Neighbor.AddPaths()
+                self.add_paths.parent = self
+                self.afi_safis = Bgp.Neighbors.Neighbor.AfiSafis()
+                self.afi_safis.parent = self
+                self.apply_policy = Bgp.Neighbors.Neighbor.ApplyPolicy()
+                self.apply_policy.parent = self
+                self.as_path_options = Bgp.Neighbors.Neighbor.AsPathOptions()
+                self.as_path_options.parent = self
                 self.config = Bgp.Neighbors.Neighbor.Config()
                 self.config.parent = self
+                self.ebgp_multihop = Bgp.Neighbors.Neighbor.EbgpMultihop()
+                self.ebgp_multihop.parent = self
+                self.error_handling = Bgp.Neighbors.Neighbor.ErrorHandling()
+                self.error_handling.parent = self
+                self.graceful_restart = Bgp.Neighbors.Neighbor.GracefulRestart()
+                self.graceful_restart.parent = self
+                self.logging_options = Bgp.Neighbors.Neighbor.LoggingOptions()
+                self.logging_options.parent = self
+                self.route_reflector = Bgp.Neighbors.Neighbor.RouteReflector()
+                self.route_reflector.parent = self
                 self.state = Bgp.Neighbors.Neighbor.State()
                 self.state.parent = self
                 self.timers = Bgp.Neighbors.Neighbor.Timers()
                 self.timers.parent = self
                 self.transport = Bgp.Neighbors.Neighbor.Transport()
                 self.transport.parent = self
-                self.error_handling = Bgp.Neighbors.Neighbor.ErrorHandling()
-                self.error_handling.parent = self
-                self.logging_options = Bgp.Neighbors.Neighbor.LoggingOptions()
-                self.logging_options.parent = self
-                self.ebgp_multihop = Bgp.Neighbors.Neighbor.EbgpMultihop()
-                self.ebgp_multihop.parent = self
-                self.route_reflector = Bgp.Neighbors.Neighbor.RouteReflector()
-                self.route_reflector.parent = self
-                self.as_path_options = Bgp.Neighbors.Neighbor.AsPathOptions()
-                self.as_path_options.parent = self
-                self.add_paths = Bgp.Neighbors.Neighbor.AddPaths()
-                self.add_paths.parent = self
-                self.afi_safis = Bgp.Neighbors.Neighbor.AfiSafis()
-                self.afi_safis.parent = self
-                self.graceful_restart = Bgp.Neighbors.Neighbor.GracefulRestart()
-                self.graceful_restart.parent = self
-                self.apply_policy = Bgp.Neighbors.Neighbor.ApplyPolicy()
-                self.apply_policy.parent = self
                 self.use_multiple_paths = Bgp.Neighbors.Neighbor.UseMultiplePaths()
                 self.use_multiple_paths.parent = self
 
@@ -6112,12 +6112,15 @@ class Bgp(object):
                 Configuration parameters relating to the BGP neighbor or
                 group
                 
-                .. attribute:: peer_as
+                .. attribute:: auth_password
                 
-                	AS number of the peer
-                	**type**\: int
+                	Configures an MD5 authentication password for use with neighboring devices
+                	**type**\: str
                 
-                	**range:** 0..4294967295
+                .. attribute:: description
+                
+                	An optional textual description (intended primarily for use with a peer or group
+                	**type**\: str
                 
                 .. attribute:: local_as
                 
@@ -6125,41 +6128,6 @@ class Bgp(object):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: peer_type
-                
-                	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
-                
-                .. attribute:: auth_password
-                
-                	Configures an MD5 authentication password for use with neighboring devices
-                	**type**\: str
-                
-                .. attribute:: remove_private_as
-                
-                	Remove private AS numbers from updates sent to peers
-                	**type**\: :py:class:`RemovePrivateAsOptionEnum <ydk.models.bgp.bgp_types.RemovePrivateAsOptionEnum>`
-                
-                .. attribute:: route_flap_damping
-                
-                	Enable route flap damping
-                	**type**\: bool
-                
-                .. attribute:: send_community
-                
-                	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
-                
-                .. attribute:: description
-                
-                	An optional textual description (intended primarily for use with a peer or group
-                	**type**\: str
-                
-                .. attribute:: peer_group
-                
-                	The peer\-group with which this neighbor is associated
-                	**type**\: str
                 
                 .. attribute:: neighbor_address
                 
@@ -6178,6 +6146,38 @@ class Bgp(object):
                 
                 
                 ----
+                .. attribute:: peer_as
+                
+                	AS number of the peer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_group
+                
+                	The peer\-group with which this neighbor is associated
+                	**type**\: str
+                
+                .. attribute:: peer_type
+                
+                	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
+                	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
+                
+                .. attribute:: remove_private_as
+                
+                	Remove private AS numbers from updates sent to peers
+                	**type**\: :py:class:`RemovePrivateAsOptionEnum <ydk.models.bgp.bgp_types.RemovePrivateAsOptionEnum>`
+                
+                .. attribute:: route_flap_damping
+                
+                	Enable route flap damping
+                	**type**\: bool
+                
+                .. attribute:: send_community
+                
+                	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
+                	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
+                
                 
 
                 """
@@ -6187,21 +6187,21 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.peer_as = None
-                    self.local_as = None
-                    self.peer_type = None
                     self.auth_password = None
+                    self.description = None
+                    self.local_as = None
+                    self.neighbor_address = None
+                    self.peer_as = None
+                    self.peer_group = None
+                    self.peer_type = None
                     self.remove_private_as = None
                     self.route_flap_damping = None
                     self.send_community = None
-                    self.description = None
-                    self.peer_group = None
-                    self.neighbor_address = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:config'
 
@@ -6212,16 +6212,25 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.peer_as is not None:
+                    if self.auth_password is not None:
+                        return True
+
+                    if self.description is not None:
                         return True
 
                     if self.local_as is not None:
                         return True
 
-                    if self.peer_type is not None:
+                    if self.neighbor_address is not None:
                         return True
 
-                    if self.auth_password is not None:
+                    if self.peer_as is not None:
+                        return True
+
+                    if self.peer_group is not None:
+                        return True
+
+                    if self.peer_type is not None:
                         return True
 
                     if self.remove_private_as is not None:
@@ -6231,15 +6240,6 @@ class Bgp(object):
                         return True
 
                     if self.send_community is not None:
-                        return True
-
-                    if self.description is not None:
-                        return True
-
-                    if self.peer_group is not None:
-                        return True
-
-                    if self.neighbor_address is not None:
                         return True
 
                     return False
@@ -6254,12 +6254,15 @@ class Bgp(object):
                 """
                 State information relating to the BGP neighbor or group
                 
-                .. attribute:: peer_as
+                .. attribute:: auth_password
                 
-                	AS number of the peer
-                	**type**\: int
+                	Configures an MD5 authentication password for use with neighboring devices
+                	**type**\: str
                 
-                	**range:** 0..4294967295
+                .. attribute:: description
+                
+                	An optional textual description (intended primarily for use with a peer or group
+                	**type**\: str
                 
                 .. attribute:: local_as
                 
@@ -6268,40 +6271,10 @@ class Bgp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: peer_type
+                .. attribute:: messages
                 
-                	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
-                
-                .. attribute:: auth_password
-                
-                	Configures an MD5 authentication password for use with neighboring devices
-                	**type**\: str
-                
-                .. attribute:: remove_private_as
-                
-                	Remove private AS numbers from updates sent to peers
-                	**type**\: :py:class:`RemovePrivateAsOptionEnum <ydk.models.bgp.bgp_types.RemovePrivateAsOptionEnum>`
-                
-                .. attribute:: route_flap_damping
-                
-                	Enable route flap damping
-                	**type**\: bool
-                
-                .. attribute:: send_community
-                
-                	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
-                
-                .. attribute:: description
-                
-                	An optional textual description (intended primarily for use with a peer or group
-                	**type**\: str
-                
-                .. attribute:: peer_group
-                
-                	The peer\-group with which this neighbor is associated
-                	**type**\: str
+                	Counters for BGP messages sent and received from the neighbor
+                	**type**\: :py:class:`Messages <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Messages>`
                 
                 .. attribute:: neighbor_address
                 
@@ -6320,6 +6293,43 @@ class Bgp(object):
                 
                 
                 ----
+                .. attribute:: peer_as
+                
+                	AS number of the peer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_group
+                
+                	The peer\-group with which this neighbor is associated
+                	**type**\: str
+                
+                .. attribute:: peer_type
+                
+                	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
+                	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
+                
+                .. attribute:: queues
+                
+                	Counters related to queued messages associated with the BGP neighbor
+                	**type**\: :py:class:`Queues <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Queues>`
+                
+                .. attribute:: remove_private_as
+                
+                	Remove private AS numbers from updates sent to peers
+                	**type**\: :py:class:`RemovePrivateAsOptionEnum <ydk.models.bgp.bgp_types.RemovePrivateAsOptionEnum>`
+                
+                .. attribute:: route_flap_damping
+                
+                	Enable route flap damping
+                	**type**\: bool
+                
+                .. attribute:: send_community
+                
+                	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
+                	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
+                
                 .. attribute:: session_state
                 
                 	Operational state of the BGP peer
@@ -6330,16 +6340,6 @@ class Bgp(object):
                 	BGP capabilities negotiated as supported with the peer
                 	**type**\: list of str
                 
-                .. attribute:: messages
-                
-                	Counters for BGP messages sent and received from the neighbor
-                	**type**\: :py:class:`Messages <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Messages>`
-                
-                .. attribute:: queues
-                
-                	Counters related to queued messages associated with the BGP neighbor
-                	**type**\: :py:class:`Queues <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Queues>`
-                
                 
 
                 """
@@ -6349,24 +6349,24 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.peer_as = None
-                    self.local_as = None
-                    self.peer_type = None
                     self.auth_password = None
+                    self.description = None
+                    self.local_as = None
+                    self.messages = Bgp.Neighbors.Neighbor.State.Messages()
+                    self.messages.parent = self
+                    self.neighbor_address = None
+                    self.peer_as = None
+                    self.peer_group = None
+                    self.peer_type = None
+                    self.queues = Bgp.Neighbors.Neighbor.State.Queues()
+                    self.queues.parent = self
                     self.remove_private_as = None
                     self.route_flap_damping = None
                     self.send_community = None
-                    self.description = None
-                    self.peer_group = None
-                    self.neighbor_address = None
                     self.session_state = None
                     self.supported_capabilities = YLeafList()
                     self.supported_capabilities.parent = self
                     self.supported_capabilities.name = 'supported_capabilities'
-                    self.messages = Bgp.Neighbors.Neighbor.State.Messages()
-                    self.messages.parent = self
-                    self.queues = Bgp.Neighbors.Neighbor.State.Queues()
-                    self.queues.parent = self
 
                 class SessionStateEnum(Enum):
                     """
@@ -6439,15 +6439,15 @@ class Bgp(object):
                     Counters for BGP messages sent and received from the
                     neighbor
                     
-                    .. attribute:: sent
-                    
-                    	Counters relating to BGP messages sent to the neighbor
-                    	**type**\: :py:class:`Sent <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Messages.Sent>`
-                    
                     .. attribute:: received
                     
                     	Counters for BGP messages received from the neighbor
                     	**type**\: :py:class:`Received <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Messages.Received>`
+                    
+                    .. attribute:: sent
+                    
+                    	Counters relating to BGP messages sent to the neighbor
+                    	**type**\: :py:class:`Sent <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.State.Messages.Sent>`
                     
                     
 
@@ -6458,27 +6458,27 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sent = Bgp.Neighbors.Neighbor.State.Messages.Sent()
-                        self.sent.parent = self
                         self.received = Bgp.Neighbors.Neighbor.State.Messages.Received()
                         self.received.parent = self
+                        self.sent = Bgp.Neighbors.Neighbor.State.Messages.Sent()
+                        self.sent.parent = self
 
 
                     class Sent(object):
                         """
                         Counters relating to BGP messages sent to the neighbor
                         
-                        .. attribute:: update
-                        
-                        	Number of BGP UPDATE messages announcing, withdrawing or modifying paths exchanged
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: notification
                         
                         	Number of BGP NOTIFICATION messages indicating an error condition has occurred exchanged
-                        	**type**\: int
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: update
+                        
+                        	Number of BGP UPDATE messages announcing, withdrawing or modifying paths exchanged
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -6491,13 +6491,13 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.update = None
                             self.notification = None
+                            self.update = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:sent'
 
@@ -6508,10 +6508,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.update is not None:
+                            if self.notification is not None:
                                 return True
 
-                            if self.notification is not None:
+                            if self.update is not None:
                                 return True
 
                             return False
@@ -6526,17 +6526,17 @@ class Bgp(object):
                         """
                         Counters for BGP messages received from the neighbor
                         
-                        .. attribute:: update
-                        
-                        	Number of BGP UPDATE messages announcing, withdrawing or modifying paths exchanged
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: notification
                         
                         	Number of BGP NOTIFICATION messages indicating an error condition has occurred exchanged
-                        	**type**\: int
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: update
+                        
+                        	Number of BGP UPDATE messages announcing, withdrawing or modifying paths exchanged
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -6549,13 +6549,13 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.update = None
                             self.notification = None
+                            self.update = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:received'
 
@@ -6566,10 +6566,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.update is not None:
+                            if self.notification is not None:
                                 return True
 
-                            if self.notification is not None:
+                            if self.update is not None:
                                 return True
 
                             return False
@@ -6582,7 +6582,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:messages'
 
@@ -6593,10 +6593,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sent is not None and self.sent._has_data():
+                        if self.received is not None and self.received._has_data():
                             return True
 
-                        if self.received is not None and self.received._has_data():
+                        if self.sent is not None and self.sent._has_data():
                             return True
 
                         return False
@@ -6641,7 +6641,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:queues'
 
@@ -6668,7 +6668,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:state'
 
@@ -6679,16 +6679,31 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.peer_as is not None:
+                    if self.auth_password is not None:
+                        return True
+
+                    if self.description is not None:
                         return True
 
                     if self.local_as is not None:
                         return True
 
+                    if self.messages is not None and self.messages._has_data():
+                        return True
+
+                    if self.neighbor_address is not None:
+                        return True
+
+                    if self.peer_as is not None:
+                        return True
+
+                    if self.peer_group is not None:
+                        return True
+
                     if self.peer_type is not None:
                         return True
 
-                    if self.auth_password is not None:
+                    if self.queues is not None and self.queues._has_data():
                         return True
 
                     if self.remove_private_as is not None:
@@ -6700,15 +6715,6 @@ class Bgp(object):
                     if self.send_community is not None:
                         return True
 
-                    if self.description is not None:
-                        return True
-
-                    if self.peer_group is not None:
-                        return True
-
-                    if self.neighbor_address is not None:
-                        return True
-
                     if self.session_state is not None:
                         return True
 
@@ -6716,12 +6722,6 @@ class Bgp(object):
                         for child in self.supported_capabilities:
                             if child is not None:
                                 return True
-
-                    if self.messages is not None and self.messages._has_data():
-                        return True
-
-                    if self.queues is not None and self.queues._has_data():
-                        return True
 
                     return False
 
@@ -6810,7 +6810,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -6874,19 +6874,19 @@ class Bgp(object):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: uptime
-                    
-                    	This timer determines the amount of time since the BGP last transitioned in or out of the Established state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: negotiated_hold_time
                     
                     	The negotiated hold\-time for the BGP session
                     	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    .. attribute:: uptime
+                    
+                    	This timer determines the amount of time since the BGP last transitioned in or out of the Established state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -6901,13 +6901,13 @@ class Bgp(object):
                         self.hold_time = None
                         self.keepalive_interval = None
                         self.minimum_advertisement_interval = None
-                        self.uptime = None
                         self.negotiated_hold_time = None
+                        self.uptime = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -6930,10 +6930,10 @@ class Bgp(object):
                         if self.minimum_advertisement_interval is not None:
                             return True
 
-                        if self.uptime is not None:
+                        if self.negotiated_hold_time is not None:
                             return True
 
-                        if self.negotiated_hold_time is not None:
+                        if self.uptime is not None:
                             return True
 
                         return False
@@ -6946,7 +6946,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:timers'
 
@@ -7005,23 +7005,6 @@ class Bgp(object):
                     Configuration parameters relating to the transport
                     session(s) used for the BGP neighbor or group
                     
-                    .. attribute:: tcp_mss
-                    
-                    	Sets the max segment size for BGP TCP sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mtu_discovery
-                    
-                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
-                    	**type**\: bool
-                    
-                    .. attribute:: passive_mode
-                    
-                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
-                    	**type**\: bool
-                    
                     .. attribute:: local_address
                     
                     	Set the local IP (either IPv4 or IPv6) address to use for the session when sending BGP update messages.  This may be expressed as either an IP address or reference to the name of an interface
@@ -7045,6 +7028,23 @@ class Bgp(object):
                     
                     
                     ----
+                    .. attribute:: mtu_discovery
+                    
+                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
+                    	**type**\: bool
+                    
+                    .. attribute:: passive_mode
+                    
+                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
+                    	**type**\: bool
+                    
+                    .. attribute:: tcp_mss
+                    
+                    	Sets the max segment size for BGP TCP sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     
 
                     """
@@ -7054,15 +7054,15 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_mss = None
+                        self.local_address = None
                         self.mtu_discovery = None
                         self.passive_mode = None
-                        self.local_address = None
+                        self.tcp_mss = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -7073,7 +7073,7 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_mss is not None:
+                        if self.local_address is not None:
                             return True
 
                         if self.mtu_discovery is not None:
@@ -7082,7 +7082,7 @@ class Bgp(object):
                         if self.passive_mode is not None:
                             return True
 
-                        if self.local_address is not None:
+                        if self.tcp_mss is not None:
                             return True
 
                         return False
@@ -7097,23 +7097,6 @@ class Bgp(object):
                     """
                     State information relating to the transport session(s)
                     used for the BGP neighbor or group
-                    
-                    .. attribute:: tcp_mss
-                    
-                    	Sets the max segment size for BGP TCP sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mtu_discovery
-                    
-                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
-                    	**type**\: bool
-                    
-                    .. attribute:: passive_mode
-                    
-                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
-                    	**type**\: bool
                     
                     .. attribute:: local_address
                     
@@ -7145,6 +7128,16 @@ class Bgp(object):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: mtu_discovery
+                    
+                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
+                    	**type**\: bool
+                    
+                    .. attribute:: passive_mode
+                    
+                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
+                    	**type**\: bool
+                    
                     .. attribute:: remote_address
                     
                     	Remote address to which the BGP session has been established
@@ -7169,6 +7162,13 @@ class Bgp(object):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: tcp_mss
+                    
+                    	Sets the max segment size for BGP TCP sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     
 
                     """
@@ -7178,18 +7178,18 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_mss = None
-                        self.mtu_discovery = None
-                        self.passive_mode = None
                         self.local_address = None
                         self.local_port = None
+                        self.mtu_discovery = None
+                        self.passive_mode = None
                         self.remote_address = None
                         self.remote_port = None
+                        self.tcp_mss = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -7200,7 +7200,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_mss is not None:
+                        if self.local_address is not None:
+                            return True
+
+                        if self.local_port is not None:
                             return True
 
                         if self.mtu_discovery is not None:
@@ -7209,16 +7212,13 @@ class Bgp(object):
                         if self.passive_mode is not None:
                             return True
 
-                        if self.local_address is not None:
-                            return True
-
-                        if self.local_port is not None:
-                            return True
-
                         if self.remote_address is not None:
                             return True
 
                         if self.remote_port is not None:
+                            return True
+
+                        if self.tcp_mss is not None:
                             return True
 
                         return False
@@ -7231,7 +7231,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:transport'
 
@@ -7311,7 +7311,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -7338,17 +7338,17 @@ class Bgp(object):
                     State information relating to enhanced error handling
                     mechanisms for the BGP neighbor or group
                     
-                    .. attribute:: treat_as_withdraw
-                    
-                    	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
-                    	**type**\: bool
-                    
                     .. attribute:: erroneous_update_messages
                     
                     	The number of BGP UPDATE messages for which the treat\-as\-withdraw mechanism has been applied based on erroneous message contents
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: treat_as_withdraw
+                    
+                    	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
+                    	**type**\: bool
                     
                     
 
@@ -7359,13 +7359,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.treat_as_withdraw = None
                         self.erroneous_update_messages = None
+                        self.treat_as_withdraw = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -7376,10 +7376,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.treat_as_withdraw is not None:
+                        if self.erroneous_update_messages is not None:
                             return True
 
-                        if self.erroneous_update_messages is not None:
+                        if self.treat_as_withdraw is not None:
                             return True
 
                         return False
@@ -7392,7 +7392,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:error-handling'
 
@@ -7471,7 +7471,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -7517,7 +7517,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -7541,7 +7541,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:logging-options'
 
@@ -7627,7 +7627,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -7684,7 +7684,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -7711,7 +7711,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:ebgp-multihop'
 
@@ -7770,6 +7770,11 @@ class Bgp(object):
                     Configuraton parameters relating to route reflection
                     for the BGP neighbor or group
                     
+                    .. attribute:: route_reflector_client
+                    
+                    	Configure the neighbor as a route reflector client
+                    	**type**\: bool
+                    
                     .. attribute:: route_reflector_cluster_id
                     
                     	route\-reflector cluster id to use when local router is configured as a route reflector.  Commonly set at the group level, but allows a different cluster id to be set for each neighbor
@@ -7787,11 +7792,6 @@ class Bgp(object):
                     
                     
                     ----
-                    .. attribute:: route_reflector_client
-                    
-                    	Configure the neighbor as a route reflector client
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -7801,13 +7801,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.route_reflector_cluster_id = None
                         self.route_reflector_client = None
+                        self.route_reflector_cluster_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -7818,10 +7818,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.route_reflector_cluster_id is not None:
+                        if self.route_reflector_client is not None:
                             return True
 
-                        if self.route_reflector_client is not None:
+                        if self.route_reflector_cluster_id is not None:
                             return True
 
                         return False
@@ -7837,6 +7837,11 @@ class Bgp(object):
                     State information relating to route reflection for the
                     BGP neighbor or group
                     
+                    .. attribute:: route_reflector_client
+                    
+                    	Configure the neighbor as a route reflector client
+                    	**type**\: bool
+                    
                     .. attribute:: route_reflector_cluster_id
                     
                     	route\-reflector cluster id to use when local router is configured as a route reflector.  Commonly set at the group level, but allows a different cluster id to be set for each neighbor
@@ -7854,11 +7859,6 @@ class Bgp(object):
                     
                     
                     ----
-                    .. attribute:: route_reflector_client
-                    
-                    	Configure the neighbor as a route reflector client
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -7868,13 +7868,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.route_reflector_cluster_id = None
                         self.route_reflector_client = None
+                        self.route_reflector_cluster_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -7885,10 +7885,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.route_reflector_cluster_id is not None:
+                        if self.route_reflector_client is not None:
                             return True
 
-                        if self.route_reflector_client is not None:
+                        if self.route_reflector_cluster_id is not None:
                             return True
 
                         return False
@@ -7901,7 +7901,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:route-reflector'
 
@@ -7988,7 +7988,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -8045,7 +8045,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -8072,7 +8072,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:as-path-options'
 
@@ -8158,7 +8158,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -8214,7 +8214,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -8241,7 +8241,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:add-paths'
 
@@ -8300,75 +8300,75 @@ class Bgp(object):
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                     	**type**\: str
                     
-                    .. attribute:: graceful_restart
+                    .. attribute:: apply_policy
                     
-                    	Parameters relating to BGP graceful\-restart
-                    	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart>`
+                    	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
+                    	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for the AFI\-SAFI
                     	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config>`
                     
-                    .. attribute:: state
+                    .. attribute:: graceful_restart
                     
-                    	State information relating to the AFI\-SAFI
-                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State>`
-                    
-                    .. attribute:: apply_policy
-                    
-                    	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                    	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy>`
-                    
-                    .. attribute:: ipv4_unicast
-                    
-                    	IPv4 unicast configuration options
-                    	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast>`
-                    
-                    .. attribute:: ipv6_unicast
-                    
-                    	IPv6 unicast configuration options
-                    	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast>`
+                    	Parameters relating to BGP graceful\-restart
+                    	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart>`
                     
                     .. attribute:: ipv4_labelled_unicast
                     
                     	IPv4 Labelled Unicast configuration options
                     	**type**\: :py:class:`Ipv4LabelledUnicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                     
+                    .. attribute:: ipv4_unicast
+                    
+                    	IPv4 unicast configuration options
+                    	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast>`
+                    
                     .. attribute:: ipv6_labelled_unicast
                     
                     	IPv6 Labelled Unicast configuration options
                     	**type**\: :py:class:`Ipv6LabelledUnicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                     
-                    .. attribute:: l3vpn_ipv4_unicast
+                    .. attribute:: ipv6_unicast
                     
-                    	Unicast IPv4 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                    	IPv6 unicast configuration options
+                    	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast>`
                     
-                    .. attribute:: l3vpn_ipv6_unicast
+                    .. attribute:: l2vpn_evpn
                     
-                    	Unicast IPv6 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
-                    
-                    .. attribute:: l3vpn_ipv4_multicast
-                    
-                    	Multicast IPv4 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
-                    
-                    .. attribute:: l3vpn_ipv6_multicast
-                    
-                    	Multicast IPv6 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                    	BGP EVPN configuration options
+                    	**type**\: :py:class:`L2VpnEvpn <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn>`
                     
                     .. attribute:: l2vpn_vpls
                     
                     	BGP\-signalled VPLS configuration options
                     	**type**\: :py:class:`L2VpnVpls <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls>`
                     
-                    .. attribute:: l2vpn_evpn
+                    .. attribute:: l3vpn_ipv4_multicast
                     
-                    	BGP EVPN configuration options
-                    	**type**\: :py:class:`L2VpnEvpn <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn>`
+                    	Multicast IPv4 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                    
+                    .. attribute:: l3vpn_ipv4_unicast
+                    
+                    	Unicast IPv4 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                    
+                    .. attribute:: l3vpn_ipv6_multicast
+                    
+                    	Multicast IPv6 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                    
+                    .. attribute:: l3vpn_ipv6_unicast
+                    
+                    	Unicast IPv6 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                    
+                    .. attribute:: state
+                    
+                    	State information relating to the AFI\-SAFI
+                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State>`
                     
                     .. attribute:: use_multiple_paths
                     
@@ -8385,34 +8385,34 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.afi_safi_name = None
-                        self.graceful_restart = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart()
-                        self.graceful_restart.parent = self
-                        self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config()
-                        self.config.parent = self
-                        self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State()
-                        self.state.parent = self
                         self.apply_policy = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy()
                         self.apply_policy.parent = self
-                        self.ipv4_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast()
-                        self.ipv4_unicast.parent = self
-                        self.ipv6_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast()
-                        self.ipv6_unicast.parent = self
+                        self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config()
+                        self.config.parent = self
+                        self.graceful_restart = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart()
+                        self.graceful_restart.parent = self
                         self.ipv4_labelled_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast()
                         self.ipv4_labelled_unicast.parent = self
+                        self.ipv4_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast()
+                        self.ipv4_unicast.parent = self
                         self.ipv6_labelled_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast()
                         self.ipv6_labelled_unicast.parent = self
-                        self.l3vpn_ipv4_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
-                        self.l3vpn_ipv4_unicast.parent = self
-                        self.l3vpn_ipv6_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
-                        self.l3vpn_ipv6_unicast.parent = self
-                        self.l3vpn_ipv4_multicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
-                        self.l3vpn_ipv4_multicast.parent = self
-                        self.l3vpn_ipv6_multicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
-                        self.l3vpn_ipv6_multicast.parent = self
-                        self.l2vpn_vpls = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls()
-                        self.l2vpn_vpls.parent = self
+                        self.ipv6_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast()
+                        self.ipv6_unicast.parent = self
                         self.l2vpn_evpn = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn()
                         self.l2vpn_evpn.parent = self
+                        self.l2vpn_vpls = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls()
+                        self.l2vpn_vpls.parent = self
+                        self.l3vpn_ipv4_multicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
+                        self.l3vpn_ipv4_multicast.parent = self
+                        self.l3vpn_ipv4_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
+                        self.l3vpn_ipv4_unicast.parent = self
+                        self.l3vpn_ipv6_multicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
+                        self.l3vpn_ipv6_multicast.parent = self
+                        self.l3vpn_ipv6_unicast = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
+                        self.l3vpn_ipv6_unicast.parent = self
+                        self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State()
+                        self.state.parent = self
                         self.use_multiple_paths = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths()
                         self.use_multiple_paths.parent = self
 
@@ -8469,7 +8469,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -8495,6 +8495,11 @@ class Bgp(object):
                             """
                             State information for BGP graceful\-restart
                             
+                            .. attribute:: advertised
+                            
+                            	This leaf indicates whether the ability to support graceful\-restart has been advertised to the peer
+                            	**type**\: bool
+                            
                             .. attribute:: enabled
                             
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
@@ -8503,11 +8508,6 @@ class Bgp(object):
                             .. attribute:: received
                             
                             	This leaf indicates whether the neighbor advertised the ability to support graceful\-restart for this AFI\-SAFI
-                            	**type**\: bool
-                            
-                            .. attribute:: advertised
-                            
-                            	This leaf indicates whether the ability to support graceful\-restart has been advertised to the peer
                             	**type**\: bool
                             
                             
@@ -8519,14 +8519,14 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.advertised = None
                                 self.enabled = None
                                 self.received = None
-                                self.advertised = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -8537,13 +8537,13 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.advertised is not None:
+                                    return True
+
                                 if self.enabled is not None:
                                     return True
 
                                 if self.received is not None:
-                                    return True
-
-                                if self.advertised is not None:
                                     return True
 
                                 return False
@@ -8556,7 +8556,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:graceful-restart'
 
@@ -8610,7 +8610,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -8639,6 +8639,11 @@ class Bgp(object):
                         """
                         State information relating to the AFI\-SAFI
                         
+                        .. attribute:: active
+                        
+                        	This value indicates whether a particular AFI\-SAFI has been succesfully negotiated with the peer. An AFI\-SAFI may be enabled in the current running configuration, but a session restart may be required in order to negotiate the new capability
+                        	**type**\: bool
+                        
                         .. attribute:: afi_safi_name
                         
                         	AFI,SAFI
@@ -8647,11 +8652,6 @@ class Bgp(object):
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
-                        	**type**\: bool
-                        
-                        .. attribute:: active
-                        
-                        	This value indicates whether a particular AFI\-SAFI has been succesfully negotiated with the peer. An AFI\-SAFI may be enabled in the current running configuration, but a session restart may be required in order to negotiate the new capability
                         	**type**\: bool
                         
                         .. attribute:: prefixes
@@ -8668,9 +8668,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.active = None
                             self.afi_safi_name = None
                             self.enabled = None
-                            self.active = None
                             self.prefixes = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes()
                             self.prefixes.parent = self
 
@@ -8678,6 +8678,13 @@ class Bgp(object):
                         class Prefixes(object):
                             """
                             Prefix counters for the BGP session
+                            
+                            .. attribute:: installed
+                            
+                            	The number of advertised prefixes installed in the Loc\-RIB
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: received
                             
@@ -8693,13 +8700,6 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: installed
-                            
-                            	The number of advertised prefixes installed in the Loc\-RIB
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             
 
                             """
@@ -8709,14 +8709,14 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.installed = None
                                 self.received = None
                                 self.sent = None
-                                self.installed = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefixes'
 
@@ -8727,13 +8727,13 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.installed is not None:
+                                    return True
+
                                 if self.received is not None:
                                     return True
 
                                 if self.sent is not None:
-                                    return True
-
-                                if self.installed is not None:
                                     return True
 
                                 return False
@@ -8746,7 +8746,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -8757,13 +8757,13 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.active is not None:
+                                return True
+
                             if self.afi_safi_name is not None:
                                 return True
 
                             if self.enabled is not None:
-                                return True
-
-                            if self.active is not None:
                                 return True
 
                             if self.prefixes is not None and self.prefixes._has_data():
@@ -8813,10 +8813,10 @@ class Bgp(object):
                             """
                             Policy configuration data.
                             
-                            .. attribute:: import_policy
+                            .. attribute:: default_export_policy
                             
-                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                            	**type**\: list of str
+                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                             
                             .. attribute:: default_import_policy
                             
@@ -8828,10 +8828,10 @@ class Bgp(object):
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\: list of str
                             
-                            .. attribute:: default_export_policy
+                            .. attribute:: import_policy
                             
-                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                            	**type**\: list of str
                             
                             
 
@@ -8842,19 +8842,19 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.import_policy = YLeafList()
-                                self.import_policy.parent = self
-                                self.import_policy.name = 'import_policy'
+                                self.default_export_policy = None
                                 self.default_import_policy = None
                                 self.export_policy = YLeafList()
                                 self.export_policy.parent = self
                                 self.export_policy.name = 'export_policy'
-                                self.default_export_policy = None
+                                self.import_policy = YLeafList()
+                                self.import_policy.parent = self
+                                self.import_policy.name = 'import_policy'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -8865,10 +8865,8 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.import_policy is not None:
-                                    for child in self.import_policy:
-                                        if child is not None:
-                                            return True
+                                if self.default_export_policy is not None:
+                                    return True
 
                                 if self.default_import_policy is not None:
                                     return True
@@ -8878,8 +8876,10 @@ class Bgp(object):
                                         if child is not None:
                                             return True
 
-                                if self.default_export_policy is not None:
-                                    return True
+                                if self.import_policy is not None:
+                                    for child in self.import_policy:
+                                        if child is not None:
+                                            return True
 
                                 return False
 
@@ -8893,10 +8893,10 @@ class Bgp(object):
                             """
                             Operational state for routing policy
                             
-                            .. attribute:: import_policy
+                            .. attribute:: default_export_policy
                             
-                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                            	**type**\: list of str
+                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                             
                             .. attribute:: default_import_policy
                             
@@ -8908,10 +8908,10 @@ class Bgp(object):
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\: list of str
                             
-                            .. attribute:: default_export_policy
+                            .. attribute:: import_policy
                             
-                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                            	**type**\: list of str
                             
                             
 
@@ -8922,19 +8922,19 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.import_policy = YLeafList()
-                                self.import_policy.parent = self
-                                self.import_policy.name = 'import_policy'
+                                self.default_export_policy = None
                                 self.default_import_policy = None
                                 self.export_policy = YLeafList()
                                 self.export_policy.parent = self
                                 self.export_policy.name = 'export_policy'
-                                self.default_export_policy = None
+                                self.import_policy = YLeafList()
+                                self.import_policy.parent = self
+                                self.import_policy.name = 'import_policy'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -8945,10 +8945,8 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.import_policy is not None:
-                                    for child in self.import_policy:
-                                        if child is not None:
-                                            return True
+                                if self.default_export_policy is not None:
+                                    return True
 
                                 if self.default_import_policy is not None:
                                     return True
@@ -8958,8 +8956,10 @@ class Bgp(object):
                                         if child is not None:
                                             return True
 
-                                if self.default_export_policy is not None:
-                                    return True
+                                if self.import_policy is not None:
+                                    for child in self.import_policy:
+                                        if child is not None:
+                                            return True
 
                                 return False
 
@@ -8971,7 +8971,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:apply-policy'
 
@@ -9000,15 +9000,15 @@ class Bgp(object):
                         """
                         IPv4 unicast configuration options
                         
-                        .. attribute:: prefix_limit
-                        
-                        	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
-                        
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                        
+                        .. attribute:: prefix_limit
+                        
+                        	Configure the maximum number of prefixes that will be accepted from a peer
+                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
@@ -9024,10 +9024,10 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
-                            self.prefix_limit.parent = self
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config()
                             self.config.parent = self
+                            self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
+                            self.prefix_limit.parent = self
                             self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State()
                             self.state.parent = self
 
@@ -9074,19 +9074,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9098,13 +9098,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -9118,10 +9118,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9144,19 +9144,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9168,13 +9168,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -9188,10 +9188,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9204,7 +9204,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -9253,7 +9253,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -9299,7 +9299,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -9323,7 +9323,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv4-unicast'
 
@@ -9334,10 +9334,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.prefix_limit is not None and self.prefix_limit._has_data():
+                            if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config._has_data():
+                            if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
                             if self.state is not None and self.state._has_data():
@@ -9355,15 +9355,15 @@ class Bgp(object):
                         """
                         IPv6 unicast configuration options
                         
-                        .. attribute:: prefix_limit
-                        
-                        	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
-                        
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                        
+                        .. attribute:: prefix_limit
+                        
+                        	Configure the maximum number of prefixes that will be accepted from a peer
+                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
@@ -9379,10 +9379,10 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
-                            self.prefix_limit.parent = self
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config()
                             self.config.parent = self
+                            self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
+                            self.prefix_limit.parent = self
                             self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State()
                             self.state.parent = self
 
@@ -9429,19 +9429,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9453,13 +9453,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -9473,10 +9473,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9499,19 +9499,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9523,13 +9523,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -9543,10 +9543,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9559,7 +9559,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -9608,7 +9608,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -9654,7 +9654,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -9678,7 +9678,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv6-unicast'
 
@@ -9689,10 +9689,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.prefix_limit is not None and self.prefix_limit._has_data():
+                            if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config._has_data():
+                            if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
                             if self.state is not None and self.state._has_data():
@@ -9770,19 +9770,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9794,13 +9794,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -9814,10 +9814,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9840,19 +9840,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -9864,13 +9864,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -9884,10 +9884,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -9900,7 +9900,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -9927,7 +9927,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv4-labelled-unicast'
 
@@ -10013,19 +10013,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10037,13 +10037,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -10057,10 +10057,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10083,19 +10083,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10107,13 +10107,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -10127,10 +10127,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10143,7 +10143,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -10170,7 +10170,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv6-labelled-unicast'
 
@@ -10256,19 +10256,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10280,13 +10280,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -10300,10 +10300,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10326,19 +10326,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10350,13 +10350,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -10370,10 +10370,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10386,7 +10386,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -10413,7 +10413,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv4-unicast'
 
@@ -10499,19 +10499,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10523,13 +10523,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -10543,10 +10543,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10569,19 +10569,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10593,13 +10593,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -10613,10 +10613,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10629,7 +10629,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -10656,7 +10656,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv6-unicast'
 
@@ -10742,19 +10742,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10766,13 +10766,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -10786,10 +10786,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10812,19 +10812,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -10836,13 +10836,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -10856,10 +10856,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -10872,7 +10872,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -10899,7 +10899,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv4-multicast'
 
@@ -10985,19 +10985,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11009,13 +11009,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -11029,10 +11029,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11055,19 +11055,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11079,13 +11079,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -11099,10 +11099,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11115,7 +11115,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -11142,7 +11142,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv6-multicast'
 
@@ -11228,19 +11228,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11252,13 +11252,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -11272,10 +11272,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11298,19 +11298,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11322,13 +11322,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -11342,10 +11342,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11358,7 +11358,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -11385,7 +11385,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l2vpn-vpls'
 
@@ -11471,19 +11471,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11495,13 +11495,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -11515,10 +11515,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11541,19 +11541,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -11565,13 +11565,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -11585,10 +11585,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -11601,7 +11601,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -11628,7 +11628,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l2vpn-evpn'
 
@@ -11660,15 +11660,15 @@ class Bgp(object):
                         	Configuration parameters relating to multipath
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                         
-                        .. attribute:: state
-                        
-                        	State parameters relating to multipath
-                        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State>`
-                        
                         .. attribute:: ebgp
                         
                         	Multipath configuration for eBGP
                         	**type**\: :py:class:`Ebgp <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
+                        
+                        .. attribute:: state
+                        
+                        	State parameters relating to multipath
+                        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                         
                         
 
@@ -11681,10 +11681,10 @@ class Bgp(object):
                             self.parent = None
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                             self.config.parent = self
-                            self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State()
-                            self.state.parent = self
                             self.ebgp = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
                             self.ebgp.parent = self
+                            self.state = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State()
+                            self.state.parent = self
 
 
                         class Config(object):
@@ -11710,7 +11710,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -11755,7 +11755,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -11829,7 +11829,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -11874,7 +11874,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -11898,7 +11898,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:ebgp'
 
@@ -11925,7 +11925,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:use-multiple-paths'
 
@@ -11939,10 +11939,10 @@ class Bgp(object):
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.state is not None and self.state._has_data():
+                            if self.ebgp is not None and self.ebgp._has_data():
                                 return True
 
-                            if self.ebgp is not None and self.ebgp._has_data():
+                            if self.state is not None and self.state._has_data():
                                 return True
 
                             return False
@@ -11955,9 +11955,9 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.afi_safi_name is None:
-                            raise YPYDataValidationError('Key property afi_safi_name is None')
+                            raise YPYModelError('Key property afi_safi_name is None')
 
                         return self.parent._common_path +'/bgp:afi-safi[bgp:afi-safi-name = ' + str(self.afi_safi_name) + ']'
 
@@ -11971,46 +11971,46 @@ class Bgp(object):
                         if self.afi_safi_name is not None:
                             return True
 
-                        if self.graceful_restart is not None and self.graceful_restart._has_data():
+                        if self.apply_policy is not None and self.apply_policy._has_data():
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.apply_policy is not None and self.apply_policy._has_data():
-                            return True
-
-                        if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
-                            return True
-
-                        if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
+                        if self.graceful_restart is not None and self.graceful_restart._has_data():
                             return True
 
                         if self.ipv4_labelled_unicast is not None and self.ipv4_labelled_unicast._has_data():
                             return True
 
+                        if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
+                            return True
+
                         if self.ipv6_labelled_unicast is not None and self.ipv6_labelled_unicast._has_data():
                             return True
 
-                        if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
+                        if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
                             return True
 
-                        if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
-                            return True
-
-                        if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
-                            return True
-
-                        if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
+                        if self.l2vpn_evpn is not None and self.l2vpn_evpn._has_data():
                             return True
 
                         if self.l2vpn_vpls is not None and self.l2vpn_vpls._has_data():
                             return True
 
-                        if self.l2vpn_evpn is not None and self.l2vpn_evpn._has_data():
+                        if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
+                            return True
+
+                        if self.state is not None and self.state._has_data():
                             return True
 
                         if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
@@ -12026,7 +12026,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:afi-safis'
 
@@ -12088,6 +12088,11 @@ class Bgp(object):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    .. attribute:: helper_only
+                    
+                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                    	**type**\: bool
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -12102,11 +12107,6 @@ class Bgp(object):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: helper_only
-                    
-                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -12117,14 +12117,14 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.enabled = None
+                        self.helper_only = None
                         self.restart_time = None
                         self.stale_routes_time = None
-                        self.helper_only = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -12138,13 +12138,13 @@ class Bgp(object):
                         if self.enabled is not None:
                             return True
 
+                        if self.helper_only is not None:
+                            return True
+
                         if self.restart_time is not None:
                             return True
 
                         if self.stale_routes_time is not None:
-                            return True
-
-                        if self.helper_only is not None:
                             return True
 
                         return False
@@ -12164,6 +12164,33 @@ class Bgp(object):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    .. attribute:: helper_only
+                    
+                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                    	**type**\: bool
+                    
+                    .. attribute:: local_restarting
+                    
+                    	This flag indicates whether the local neighbor is currently restarting. The flag is unset after all NLRI have been advertised to the peer, and the End\-of\-RIB (EOR) marker has been unset
+                    	**type**\: bool
+                    
+                    .. attribute:: mode
+                    
+                    	Ths leaf indicates the mode of operation of BGP graceful restart with the peer
+                    	**type**\: :py:class:`ModeEnum <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum>`
+                    
+                    .. attribute:: peer_restart_time
+                    
+                    	The period of time (advertised by the peer) that the peer expects a restart of a BGP session to take
+                    	**type**\: int
+                    
+                    	**range:** 0..4096
+                    
+                    .. attribute:: peer_restarting
+                    
+                    	This flag indicates whether the remote neighbor is currently in the process of restarting, and hence received routes are currently stale
+                    	**type**\: bool
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -12178,33 +12205,6 @@ class Bgp(object):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: helper_only
-                    
-                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                    	**type**\: bool
-                    
-                    .. attribute:: peer_restart_time
-                    
-                    	The period of time (advertised by the peer) that the peer expects a restart of a BGP session to take
-                    	**type**\: int
-                    
-                    	**range:** 0..4096
-                    
-                    .. attribute:: peer_restarting
-                    
-                    	This flag indicates whether the remote neighbor is currently in the process of restarting, and hence received routes are currently stale
-                    	**type**\: bool
-                    
-                    .. attribute:: local_restarting
-                    
-                    	This flag indicates whether the local neighbor is currently restarting. The flag is unset after all NLRI have been advertised to the peer, and the End\-of\-RIB (EOR) marker has been unset
-                    	**type**\: bool
-                    
-                    .. attribute:: mode
-                    
-                    	Ths leaf indicates the mode of operation of BGP graceful restart with the peer
-                    	**type**\: :py:class:`ModeEnum <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum>`
-                    
                     
 
                     """
@@ -12215,13 +12215,13 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.enabled = None
-                        self.restart_time = None
-                        self.stale_routes_time = None
                         self.helper_only = None
-                        self.peer_restart_time = None
-                        self.peer_restarting = None
                         self.local_restarting = None
                         self.mode = None
+                        self.peer_restart_time = None
+                        self.peer_restarting = None
+                        self.restart_time = None
+                        self.stale_routes_time = None
 
                     class ModeEnum(Enum):
                         """
@@ -12275,7 +12275,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -12289,13 +12289,13 @@ class Bgp(object):
                         if self.enabled is not None:
                             return True
 
-                        if self.restart_time is not None:
-                            return True
-
-                        if self.stale_routes_time is not None:
-                            return True
-
                         if self.helper_only is not None:
+                            return True
+
+                        if self.local_restarting is not None:
+                            return True
+
+                        if self.mode is not None:
                             return True
 
                         if self.peer_restart_time is not None:
@@ -12304,10 +12304,10 @@ class Bgp(object):
                         if self.peer_restarting is not None:
                             return True
 
-                        if self.local_restarting is not None:
+                        if self.restart_time is not None:
                             return True
 
-                        if self.mode is not None:
+                        if self.stale_routes_time is not None:
                             return True
 
                         return False
@@ -12320,7 +12320,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:graceful-restart'
 
@@ -12381,10 +12381,10 @@ class Bgp(object):
                     """
                     Policy configuration data.
                     
-                    .. attribute:: import_policy
+                    .. attribute:: default_export_policy
                     
-                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                    	**type**\: list of str
+                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                     
                     .. attribute:: default_import_policy
                     
@@ -12396,10 +12396,10 @@ class Bgp(object):
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\: list of str
                     
-                    .. attribute:: default_export_policy
+                    .. attribute:: import_policy
                     
-                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                    	**type**\: list of str
                     
                     
 
@@ -12410,19 +12410,19 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.import_policy = YLeafList()
-                        self.import_policy.parent = self
-                        self.import_policy.name = 'import_policy'
+                        self.default_export_policy = None
                         self.default_import_policy = None
                         self.export_policy = YLeafList()
                         self.export_policy.parent = self
                         self.export_policy.name = 'export_policy'
-                        self.default_export_policy = None
+                        self.import_policy = YLeafList()
+                        self.import_policy.parent = self
+                        self.import_policy.name = 'import_policy'
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -12433,10 +12433,8 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.import_policy is not None:
-                            for child in self.import_policy:
-                                if child is not None:
-                                    return True
+                        if self.default_export_policy is not None:
+                            return True
 
                         if self.default_import_policy is not None:
                             return True
@@ -12446,8 +12444,10 @@ class Bgp(object):
                                 if child is not None:
                                     return True
 
-                        if self.default_export_policy is not None:
-                            return True
+                        if self.import_policy is not None:
+                            for child in self.import_policy:
+                                if child is not None:
+                                    return True
 
                         return False
 
@@ -12461,10 +12461,10 @@ class Bgp(object):
                     """
                     Operational state for routing policy
                     
-                    .. attribute:: import_policy
+                    .. attribute:: default_export_policy
                     
-                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                    	**type**\: list of str
+                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                     
                     .. attribute:: default_import_policy
                     
@@ -12476,10 +12476,10 @@ class Bgp(object):
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\: list of str
                     
-                    .. attribute:: default_export_policy
+                    .. attribute:: import_policy
                     
-                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                    	**type**\: list of str
                     
                     
 
@@ -12490,19 +12490,19 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.import_policy = YLeafList()
-                        self.import_policy.parent = self
-                        self.import_policy.name = 'import_policy'
+                        self.default_export_policy = None
                         self.default_import_policy = None
                         self.export_policy = YLeafList()
                         self.export_policy.parent = self
                         self.export_policy.name = 'export_policy'
-                        self.default_export_policy = None
+                        self.import_policy = YLeafList()
+                        self.import_policy.parent = self
+                        self.import_policy.name = 'import_policy'
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -12513,10 +12513,8 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.import_policy is not None:
-                            for child in self.import_policy:
-                                if child is not None:
-                                    return True
+                        if self.default_export_policy is not None:
+                            return True
 
                         if self.default_import_policy is not None:
                             return True
@@ -12526,8 +12524,10 @@ class Bgp(object):
                                 if child is not None:
                                     return True
 
-                        if self.default_export_policy is not None:
-                            return True
+                        if self.import_policy is not None:
+                            for child in self.import_policy:
+                                if child is not None:
+                                    return True
 
                         return False
 
@@ -12539,7 +12539,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:apply-policy'
 
@@ -12574,15 +12574,15 @@ class Bgp(object):
                 	Configuration parameters relating to multipath
                 	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Config>`
                 
-                .. attribute:: state
-                
-                	State parameters relating to multipath
-                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.State>`
-                
                 .. attribute:: ebgp
                 
                 	Multipath configuration for eBGP
                 	**type**\: :py:class:`Ebgp <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp>`
+                
+                .. attribute:: state
+                
+                	State parameters relating to multipath
+                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.State>`
                 
                 
 
@@ -12595,10 +12595,10 @@ class Bgp(object):
                     self.parent = None
                     self.config = Bgp.Neighbors.Neighbor.UseMultiplePaths.Config()
                     self.config.parent = self
-                    self.state = Bgp.Neighbors.Neighbor.UseMultiplePaths.State()
-                    self.state.parent = self
                     self.ebgp = Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp()
                     self.ebgp.parent = self
+                    self.state = Bgp.Neighbors.Neighbor.UseMultiplePaths.State()
+                    self.state.parent = self
 
 
                 class Config(object):
@@ -12624,7 +12624,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -12669,7 +12669,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -12743,7 +12743,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -12788,7 +12788,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -12812,7 +12812,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ebgp'
 
@@ -12839,7 +12839,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:use-multiple-paths'
 
@@ -12853,10 +12853,10 @@ class Bgp(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
+                    if self.ebgp is not None and self.ebgp._has_data():
                         return True
 
-                    if self.ebgp is not None and self.ebgp._has_data():
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -12869,7 +12869,7 @@ class Bgp(object):
             @property
             def _common_path(self):
                 if self.neighbor_address is None:
-                    raise YPYDataValidationError('Key property neighbor_address is None')
+                    raise YPYModelError('Key property neighbor_address is None')
 
                 return '/bgp:bgp/bgp:neighbors/bgp:neighbor[bgp:neighbor-address = ' + str(self.neighbor_address) + ']'
 
@@ -12883,7 +12883,34 @@ class Bgp(object):
                 if self.neighbor_address is not None:
                     return True
 
+                if self.add_paths is not None and self.add_paths._has_data():
+                    return True
+
+                if self.afi_safis is not None and self.afi_safis._has_data():
+                    return True
+
+                if self.apply_policy is not None and self.apply_policy._has_data():
+                    return True
+
+                if self.as_path_options is not None and self.as_path_options._has_data():
+                    return True
+
                 if self.config is not None and self.config._has_data():
+                    return True
+
+                if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
+                    return True
+
+                if self.error_handling is not None and self.error_handling._has_data():
+                    return True
+
+                if self.graceful_restart is not None and self.graceful_restart._has_data():
+                    return True
+
+                if self.logging_options is not None and self.logging_options._has_data():
+                    return True
+
+                if self.route_reflector is not None and self.route_reflector._has_data():
                     return True
 
                 if self.state is not None and self.state._has_data():
@@ -12893,33 +12920,6 @@ class Bgp(object):
                     return True
 
                 if self.transport is not None and self.transport._has_data():
-                    return True
-
-                if self.error_handling is not None and self.error_handling._has_data():
-                    return True
-
-                if self.logging_options is not None and self.logging_options._has_data():
-                    return True
-
-                if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                    return True
-
-                if self.route_reflector is not None and self.route_reflector._has_data():
-                    return True
-
-                if self.as_path_options is not None and self.as_path_options._has_data():
-                    return True
-
-                if self.add_paths is not None and self.add_paths._has_data():
-                    return True
-
-                if self.afi_safis is not None and self.afi_safis._has_data():
-                    return True
-
-                if self.graceful_restart is not None and self.graceful_restart._has_data():
-                    return True
-
-                if self.apply_policy is not None and self.apply_policy._has_data():
                     return True
 
                 if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
@@ -12990,10 +12990,55 @@ class Bgp(object):
             	Reference to the name of the BGP peer\-group used as a key in the peer\-group list
             	**type**\: str
             
+            .. attribute:: add_paths
+            
+            	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
+            	**type**\: :py:class:`AddPaths <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AddPaths>`
+            
+            .. attribute:: afi_safis
+            
+            	Per\-address\-family configuration parameters associated with the neighbor or group
+            	**type**\: :py:class:`AfiSafis <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis>`
+            
+            .. attribute:: apply_policy
+            
+            	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
+            	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy>`
+            
+            .. attribute:: as_path_options
+            
+            	AS\_PATH manipulation parameters for the BGP neighbor or group
+            	**type**\: :py:class:`AsPathOptions <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions>`
+            
             .. attribute:: config
             
             	Configuration parameters relating to the BGP neighbor or group
             	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.Config>`
+            
+            .. attribute:: ebgp_multihop
+            
+            	eBGP multi\-hop parameters for the BGP neighbor or group
+            	**type**\: :py:class:`EbgpMultihop <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop>`
+            
+            .. attribute:: error_handling
+            
+            	Error handling parameters used for the BGP neighbor or group
+            	**type**\: :py:class:`ErrorHandling <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling>`
+            
+            .. attribute:: graceful_restart
+            
+            	Parameters relating the graceful restart mechanism for BGP
+            	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart>`
+            
+            .. attribute:: logging_options
+            
+            	Logging options for events related to the BGP neighbor or group
+            	**type**\: :py:class:`LoggingOptions <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions>`
+            
+            .. attribute:: route_reflector
+            
+            	Route reflector parameters for the BGP neighbor or group
+            	**type**\: :py:class:`RouteReflector <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.RouteReflector>`
             
             .. attribute:: state
             
@@ -13010,51 +13055,6 @@ class Bgp(object):
             	Transport session parameters for the BGP neighbor or group
             	**type**\: :py:class:`Transport <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.Transport>`
             
-            .. attribute:: error_handling
-            
-            	Error handling parameters used for the BGP neighbor or group
-            	**type**\: :py:class:`ErrorHandling <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling>`
-            
-            .. attribute:: logging_options
-            
-            	Logging options for events related to the BGP neighbor or group
-            	**type**\: :py:class:`LoggingOptions <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions>`
-            
-            .. attribute:: ebgp_multihop
-            
-            	eBGP multi\-hop parameters for the BGP neighbor or group
-            	**type**\: :py:class:`EbgpMultihop <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop>`
-            
-            .. attribute:: route_reflector
-            
-            	Route reflector parameters for the BGP neighbor or group
-            	**type**\: :py:class:`RouteReflector <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.RouteReflector>`
-            
-            .. attribute:: as_path_options
-            
-            	AS\_PATH manipulation parameters for the BGP neighbor or group
-            	**type**\: :py:class:`AsPathOptions <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions>`
-            
-            .. attribute:: add_paths
-            
-            	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
-            	**type**\: :py:class:`AddPaths <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AddPaths>`
-            
-            .. attribute:: afi_safis
-            
-            	Per\-address\-family configuration parameters associated with the neighbor or group
-            	**type**\: :py:class:`AfiSafis <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis>`
-            
-            .. attribute:: graceful_restart
-            
-            	Parameters relating the graceful restart mechanism for BGP
-            	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart>`
-            
-            .. attribute:: apply_policy
-            
-            	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-            	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy>`
-            
             .. attribute:: use_multiple_paths
             
             	Parameters related to the use of multiple paths for the same NLRI
@@ -13070,32 +13070,32 @@ class Bgp(object):
             def __init__(self):
                 self.parent = None
                 self.peer_group_name = None
+                self.add_paths = Bgp.PeerGroups.PeerGroup.AddPaths()
+                self.add_paths.parent = self
+                self.afi_safis = Bgp.PeerGroups.PeerGroup.AfiSafis()
+                self.afi_safis.parent = self
+                self.apply_policy = Bgp.PeerGroups.PeerGroup.ApplyPolicy()
+                self.apply_policy.parent = self
+                self.as_path_options = Bgp.PeerGroups.PeerGroup.AsPathOptions()
+                self.as_path_options.parent = self
                 self.config = Bgp.PeerGroups.PeerGroup.Config()
                 self.config.parent = self
+                self.ebgp_multihop = Bgp.PeerGroups.PeerGroup.EbgpMultihop()
+                self.ebgp_multihop.parent = self
+                self.error_handling = Bgp.PeerGroups.PeerGroup.ErrorHandling()
+                self.error_handling.parent = self
+                self.graceful_restart = Bgp.PeerGroups.PeerGroup.GracefulRestart()
+                self.graceful_restart.parent = self
+                self.logging_options = Bgp.PeerGroups.PeerGroup.LoggingOptions()
+                self.logging_options.parent = self
+                self.route_reflector = Bgp.PeerGroups.PeerGroup.RouteReflector()
+                self.route_reflector.parent = self
                 self.state = Bgp.PeerGroups.PeerGroup.State()
                 self.state.parent = self
                 self.timers = Bgp.PeerGroups.PeerGroup.Timers()
                 self.timers.parent = self
                 self.transport = Bgp.PeerGroups.PeerGroup.Transport()
                 self.transport.parent = self
-                self.error_handling = Bgp.PeerGroups.PeerGroup.ErrorHandling()
-                self.error_handling.parent = self
-                self.logging_options = Bgp.PeerGroups.PeerGroup.LoggingOptions()
-                self.logging_options.parent = self
-                self.ebgp_multihop = Bgp.PeerGroups.PeerGroup.EbgpMultihop()
-                self.ebgp_multihop.parent = self
-                self.route_reflector = Bgp.PeerGroups.PeerGroup.RouteReflector()
-                self.route_reflector.parent = self
-                self.as_path_options = Bgp.PeerGroups.PeerGroup.AsPathOptions()
-                self.as_path_options.parent = self
-                self.add_paths = Bgp.PeerGroups.PeerGroup.AddPaths()
-                self.add_paths.parent = self
-                self.afi_safis = Bgp.PeerGroups.PeerGroup.AfiSafis()
-                self.afi_safis.parent = self
-                self.graceful_restart = Bgp.PeerGroups.PeerGroup.GracefulRestart()
-                self.graceful_restart.parent = self
-                self.apply_policy = Bgp.PeerGroups.PeerGroup.ApplyPolicy()
-                self.apply_policy.parent = self
                 self.use_multiple_paths = Bgp.PeerGroups.PeerGroup.UseMultiplePaths()
                 self.use_multiple_paths.parent = self
 
@@ -13105,12 +13105,15 @@ class Bgp(object):
                 Configuration parameters relating to the BGP neighbor or
                 group
                 
-                .. attribute:: peer_as
+                .. attribute:: auth_password
                 
-                	AS number of the peer
-                	**type**\: int
+                	Configures an MD5 authentication password for use with neighboring devices
+                	**type**\: str
                 
-                	**range:** 0..4294967295
+                .. attribute:: description
+                
+                	An optional textual description (intended primarily for use with a peer or group
+                	**type**\: str
                 
                 .. attribute:: local_as
                 
@@ -13119,15 +13122,22 @@ class Bgp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: peer_as
+                
+                	AS number of the peer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_group_name
+                
+                	Name of the BGP peer\-group
+                	**type**\: str
+                
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
                 	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
-                
-                .. attribute:: auth_password
-                
-                	Configures an MD5 authentication password for use with neighboring devices
-                	**type**\: str
                 
                 .. attribute:: remove_private_as
                 
@@ -13144,16 +13154,6 @@ class Bgp(object):
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
                 	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
                 
-                .. attribute:: description
-                
-                	An optional textual description (intended primarily for use with a peer or group
-                	**type**\: str
-                
-                .. attribute:: peer_group_name
-                
-                	Name of the BGP peer\-group
-                	**type**\: str
-                
                 
 
                 """
@@ -13163,20 +13163,20 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.peer_as = None
-                    self.local_as = None
-                    self.peer_type = None
                     self.auth_password = None
+                    self.description = None
+                    self.local_as = None
+                    self.peer_as = None
+                    self.peer_group_name = None
+                    self.peer_type = None
                     self.remove_private_as = None
                     self.route_flap_damping = None
                     self.send_community = None
-                    self.description = None
-                    self.peer_group_name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:config'
 
@@ -13187,16 +13187,22 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.peer_as is not None:
+                    if self.auth_password is not None:
+                        return True
+
+                    if self.description is not None:
                         return True
 
                     if self.local_as is not None:
                         return True
 
-                    if self.peer_type is not None:
+                    if self.peer_as is not None:
                         return True
 
-                    if self.auth_password is not None:
+                    if self.peer_group_name is not None:
+                        return True
+
+                    if self.peer_type is not None:
                         return True
 
                     if self.remove_private_as is not None:
@@ -13206,12 +13212,6 @@ class Bgp(object):
                         return True
 
                     if self.send_community is not None:
-                        return True
-
-                    if self.description is not None:
-                        return True
-
-                    if self.peer_group_name is not None:
                         return True
 
                     return False
@@ -13226,12 +13226,15 @@ class Bgp(object):
                 """
                 State information relating to the BGP neighbor or group
                 
-                .. attribute:: peer_as
+                .. attribute:: auth_password
                 
-                	AS number of the peer
-                	**type**\: int
+                	Configures an MD5 authentication password for use with neighboring devices
+                	**type**\: str
                 
-                	**range:** 0..4294967295
+                .. attribute:: description
+                
+                	An optional textual description (intended primarily for use with a peer or group
+                	**type**\: str
                 
                 .. attribute:: local_as
                 
@@ -13240,15 +13243,22 @@ class Bgp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: peer_as
+                
+                	AS number of the peer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_group_name
+                
+                	Name of the BGP peer\-group
+                	**type**\: str
+                
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
                 	**type**\: :py:class:`PeerTypeEnum <ydk.models.bgp.bgp_types.PeerTypeEnum>`
-                
-                .. attribute:: auth_password
-                
-                	Configures an MD5 authentication password for use with neighboring devices
-                	**type**\: str
                 
                 .. attribute:: remove_private_as
                 
@@ -13264,16 +13274,6 @@ class Bgp(object):
                 
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
                 	**type**\: :py:class:`CommunityTypeEnum <ydk.models.bgp.bgp_types.CommunityTypeEnum>`
-                
-                .. attribute:: description
-                
-                	An optional textual description (intended primarily for use with a peer or group
-                	**type**\: str
-                
-                .. attribute:: peer_group_name
-                
-                	Name of the BGP peer\-group
-                	**type**\: str
                 
                 .. attribute:: total_paths
                 
@@ -13298,22 +13298,22 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.peer_as = None
-                    self.local_as = None
-                    self.peer_type = None
                     self.auth_password = None
+                    self.description = None
+                    self.local_as = None
+                    self.peer_as = None
+                    self.peer_group_name = None
+                    self.peer_type = None
                     self.remove_private_as = None
                     self.route_flap_damping = None
                     self.send_community = None
-                    self.description = None
-                    self.peer_group_name = None
                     self.total_paths = None
                     self.total_prefixes = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:state'
 
@@ -13324,16 +13324,22 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.peer_as is not None:
+                    if self.auth_password is not None:
+                        return True
+
+                    if self.description is not None:
                         return True
 
                     if self.local_as is not None:
                         return True
 
-                    if self.peer_type is not None:
+                    if self.peer_as is not None:
                         return True
 
-                    if self.auth_password is not None:
+                    if self.peer_group_name is not None:
+                        return True
+
+                    if self.peer_type is not None:
                         return True
 
                     if self.remove_private_as is not None:
@@ -13343,12 +13349,6 @@ class Bgp(object):
                         return True
 
                     if self.send_community is not None:
-                        return True
-
-                    if self.description is not None:
-                        return True
-
-                    if self.peer_group_name is not None:
                         return True
 
                     if self.total_paths is not None:
@@ -13444,7 +13444,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -13525,7 +13525,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -13558,7 +13558,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:timers'
 
@@ -13617,23 +13617,6 @@ class Bgp(object):
                     Configuration parameters relating to the transport
                     session(s) used for the BGP neighbor or group
                     
-                    .. attribute:: tcp_mss
-                    
-                    	Sets the max segment size for BGP TCP sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mtu_discovery
-                    
-                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
-                    	**type**\: bool
-                    
-                    .. attribute:: passive_mode
-                    
-                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
-                    	**type**\: bool
-                    
                     .. attribute:: local_address
                     
                     	Set the local IP (either IPv4 or IPv6) address to use for the session when sending BGP update messages.  This may be expressed as either an IP address or reference to the name of an interface
@@ -13657,6 +13640,23 @@ class Bgp(object):
                     
                     
                     ----
+                    .. attribute:: mtu_discovery
+                    
+                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
+                    	**type**\: bool
+                    
+                    .. attribute:: passive_mode
+                    
+                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
+                    	**type**\: bool
+                    
+                    .. attribute:: tcp_mss
+                    
+                    	Sets the max segment size for BGP TCP sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     
 
                     """
@@ -13666,15 +13666,15 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_mss = None
+                        self.local_address = None
                         self.mtu_discovery = None
                         self.passive_mode = None
-                        self.local_address = None
+                        self.tcp_mss = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -13685,7 +13685,7 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_mss is not None:
+                        if self.local_address is not None:
                             return True
 
                         if self.mtu_discovery is not None:
@@ -13694,7 +13694,7 @@ class Bgp(object):
                         if self.passive_mode is not None:
                             return True
 
-                        if self.local_address is not None:
+                        if self.tcp_mss is not None:
                             return True
 
                         return False
@@ -13710,23 +13710,6 @@ class Bgp(object):
                     State information relating to the transport session(s)
                     used for the BGP neighbor or group
                     
-                    .. attribute:: tcp_mss
-                    
-                    	Sets the max segment size for BGP TCP sessions
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mtu_discovery
-                    
-                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
-                    	**type**\: bool
-                    
-                    .. attribute:: passive_mode
-                    
-                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
-                    	**type**\: bool
-                    
                     .. attribute:: local_address
                     
                     	Set the local IP (either IPv4 or IPv6) address to use for the session when sending BGP update messages.  This may be expressed as either an IP address or reference to the name of an interface
@@ -13750,6 +13733,23 @@ class Bgp(object):
                     
                     
                     ----
+                    .. attribute:: mtu_discovery
+                    
+                    	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
+                    	**type**\: bool
+                    
+                    .. attribute:: passive_mode
+                    
+                    	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
+                    	**type**\: bool
+                    
+                    .. attribute:: tcp_mss
+                    
+                    	Sets the max segment size for BGP TCP sessions
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     
 
                     """
@@ -13759,15 +13759,15 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.tcp_mss = None
+                        self.local_address = None
                         self.mtu_discovery = None
                         self.passive_mode = None
-                        self.local_address = None
+                        self.tcp_mss = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -13778,7 +13778,7 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.tcp_mss is not None:
+                        if self.local_address is not None:
                             return True
 
                         if self.mtu_discovery is not None:
@@ -13787,7 +13787,7 @@ class Bgp(object):
                         if self.passive_mode is not None:
                             return True
 
-                        if self.local_address is not None:
+                        if self.tcp_mss is not None:
                             return True
 
                         return False
@@ -13800,7 +13800,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:transport'
 
@@ -13880,7 +13880,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -13926,7 +13926,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -13950,7 +13950,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:error-handling'
 
@@ -14029,7 +14029,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -14075,7 +14075,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -14099,7 +14099,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:logging-options'
 
@@ -14185,7 +14185,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -14242,7 +14242,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -14269,7 +14269,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:ebgp-multihop'
 
@@ -14328,6 +14328,11 @@ class Bgp(object):
                     Configuraton parameters relating to route reflection
                     for the BGP neighbor or group
                     
+                    .. attribute:: route_reflector_client
+                    
+                    	Configure the neighbor as a route reflector client
+                    	**type**\: bool
+                    
                     .. attribute:: route_reflector_cluster_id
                     
                     	route\-reflector cluster id to use when local router is configured as a route reflector.  Commonly set at the group level, but allows a different cluster id to be set for each neighbor
@@ -14345,11 +14350,6 @@ class Bgp(object):
                     
                     
                     ----
-                    .. attribute:: route_reflector_client
-                    
-                    	Configure the neighbor as a route reflector client
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -14359,13 +14359,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.route_reflector_cluster_id = None
                         self.route_reflector_client = None
+                        self.route_reflector_cluster_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -14376,10 +14376,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.route_reflector_cluster_id is not None:
+                        if self.route_reflector_client is not None:
                             return True
 
-                        if self.route_reflector_client is not None:
+                        if self.route_reflector_cluster_id is not None:
                             return True
 
                         return False
@@ -14395,6 +14395,11 @@ class Bgp(object):
                     State information relating to route reflection for the
                     BGP neighbor or group
                     
+                    .. attribute:: route_reflector_client
+                    
+                    	Configure the neighbor as a route reflector client
+                    	**type**\: bool
+                    
                     .. attribute:: route_reflector_cluster_id
                     
                     	route\-reflector cluster id to use when local router is configured as a route reflector.  Commonly set at the group level, but allows a different cluster id to be set for each neighbor
@@ -14412,11 +14417,6 @@ class Bgp(object):
                     
                     
                     ----
-                    .. attribute:: route_reflector_client
-                    
-                    	Configure the neighbor as a route reflector client
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -14426,13 +14426,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.route_reflector_cluster_id = None
                         self.route_reflector_client = None
+                        self.route_reflector_cluster_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -14443,10 +14443,10 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.route_reflector_cluster_id is not None:
+                        if self.route_reflector_client is not None:
                             return True
 
-                        if self.route_reflector_client is not None:
+                        if self.route_reflector_cluster_id is not None:
                             return True
 
                         return False
@@ -14459,7 +14459,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:route-reflector'
 
@@ -14546,7 +14546,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -14603,7 +14603,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -14630,7 +14630,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:as-path-options'
 
@@ -14716,7 +14716,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -14772,7 +14772,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -14799,7 +14799,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:add-paths'
 
@@ -14858,85 +14858,85 @@ class Bgp(object):
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                     	**type**\: str
                     
-                    .. attribute:: graceful_restart
+                    .. attribute:: apply_policy
                     
-                    	Parameters relating to BGP graceful\-restart
-                    	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart>`
+                    	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
+                    	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for the AFI\-SAFI
                     	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config>`
                     
-                    .. attribute:: state
+                    .. attribute:: graceful_restart
                     
-                    	State information relating to the AFI\-SAFI
-                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State>`
-                    
-                    .. attribute:: apply_policy
-                    
-                    	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                    	**type**\: :py:class:`ApplyPolicy <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy>`
-                    
-                    .. attribute:: ipv4_unicast
-                    
-                    	IPv4 unicast configuration options
-                    	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast>`
-                    
-                    .. attribute:: ipv6_unicast
-                    
-                    	IPv6 unicast configuration options
-                    	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast>`
+                    	Parameters relating to BGP graceful\-restart
+                    	**type**\: :py:class:`GracefulRestart <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart>`
                     
                     .. attribute:: ipv4_labelled_unicast
                     
                     	IPv4 Labelled Unicast configuration options
                     	**type**\: :py:class:`Ipv4LabelledUnicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                     
+                    .. attribute:: ipv4_unicast
+                    
+                    	IPv4 unicast configuration options
+                    	**type**\: :py:class:`Ipv4Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast>`
+                    
                     .. attribute:: ipv6_labelled_unicast
                     
                     	IPv6 Labelled Unicast configuration options
                     	**type**\: :py:class:`Ipv6LabelledUnicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                     
-                    .. attribute:: l3vpn_ipv4_unicast
+                    .. attribute:: ipv6_unicast
                     
-                    	Unicast IPv4 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
-                    
-                    .. attribute:: l3vpn_ipv6_unicast
-                    
-                    	Unicast IPv6 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
-                    
-                    .. attribute:: l3vpn_ipv4_multicast
-                    
-                    	Multicast IPv4 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
-                    
-                    .. attribute:: l3vpn_ipv6_multicast
-                    
-                    	Multicast IPv6 L3VPN configuration options
-                    	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
-                    
-                    .. attribute:: l2vpn_vpls
-                    
-                    	BGP\-signalled VPLS configuration options
-                    	**type**\: :py:class:`L2VpnVpls <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls>`
+                    	IPv6 unicast configuration options
+                    	**type**\: :py:class:`Ipv6Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast>`
                     
                     .. attribute:: l2vpn_evpn
                     
                     	BGP EVPN configuration options
                     	**type**\: :py:class:`L2VpnEvpn <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn>`
                     
-                    .. attribute:: use_multiple_paths
+                    .. attribute:: l2vpn_vpls
                     
-                    	Parameters related to the use of multiple paths for the same NLRI
-                    	**type**\: :py:class:`UseMultiplePaths <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths>`
+                    	BGP\-signalled VPLS configuration options
+                    	**type**\: :py:class:`L2VpnVpls <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls>`
+                    
+                    .. attribute:: l3vpn_ipv4_multicast
+                    
+                    	Multicast IPv4 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv4Multicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                    
+                    .. attribute:: l3vpn_ipv4_unicast
+                    
+                    	Unicast IPv4 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv4Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                    
+                    .. attribute:: l3vpn_ipv6_multicast
+                    
+                    	Multicast IPv6 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv6Multicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                    
+                    .. attribute:: l3vpn_ipv6_unicast
+                    
+                    	Unicast IPv6 L3VPN configuration options
+                    	**type**\: :py:class:`L3VpnIpv6Unicast <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
                     
                     .. attribute:: route_selection_options
                     
                     	Parameters relating to options for route selection
                     	**type**\: :py:class:`RouteSelectionOptions <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions>`
+                    
+                    .. attribute:: state
+                    
+                    	State information relating to the AFI\-SAFI
+                    	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State>`
+                    
+                    .. attribute:: use_multiple_paths
+                    
+                    	Parameters related to the use of multiple paths for the same NLRI
+                    	**type**\: :py:class:`UseMultiplePaths <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths>`
                     
                     
 
@@ -14948,38 +14948,38 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.afi_safi_name = None
-                        self.graceful_restart = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart()
-                        self.graceful_restart.parent = self
-                        self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config()
-                        self.config.parent = self
-                        self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State()
-                        self.state.parent = self
                         self.apply_policy = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy()
                         self.apply_policy.parent = self
-                        self.ipv4_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast()
-                        self.ipv4_unicast.parent = self
-                        self.ipv6_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast()
-                        self.ipv6_unicast.parent = self
+                        self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config()
+                        self.config.parent = self
+                        self.graceful_restart = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart()
+                        self.graceful_restart.parent = self
                         self.ipv4_labelled_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast()
                         self.ipv4_labelled_unicast.parent = self
+                        self.ipv4_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast()
+                        self.ipv4_unicast.parent = self
                         self.ipv6_labelled_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast()
                         self.ipv6_labelled_unicast.parent = self
-                        self.l3vpn_ipv4_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
-                        self.l3vpn_ipv4_unicast.parent = self
-                        self.l3vpn_ipv6_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
-                        self.l3vpn_ipv6_unicast.parent = self
-                        self.l3vpn_ipv4_multicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
-                        self.l3vpn_ipv4_multicast.parent = self
-                        self.l3vpn_ipv6_multicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
-                        self.l3vpn_ipv6_multicast.parent = self
-                        self.l2vpn_vpls = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls()
-                        self.l2vpn_vpls.parent = self
+                        self.ipv6_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast()
+                        self.ipv6_unicast.parent = self
                         self.l2vpn_evpn = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn()
                         self.l2vpn_evpn.parent = self
-                        self.use_multiple_paths = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths()
-                        self.use_multiple_paths.parent = self
+                        self.l2vpn_vpls = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls()
+                        self.l2vpn_vpls.parent = self
+                        self.l3vpn_ipv4_multicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
+                        self.l3vpn_ipv4_multicast.parent = self
+                        self.l3vpn_ipv4_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
+                        self.l3vpn_ipv4_unicast.parent = self
+                        self.l3vpn_ipv6_multicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
+                        self.l3vpn_ipv6_multicast.parent = self
+                        self.l3vpn_ipv6_unicast = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
+                        self.l3vpn_ipv6_unicast.parent = self
                         self.route_selection_options = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions()
                         self.route_selection_options.parent = self
+                        self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State()
+                        self.state.parent = self
+                        self.use_multiple_paths = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths()
+                        self.use_multiple_paths.parent = self
 
 
                     class GracefulRestart(object):
@@ -15034,7 +15034,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -15079,7 +15079,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -15103,7 +15103,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:graceful-restart'
 
@@ -15157,7 +15157,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -15211,7 +15211,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -15272,10 +15272,10 @@ class Bgp(object):
                             """
                             Policy configuration data.
                             
-                            .. attribute:: import_policy
+                            .. attribute:: default_export_policy
                             
-                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                            	**type**\: list of str
+                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                             
                             .. attribute:: default_import_policy
                             
@@ -15287,10 +15287,10 @@ class Bgp(object):
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\: list of str
                             
-                            .. attribute:: default_export_policy
+                            .. attribute:: import_policy
                             
-                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                            	**type**\: list of str
                             
                             
 
@@ -15301,19 +15301,19 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.import_policy = YLeafList()
-                                self.import_policy.parent = self
-                                self.import_policy.name = 'import_policy'
+                                self.default_export_policy = None
                                 self.default_import_policy = None
                                 self.export_policy = YLeafList()
                                 self.export_policy.parent = self
                                 self.export_policy.name = 'export_policy'
-                                self.default_export_policy = None
+                                self.import_policy = YLeafList()
+                                self.import_policy.parent = self
+                                self.import_policy.name = 'import_policy'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -15324,10 +15324,8 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.import_policy is not None:
-                                    for child in self.import_policy:
-                                        if child is not None:
-                                            return True
+                                if self.default_export_policy is not None:
+                                    return True
 
                                 if self.default_import_policy is not None:
                                     return True
@@ -15337,8 +15335,10 @@ class Bgp(object):
                                         if child is not None:
                                             return True
 
-                                if self.default_export_policy is not None:
-                                    return True
+                                if self.import_policy is not None:
+                                    for child in self.import_policy:
+                                        if child is not None:
+                                            return True
 
                                 return False
 
@@ -15352,10 +15352,10 @@ class Bgp(object):
                             """
                             Operational state for routing policy
                             
-                            .. attribute:: import_policy
+                            .. attribute:: default_export_policy
                             
-                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                            	**type**\: list of str
+                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                             
                             .. attribute:: default_import_policy
                             
@@ -15367,10 +15367,10 @@ class Bgp(object):
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\: list of str
                             
-                            .. attribute:: default_export_policy
+                            .. attribute:: import_policy
                             
-                            	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                            	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                            	**type**\: list of str
                             
                             
 
@@ -15381,19 +15381,19 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.import_policy = YLeafList()
-                                self.import_policy.parent = self
-                                self.import_policy.name = 'import_policy'
+                                self.default_export_policy = None
                                 self.default_import_policy = None
                                 self.export_policy = YLeafList()
                                 self.export_policy.parent = self
                                 self.export_policy.name = 'export_policy'
-                                self.default_export_policy = None
+                                self.import_policy = YLeafList()
+                                self.import_policy.parent = self
+                                self.import_policy.name = 'import_policy'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -15404,10 +15404,8 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.import_policy is not None:
-                                    for child in self.import_policy:
-                                        if child is not None:
-                                            return True
+                                if self.default_export_policy is not None:
+                                    return True
 
                                 if self.default_import_policy is not None:
                                     return True
@@ -15417,8 +15415,10 @@ class Bgp(object):
                                         if child is not None:
                                             return True
 
-                                if self.default_export_policy is not None:
-                                    return True
+                                if self.import_policy is not None:
+                                    for child in self.import_policy:
+                                        if child is not None:
+                                            return True
 
                                 return False
 
@@ -15430,7 +15430,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:apply-policy'
 
@@ -15459,15 +15459,15 @@ class Bgp(object):
                         """
                         IPv4 unicast configuration options
                         
-                        .. attribute:: prefix_limit
-                        
-                        	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
-                        
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                        
+                        .. attribute:: prefix_limit
+                        
+                        	Configure the maximum number of prefixes that will be accepted from a peer
+                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
@@ -15483,10 +15483,10 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
-                            self.prefix_limit.parent = self
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config()
                             self.config.parent = self
+                            self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
+                            self.prefix_limit.parent = self
                             self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State()
                             self.state.parent = self
 
@@ -15533,19 +15533,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -15557,13 +15557,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -15577,10 +15577,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -15603,19 +15603,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -15627,13 +15627,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -15647,10 +15647,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -15663,7 +15663,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -15712,7 +15712,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -15758,7 +15758,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -15782,7 +15782,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv4-unicast'
 
@@ -15793,10 +15793,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.prefix_limit is not None and self.prefix_limit._has_data():
+                            if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config._has_data():
+                            if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
                             if self.state is not None and self.state._has_data():
@@ -15814,15 +15814,15 @@ class Bgp(object):
                         """
                         IPv6 unicast configuration options
                         
-                        .. attribute:: prefix_limit
-                        
-                        	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
-                        
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                        
+                        .. attribute:: prefix_limit
+                        
+                        	Configure the maximum number of prefixes that will be accepted from a peer
+                        	**type**\: :py:class:`PrefixLimit <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
@@ -15838,10 +15838,10 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
-                            self.prefix_limit.parent = self
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config()
                             self.config.parent = self
+                            self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
+                            self.prefix_limit.parent = self
                             self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State()
                             self.state.parent = self
 
@@ -15888,19 +15888,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -15912,13 +15912,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -15932,10 +15932,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -15958,19 +15958,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -15982,13 +15982,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -16002,10 +16002,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16018,7 +16018,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -16067,7 +16067,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -16113,7 +16113,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -16137,7 +16137,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv6-unicast'
 
@@ -16148,10 +16148,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.prefix_limit is not None and self.prefix_limit._has_data():
+                            if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config._has_data():
+                            if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
                             if self.state is not None and self.state._has_data():
@@ -16229,19 +16229,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16253,13 +16253,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -16273,10 +16273,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16299,19 +16299,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16323,13 +16323,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -16343,10 +16343,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16359,7 +16359,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -16386,7 +16386,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv4-labelled-unicast'
 
@@ -16472,19 +16472,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16496,13 +16496,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -16516,10 +16516,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16542,19 +16542,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16566,13 +16566,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -16586,10 +16586,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16602,7 +16602,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -16629,7 +16629,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:ipv6-labelled-unicast'
 
@@ -16715,19 +16715,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16739,13 +16739,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -16759,10 +16759,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16785,19 +16785,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16809,13 +16809,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -16829,10 +16829,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -16845,7 +16845,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -16872,7 +16872,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv4-unicast'
 
@@ -16958,19 +16958,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -16982,13 +16982,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -17002,10 +17002,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17028,19 +17028,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17052,13 +17052,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -17072,10 +17072,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17088,7 +17088,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -17115,7 +17115,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv6-unicast'
 
@@ -17201,19 +17201,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17225,13 +17225,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -17245,10 +17245,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17271,19 +17271,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17295,13 +17295,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -17315,10 +17315,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17331,7 +17331,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -17358,7 +17358,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv4-multicast'
 
@@ -17444,19 +17444,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17468,13 +17468,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -17488,10 +17488,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17514,19 +17514,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17538,13 +17538,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -17558,10 +17558,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17574,7 +17574,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -17601,7 +17601,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l3vpn-ipv6-multicast'
 
@@ -17687,19 +17687,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17711,13 +17711,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -17731,10 +17731,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17757,19 +17757,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17781,13 +17781,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -17801,10 +17801,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -17817,7 +17817,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -17844,7 +17844,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l2vpn-vpls'
 
@@ -17930,19 +17930,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -17954,13 +17954,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -17974,10 +17974,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -18000,19 +18000,19 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shutdown_threshold_pct
-                                
-                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
                                 	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                .. attribute:: shutdown_threshold_pct
+                                
+                                	Threshold on number of prefixes that can be received from a neighbour before generation of warning messages or log entries. Expressed as a percentage of max\-prefixes
+                                	**type**\: int
+                                
+                                	**range:** 0..100
                                 
                                 
 
@@ -18024,13 +18024,13 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.max_prefixes = None
-                                    self.shutdown_threshold_pct = None
                                     self.restart_timer = None
+                                    self.shutdown_threshold_pct = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -18044,10 +18044,10 @@ class Bgp(object):
                                     if self.max_prefixes is not None:
                                         return True
 
-                                    if self.shutdown_threshold_pct is not None:
+                                    if self.restart_timer is not None:
                                         return True
 
-                                    if self.restart_timer is not None:
+                                    if self.shutdown_threshold_pct is not None:
                                         return True
 
                                     return False
@@ -18060,7 +18060,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:prefix-limit'
 
@@ -18087,7 +18087,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:l2vpn-evpn'
 
@@ -18119,11 +18119,6 @@ class Bgp(object):
                         	Configuration parameters relating to multipath
                         	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                         
-                        .. attribute:: state
-                        
-                        	State parameters relating to multipath
-                        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State>`
-                        
                         .. attribute:: ebgp
                         
                         	Multipath parameters for eBGP
@@ -18133,6 +18128,11 @@ class Bgp(object):
                         
                         	Multipath parameters for iBGP
                         	**type**\: :py:class:`Ibgp <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
+                        
+                        .. attribute:: state
+                        
+                        	State parameters relating to multipath
+                        	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                         
                         
 
@@ -18145,12 +18145,12 @@ class Bgp(object):
                             self.parent = None
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                             self.config.parent = self
-                            self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State()
-                            self.state.parent = self
                             self.ebgp = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
                             self.ebgp.parent = self
                             self.ibgp = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
                             self.ibgp.parent = self
+                            self.state = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State()
+                            self.state.parent = self
 
 
                         class Config(object):
@@ -18176,7 +18176,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -18221,7 +18221,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -18303,7 +18303,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -18359,7 +18359,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -18386,7 +18386,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:ebgp'
 
@@ -18465,7 +18465,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:config'
 
@@ -18512,7 +18512,7 @@ class Bgp(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/bgp:state'
 
@@ -18536,7 +18536,7 @@ class Bgp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:ibgp'
 
@@ -18563,7 +18563,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:use-multiple-paths'
 
@@ -18577,13 +18577,13 @@ class Bgp(object):
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.state is not None and self.state._has_data():
-                                return True
-
                             if self.ebgp is not None and self.ebgp._has_data():
                                 return True
 
                             if self.ibgp is not None and self.ibgp._has_data():
+                                return True
+
+                            if self.state is not None and self.state._has_data():
                                 return True
 
                             return False
@@ -18628,14 +18628,19 @@ class Bgp(object):
                             Configuration parameters relating to route selection
                             options
                             
+                            .. attribute:: advertise_inactive_routes
+                            
+                            	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                            	**type**\: bool
+                            
                             .. attribute:: always_compare_med
                             
                             	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                             	**type**\: bool
                             
-                            .. attribute:: ignore_as_path_length
+                            .. attribute:: enable_aigp
                             
-                            	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                            	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                             	**type**\: bool
                             
                             .. attribute:: external_compare_router_id
@@ -18643,14 +18648,9 @@ class Bgp(object):
                             	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                             	**type**\: bool
                             
-                            .. attribute:: advertise_inactive_routes
+                            .. attribute:: ignore_as_path_length
                             
-                            	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                            	**type**\: bool
-                            
-                            .. attribute:: enable_aigp
-                            
-                            	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                            	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                             	**type**\: bool
                             
                             .. attribute:: ignore_next_hop_igp_metric
@@ -18667,17 +18667,17 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.always_compare_med = None
-                                self.ignore_as_path_length = None
-                                self.external_compare_router_id = None
                                 self.advertise_inactive_routes = None
+                                self.always_compare_med = None
                                 self.enable_aigp = None
+                                self.external_compare_router_id = None
+                                self.ignore_as_path_length = None
                                 self.ignore_next_hop_igp_metric = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:config'
 
@@ -18688,19 +18688,19 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.advertise_inactive_routes is not None:
+                                    return True
+
                                 if self.always_compare_med is not None:
                                     return True
 
-                                if self.ignore_as_path_length is not None:
+                                if self.enable_aigp is not None:
                                     return True
 
                                 if self.external_compare_router_id is not None:
                                     return True
 
-                                if self.advertise_inactive_routes is not None:
-                                    return True
-
-                                if self.enable_aigp is not None:
+                                if self.ignore_as_path_length is not None:
                                     return True
 
                                 if self.ignore_next_hop_igp_metric is not None:
@@ -18718,14 +18718,19 @@ class Bgp(object):
                             """
                             State information for the route selection options
                             
+                            .. attribute:: advertise_inactive_routes
+                            
+                            	Advertise inactive routes to external peers.  The default is to only advertise active routes
+                            	**type**\: bool
+                            
                             .. attribute:: always_compare_med
                             
                             	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                             	**type**\: bool
                             
-                            .. attribute:: ignore_as_path_length
+                            .. attribute:: enable_aigp
                             
-                            	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
+                            	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                             	**type**\: bool
                             
                             .. attribute:: external_compare_router_id
@@ -18733,14 +18738,9 @@ class Bgp(object):
                             	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                             	**type**\: bool
                             
-                            .. attribute:: advertise_inactive_routes
+                            .. attribute:: ignore_as_path_length
                             
-                            	Advertise inactive routes to external peers.  The default is to only advertise active routes
-                            	**type**\: bool
-                            
-                            .. attribute:: enable_aigp
-                            
-                            	Flag to enable sending / receiving accumulated IGP attribute in routing updates
+                            	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                             	**type**\: bool
                             
                             .. attribute:: ignore_next_hop_igp_metric
@@ -18757,17 +18757,17 @@ class Bgp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.always_compare_med = None
-                                self.ignore_as_path_length = None
-                                self.external_compare_router_id = None
                                 self.advertise_inactive_routes = None
+                                self.always_compare_med = None
                                 self.enable_aigp = None
+                                self.external_compare_router_id = None
+                                self.ignore_as_path_length = None
                                 self.ignore_next_hop_igp_metric = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/bgp:state'
 
@@ -18778,19 +18778,19 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.advertise_inactive_routes is not None:
+                                    return True
+
                                 if self.always_compare_med is not None:
                                     return True
 
-                                if self.ignore_as_path_length is not None:
+                                if self.enable_aigp is not None:
                                     return True
 
                                 if self.external_compare_router_id is not None:
                                     return True
 
-                                if self.advertise_inactive_routes is not None:
-                                    return True
-
-                                if self.enable_aigp is not None:
+                                if self.ignore_as_path_length is not None:
                                     return True
 
                                 if self.ignore_next_hop_igp_metric is not None:
@@ -18806,7 +18806,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:route-selection-options'
 
@@ -18833,9 +18833,9 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.afi_safi_name is None:
-                            raise YPYDataValidationError('Key property afi_safi_name is None')
+                            raise YPYModelError('Key property afi_safi_name is None')
 
                         return self.parent._common_path +'/bgp:afi-safi[bgp:afi-safi-name = ' + str(self.afi_safi_name) + ']'
 
@@ -18849,52 +18849,52 @@ class Bgp(object):
                         if self.afi_safi_name is not None:
                             return True
 
-                        if self.graceful_restart is not None and self.graceful_restart._has_data():
+                        if self.apply_policy is not None and self.apply_policy._has_data():
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.apply_policy is not None and self.apply_policy._has_data():
-                            return True
-
-                        if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
-                            return True
-
-                        if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
+                        if self.graceful_restart is not None and self.graceful_restart._has_data():
                             return True
 
                         if self.ipv4_labelled_unicast is not None and self.ipv4_labelled_unicast._has_data():
                             return True
 
+                        if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
+                            return True
+
                         if self.ipv6_labelled_unicast is not None and self.ipv6_labelled_unicast._has_data():
                             return True
 
-                        if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
-                            return True
-
-                        if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
-                            return True
-
-                        if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
-                            return True
-
-                        if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
-                            return True
-
-                        if self.l2vpn_vpls is not None and self.l2vpn_vpls._has_data():
+                        if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
                             return True
 
                         if self.l2vpn_evpn is not None and self.l2vpn_evpn._has_data():
                             return True
 
-                        if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
+                        if self.l2vpn_vpls is not None and self.l2vpn_vpls._has_data():
+                            return True
+
+                        if self.l3vpn_ipv4_multicast is not None and self.l3vpn_ipv4_multicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv4_unicast is not None and self.l3vpn_ipv4_unicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv6_multicast is not None and self.l3vpn_ipv6_multicast._has_data():
+                            return True
+
+                        if self.l3vpn_ipv6_unicast is not None and self.l3vpn_ipv6_unicast._has_data():
                             return True
 
                         if self.route_selection_options is not None and self.route_selection_options._has_data():
+                            return True
+
+                        if self.state is not None and self.state._has_data():
+                            return True
+
+                        if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():
                             return True
 
                         return False
@@ -18907,7 +18907,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:afi-safis'
 
@@ -18969,6 +18969,11 @@ class Bgp(object):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    .. attribute:: helper_only
+                    
+                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                    	**type**\: bool
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -18983,11 +18988,6 @@ class Bgp(object):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: helper_only
-                    
-                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -18998,14 +18998,14 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.enabled = None
+                        self.helper_only = None
                         self.restart_time = None
                         self.stale_routes_time = None
-                        self.helper_only = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -19019,13 +19019,13 @@ class Bgp(object):
                         if self.enabled is not None:
                             return True
 
+                        if self.helper_only is not None:
+                            return True
+
                         if self.restart_time is not None:
                             return True
 
                         if self.stale_routes_time is not None:
-                            return True
-
-                        if self.helper_only is not None:
                             return True
 
                         return False
@@ -19045,6 +19045,11 @@ class Bgp(object):
                     	Enable or disable the graceful\-restart capability
                     	**type**\: bool
                     
+                    .. attribute:: helper_only
+                    
+                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
+                    	**type**\: bool
+                    
                     .. attribute:: restart_time
                     
                     	Estimated time (in seconds) for the local BGP speaker to restart a session. This value is advertise in the graceful restart BGP capability.  This is a 12\-bit value, referred to as Restart Time in RFC4724.  Per RFC4724, the suggested default value is <= the hold\-time value
@@ -19059,11 +19064,6 @@ class Bgp(object):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    .. attribute:: helper_only
-                    
-                    	Enable graceful\-restart in helper mode only. When this leaf is set, the local system does not retain forwarding its own state during a restart, but supports procedures for the receiving speaker, as defined in RFC4724
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -19074,14 +19074,14 @@ class Bgp(object):
                     def __init__(self):
                         self.parent = None
                         self.enabled = None
+                        self.helper_only = None
                         self.restart_time = None
                         self.stale_routes_time = None
-                        self.helper_only = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -19095,13 +19095,13 @@ class Bgp(object):
                         if self.enabled is not None:
                             return True
 
+                        if self.helper_only is not None:
+                            return True
+
                         if self.restart_time is not None:
                             return True
 
                         if self.stale_routes_time is not None:
-                            return True
-
-                        if self.helper_only is not None:
                             return True
 
                         return False
@@ -19114,7 +19114,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:graceful-restart'
 
@@ -19175,10 +19175,10 @@ class Bgp(object):
                     """
                     Policy configuration data.
                     
-                    .. attribute:: import_policy
+                    .. attribute:: default_export_policy
                     
-                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                    	**type**\: list of str
+                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                     
                     .. attribute:: default_import_policy
                     
@@ -19190,10 +19190,10 @@ class Bgp(object):
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\: list of str
                     
-                    .. attribute:: default_export_policy
+                    .. attribute:: import_policy
                     
-                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                    	**type**\: list of str
                     
                     
 
@@ -19204,19 +19204,19 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.import_policy = YLeafList()
-                        self.import_policy.parent = self
-                        self.import_policy.name = 'import_policy'
+                        self.default_export_policy = None
                         self.default_import_policy = None
                         self.export_policy = YLeafList()
                         self.export_policy.parent = self
                         self.export_policy.name = 'export_policy'
-                        self.default_export_policy = None
+                        self.import_policy = YLeafList()
+                        self.import_policy.parent = self
+                        self.import_policy.name = 'import_policy'
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -19227,10 +19227,8 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.import_policy is not None:
-                            for child in self.import_policy:
-                                if child is not None:
-                                    return True
+                        if self.default_export_policy is not None:
+                            return True
 
                         if self.default_import_policy is not None:
                             return True
@@ -19240,8 +19238,10 @@ class Bgp(object):
                                 if child is not None:
                                     return True
 
-                        if self.default_export_policy is not None:
-                            return True
+                        if self.import_policy is not None:
+                            for child in self.import_policy:
+                                if child is not None:
+                                    return True
 
                         return False
 
@@ -19255,10 +19255,10 @@ class Bgp(object):
                     """
                     Operational state for routing policy
                     
-                    .. attribute:: import_policy
+                    .. attribute:: default_export_policy
                     
-                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
-                    	**type**\: list of str
+                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
+                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
                     
                     .. attribute:: default_import_policy
                     
@@ -19270,10 +19270,10 @@ class Bgp(object):
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\: list of str
                     
-                    .. attribute:: default_export_policy
+                    .. attribute:: import_policy
                     
-                    	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\: :py:class:`DefaultPolicyTypeEnum <ydk.models.routing.routing_policy.DefaultPolicyTypeEnum>`
+                    	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
+                    	**type**\: list of str
                     
                     
 
@@ -19284,19 +19284,19 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.import_policy = YLeafList()
-                        self.import_policy.parent = self
-                        self.import_policy.name = 'import_policy'
+                        self.default_export_policy = None
                         self.default_import_policy = None
                         self.export_policy = YLeafList()
                         self.export_policy.parent = self
                         self.export_policy.name = 'export_policy'
-                        self.default_export_policy = None
+                        self.import_policy = YLeafList()
+                        self.import_policy.parent = self
+                        self.import_policy.name = 'import_policy'
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -19307,10 +19307,8 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.import_policy is not None:
-                            for child in self.import_policy:
-                                if child is not None:
-                                    return True
+                        if self.default_export_policy is not None:
+                            return True
 
                         if self.default_import_policy is not None:
                             return True
@@ -19320,8 +19318,10 @@ class Bgp(object):
                                 if child is not None:
                                     return True
 
-                        if self.default_export_policy is not None:
-                            return True
+                        if self.import_policy is not None:
+                            for child in self.import_policy:
+                                if child is not None:
+                                    return True
 
                         return False
 
@@ -19333,7 +19333,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:apply-policy'
 
@@ -19368,11 +19368,6 @@ class Bgp(object):
                 	Configuration parameters relating to multipath
                 	**type**\: :py:class:`Config <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config>`
                 
-                .. attribute:: state
-                
-                	State parameters relating to multipath
-                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State>`
-                
                 .. attribute:: ebgp
                 
                 	Multipath parameters for eBGP
@@ -19382,6 +19377,11 @@ class Bgp(object):
                 
                 	Multipath parameters for iBGP
                 	**type**\: :py:class:`Ibgp <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp>`
+                
+                .. attribute:: state
+                
+                	State parameters relating to multipath
+                	**type**\: :py:class:`State <ydk.models.bgp.bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State>`
                 
                 
 
@@ -19394,12 +19394,12 @@ class Bgp(object):
                     self.parent = None
                     self.config = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config()
                     self.config.parent = self
-                    self.state = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State()
-                    self.state.parent = self
                     self.ebgp = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp()
                     self.ebgp.parent = self
                     self.ibgp = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp()
                     self.ibgp.parent = self
+                    self.state = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State()
+                    self.state.parent = self
 
 
                 class Config(object):
@@ -19425,7 +19425,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:config'
 
@@ -19470,7 +19470,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:state'
 
@@ -19552,7 +19552,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -19608,7 +19608,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -19635,7 +19635,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ebgp'
 
@@ -19714,7 +19714,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:config'
 
@@ -19761,7 +19761,7 @@ class Bgp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/bgp:state'
 
@@ -19785,7 +19785,7 @@ class Bgp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/bgp:ibgp'
 
@@ -19812,7 +19812,7 @@ class Bgp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/bgp:use-multiple-paths'
 
@@ -19826,13 +19826,13 @@ class Bgp(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.state is not None and self.state._has_data():
-                        return True
-
                     if self.ebgp is not None and self.ebgp._has_data():
                         return True
 
                     if self.ibgp is not None and self.ibgp._has_data():
+                        return True
+
+                    if self.state is not None and self.state._has_data():
                         return True
 
                     return False
@@ -19845,7 +19845,7 @@ class Bgp(object):
             @property
             def _common_path(self):
                 if self.peer_group_name is None:
-                    raise YPYDataValidationError('Key property peer_group_name is None')
+                    raise YPYModelError('Key property peer_group_name is None')
 
                 return '/bgp:bgp/bgp:peer-groups/bgp:peer-group[bgp:peer-group-name = ' + str(self.peer_group_name) + ']'
 
@@ -19859,7 +19859,34 @@ class Bgp(object):
                 if self.peer_group_name is not None:
                     return True
 
+                if self.add_paths is not None and self.add_paths._has_data():
+                    return True
+
+                if self.afi_safis is not None and self.afi_safis._has_data():
+                    return True
+
+                if self.apply_policy is not None and self.apply_policy._has_data():
+                    return True
+
+                if self.as_path_options is not None and self.as_path_options._has_data():
+                    return True
+
                 if self.config is not None and self.config._has_data():
+                    return True
+
+                if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
+                    return True
+
+                if self.error_handling is not None and self.error_handling._has_data():
+                    return True
+
+                if self.graceful_restart is not None and self.graceful_restart._has_data():
+                    return True
+
+                if self.logging_options is not None and self.logging_options._has_data():
+                    return True
+
+                if self.route_reflector is not None and self.route_reflector._has_data():
                     return True
 
                 if self.state is not None and self.state._has_data():
@@ -19869,33 +19896,6 @@ class Bgp(object):
                     return True
 
                 if self.transport is not None and self.transport._has_data():
-                    return True
-
-                if self.error_handling is not None and self.error_handling._has_data():
-                    return True
-
-                if self.logging_options is not None and self.logging_options._has_data():
-                    return True
-
-                if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                    return True
-
-                if self.route_reflector is not None and self.route_reflector._has_data():
-                    return True
-
-                if self.as_path_options is not None and self.as_path_options._has_data():
-                    return True
-
-                if self.add_paths is not None and self.add_paths._has_data():
-                    return True
-
-                if self.afi_safis is not None and self.afi_safis._has_data():
-                    return True
-
-                if self.graceful_restart is not None and self.graceful_restart._has_data():
-                    return True
-
-                if self.apply_policy is not None and self.apply_policy._has_data():
                     return True
 
                 if self.use_multiple_paths is not None and self.use_multiple_paths._has_data():

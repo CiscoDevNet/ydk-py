@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -61,19 +61,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config',
             False, 
             [
-            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path to a section of operational state of interest
-                (the sensor).
-                ''',
-                'path',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('exclude-filter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Filter to exclude certain values out of the state
                 values
                 ''',
                 'exclude_filter',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path to a section of operational state of interest
+                (the sensor).
+                ''',
+                'path',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -86,19 +86,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State',
             False, 
             [
-            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path to a section of operational state of interest
-                (the sensor).
-                ''',
-                'path',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('exclude-filter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Filter to exclude certain values out of the state
                 values
                 ''',
                 'exclude_filter',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path to a section of operational state of interest
+                (the sensor).
+                ''',
+                'path',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -175,19 +175,19 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.SensorGroups.SensorGroup.State', 
-                [], [], 
-                '''                State information relating to the telemetry
-                sensor group
-                ''',
-                'state',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('sensor-paths', REFERENCE_CLASS, 'SensorPaths' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.SensorGroups.SensorGroup.SensorPaths', 
                 [], [], 
                 '''                Top level container to hold a set of sensor
                 paths grouped together
                 ''',
                 'sensor_paths',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.SensorGroups.SensorGroup.State', 
+                [], [], 
+                '''                State information relating to the telemetry
+                sensor group
+                ''',
+                'state',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -424,12 +424,6 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.DestinationGroups.DestinationGroup.State', 
-                [], [], 
-                '''                Top level state container for destination groups
-                ''',
-                'state',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('destinations', REFERENCE_CLASS, 'Destinations' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.DestinationGroups.DestinationGroup.Destinations', 
                 [], [], 
                 '''                The destination container lists the destination
@@ -437,6 +431,12 @@ _meta_table = {
                 telemetry messages from the network element.
                 ''',
                 'destinations',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.DestinationGroups.DestinationGroup.State', 
+                [], [], 
+                '''                Top level state container for destination groups
+                ''',
+                'state',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -473,14 +473,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Persistent.Subscription.Config',
             False, 
             [
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifer of the telemetry subscription.
-                Will be used by configuration operations needing
-                to modify or delete the telemetry subscription
-                ''',
-                'subscription_id',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('local-source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                The IP address which will be the source of packets from
@@ -509,6 +501,14 @@ _meta_table = {
                 subsystem on the network device.
                 ''',
                 'originated_qos_marking',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Identifer of the telemetry subscription.
+                Will be used by configuration operations needing
+                to modify or delete the telemetry subscription
+                ''',
+                'subscription_id',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -521,14 +521,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Persistent.Subscription.State',
             False, 
             [
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifer of the telemetry subscription.
-                Will be used by configuration operations needing
-                to modify or delete the telemetry subscription
-                ''',
-                'subscription_id',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('local-source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                The IP address which will be the source of packets from
@@ -558,6 +550,14 @@ _meta_table = {
                 ''',
                 'originated_qos_marking',
                 'openconfig-telemetry', False),
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Identifer of the telemetry subscription.
+                Will be used by configuration operations needing
+                to modify or delete the telemetry subscription
+                ''',
+                'subscription_id',
+                'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
             'state',
@@ -569,13 +569,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config',
             False, 
             [
-            _MetaInfoClassMember('sensor-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reference to the sensor group which is used in the profile
+            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Maximum time interval in seconds that may pass
+                between updates from a device to a telemetry collector.
+                If this interval expires, but there is no updated data to
+                send (such as if suppress_updates has been configured), the
+                device must send a telemetry message to the collector.
                 ''',
-                'sensor_group',
+                'heartbeat_interval',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in milliseconds between the device's sample of a
                 telemetry data source. For example, setting this to 100
@@ -594,15 +598,11 @@ _meta_table = {
                 ''',
                 'sample_interval',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Maximum time interval in seconds that may pass
-                between updates from a device to a telemetry collector.
-                If this interval expires, but there is no updated data to
-                send (such as if suppress_updates has been configured), the
-                device must send a telemetry message to the collector.
+            _MetaInfoClassMember('sensor-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the sensor group which is used in the profile
                 ''',
-                'heartbeat_interval',
+                'sensor_group',
                 'openconfig-telemetry', False),
             _MetaInfoClassMember('suppress-redundant', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -626,13 +626,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State',
             False, 
             [
-            _MetaInfoClassMember('sensor-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Reference to the sensor group which is used in the profile
+            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Maximum time interval in seconds that may pass
+                between updates from a device to a telemetry collector.
+                If this interval expires, but there is no updated data to
+                send (such as if suppress_updates has been configured), the
+                device must send a telemetry message to the collector.
                 ''',
-                'sensor_group',
+                'heartbeat_interval',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in milliseconds between the device's sample of a
                 telemetry data source. For example, setting this to 100
@@ -651,15 +655,11 @@ _meta_table = {
                 ''',
                 'sample_interval',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Maximum time interval in seconds that may pass
-                between updates from a device to a telemetry collector.
-                If this interval expires, but there is no updated data to
-                send (such as if suppress_updates has been configured), the
-                device must send a telemetry message to the collector.
+            _MetaInfoClassMember('sensor-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the sensor group which is used in the profile
                 ''',
-                'heartbeat_interval',
+                'sensor_group',
                 'openconfig-telemetry', False),
             _MetaInfoClassMember('suppress-redundant', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -820,7 +820,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Persistent.Subscription',
             False, 
             [
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Reference to the identifier of the subscription
                 itself. The id will be the handle to refer to the
@@ -834,23 +834,6 @@ _meta_table = {
                 subscriptions on the local device
                 ''',
                 'config',
-                'openconfig-telemetry', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent.Subscription.State', 
-                [], [], 
-                '''                State parameters relating to the telemetry
-                subscriptions on the local device
-                ''',
-                'state',
-                'openconfig-telemetry', False),
-            _MetaInfoClassMember('sensor-profiles', REFERENCE_CLASS, 'SensorProfiles' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles', 
-                [], [], 
-                '''                A sensor profile is a set of sensor groups or
-                individual sensor paths which are associated with a
-                telemetry subscription. This is the source of the
-                telemetry data for the subscription to send to the
-                defined collectors.
-                ''',
-                'sensor_profiles',
                 'openconfig-telemetry', False),
             _MetaInfoClassMember('destination-groups', REFERENCE_CLASS, 'DestinationGroups' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups', 
                 [], [], 
@@ -874,6 +857,23 @@ _meta_table = {
                 a subscription.
                 ''',
                 'destination_groups',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('sensor-profiles', REFERENCE_CLASS, 'SensorProfiles' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles', 
+                [], [], 
+                '''                A sensor profile is a set of sensor groups or
+                individual sensor paths which are associated with a
+                telemetry subscription. This is the source of the
+                telemetry data for the subscription to send to the
+                defined collectors.
+                ''',
+                'sensor_profiles',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent.Subscription.State', 
+                [], [], 
+                '''                State parameters relating to the telemetry
+                subscriptions on the local device
+                ''',
+                'state',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -906,14 +906,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Dynamic.Subscription.State',
             False, 
             [
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifer of the telemetry subscription.
-                Will be used by configuration operations needing
-                to modify or delete the telemetry subscription
-                ''',
-                'subscription_id',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('destination-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IP address of the telemetry stream destination
@@ -947,7 +939,24 @@ _meta_table = {
                 ''',
                 'destination_protocol',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Maximum time interval in seconds that may pass
+                between updates from a device to a telemetry collector.
+                If this interval expires, but there is no updated data to
+                send (such as if suppress_updates has been configured), the
+                device must send a telemetry message to the collector.
+                ''',
+                'heartbeat_interval',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('originated-qos-marking', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                DSCP marking of packets generated by the telemetry
+                subsystem on the network device.
+                ''',
+                'originated_qos_marking',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time in milliseconds between the device's sample of a
                 telemetry data source. For example, setting this to 100
@@ -966,15 +975,13 @@ _meta_table = {
                 ''',
                 'sample_interval',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Maximum time interval in seconds that may pass
-                between updates from a device to a telemetry collector.
-                If this interval expires, but there is no updated data to
-                send (such as if suppress_updates has been configured), the
-                device must send a telemetry message to the collector.
+                '''                Identifer of the telemetry subscription.
+                Will be used by configuration operations needing
+                to modify or delete the telemetry subscription
                 ''',
-                'heartbeat_interval',
+                'subscription_id',
                 'openconfig-telemetry', False),
             _MetaInfoClassMember('suppress-redundant', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -987,13 +994,6 @@ _meta_table = {
                 ''',
                 'suppress_redundant',
                 'openconfig-telemetry', False),
-            _MetaInfoClassMember('originated-qos-marking', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                DSCP marking of packets generated by the telemetry
-                subsystem on the network device.
-                ''',
-                'originated_qos_marking',
-                'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
             'state',
@@ -1005,19 +1005,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State',
             False, 
             [
-            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path to a section of operational state of interest
-                (the sensor).
-                ''',
-                'path',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('exclude-filter', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Filter to exclude certain values out of the state
                 values
                 ''',
                 'exclude_filter',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path to a section of operational state of interest
+                (the sensor).
+                ''',
+                'path',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -1073,7 +1073,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions.Dynamic.Subscription',
             False, 
             [
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Reference to the identifier of the subscription
                 itself. The id will be the handle to refer to the
@@ -1081,19 +1081,19 @@ _meta_table = {
                 ''',
                 'subscription_id',
                 'openconfig-telemetry', True),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Dynamic.Subscription.State', 
-                [], [], 
-                '''                State information relating to dynamic telemetry
-                subscriptions.
-                ''',
-                'state',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('sensor-paths', REFERENCE_CLASS, 'SensorPaths' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths', 
                 [], [], 
                 '''                Top level container to hold a set of sensor
                 paths grouped together
                 ''',
                 'sensor_paths',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Dynamic.Subscription.State', 
+                [], [], 
+                '''                State information relating to dynamic telemetry
+                subscriptions.
+                ''',
+                'state',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -1125,16 +1125,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem.Subscriptions',
             False, 
             [
-            _MetaInfoClassMember('persistent', REFERENCE_CLASS, 'Persistent' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent', 
-                [], [], 
-                '''                This container holds information relating to persistent
-                telemetry subscriptions. A persistent telemetry
-                subscription is configued locally on the device through
-                configuration, and is persistent across device restarts or
-                other redundancy changes.
-                ''',
-                'persistent',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('dynamic', REFERENCE_CLASS, 'Dynamic' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Dynamic', 
                 [], [], 
                 '''                This container holds information relating to dynamic
@@ -1144,6 +1134,16 @@ _meta_table = {
                 reset or otherwise torn down.
                 ''',
                 'dynamic',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('persistent', REFERENCE_CLASS, 'Persistent' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions.Persistent', 
+                [], [], 
+                '''                This container holds information relating to persistent
+                telemetry subscriptions. A persistent telemetry
+                subscription is configued locally on the device through
+                configuration, and is persistent across device restarts or
+                other redundancy changes.
+                ''',
+                'persistent',
                 'openconfig-telemetry', False),
             ],
             'openconfig-telemetry',
@@ -1156,18 +1156,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetrySystem',
             False, 
             [
-            _MetaInfoClassMember('sensor-groups', REFERENCE_CLASS, 'SensorGroups' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.SensorGroups', 
-                [], [], 
-                '''                Top level container for sensor-groups.
-                ''',
-                'sensor_groups',
-                'openconfig-telemetry', False),
             _MetaInfoClassMember('destination-groups', REFERENCE_CLASS, 'DestinationGroups' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.DestinationGroups', 
                 [], [], 
                 '''                Top level container for destination group configuration
                 and state.
                 ''',
                 'destination_groups',
+                'openconfig-telemetry', False),
+            _MetaInfoClassMember('sensor-groups', REFERENCE_CLASS, 'SensorGroups' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.SensorGroups', 
+                [], [], 
+                '''                Top level container for sensor-groups.
+                ''',
+                'sensor_groups',
                 'openconfig-telemetry', False),
             _MetaInfoClassMember('subscriptions', REFERENCE_CLASS, 'Subscriptions' , 'ydk.models.openconfig.openconfig_telemetry', 'TelemetrySystem.Subscriptions', 
                 [], [], 

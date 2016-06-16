@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -60,6 +60,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.SystemInformation',
             False, 
             [
+            _MetaInfoClassMember('is-default-response', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                True if promptdefault response is true
+                ''',
+                'is_default_response',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-running', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                True if SAM status information runs
@@ -72,12 +78,6 @@ _meta_table = {
                 ''',
                 'prompt_interval',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('is-default-response', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                True if promptdefault response is true
-                ''',
-                'is_default_response',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
             'system-information',
@@ -89,29 +89,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.LogContents.LogContent.Logs',
             False, 
             [
-            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Log time
-                ''',
-                'time',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('code', REFERENCE_ENUM_CLASS, 'LogCodeEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogCodeEnum', 
                 [], [], 
                 '''                Log code
                 ''',
                 'code',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('target-device', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Target device
-                ''',
-                'target_device',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Device index
-                ''',
-                'index',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('error', REFERENCE_ENUM_CLASS, 'LogErrorEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogErrorEnum', 
                 [], [], 
@@ -119,17 +101,17 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Device index
+                ''',
+                'index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('issuer', REFERENCE_ENUM_CLASS, 'CertificateIssuerEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'CertificateIssuerEnum', 
                 [], [], 
                 '''                Issuer of the certificate
                 ''',
                 'issuer',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('serial-no', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Serial number
-                ''',
-                'serial_no',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('sam-table-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -137,11 +119,11 @@ _meta_table = {
                 ''',
                 'sam_table_index',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('update-time', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('serial-no', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Last update time of the certificate
+                '''                Serial number
                 ''',
-                'update_time',
+                'serial_no',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('source-device', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -154,6 +136,24 @@ _meta_table = {
                 '''                Log table information
                 ''',
                 'table',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('target-device', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Target device
+                ''',
+                'target_device',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Log time
+                ''',
+                'time',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('update-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last update time of the certificate
+                ''',
+                'update_time',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -172,12 +172,6 @@ _meta_table = {
                 ''',
                 'number_of_lines',
                 'Cisco-IOS-XR-crypto-sam-oper', True),
-            _MetaInfoClassMember('total-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total log entries available
-                ''',
-                'total_entries',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('entries-shown', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total entries shown
@@ -189,6 +183,12 @@ _meta_table = {
                 '''                SAM logs
                 ''',
                 'logs',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('total-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total log entries available
+                ''',
+                'total_entries',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -218,11 +218,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.Devices.Device.Certificate.Brief.CertificateFlags',
             False, 
             [
-            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Trusted flag
+                '''                Expired flag
                 ''',
-                'is_trusted',
+                'is_expired',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-revoked', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -230,11 +230,11 @@ _meta_table = {
                 ''',
                 'is_revoked',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Expired flag
+                '''                Trusted flag
                 ''',
-                'is_expired',
+                'is_trusted',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-validated', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -259,17 +259,17 @@ _meta_table = {
                 ''',
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Certificate location
-                ''',
-                'location',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Certificate location
+                ''',
+                'location',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -282,11 +282,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags',
             False, 
             [
-            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Trusted flag
+                '''                Expired flag
                 ''',
-                'is_trusted',
+                'is_expired',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-revoked', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -294,11 +294,11 @@ _meta_table = {
                 ''',
                 'is_revoked',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Expired flag
+                '''                Trusted flag
                 ''',
-                'is_expired',
+                'is_trusted',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-validated', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -323,17 +323,17 @@ _meta_table = {
                 ''',
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Certificate location
-                ''',
-                'location',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Certificate location
+                ''',
+                'location',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -449,11 +449,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.Packages.Package.CertificateFlags',
             False, 
             [
-            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Trusted flag
+                '''                Expired flag
                 ''',
-                'is_trusted',
+                'is_expired',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-revoked', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -461,11 +461,11 @@ _meta_table = {
                 ''',
                 'is_revoked',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('is-expired', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('is-trusted', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Expired flag
+                '''                Trusted flag
                 ''',
-                'is_expired',
+                'is_trusted',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('is-validated', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -496,17 +496,17 @@ _meta_table = {
                 ''',
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Certificate location
-                ''',
-                'location',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Certificate location
+                ''',
+                'location',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -543,17 +543,17 @@ _meta_table = {
                 ''',
                 'common_name',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('organization', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Organization
-                ''',
-                'organization',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('country', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Country
                 ''',
                 'country',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('organization', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Organization
+                ''',
+                'organization',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -566,17 +566,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail',
             False, 
             [
-            _MetaInfoClassMember('issuer', REFERENCE_CLASS, 'Issuer' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer', 
-                [], [], 
-                '''                Issuer name
-                ''',
-                'issuer',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('crl-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                 CRL index
                 ''',
                 'crl_index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('issuer', REFERENCE_CLASS, 'Issuer' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer', 
+                [], [], 
+                '''                Issuer name
+                ''',
+                'issuer',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('updates', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -641,17 +641,17 @@ _meta_table = {
                 ''',
                 'common_name',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('organization', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Organization
-                ''',
-                'organization',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('country', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Country
                 ''',
                 'country',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('organization', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Organization
+                ''',
+                'organization',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',
@@ -664,17 +664,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.CertificateRevocationListSummary',
             False, 
             [
-            _MetaInfoClassMember('issuer', REFERENCE_CLASS, 'Issuer' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocationListSummary.Issuer', 
-                [], [], 
-                '''                Issuer name
-                ''',
-                'issuer',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('crl-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                 CRL index
                 ''',
                 'crl_index',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('issuer', REFERENCE_CLASS, 'Issuer' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocationListSummary.Issuer', 
+                [], [], 
+                '''                Issuer name
+                ''',
+                'issuer',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('updates', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -693,29 +693,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam',
             False, 
             [
-            _MetaInfoClassMember('system-information', REFERENCE_CLASS, 'SystemInformation' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.SystemInformation', 
+            _MetaInfoClassMember('certificate-revocation-list-summary', REFERENCE_CLASS, 'CertificateRevocationListSummary' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocationListSummary', 
                 [], [], 
-                '''                SAM system information
+                '''                Certificate revocation list summary information 
                 ''',
-                'system_information',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('log-contents', REFERENCE_CLASS, 'LogContents' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.LogContents', 
-                [], [], 
-                '''                SAM log content table information
-                ''',
-                'log_contents',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('devices', REFERENCE_CLASS, 'Devices' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.Devices', 
-                [], [], 
-                '''                Certificate device table information
-                ''',
-                'devices',
-                'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('packages', REFERENCE_CLASS, 'Packages' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.Packages', 
-                [], [], 
-                '''                SAM certificate information  package
-                ''',
-                'packages',
+                'certificate_revocation_list_summary',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-revocations', REFERENCE_CLASS, 'CertificateRevocations' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocations', 
                 [], [], 
@@ -724,11 +706,29 @@ _meta_table = {
                 ''',
                 'certificate_revocations',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('certificate-revocation-list-summary', REFERENCE_CLASS, 'CertificateRevocationListSummary' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.CertificateRevocationListSummary', 
+            _MetaInfoClassMember('devices', REFERENCE_CLASS, 'Devices' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.Devices', 
                 [], [], 
-                '''                Certificate revocation list summary information 
+                '''                Certificate device table information
                 ''',
-                'certificate_revocation_list_summary',
+                'devices',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('log-contents', REFERENCE_CLASS, 'LogContents' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.LogContents', 
+                [], [], 
+                '''                SAM log content table information
+                ''',
+                'log_contents',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('packages', REFERENCE_CLASS, 'Packages' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.Packages', 
+                [], [], 
+                '''                SAM certificate information  package
+                ''',
+                'packages',
+                'Cisco-IOS-XR-crypto-sam-oper', False),
+            _MetaInfoClassMember('system-information', REFERENCE_CLASS, 'SystemInformation' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'Sam.SystemInformation', 
+                [], [], 
+                '''                SAM system information
+                ''',
+                'system_information',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             ],
             'Cisco-IOS-XR-crypto-sam-oper',

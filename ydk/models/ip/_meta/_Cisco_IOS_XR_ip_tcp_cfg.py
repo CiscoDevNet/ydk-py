@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -47,17 +47,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpTcp.Throttle',
             False, 
             [
-            _MetaInfoClassMember('tcpmin-throttle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                Min throttle
-                ''',
-                'tcpmin_throttle',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('tcpmaxthrottle', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Max throttle
                 ''',
                 'tcpmaxthrottle',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('tcpmin-throttle', ATTRIBUTE, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                Min throttle
+                ''',
+                'tcpmin_throttle',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -93,47 +93,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpTcp',
             False, 
             [
-            _MetaInfoClassMember('directory', REFERENCE_CLASS, 'Directory' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.Directory', 
-                [], [], 
-                '''                TCP directory details
-                ''',
-                'directory',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('throttle', REFERENCE_CLASS, 'Throttle' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.Throttle', 
-                [], [], 
-                '''                Throttle TCP receive buffer (in percentage)
-                ''',
-                'throttle',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('num-thread', REFERENCE_CLASS, 'NumThread' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.NumThread', 
-                [], [], 
-                '''                TCP InQueue and OutQueue threads
-                ''',
-                'num_thread',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('accept-rate', ATTRIBUTE, 'int' , None, None, 
                 [(1, 1000)], [], 
                 '''                TCP connection accept rate
                 ''',
                 'accept_rate',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('selective-ack', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('directory', REFERENCE_CLASS, 'Directory' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.Directory', 
                 [], [], 
-                '''                Enable TCP selective-ACK
+                '''                TCP directory details
                 ''',
-                'selective_ack',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(2048, 65535)], [], 
-                '''                TCP receive window size (bytes)
-                ''',
-                'window_size',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('receive-q', ATTRIBUTE, 'int' , None, None, 
-                [(40, 800)], [], 
-                '''                TCP receive Queue Size
-                ''',
-                'receive_q',
+                'directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-segment-size', ATTRIBUTE, 'int' , None, None, 
                 [(68, 10000)], [], 
@@ -141,11 +111,41 @@ _meta_table = {
                 ''',
                 'maximum_segment_size',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('num-thread', REFERENCE_CLASS, 'NumThread' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.NumThread', 
+                [], [], 
+                '''                TCP InQueue and OutQueue threads
+                ''',
+                'num_thread',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('path-mtu-discovery', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Aging time; 0 for infinite, and range be (10,30)
+                ''',
+                'path_mtu_discovery',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('receive-q', ATTRIBUTE, 'int' , None, None, 
+                [(40, 800)], [], 
+                '''                TCP receive Queue Size
+                ''',
+                'receive_q',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('selective-ack', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable TCP selective-ACK
+                ''',
+                'selective_ack',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('syn-wait-time', ATTRIBUTE, 'int' , None, None, 
                 [(5, 30)], [], 
                 '''                Time to wait on new TCP connections in seconds
                 ''',
                 'syn_wait_time',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('throttle', REFERENCE_CLASS, 'Throttle' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'IpTcp.Throttle', 
+                [], [], 
+                '''                Throttle TCP receive buffer (in percentage)
+                ''',
+                'throttle',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('timestamp', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -153,11 +153,11 @@ _meta_table = {
                 ''',
                 'timestamp',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('path-mtu-discovery', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Aging time; 0 for infinite, and range be (10,30)
+            _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
+                [(2048, 65535)], [], 
+                '''                TCP receive window size (bytes)
                 ''',
-                'path_mtu_discovery',
+                'window_size',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -305,12 +305,12 @@ _meta_table = {
                 ''',
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
-                '''                Set number of allowable servers, 0 for
-                no-limit
+            _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set IP DSCP (DiffServ CodePoint) for TFTP
+                Server Packets
                 ''',
-                'maximum_server',
+                'dscp_value',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('home-directory', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -319,12 +319,12 @@ _meta_table = {
                 ''',
                 'home_directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set IP DSCP (DiffServ CodePoint) for TFTP
-                Server Packets
+            _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
+                [(0, 2147483647)], [], 
+                '''                Set number of allowable servers, 0 for
+                no-limit
                 ''',
-                'dscp_value',
+                'maximum_server',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -423,12 +423,12 @@ _meta_table = {
                 ''',
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
-                '''                Set number of allowable servers, 0 for
-                no-limit
+            _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set IP DSCP (DiffServ CodePoint) for TFTP
+                Server Packets
                 ''',
-                'maximum_server',
+                'dscp_value',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('home-directory', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -437,12 +437,12 @@ _meta_table = {
                 ''',
                 'home_directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set IP DSCP (DiffServ CodePoint) for TFTP
-                Server Packets
+            _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
+                [(0, 2147483647)], [], 
+                '''                Set number of allowable servers, 0 for
+                no-limit
                 ''',
-                'dscp_value',
+                'maximum_server',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -501,17 +501,17 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', True),
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Vrfs.Vrf.Ipv6', 
-                [], [], 
-                '''                IPV6 related services
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Vrfs.Vrf.Ipv4', 
                 [], [], 
                 '''                IPV4 related services
                 ''',
                 'ipv4',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Vrfs.Vrf.Ipv6', 
+                [], [], 
+                '''                IPV6 related services
+                ''',
+                'ipv6',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -606,17 +606,17 @@ _meta_table = {
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Vrfs', 
-                [], [], 
-                '''                VRF table
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Ipv6', 
                 [], [], 
                 '''                IPV6 related services
                 ''',
                 'ipv6',
+                'Cisco-IOS-XR-ip-tcp-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.Cinetd.Services.Vrfs', 
+                [], [], 
+                '''                VRF table
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-tcp-cfg',
@@ -692,17 +692,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ip.ForwardProtocol.Udp',
             False, 
             [
-            _MetaInfoClassMember('ports', REFERENCE_CLASS, 'Ports' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.ForwardProtocol.Udp.Ports', 
-                [], [], 
-                '''                Port configuration
-                ''',
-                'ports',
-                'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable IP Forward Protocol UDP
                 ''',
                 'disable',
+                'Cisco-IOS-XR-ip-udp-cfg', False),
+            _MetaInfoClassMember('ports', REFERENCE_CLASS, 'Ports' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg', 'Ip.ForwardProtocol.Udp.Ports', 
+                [], [], 
+                '''                Port configuration
+                ''',
+                'ports',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-udp-cfg',

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -64,7 +64,7 @@ class TransportServiceEnum(Enum):
 
 
 
-class HostAfIdBase_Identity(object):
+class HostAfIdBaseIdentity(object):
     """
     Base identity for Host\-af\-id
     
@@ -81,30 +81,10 @@ class HostAfIdBase_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['HostAfIdBase_Identity']['meta_info']
+        return meta._meta_table['HostAfIdBaseIdentity']['meta_info']
 
 
-class Ipv6_Identity(HostAfIdBase_Identity):
-    """
-    IPv6 family
-    
-    
-
-    """
-
-    _prefix = 'Cisco-IOS-XR-tty-management-oper'
-    _revision = '2015-01-07'
-
-    def __init__(self):
-        HostAfIdBase_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['Ipv6_Identity']['meta_info']
-
-
-class Ipv4_Identity(HostAfIdBase_Identity):
+class Ipv4Identity(HostAfIdBaseIdentity):
     """
     IPv4 family
     
@@ -116,11 +96,31 @@ class Ipv4_Identity(HostAfIdBase_Identity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        HostAfIdBase_Identity.__init__(self)
+        HostAfIdBaseIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['Ipv4_Identity']['meta_info']
+        return meta._meta_table['Ipv4Identity']['meta_info']
+
+
+class Ipv6Identity(HostAfIdBaseIdentity):
+    """
+    IPv6 family
+    
+    
+
+    """
+
+    _prefix = 'Cisco-IOS-XR-tty-management-oper'
+    _revision = '2015-01-07'
+
+    def __init__(self):
+        HostAfIdBaseIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_oper as meta
+        return meta._meta_table['Ipv6Identity']['meta_info']
 
 

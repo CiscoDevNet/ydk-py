@@ -22,7 +22,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -552,20 +552,20 @@ class MacAccounting(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: state
+            .. attribute:: egress_statistic
             
-            	MAC accounting state for the interface
-            	**type**\: :py:class:`State <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.State>`
+            	Egress MAC accounting statistics
+            	**type**\: list of :py:class:`EgressStatistic <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.EgressStatistic>`
             
             .. attribute:: ingress_statistic
             
             	Ingress MAC accounting statistics
             	**type**\: list of :py:class:`IngressStatistic <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.IngressStatistic>`
             
-            .. attribute:: egress_statistic
+            .. attribute:: state
             
-            	Egress MAC accounting statistics
-            	**type**\: list of :py:class:`EgressStatistic <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.EgressStatistic>`
+            	MAC accounting state for the interface
+            	**type**\: :py:class:`State <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.State>`
             
             
 
@@ -577,40 +577,40 @@ class MacAccounting(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
-                self.state = MacAccounting.Interfaces.Interface.State()
-                self.state.parent = self
-                self.ingress_statistic = YList()
-                self.ingress_statistic.parent = self
-                self.ingress_statistic.name = 'ingress_statistic'
                 self.egress_statistic = YList()
                 self.egress_statistic.parent = self
                 self.egress_statistic.name = 'egress_statistic'
+                self.ingress_statistic = YList()
+                self.ingress_statistic.parent = self
+                self.ingress_statistic.name = 'ingress_statistic'
+                self.state = MacAccounting.Interfaces.Interface.State()
+                self.state.parent = self
 
 
             class State(object):
                 """
                 MAC accounting state for the interface
                 
-                .. attribute:: is_ingress_enabled
-                
-                	MAC accounting on on ingress
-                	**type**\: bool
-                
                 .. attribute:: is_egress_enabled
                 
                 	MAC accounting on on egress
                 	**type**\: bool
                 
-                .. attribute:: number_available_ingress
+                .. attribute:: is_ingress_enabled
                 
-                	MAC accounting entries available on ingress
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	MAC accounting on on ingress
+                	**type**\: bool
                 
                 .. attribute:: number_available_egress
                 
                 	MAC accounting entries available on egress
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: number_available_ingress
+                
+                	MAC accounting entries available on ingress
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -631,16 +631,16 @@ class MacAccounting(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.is_ingress_enabled = None
                     self.is_egress_enabled = None
-                    self.number_available_ingress = None
+                    self.is_ingress_enabled = None
                     self.number_available_egress = None
+                    self.number_available_ingress = None
                     self.number_available_on_node = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:state'
 
@@ -651,16 +651,16 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_ingress_enabled is not None:
-                        return True
-
                     if self.is_egress_enabled is not None:
                         return True
 
-                    if self.number_available_ingress is not None:
+                    if self.is_ingress_enabled is not None:
                         return True
 
                     if self.number_available_egress is not None:
+                        return True
+
+                    if self.number_available_ingress is not None:
                         return True
 
                     if self.number_available_on_node is not None:
@@ -678,6 +678,13 @@ class MacAccounting(object):
                 """
                 Ingress MAC accounting statistics
                 
+                .. attribute:: bytes
+                
+                	Number of bytes counted
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: mac_address
                 
                 	48bit MAC address
@@ -688,14 +695,7 @@ class MacAccounting(object):
                 .. attribute:: packets
                 
                 	Number of packets counted
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes
-                
-                	Number of bytes counted
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
@@ -708,14 +708,14 @@ class MacAccounting(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bytes = None
                     self.mac_address = None
                     self.packets = None
-                    self.bytes = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:ingress-statistic'
 
@@ -726,13 +726,13 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.bytes is not None:
+                        return True
+
                     if self.mac_address is not None:
                         return True
 
                     if self.packets is not None:
-                        return True
-
-                    if self.bytes is not None:
                         return True
 
                     return False
@@ -747,6 +747,13 @@ class MacAccounting(object):
                 """
                 Egress MAC accounting statistics
                 
+                .. attribute:: bytes
+                
+                	Number of bytes counted
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: mac_address
                 
                 	48bit MAC address
@@ -757,14 +764,7 @@ class MacAccounting(object):
                 .. attribute:: packets
                 
                 	Number of packets counted
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes
-                
-                	Number of bytes counted
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
@@ -777,14 +777,14 @@ class MacAccounting(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bytes = None
                     self.mac_address = None
                     self.packets = None
-                    self.bytes = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:egress-statistic'
 
@@ -795,13 +795,13 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.bytes is not None:
+                        return True
+
                     if self.mac_address is not None:
                         return True
 
                     if self.packets is not None:
-                        return True
-
-                    if self.bytes is not None:
                         return True
 
                     return False
@@ -814,7 +814,7 @@ class MacAccounting(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/Cisco-IOS-XR-l2-eth-infra-oper:interfaces/Cisco-IOS-XR-l2-eth-infra-oper:interface[Cisco-IOS-XR-l2-eth-infra-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -828,18 +828,18 @@ class MacAccounting(object):
                 if self.interface_name is not None:
                     return True
 
-                if self.state is not None and self.state._has_data():
-                    return True
+                if self.egress_statistic is not None:
+                    for child_ref in self.egress_statistic:
+                        if child_ref._has_data():
+                            return True
 
                 if self.ingress_statistic is not None:
                     for child_ref in self.ingress_statistic:
                         if child_ref._has_data():
                             return True
 
-                if self.egress_statistic is not None:
-                    for child_ref in self.egress_statistic:
-                        if child_ref._has_data():
-                            return True
+                if self.state is not None and self.state._has_data():
+                    return True
 
                 return False
 
@@ -950,11 +950,6 @@ class Vlan(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: trunks
-            
-            	VLAN trunk table (specific to this node)
-            	**type**\: :py:class:`Trunks <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks>`
-            
             .. attribute:: interfaces
             
             	VLAN interface table (specific to this node)
@@ -964,6 +959,11 @@ class Vlan(object):
             
             	VLAN tag allocation table (specific to this node)
             	**type**\: :py:class:`TagAllocations <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations>`
+            
+            .. attribute:: trunks
+            
+            	VLAN trunk table (specific to this node)
+            	**type**\: :py:class:`Trunks <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks>`
             
             
 
@@ -975,12 +975,12 @@ class Vlan(object):
             def __init__(self):
                 self.parent = None
                 self.node_id = None
-                self.trunks = Vlan.Nodes.Node.Trunks()
-                self.trunks.parent = self
                 self.interfaces = Vlan.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self.tag_allocations = Vlan.Nodes.Node.TagAllocations()
                 self.tag_allocations.parent = self
+                self.trunks = Vlan.Nodes.Node.Trunks()
+                self.trunks.parent = self
 
 
             class Trunks(object):
@@ -1018,6 +1018,20 @@ class Vlan(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
+                    .. attribute:: dot1ad_count
+                    
+                    	Number of subinterfaces with 802.1ad outer tag
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_xr
+                    
+                    	Interface name
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
                     .. attribute:: layer2_sub_interfaces
                     
                     	Layer 2 Transport Subinterfaces
@@ -1028,17 +1042,10 @@ class Vlan(object):
                     	Layer 3 Terminated Subinterfaces
                     	**type**\: :py:class:`Layer3SubInterfaces <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
                     
-                    .. attribute:: interface_xr
+                    .. attribute:: mac_filtering
                     
-                    	Interface name
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: state
-                    
-                    	Interface state
-                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
+                    	IEEE 802.1Q/802.1ad multicast MAC address filtering
+                    	**type**\: :py:class:`EthFilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthFilteringEnum>`
                     
                     .. attribute:: mtu
                     
@@ -1052,12 +1059,10 @@ class Vlan(object):
                     	QinQ Outer Tag Ether Type
                     	**type**\: :py:class:`VlanQinqOuterEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtypeEnum>`
                     
-                    .. attribute:: dot1ad_count
+                    .. attribute:: state
                     
-                    	Number of subinterfaces with 802.1ad outer tag
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Interface state
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: untagged_interface
                     
@@ -1065,11 +1070,6 @@ class Vlan(object):
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: mac_filtering
-                    
-                    	IEEE 802.1Q/802.1ad multicast MAC address filtering
-                    	**type**\: :py:class:`EthFilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthFilteringEnum>`
                     
                     
 
@@ -1081,38 +1081,33 @@ class Vlan(object):
                     def __init__(self):
                         self.parent = None
                         self.interface = None
+                        self.dot1ad_count = None
+                        self.interface_xr = None
                         self.layer2_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces()
                         self.layer2_sub_interfaces.parent = self
                         self.layer3_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces()
                         self.layer3_sub_interfaces.parent = self
-                        self.interface_xr = None
-                        self.state = None
+                        self.mac_filtering = None
                         self.mtu = None
                         self.qinq_outer_ether_type = None
-                        self.dot1ad_count = None
+                        self.state = None
                         self.untagged_interface = None
-                        self.mac_filtering = None
 
 
                     class Layer2SubInterfaces(object):
                         """
                         Layer 2 Transport Subinterfaces
                         
-                        .. attribute:: state_counters
+                        .. attribute:: dot1q_count
                         
-                        	Numbers of subinterfaces up, down or administratively shut down
-                        	**type**\: :py:class:`StateCounters <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
-                        
-                        .. attribute:: total_count
-                        
-                        	Total number of Layer 2 subinterfaces configured
+                        	Number of single tagged subinterfaces
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: dot1q_count
+                        .. attribute:: qin_any_count
                         
-                        	Number of single tagged subinterfaces
+                        	Number of double tagged subinterfaces with wildcarded inner tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1124,9 +1119,14 @@ class Vlan(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: qin_any_count
+                        .. attribute:: state_counters
                         
-                        	Number of double tagged subinterfaces with wildcarded inner tag
+                        	Numbers of subinterfaces up, down or administratively shut down
+                        	**type**\: :py:class:`StateCounters <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
+                        
+                        .. attribute:: total_count
+                        
+                        	Total number of Layer 2 subinterfaces configured
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1147,12 +1147,12 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.dot1q_count = None
+                            self.qin_any_count = None
+                            self.qin_q_count = None
                             self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters()
                             self.state_counters.parent = self
                             self.total_count = None
-                            self.dot1q_count = None
-                            self.qin_q_count = None
-                            self.qin_any_count = None
                             self.untagged_count = None
 
 
@@ -1161,9 +1161,9 @@ class Vlan(object):
                             Numbers of subinterfaces up, down or
                             administratively shut down
                             
-                            .. attribute:: up
+                            .. attribute:: admin_down
                             
-                            	Number of subinterfaces which are up
+                            	Number of subinterfaces which are administrativelyshutdown
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1175,9 +1175,9 @@ class Vlan(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: admin_down
+                            .. attribute:: up
                             
-                            	Number of subinterfaces which are administrativelyshutdown
+                            	Number of subinterfaces which are up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1191,14 +1191,14 @@ class Vlan(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.up = None
-                                self.down = None
                                 self.admin_down = None
+                                self.down = None
+                                self.up = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:state-counters'
 
@@ -1209,13 +1209,13 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.up is not None:
+                                if self.admin_down is not None:
                                     return True
 
                                 if self.down is not None:
                                     return True
 
-                                if self.admin_down is not None:
+                                if self.up is not None:
                                     return True
 
                                 return False
@@ -1228,7 +1228,7 @@ class Vlan(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:layer2-sub-interfaces'
 
@@ -1239,19 +1239,19 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.state_counters is not None and self.state_counters._has_data():
-                                return True
-
-                            if self.total_count is not None:
-                                return True
-
                             if self.dot1q_count is not None:
+                                return True
+
+                            if self.qin_any_count is not None:
                                 return True
 
                             if self.qin_q_count is not None:
                                 return True
 
-                            if self.qin_any_count is not None:
+                            if self.state_counters is not None and self.state_counters._has_data():
+                                return True
+
+                            if self.total_count is not None:
                                 return True
 
                             if self.untagged_count is not None:
@@ -1269,6 +1269,27 @@ class Vlan(object):
                         """
                         Layer 3 Terminated Subinterfaces
                         
+                        .. attribute:: dot1q_count
+                        
+                        	Number of single tagged subinterfaces
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: native_vlan
+                        
+                        	Native VLAN ID configured on trunk
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: qin_q_count
+                        
+                        	Number of double tagged subinterfaces
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: state_counters
                         
                         	Numbers of subinterfaces up, down or administratively shut down
@@ -1281,33 +1302,12 @@ class Vlan(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: dot1q_count
-                        
-                        	Number of single tagged subinterfaces
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: qin_q_count
-                        
-                        	Number of double tagged subinterfaces
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: untagged_count
                         
                         	Number of subinterfaces without VLAN tag configuration
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: native_vlan
-                        
-                        	Native VLAN ID configured on trunk
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
                         
                         
 
@@ -1318,13 +1318,13 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.dot1q_count = None
+                            self.native_vlan = None
+                            self.qin_q_count = None
                             self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters()
                             self.state_counters.parent = self
                             self.total_count = None
-                            self.dot1q_count = None
-                            self.qin_q_count = None
                             self.untagged_count = None
-                            self.native_vlan = None
 
 
                         class StateCounters(object):
@@ -1332,9 +1332,9 @@ class Vlan(object):
                             Numbers of subinterfaces up, down or
                             administratively shut down
                             
-                            .. attribute:: up
+                            .. attribute:: admin_down
                             
-                            	Number of subinterfaces which are up
+                            	Number of subinterfaces which are administrativelyshutdown
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1346,9 +1346,9 @@ class Vlan(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: admin_down
+                            .. attribute:: up
                             
-                            	Number of subinterfaces which are administrativelyshutdown
+                            	Number of subinterfaces which are up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1362,14 +1362,14 @@ class Vlan(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.up = None
-                                self.down = None
                                 self.admin_down = None
+                                self.down = None
+                                self.up = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:state-counters'
 
@@ -1380,13 +1380,13 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.up is not None:
+                                if self.admin_down is not None:
                                     return True
 
                                 if self.down is not None:
                                     return True
 
-                                if self.admin_down is not None:
+                                if self.up is not None:
                                     return True
 
                                 return False
@@ -1399,7 +1399,7 @@ class Vlan(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:layer3-sub-interfaces'
 
@@ -1410,22 +1410,22 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.dot1q_count is not None:
+                                return True
+
+                            if self.native_vlan is not None:
+                                return True
+
+                            if self.qin_q_count is not None:
+                                return True
+
                             if self.state_counters is not None and self.state_counters._has_data():
                                 return True
 
                             if self.total_count is not None:
                                 return True
 
-                            if self.dot1q_count is not None:
-                                return True
-
-                            if self.qin_q_count is not None:
-                                return True
-
                             if self.untagged_count is not None:
-                                return True
-
-                            if self.native_vlan is not None:
                                 return True
 
                             return False
@@ -1438,9 +1438,9 @@ class Vlan(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface is None:
-                            raise YPYDataValidationError('Key property interface is None')
+                            raise YPYModelError('Key property interface is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:trunk[Cisco-IOS-XR-l2-eth-infra-oper:interface = ' + str(self.interface) + ']'
 
@@ -1454,16 +1454,19 @@ class Vlan(object):
                         if self.interface is not None:
                             return True
 
+                        if self.dot1ad_count is not None:
+                            return True
+
+                        if self.interface_xr is not None:
+                            return True
+
                         if self.layer2_sub_interfaces is not None and self.layer2_sub_interfaces._has_data():
                             return True
 
                         if self.layer3_sub_interfaces is not None and self.layer3_sub_interfaces._has_data():
                             return True
 
-                        if self.interface_xr is not None:
-                            return True
-
-                        if self.state is not None:
+                        if self.mac_filtering is not None:
                             return True
 
                         if self.mtu is not None:
@@ -1472,13 +1475,10 @@ class Vlan(object):
                         if self.qinq_outer_ether_type is not None:
                             return True
 
-                        if self.dot1ad_count is not None:
+                        if self.state is not None:
                             return True
 
                         if self.untagged_interface is not None:
-                            return True
-
-                        if self.mac_filtering is not None:
                             return True
 
                         return False
@@ -1491,7 +1491,7 @@ class Vlan(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:trunks'
 
@@ -1562,6 +1562,13 @@ class Vlan(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
+                    .. attribute:: mtu
+                    
+                    	L2 MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: parent_interface
                     
                     	Parent interface
@@ -1578,13 +1585,6 @@ class Vlan(object):
                     
                     	Interface state
                     	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
-                    
-                    .. attribute:: mtu
-                    
-                    	L2 MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: switched_mtu
                     
@@ -1606,10 +1606,10 @@ class Vlan(object):
                         self.encapsulation_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails()
                         self.encapsulation_details.parent = self
                         self.interface_xr = None
+                        self.mtu = None
                         self.parent_interface = None
                         self.service = None
                         self.state = None
-                        self.mtu = None
                         self.switched_mtu = None
 
 
@@ -1617,53 +1617,10 @@ class Vlan(object):
                         """
                         Encapsulation type and tag stack
                         
-                        .. attribute:: stack
-                        
-                        	Stack value
-                        	**type**\: :py:class:`Stack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack>`
-                        
-                        .. attribute:: service_instance_details
-                        
-                        	Service Instance encapsulation
-                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails>`
-                        
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack>`
-                        
-                        .. attribute:: vlan_encapsulation
-                        
-                        	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
-                        
-                        .. attribute:: tag
-                        
-                        	Tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: outer_tag
-                        
-                        	Outer tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: native_tag
-                        
-                        	Native tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: dot1ad_tag
-                        
-                        	802.1ad tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -1679,6 +1636,49 @@ class Vlan(object):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: dot1ad_tag
+                        
+                        	802.1ad tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: native_tag
+                        
+                        	Native tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: outer_tag
+                        
+                        	Outer tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: service_instance_details
+                        
+                        	Service Instance encapsulation
+                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails>`
+                        
+                        .. attribute:: stack
+                        
+                        	Stack value
+                        	**type**\: :py:class:`Stack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack>`
+                        
+                        .. attribute:: tag
+                        
+                        	Tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: vlan_encapsulation
+                        
+                        	VLANEncapsulation
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
+                        
                         
 
                         """
@@ -1688,19 +1688,19 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack()
-                            self.stack.parent = self
-                            self.service_instance_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails()
-                            self.service_instance_details.parent = self
                             self.dot1ad_dot1q_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack()
                             self.dot1ad_dot1q_stack.parent = self
-                            self.vlan_encapsulation = None
-                            self.tag = None
-                            self.outer_tag = None
-                            self.native_tag = None
-                            self.dot1ad_tag = None
                             self.dot1ad_native_tag = None
                             self.dot1ad_outer_tag = None
+                            self.dot1ad_tag = None
+                            self.native_tag = None
+                            self.outer_tag = None
+                            self.service_instance_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails()
+                            self.service_instance_details.parent = self
+                            self.stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack()
+                            self.stack.parent = self
+                            self.tag = None
+                            self.vlan_encapsulation = None
 
 
                         class Stack(object):
@@ -1736,7 +1736,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:stack'
 
@@ -1765,6 +1765,28 @@ class Vlan(object):
                             """
                             Service Instance encapsulation
                             
+                            .. attribute:: destination_mac_match
+                            
+                            	The destination MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\: bool
+                            
                             .. attribute:: local_traffic_stack
                             
                             	VLAN tags for locally\-sourced traffic
@@ -1775,27 +1797,10 @@ class Vlan(object):
                             	Payload Ethertype to match
                             	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
-                            .. attribute:: tags_popped
+                            .. attribute:: pushe
                             
-                            	Number of tags popped on ingress
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: is_exact_match
-                            
-                            	Whether the packet must match the encapsulation exactly, with no further inner tags
-                            	**type**\: bool
-                            
-                            .. attribute:: is_native_vlan
-                            
-                            	Whether this represents the native VLAN on the port
-                            	**type**\: bool
-                            
-                            .. attribute:: is_native_preserving
-                            
-                            	Whether the native VLAN is customer\-tag preserving
-                            	**type**\: bool
+                            	VLAN tags pushed on egress
+                            	**type**\: list of :py:class:`Pushe <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             .. attribute:: source_mac_match
                             
@@ -1804,22 +1809,17 @@ class Vlan(object):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
-                            .. attribute:: destination_mac_match
+                            .. attribute:: tags_popped
                             
-                            	The destination MAC address to match on ingress
-                            	**type**\: str
+                            	Number of tags popped on ingress
+                            	**type**\: int
                             
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            	**range:** 0..65535
                             
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of :py:class:`TagsToMatch <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
-                            
-                            .. attribute:: pushe
-                            
-                            	VLAN tags pushed on egress
-                            	**type**\: list of :py:class:`Pushe <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             
 
@@ -1830,21 +1830,21 @@ class Vlan(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.destination_mac_match = None
+                                self.is_exact_match = None
+                                self.is_native_preserving = None
+                                self.is_native_vlan = None
                                 self.local_traffic_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
                                 self.payload_ethertype = None
-                                self.tags_popped = None
-                                self.is_exact_match = None
-                                self.is_native_vlan = None
-                                self.is_native_preserving = None
-                                self.source_mac_match = None
-                                self.destination_mac_match = None
-                                self.tags_to_match = YList()
-                                self.tags_to_match.parent = self
-                                self.tags_to_match.name = 'tags_to_match'
                                 self.pushe = YList()
                                 self.pushe.parent = self
                                 self.pushe.name = 'pushe'
+                                self.source_mac_match = None
+                                self.tags_popped = None
+                                self.tags_to_match = YList()
+                                self.tags_to_match.parent = self
+                                self.tags_to_match.name = 'tags_to_match'
 
 
                             class LocalTrafficStack(object):
@@ -1901,7 +1901,7 @@ class Vlan(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:local-traffic-tag'
 
@@ -1928,7 +1928,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:local-traffic-stack'
 
@@ -1991,16 +1991,16 @@ class Vlan(object):
                                     """
                                     VLAN Ids to match
                                     
-                                    .. attribute:: vlan_id_low
+                                    .. attribute:: vlan_id_high
                                     
-                                    	VLAN ID Low
+                                    	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: vlan_id_high
+                                    .. attribute:: vlan_id_low
                                     
-                                    	VLAN ID High
+                                    	VLAN ID Low
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
@@ -2014,13 +2014,13 @@ class Vlan(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.vlan_id_low = None
                                         self.vlan_id_high = None
+                                        self.vlan_id_low = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:vlan-range'
 
@@ -2031,10 +2031,10 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.vlan_id_low is not None:
+                                        if self.vlan_id_high is not None:
                                             return True
 
-                                        if self.vlan_id_high is not None:
+                                        if self.vlan_id_low is not None:
                                             return True
 
                                         return False
@@ -2047,7 +2047,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:tags-to-match'
 
@@ -2108,7 +2108,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:pushe'
 
@@ -2135,7 +2135,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:service-instance-details'
 
@@ -2146,37 +2146,37 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.destination_mac_match is not None:
+                                    return True
+
+                                if self.is_exact_match is not None:
+                                    return True
+
+                                if self.is_native_preserving is not None:
+                                    return True
+
+                                if self.is_native_vlan is not None:
+                                    return True
+
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
                                     return True
 
                                 if self.payload_ethertype is not None:
                                     return True
 
-                                if self.tags_popped is not None:
-                                    return True
-
-                                if self.is_exact_match is not None:
-                                    return True
-
-                                if self.is_native_vlan is not None:
-                                    return True
-
-                                if self.is_native_preserving is not None:
-                                    return True
+                                if self.pushe is not None:
+                                    for child_ref in self.pushe:
+                                        if child_ref._has_data():
+                                            return True
 
                                 if self.source_mac_match is not None:
                                     return True
 
-                                if self.destination_mac_match is not None:
+                                if self.tags_popped is not None:
                                     return True
 
                                 if self.tags_to_match is not None:
                                     for child_ref in self.tags_to_match:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.pushe is not None:
-                                    for child_ref in self.pushe:
                                         if child_ref._has_data():
                                             return True
 
@@ -2221,7 +2221,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:dot1ad-dot1q-stack'
 
@@ -2248,7 +2248,7 @@ class Vlan(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:encapsulation-details'
 
@@ -2259,34 +2259,34 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.service_instance_details is not None and self.service_instance_details._has_data():
-                                return True
-
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
-                                return True
-
-                            if self.vlan_encapsulation is not None:
-                                return True
-
-                            if self.tag is not None:
-                                return True
-
-                            if self.outer_tag is not None:
-                                return True
-
-                            if self.native_tag is not None:
-                                return True
-
-                            if self.dot1ad_tag is not None:
                                 return True
 
                             if self.dot1ad_native_tag is not None:
                                 return True
 
                             if self.dot1ad_outer_tag is not None:
+                                return True
+
+                            if self.dot1ad_tag is not None:
+                                return True
+
+                            if self.native_tag is not None:
+                                return True
+
+                            if self.outer_tag is not None:
+                                return True
+
+                            if self.service_instance_details is not None and self.service_instance_details._has_data():
+                                return True
+
+                            if self.stack is not None and self.stack._has_data():
+                                return True
+
+                            if self.tag is not None:
+                                return True
+
+                            if self.vlan_encapsulation is not None:
                                 return True
 
                             return False
@@ -2299,9 +2299,9 @@ class Vlan(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface is None:
-                            raise YPYDataValidationError('Key property interface is None')
+                            raise YPYModelError('Key property interface is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:interface[Cisco-IOS-XR-l2-eth-infra-oper:interface = ' + str(self.interface) + ']'
 
@@ -2321,6 +2321,9 @@ class Vlan(object):
                         if self.interface_xr is not None:
                             return True
 
+                        if self.mtu is not None:
+                            return True
+
                         if self.parent_interface is not None:
                             return True
 
@@ -2328,9 +2331,6 @@ class Vlan(object):
                             return True
 
                         if self.state is not None:
-                            return True
-
-                        if self.mtu is not None:
                             return True
 
                         if self.switched_mtu is not None:
@@ -2346,7 +2346,7 @@ class Vlan(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:interfaces'
 
@@ -2399,12 +2399,10 @@ class Vlan(object):
                     Operational data for a sub\-interface
                     configured with VLANs
                     
-                    .. attribute:: interface
+                    .. attribute:: encapsulation_details
                     
-                    	The interface name
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	Encapsulation type and tag stack
+                    	**type**\: :py:class:`EncapsulationDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails>`
                     
                     .. attribute:: first_tag
                     
@@ -2412,6 +2410,34 @@ class Vlan(object):
                     	**type**\: int
                     
                     	**range:** 1..4094
+                    
+                    .. attribute:: interface
+                    
+                    	The interface name
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: interface_xr
+                    
+                    	Interface
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: mtu
+                    
+                    	L2 MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: parent_interface
+                    
+                    	Parent interface
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: second_tag
                     
@@ -2428,25 +2454,6 @@ class Vlan(object):
                     
                     
                     ----
-                    .. attribute:: encapsulation_details
-                    
-                    	Encapsulation type and tag stack
-                    	**type**\: :py:class:`EncapsulationDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails>`
-                    
-                    .. attribute:: interface_xr
-                    
-                    	Interface
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: parent_interface
-                    
-                    	Parent interface
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
                     .. attribute:: service
                     
                     	Service type
@@ -2456,13 +2463,6 @@ class Vlan(object):
                     
                     	Interface state
                     	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
-                    
-                    .. attribute:: mtu
-                    
-                    	L2 MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: switched_mtu
                     
@@ -2480,16 +2480,16 @@ class Vlan(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.interface = None
-                        self.first_tag = None
-                        self.second_tag = None
                         self.encapsulation_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails()
                         self.encapsulation_details.parent = self
+                        self.first_tag = None
+                        self.interface = None
                         self.interface_xr = None
+                        self.mtu = None
                         self.parent_interface = None
+                        self.second_tag = None
                         self.service = None
                         self.state = None
-                        self.mtu = None
                         self.switched_mtu = None
 
 
@@ -2497,53 +2497,10 @@ class Vlan(object):
                         """
                         Encapsulation type and tag stack
                         
-                        .. attribute:: stack
-                        
-                        	Stack value
-                        	**type**\: :py:class:`Stack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack>`
-                        
-                        .. attribute:: service_instance_details
-                        
-                        	Service Instance encapsulation
-                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails>`
-                        
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack>`
-                        
-                        .. attribute:: vlan_encapsulation
-                        
-                        	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
-                        
-                        .. attribute:: tag
-                        
-                        	Tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: outer_tag
-                        
-                        	Outer tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: native_tag
-                        
-                        	Native tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: dot1ad_tag
-                        
-                        	802.1ad tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -2559,6 +2516,49 @@ class Vlan(object):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: dot1ad_tag
+                        
+                        	802.1ad tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: native_tag
+                        
+                        	Native tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: outer_tag
+                        
+                        	Outer tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: service_instance_details
+                        
+                        	Service Instance encapsulation
+                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails>`
+                        
+                        .. attribute:: stack
+                        
+                        	Stack value
+                        	**type**\: :py:class:`Stack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack>`
+                        
+                        .. attribute:: tag
+                        
+                        	Tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: vlan_encapsulation
+                        
+                        	VLANEncapsulation
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
+                        
                         
 
                         """
@@ -2568,19 +2568,19 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack()
-                            self.stack.parent = self
-                            self.service_instance_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails()
-                            self.service_instance_details.parent = self
                             self.dot1ad_dot1q_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack()
                             self.dot1ad_dot1q_stack.parent = self
-                            self.vlan_encapsulation = None
-                            self.tag = None
-                            self.outer_tag = None
-                            self.native_tag = None
-                            self.dot1ad_tag = None
                             self.dot1ad_native_tag = None
                             self.dot1ad_outer_tag = None
+                            self.dot1ad_tag = None
+                            self.native_tag = None
+                            self.outer_tag = None
+                            self.service_instance_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails()
+                            self.service_instance_details.parent = self
+                            self.stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack()
+                            self.stack.parent = self
+                            self.tag = None
+                            self.vlan_encapsulation = None
 
 
                         class Stack(object):
@@ -2616,7 +2616,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:stack'
 
@@ -2645,6 +2645,28 @@ class Vlan(object):
                             """
                             Service Instance encapsulation
                             
+                            .. attribute:: destination_mac_match
+                            
+                            	The destination MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\: bool
+                            
                             .. attribute:: local_traffic_stack
                             
                             	VLAN tags for locally\-sourced traffic
@@ -2655,27 +2677,10 @@ class Vlan(object):
                             	Payload Ethertype to match
                             	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
-                            .. attribute:: tags_popped
+                            .. attribute:: pushe
                             
-                            	Number of tags popped on ingress
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: is_exact_match
-                            
-                            	Whether the packet must match the encapsulation exactly, with no further inner tags
-                            	**type**\: bool
-                            
-                            .. attribute:: is_native_vlan
-                            
-                            	Whether this represents the native VLAN on the port
-                            	**type**\: bool
-                            
-                            .. attribute:: is_native_preserving
-                            
-                            	Whether the native VLAN is customer\-tag preserving
-                            	**type**\: bool
+                            	VLAN tags pushed on egress
+                            	**type**\: list of :py:class:`Pushe <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             .. attribute:: source_mac_match
                             
@@ -2684,22 +2689,17 @@ class Vlan(object):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
-                            .. attribute:: destination_mac_match
+                            .. attribute:: tags_popped
                             
-                            	The destination MAC address to match on ingress
-                            	**type**\: str
+                            	Number of tags popped on ingress
+                            	**type**\: int
                             
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            	**range:** 0..65535
                             
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of :py:class:`TagsToMatch <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
-                            
-                            .. attribute:: pushe
-                            
-                            	VLAN tags pushed on egress
-                            	**type**\: list of :py:class:`Pushe <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             
 
@@ -2710,21 +2710,21 @@ class Vlan(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.destination_mac_match = None
+                                self.is_exact_match = None
+                                self.is_native_preserving = None
+                                self.is_native_vlan = None
                                 self.local_traffic_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
                                 self.payload_ethertype = None
-                                self.tags_popped = None
-                                self.is_exact_match = None
-                                self.is_native_vlan = None
-                                self.is_native_preserving = None
-                                self.source_mac_match = None
-                                self.destination_mac_match = None
-                                self.tags_to_match = YList()
-                                self.tags_to_match.parent = self
-                                self.tags_to_match.name = 'tags_to_match'
                                 self.pushe = YList()
                                 self.pushe.parent = self
                                 self.pushe.name = 'pushe'
+                                self.source_mac_match = None
+                                self.tags_popped = None
+                                self.tags_to_match = YList()
+                                self.tags_to_match.parent = self
+                                self.tags_to_match.name = 'tags_to_match'
 
 
                             class LocalTrafficStack(object):
@@ -2781,7 +2781,7 @@ class Vlan(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:local-traffic-tag'
 
@@ -2808,7 +2808,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:local-traffic-stack'
 
@@ -2871,16 +2871,16 @@ class Vlan(object):
                                     """
                                     VLAN Ids to match
                                     
-                                    .. attribute:: vlan_id_low
+                                    .. attribute:: vlan_id_high
                                     
-                                    	VLAN ID Low
+                                    	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: vlan_id_high
+                                    .. attribute:: vlan_id_low
                                     
-                                    	VLAN ID High
+                                    	VLAN ID Low
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
@@ -2894,13 +2894,13 @@ class Vlan(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.vlan_id_low = None
                                         self.vlan_id_high = None
+                                        self.vlan_id_low = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:vlan-range'
 
@@ -2911,10 +2911,10 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.vlan_id_low is not None:
+                                        if self.vlan_id_high is not None:
                                             return True
 
-                                        if self.vlan_id_high is not None:
+                                        if self.vlan_id_low is not None:
                                             return True
 
                                         return False
@@ -2927,7 +2927,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:tags-to-match'
 
@@ -2988,7 +2988,7 @@ class Vlan(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:pushe'
 
@@ -3015,7 +3015,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:service-instance-details'
 
@@ -3026,37 +3026,37 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.destination_mac_match is not None:
+                                    return True
+
+                                if self.is_exact_match is not None:
+                                    return True
+
+                                if self.is_native_preserving is not None:
+                                    return True
+
+                                if self.is_native_vlan is not None:
+                                    return True
+
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
                                     return True
 
                                 if self.payload_ethertype is not None:
                                     return True
 
-                                if self.tags_popped is not None:
-                                    return True
-
-                                if self.is_exact_match is not None:
-                                    return True
-
-                                if self.is_native_vlan is not None:
-                                    return True
-
-                                if self.is_native_preserving is not None:
-                                    return True
+                                if self.pushe is not None:
+                                    for child_ref in self.pushe:
+                                        if child_ref._has_data():
+                                            return True
 
                                 if self.source_mac_match is not None:
                                     return True
 
-                                if self.destination_mac_match is not None:
+                                if self.tags_popped is not None:
                                     return True
 
                                 if self.tags_to_match is not None:
                                     for child_ref in self.tags_to_match:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.pushe is not None:
-                                    for child_ref in self.pushe:
                                         if child_ref._has_data():
                                             return True
 
@@ -3101,7 +3101,7 @@ class Vlan(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:dot1ad-dot1q-stack'
 
@@ -3128,7 +3128,7 @@ class Vlan(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:encapsulation-details'
 
@@ -3139,34 +3139,34 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.service_instance_details is not None and self.service_instance_details._has_data():
-                                return True
-
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
-                                return True
-
-                            if self.vlan_encapsulation is not None:
-                                return True
-
-                            if self.tag is not None:
-                                return True
-
-                            if self.outer_tag is not None:
-                                return True
-
-                            if self.native_tag is not None:
-                                return True
-
-                            if self.dot1ad_tag is not None:
                                 return True
 
                             if self.dot1ad_native_tag is not None:
                                 return True
 
                             if self.dot1ad_outer_tag is not None:
+                                return True
+
+                            if self.dot1ad_tag is not None:
+                                return True
+
+                            if self.native_tag is not None:
+                                return True
+
+                            if self.outer_tag is not None:
+                                return True
+
+                            if self.service_instance_details is not None and self.service_instance_details._has_data():
+                                return True
+
+                            if self.stack is not None and self.stack._has_data():
+                                return True
+
+                            if self.tag is not None:
+                                return True
+
+                            if self.vlan_encapsulation is not None:
                                 return True
 
                             return False
@@ -3179,7 +3179,7 @@ class Vlan(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:tag-allocation'
 
@@ -3190,31 +3190,31 @@ class Vlan(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.interface is not None:
+                        if self.encapsulation_details is not None and self.encapsulation_details._has_data():
                             return True
 
                         if self.first_tag is not None:
                             return True
 
-                        if self.second_tag is not None:
-                            return True
-
-                        if self.encapsulation_details is not None and self.encapsulation_details._has_data():
+                        if self.interface is not None:
                             return True
 
                         if self.interface_xr is not None:
                             return True
 
+                        if self.mtu is not None:
+                            return True
+
                         if self.parent_interface is not None:
+                            return True
+
+                        if self.second_tag is not None:
                             return True
 
                         if self.service is not None:
                             return True
 
                         if self.state is not None:
-                            return True
-
-                        if self.mtu is not None:
                             return True
 
                         if self.switched_mtu is not None:
@@ -3230,7 +3230,7 @@ class Vlan(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:tag-allocations'
 
@@ -3256,7 +3256,7 @@ class Vlan(object):
             @property
             def _common_path(self):
                 if self.node_id is None:
-                    raise YPYDataValidationError('Key property node_id is None')
+                    raise YPYModelError('Key property node_id is None')
 
                 return '/Cisco-IOS-XR-l2-eth-infra-oper:vlan/Cisco-IOS-XR-l2-eth-infra-oper:nodes/Cisco-IOS-XR-l2-eth-infra-oper:node[Cisco-IOS-XR-l2-eth-infra-oper:node-id = ' + str(self.node_id) + ']'
 
@@ -3270,13 +3270,13 @@ class Vlan(object):
                 if self.node_id is not None:
                     return True
 
-                if self.trunks is not None and self.trunks._has_data():
-                    return True
-
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
                 if self.tag_allocations is not None and self.tag_allocations._has_data():
+                    return True
+
+                if self.trunks is not None and self.trunks._has_data():
                     return True
 
                 return False
@@ -3495,7 +3495,7 @@ class EthernetEncapsulation(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:unicast-filter'
 
@@ -3522,9 +3522,9 @@ class EthernetEncapsulation(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:unicast-mac-filter[Cisco-IOS-XR-l2-eth-infra-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -3553,7 +3553,7 @@ class EthernetEncapsulation(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-oper:unicast-mac-filters'
 
@@ -3579,7 +3579,7 @@ class EthernetEncapsulation(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/Cisco-IOS-XR-l2-eth-infra-oper:nodes/Cisco-IOS-XR-l2-eth-infra-oper:node[Cisco-IOS-XR-l2-eth-infra-oper:node-name = ' + str(self.node_name) + ']'
 

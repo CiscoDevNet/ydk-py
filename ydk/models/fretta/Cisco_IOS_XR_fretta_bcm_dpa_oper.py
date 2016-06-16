@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -107,25 +107,25 @@ class Dpa(object):
                 	DPA trap stats 
                 	**type**\: :py:class:`AllTrapsStatsDataBlocks <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.AllTrapsStatsDataBlocks>`
                 
-                .. attribute:: single_trap_stats_data_blocks
-                
-                	DPA stats for a single trap
-                	**type**\: :py:class:`SingleTrapStatsDataBlocks <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks>`
-                
                 .. attribute:: all_voq_stats_data_blocks
                 
                 	DPA voq ingress stats 
                 	**type**\: :py:class:`AllVoqStatsDataBlocks <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks>`
                 
-                .. attribute:: voq_base_numbers
+                .. attribute:: single_trap_stats_data_blocks
                 
-                	DPA voq base stats 
-                	**type**\: :py:class:`VoqBaseNumbers <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers>`
+                	DPA stats for a single trap
+                	**type**\: :py:class:`SingleTrapStatsDataBlocks <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks>`
                 
                 .. attribute:: single_voq_stats_data_blocks
                 
                 	DPA voq ingress stats for a single interface
                 	**type**\: :py:class:`SingleVoqStatsDataBlocks <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks>`
+                
+                .. attribute:: voq_base_numbers
+                
+                	DPA voq base stats 
+                	**type**\: :py:class:`VoqBaseNumbers <ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers>`
                 
                 
 
@@ -139,14 +139,14 @@ class Dpa(object):
                     self.node_name = None
                     self.all_traps_stats_data_blocks = Dpa.Stats.Nodes.Node.AllTrapsStatsDataBlocks()
                     self.all_traps_stats_data_blocks.parent = self
-                    self.single_trap_stats_data_blocks = Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks()
-                    self.single_trap_stats_data_blocks.parent = self
                     self.all_voq_stats_data_blocks = Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks()
                     self.all_voq_stats_data_blocks.parent = self
-                    self.voq_base_numbers = Dpa.Stats.Nodes.Node.VoqBaseNumbers()
-                    self.voq_base_numbers.parent = self
+                    self.single_trap_stats_data_blocks = Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks()
+                    self.single_trap_stats_data_blocks.parent = self
                     self.single_voq_stats_data_blocks = Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks()
                     self.single_voq_stats_data_blocks.parent = self
+                    self.voq_base_numbers = Dpa.Stats.Nodes.Node.VoqBaseNumbers()
+                    self.voq_base_numbers.parent = self
 
 
                 class AllTrapsStatsDataBlocks(object):
@@ -185,30 +185,9 @@ class Dpa(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: trap_strength
+                        .. attribute:: encap_id
                         
-                        	trap strength
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: priority
-                        
-                        	priority
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: trap_id
-                        
-                        	trap id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: gport
-                        
-                        	gport
+                        	encap id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -220,23 +199,16 @@ class Dpa(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: policer_id
+                        .. attribute:: gport
                         
-                        	policer id
+                        	gport
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: stats_id
+                        .. attribute:: id
                         
-                        	stats id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: encap_id
-                        
-                        	encap id
+                        	id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -248,45 +220,73 @@ class Dpa(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: trap_string
+                        .. attribute:: npu_id
                         
-                        	trap string
-                        	**type**\: str
+                        	npu id
+                        	**type**\: long
                         
-                        .. attribute:: id
-                        
-                        	id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: offset
                         
                         	offset
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: npu_id
-                        
-                        	npu id
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: packet_dropped
-                        
-                        	packet dropped
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packet_accepted
                         
                         	packet accepted
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: packet_dropped
+                        
+                        	packet dropped
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: policer_id
+                        
+                        	policer id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: priority
+                        
+                        	priority
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: stats_id
+                        
+                        	stats id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: trap_id
+                        
+                        	trap id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: trap_strength
+                        
+                        	trap strength
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: trap_string
+                        
+                        	trap string
+                        	**type**\: str
                         
                         
 
@@ -298,28 +298,28 @@ class Dpa(object):
                         def __init__(self):
                             self.parent = None
                             self.data_block_number = None
-                            self.trap_strength = None
-                            self.priority = None
-                            self.trap_id = None
-                            self.gport = None
-                            self.fec_id = None
-                            self.policer_id = None
-                            self.stats_id = None
                             self.encap_id = None
-                            self.mc_group = None
-                            self.trap_string = None
+                            self.fec_id = None
+                            self.gport = None
                             self.id = None
-                            self.offset = None
+                            self.mc_group = None
                             self.npu_id = None
-                            self.packet_dropped = None
+                            self.offset = None
                             self.packet_accepted = None
+                            self.packet_dropped = None
+                            self.policer_id = None
+                            self.priority = None
+                            self.stats_id = None
+                            self.trap_id = None
+                            self.trap_strength = None
+                            self.trap_string = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.data_block_number is None:
-                                raise YPYDataValidationError('Key property data_block_number is None')
+                                raise YPYModelError('Key property data_block_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:all-traps-stats-data-block[Cisco-IOS-XR-fretta-bcm-dpa-oper:data-block-number = ' + str(self.data_block_number) + ']'
 
@@ -333,49 +333,49 @@ class Dpa(object):
                             if self.data_block_number is not None:
                                 return True
 
-                            if self.trap_strength is not None:
-                                return True
-
-                            if self.priority is not None:
-                                return True
-
-                            if self.trap_id is not None:
-                                return True
-
-                            if self.gport is not None:
+                            if self.encap_id is not None:
                                 return True
 
                             if self.fec_id is not None:
                                 return True
 
-                            if self.policer_id is not None:
-                                return True
-
-                            if self.stats_id is not None:
-                                return True
-
-                            if self.encap_id is not None:
-                                return True
-
-                            if self.mc_group is not None:
-                                return True
-
-                            if self.trap_string is not None:
+                            if self.gport is not None:
                                 return True
 
                             if self.id is not None:
                                 return True
 
-                            if self.offset is not None:
+                            if self.mc_group is not None:
                                 return True
 
                             if self.npu_id is not None:
                                 return True
 
-                            if self.packet_dropped is not None:
+                            if self.offset is not None:
                                 return True
 
                             if self.packet_accepted is not None:
+                                return True
+
+                            if self.packet_dropped is not None:
+                                return True
+
+                            if self.policer_id is not None:
+                                return True
+
+                            if self.priority is not None:
+                                return True
+
+                            if self.stats_id is not None:
+                                return True
+
+                            if self.trap_id is not None:
+                                return True
+
+                            if self.trap_strength is not None:
+                                return True
+
+                            if self.trap_string is not None:
                                 return True
 
                             return False
@@ -388,7 +388,7 @@ class Dpa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:all-traps-stats-data-blocks'
 
@@ -479,30 +479,9 @@ class Dpa(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: trap_strength
+                            .. attribute:: encap_id
                             
-                            	trap strength
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: priority
-                            
-                            	priority
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: trap_id
-                            
-                            	trap id
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: gport
-                            
-                            	gport
+                            	encap id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -514,23 +493,16 @@ class Dpa(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: policer_id
+                            .. attribute:: gport
                             
-                            	policer id
+                            	gport
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: stats_id
+                            .. attribute:: id
                             
-                            	stats id
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: encap_id
-                            
-                            	encap id
+                            	id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -542,45 +514,73 @@ class Dpa(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: trap_string
+                            .. attribute:: npu_id
                             
-                            	trap string
-                            	**type**\: str
+                            	npu id
+                            	**type**\: long
                             
-                            .. attribute:: id
-                            
-                            	id
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: offset
                             
                             	offset
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: npu_id
-                            
-                            	npu id
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: packet_dropped
-                            
-                            	packet dropped
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: packet_accepted
                             
                             	packet accepted
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: packet_dropped
+                            
+                            	packet dropped
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: policer_id
+                            
+                            	policer id
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: priority
+                            
+                            	priority
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: stats_id
+                            
+                            	stats id
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: trap_id
+                            
+                            	trap id
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: trap_strength
+                            
+                            	trap strength
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: trap_string
+                            
+                            	trap string
+                            	**type**\: str
                             
                             
 
@@ -592,28 +592,28 @@ class Dpa(object):
                             def __init__(self):
                                 self.parent = None
                                 self.data_block_number = None
-                                self.trap_strength = None
-                                self.priority = None
-                                self.trap_id = None
-                                self.gport = None
-                                self.fec_id = None
-                                self.policer_id = None
-                                self.stats_id = None
                                 self.encap_id = None
-                                self.mc_group = None
-                                self.trap_string = None
+                                self.fec_id = None
+                                self.gport = None
                                 self.id = None
-                                self.offset = None
+                                self.mc_group = None
                                 self.npu_id = None
-                                self.packet_dropped = None
+                                self.offset = None
                                 self.packet_accepted = None
+                                self.packet_dropped = None
+                                self.policer_id = None
+                                self.priority = None
+                                self.stats_id = None
+                                self.trap_id = None
+                                self.trap_strength = None
+                                self.trap_string = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.data_block_number is None:
-                                    raise YPYDataValidationError('Key property data_block_number is None')
+                                    raise YPYModelError('Key property data_block_number is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:trap-data-block-number[Cisco-IOS-XR-fretta-bcm-dpa-oper:data-block-number = ' + str(self.data_block_number) + ']'
 
@@ -627,49 +627,49 @@ class Dpa(object):
                                 if self.data_block_number is not None:
                                     return True
 
-                                if self.trap_strength is not None:
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.trap_id is not None:
-                                    return True
-
-                                if self.gport is not None:
+                                if self.encap_id is not None:
                                     return True
 
                                 if self.fec_id is not None:
                                     return True
 
-                                if self.policer_id is not None:
-                                    return True
-
-                                if self.stats_id is not None:
-                                    return True
-
-                                if self.encap_id is not None:
-                                    return True
-
-                                if self.mc_group is not None:
-                                    return True
-
-                                if self.trap_string is not None:
+                                if self.gport is not None:
                                     return True
 
                                 if self.id is not None:
                                     return True
 
-                                if self.offset is not None:
+                                if self.mc_group is not None:
                                     return True
 
                                 if self.npu_id is not None:
                                     return True
 
-                                if self.packet_dropped is not None:
+                                if self.offset is not None:
                                     return True
 
                                 if self.packet_accepted is not None:
+                                    return True
+
+                                if self.packet_dropped is not None:
+                                    return True
+
+                                if self.policer_id is not None:
+                                    return True
+
+                                if self.priority is not None:
+                                    return True
+
+                                if self.stats_id is not None:
+                                    return True
+
+                                if self.trap_id is not None:
+                                    return True
+
+                                if self.trap_strength is not None:
+                                    return True
+
+                                if self.trap_string is not None:
                                     return True
 
                                 return False
@@ -682,9 +682,9 @@ class Dpa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.trapid is None:
-                                raise YPYDataValidationError('Key property trapid is None')
+                                raise YPYModelError('Key property trapid is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:single-trap-stats-data-block[Cisco-IOS-XR-fretta-bcm-dpa-oper:trapid = ' + str(self.trapid) + ']'
 
@@ -713,7 +713,7 @@ class Dpa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:single-trap-stats-data-blocks'
 
@@ -773,10 +773,64 @@ class Dpa(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: connector_id
+                        
+                        	connector id
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ifhandle
+                        
+                        	ifhandle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: is_inuse
                         
                         	is inuse
                         	**type**\: bool
+                        
+                        .. attribute:: is_local_port
+                        
+                        	is local port
+                        	**type**\: bool
+                        
+                        .. attribute:: npu_core
+                        
+                        	npu core
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: npu_num
+                        
+                        	npu num
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: port_num
+                        
+                        	port num
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: port_speed
+                        
+                        	port speed
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pp_port
+                        
+                        	pp port
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: rack_num
                         
@@ -792,51 +846,9 @@ class Dpa(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: npu_num
-                        
-                        	npu num
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: npu_core
-                        
-                        	npu core
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: port_num
-                        
-                        	port num
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: ifhandle
-                        
-                        	ifhandle
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: sysport
                         
                         	sysport
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pp_port
-                        
-                        	pp port
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: port_speed
-                        
-                        	port speed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -847,18 +859,6 @@ class Dpa(object):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: connector_id
-                        
-                        	connector id
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_local_port
-                        
-                        	is local port
-                        	**type**\: bool
                         
                         .. attribute:: voq_stat
                         
@@ -875,19 +875,19 @@ class Dpa(object):
                         def __init__(self):
                             self.parent = None
                             self.data_block_number = None
+                            self.connector_id = None
+                            self.ifhandle = None
                             self.is_inuse = None
+                            self.is_local_port = None
+                            self.npu_core = None
+                            self.npu_num = None
+                            self.port_num = None
+                            self.port_speed = None
+                            self.pp_port = None
                             self.rack_num = None
                             self.slot_num = None
-                            self.npu_num = None
-                            self.npu_core = None
-                            self.port_num = None
-                            self.ifhandle = None
                             self.sysport = None
-                            self.pp_port = None
-                            self.port_speed = None
                             self.voq_base = None
-                            self.connector_id = None
-                            self.is_local_port = None
                             self.voq_stat = YList()
                             self.voq_stat.parent = self
                             self.voq_stat.name = 'voq_stat'
@@ -897,31 +897,31 @@ class Dpa(object):
                             """
                             voq stat
                             
-                            .. attribute:: gport_received_bytes
-                            
-                            	GportReceivedBytes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: gport_received_pkts
-                            
-                            	GportReceivedPkts
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
                             .. attribute:: gport_dropped_bytes
                             
                             	GportDroppedBytes
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: gport_dropped_pkts
                             
                             	GportDroppedPkts
-                            	**type**\: int
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: gport_received_bytes
+                            
+                            	GportReceivedBytes
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: gport_received_pkts
+                            
+                            	GportReceivedPkts
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -934,15 +934,15 @@ class Dpa(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.gport_received_bytes = None
-                                self.gport_received_pkts = None
                                 self.gport_dropped_bytes = None
                                 self.gport_dropped_pkts = None
+                                self.gport_received_bytes = None
+                                self.gport_received_pkts = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-stat'
 
@@ -953,16 +953,16 @@ class Dpa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.gport_received_bytes is not None:
-                                    return True
-
-                                if self.gport_received_pkts is not None:
-                                    return True
-
                                 if self.gport_dropped_bytes is not None:
                                     return True
 
                                 if self.gport_dropped_pkts is not None:
+                                    return True
+
+                                if self.gport_received_bytes is not None:
+                                    return True
+
+                                if self.gport_received_pkts is not None:
                                     return True
 
                                 return False
@@ -975,9 +975,9 @@ class Dpa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.data_block_number is None:
-                                raise YPYDataValidationError('Key property data_block_number is None')
+                                raise YPYModelError('Key property data_block_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:all-voq-stats-data-block[Cisco-IOS-XR-fretta-bcm-dpa-oper:data-block-number = ' + str(self.data_block_number) + ']'
 
@@ -991,7 +991,31 @@ class Dpa(object):
                             if self.data_block_number is not None:
                                 return True
 
+                            if self.connector_id is not None:
+                                return True
+
+                            if self.ifhandle is not None:
+                                return True
+
                             if self.is_inuse is not None:
+                                return True
+
+                            if self.is_local_port is not None:
+                                return True
+
+                            if self.npu_core is not None:
+                                return True
+
+                            if self.npu_num is not None:
+                                return True
+
+                            if self.port_num is not None:
+                                return True
+
+                            if self.port_speed is not None:
+                                return True
+
+                            if self.pp_port is not None:
                                 return True
 
                             if self.rack_num is not None:
@@ -1000,34 +1024,10 @@ class Dpa(object):
                             if self.slot_num is not None:
                                 return True
 
-                            if self.npu_num is not None:
-                                return True
-
-                            if self.npu_core is not None:
-                                return True
-
-                            if self.port_num is not None:
-                                return True
-
-                            if self.ifhandle is not None:
-                                return True
-
                             if self.sysport is not None:
                                 return True
 
-                            if self.pp_port is not None:
-                                return True
-
-                            if self.port_speed is not None:
-                                return True
-
                             if self.voq_base is not None:
-                                return True
-
-                            if self.connector_id is not None:
-                                return True
-
-                            if self.is_local_port is not None:
                                 return True
 
                             if self.voq_stat is not None:
@@ -1045,7 +1045,7 @@ class Dpa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:all-voq-stats-data-blocks'
 
@@ -1136,10 +1136,64 @@ class Dpa(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: connector_id
+                            
+                            	connector id
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ifhandle
+                            
+                            	ifhandle
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: is_inuse
                             
                             	is inuse
                             	**type**\: bool
+                            
+                            .. attribute:: is_local_port
+                            
+                            	is local port
+                            	**type**\: bool
+                            
+                            .. attribute:: npu_core
+                            
+                            	npu core
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: npu_num
+                            
+                            	npu num
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_num
+                            
+                            	port num
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_speed
+                            
+                            	port speed
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: pp_port
+                            
+                            	pp port
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: rack_num
                             
@@ -1155,51 +1209,9 @@ class Dpa(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: npu_num
-                            
-                            	npu num
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: npu_core
-                            
-                            	npu core
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_num
-                            
-                            	port num
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: ifhandle
-                            
-                            	ifhandle
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: sysport
                             
                             	sysport
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pp_port
-                            
-                            	pp port
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: port_speed
-                            
-                            	port speed
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1210,18 +1222,6 @@ class Dpa(object):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: connector_id
-                            
-                            	connector id
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_local_port
-                            
-                            	is local port
-                            	**type**\: bool
                             
                             .. attribute:: voq_stat
                             
@@ -1238,19 +1238,19 @@ class Dpa(object):
                             def __init__(self):
                                 self.parent = None
                                 self.data_block_number = None
+                                self.connector_id = None
+                                self.ifhandle = None
                                 self.is_inuse = None
+                                self.is_local_port = None
+                                self.npu_core = None
+                                self.npu_num = None
+                                self.port_num = None
+                                self.port_speed = None
+                                self.pp_port = None
                                 self.rack_num = None
                                 self.slot_num = None
-                                self.npu_num = None
-                                self.npu_core = None
-                                self.port_num = None
-                                self.ifhandle = None
                                 self.sysport = None
-                                self.pp_port = None
-                                self.port_speed = None
                                 self.voq_base = None
-                                self.connector_id = None
-                                self.is_local_port = None
                                 self.voq_stat = YList()
                                 self.voq_stat.parent = self
                                 self.voq_stat.name = 'voq_stat'
@@ -1260,31 +1260,31 @@ class Dpa(object):
                                 """
                                 voq stat
                                 
-                                .. attribute:: gport_received_bytes
-                                
-                                	GportReceivedBytes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: gport_received_pkts
-                                
-                                	GportReceivedPkts
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: gport_dropped_bytes
                                 
                                 	GportDroppedBytes
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: gport_dropped_pkts
                                 
                                 	GportDroppedPkts
-                                	**type**\: int
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: gport_received_bytes
+                                
+                                	GportReceivedBytes
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: gport_received_pkts
+                                
+                                	GportReceivedPkts
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1297,15 +1297,15 @@ class Dpa(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.gport_received_bytes = None
-                                    self.gport_received_pkts = None
                                     self.gport_dropped_bytes = None
                                     self.gport_dropped_pkts = None
+                                    self.gport_received_bytes = None
+                                    self.gport_received_pkts = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-stat'
 
@@ -1316,16 +1316,16 @@ class Dpa(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.gport_received_bytes is not None:
-                                        return True
-
-                                    if self.gport_received_pkts is not None:
-                                        return True
-
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
                                     if self.gport_dropped_pkts is not None:
+                                        return True
+
+                                    if self.gport_received_bytes is not None:
+                                        return True
+
+                                    if self.gport_received_pkts is not None:
                                         return True
 
                                     return False
@@ -1338,9 +1338,9 @@ class Dpa(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.data_block_number is None:
-                                    raise YPYDataValidationError('Key property data_block_number is None')
+                                    raise YPYModelError('Key property data_block_number is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-base-data-block-number[Cisco-IOS-XR-fretta-bcm-dpa-oper:data-block-number = ' + str(self.data_block_number) + ']'
 
@@ -1354,7 +1354,31 @@ class Dpa(object):
                                 if self.data_block_number is not None:
                                     return True
 
+                                if self.connector_id is not None:
+                                    return True
+
+                                if self.ifhandle is not None:
+                                    return True
+
                                 if self.is_inuse is not None:
+                                    return True
+
+                                if self.is_local_port is not None:
+                                    return True
+
+                                if self.npu_core is not None:
+                                    return True
+
+                                if self.npu_num is not None:
+                                    return True
+
+                                if self.port_num is not None:
+                                    return True
+
+                                if self.port_speed is not None:
+                                    return True
+
+                                if self.pp_port is not None:
                                     return True
 
                                 if self.rack_num is not None:
@@ -1363,34 +1387,10 @@ class Dpa(object):
                                 if self.slot_num is not None:
                                     return True
 
-                                if self.npu_num is not None:
-                                    return True
-
-                                if self.npu_core is not None:
-                                    return True
-
-                                if self.port_num is not None:
-                                    return True
-
-                                if self.ifhandle is not None:
-                                    return True
-
                                 if self.sysport is not None:
                                     return True
 
-                                if self.pp_port is not None:
-                                    return True
-
-                                if self.port_speed is not None:
-                                    return True
-
                                 if self.voq_base is not None:
-                                    return True
-
-                                if self.connector_id is not None:
-                                    return True
-
-                                if self.is_local_port is not None:
                                     return True
 
                                 if self.voq_stat is not None:
@@ -1408,9 +1408,9 @@ class Dpa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.base_number is None:
-                                raise YPYDataValidationError('Key property base_number is None')
+                                raise YPYModelError('Key property base_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-base-number[Cisco-IOS-XR-fretta-bcm-dpa-oper:base-number = ' + str(self.base_number) + ']'
 
@@ -1439,7 +1439,7 @@ class Dpa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-base-numbers'
 
@@ -1530,10 +1530,64 @@ class Dpa(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: connector_id
+                            
+                            	connector id
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ifhandle
+                            
+                            	ifhandle
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: is_inuse
                             
                             	is inuse
                             	**type**\: bool
+                            
+                            .. attribute:: is_local_port
+                            
+                            	is local port
+                            	**type**\: bool
+                            
+                            .. attribute:: npu_core
+                            
+                            	npu core
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: npu_num
+                            
+                            	npu num
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_num
+                            
+                            	port num
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: port_speed
+                            
+                            	port speed
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: pp_port
+                            
+                            	pp port
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: rack_num
                             
@@ -1549,51 +1603,9 @@ class Dpa(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: npu_num
-                            
-                            	npu num
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: npu_core
-                            
-                            	npu core
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: port_num
-                            
-                            	port num
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: ifhandle
-                            
-                            	ifhandle
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: sysport
                             
                             	sysport
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pp_port
-                            
-                            	pp port
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: port_speed
-                            
-                            	port speed
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1604,18 +1616,6 @@ class Dpa(object):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: connector_id
-                            
-                            	connector id
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_local_port
-                            
-                            	is local port
-                            	**type**\: bool
                             
                             .. attribute:: voq_stat
                             
@@ -1632,19 +1632,19 @@ class Dpa(object):
                             def __init__(self):
                                 self.parent = None
                                 self.data_block_number = None
+                                self.connector_id = None
+                                self.ifhandle = None
                                 self.is_inuse = None
+                                self.is_local_port = None
+                                self.npu_core = None
+                                self.npu_num = None
+                                self.port_num = None
+                                self.port_speed = None
+                                self.pp_port = None
                                 self.rack_num = None
                                 self.slot_num = None
-                                self.npu_num = None
-                                self.npu_core = None
-                                self.port_num = None
-                                self.ifhandle = None
                                 self.sysport = None
-                                self.pp_port = None
-                                self.port_speed = None
                                 self.voq_base = None
-                                self.connector_id = None
-                                self.is_local_port = None
                                 self.voq_stat = YList()
                                 self.voq_stat.parent = self
                                 self.voq_stat.name = 'voq_stat'
@@ -1654,31 +1654,31 @@ class Dpa(object):
                                 """
                                 voq stat
                                 
-                                .. attribute:: gport_received_bytes
-                                
-                                	GportReceivedBytes
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: gport_received_pkts
-                                
-                                	GportReceivedPkts
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: gport_dropped_bytes
                                 
                                 	GportDroppedBytes
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: gport_dropped_pkts
                                 
                                 	GportDroppedPkts
-                                	**type**\: int
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: gport_received_bytes
+                                
+                                	GportReceivedBytes
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: gport_received_pkts
+                                
+                                	GportReceivedPkts
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1691,15 +1691,15 @@ class Dpa(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.gport_received_bytes = None
-                                    self.gport_received_pkts = None
                                     self.gport_dropped_bytes = None
                                     self.gport_dropped_pkts = None
+                                    self.gport_received_bytes = None
+                                    self.gport_received_pkts = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-stat'
 
@@ -1710,16 +1710,16 @@ class Dpa(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.gport_received_bytes is not None:
-                                        return True
-
-                                    if self.gport_received_pkts is not None:
-                                        return True
-
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
                                     if self.gport_dropped_pkts is not None:
+                                        return True
+
+                                    if self.gport_received_bytes is not None:
+                                        return True
+
+                                    if self.gport_received_pkts is not None:
                                         return True
 
                                     return False
@@ -1732,9 +1732,9 @@ class Dpa(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.data_block_number is None:
-                                    raise YPYDataValidationError('Key property data_block_number is None')
+                                    raise YPYModelError('Key property data_block_number is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:voq-stats-data-block-number[Cisco-IOS-XR-fretta-bcm-dpa-oper:data-block-number = ' + str(self.data_block_number) + ']'
 
@@ -1748,7 +1748,31 @@ class Dpa(object):
                                 if self.data_block_number is not None:
                                     return True
 
+                                if self.connector_id is not None:
+                                    return True
+
+                                if self.ifhandle is not None:
+                                    return True
+
                                 if self.is_inuse is not None:
+                                    return True
+
+                                if self.is_local_port is not None:
+                                    return True
+
+                                if self.npu_core is not None:
+                                    return True
+
+                                if self.npu_num is not None:
+                                    return True
+
+                                if self.port_num is not None:
+                                    return True
+
+                                if self.port_speed is not None:
+                                    return True
+
+                                if self.pp_port is not None:
                                     return True
 
                                 if self.rack_num is not None:
@@ -1757,34 +1781,10 @@ class Dpa(object):
                                 if self.slot_num is not None:
                                     return True
 
-                                if self.npu_num is not None:
-                                    return True
-
-                                if self.npu_core is not None:
-                                    return True
-
-                                if self.port_num is not None:
-                                    return True
-
-                                if self.ifhandle is not None:
-                                    return True
-
                                 if self.sysport is not None:
                                     return True
 
-                                if self.pp_port is not None:
-                                    return True
-
-                                if self.port_speed is not None:
-                                    return True
-
                                 if self.voq_base is not None:
-                                    return True
-
-                                if self.connector_id is not None:
-                                    return True
-
-                                if self.is_local_port is not None:
                                     return True
 
                                 if self.voq_stat is not None:
@@ -1802,9 +1802,9 @@ class Dpa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_handle is None:
-                                raise YPYDataValidationError('Key property interface_handle is None')
+                                raise YPYModelError('Key property interface_handle is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:single-voq-stats-data-block[Cisco-IOS-XR-fretta-bcm-dpa-oper:interface-handle = ' + str(self.interface_handle) + ']'
 
@@ -1833,7 +1833,7 @@ class Dpa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-fretta-bcm-dpa-oper:single-voq-stats-data-blocks'
 
@@ -1859,7 +1859,7 @@ class Dpa(object):
                 @property
                 def _common_path(self):
                     if self.node_name is None:
-                        raise YPYDataValidationError('Key property node_name is None')
+                        raise YPYModelError('Key property node_name is None')
 
                     return '/Cisco-IOS-XR-fretta-bcm-dpa-oper:dpa/Cisco-IOS-XR-fretta-bcm-dpa-oper:stats/Cisco-IOS-XR-fretta-bcm-dpa-oper:nodes/Cisco-IOS-XR-fretta-bcm-dpa-oper:node[Cisco-IOS-XR-fretta-bcm-dpa-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -1876,16 +1876,16 @@ class Dpa(object):
                     if self.all_traps_stats_data_blocks is not None and self.all_traps_stats_data_blocks._has_data():
                         return True
 
-                    if self.single_trap_stats_data_blocks is not None and self.single_trap_stats_data_blocks._has_data():
-                        return True
-
                     if self.all_voq_stats_data_blocks is not None and self.all_voq_stats_data_blocks._has_data():
                         return True
 
-                    if self.voq_base_numbers is not None and self.voq_base_numbers._has_data():
+                    if self.single_trap_stats_data_blocks is not None and self.single_trap_stats_data_blocks._has_data():
                         return True
 
                     if self.single_voq_stats_data_blocks is not None and self.single_voq_stats_data_blocks._has_data():
+                        return True
+
+                    if self.voq_base_numbers is not None and self.voq_base_numbers._has_data():
                         return True
 
                     return False

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -29,25 +29,25 @@ class Parser(object):
     """
     Parser configuration
     
-    .. attribute:: indentation
-    
-    	indentation tracking
-    	**type**\: :py:class:`Indentation <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
-    
     .. attribute:: alias
     
     	Alias for command mapping
     	**type**\: :py:class:`Alias <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias>`
+    
+    .. attribute:: configuration
+    
+    	cli configuration services
+    	**type**\: :py:class:`Configuration <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
     
     .. attribute:: history
     
     	cli commands history
     	**type**\: :py:class:`History <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.History>`
     
-    .. attribute:: configuration
+    .. attribute:: indentation
     
-    	cli configuration services
-    	**type**\: :py:class:`Configuration <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
+    	indentation tracking
+    	**type**\: :py:class:`Indentation <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
     
     .. attribute:: submode_exit
     
@@ -62,14 +62,14 @@ class Parser(object):
     _revision = '2015-06-02'
 
     def __init__(self):
-        self.indentation = Parser.Indentation()
-        self.indentation.parent = self
         self.alias = Parser.Alias()
         self.alias.parent = self
-        self.history = Parser.History()
-        self.history.parent = self
         self.configuration = Parser.Configuration()
         self.configuration.parent = self
+        self.history = Parser.History()
+        self.history.parent = self
+        self.indentation = Parser.Indentation()
+        self.indentation.parent = self
         self.submode_exit = Parser.SubmodeExit()
         self.submode_exit.parent = self
 
@@ -121,20 +121,20 @@ class Parser(object):
         """
         Alias for command mapping
         
-        .. attribute:: execs
+        .. attribute:: alls
         
-        	Exec command alias
-        	**type**\: :py:class:`Execs <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
+        	Table of all aliases configured
+        	**type**\: :py:class:`Alls <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
         
         .. attribute:: configurations
         
         	Configuration command alias
         	**type**\: :py:class:`Configurations <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations>`
         
-        .. attribute:: alls
+        .. attribute:: execs
         
-        	Table of all aliases configured
-        	**type**\: :py:class:`Alls <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
+        	Exec command alias
+        	**type**\: :py:class:`Execs <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
         
         
 
@@ -145,12 +145,12 @@ class Parser(object):
 
         def __init__(self):
             self.parent = None
-            self.execs = Parser.Alias.Execs()
-            self.execs.parent = self
-            self.configurations = Parser.Alias.Configurations()
-            self.configurations.parent = self
             self.alls = Parser.Alias.Alls()
             self.alls.parent = self
+            self.configurations = Parser.Alias.Configurations()
+            self.configurations.parent = self
+            self.execs = Parser.Alias.Execs()
+            self.execs.parent = self
 
 
         class Execs(object):
@@ -207,7 +207,7 @@ class Parser(object):
                 @property
                 def _common_path(self):
                     if self.identifier is None:
-                        raise YPYDataValidationError('Key property identifier is None')
+                        raise YPYModelError('Key property identifier is None')
 
                     return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:execs/Cisco-IOS-XR-parser-cfg:exec[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
 
@@ -310,7 +310,7 @@ class Parser(object):
                 @property
                 def _common_path(self):
                     if self.identifier is None:
-                        raise YPYDataValidationError('Key property identifier is None')
+                        raise YPYModelError('Key property identifier is None')
 
                     return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:configurations/Cisco-IOS-XR-parser-cfg:configuration[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
 
@@ -413,7 +413,7 @@ class Parser(object):
                 @property
                 def _common_path(self):
                     if self.identifier is None:
-                        raise YPYDataValidationError('Key property identifier is None')
+                        raise YPYModelError('Key property identifier is None')
 
                     return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:alls/Cisco-IOS-XR-parser-cfg:all[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
 
@@ -473,13 +473,13 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.execs is not None and self.execs._has_data():
+            if self.alls is not None and self.alls._has_data():
                 return True
 
             if self.configurations is not None and self.configurations._has_data():
                 return True
 
-            if self.alls is not None and self.alls._has_data():
+            if self.execs is not None and self.execs._has_data():
                 return True
 
             return False
@@ -677,16 +677,16 @@ class Parser(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.indentation is not None and self.indentation._has_data():
+        if self.alias is not None and self.alias._has_data():
             return True
 
-        if self.alias is not None and self.alias._has_data():
+        if self.configuration is not None and self.configuration._has_data():
             return True
 
         if self.history is not None and self.history._has_data():
             return True
 
-        if self.configuration is not None and self.configuration._has_data():
+        if self.indentation is not None and self.indentation._has_data():
             return True
 
         if self.submode_exit is not None and self.submode_exit._has_data():

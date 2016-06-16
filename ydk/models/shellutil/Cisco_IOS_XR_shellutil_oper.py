@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -102,20 +102,6 @@ class SystemTime(object):
         """
         System clock information
         
-        .. attribute:: year
-        
-        	Year [0..65535]
-        	**type**\: int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: month
-        
-        	Month [1..12]
-        	**type**\: int
-        
-        	**range:** 0..255
-        
         .. attribute:: day
         
         	Day [1..31]
@@ -130,9 +116,23 @@ class SystemTime(object):
         
         	**range:** 0..255
         
+        .. attribute:: millisecond
+        
+        	Millisecond [0..999]
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
         .. attribute:: minute
         
         	Minute [0..59]
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        .. attribute:: month
+        
+        	Month [1..12]
         	**type**\: int
         
         	**range:** 0..255
@@ -144,12 +144,15 @@ class SystemTime(object):
         
         	**range:** 0..255
         
-        .. attribute:: millisecond
+        .. attribute:: time_source
         
-        	Millisecond [0..999]
-        	**type**\: int
+        	Time source
+        	**type**\: :py:class:`TimeSourceEnum <ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper.TimeSourceEnum>`
         
-        	**range:** 0..65535
+        .. attribute:: time_zone
+        
+        	Time zone
+        	**type**\: str
         
         .. attribute:: wday
         
@@ -158,15 +161,12 @@ class SystemTime(object):
         
         	**range:** 0..65535
         
-        .. attribute:: time_zone
+        .. attribute:: year
         
-        	Time zone
-        	**type**\: str
+        	Year [0..65535]
+        	**type**\: int
         
-        .. attribute:: time_source
-        
-        	Time source
-        	**type**\: :py:class:`TimeSourceEnum <ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper.TimeSourceEnum>`
+        	**range:** 0..65535
         
         
 
@@ -177,16 +177,16 @@ class SystemTime(object):
 
         def __init__(self):
             self.parent = None
-            self.year = None
-            self.month = None
             self.day = None
             self.hour = None
-            self.minute = None
-            self.second = None
             self.millisecond = None
-            self.wday = None
-            self.time_zone = None
+            self.minute = None
+            self.month = None
+            self.second = None
             self.time_source = None
+            self.time_zone = None
+            self.wday = None
+            self.year = None
 
         @property
         def _common_path(self):
@@ -200,34 +200,34 @@ class SystemTime(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.year is not None:
-                return True
-
-            if self.month is not None:
-                return True
-
             if self.day is not None:
                 return True
 
             if self.hour is not None:
                 return True
 
+            if self.millisecond is not None:
+                return True
+
             if self.minute is not None:
+                return True
+
+            if self.month is not None:
                 return True
 
             if self.second is not None:
                 return True
 
-            if self.millisecond is not None:
-                return True
-
-            if self.wday is not None:
+            if self.time_source is not None:
                 return True
 
             if self.time_zone is not None:
                 return True
 
-            if self.time_source is not None:
+            if self.wday is not None:
+                return True
+
+            if self.year is not None:
                 return True
 
             return False

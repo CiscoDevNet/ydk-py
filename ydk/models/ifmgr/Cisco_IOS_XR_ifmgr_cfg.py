@@ -22,7 +22,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcDataEnum
@@ -319,40 +319,15 @@ class InterfaceConfigurations(object):
         
         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
         
-        .. attribute:: dampening
+        .. attribute:: afs
         
-        	Whether this interface's state changes are dampened or not
-        	**type**\: :py:class:`Dampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening>`
+        	Per\-address\-family and topology configuration
+        	**type**\: :py:class:`Afs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs>`
         
-        .. attribute:: mtus
+        .. attribute:: atm
         
-        	The MTU configuration for the interface
-        	**type**\: :py:class:`Mtus <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus>`
-        
-        .. attribute:: encapsulation
-        
-        	The encapsulation on the interface
-        	**type**\: :py:class:`Encapsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Encapsulation>`
-        
-        .. attribute:: shutdown
-        
-        	The existence of this configuration indicates the interface is shut down
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: interface_virtual
-        
-        	The mode in which an interface is running. The existence of this object causes the creation of the software virtual/subinterface
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: secondary_admin_state
-        
-        	The secondary admin state of the interface
-        	**type**\: :py:class:`SecondaryAdminStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnumEnum>`
-        
-        .. attribute:: interface_mode_non_physical
-        
-        	The mode in which an interface is running. The existence of this object causes the creation of the software subinterface
-        	**type**\: :py:class:`InterfaceModeEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnumEnum>`
+        	ATM Configuration
+        	**type**\: :py:class:`Atm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm>`
         
         .. attribute:: bandwidth
         
@@ -360,36 +335,6 @@ class InterfaceConfigurations(object):
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
-        
-        .. attribute:: link_status
-        
-        	Enable interface and line\-protocol state change alarms
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: description
-        
-        	The description of this interface
-        	**type**\: str
-        
-        .. attribute:: pseudowire_ether
-        
-        	PW\-Ether attributes
-        	**type**\: :py:class:`PseudowireEther <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireEther>`
-        
-        .. attribute:: pseudowire_iw
-        
-        	PW\-IW attributes
-        	**type**\: :py:class:`PseudowireIw <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireIw>`
-        
-        .. attribute:: l2_transport
-        
-        	Interface Layer 2 Transport service configuration data
-        	**type**\: :py:class:`L2Transport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport>`
-        
-        .. attribute:: atm
-        
-        	ATM Configuration
-        	**type**\: :py:class:`Atm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm>`
         
         .. attribute:: bfd
         
@@ -401,70 +346,160 @@ class InterfaceConfigurations(object):
         	Generic per\-bundle configuration
         	**type**\: :py:class:`Bundle <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle>`
         
-        .. attribute:: lacp
-        
-        	Link Aggregation Control Protocol per\-interface configuration (for bundle or member)
-        	**type**\: :py:class:`Lacp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp>`
-        
         .. attribute:: bundle_member
         
         	Generic per\-member configuration
         	**type**\: :py:class:`BundleMember <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.BundleMember>`
-        
-        .. attribute:: mlacp
-        
-        	Multi\-chassis LACP configuration
-        	**type**\: :py:class:`Mlacp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp>`
         
         .. attribute:: cdp
         
         	Interface specific CDP configuration
         	**type**\: :py:class:`Cdp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Cdp>`
         
-        .. attribute:: optics
+        .. attribute:: cisco_ios_xr_ncs5500_qos_cfg_qos
         
-        	Optics controller configuration
-        	**type**\: :py:class:`Optics <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics>`
+        	Interface QOS configuration
+        	**type**\: :py:class:`CiscoIosXrNcs5500QosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos>`
         
-        .. attribute:: otu
+        .. attribute:: cisco_ios_xr_skp_qos_cfg_qos
         
-        	OTU port controller configuration
-        	**type**\: :py:class:`Otu <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu>`
+        	Interface QOS configuration
+        	**type**\: :py:class:`CiscoIosXrSkpQosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos>`
+        
+        .. attribute:: dagrs
+        
+        	Direct\-Attached Gateway Redundancy configuration
+        	**type**\: :py:class:`Dagrs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs>`
+        
+        .. attribute:: dampening
+        
+        	Whether this interface's state changes are dampened or not
+        	**type**\: :py:class:`Dampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening>`
+        
+        .. attribute:: description
+        
+        	The description of this interface
+        	**type**\: str
+        
+        .. attribute:: encapsulation
+        
+        	The encapsulation on the interface
+        	**type**\: :py:class:`Encapsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Encapsulation>`
+        
+        .. attribute:: es_packet_filter
+        
+        	ES Packet Filtering configuration for the interface
+        	**type**\: :py:class:`EsPacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter>`
         
         .. attribute:: ethernet
         
         	Ether specific interface configuration
         	**type**\: :py:class:`Ethernet <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet>`
         
-        .. attribute:: vlan_sub_configuration
-        
-        	IEEE 802.1Q VLAN subinterface configuration
-        	**type**\: :py:class:`VlanSubConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration>`
-        
-        .. attribute:: ethernet_service
-        
-        	Ethernet service configuration
-        	**type**\: :py:class:`EthernetService <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService>`
-        
         .. attribute:: ethernet_bng
         
         	Ethernet Infra BNG specific configuration
         	**type**\: :py:class:`EthernetBng <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetBng>`
-        
-        .. attribute:: mac_accounting
-        
-        	MAC Accounting Configuration
-        	**type**\: :py:class:`MacAccounting <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MacAccounting>`
         
         .. attribute:: ethernet_features
         
         	Ethernet Features Configuration
         	**type**\: :py:class:`EthernetFeatures <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures>`
         
-        .. attribute:: vlan_trunk_configuration
+        .. attribute:: ethernet_service
         
-        	IEEE 802.1Q VLAN trunk interface configuration
-        	**type**\: :py:class:`VlanTrunkConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration>`
+        	Ethernet service configuration
+        	**type**\: :py:class:`EthernetService <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService>`
+        
+        .. attribute:: interface_mode_non_physical
+        
+        	The mode in which an interface is running. The existence of this object causes the creation of the software subinterface
+        	**type**\: :py:class:`InterfaceModeEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnumEnum>`
+        
+        .. attribute:: interface_virtual
+        
+        	The mode in which an interface is running. The existence of this object causes the creation of the software virtual/subinterface
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: ipv4_network
+        
+        	Interface IPv4 Network configuration data
+        	**type**\: :py:class:`Ipv4Network <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network>`
+        
+        .. attribute:: ipv4_network_forwarding
+        
+        	Interface IPv4 Network configuration data also used for forwarding
+        	**type**\: :py:class:`Ipv4NetworkForwarding <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding>`
+        
+        .. attribute:: ipv4_packet_filter
+        
+        	IPv4 Packet Filtering configuration for the interface
+        	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter>`
+        
+        .. attribute:: ipv4arp
+        
+        	Configure Address Resolution Protocol
+        	**type**\: :py:class:`Ipv4Arp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp>`
+        
+        .. attribute:: ipv6_neighbor
+        
+        	IPv6 interface neighbor or neighbor discovery configuration
+        	**type**\: :py:class:`Ipv6Neighbor <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor>`
+        
+        .. attribute:: ipv6_network
+        
+        	Interface IPv6 Network configuration data
+        	**type**\: :py:class:`Ipv6Network <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network>`
+        
+        .. attribute:: ipv6_packet_filter
+        
+        	IPv6 Packet Filtering configuration for the interface
+        	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter>`
+        
+        .. attribute:: l2_transport
+        
+        	Interface Layer 2 Transport service configuration data
+        	**type**\: :py:class:`L2Transport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport>`
+        
+        .. attribute:: lacp
+        
+        	Link Aggregation Control Protocol per\-interface configuration (for bundle or member)
+        	**type**\: :py:class:`Lacp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp>`
+        
+        .. attribute:: link_status
+        
+        	Enable interface and line\-protocol state change alarms
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: lldp
+        
+        	Disable LLDP TX or RX
+        	**type**\: :py:class:`Lldp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp>`
+        
+        .. attribute:: mac_accounting
+        
+        	MAC Accounting Configuration
+        	**type**\: :py:class:`MacAccounting <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MacAccounting>`
+        
+        .. attribute:: mlacp
+        
+        	Multi\-chassis LACP configuration
+        	**type**\: :py:class:`Mlacp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp>`
+        
+        .. attribute:: mte_tunnel_attributes
+        
+        	MPLS P2MP tunnel attributes
+        	**type**\: :py:class:`MteTunnelAttributes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes>`
+        
+        .. attribute:: mtus
+        
+        	The MTU configuration for the interface
+        	**type**\: :py:class:`Mtus <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus>`
+        
+        .. attribute:: net_flow
+        
+        	Interface netflow configuration
+        	**type**\: :py:class:`NetFlow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow>`
         
         .. attribute:: nv_satellite_access
         
@@ -481,97 +516,15 @@ class InterfaceConfigurations(object):
         	Complex Network connection to one or more Satellites
         	**type**\: :py:class:`NvSatelliteFabricNetwork <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork>`
         
-        .. attribute:: lldp
+        .. attribute:: optics
         
-        	Disable LLDP TX or RX
-        	**type**\: :py:class:`Lldp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp>`
+        	Optics controller configuration
+        	**type**\: :py:class:`Optics <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics>`
         
-        .. attribute:: span_monitor_sessions
+        .. attribute:: otu
         
-        	Monitor Session container for this source interface
-        	**type**\: :py:class:`SpanMonitorSessions <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions>`
-        
-        .. attribute:: vrf
-        
-        	Assign the interface to a VRF
-        	**type**\: str
-        
-        	**range:** 0..32
-        
-        .. attribute:: afs
-        
-        	Per\-address\-family and topology configuration
-        	**type**\: :py:class:`Afs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs>`
-        
-        .. attribute:: statistics
-        
-        	Per\-interface statistics configuration
-        	**type**\: :py:class:`Statistics <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Statistics>`
-        
-        .. attribute:: ipv6_packet_filter
-        
-        	IPv6 Packet Filtering configuration for the interface
-        	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter>`
-        
-        .. attribute:: es_packet_filter
-        
-        	ES Packet Filtering configuration for the interface
-        	**type**\: :py:class:`EsPacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter>`
-        
-        .. attribute:: ipv4_packet_filter
-        
-        	IPv4 Packet Filtering configuration for the interface
-        	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter>`
-        
-        .. attribute:: dagrs
-        
-        	Direct\-Attached Gateway Redundancy configuration
-        	**type**\: :py:class:`Dagrs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs>`
-        
-        .. attribute:: ipv4arp
-        
-        	Configure Address Resolution Protocol
-        	**type**\: :py:class:`Ipv4Arp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp>`
-        
-        .. attribute:: ipv4_network
-        
-        	Interface IPv4 Network configuration data
-        	**type**\: :py:class:`Ipv4Network <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network>`
-        
-        .. attribute:: ipv4_network_forwarding
-        
-        	Interface IPv4 Network configuration data also used for forwarding
-        	**type**\: :py:class:`Ipv4NetworkForwarding <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding>`
-        
-        .. attribute:: ipv6_network
-        
-        	Interface IPv6 Network configuration data
-        	**type**\: :py:class:`Ipv6Network <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network>`
-        
-        .. attribute:: ipv6_neighbor
-        
-        	IPv6 interface neighbor or neighbor discovery configuration
-        	**type**\: :py:class:`Ipv6Neighbor <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor>`
-        
-        .. attribute:: tunnel_te_attributes
-        
-        	MPLS tunnel attributes
-        	**type**\: :py:class:`TunnelTeAttributes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes>`
-        
-        .. attribute:: transport_profile_tunnel
-        
-        	MPLS\-TP tunnel attributes
-        	**type**\: :py:class:`TransportProfileTunnel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel>`
-        
-        .. attribute:: mte_tunnel_attributes
-        
-        	MPLS P2MP tunnel attributes
-        	**type**\: :py:class:`MteTunnelAttributes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes>`
-        
-        .. attribute:: cisco_ios_xr_ncs5500_qos_cfg_qos
-        
-        	Interface QOS configuration
-        	**type**\: :py:class:`CiscoIosXrNcs5500QosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos>`
+        	OTU port controller configuration
+        	**type**\: :py:class:`Otu <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu>`
         
         .. attribute:: pbr
         
@@ -583,15 +536,62 @@ class InterfaceConfigurations(object):
         	Configure pm parameters
         	**type**\: :py:class:`PerformanceManagement <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement>`
         
-        .. attribute:: cisco_ios_xr_skp_qos_cfg_qos
+        .. attribute:: pseudowire_ether
         
-        	Interface QOS configuration
-        	**type**\: :py:class:`CiscoIosXrSkpQosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos>`
+        	PW\-Ether attributes
+        	**type**\: :py:class:`PseudowireEther <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireEther>`
         
-        .. attribute:: net_flow
+        .. attribute:: pseudowire_iw
         
-        	Interface netflow configuration
-        	**type**\: :py:class:`NetFlow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow>`
+        	PW\-IW attributes
+        	**type**\: :py:class:`PseudowireIw <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireIw>`
+        
+        .. attribute:: secondary_admin_state
+        
+        	The secondary admin state of the interface
+        	**type**\: :py:class:`SecondaryAdminStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnumEnum>`
+        
+        .. attribute:: shutdown
+        
+        	The existence of this configuration indicates the interface is shut down
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: span_monitor_sessions
+        
+        	Monitor Session container for this source interface
+        	**type**\: :py:class:`SpanMonitorSessions <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions>`
+        
+        .. attribute:: statistics
+        
+        	Per\-interface statistics configuration
+        	**type**\: :py:class:`Statistics <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Statistics>`
+        
+        .. attribute:: transport_profile_tunnel
+        
+        	MPLS\-TP tunnel attributes
+        	**type**\: :py:class:`TransportProfileTunnel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel>`
+        
+        .. attribute:: tunnel_te_attributes
+        
+        	MPLS tunnel attributes
+        	**type**\: :py:class:`TunnelTeAttributes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes>`
+        
+        .. attribute:: vlan_sub_configuration
+        
+        	IEEE 802.1Q VLAN subinterface configuration
+        	**type**\: :py:class:`VlanSubConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration>`
+        
+        .. attribute:: vlan_trunk_configuration
+        
+        	IEEE 802.1Q VLAN trunk interface configuration
+        	**type**\: :py:class:`VlanTrunkConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration>`
+        
+        .. attribute:: vrf
+        
+        	Assign the interface to a VRF
+        	**type**\: str
+        
+        	**range:** 0..32
         
         .. attribute:: wanphy
         
@@ -609,105 +609,105 @@ class InterfaceConfigurations(object):
             self.parent = None
             self.active = None
             self.interface_name = None
-            self.dampening = InterfaceConfigurations.InterfaceConfiguration.Dampening()
-            self.dampening.parent = self
-            self.mtus = InterfaceConfigurations.InterfaceConfiguration.Mtus()
-            self.mtus.parent = self
-            self.encapsulation = InterfaceConfigurations.InterfaceConfiguration.Encapsulation()
-            self.encapsulation.parent = self
-            self.shutdown = None
-            self.interface_virtual = None
-            self.secondary_admin_state = None
-            self.interface_mode_non_physical = None
-            self.bandwidth = None
-            self.link_status = None
-            self.description = None
-            self.pseudowire_ether = InterfaceConfigurations.InterfaceConfiguration.PseudowireEther()
-            self.pseudowire_ether.parent = self
-            self.pseudowire_iw = InterfaceConfigurations.InterfaceConfiguration.PseudowireIw()
-            self.pseudowire_iw.parent = self
-            self.l2_transport = InterfaceConfigurations.InterfaceConfiguration.L2Transport()
-            self.l2_transport.parent = self
+            self.afs = InterfaceConfigurations.InterfaceConfiguration.Afs()
+            self.afs.parent = self
             self.atm = InterfaceConfigurations.InterfaceConfiguration.Atm()
             self.atm.parent = self
+            self.bandwidth = None
             self.bfd = InterfaceConfigurations.InterfaceConfiguration.Bfd()
             self.bfd.parent = self
             self.bundle = InterfaceConfigurations.InterfaceConfiguration.Bundle()
             self.bundle.parent = self
-            self.lacp = InterfaceConfigurations.InterfaceConfiguration.Lacp()
-            self.lacp.parent = self
             self.bundle_member = InterfaceConfigurations.InterfaceConfiguration.BundleMember()
             self.bundle_member.parent = self
-            self.mlacp = InterfaceConfigurations.InterfaceConfiguration.Mlacp()
-            self.mlacp.parent = self
             self.cdp = InterfaceConfigurations.InterfaceConfiguration.Cdp()
             self.cdp.parent = self
-            self.optics = InterfaceConfigurations.InterfaceConfiguration.Optics()
-            self.optics.parent = self
-            self.otu = InterfaceConfigurations.InterfaceConfiguration.Otu()
-            self.otu.parent = self
+            self.cisco_ios_xr_ncs5500_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos()
+            self.cisco_ios_xr_ncs5500_qos_cfg_qos.parent = self
+            self.cisco_ios_xr_skp_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos()
+            self.cisco_ios_xr_skp_qos_cfg_qos.parent = self
+            self.dagrs = InterfaceConfigurations.InterfaceConfiguration.Dagrs()
+            self.dagrs.parent = self
+            self.dampening = InterfaceConfigurations.InterfaceConfiguration.Dampening()
+            self.dampening.parent = self
+            self.description = None
+            self.encapsulation = InterfaceConfigurations.InterfaceConfiguration.Encapsulation()
+            self.encapsulation.parent = self
+            self.es_packet_filter = InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter()
+            self.es_packet_filter.parent = self
             self.ethernet = InterfaceConfigurations.InterfaceConfiguration.Ethernet()
             self.ethernet.parent = self
-            self.vlan_sub_configuration = InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration()
-            self.vlan_sub_configuration.parent = self
-            self.ethernet_service = InterfaceConfigurations.InterfaceConfiguration.EthernetService()
-            self.ethernet_service.parent = self
             self.ethernet_bng = InterfaceConfigurations.InterfaceConfiguration.EthernetBng()
             self.ethernet_bng.parent = self
-            self.mac_accounting = InterfaceConfigurations.InterfaceConfiguration.MacAccounting()
-            self.mac_accounting.parent = self
             self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures()
             self.ethernet_features.parent = self
-            self.vlan_trunk_configuration = InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration()
-            self.vlan_trunk_configuration.parent = self
+            self.ethernet_service = InterfaceConfigurations.InterfaceConfiguration.EthernetService()
+            self.ethernet_service.parent = self
+            self.interface_mode_non_physical = None
+            self.interface_virtual = None
+            self.ipv4_network = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network()
+            self.ipv4_network.parent = self
+            self.ipv4_network_forwarding = InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding()
+            self.ipv4_network_forwarding.parent = self
+            self.ipv4_packet_filter = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter()
+            self.ipv4_packet_filter.parent = self
+            self.ipv4arp = InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp()
+            self.ipv4arp.parent = self
+            self.ipv6_neighbor = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor()
+            self.ipv6_neighbor.parent = self
+            self.ipv6_network = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network()
+            self.ipv6_network.parent = self
+            self.ipv6_packet_filter = InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter()
+            self.ipv6_packet_filter.parent = self
+            self.l2_transport = InterfaceConfigurations.InterfaceConfiguration.L2Transport()
+            self.l2_transport.parent = self
+            self.lacp = InterfaceConfigurations.InterfaceConfiguration.Lacp()
+            self.lacp.parent = self
+            self.link_status = None
+            self.lldp = None
+            self.mac_accounting = InterfaceConfigurations.InterfaceConfiguration.MacAccounting()
+            self.mac_accounting.parent = self
+            self.mlacp = InterfaceConfigurations.InterfaceConfiguration.Mlacp()
+            self.mlacp.parent = self
+            self.mte_tunnel_attributes = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes()
+            self.mte_tunnel_attributes.parent = self
+            self.mtus = InterfaceConfigurations.InterfaceConfiguration.Mtus()
+            self.mtus.parent = self
+            self.net_flow = InterfaceConfigurations.InterfaceConfiguration.NetFlow()
+            self.net_flow.parent = self
             self.nv_satellite_access = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess()
             self.nv_satellite_access.parent = self
             self.nv_satellite_fabric_link = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink()
             self.nv_satellite_fabric_link.parent = self
             self.nv_satellite_fabric_network = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork()
             self.nv_satellite_fabric_network.parent = self
-            self.lldp = None
-            self.span_monitor_sessions = InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions()
-            self.span_monitor_sessions.parent = self
-            self.vrf = None
-            self.afs = InterfaceConfigurations.InterfaceConfiguration.Afs()
-            self.afs.parent = self
-            self.statistics = InterfaceConfigurations.InterfaceConfiguration.Statistics()
-            self.statistics.parent = self
-            self.ipv6_packet_filter = InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter()
-            self.ipv6_packet_filter.parent = self
-            self.es_packet_filter = InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter()
-            self.es_packet_filter.parent = self
-            self.ipv4_packet_filter = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter()
-            self.ipv4_packet_filter.parent = self
-            self.dagrs = InterfaceConfigurations.InterfaceConfiguration.Dagrs()
-            self.dagrs.parent = self
-            self.ipv4arp = InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp()
-            self.ipv4arp.parent = self
-            self.ipv4_network = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network()
-            self.ipv4_network.parent = self
-            self.ipv4_network_forwarding = InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding()
-            self.ipv4_network_forwarding.parent = self
-            self.ipv6_network = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network()
-            self.ipv6_network.parent = self
-            self.ipv6_neighbor = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor()
-            self.ipv6_neighbor.parent = self
-            self.tunnel_te_attributes = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes()
-            self.tunnel_te_attributes.parent = self
-            self.transport_profile_tunnel = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel()
-            self.transport_profile_tunnel.parent = self
-            self.mte_tunnel_attributes = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes()
-            self.mte_tunnel_attributes.parent = self
-            self.cisco_ios_xr_ncs5500_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos()
-            self.cisco_ios_xr_ncs5500_qos_cfg_qos.parent = self
+            self.optics = InterfaceConfigurations.InterfaceConfiguration.Optics()
+            self.optics.parent = self
+            self.otu = InterfaceConfigurations.InterfaceConfiguration.Otu()
+            self.otu.parent = self
             self.pbr = InterfaceConfigurations.InterfaceConfiguration.Pbr()
             self.pbr.parent = self
             self.performance_management = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement()
             self.performance_management.parent = self
-            self.cisco_ios_xr_skp_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos()
-            self.cisco_ios_xr_skp_qos_cfg_qos.parent = self
-            self.net_flow = InterfaceConfigurations.InterfaceConfiguration.NetFlow()
-            self.net_flow.parent = self
+            self.pseudowire_ether = InterfaceConfigurations.InterfaceConfiguration.PseudowireEther()
+            self.pseudowire_ether.parent = self
+            self.pseudowire_iw = InterfaceConfigurations.InterfaceConfiguration.PseudowireIw()
+            self.pseudowire_iw.parent = self
+            self.secondary_admin_state = None
+            self.shutdown = None
+            self.span_monitor_sessions = InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions()
+            self.span_monitor_sessions.parent = self
+            self.statistics = InterfaceConfigurations.InterfaceConfiguration.Statistics()
+            self.statistics.parent = self
+            self.transport_profile_tunnel = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel()
+            self.transport_profile_tunnel.parent = self
+            self.tunnel_te_attributes = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes()
+            self.tunnel_te_attributes.parent = self
+            self.vlan_sub_configuration = InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration()
+            self.vlan_sub_configuration.parent = self
+            self.vlan_trunk_configuration = InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration()
+            self.vlan_trunk_configuration.parent = self
+            self.vrf = None
             self.wanphy = InterfaceConfigurations.InterfaceConfiguration.Wanphy()
             self.wanphy.parent = self
 
@@ -728,6 +728,13 @@ class InterfaceConfigurations(object):
             	**type**\: int
             
             	**range:** 1..45
+            
+            .. attribute:: restart_penalty
+            
+            	Restart penalty
+            	**type**\: int
+            
+            	**range:** 0..20000
             
             .. attribute:: reuse_threshold
             
@@ -750,13 +757,6 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..255
             
-            .. attribute:: restart_penalty
-            
-            	Restart penalty
-            	**type**\: int
-            
-            	**range:** 0..20000
-            
             
 
             """
@@ -768,10 +768,10 @@ class InterfaceConfigurations(object):
                 self.parent = None
                 self.args = None
                 self.half_life = None
+                self.restart_penalty = None
                 self.reuse_threshold = None
                 self.suppress_threshold = None
                 self.suppress_time = None
-                self.restart_penalty = None
 
             class ArgsEnum(Enum):
                 """
@@ -817,7 +817,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-cfg:dampening'
 
@@ -834,6 +834,9 @@ class InterfaceConfigurations(object):
                 if self.half_life is not None:
                     return True
 
+                if self.restart_penalty is not None:
+                    return True
+
                 if self.reuse_threshold is not None:
                     return True
 
@@ -841,9 +844,6 @@ class InterfaceConfigurations(object):
                     return True
 
                 if self.suppress_time is not None:
-                    return True
-
-                if self.restart_penalty is not None:
                     return True
 
                 return False
@@ -910,9 +910,9 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.owner is None:
-                        raise YPYDataValidationError('Key property owner is None')
+                        raise YPYModelError('Key property owner is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-cfg:mtu[Cisco-IOS-XR-ifmgr-cfg:owner = ' + str(self.owner) + ']'
 
@@ -939,7 +939,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-cfg:mtus'
 
@@ -967,17 +967,17 @@ class InterfaceConfigurations(object):
             """
             The encapsulation on the interface
             
-            .. attribute:: encapsulation
-            
-            	The encapsulation \- e.g. hdlc, ppp
-            	**type**\: str
-            
             .. attribute:: capsulation_options
             
             	The options for this capsulation, usually '0'
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            .. attribute:: encapsulation
+            
+            	The encapsulation \- e.g. hdlc, ppp
+            	**type**\: str
             
             
 
@@ -988,13 +988,13 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.encapsulation = None
                 self.capsulation_options = None
+                self.encapsulation = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-cfg:encapsulation'
 
@@ -1005,10 +1005,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.encapsulation is not None:
+                if self.capsulation_options is not None:
                     return True
 
-                if self.capsulation_options is not None:
+                if self.encapsulation is not None:
                     return True
 
                 return False
@@ -1052,7 +1052,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-ether'
 
@@ -1081,19 +1081,19 @@ class InterfaceConfigurations(object):
             """
             PW\-IW attributes
             
-            .. attribute:: l2_overhead
-            
-            	L2 overhead size in bytes
-            	**type**\: int
-            
-            	**range:** 1..64
-            
             .. attribute:: generic_interface_list
             
             	Name of the interface list
             	**type**\: str
             
             	**range:** 0..32
+            
+            .. attribute:: l2_overhead
+            
+            	L2 overhead size in bytes
+            	**type**\: int
+            
+            	**range:** 1..64
             
             
 
@@ -1104,13 +1104,13 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.l2_overhead = None
                 self.generic_interface_list = None
+                self.l2_overhead = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-iw'
 
@@ -1121,10 +1121,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.l2_overhead is not None:
+                if self.generic_interface_list is not None:
                     return True
 
-                if self.generic_interface_list is not None:
+                if self.l2_overhead is not None:
                     return True
 
                 return False
@@ -1140,15 +1140,20 @@ class InterfaceConfigurations(object):
             Interface Layer 2 Transport service
             configuration data
             
+            .. attribute:: atm_port_mode_parameters
+            
+            	ATM L2transport Port Mode Parameters Configuration
+            	**type**\: :py:class:`AtmPortModeParameters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters>`
+            
             .. attribute:: enabled
             
             	This object is only valid on physical interfaces and it controls whether that interface is a port mode Layer 2 attachment circuit (note that for subinterfaces, the Layer 2 property is specified when the subinterface is created).The object must be set before any other L2Transport configuration is supplied for the interface, and must be the last per\-interface configuration object to be removed
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: atm_port_mode_parameters
+            .. attribute:: l2_ethernet_features
             
-            	ATM L2transport Port Mode Parameters Configuration
-            	**type**\: :py:class:`AtmPortModeParameters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters>`
+            	L2 Ethernet Features Configuration
+            	**type**\: :py:class:`L2EthernetFeatures <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures>`
             
             .. attribute:: l2_protocols
             
@@ -1159,11 +1164,6 @@ class InterfaceConfigurations(object):
             
             	Enable propagation of the remote attachment\-circuit link state to the localattachment\-circuit link state
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: l2_ethernet_features
-            
-            	L2 Ethernet Features Configuration
-            	**type**\: :py:class:`L2EthernetFeatures <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures>`
             
             .. attribute:: span_monitor_sessions
             
@@ -1179,14 +1179,14 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.enabled = None
                 self.atm_port_mode_parameters = InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters()
                 self.atm_port_mode_parameters.parent = self
+                self.enabled = None
+                self.l2_ethernet_features = InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures()
+                self.l2_ethernet_features.parent = self
                 self.l2_protocols = InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols()
                 self.l2_protocols.parent = self
                 self.propagate_remote_status = None
-                self.l2_ethernet_features = InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures()
-                self.l2_ethernet_features.parent = self
                 self.span_monitor_sessions = InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
 
@@ -1218,24 +1218,24 @@ class InterfaceConfigurations(object):
                     Configure cell\-packing parameters.  All
                     parameters are mandatory.
                     
-                    .. attribute:: maximum_cells_packed
-                    
-                    	Maximum number of cells to be packed in a packet
-                    	**type**\: int
-                    
-                    	**range:** 2..255
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     .. attribute:: cell_packing_timer_id
                     
                     	Which cell packing timer to use
                     	**type**\: int
                     
                     	**range:** 1..3
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    .. attribute:: maximum_cells_packed
+                    
+                    	Maximum number of cells to be packed in a packet
+                    	**type**\: int
+                    
+                    	**range:** 2..255
                     
                     .. attribute:: _is_presence
                     
@@ -1253,13 +1253,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.maximum_cells_packed = None
                         self.cell_packing_timer_id = None
+                        self.maximum_cells_packed = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:cell-packing'
 
@@ -1270,10 +1270,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.maximum_cells_packed is not None:
+                        if self.cell_packing_timer_id is not None:
                             return True
 
-                        if self.cell_packing_timer_id is not None:
+                        if self.maximum_cells_packed is not None:
                             return True
 
                         return False
@@ -1286,7 +1286,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters'
 
@@ -1368,9 +1368,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.l2_protocol_name is None:
-                            raise YPYDataValidationError('Key property l2_protocol_name is None')
+                            raise YPYModelError('Key property l2_protocol_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:l2-protocol[Cisco-IOS-XR-l2-eth-infra-cfg:l2-protocol-name = ' + str(self.l2_protocol_name) + ']'
 
@@ -1400,7 +1400,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:l2-protocols'
 
@@ -1453,7 +1453,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:l2-ethernet-features'
 
@@ -1512,6 +1512,16 @@ class InterfaceConfigurations(object):
                     	Session Class
                     	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\: :py:class:`Attachment <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
@@ -1519,20 +1529,10 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..10000
                     
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\: :py:class:`Attachment <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
                     	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -1544,27 +1544,15 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.session_class = None
-                        self.mirror_first = None
-                        self.attachment = None
-                        self.mirror_interval = None
                         self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
 
 
                     class Attachment(object):
                         """
                         Attach the interface to a Monitor Session
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\: str
-                        
-                        	**range:** 0..79
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
                         
                         .. attribute:: direction
                         
@@ -1586,6 +1574,18 @@ class InterfaceConfigurations(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -1597,14 +1597,14 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.session_name = None
                             self.direction = None
                             self.port_level_enable = None
+                            self.session_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:attachment'
 
@@ -1615,13 +1615,13 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.session_name is not None:
-                                return True
-
                             if self.direction is not None:
                                 return True
 
                             if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
                                 return True
 
                             return False
@@ -1634,9 +1634,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.session_class is None:
-                            raise YPYDataValidationError('Key property session_class is None')
+                            raise YPYModelError('Key property session_class is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-cfg:session-class = ' + str(self.session_class) + ']'
 
@@ -1650,16 +1650,16 @@ class InterfaceConfigurations(object):
                         if self.session_class is not None:
                             return True
 
-                        if self.mirror_first is not None:
+                        if self.acl is not None:
                             return True
 
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.mirror_interval is not None:
+                        if self.mirror_first is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.mirror_interval is not None:
                             return True
 
                         return False
@@ -1672,7 +1672,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions'
 
@@ -1698,7 +1698,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:l2-transport'
 
@@ -1709,19 +1709,19 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.atm_port_mode_parameters is not None and self.atm_port_mode_parameters._has_data():
+                    return True
+
                 if self.enabled is not None:
                     return True
 
-                if self.atm_port_mode_parameters is not None and self.atm_port_mode_parameters._has_data():
+                if self.l2_ethernet_features is not None and self.l2_ethernet_features._has_data():
                     return True
 
                 if self.l2_protocols is not None and self.l2_protocols._has_data():
                     return True
 
                 if self.propagate_remote_status is not None:
-                    return True
-
-                if self.l2_ethernet_features is not None and self.l2_ethernet_features._has_data():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
@@ -1739,30 +1739,25 @@ class InterfaceConfigurations(object):
             """
             ATM Configuration
             
-            .. attribute:: pvps
+            .. attribute:: max_vpi_bits
             
-            	PVP Configuration
-            	**type**\: :py:class:`Pvps <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps>`
-            
-            .. attribute:: pvcs
-            
-            	PVC Configuration
-            	**type**\: :py:class:`Pvcs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs>`
+            	Support 12\-bits VPI cell format
+            	**type**\: :py:class:`AtmVpiBitsModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsModeEnum>`
             
             .. attribute:: maximum_cell_packing_timers
             
             	Configure maximum cell\-packing timers.  All parameters are mandatory
             	**type**\: :py:class:`MaximumCellPackingTimers <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers>`
             
-            .. attribute:: vp_tunnels
+            .. attribute:: pvcs
             
-            	VP tunnel configuration
-            	**type**\: :py:class:`VpTunnels <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels>`
+            	PVC Configuration
+            	**type**\: :py:class:`Pvcs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs>`
             
-            .. attribute:: max_vpi_bits
+            .. attribute:: pvps
             
-            	Support 12\-bits VPI cell format
-            	**type**\: :py:class:`AtmVpiBitsModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsModeEnum>`
+            	PVP Configuration
+            	**type**\: :py:class:`Pvps <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps>`
             
             .. attribute:: vc_class
             
@@ -1770,6 +1765,11 @@ class InterfaceConfigurations(object):
             	**type**\: str
             
             	**range:** 0..30
+            
+            .. attribute:: vp_tunnels
+            
+            	VP tunnel configuration
+            	**type**\: :py:class:`VpTunnels <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels>`
             
             
 
@@ -1780,15 +1780,15 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.pvps = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps()
-                self.pvps.parent = self
+                self.max_vpi_bits = None
+                self.maximum_cell_packing_timers = None
                 self.pvcs = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs()
                 self.pvcs.parent = self
-                self.maximum_cell_packing_timers = None
+                self.pvps = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps()
+                self.pvps.parent = self
+                self.vc_class = None
                 self.vp_tunnels = InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels()
                 self.vp_tunnels.parent = self
-                self.max_vpi_bits = None
-                self.vc_class = None
 
 
             class Pvps(object):
@@ -1825,11 +1825,6 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..4095
                     
-                    .. attribute:: shape
-                    
-                    	Configure traffic shaping parameters
-                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape>`
-                    
                     .. attribute:: cell_packing
                     
                     	Configure cell\-packing parameters.  All parameters are mandatory
@@ -1840,15 +1835,20 @@ class InterfaceConfigurations(object):
                     	Create the PVP
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: test_mode
-                    
-                    	Configure the PVP test mode
-                    	**type**\: :py:class:`AtmPvpTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestModeEnum>`
-                    
                     .. attribute:: oam_segment_endpoint
                     
                     	Enable L2VPN PVP OAM segment endpoint
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: shape
+                    
+                    	Configure traffic shaping parameters
+                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape>`
+                    
+                    .. attribute:: test_mode
+                    
+                    	Configure the PVP test mode
+                    	**type**\: :py:class:`AtmPvpTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestModeEnum>`
                     
                     
 
@@ -1860,22 +1860,24 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.vpi = None
-                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape()
-                        self.shape.parent = self
                         self.cell_packing = None
                         self.enable = None
-                        self.test_mode = None
                         self.oam_segment_endpoint = None
+                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape()
+                        self.shape.parent = self
+                        self.test_mode = None
 
 
                     class Shape(object):
                         """
                         Configure traffic shaping parameters
                         
-                        .. attribute:: type
+                        .. attribute:: burst_size
                         
-                        	Traffic shaping type
-                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
                         
                         .. attribute:: peak_cell_rate
                         
@@ -1891,12 +1893,10 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 8..622080
                         
-                        .. attribute:: burst_size
+                        .. attribute:: type
                         
-                        	Burst size in cells
-                        	**type**\: int
-                        
-                        	**range:** 1..8192
+                        	Traffic shaping type
+                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -1907,15 +1907,15 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
+                            self.burst_size = None
                             self.peak_cell_rate = None
                             self.sustained_cell_rate = None
-                            self.burst_size = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:shape'
 
@@ -1926,7 +1926,7 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.burst_size is not None:
                                 return True
 
                             if self.peak_cell_rate is not None:
@@ -1935,7 +1935,7 @@ class InterfaceConfigurations(object):
                             if self.sustained_cell_rate is not None:
                                 return True
 
-                            if self.burst_size is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -1951,24 +1951,24 @@ class InterfaceConfigurations(object):
                         Configure cell\-packing parameters.  All
                         parameters are mandatory.
                         
-                        .. attribute:: maximum_cells_packed
-                        
-                        	Maximum number of cells to be packed in a packet
-                        	**type**\: int
-                        
-                        	**range:** 2..255
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         .. attribute:: cell_packing_timer_id
                         
                         	Which cell packing timer to use
                         	**type**\: int
                         
                         	**range:** 1..3
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: maximum_cells_packed
+                        
+                        	Maximum number of cells to be packed in a packet
+                        	**type**\: int
+                        
+                        	**range:** 2..255
                         
                         .. attribute:: _is_presence
                         
@@ -1986,13 +1986,13 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.maximum_cells_packed = None
                             self.cell_packing_timer_id = None
+                            self.maximum_cells_packed = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:cell-packing'
 
@@ -2003,10 +2003,10 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.maximum_cells_packed is not None:
+                            if self.cell_packing_timer_id is not None:
                                 return True
 
-                            if self.cell_packing_timer_id is not None:
+                            if self.maximum_cells_packed is not None:
                                 return True
 
                             return False
@@ -2019,9 +2019,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.vpi is None:
-                            raise YPYDataValidationError('Key property vpi is None')
+                            raise YPYModelError('Key property vpi is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:pvp[Cisco-IOS-XR-atm-vcm-cfg:vpi = ' + str(self.vpi) + ']'
 
@@ -2035,19 +2035,19 @@ class InterfaceConfigurations(object):
                         if self.vpi is not None:
                             return True
 
-                        if self.shape is not None and self.shape._has_data():
-                            return True
-
                         if self.cell_packing is not None and self.cell_packing._has_data():
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.test_mode is not None:
+                        if self.oam_segment_endpoint is not None:
                             return True
 
-                        if self.oam_segment_endpoint is not None:
+                        if self.shape is not None and self.shape._has_data():
+                            return True
+
+                        if self.test_mode is not None:
                             return True
 
                         return False
@@ -2060,7 +2060,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:pvps'
 
@@ -2111,12 +2111,10 @@ class InterfaceConfigurations(object):
                     """
                     Configuration particular PVC
                     
-                    .. attribute:: vpi  <key>
+                    .. attribute:: pv_ctype  <key>
                     
-                    	VPI value
-                    	**type**\: int
-                    
-                    	**range:** 0..4095
+                    	PVC type
+                    	**type**\: :py:class:`AtmPvcDataEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcDataEnum>`
                     
                     .. attribute:: vci  <key>
                     
@@ -2125,25 +2123,47 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..65535
                     
-                    .. attribute:: pv_ctype  <key>
+                    .. attribute:: vpi  <key>
                     
-                    	PVC type
-                    	**type**\: :py:class:`AtmPvcDataEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcDataEnum>`
+                    	VPI value
+                    	**type**\: int
                     
-                    .. attribute:: shape
+                    	**range:** 0..4095
                     
-                    	Configure traffic shaping parameters
-                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape>`
+                    .. attribute:: cell_packing
+                    
+                    	Configure cell\-packing parameters.  All parameters are mandatory
+                    	**type**\: :py:class:`CellPacking <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking>`
+                    
+                    .. attribute:: enable
+                    
+                    	Create the PVC
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Configure encapsulation
+                    	**type**\: :py:class:`AtmPvcEncapsulationEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulationEnum>`
                     
                     .. attribute:: oam_emulation
                     
                     	L2VPN OAM emulation
                     	**type**\: :py:class:`OamEmulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation>`
                     
-                    .. attribute:: cell_packing
+                    .. attribute:: oam_segment_endpoint
                     
-                    	Configure cell\-packing parameters.  All parameters are mandatory
-                    	**type**\: :py:class:`CellPacking <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking>`
+                    	Enable L2VPN PVC OAM segment endpoint
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: shape
+                    
+                    	Configure traffic shaping parameters
+                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape>`
+                    
+                    .. attribute:: test_mode
+                    
+                    	Configure the PVC test mode
+                    	**type**\: :py:class:`AtmPvcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestModeEnum>`
                     
                     .. attribute:: vc_class
                     
@@ -2151,26 +2171,6 @@ class InterfaceConfigurations(object):
                     	**type**\: str
                     
                     	**range:** 0..30
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Configure encapsulation
-                    	**type**\: :py:class:`AtmPvcEncapsulationEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulationEnum>`
-                    
-                    .. attribute:: enable
-                    
-                    	Create the PVC
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: test_mode
-                    
-                    	Configure the PVC test mode
-                    	**type**\: :py:class:`AtmPvcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestModeEnum>`
-                    
-                    .. attribute:: oam_segment_endpoint
-                    
-                    	Enable L2VPN PVC OAM segment endpoint
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -2181,29 +2181,31 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.vpi = None
-                        self.vci = None
                         self.pv_ctype = None
-                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape()
-                        self.shape.parent = self
+                        self.vci = None
+                        self.vpi = None
+                        self.cell_packing = None
+                        self.enable = None
+                        self.encapsulation = None
                         self.oam_emulation = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation()
                         self.oam_emulation.parent = self
-                        self.cell_packing = None
-                        self.vc_class = None
-                        self.encapsulation = None
-                        self.enable = None
-                        self.test_mode = None
                         self.oam_segment_endpoint = None
+                        self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape()
+                        self.shape.parent = self
+                        self.test_mode = None
+                        self.vc_class = None
 
 
                     class Shape(object):
                         """
                         Configure traffic shaping parameters
                         
-                        .. attribute:: type
+                        .. attribute:: burst_size
                         
-                        	Traffic shaping type
-                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
                         
                         .. attribute:: peak_cell_rate
                         
@@ -2219,12 +2221,10 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 8..622080
                         
-                        .. attribute:: burst_size
+                        .. attribute:: type
                         
-                        	Burst size in cells
-                        	**type**\: int
-                        
-                        	**range:** 1..8192
+                        	Traffic shaping type
+                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -2235,15 +2235,15 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
+                            self.burst_size = None
                             self.peak_cell_rate = None
                             self.sustained_cell_rate = None
-                            self.burst_size = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:shape'
 
@@ -2254,7 +2254,7 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.burst_size is not None:
                                 return True
 
                             if self.peak_cell_rate is not None:
@@ -2263,7 +2263,7 @@ class InterfaceConfigurations(object):
                             if self.sustained_cell_rate is not None:
                                 return True
 
-                            if self.burst_size is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -2278,17 +2278,17 @@ class InterfaceConfigurations(object):
                         """
                         L2VPN OAM emulation
                         
-                        .. attribute:: enable
-                        
-                        	Enable OAM emulation
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         .. attribute:: ais_transmit_rate
                         
                         	AIS cell transmit rate (1 per x seconds)
                         	**type**\: int
                         
                         	**range:** 0..60
+                        
+                        .. attribute:: enable
+                        
+                        	Enable OAM emulation
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
 
@@ -2299,13 +2299,13 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.enable = None
                             self.ais_transmit_rate = None
+                            self.enable = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:oam-emulation'
 
@@ -2316,10 +2316,10 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.enable is not None:
+                            if self.ais_transmit_rate is not None:
                                 return True
 
-                            if self.ais_transmit_rate is not None:
+                            if self.enable is not None:
                                 return True
 
                             return False
@@ -2335,24 +2335,24 @@ class InterfaceConfigurations(object):
                         Configure cell\-packing parameters.  All
                         parameters are mandatory.
                         
-                        .. attribute:: maximum_cells_packed
-                        
-                        	Maximum number of cells to be packed in a packet
-                        	**type**\: int
-                        
-                        	**range:** 2..255
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         .. attribute:: cell_packing_timer_id
                         
                         	Which cell packing timer to use
                         	**type**\: int
                         
                         	**range:** 1..3
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: maximum_cells_packed
+                        
+                        	Maximum number of cells to be packed in a packet
+                        	**type**\: int
+                        
+                        	**range:** 2..255
                         
                         .. attribute:: _is_presence
                         
@@ -2370,13 +2370,13 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.maximum_cells_packed = None
                             self.cell_packing_timer_id = None
+                            self.maximum_cells_packed = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:cell-packing'
 
@@ -2387,10 +2387,10 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.maximum_cells_packed is not None:
+                            if self.cell_packing_timer_id is not None:
                                 return True
 
-                            if self.cell_packing_timer_id is not None:
+                            if self.maximum_cells_packed is not None:
                                 return True
 
                             return False
@@ -2403,15 +2403,15 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.vpi is None:
-                            raise YPYDataValidationError('Key property vpi is None')
-                        if self.vci is None:
-                            raise YPYDataValidationError('Key property vci is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pv_ctype is None:
-                            raise YPYDataValidationError('Key property pv_ctype is None')
+                            raise YPYModelError('Key property pv_ctype is None')
+                        if self.vci is None:
+                            raise YPYModelError('Key property vci is None')
+                        if self.vpi is None:
+                            raise YPYModelError('Key property vpi is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:pvc[Cisco-IOS-XR-atm-vcm-cfg:vpi = ' + str(self.vpi) + '][Cisco-IOS-XR-atm-vcm-cfg:vci = ' + str(self.vci) + '][Cisco-IOS-XR-atm-vcm-cfg:pv-ctype = ' + str(self.pv_ctype) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:pvc[Cisco-IOS-XR-atm-vcm-cfg:pv-ctype = ' + str(self.pv_ctype) + '][Cisco-IOS-XR-atm-vcm-cfg:vci = ' + str(self.vci) + '][Cisco-IOS-XR-atm-vcm-cfg:vpi = ' + str(self.vpi) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -2420,37 +2420,37 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.vpi is not None:
+                        if self.pv_ctype is not None:
                             return True
 
                         if self.vci is not None:
                             return True
 
-                        if self.pv_ctype is not None:
-                            return True
-
-                        if self.shape is not None and self.shape._has_data():
-                            return True
-
-                        if self.oam_emulation is not None and self.oam_emulation._has_data():
+                        if self.vpi is not None:
                             return True
 
                         if self.cell_packing is not None and self.cell_packing._has_data():
                             return True
 
-                        if self.vc_class is not None:
+                        if self.enable is not None:
                             return True
 
                         if self.encapsulation is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.oam_emulation is not None and self.oam_emulation._has_data():
+                            return True
+
+                        if self.oam_segment_endpoint is not None:
+                            return True
+
+                        if self.shape is not None and self.shape._has_data():
                             return True
 
                         if self.test_mode is not None:
                             return True
 
-                        if self.oam_segment_endpoint is not None:
+                        if self.vc_class is not None:
                             return True
 
                         return False
@@ -2463,7 +2463,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:pvcs'
 
@@ -2546,7 +2546,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:maximum-cell-packing-timers'
 
@@ -2608,14 +2608,9 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..4095
                     
-                    .. attribute:: shape
+                    .. attribute:: disable_f4oam
                     
-                    	Configure Traffic shaping parameters
-                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape>`
-                    
-                    .. attribute:: enable_hierarchical_shaping
-                    
-                    	Enable Hierarchical Shaping configuration
+                    	Disable F4 OAM configuration
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: enable
@@ -2623,10 +2618,15 @@ class InterfaceConfigurations(object):
                     	Create the VP Tunnel
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: disable_f4oam
+                    .. attribute:: enable_hierarchical_shaping
                     
-                    	Disable F4 OAM configuration
+                    	Enable Hierarchical Shaping configuration
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: shape
+                    
+                    	Configure Traffic shaping parameters
+                    	**type**\: :py:class:`Shape <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape>`
                     
                     
 
@@ -2638,21 +2638,23 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.vpi = None
+                        self.disable_f4oam = None
+                        self.enable = None
+                        self.enable_hierarchical_shaping = None
                         self.shape = InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape()
                         self.shape.parent = self
-                        self.enable_hierarchical_shaping = None
-                        self.enable = None
-                        self.disable_f4oam = None
 
 
                     class Shape(object):
                         """
                         Configure Traffic shaping parameters
                         
-                        .. attribute:: type
+                        .. attribute:: burst_size
                         
-                        	Traffic shaping type
-                        	**type**\: :py:class:`AtmVpShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmVpShapingEnum>`
+                        	Burst size in cells
+                        	**type**\: int
+                        
+                        	**range:** 1..8192
                         
                         .. attribute:: peak_cell_rate
                         
@@ -2668,12 +2670,10 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 8..622080
                         
-                        .. attribute:: burst_size
+                        .. attribute:: type
                         
-                        	Burst size in cells
-                        	**type**\: int
-                        
-                        	**range:** 1..8192
+                        	Traffic shaping type
+                        	**type**\: :py:class:`AtmVpShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmVpShapingEnum>`
                         
                         
 
@@ -2684,15 +2684,15 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.type = None
+                            self.burst_size = None
                             self.peak_cell_rate = None
                             self.sustained_cell_rate = None
-                            self.burst_size = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:shape'
 
@@ -2703,7 +2703,7 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.type is not None:
+                            if self.burst_size is not None:
                                 return True
 
                             if self.peak_cell_rate is not None:
@@ -2712,7 +2712,7 @@ class InterfaceConfigurations(object):
                             if self.sustained_cell_rate is not None:
                                 return True
 
-                            if self.burst_size is not None:
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -2725,9 +2725,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.vpi is None:
-                            raise YPYDataValidationError('Key property vpi is None')
+                            raise YPYModelError('Key property vpi is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:vp-tunnel[Cisco-IOS-XR-atm-vcm-cfg:vpi = ' + str(self.vpi) + ']'
 
@@ -2741,16 +2741,16 @@ class InterfaceConfigurations(object):
                         if self.vpi is not None:
                             return True
 
-                        if self.shape is not None and self.shape._has_data():
-                            return True
-
-                        if self.enable_hierarchical_shaping is not None:
+                        if self.disable_f4oam is not None:
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.disable_f4oam is not None:
+                        if self.enable_hierarchical_shaping is not None:
+                            return True
+
+                        if self.shape is not None and self.shape._has_data():
                             return True
 
                         return False
@@ -2763,7 +2763,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:vp-tunnels'
 
@@ -2789,7 +2789,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-cfg:atm'
 
@@ -2800,22 +2800,22 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.pvps is not None and self.pvps._has_data():
-                    return True
-
-                if self.pvcs is not None and self.pvcs._has_data():
+                if self.max_vpi_bits is not None:
                     return True
 
                 if self.maximum_cell_packing_timers is not None and self.maximum_cell_packing_timers._has_data():
                     return True
 
-                if self.vp_tunnels is not None and self.vp_tunnels._has_data():
+                if self.pvcs is not None and self.pvcs._has_data():
                     return True
 
-                if self.max_vpi_bits is not None:
+                if self.pvps is not None and self.pvps._has_data():
                     return True
 
                 if self.vc_class is not None:
+                    return True
+
+                if self.vp_tunnels is not None and self.vp_tunnels._has_data():
                     return True
 
                 return False
@@ -2882,22 +2882,12 @@ class InterfaceConfigurations(object):
                     Configuration of BFDoBM for IPv4 address
                     family
                     
-                    .. attribute:: echo
+                    .. attribute:: destination_address
                     
-                    	Container for Echo min\-multiplier
-                    	**type**\: :py:class:`Echo <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo>`
+                    	Destination address for BFD sessions created by bundlemgr
+                    	**type**\: str
                     
-                    .. attribute:: timers
-                    
-                    	Timers associated with BFDoBM
-                    	**type**\: :py:class:`Timers <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers>`
-                    
-                    .. attribute:: interval
-                    
-                    	Hello interval for BFD sessions created by bundlemgr
-                    	**type**\: int
-                    
-                    	**range:** 3..30000
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: detection_multiplier
                     
@@ -2906,17 +2896,27 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 2..50
                     
-                    .. attribute:: destination_address
+                    .. attribute:: echo
                     
-                    	Destination address for BFD sessions created by bundlemgr
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	Container for Echo min\-multiplier
+                    	**type**\: :py:class:`Echo <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo>`
                     
                     .. attribute:: fast_detect
                     
                     	Configure to enable BFD over bundle members
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: interval
+                    
+                    	Hello interval for BFD sessions created by bundlemgr
+                    	**type**\: int
+                    
+                    	**range:** 3..30000
+                    
+                    .. attribute:: timers
+                    
+                    	Timers associated with BFDoBM
+                    	**type**\: :py:class:`Timers <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers>`
                     
                     
 
@@ -2927,14 +2927,14 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.destination_address = None
+                        self.detection_multiplier = None
                         self.echo = InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo()
                         self.echo.parent = self
+                        self.fast_detect = None
+                        self.interval = None
                         self.timers = InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers()
                         self.timers.parent = self
-                        self.interval = None
-                        self.detection_multiplier = None
-                        self.destination_address = None
-                        self.fast_detect = None
 
 
                     class Echo(object):
@@ -2962,7 +2962,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:echo'
 
@@ -3017,7 +3017,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:timers'
 
@@ -3044,7 +3044,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:ipv4'
 
@@ -3055,22 +3055,22 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.echo is not None and self.echo._has_data():
-                            return True
-
-                        if self.timers is not None and self.timers._has_data():
-                            return True
-
-                        if self.interval is not None:
+                        if self.destination_address is not None:
                             return True
 
                         if self.detection_multiplier is not None:
                             return True
 
-                        if self.destination_address is not None:
+                        if self.echo is not None and self.echo._has_data():
                             return True
 
                         if self.fast_detect is not None:
+                            return True
+
+                        if self.interval is not None:
+                            return True
+
+                        if self.timers is not None and self.timers._has_data():
                             return True
 
                         return False
@@ -3083,7 +3083,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:address-family'
 
@@ -3107,7 +3107,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:bfd'
 
@@ -3141,15 +3141,15 @@ class InterfaceConfigurations(object):
             	Load\-balance configuration
             	**type**\: :py:class:`BundleLoadBalancing <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing>`
             
-            .. attribute:: minimum_active
-            
-            	Minimum criteria for a bundle to be active
-            	**type**\: :py:class:`MinimumActive <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive>`
-            
             .. attribute:: maximum_active
             
             	Set a limit on the number of links that can be active
             	**type**\: :py:class:`MaximumActive <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive>`
+            
+            .. attribute:: minimum_active
+            
+            	Minimum criteria for a bundle to be active
+            	**type**\: :py:class:`MinimumActive <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive>`
             
             .. attribute:: shutdown
             
@@ -3174,10 +3174,10 @@ class InterfaceConfigurations(object):
                 self.parent = None
                 self.bundle_load_balancing = InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing()
                 self.bundle_load_balancing.parent = self
-                self.minimum_active = InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive()
-                self.minimum_active.parent = self
                 self.maximum_active = InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive()
                 self.maximum_active.parent = self
+                self.minimum_active = InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive()
+                self.minimum_active.parent = self
                 self.shutdown = None
                 self.wait_while = None
 
@@ -3254,7 +3254,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:hash-function'
 
@@ -3281,7 +3281,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:bundle-load-balancing'
 
@@ -3310,19 +3310,19 @@ class InterfaceConfigurations(object):
                 """
                 Minimum criteria for a bundle to be active
                 
-                .. attribute:: links
-                
-                	Number of active links needed to bring up a bundle
-                	**type**\: int
-                
-                	**range:** 1..64
-                
                 .. attribute:: bandwidth
                 
                 	Bandwidth (in kbps) needed to bring up a bundle
                 	**type**\: int
                 
                 	**range:** 1..4294967295
+                
+                .. attribute:: links
+                
+                	Number of active links needed to bring up a bundle
+                	**type**\: int
+                
+                	**range:** 1..64
                 
                 
 
@@ -3333,13 +3333,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.links = None
                     self.bandwidth = None
+                    self.links = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:minimum-active'
 
@@ -3350,10 +3350,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.links is not None:
+                    if self.bandwidth is not None:
                         return True
 
-                    if self.bandwidth is not None:
+                    if self.links is not None:
                         return True
 
                     return False
@@ -3429,7 +3429,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:links'
 
@@ -3456,7 +3456,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:maximum-active'
 
@@ -3480,7 +3480,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:bundle'
 
@@ -3494,10 +3494,10 @@ class InterfaceConfigurations(object):
                 if self.bundle_load_balancing is not None and self.bundle_load_balancing._has_data():
                     return True
 
-                if self.minimum_active is not None and self.minimum_active._has_data():
+                if self.maximum_active is not None and self.maximum_active._has_data():
                     return True
 
-                if self.maximum_active is not None and self.maximum_active._has_data():
+                if self.minimum_active is not None and self.minimum_active._has_data():
                     return True
 
                 if self.shutdown is not None:
@@ -3519,22 +3519,15 @@ class InterfaceConfigurations(object):
             Link Aggregation Control Protocol per\-interface
             configuration (for bundle or member)
             
+            .. attribute:: churn_logging
+            
+            	Log churn notifications on the specified system(s)
+            	**type**\: :py:class:`ChurnLoggingEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLoggingEnum>`
+            
             .. attribute:: cisco_extensions
             
             	Enable bundle Cisco extensions
             	**type**\: :py:class:`CiscoExtensions <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.CiscoExtensions>`
-            
-            .. attribute:: timeout
-            
-            	Set timeout values for LACP\-related timers
-            	**type**\: :py:class:`Timeout <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout>`
-            
-            .. attribute:: system_priority
-            
-            	System priority for this bundle. Lower value is higher priority
-            	**type**\: int
-            
-            	**range:** 1..65535
             
             .. attribute:: collector_max_delay
             
@@ -3543,29 +3536,15 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..65535
             
-            .. attribute:: lacp_nonrevertive
-            
-            	Configure to enable lacp non\-revertive mode
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: fast_switchover
             
             	Configure to enable the fast\-switchover mode
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: suppress_flaps
+            .. attribute:: lacp_nonrevertive
             
-            	Suppress flaps on switchover for the specified period (in ms)
-            	**type**\: int
-            
-            	**range:** 100..65535
-            
-            .. attribute:: system_mac
-            
-            	System identifier for this bundle
-            	**type**\: str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            	Configure to enable lacp non\-revertive mode
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: period_short
             
@@ -3582,10 +3561,31 @@ class InterfaceConfigurations(object):
             
             
             ----
-            .. attribute:: churn_logging
+            .. attribute:: suppress_flaps
             
-            	Log churn notifications on the specified system(s)
-            	**type**\: :py:class:`ChurnLoggingEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLoggingEnum>`
+            	Suppress flaps on switchover for the specified period (in ms)
+            	**type**\: int
+            
+            	**range:** 100..65535
+            
+            .. attribute:: system_mac
+            
+            	System identifier for this bundle
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            .. attribute:: system_priority
+            
+            	System priority for this bundle. Lower value is higher priority
+            	**type**\: int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: timeout
+            
+            	Set timeout values for LACP\-related timers
+            	**type**\: :py:class:`Timeout <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout>`
             
             
 
@@ -3596,17 +3596,17 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
+                self.churn_logging = None
                 self.cisco_extensions = None
-                self.timeout = InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout()
-                self.timeout.parent = self
-                self.system_priority = None
                 self.collector_max_delay = None
-                self.lacp_nonrevertive = None
                 self.fast_switchover = None
+                self.lacp_nonrevertive = None
+                self.period_short = None
                 self.suppress_flaps = None
                 self.system_mac = None
-                self.period_short = None
-                self.churn_logging = None
+                self.system_priority = None
+                self.timeout = InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout()
+                self.timeout.parent = self
 
 
             class CiscoExtensions(object):
@@ -3650,7 +3650,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:cisco-extensions'
 
@@ -3679,13 +3679,6 @@ class InterfaceConfigurations(object):
                 """
                 Set timeout values for LACP\-related timers
                 
-                .. attribute:: rx_default
-                
-                	Set the timeout between expired and defaulted states
-                	**type**\: int
-                
-                	**range:** 0..3000
-                
                 .. attribute:: actor_churn
                 
                 	The time in milliseconds for which to run the timer
@@ -3700,6 +3693,13 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..120
                 
+                .. attribute:: rx_default
+                
+                	Set the timeout between expired and defaulted states
+                	**type**\: int
+                
+                	**range:** 0..3000
+                
                 
 
                 """
@@ -3709,14 +3709,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.rx_default = None
                     self.actor_churn = None
                     self.partner_churn = None
+                    self.rx_default = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:timeout'
 
@@ -3727,13 +3727,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.rx_default is not None:
-                        return True
-
                     if self.actor_churn is not None:
                         return True
 
                     if self.partner_churn is not None:
+                        return True
+
+                    if self.rx_default is not None:
                         return True
 
                     return False
@@ -3746,7 +3746,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:lacp'
 
@@ -3757,22 +3757,22 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.churn_logging is not None:
+                    return True
+
                 if self.cisco_extensions is not None and self.cisco_extensions._has_data():
-                    return True
-
-                if self.timeout is not None and self.timeout._has_data():
-                    return True
-
-                if self.system_priority is not None:
                     return True
 
                 if self.collector_max_delay is not None:
                     return True
 
+                if self.fast_switchover is not None:
+                    return True
+
                 if self.lacp_nonrevertive is not None:
                     return True
 
-                if self.fast_switchover is not None:
+                if self.period_short is not None:
                     return True
 
                 if self.suppress_flaps is not None:
@@ -3781,10 +3781,10 @@ class InterfaceConfigurations(object):
                 if self.system_mac is not None:
                     return True
 
-                if self.period_short is not None:
+                if self.system_priority is not None:
                     return True
 
-                if self.churn_logging is not None:
+                if self.timeout is not None and self.timeout._has_data():
                     return True
 
                 return False
@@ -3856,7 +3856,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:id'
 
@@ -3883,7 +3883,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:bundle-member'
 
@@ -3912,6 +3912,13 @@ class InterfaceConfigurations(object):
             """
             Multi\-chassis LACP configuration
             
+            .. attribute:: iccp_group
+            
+            	Specify an ICCP Group in which this bundle should operate
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
             .. attribute:: maximize
             
             	Set parameters to maximize between the mLACP peers
@@ -3936,13 +3943,6 @@ class InterfaceConfigurations(object):
             	Set the type of mLACP switchover to use for this bundle
             	**type**\: :py:class:`MlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpSwitchoverEnum>`
             
-            .. attribute:: iccp_group
-            
-            	Specify an ICCP Group in which this bundle should operate
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
             
 
             """
@@ -3952,11 +3952,11 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
+                self.iccp_group = None
                 self.maximize = None
                 self.port_priority = None
                 self.recovery_delay = None
                 self.switchover_type = None
-                self.iccp_group = None
 
 
             class Maximize(object):
@@ -3964,10 +3964,12 @@ class InterfaceConfigurations(object):
                 Set parameters to maximize between the mLACP
                 peers
                 
-                .. attribute:: maximize_by
+                .. attribute:: bandwidth_threshold
                 
-                	The paramenter which should be maximized
-                	**type**\: :py:class:`MlacpMaximizeParameterEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameterEnum>`
+                	The bandwidth (in kbps) below which to switch to the peer if it has more bandwidth available . Only applicable if maximizing by bandwidth. If 0, no threshold is applied
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: _is_presence
                 
@@ -3986,12 +3988,10 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: bandwidth_threshold
+                .. attribute:: maximize_by
                 
-                	The bandwidth (in kbps) below which to switch to the peer if it has more bandwidth available . Only applicable if maximizing by bandwidth. If 0, no threshold is applied
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	The paramenter which should be maximized
+                	**type**\: :py:class:`MlacpMaximizeParameterEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameterEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -4009,14 +4009,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.maximize_by = None
-                    self.link_threshold = None
                     self.bandwidth_threshold = None
+                    self.link_threshold = None
+                    self.maximize_by = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:maximize'
 
@@ -4027,13 +4027,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.maximize_by is not None:
+                    if self.bandwidth_threshold is not None:
                         return True
 
                     if self.link_threshold is not None:
                         return True
 
-                    if self.bandwidth_threshold is not None:
+                    if self.maximize_by is not None:
                         return True
 
                     return False
@@ -4046,7 +4046,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:mlacp'
 
@@ -4057,6 +4057,9 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.iccp_group is not None:
+                    return True
+
                 if self.maximize is not None and self.maximize._has_data():
                     return True
 
@@ -4067,9 +4070,6 @@ class InterfaceConfigurations(object):
                     return True
 
                 if self.switchover_type is not None:
-                    return True
-
-                if self.iccp_group is not None:
                     return True
 
                 return False
@@ -4103,7 +4103,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-cdp-cfg:cdp'
 
@@ -4129,68 +4129,19 @@ class InterfaceConfigurations(object):
             """
             Optics controller configuration
             
-            .. attribute:: rx_thresholds
+            .. attribute:: optics_cd_high_threshold
             
-            	Configure Rx threshold
-            	**type**\: :py:class:`RxThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds>`
-            
-            .. attribute:: optics_network_srlgs
-            
-            	Configure Network srlgs
-            	**type**\: :py:class:`OpticsNetworkSrlgs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs>`
-            
-            .. attribute:: optics_dwdm_carrier
-            
-            	Configure optics DWDM Carrier
-            	**type**\: :py:class:`OpticsDwdmCarrier <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsDwdmCarrier>`
-            
-            .. attribute:: tx_thresholds
-            
-            	Configure Tx threshold
-            	**type**\: :py:class:`TxThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds>`
-            
-            .. attribute:: optics_transmit_power
-            
-            	Select power level (in units of 0.1dBm)
-            	**type**\: int
-            
-            	**range:** \-190..15
-            
-            .. attribute:: optics_loopback
-            
-            	Configure optics loopback mode 
-            	**type**\: :py:class:`OpticsLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopbackEnum>`
-            
-            .. attribute:: optics_dgd_high_threshold
-            
-            	Select DGD high threshold(in units of 0.1ps)
-            	**type**\: int
-            
-            	**range:** 0..18000
-            
-            .. attribute:: optics_cd_min
-            
-            	Select min chromatic dispersion (in units of ps/nm)
+            	Select chromatic dispersion high threshold(in units of ps/nm)
             	**type**\: int
             
             	**range:** \-70000..70000
             
-            .. attribute:: optics_transmit_shutdown
+            .. attribute:: optics_cd_low_threshold
             
-            	Configure optics transmit laser shutdown 
-            	**type**\: bool
+            	Select chromatic dispersion low threshold(in units of ps/nm)
+            	**type**\: int
             
-            .. attribute:: optics_description
-            
-            	Configure optics port description 
-            	**type**\: str
-            
-            	**range:** 0..255
-            
-            .. attribute:: optics_performance_monitoring
-            
-            	Select Performance Monitoring as Enable or Disable
-            	**type**\: bool
+            	**range:** \-70000..70000
             
             .. attribute:: optics_cd_max
             
@@ -4199,6 +4150,32 @@ class InterfaceConfigurations(object):
             
             	**range:** \-70000..70000
             
+            .. attribute:: optics_cd_min
+            
+            	Select min chromatic dispersion (in units of ps/nm)
+            	**type**\: int
+            
+            	**range:** \-70000..70000
+            
+            .. attribute:: optics_description
+            
+            	Configure optics port description 
+            	**type**\: str
+            
+            	**range:** 0..255
+            
+            .. attribute:: optics_dgd_high_threshold
+            
+            	Select DGD high threshold(in units of 0.1ps)
+            	**type**\: int
+            
+            	**range:** 0..18000
+            
+            .. attribute:: optics_dwdm_carrier
+            
+            	Configure optics DWDM Carrier
+            	**type**\: :py:class:`OpticsDwdmCarrier <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsDwdmCarrier>`
+            
             .. attribute:: optics_lbc_high_threshold
             
             	Select power level (in units of percentage)
@@ -4206,12 +4183,15 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..100
             
-            .. attribute:: optics_cd_high_threshold
+            .. attribute:: optics_loopback
             
-            	Select chromatic dispersion high threshold(in units of ps/nm)
-            	**type**\: int
+            	Configure optics loopback mode 
+            	**type**\: :py:class:`OpticsLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopbackEnum>`
             
-            	**range:** \-70000..70000
+            .. attribute:: optics_network_srlgs
+            
+            	Configure Network srlgs
+            	**type**\: :py:class:`OpticsNetworkSrlgs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs>`
             
             .. attribute:: optics_osnr_low_threshold
             
@@ -4220,12 +4200,32 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..4000
             
-            .. attribute:: optics_cd_low_threshold
+            .. attribute:: optics_performance_monitoring
             
-            	Select chromatic dispersion low threshold(in units of ps/nm)
+            	Select Performance Monitoring as Enable or Disable
+            	**type**\: bool
+            
+            .. attribute:: optics_transmit_power
+            
+            	Select power level (in units of 0.1dBm)
             	**type**\: int
             
-            	**range:** \-70000..70000
+            	**range:** \-190..15
+            
+            .. attribute:: optics_transmit_shutdown
+            
+            	Configure optics transmit laser shutdown 
+            	**type**\: bool
+            
+            .. attribute:: rx_thresholds
+            
+            	Configure Rx threshold
+            	**type**\: :py:class:`RxThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds>`
+            
+            .. attribute:: tx_thresholds
+            
+            	Configure Tx threshold
+            	**type**\: :py:class:`TxThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds>`
             
             
 
@@ -4236,25 +4236,25 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.rx_thresholds = InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds()
-                self.rx_thresholds.parent = self
+                self.optics_cd_high_threshold = None
+                self.optics_cd_low_threshold = None
+                self.optics_cd_max = None
+                self.optics_cd_min = None
+                self.optics_description = None
+                self.optics_dgd_high_threshold = None
+                self.optics_dwdm_carrier = None
+                self.optics_lbc_high_threshold = None
+                self.optics_loopback = None
                 self.optics_network_srlgs = InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs()
                 self.optics_network_srlgs.parent = self
-                self.optics_dwdm_carrier = None
+                self.optics_osnr_low_threshold = None
+                self.optics_performance_monitoring = None
+                self.optics_transmit_power = None
+                self.optics_transmit_shutdown = None
+                self.rx_thresholds = InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds()
+                self.rx_thresholds.parent = self
                 self.tx_thresholds = InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds()
                 self.tx_thresholds.parent = self
-                self.optics_transmit_power = None
-                self.optics_loopback = None
-                self.optics_dgd_high_threshold = None
-                self.optics_cd_min = None
-                self.optics_transmit_shutdown = None
-                self.optics_description = None
-                self.optics_performance_monitoring = None
-                self.optics_cd_max = None
-                self.optics_lbc_high_threshold = None
-                self.optics_cd_high_threshold = None
-                self.optics_osnr_low_threshold = None
-                self.optics_cd_low_threshold = None
 
 
             class RxThresholds(object):
@@ -4311,9 +4311,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.rx_threshold_type is None:
-                            raise YPYDataValidationError('Key property rx_threshold_type is None')
+                            raise YPYModelError('Key property rx_threshold_type is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:rx-threshold[Cisco-IOS-XR-controller-optics-cfg:rx-threshold-type = ' + str(self.rx_threshold_type) + ']'
 
@@ -4340,7 +4340,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:rx-thresholds'
 
@@ -4460,9 +4460,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.set_id is None:
-                            raise YPYDataValidationError('Key property set_id is None')
+                            raise YPYModelError('Key property set_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:optics-network-srlg[Cisco-IOS-XR-controller-optics-cfg:set-id = ' + str(self.set_id) + ']'
 
@@ -4504,7 +4504,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:optics-network-srlgs'
 
@@ -4582,7 +4582,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:optics-dwdm-carrier'
 
@@ -4664,9 +4664,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.tx_threshold_type is None:
-                            raise YPYDataValidationError('Key property tx_threshold_type is None')
+                            raise YPYModelError('Key property tx_threshold_type is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:tx-threshold[Cisco-IOS-XR-controller-optics-cfg:tx-threshold-type = ' + str(self.tx_threshold_type) + ']'
 
@@ -4693,7 +4693,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:tx-thresholds'
 
@@ -4719,7 +4719,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-cfg:optics'
 
@@ -4730,52 +4730,52 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.rx_thresholds is not None and self.rx_thresholds._has_data():
+                if self.optics_cd_high_threshold is not None:
                     return True
 
-                if self.optics_network_srlgs is not None and self.optics_network_srlgs._has_data():
-                    return True
-
-                if self.optics_dwdm_carrier is not None and self.optics_dwdm_carrier._has_data():
-                    return True
-
-                if self.tx_thresholds is not None and self.tx_thresholds._has_data():
-                    return True
-
-                if self.optics_transmit_power is not None:
-                    return True
-
-                if self.optics_loopback is not None:
-                    return True
-
-                if self.optics_dgd_high_threshold is not None:
-                    return True
-
-                if self.optics_cd_min is not None:
-                    return True
-
-                if self.optics_transmit_shutdown is not None:
-                    return True
-
-                if self.optics_description is not None:
-                    return True
-
-                if self.optics_performance_monitoring is not None:
+                if self.optics_cd_low_threshold is not None:
                     return True
 
                 if self.optics_cd_max is not None:
                     return True
 
+                if self.optics_cd_min is not None:
+                    return True
+
+                if self.optics_description is not None:
+                    return True
+
+                if self.optics_dgd_high_threshold is not None:
+                    return True
+
+                if self.optics_dwdm_carrier is not None and self.optics_dwdm_carrier._has_data():
+                    return True
+
                 if self.optics_lbc_high_threshold is not None:
                     return True
 
-                if self.optics_cd_high_threshold is not None:
+                if self.optics_loopback is not None:
+                    return True
+
+                if self.optics_network_srlgs is not None and self.optics_network_srlgs._has_data():
                     return True
 
                 if self.optics_osnr_low_threshold is not None:
                     return True
 
-                if self.optics_cd_low_threshold is not None:
+                if self.optics_performance_monitoring is not None:
+                    return True
+
+                if self.optics_transmit_power is not None:
+                    return True
+
+                if self.optics_transmit_shutdown is not None:
+                    return True
+
+                if self.rx_thresholds is not None and self.rx_thresholds._has_data():
+                    return True
+
+                if self.tx_thresholds is not None and self.tx_thresholds._has_data():
                     return True
 
                 return False
@@ -4790,64 +4790,79 @@ class InterfaceConfigurations(object):
             """
             OTU port controller configuration
             
-            .. attribute:: otn_send_ttitcmos
+            .. attribute:: fec
             
-            	Configure OTN Send TTI value for OS config
-            	**type**\: :py:class:`OtnSendTtitcmos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos>`
-            
-            .. attribute:: otn_send_ttitcmdapi
-            
-            	Configure OTN Send TTI value for DAPI configs
-            	**type**\: :py:class:`OtnSendTtitcmdapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi>`
-            
-            .. attribute:: otn_expected_ttisapi
-            
-            	Configure OTN Expected TTI value for SAPI configs
-            	**type**\: :py:class:`OtnExpectedTtisapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi>`
-            
-            .. attribute:: proactive_protection
-            
-            	Configure Proactive Protection
-            	**type**\: :py:class:`ProactiveProtection <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection>`
-            
-            .. attribute:: network_srlgs
-            
-            	Configure Network srlgs
-            	**type**\: :py:class:`NetworkSrlgs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs>`
-            
-            .. attribute:: otn_send_tti
-            
-            	Configure OTN Send TTI value for Full ASCII/HEX
-            	**type**\: :py:class:`OtnSendTti <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti>`
-            
-            .. attribute:: otn_expected_ttitcmdapi
-            
-            	Configure OTN Expected TTI value for DAPI configs
-            	**type**\: :py:class:`OtnExpectedTtitcmdapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi>`
-            
-            .. attribute:: otn_send_ttisapi
-            
-            	Configure OTN Send TTI value for SAPI configs
-            	**type**\: :py:class:`OtnSendTtisapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi>`
-            
-            .. attribute:: otn_expected_ttitcmos
-            
-            	Configure OTN Expected TTI value for OS config
-            	**type**\: :py:class:`OtnExpectedTtitcmos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos>`
-            
-            .. attribute:: otn_expected_tti
-            
-            	Configure OTN Expected TTI value for Full ASCII/HEX
-            	**type**\: :py:class:`OtnExpectedTti <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti>`
+            	Configure forward error correction
+            	**type**\: :py:class:`OtuForwardErrorCorrectionEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrectionEnum>`
             
             .. attribute:: gcc
             
             	General Communication Channel configuration
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: sf
+            .. attribute:: loopback
             
-            	Signal failure threshold
+            	Type of Loopback
+            	**type**\: :py:class:`OtnLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnLoopbackEnum>`
+            
+            .. attribute:: network_srlgs
+            
+            	Configure Network srlgs
+            	**type**\: :py:class:`NetworkSrlgs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs>`
+            
+            .. attribute:: otn_expected_tti
+            
+            	Configure OTN Expected TTI value for Full ASCII/HEX
+            	**type**\: :py:class:`OtnExpectedTti <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti>`
+            
+            .. attribute:: otn_expected_ttisapi
+            
+            	Configure OTN Expected TTI value for SAPI configs
+            	**type**\: :py:class:`OtnExpectedTtisapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi>`
+            
+            .. attribute:: otn_expected_ttitcmdapi
+            
+            	Configure OTN Expected TTI value for DAPI configs
+            	**type**\: :py:class:`OtnExpectedTtitcmdapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi>`
+            
+            .. attribute:: otn_expected_ttitcmos
+            
+            	Configure OTN Expected TTI value for OS config
+            	**type**\: :py:class:`OtnExpectedTtitcmos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos>`
+            
+            .. attribute:: otn_send_tti
+            
+            	Configure OTN Send TTI value for Full ASCII/HEX
+            	**type**\: :py:class:`OtnSendTti <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti>`
+            
+            .. attribute:: otn_send_ttisapi
+            
+            	Configure OTN Send TTI value for SAPI configs
+            	**type**\: :py:class:`OtnSendTtisapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi>`
+            
+            .. attribute:: otn_send_ttitcmdapi
+            
+            	Configure OTN Send TTI value for DAPI configs
+            	**type**\: :py:class:`OtnSendTtitcmdapi <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi>`
+            
+            .. attribute:: otn_send_ttitcmos
+            
+            	Configure OTN Send TTI value for OS config
+            	**type**\: :py:class:`OtnSendTtitcmos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos>`
+            
+            .. attribute:: performance_monitoring
+            
+            	Configure performance monitoring
+            	**type**\: :py:class:`OtnPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnPerMonEnum>`
+            
+            .. attribute:: proactive_protection
+            
+            	Configure Proactive Protection
+            	**type**\: :py:class:`ProactiveProtection <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection>`
+            
+            .. attribute:: sd
+            
+            	Signal degrade threshold
             	**type**\: int
             
             	**range:** 5..9
@@ -4857,27 +4872,12 @@ class InterfaceConfigurations(object):
             	Configure secondary admin state 
             	**type**\: :py:class:`OtnSecAdminStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSecAdminStateEnum>`
             
-            .. attribute:: sd
+            .. attribute:: sf
             
-            	Signal degrade threshold
+            	Signal failure threshold
             	**type**\: int
             
             	**range:** 5..9
-            
-            .. attribute:: performance_monitoring
-            
-            	Configure performance monitoring
-            	**type**\: :py:class:`OtnPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnPerMonEnum>`
-            
-            .. attribute:: loopback
-            
-            	Type of Loopback
-            	**type**\: :py:class:`OtnLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnLoopbackEnum>`
-            
-            .. attribute:: fec
-            
-            	Configure forward error correction
-            	**type**\: :py:class:`OtuForwardErrorCorrectionEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrectionEnum>`
             
             
 
@@ -4888,43 +4888,38 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.otn_send_ttitcmos = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos()
-                self.otn_send_ttitcmos.parent = self
-                self.otn_send_ttitcmdapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi()
-                self.otn_send_ttitcmdapi.parent = self
-                self.otn_expected_ttisapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi()
-                self.otn_expected_ttisapi.parent = self
-                self.proactive_protection = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection()
-                self.proactive_protection.parent = self
+                self.fec = None
+                self.gcc = None
+                self.loopback = None
                 self.network_srlgs = InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs()
                 self.network_srlgs.parent = self
-                self.otn_send_tti = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti()
-                self.otn_send_tti.parent = self
-                self.otn_expected_ttitcmdapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi()
-                self.otn_expected_ttitcmdapi.parent = self
-                self.otn_send_ttisapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi()
-                self.otn_send_ttisapi.parent = self
-                self.otn_expected_ttitcmos = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos()
-                self.otn_expected_ttitcmos.parent = self
                 self.otn_expected_tti = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti()
                 self.otn_expected_tti.parent = self
-                self.gcc = None
-                self.sf = None
-                self.secondary_admin_state = None
-                self.sd = None
+                self.otn_expected_ttisapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi()
+                self.otn_expected_ttisapi.parent = self
+                self.otn_expected_ttitcmdapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi()
+                self.otn_expected_ttitcmdapi.parent = self
+                self.otn_expected_ttitcmos = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos()
+                self.otn_expected_ttitcmos.parent = self
+                self.otn_send_tti = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti()
+                self.otn_send_tti.parent = self
+                self.otn_send_ttisapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi()
+                self.otn_send_ttisapi.parent = self
+                self.otn_send_ttitcmdapi = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi()
+                self.otn_send_ttitcmdapi.parent = self
+                self.otn_send_ttitcmos = InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos()
+                self.otn_send_ttitcmos.parent = self
                 self.performance_monitoring = None
-                self.loopback = None
-                self.fec = None
+                self.proactive_protection = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection()
+                self.proactive_protection.parent = self
+                self.sd = None
+                self.secondary_admin_state = None
+                self.sf = None
 
 
             class OtnSendTtitcmos(object):
                 """
                 Configure OTN Send TTI value for OS config
-                
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOsEnum>`
                 
                 .. attribute:: osascii_string
                 
@@ -4940,6 +4935,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..64
                 
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnSendTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOsEnum>`
+                
                 
 
                 """
@@ -4949,14 +4949,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.osascii_string = None
                     self.oshex_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-send-ttitcmos'
 
@@ -4967,13 +4967,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
-                        return True
-
                     if self.osascii_string is not None:
                         return True
 
                     if self.oshex_string is not None:
+                        return True
+
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -4988,17 +4988,17 @@ class InterfaceConfigurations(object):
                 """
                 Configure OTN Send TTI value for DAPI configs
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapiEnum>`
-                
                 .. attribute:: dapi_ascii_string
                 
                 	DAPI ASCII text (Max 14 characters)
                 	**type**\: str
                 
                 	**range:** 0..14
+                
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnSendTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapiEnum>`
                 
                 
 
@@ -5009,13 +5009,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.dapi_ascii_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-send-ttitcmdapi'
 
@@ -5026,10 +5026,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
+                    if self.dapi_ascii_string is not None:
                         return True
 
-                    if self.dapi_ascii_string is not None:
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5045,17 +5045,17 @@ class InterfaceConfigurations(object):
                 Configure OTN Expected TTI value for SAPI
                 configs
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapiEnum>`
-                
                 .. attribute:: sapi_ascii_string
                 
                 	SAPI ASCII text (Max 14 characters)
                 	**type**\: str
                 
                 	**range:** 0..14
+                
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnExpTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapiEnum>`
                 
                 
 
@@ -5066,13 +5066,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.sapi_ascii_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-expected-ttisapi'
 
@@ -5083,10 +5083,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
+                    if self.sapi_ascii_string is not None:
                         return True
 
-                    if self.sapi_ascii_string is not None:
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5101,30 +5101,30 @@ class InterfaceConfigurations(object):
                 """
                 Configure Proactive Protection
                 
-                .. attribute:: trigger_threshold
+                .. attribute:: revert_threshold
                 
                 	Proactive Protection Threshold
-                	**type**\: :py:class:`TriggerThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold>`
+                	**type**\: :py:class:`RevertThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertThreshold>`
                 
                 .. attribute:: revert_window
                 
                 	Proactive Protection Window
                 	**type**\: :py:class:`RevertWindow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertWindow>`
                 
-                .. attribute:: trigger_window
-                
-                	Proactive Protection Window
-                	**type**\: :py:class:`TriggerWindow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow>`
-                
-                .. attribute:: revert_threshold
-                
-                	Proactive Protection Threshold
-                	**type**\: :py:class:`RevertThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertThreshold>`
-                
                 .. attribute:: status
                 
                 	Enable Proactive Protection
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: trigger_threshold
+                
+                	Proactive Protection Threshold
+                	**type**\: :py:class:`TriggerThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold>`
+                
+                .. attribute:: trigger_window
+                
+                	Proactive Protection Window
+                	**type**\: :py:class:`TriggerWindow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow>`
                 
                 
 
@@ -5135,15 +5135,15 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.trigger_threshold = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold()
-                    self.trigger_threshold.parent = self
-                    self.revert_window = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertWindow()
-                    self.revert_window.parent = self
-                    self.trigger_window = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow()
-                    self.trigger_window.parent = self
                     self.revert_threshold = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertThreshold()
                     self.revert_threshold.parent = self
+                    self.revert_window = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertWindow()
+                    self.revert_window.parent = self
                     self.status = None
+                    self.trigger_threshold = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold()
+                    self.trigger_threshold.parent = self
+                    self.trigger_window = InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow()
+                    self.trigger_window.parent = self
 
 
                 class TriggerThreshold(object):
@@ -5157,17 +5157,17 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..9
                     
+                    .. attribute:: enable
+                    
+                    	Proactive Protection supported
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: power
                     
                     	Bit error rate power
                     	**type**\: int
                     
                     	**range:** 3..9
-                    
-                    .. attribute:: enable
-                    
-                    	Proactive Protection supported
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5179,13 +5179,13 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.coefficient = None
-                        self.power = None
                         self.enable = None
+                        self.power = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:trigger-threshold'
 
@@ -5199,10 +5199,10 @@ class InterfaceConfigurations(object):
                         if self.coefficient is not None:
                             return True
 
-                        if self.power is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.power is not None:
                             return True
 
                         return False
@@ -5217,17 +5217,17 @@ class InterfaceConfigurations(object):
                     """
                     Proactive Protection Window
                     
+                    .. attribute:: enable
+                    
+                    	Enable Proactive Protection
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: value
                     
                     	Integration window for FRR trigger in MS
                     	**type**\: int
                     
                     	**range:** 2000..10000
-                    
-                    .. attribute:: enable
-                    
-                    	Enable Proactive Protection
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5238,13 +5238,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.enable = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:revert-window'
 
@@ -5255,10 +5255,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -5273,17 +5273,17 @@ class InterfaceConfigurations(object):
                     """
                     Proactive Protection Window
                     
+                    .. attribute:: enable
+                    
+                    	Enable Proactive Protection
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: value
                     
                     	Integration window for FRR trigger in MS
                     	**type**\: int
                     
                     	**range:** 10..10000
-                    
-                    .. attribute:: enable
-                    
-                    	Enable Proactive Protection
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5294,13 +5294,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.value = None
                         self.enable = None
+                        self.value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:trigger-window'
 
@@ -5311,10 +5311,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.value is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.value is not None:
                             return True
 
                         return False
@@ -5336,17 +5336,17 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..9
                     
+                    .. attribute:: enable
+                    
+                    	Proactive Protection supported
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: power
                     
                     	Bit error rate power
                     	**type**\: int
                     
                     	**range:** 4..10
-                    
-                    .. attribute:: enable
-                    
-                    	Proactive Protection supported
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5358,13 +5358,13 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.coefficient = None
-                        self.power = None
                         self.enable = None
+                        self.power = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:revert-threshold'
 
@@ -5378,10 +5378,10 @@ class InterfaceConfigurations(object):
                         if self.coefficient is not None:
                             return True
 
-                        if self.power is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.power is not None:
                             return True
 
                         return False
@@ -5394,7 +5394,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:proactive-protection'
 
@@ -5405,19 +5405,19 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.trigger_threshold is not None and self.trigger_threshold._has_data():
+                    if self.revert_threshold is not None and self.revert_threshold._has_data():
                         return True
 
                     if self.revert_window is not None and self.revert_window._has_data():
                         return True
 
-                    if self.trigger_window is not None and self.trigger_window._has_data():
-                        return True
-
-                    if self.revert_threshold is not None and self.revert_threshold._has_data():
-                        return True
-
                     if self.status is not None:
+                        return True
+
+                    if self.trigger_threshold is not None and self.trigger_threshold._has_data():
+                        return True
+
+                    if self.trigger_window is not None and self.trigger_window._has_data():
                         return True
 
                     return False
@@ -5524,9 +5524,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.set_id is None:
-                            raise YPYDataValidationError('Key property set_id is None')
+                            raise YPYModelError('Key property set_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:network-srlg[Cisco-IOS-XR-controller-otu-cfg:set-id = ' + str(self.set_id) + ']'
 
@@ -5568,7 +5568,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:network-srlgs'
 
@@ -5596,11 +5596,6 @@ class InterfaceConfigurations(object):
                 """
                 Configure OTN Send TTI value for Full ASCII/HEX
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFullEnum>`
-                
                 .. attribute:: full_ascii_string
                 
                 	Full ASCII text (Max 64 characters)
@@ -5615,6 +5610,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..128
                 
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnSendTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFullEnum>`
+                
                 
 
                 """
@@ -5624,14 +5624,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.full_ascii_string = None
                     self.hex_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-send-tti'
 
@@ -5642,13 +5642,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
-                        return True
-
                     if self.full_ascii_string is not None:
                         return True
 
                     if self.hex_string is not None:
+                        return True
+
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5664,17 +5664,17 @@ class InterfaceConfigurations(object):
                 Configure OTN Expected TTI value for DAPI
                 configs
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapiEnum>`
-                
                 .. attribute:: dapi_ascii_string
                 
                 	DAPI ASCII text (Max 14 characters)
                 	**type**\: str
                 
                 	**range:** 0..14
+                
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnExpTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapiEnum>`
                 
                 
 
@@ -5685,13 +5685,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.dapi_ascii_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-expected-ttitcmdapi'
 
@@ -5702,10 +5702,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
+                    if self.dapi_ascii_string is not None:
                         return True
 
-                    if self.dapi_ascii_string is not None:
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5720,17 +5720,17 @@ class InterfaceConfigurations(object):
                 """
                 Configure OTN Send TTI value for SAPI configs
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapiEnum>`
-                
                 .. attribute:: sapi_ascii_string
                 
                 	SAPI ASCII text (Max 14 characters)
                 	**type**\: str
                 
                 	**range:** 0..14
+                
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnSendTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapiEnum>`
                 
                 
 
@@ -5741,13 +5741,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.sapi_ascii_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-send-ttisapi'
 
@@ -5758,10 +5758,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
+                    if self.sapi_ascii_string is not None:
                         return True
 
-                    if self.sapi_ascii_string is not None:
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5775,11 +5775,6 @@ class InterfaceConfigurations(object):
             class OtnExpectedTtitcmos(object):
                 """
                 Configure OTN Expected TTI value for OS config
-                
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOsEnum>`
                 
                 .. attribute:: osascii_string
                 
@@ -5795,6 +5790,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..64
                 
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnExpTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOsEnum>`
+                
                 
 
                 """
@@ -5804,14 +5804,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.osascii_string = None
                     self.oshex_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-expected-ttitcmos'
 
@@ -5822,13 +5822,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
-                        return True
-
                     if self.osascii_string is not None:
                         return True
 
                     if self.oshex_string is not None:
+                        return True
+
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5844,11 +5844,6 @@ class InterfaceConfigurations(object):
                 Configure OTN Expected TTI value for Full
                 ASCII/HEX
                 
-                .. attribute:: string_type
-                
-                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFullEnum>`
-                
                 .. attribute:: full_ascii_string
                 
                 	Full ASCII text (Max 64 characters)
@@ -5863,6 +5858,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..128
                 
+                .. attribute:: string_type
+                
+                	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
+                	**type**\: :py:class:`OtnExpTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFullEnum>`
+                
                 
 
                 """
@@ -5872,14 +5872,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.string_type = None
                     self.full_ascii_string = None
                     self.hex_string = None
+                    self.string_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otn-expected-tti'
 
@@ -5890,13 +5890,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.string_type is not None:
-                        return True
-
                     if self.full_ascii_string is not None:
                         return True
 
                     if self.hex_string is not None:
+                        return True
+
+                    if self.string_type is not None:
                         return True
 
                     return False
@@ -5909,7 +5909,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-cfg:otu'
 
@@ -5920,55 +5920,55 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.otn_send_ttitcmos is not None and self.otn_send_ttitcmos._has_data():
-                    return True
-
-                if self.otn_send_ttitcmdapi is not None and self.otn_send_ttitcmdapi._has_data():
-                    return True
-
-                if self.otn_expected_ttisapi is not None and self.otn_expected_ttisapi._has_data():
-                    return True
-
-                if self.proactive_protection is not None and self.proactive_protection._has_data():
-                    return True
-
-                if self.network_srlgs is not None and self.network_srlgs._has_data():
-                    return True
-
-                if self.otn_send_tti is not None and self.otn_send_tti._has_data():
-                    return True
-
-                if self.otn_expected_ttitcmdapi is not None and self.otn_expected_ttitcmdapi._has_data():
-                    return True
-
-                if self.otn_send_ttisapi is not None and self.otn_send_ttisapi._has_data():
-                    return True
-
-                if self.otn_expected_ttitcmos is not None and self.otn_expected_ttitcmos._has_data():
-                    return True
-
-                if self.otn_expected_tti is not None and self.otn_expected_tti._has_data():
+                if self.fec is not None:
                     return True
 
                 if self.gcc is not None:
                     return True
 
-                if self.sf is not None:
+                if self.loopback is not None:
                     return True
 
-                if self.secondary_admin_state is not None:
+                if self.network_srlgs is not None and self.network_srlgs._has_data():
                     return True
 
-                if self.sd is not None:
+                if self.otn_expected_tti is not None and self.otn_expected_tti._has_data():
+                    return True
+
+                if self.otn_expected_ttisapi is not None and self.otn_expected_ttisapi._has_data():
+                    return True
+
+                if self.otn_expected_ttitcmdapi is not None and self.otn_expected_ttitcmdapi._has_data():
+                    return True
+
+                if self.otn_expected_ttitcmos is not None and self.otn_expected_ttitcmos._has_data():
+                    return True
+
+                if self.otn_send_tti is not None and self.otn_send_tti._has_data():
+                    return True
+
+                if self.otn_send_ttisapi is not None and self.otn_send_ttisapi._has_data():
+                    return True
+
+                if self.otn_send_ttitcmdapi is not None and self.otn_send_ttitcmdapi._has_data():
+                    return True
+
+                if self.otn_send_ttitcmos is not None and self.otn_send_ttitcmos._has_data():
                     return True
 
                 if self.performance_monitoring is not None:
                     return True
 
-                if self.loopback is not None:
+                if self.proactive_protection is not None and self.proactive_protection._has_data():
                     return True
 
-                if self.fec is not None:
+                if self.sd is not None:
+                    return True
+
+                if self.secondary_admin_state is not None:
+                    return True
+
+                if self.sf is not None:
                     return True
 
                 return False
@@ -5983,15 +5983,10 @@ class InterfaceConfigurations(object):
             """
             Ether specific interface configuration
             
-            .. attribute:: signal_fail_bit_error_rate
+            .. attribute:: auto_negotiation
             
-            	Signal Fail Bit Error Rate handling options
-            	**type**\: :py:class:`SignalFailBitErrorRate <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate>`
-            
-            .. attribute:: signal_degrade_bit_error_rate
-            
-            	Signal Degrade Bit Error Rate handling options
-            	**type**\: :py:class:`SignalDegradeBitErrorRate <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate>`
+            	Link auto\-negotiation
+            	**type**\: :py:class:`EthernetAutoNegotiationEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiationEnum>`
             
             .. attribute:: carrier_delay
             
@@ -6003,11 +5998,6 @@ class InterfaceConfigurations(object):
             	Configure duplex operational mode
             	**type**\: :py:class:`EthernetDuplexEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetDuplexEnum>`
             
-            .. attribute:: auto_negotiation
-            
-            	Link auto\-negotiation
-            	**type**\: :py:class:`EthernetAutoNegotiationEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiationEnum>`
-            
             .. attribute:: flow_control
             
             	Configure flow\-control mode
@@ -6018,20 +6008,30 @@ class InterfaceConfigurations(object):
             	Forward Error Correction
             	**type**\: :py:class:`EthernetFecEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFecEnum>`
             
+            .. attribute:: inter_packet_gap
+            
+            	Inter\-packet gap
+            	**type**\: :py:class:`EthernetIpgEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpgEnum>`
+            
             .. attribute:: loopback
             
             	Configure loopback mode
             	**type**\: :py:class:`EthernetLoopbackEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetLoopbackEnum>`
             
+            .. attribute:: signal_degrade_bit_error_rate
+            
+            	Signal Degrade Bit Error Rate handling options
+            	**type**\: :py:class:`SignalDegradeBitErrorRate <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate>`
+            
+            .. attribute:: signal_fail_bit_error_rate
+            
+            	Signal Fail Bit Error Rate handling options
+            	**type**\: :py:class:`SignalFailBitErrorRate <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate>`
+            
             .. attribute:: speed
             
             	Set the ethernet speed on an interface
             	**type**\: :py:class:`EthernetSpeedEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetSpeedEnum>`
-            
-            .. attribute:: inter_packet_gap
-            
-            	Inter\-packet gap
-            	**type**\: :py:class:`EthernetIpgEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpgEnum>`
             
             
 
@@ -6042,28 +6042,28 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.signal_fail_bit_error_rate = InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate()
-                self.signal_fail_bit_error_rate.parent = self
-                self.signal_degrade_bit_error_rate = InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate()
-                self.signal_degrade_bit_error_rate.parent = self
+                self.auto_negotiation = None
                 self.carrier_delay = InterfaceConfigurations.InterfaceConfiguration.Ethernet.CarrierDelay()
                 self.carrier_delay.parent = self
                 self.duplex = None
-                self.auto_negotiation = None
                 self.flow_control = None
                 self.forward_error_correction = None
-                self.loopback = None
-                self.speed = None
                 self.inter_packet_gap = None
+                self.loopback = None
+                self.signal_degrade_bit_error_rate = InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate()
+                self.signal_degrade_bit_error_rate.parent = self
+                self.signal_fail_bit_error_rate = InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate()
+                self.signal_fail_bit_error_rate.parent = self
+                self.speed = None
 
 
             class SignalFailBitErrorRate(object):
                 """
                 Signal Fail Bit Error Rate handling options
                 
-                .. attribute:: signal_remote_fault
+                .. attribute:: signal_fail_report_disable
                 
-                	Signal a remote fault to the peer device whenever the link is taken down due to crossing the SF\-BER threshold
+                	Disable generation of an alarm whenever the SF\-BER threshold is crossed for this interface
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: signal_fail_threshold
@@ -6073,9 +6073,9 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 4..12
                 
-                .. attribute:: signal_fail_report_disable
+                .. attribute:: signal_remote_fault
                 
-                	Disable generation of an alarm whenever the SF\-BER threshold is crossed for this interface
+                	Signal a remote fault to the peer device whenever the link is taken down due to crossing the SF\-BER threshold
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -6087,14 +6087,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.signal_remote_fault = None
-                    self.signal_fail_threshold = None
                     self.signal_fail_report_disable = None
+                    self.signal_fail_threshold = None
+                    self.signal_remote_fault = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-cfg:signal-fail-bit-error-rate'
 
@@ -6105,13 +6105,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.signal_remote_fault is not None:
+                    if self.signal_fail_report_disable is not None:
                         return True
 
                     if self.signal_fail_threshold is not None:
                         return True
 
-                    if self.signal_fail_report_disable is not None:
+                    if self.signal_remote_fault is not None:
                         return True
 
                     return False
@@ -6126,17 +6126,17 @@ class InterfaceConfigurations(object):
                 """
                 Signal Degrade Bit Error Rate handling options
                 
+                .. attribute:: signal_degrade_report
+                
+                	Generate an alarm whenever the SD\-BER threshold is crossed for this interface
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
                 .. attribute:: signal_degrade_threshold
                 
                 	Set the Signal Degrade bit error rate threshold on an interface to a value of 10e\-x, where x is the value passed in here
                 	**type**\: int
                 
                 	**range:** 3..12
-                
-                .. attribute:: signal_degrade_report
-                
-                	Generate an alarm whenever the SD\-BER threshold is crossed for this interface
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -6147,13 +6147,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.signal_degrade_threshold = None
                     self.signal_degrade_report = None
+                    self.signal_degrade_threshold = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-cfg:signal-degrade-bit-error-rate'
 
@@ -6164,10 +6164,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.signal_degrade_threshold is not None:
+                    if self.signal_degrade_report is not None:
                         return True
 
-                    if self.signal_degrade_report is not None:
+                    if self.signal_degrade_threshold is not None:
                         return True
 
                     return False
@@ -6183,16 +6183,16 @@ class InterfaceConfigurations(object):
                 Set the carrier transition delay on an
                 interface in msecs
                 
-                .. attribute:: carrier_delay_up
+                .. attribute:: carrier_delay_down
                 
-                	Carrier Delay (up) in msecs
+                	Carrier Delay (down) in msecs
                 	**type**\: int
                 
                 	**range:** 0..2147483647
                 
-                .. attribute:: carrier_delay_down
+                .. attribute:: carrier_delay_up
                 
-                	Carrier Delay (down) in msecs
+                	Carrier Delay (up) in msecs
                 	**type**\: int
                 
                 	**range:** 0..2147483647
@@ -6206,13 +6206,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.carrier_delay_up = None
                     self.carrier_delay_down = None
+                    self.carrier_delay_up = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-cfg:carrier-delay'
 
@@ -6223,10 +6223,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.carrier_delay_up is not None:
+                    if self.carrier_delay_down is not None:
                         return True
 
-                    if self.carrier_delay_down is not None:
+                    if self.carrier_delay_up is not None:
                         return True
 
                     return False
@@ -6239,7 +6239,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-cfg:ethernet'
 
@@ -6250,10 +6250,7 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.signal_fail_bit_error_rate is not None and self.signal_fail_bit_error_rate._has_data():
-                    return True
-
-                if self.signal_degrade_bit_error_rate is not None and self.signal_degrade_bit_error_rate._has_data():
+                if self.auto_negotiation is not None:
                     return True
 
                 if self.carrier_delay is not None and self.carrier_delay._has_data():
@@ -6262,22 +6259,25 @@ class InterfaceConfigurations(object):
                 if self.duplex is not None:
                     return True
 
-                if self.auto_negotiation is not None:
-                    return True
-
                 if self.flow_control is not None:
                     return True
 
                 if self.forward_error_correction is not None:
                     return True
 
+                if self.inter_packet_gap is not None:
+                    return True
+
                 if self.loopback is not None:
                     return True
 
-                if self.speed is not None:
+                if self.signal_degrade_bit_error_rate is not None and self.signal_degrade_bit_error_rate._has_data():
                     return True
 
-                if self.inter_packet_gap is not None:
+                if self.signal_fail_bit_error_rate is not None and self.signal_fail_bit_error_rate._has_data():
+                    return True
+
+                if self.speed is not None:
                     return True
 
                 return False
@@ -6314,16 +6314,6 @@ class InterfaceConfigurations(object):
                 The VLAN tag stack associated with this
                 sub\-interface.
                 
-                .. attribute:: vlan_type
-                
-                	Whether this sub\-interface is dot1ad or dot1Q
-                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 .. attribute:: first_tag
                 
                 	First (outermost) VLAN tag value
@@ -6356,6 +6346,16 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
+                .. attribute:: vlan_type
+                
+                	Whether this sub\-interface is dot1ad or dot1Q
+                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -6367,14 +6367,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.vlan_type = None
                     self.first_tag = None
                     self.second_tag = None
+                    self.vlan_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:vlan-identifier'
 
@@ -6385,13 +6385,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.vlan_type is not None:
-                        return True
-
                     if self.first_tag is not None:
                         return True
 
                     if self.second_tag is not None:
+                        return True
+
+                    if self.vlan_type is not None:
                         return True
 
                     return False
@@ -6404,7 +6404,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:vlan-sub-configuration'
 
@@ -6430,15 +6430,15 @@ class InterfaceConfigurations(object):
             """
             Ethernet service configuration
             
-            .. attribute:: local_traffic_default_encapsulation
-            
-            	The default encapsulation to be used for locally\-sourced packets
-            	**type**\: :py:class:`LocalTrafficDefaultEncapsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.LocalTrafficDefaultEncapsulation>`
-            
             .. attribute:: encapsulation
             
             	The encapsulation of this Ethernet service
             	**type**\: :py:class:`Encapsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.Encapsulation>`
+            
+            .. attribute:: local_traffic_default_encapsulation
+            
+            	The default encapsulation to be used for locally\-sourced packets
+            	**type**\: :py:class:`LocalTrafficDefaultEncapsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.LocalTrafficDefaultEncapsulation>`
             
             .. attribute:: rewrite
             
@@ -6454,8 +6454,8 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.local_traffic_default_encapsulation = None
                 self.encapsulation = None
+                self.local_traffic_default_encapsulation = None
                 self.rewrite = None
 
 
@@ -6463,6 +6463,18 @@ class InterfaceConfigurations(object):
                 """
                 The default encapsulation to be used for
                 locally\-sourced packets
+                
+                .. attribute:: inner_vlan_id
+                
+                	Optional VLAN Id for inner Dot1Q tag
+                	**type**\: int
+                
+                	**range:** 1..4094
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_tag_type
                 
@@ -6486,18 +6498,6 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: inner_vlan_id
-                
-                	Optional VLAN Id for inner Dot1Q tag
-                	**type**\: int
-                
-                	**range:** 1..4094
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -6509,14 +6509,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.inner_vlan_id = None
                     self.outer_tag_type = None
                     self.outer_vlan_id = None
-                    self.inner_vlan_id = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:local-traffic-default-encapsulation'
 
@@ -6527,13 +6527,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.inner_vlan_id is not None:
+                        return True
+
                     if self.outer_tag_type is not None:
                         return True
 
                     if self.outer_vlan_id is not None:
-                        return True
-
-                    if self.inner_vlan_id is not None:
                         return True
 
                     return False
@@ -6548,89 +6548,9 @@ class InterfaceConfigurations(object):
                 """
                 The encapsulation of this Ethernet service
                 
-                .. attribute:: outer_tag_type
+                .. attribute:: additional_range1_high
                 
-                	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_range1_low
-                
-                	Low value of first range for outer tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..4096
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_range1_high
-                
-                	High value of first range for outer tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_tag_type
-                
-                	Type of tag for inner match (if present)
-                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_range1_low
-                
-                	Low value of first range for inner tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..4096
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_range1_high
-                
-                	High value of first range for inner tag match
+                	High value of first additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6660,9 +6580,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range1_high
+                .. attribute:: additional_range2_high
                 
-                	High value of first additional range for tag match
+                	High value of second additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6692,9 +6612,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range2_high
+                .. attribute:: additional_range3_high
                 
-                	High value of second additional range for tag match
+                	High value of third additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6724,9 +6644,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range3_high
+                .. attribute:: additional_range4_high
                 
-                	High value of third additional range for tag match
+                	High value of forth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6756,9 +6676,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range4_high
+                .. attribute:: additional_range5_high
                 
-                	High value of forth additional range for tag match
+                	High value of fifth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6788,9 +6708,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range5_high
+                .. attribute:: additional_range6_high
                 
-                	High value of fifth additional range for tag match
+                	High value of sixth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6820,9 +6740,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range6_high
+                .. attribute:: additional_range7_high
                 
-                	High value of sixth additional range for tag match
+                	High value of seventh additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6852,9 +6772,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range7_high
+                .. attribute:: additional_range8_high
                 
-                	High value of seventh additional range for tag match
+                	High value of eighth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -6884,58 +6804,10 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range8_high
+                .. attribute:: exact
                 
-                	High value of eighth additional range for tag match
-                	**type**\: int
-                
-                	**range:** 1..4094
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_class_of_service
-                
-                	Value to match against Class Of Service bits for outer tag
-                	**type**\: int
-                
-                	**range:** 0..7
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_class_of_service
-                
-                	Value to match against Class Of Service bits for inner tag
-                	**type**\: int
-                
-                	**range:** 0..7
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: payload_ethertype_match
-                
-                	Which payload ethertype values to match
-                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: ingress_source_mac
-                
-                	Source MAC address to match on ingress
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                	Only match packets with no more tags than explicitly matched
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: _is_presence
                 
@@ -6954,10 +6826,138 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: exact
+                .. attribute:: ingress_source_mac
                 
-                	Only match packets with no more tags than explicitly matched
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Source MAC address to match on ingress
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_class_of_service
+                
+                	Value to match against Class Of Service bits for inner tag
+                	**type**\: int
+                
+                	**range:** 0..7
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_range1_high
+                
+                	High value of first range for inner tag match
+                	**type**\: int
+                
+                	**range:** 1..4094
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_range1_low
+                
+                	Low value of first range for inner tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..4096
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_tag_type
+                
+                	Type of tag for inner match (if present)
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_class_of_service
+                
+                	Value to match against Class Of Service bits for outer tag
+                	**type**\: int
+                
+                	**range:** 0..7
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_range1_high
+                
+                	High value of first range for outer tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_range1_low
+                
+                	Low value of first range for outer tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..4096
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_tag_type
+                
+                	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: payload_ethertype_match
+                
+                	Which payload ethertype values to match
+                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -6975,39 +6975,39 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.outer_tag_type = None
-                    self.outer_range1_low = None
-                    self.outer_range1_high = None
-                    self.inner_tag_type = None
-                    self.inner_range1_low = None
-                    self.inner_range1_high = None
-                    self.additional_range1_low = None
                     self.additional_range1_high = None
-                    self.additional_range2_low = None
+                    self.additional_range1_low = None
                     self.additional_range2_high = None
-                    self.additional_range3_low = None
+                    self.additional_range2_low = None
                     self.additional_range3_high = None
-                    self.additional_range4_low = None
+                    self.additional_range3_low = None
                     self.additional_range4_high = None
-                    self.additional_range5_low = None
+                    self.additional_range4_low = None
                     self.additional_range5_high = None
-                    self.additional_range6_low = None
+                    self.additional_range5_low = None
                     self.additional_range6_high = None
-                    self.additional_range7_low = None
+                    self.additional_range6_low = None
                     self.additional_range7_high = None
-                    self.additional_range8_low = None
+                    self.additional_range7_low = None
                     self.additional_range8_high = None
-                    self.outer_class_of_service = None
-                    self.inner_class_of_service = None
-                    self.payload_ethertype_match = None
-                    self.ingress_source_mac = None
-                    self.ingress_destination_mac = None
+                    self.additional_range8_low = None
                     self.exact = None
+                    self.ingress_destination_mac = None
+                    self.ingress_source_mac = None
+                    self.inner_class_of_service = None
+                    self.inner_range1_high = None
+                    self.inner_range1_low = None
+                    self.inner_tag_type = None
+                    self.outer_class_of_service = None
+                    self.outer_range1_high = None
+                    self.outer_range1_low = None
+                    self.outer_tag_type = None
+                    self.payload_ethertype_match = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:encapsulation'
 
@@ -7018,88 +7018,88 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.outer_tag_type is not None:
-                        return True
-
-                    if self.outer_range1_low is not None:
-                        return True
-
-                    if self.outer_range1_high is not None:
-                        return True
-
-                    if self.inner_tag_type is not None:
-                        return True
-
-                    if self.inner_range1_low is not None:
-                        return True
-
-                    if self.inner_range1_high is not None:
+                    if self.additional_range1_high is not None:
                         return True
 
                     if self.additional_range1_low is not None:
                         return True
 
-                    if self.additional_range1_high is not None:
+                    if self.additional_range2_high is not None:
                         return True
 
                     if self.additional_range2_low is not None:
                         return True
 
-                    if self.additional_range2_high is not None:
+                    if self.additional_range3_high is not None:
                         return True
 
                     if self.additional_range3_low is not None:
                         return True
 
-                    if self.additional_range3_high is not None:
+                    if self.additional_range4_high is not None:
                         return True
 
                     if self.additional_range4_low is not None:
                         return True
 
-                    if self.additional_range4_high is not None:
+                    if self.additional_range5_high is not None:
                         return True
 
                     if self.additional_range5_low is not None:
                         return True
 
-                    if self.additional_range5_high is not None:
+                    if self.additional_range6_high is not None:
                         return True
 
                     if self.additional_range6_low is not None:
                         return True
 
-                    if self.additional_range6_high is not None:
+                    if self.additional_range7_high is not None:
                         return True
 
                     if self.additional_range7_low is not None:
                         return True
 
-                    if self.additional_range7_high is not None:
+                    if self.additional_range8_high is not None:
                         return True
 
                     if self.additional_range8_low is not None:
                         return True
 
-                    if self.additional_range8_high is not None:
-                        return True
-
-                    if self.outer_class_of_service is not None:
-                        return True
-
-                    if self.inner_class_of_service is not None:
-                        return True
-
-                    if self.payload_ethertype_match is not None:
-                        return True
-
-                    if self.ingress_source_mac is not None:
+                    if self.exact is not None:
                         return True
 
                     if self.ingress_destination_mac is not None:
                         return True
 
-                    if self.exact is not None:
+                    if self.ingress_source_mac is not None:
+                        return True
+
+                    if self.inner_class_of_service is not None:
+                        return True
+
+                    if self.inner_range1_high is not None:
+                        return True
+
+                    if self.inner_range1_low is not None:
+                        return True
+
+                    if self.inner_tag_type is not None:
+                        return True
+
+                    if self.outer_class_of_service is not None:
+                        return True
+
+                    if self.outer_range1_high is not None:
+                        return True
+
+                    if self.outer_range1_low is not None:
+                        return True
+
+                    if self.outer_tag_type is not None:
+                        return True
+
+                    if self.payload_ethertype_match is not None:
                         return True
 
                     return False
@@ -7114,10 +7114,22 @@ class InterfaceConfigurations(object):
                 """
                 The rewrite operation for the Ethernet service
                 
-                .. attribute:: rewrite_type
+                .. attribute:: inner_tag_type
                 
-                	The type of rewrite to perform
-                	**type**\: :py:class:`RewriteEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.RewriteEnum>`
+                	Type of innermost tag to be pushed
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_tag_value
+                
+                	VLAN Id of innermost tag to be pushed
+                	**type**\: int
+                
+                	**range:** 1..4094
                 
                 .. attribute:: _is_presence
                 
@@ -7146,22 +7158,10 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: inner_tag_type
+                .. attribute:: rewrite_type
                 
-                	Type of innermost tag to be pushed
-                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_tag_value
-                
-                	VLAN Id of innermost tag to be pushed
-                	**type**\: int
-                
-                	**range:** 1..4094
+                	The type of rewrite to perform
+                	**type**\: :py:class:`RewriteEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.RewriteEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -7179,16 +7179,16 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.rewrite_type = None
-                    self.outer_tag_type = None
-                    self.outer_tag_value = None
                     self.inner_tag_type = None
                     self.inner_tag_value = None
+                    self.outer_tag_type = None
+                    self.outer_tag_value = None
+                    self.rewrite_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:rewrite'
 
@@ -7199,7 +7199,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.rewrite_type is not None:
+                    if self.inner_tag_type is not None:
+                        return True
+
+                    if self.inner_tag_value is not None:
                         return True
 
                     if self.outer_tag_type is not None:
@@ -7208,10 +7211,7 @@ class InterfaceConfigurations(object):
                     if self.outer_tag_value is not None:
                         return True
 
-                    if self.inner_tag_type is not None:
-                        return True
-
-                    if self.inner_tag_value is not None:
+                    if self.rewrite_type is not None:
                         return True
 
                     return False
@@ -7224,7 +7224,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-service'
 
@@ -7235,10 +7235,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.local_traffic_default_encapsulation is not None and self.local_traffic_default_encapsulation._has_data():
+                if self.encapsulation is not None and self.encapsulation._has_data():
                     return True
 
-                if self.encapsulation is not None and self.encapsulation._has_data():
+                if self.local_traffic_default_encapsulation is not None and self.local_traffic_default_encapsulation._has_data():
                     return True
 
                 if self.rewrite is not None and self.rewrite._has_data():
@@ -7277,89 +7277,9 @@ class InterfaceConfigurations(object):
                 """
                 L3 Ambiguous encapsulation
                 
-                .. attribute:: outer_tag_type
+                .. attribute:: additional_range1_high
                 
-                	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_range1_low
-                
-                	Low value of first range for outer tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..4096
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_range1_high
-                
-                	High value of first range for outer tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..65535
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_tag_type
-                
-                	Type of tag for inner match (if present)
-                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_range1_low
-                
-                	Low value of first range for inner tag match
-                	**type**\: one of the below types:
-                
-                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
-                
-                
-                ----
-                	**type**\: int
-                
-                	**range:** 1..4096
-                
-                
-                ----
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_range1_high
-                
-                	High value of first range for inner tag match
+                	High value of first additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7389,9 +7309,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range1_high
+                .. attribute:: additional_range2_high
                 
-                	High value of first additional range for tag match
+                	High value of second additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7421,9 +7341,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range2_high
+                .. attribute:: additional_range3_high
                 
-                	High value of second additional range for tag match
+                	High value of third additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7453,9 +7373,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range3_high
+                .. attribute:: additional_range4_high
                 
-                	High value of third additional range for tag match
+                	High value of forth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7485,9 +7405,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range4_high
+                .. attribute:: additional_range5_high
                 
-                	High value of forth additional range for tag match
+                	High value of fifth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7517,9 +7437,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range5_high
+                .. attribute:: additional_range6_high
                 
-                	High value of fifth additional range for tag match
+                	High value of sixth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7549,9 +7469,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range6_high
+                .. attribute:: additional_range7_high
                 
-                	High value of sixth additional range for tag match
+                	High value of seventh additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7581,9 +7501,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range7_high
+                .. attribute:: additional_range8_high
                 
-                	High value of seventh additional range for tag match
+                	High value of eighth additional range for tag match
                 	**type**\: int
                 
                 	**range:** 1..4094
@@ -7613,58 +7533,10 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: additional_range8_high
+                .. attribute:: exact
                 
-                	High value of eighth additional range for tag match
-                	**type**\: int
-                
-                	**range:** 1..4094
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: outer_class_of_service
-                
-                	Value to match against Class Of Service bits for outer tag
-                	**type**\: int
-                
-                	**range:** 0..7
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: inner_class_of_service
-                
-                	Value to match against Class Of Service bits for inner tag
-                	**type**\: int
-                
-                	**range:** 0..7
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: payload_ethertype_match
-                
-                	Which payload ethertype values to match
-                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: ingress_source_mac
-                
-                	Source MAC address to match on ingress
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                	Only match packets with no more tags than explicitly matched
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: _is_presence
                 
@@ -7683,10 +7555,138 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: exact
+                .. attribute:: ingress_source_mac
                 
-                	Only match packets with no more tags than explicitly matched
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Source MAC address to match on ingress
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_class_of_service
+                
+                	Value to match against Class Of Service bits for inner tag
+                	**type**\: int
+                
+                	**range:** 0..7
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_range1_high
+                
+                	High value of first range for inner tag match
+                	**type**\: int
+                
+                	**range:** 1..4094
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_range1_low
+                
+                	Low value of first range for inner tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..4096
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: inner_tag_type
+                
+                	Type of tag for inner match (if present)
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_class_of_service
+                
+                	Value to match against Class Of Service bits for outer tag
+                	**type**\: int
+                
+                	**range:** 0..7
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_range1_high
+                
+                	High value of first range for outer tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..65535
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_range1_low
+                
+                	Low value of first range for outer tag match
+                	**type**\: one of the below types:
+                
+                	**type**\: :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                
+                
+                ----
+                	**type**\: int
+                
+                	**range:** 1..4096
+                
+                
+                ----
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: outer_tag_type
+                
+                	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: payload_ethertype_match
+                
+                	Which payload ethertype values to match
+                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -7704,39 +7704,39 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.outer_tag_type = None
-                    self.outer_range1_low = None
-                    self.outer_range1_high = None
-                    self.inner_tag_type = None
-                    self.inner_range1_low = None
-                    self.inner_range1_high = None
-                    self.additional_range1_low = None
                     self.additional_range1_high = None
-                    self.additional_range2_low = None
+                    self.additional_range1_low = None
                     self.additional_range2_high = None
-                    self.additional_range3_low = None
+                    self.additional_range2_low = None
                     self.additional_range3_high = None
-                    self.additional_range4_low = None
+                    self.additional_range3_low = None
                     self.additional_range4_high = None
-                    self.additional_range5_low = None
+                    self.additional_range4_low = None
                     self.additional_range5_high = None
-                    self.additional_range6_low = None
+                    self.additional_range5_low = None
                     self.additional_range6_high = None
-                    self.additional_range7_low = None
+                    self.additional_range6_low = None
                     self.additional_range7_high = None
-                    self.additional_range8_low = None
+                    self.additional_range7_low = None
                     self.additional_range8_high = None
-                    self.outer_class_of_service = None
-                    self.inner_class_of_service = None
-                    self.payload_ethertype_match = None
-                    self.ingress_source_mac = None
-                    self.ingress_destination_mac = None
+                    self.additional_range8_low = None
                     self.exact = None
+                    self.ingress_destination_mac = None
+                    self.ingress_source_mac = None
+                    self.inner_class_of_service = None
+                    self.inner_range1_high = None
+                    self.inner_range1_low = None
+                    self.inner_tag_type = None
+                    self.outer_class_of_service = None
+                    self.outer_range1_high = None
+                    self.outer_range1_low = None
+                    self.outer_tag_type = None
+                    self.payload_ethertype_match = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:ambiguous-encapsulation'
 
@@ -7747,88 +7747,88 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.outer_tag_type is not None:
-                        return True
-
-                    if self.outer_range1_low is not None:
-                        return True
-
-                    if self.outer_range1_high is not None:
-                        return True
-
-                    if self.inner_tag_type is not None:
-                        return True
-
-                    if self.inner_range1_low is not None:
-                        return True
-
-                    if self.inner_range1_high is not None:
+                    if self.additional_range1_high is not None:
                         return True
 
                     if self.additional_range1_low is not None:
                         return True
 
-                    if self.additional_range1_high is not None:
+                    if self.additional_range2_high is not None:
                         return True
 
                     if self.additional_range2_low is not None:
                         return True
 
-                    if self.additional_range2_high is not None:
+                    if self.additional_range3_high is not None:
                         return True
 
                     if self.additional_range3_low is not None:
                         return True
 
-                    if self.additional_range3_high is not None:
+                    if self.additional_range4_high is not None:
                         return True
 
                     if self.additional_range4_low is not None:
                         return True
 
-                    if self.additional_range4_high is not None:
+                    if self.additional_range5_high is not None:
                         return True
 
                     if self.additional_range5_low is not None:
                         return True
 
-                    if self.additional_range5_high is not None:
+                    if self.additional_range6_high is not None:
                         return True
 
                     if self.additional_range6_low is not None:
                         return True
 
-                    if self.additional_range6_high is not None:
+                    if self.additional_range7_high is not None:
                         return True
 
                     if self.additional_range7_low is not None:
                         return True
 
-                    if self.additional_range7_high is not None:
+                    if self.additional_range8_high is not None:
                         return True
 
                     if self.additional_range8_low is not None:
                         return True
 
-                    if self.additional_range8_high is not None:
-                        return True
-
-                    if self.outer_class_of_service is not None:
-                        return True
-
-                    if self.inner_class_of_service is not None:
-                        return True
-
-                    if self.payload_ethertype_match is not None:
-                        return True
-
-                    if self.ingress_source_mac is not None:
+                    if self.exact is not None:
                         return True
 
                     if self.ingress_destination_mac is not None:
                         return True
 
-                    if self.exact is not None:
+                    if self.ingress_source_mac is not None:
+                        return True
+
+                    if self.inner_class_of_service is not None:
+                        return True
+
+                    if self.inner_range1_high is not None:
+                        return True
+
+                    if self.inner_range1_low is not None:
+                        return True
+
+                    if self.inner_tag_type is not None:
+                        return True
+
+                    if self.outer_class_of_service is not None:
+                        return True
+
+                    if self.outer_range1_high is not None:
+                        return True
+
+                    if self.outer_range1_low is not None:
+                        return True
+
+                    if self.outer_tag_type is not None:
+                        return True
+
+                    if self.payload_ethertype_match is not None:
                         return True
 
                     return False
@@ -7841,7 +7841,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-bng'
 
@@ -7867,12 +7867,12 @@ class InterfaceConfigurations(object):
             """
             MAC Accounting Configuration
             
-            .. attribute:: ingress
+            .. attribute:: egress
             
             	Per MAC address accounting statistics
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: egress
+            .. attribute:: ingress
             
             	Per MAC address accounting statistics
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
@@ -7886,13 +7886,13 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.ingress = None
                 self.egress = None
+                self.ingress = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:mac-accounting'
 
@@ -7903,10 +7903,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ingress is not None:
+                if self.egress is not None:
                     return True
 
-                if self.egress is not None:
+                if self.ingress is not None:
                     return True
 
                 return False
@@ -7921,25 +7921,25 @@ class InterfaceConfigurations(object):
             """
             Ethernet Features Configuration
             
-            .. attribute:: filtering
-            
-            	Ingress Ethernet frame filtering
-            	**type**\: :py:class:`FilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.FilteringEnum>`
-            
             .. attribute:: cfm
             
             	CFM interface configuration
             	**type**\: :py:class:`Cfm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm>`
+            
+            .. attribute:: ether_link_oam
+            
+            	Ethernet Link OAM Interface Configuration
+            	**type**\: :py:class:`EtherLinkOam <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam>`
             
             .. attribute:: ether_link_oam_enable
             
             	Enable Ethernet Link OAM on the interface
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: ether_link_oam
+            .. attribute:: filtering
             
-            	Ethernet Link OAM Interface Configuration
-            	**type**\: :py:class:`EtherLinkOam <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam>`
+            	Ingress Ethernet frame filtering
+            	**type**\: :py:class:`FilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.FilteringEnum>`
             
             
 
@@ -7950,27 +7950,27 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.filtering = None
                 self.cfm = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm()
                 self.cfm.parent = self
-                self.ether_link_oam_enable = None
                 self.ether_link_oam = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam()
                 self.ether_link_oam.parent = self
+                self.ether_link_oam_enable = None
+                self.filtering = None
 
 
             class Cfm(object):
                 """
                 CFM interface configuration
                 
-                .. attribute:: domains
-                
-                	Domain\-specific interface configuration
-                	**type**\: :py:class:`Domains <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains>`
-                
                 .. attribute:: ais_up
                 
                 	Interface specific AIS configuration
                 	**type**\: :py:class:`AisUp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp>`
+                
+                .. attribute:: domains
+                
+                	Domain\-specific interface configuration
+                	**type**\: :py:class:`Domains <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains>`
                 
                 
 
@@ -7981,10 +7981,10 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.domains = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains()
-                    self.domains.parent = self
                     self.ais_up = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp()
                     self.ais_up.parent = self
+                    self.domains = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains()
+                    self.domains.parent = self
 
 
                 class Domains(object):
@@ -8043,27 +8043,27 @@ class InterfaceConfigurations(object):
                             """
                             MEP Configuration
                             
-                            .. attribute:: sla_profile_target_mep_ids
-                            
-                            	SLA specific configuration
-                            	**type**\: :py:class:`SlaProfileTargetMepIds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds>`
-                            
-                            .. attribute:: mep_properties
-                            
-                            	Properties for this MEP
-                            	**type**\: :py:class:`MepProperties <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.MepProperties>`
-                            
-                            .. attribute:: loss_measurement_counters
-                            
-                            	Loss\-measurement specific configuration
-                            	**type**\: :py:class:`LossMeasurementCounters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.LossMeasurementCounters>`
-                            
                             .. attribute:: cos
                             
                             	The Class of Service bits for this MEP
                             	**type**\: int
                             
                             	**range:** 0..7
+                            
+                            .. attribute:: loss_measurement_counters
+                            
+                            	Loss\-measurement specific configuration
+                            	**type**\: :py:class:`LossMeasurementCounters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.LossMeasurementCounters>`
+                            
+                            .. attribute:: mep_properties
+                            
+                            	Properties for this MEP
+                            	**type**\: :py:class:`MepProperties <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.MepProperties>`
+                            
+                            .. attribute:: sla_profile_target_mep_ids
+                            
+                            	SLA specific configuration
+                            	**type**\: :py:class:`SlaProfileTargetMepIds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds>`
                             
                             
 
@@ -8074,26 +8074,26 @@ class InterfaceConfigurations(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.cos = None
+                                self.loss_measurement_counters = None
+                                self.mep_properties = None
                                 self.sla_profile_target_mep_ids = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds()
                                 self.sla_profile_target_mep_ids.parent = self
-                                self.mep_properties = None
-                                self.loss_measurement_counters = None
-                                self.cos = None
 
 
                             class SlaProfileTargetMepIds(object):
                                 """
                                 SLA specific configuration
                                 
-                                .. attribute:: sla_profile_target_mep_id
-                                
-                                	Configuration for a particular SLA operation
-                                	**type**\: list of :py:class:`SlaProfileTargetMepId <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMepId>`
-                                
                                 .. attribute:: sla_profile_target_mac_address
                                 
                                 	Configuration for a particular SLA operation
                                 	**type**\: list of :py:class:`SlaProfileTargetMacAddress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMacAddress>`
+                                
+                                .. attribute:: sla_profile_target_mep_id
+                                
+                                	Configuration for a particular SLA operation
+                                	**type**\: list of :py:class:`SlaProfileTargetMepId <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMepId>`
                                 
                                 
 
@@ -8104,12 +8104,12 @@ class InterfaceConfigurations(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.sla_profile_target_mep_id = YList()
-                                    self.sla_profile_target_mep_id.parent = self
-                                    self.sla_profile_target_mep_id.name = 'sla_profile_target_mep_id'
                                     self.sla_profile_target_mac_address = YList()
                                     self.sla_profile_target_mac_address.parent = self
                                     self.sla_profile_target_mac_address.name = 'sla_profile_target_mac_address'
+                                    self.sla_profile_target_mep_id = YList()
+                                    self.sla_profile_target_mep_id.parent = self
+                                    self.sla_profile_target_mep_id.name = 'sla_profile_target_mep_id'
 
 
                                 class SlaProfileTargetMepId(object):
@@ -8146,11 +8146,11 @@ class InterfaceConfigurations(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.profile is None:
-                                            raise YPYDataValidationError('Key property profile is None')
+                                            raise YPYModelError('Key property profile is None')
                                         if self.target_mep_id is None:
-                                            raise YPYDataValidationError('Key property target_mep_id is None')
+                                            raise YPYModelError('Key property target_mep_id is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:sla-profile-target-mep-id[Cisco-IOS-XR-ethernet-cfm-cfg:profile = ' + str(self.profile) + '][Cisco-IOS-XR-ethernet-cfm-cfg:target-mep-id = ' + str(self.target_mep_id) + ']'
 
@@ -8209,11 +8209,11 @@ class InterfaceConfigurations(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.profile is None:
-                                            raise YPYDataValidationError('Key property profile is None')
+                                            raise YPYModelError('Key property profile is None')
                                         if self.target_mac_address is None:
-                                            raise YPYDataValidationError('Key property target_mac_address is None')
+                                            raise YPYModelError('Key property target_mac_address is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:sla-profile-target-mac-address[Cisco-IOS-XR-ethernet-cfm-cfg:profile = ' + str(self.profile) + '][Cisco-IOS-XR-ethernet-cfm-cfg:target-mac-address = ' + str(self.target_mac_address) + ']'
 
@@ -8240,7 +8240,7 @@ class InterfaceConfigurations(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:sla-profile-target-mep-ids'
 
@@ -8251,13 +8251,13 @@ class InterfaceConfigurations(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.sla_profile_target_mep_id is not None:
-                                        for child_ref in self.sla_profile_target_mep_id:
+                                    if self.sla_profile_target_mac_address is not None:
+                                        for child_ref in self.sla_profile_target_mac_address:
                                             if child_ref._has_data():
                                                 return True
 
-                                    if self.sla_profile_target_mac_address is not None:
-                                        for child_ref in self.sla_profile_target_mac_address:
+                                    if self.sla_profile_target_mep_id is not None:
+                                        for child_ref in self.sla_profile_target_mep_id:
                                             if child_ref._has_data():
                                                 return True
 
@@ -8273,22 +8273,22 @@ class InterfaceConfigurations(object):
                                 """
                                 Properties for this MEP
                                 
-                                .. attribute:: service
-                                
-                                	Service (Maintenance Association)
-                                	**type**\: str
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
                                 .. attribute:: mep_id
                                 
                                 	MEP ID
                                 	**type**\: int
                                 
                                 	**range:** 1..8191
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: service
+                                
+                                	Service (Maintenance Association)
+                                	**type**\: str
                                 
                                 .. attribute:: _is_presence
                                 
@@ -8306,13 +8306,13 @@ class InterfaceConfigurations(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.service = None
                                     self.mep_id = None
+                                    self.service = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:mep-properties'
 
@@ -8323,10 +8323,10 @@ class InterfaceConfigurations(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.service is not None:
+                                    if self.mep_id is not None:
                                         return True
 
-                                    if self.mep_id is not None:
+                                    if self.service is not None:
                                         return True
 
                                     return False
@@ -8471,7 +8471,7 @@ class InterfaceConfigurations(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:loss-measurement-counters'
 
@@ -8519,7 +8519,7 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:mep'
 
@@ -8530,16 +8530,16 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.sla_profile_target_mep_ids is not None and self.sla_profile_target_mep_ids._has_data():
-                                    return True
-
-                                if self.mep_properties is not None and self.mep_properties._has_data():
+                                if self.cos is not None:
                                     return True
 
                                 if self.loss_measurement_counters is not None and self.loss_measurement_counters._has_data():
                                     return True
 
-                                if self.cos is not None:
+                                if self.mep_properties is not None and self.mep_properties._has_data():
+                                    return True
+
+                                if self.sla_profile_target_mep_ids is not None and self.sla_profile_target_mep_ids._has_data():
                                     return True
 
                                 return False
@@ -8552,9 +8552,9 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.domain is None:
-                                raise YPYDataValidationError('Key property domain is None')
+                                raise YPYModelError('Key property domain is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:domain[Cisco-IOS-XR-ethernet-cfm-cfg:domain = ' + str(self.domain) + ']'
 
@@ -8581,7 +8581,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:domains'
 
@@ -8669,7 +8669,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:transmission'
 
@@ -8696,7 +8696,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:ais-up'
 
@@ -8720,7 +8720,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:cfm'
 
@@ -8731,10 +8731,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.domains is not None and self.domains._has_data():
+                    if self.ais_up is not None and self.ais_up._has_data():
                         return True
 
-                    if self.ais_up is not None and self.ais_up._has_data():
+                    if self.domains is not None and self.domains._has_data():
                         return True
 
                     return False
@@ -8749,15 +8749,40 @@ class InterfaceConfigurations(object):
                 """
                 Ethernet Link OAM Interface Configuration
                 
+                .. attribute:: action
+                
+                	Configure action parameters
+                	**type**\: :py:class:`Action <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action>`
+                
+                .. attribute:: hello_interval
+                
+                	Possible Ethernet Link OAM hello intervals
+                	**type**\: :py:class:`EtherLinkOamInterfaceHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnumEnum>`
+                
                 .. attribute:: link_monitor
                 
                 	Configure link monitor parameters
                 	**type**\: :py:class:`LinkMonitor <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor>`
                 
-                .. attribute:: action
+                .. attribute:: mib_retrieval
                 
-                	Configure action parameters
-                	**type**\: :py:class:`Action <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action>`
+                	Enable or disable MIB retrieval
+                	**type**\: bool
+                
+                .. attribute:: mode
+                
+                	Possible Ethernet Link OAM modes
+                	**type**\: :py:class:`EtherLinkOamInterfaceModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnumEnum>`
+                
+                .. attribute:: profile_name
+                
+                	Set the profile to use on the interface
+                	**type**\: str
+                
+                .. attribute:: remote_loopback
+                
+                	Enable or disable remote loopback
+                	**type**\: bool
                 
                 .. attribute:: require_remote
                 
@@ -8770,31 +8795,6 @@ class InterfaceConfigurations(object):
                 	**type**\: int
                 
                 	**range:** 2..30
-                
-                .. attribute:: mode
-                
-                	Possible Ethernet Link OAM modes
-                	**type**\: :py:class:`EtherLinkOamInterfaceModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnumEnum>`
-                
-                .. attribute:: mib_retrieval
-                
-                	Enable or disable MIB retrieval
-                	**type**\: bool
-                
-                .. attribute:: profile_name
-                
-                	Set the profile to use on the interface
-                	**type**\: str
-                
-                .. attribute:: remote_loopback
-                
-                	Enable or disable remote loopback
-                	**type**\: bool
-                
-                .. attribute:: hello_interval
-                
-                	Possible Ethernet Link OAM hello intervals
-                	**type**\: :py:class:`EtherLinkOamInterfaceHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnumEnum>`
                 
                 .. attribute:: udlf
                 
@@ -8810,18 +8810,18 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.link_monitor = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor()
-                    self.link_monitor.parent = self
                     self.action = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action()
                     self.action.parent = self
+                    self.hello_interval = None
+                    self.link_monitor = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor()
+                    self.link_monitor.parent = self
+                    self.mib_retrieval = None
+                    self.mode = None
+                    self.profile_name = None
+                    self.remote_loopback = None
                     self.require_remote = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.RequireRemote()
                     self.require_remote.parent = self
                     self.timeout = None
-                    self.mode = None
-                    self.mib_retrieval = None
-                    self.profile_name = None
-                    self.remote_loopback = None
-                    self.hello_interval = None
                     self.udlf = None
 
 
@@ -8829,20 +8829,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure link monitor parameters
                     
-                    .. attribute:: frame_period
-                    
-                    	Frame\-period event configuration
-                    	**type**\: :py:class:`FramePeriod <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod>`
-                    
-                    .. attribute:: symbol_period
-                    
-                    	Symbol\-period event configuration
-                    	**type**\: :py:class:`SymbolPeriod <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod>`
-                    
                     .. attribute:: frame
                     
                     	Frame event configuration
                     	**type**\: :py:class:`Frame <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame>`
+                    
+                    .. attribute:: frame_period
+                    
+                    	Frame\-period event configuration
+                    	**type**\: :py:class:`FramePeriod <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod>`
                     
                     .. attribute:: frame_seconds
                     
@@ -8854,6 +8849,11 @@ class InterfaceConfigurations(object):
                     	Enable or disable monitoring
                     	**type**\: bool
                     
+                    .. attribute:: symbol_period
+                    
+                    	Symbol\-period event configuration
+                    	**type**\: :py:class:`SymbolPeriod <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod>`
+                    
                     
 
                     """
@@ -8863,15 +8863,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.frame_period = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod()
-                        self.frame_period.parent = self
-                        self.symbol_period = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod()
-                        self.symbol_period.parent = self
                         self.frame = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame()
                         self.frame.parent = self
+                        self.frame_period = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod()
+                        self.frame_period.parent = self
                         self.frame_seconds = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FrameSeconds()
                         self.frame_seconds.parent = self
                         self.monitoring = None
+                        self.symbol_period = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod()
+                        self.symbol_period.parent = self
 
 
                     class FramePeriod(object):
@@ -8907,9 +8907,9 @@ class InterfaceConfigurations(object):
                             """
                             Threshold for frame\-period events
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for frame\-period events
+                            	The high threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
@@ -8919,9 +8919,9 @@ class InterfaceConfigurations(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for frame\-period events
+                            	The low threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
@@ -8942,13 +8942,13 @@ class InterfaceConfigurations(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_low = None
                                 self.threshold_high = None
+                                self.threshold_low = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
 
@@ -8959,10 +8959,10 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
                                 return False
@@ -8975,7 +8975,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-period'
 
@@ -9034,9 +9034,9 @@ class InterfaceConfigurations(object):
                             Threshold configuration for symbol\-period
                             events
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for symbol\-period
+                            	The high threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
@@ -9046,9 +9046,9 @@ class InterfaceConfigurations(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for symbol\-period
+                            	The low threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
@@ -9069,13 +9069,13 @@ class InterfaceConfigurations(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_low = None
                                 self.threshold_high = None
+                                self.threshold_low = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
 
@@ -9086,10 +9086,10 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
                                 return False
@@ -9102,7 +9102,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:symbol-period'
 
@@ -9160,9 +9160,9 @@ class InterfaceConfigurations(object):
                             """
                             Threshold configuration for frame events
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for frame events
+                            	The high threshold for frame events
                             	**type**\: int
                             
                             	**range:** 1..12000000
@@ -9172,9 +9172,9 @@ class InterfaceConfigurations(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for frame events
+                            	The low threshold for frame events
                             	**type**\: int
                             
                             	**range:** 1..12000000
@@ -9195,13 +9195,13 @@ class InterfaceConfigurations(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_low = None
                                 self.threshold_high = None
+                                self.threshold_low = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
 
@@ -9212,10 +9212,10 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
                                 return False
@@ -9228,7 +9228,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
 
@@ -9286,9 +9286,9 @@ class InterfaceConfigurations(object):
                             """
                             Threshold for frame\-seconds events
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for frame\-seconds
+                            	The high threshold for frame\-seconds
                             	**type**\: int
                             
                             	**range:** 1..900
@@ -9298,9 +9298,9 @@ class InterfaceConfigurations(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for frame\-seconds
+                            	The low threshold for frame\-seconds
                             	**type**\: int
                             
                             	**range:** 1..900
@@ -9321,13 +9321,13 @@ class InterfaceConfigurations(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_low = None
                                 self.threshold_high = None
+                                self.threshold_low = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
 
@@ -9338,10 +9338,10 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
                                 return False
@@ -9354,7 +9354,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-seconds'
 
@@ -9381,7 +9381,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:link-monitor'
 
@@ -9392,19 +9392,19 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.frame_period is not None and self.frame_period._has_data():
-                            return True
-
-                        if self.symbol_period is not None and self.symbol_period._has_data():
-                            return True
-
                         if self.frame is not None and self.frame._has_data():
+                            return True
+
+                        if self.frame_period is not None and self.frame_period._has_data():
                             return True
 
                         if self.frame_seconds is not None and self.frame_seconds._has_data():
                             return True
 
                         if self.monitoring is not None:
+                            return True
+
+                        if self.symbol_period is not None and self.symbol_period._has_data():
                             return True
 
                         return False
@@ -9419,44 +9419,14 @@ class InterfaceConfigurations(object):
                     """
                     Configure action parameters
                     
-                    .. attribute:: dying_gasp
-                    
-                    	Action to perform when a dying gasp occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
-                    
-                    .. attribute:: link_fault
-                    
-                    	Action to perform when a link fault occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
-                    
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
                     	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
-                    .. attribute:: session_up
-                    
-                    	Action to perform when a session comes up
-                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
-                    
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
-                    
-                    .. attribute:: remote_loopback
-                    
-                    	Action to perform when remote loopback is entered or exited
-                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
-                    
-                    .. attribute:: wiring_conflict
-                    
-                    	Action to perform when a wiring conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
-                    
-                    .. attribute:: high_threshold
-                    
-                    	Action to perform when a high\-threshold event occurs
                     	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: discovery_timeout
@@ -9464,9 +9434,39 @@ class InterfaceConfigurations(object):
                     	Action to perform when discovery timeout occurs
                     	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
+                    .. attribute:: dying_gasp
+                    
+                    	Action to perform when a dying gasp occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    
+                    .. attribute:: high_threshold
+                    
+                    	Action to perform when a high\-threshold event occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    
+                    .. attribute:: link_fault
+                    
+                    	Action to perform when a link fault occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    
+                    .. attribute:: remote_loopback
+                    
+                    	Action to perform when remote loopback is entered or exited
+                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    
                     .. attribute:: session_down
                     
                     	Action to perform when a session comes down
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    
+                    .. attribute:: session_up
+                    
+                    	Action to perform when a session comes up
+                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    
+                    .. attribute:: wiring_conflict
+                    
+                    	Action to perform when a wiring conflict occurs
                     	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     
@@ -9478,21 +9478,21 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.dying_gasp = None
-                        self.link_fault = None
                         self.capabilities_conflict = None
-                        self.session_up = None
                         self.critical_event = None
-                        self.remote_loopback = None
-                        self.wiring_conflict = None
-                        self.high_threshold = None
                         self.discovery_timeout = None
+                        self.dying_gasp = None
+                        self.high_threshold = None
+                        self.link_fault = None
+                        self.remote_loopback = None
                         self.session_down = None
+                        self.session_up = None
+                        self.wiring_conflict = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:action'
 
@@ -9503,34 +9503,34 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.dying_gasp is not None:
-                            return True
-
-                        if self.link_fault is not None:
-                            return True
-
                         if self.capabilities_conflict is not None:
-                            return True
-
-                        if self.session_up is not None:
                             return True
 
                         if self.critical_event is not None:
                             return True
 
-                        if self.remote_loopback is not None:
+                        if self.discovery_timeout is not None:
                             return True
 
-                        if self.wiring_conflict is not None:
+                        if self.dying_gasp is not None:
                             return True
 
                         if self.high_threshold is not None:
                             return True
 
-                        if self.discovery_timeout is not None:
+                        if self.link_fault is not None:
+                            return True
+
+                        if self.remote_loopback is not None:
                             return True
 
                         if self.session_down is not None:
+                            return True
+
+                        if self.session_up is not None:
+                            return True
+
+                        if self.wiring_conflict is not None:
                             return True
 
                         return False
@@ -9545,24 +9545,24 @@ class InterfaceConfigurations(object):
                     """
                     Configure remote requirement parameters
                     
-                    .. attribute:: mode
+                    .. attribute:: link_monitoring
                     
-                    	Possible required peer modes
-                    	**type**\: :py:class:`EtherLinkOamInterfaceRequireModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnumEnum>`
+                    	Enable or disable link monitoring peer requirement
+                    	**type**\: bool
                     
                     .. attribute:: mib_retrieval
                     
                     	Enable or disable MIB retrieval peer requirement
                     	**type**\: bool
                     
+                    .. attribute:: mode
+                    
+                    	Possible required peer modes
+                    	**type**\: :py:class:`EtherLinkOamInterfaceRequireModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnumEnum>`
+                    
                     .. attribute:: remote_loopback
                     
                     	Enable or disable remote loopback peer requirement
-                    	**type**\: bool
-                    
-                    .. attribute:: link_monitoring
-                    
-                    	Enable or disable link monitoring peer requirement
                     	**type**\: bool
                     
                     
@@ -9574,15 +9574,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.mode = None
-                        self.mib_retrieval = None
-                        self.remote_loopback = None
                         self.link_monitoring = None
+                        self.mib_retrieval = None
+                        self.mode = None
+                        self.remote_loopback = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:require-remote'
 
@@ -9593,16 +9593,16 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.mode is not None:
+                        if self.link_monitoring is not None:
                             return True
 
                         if self.mib_retrieval is not None:
                             return True
 
-                        if self.remote_loopback is not None:
+                        if self.mode is not None:
                             return True
 
-                        if self.link_monitoring is not None:
+                        if self.remote_loopback is not None:
                             return True
 
                         return False
@@ -9615,7 +9615,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam'
 
@@ -9626,22 +9626,19 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.link_monitor is not None and self.link_monitor._has_data():
-                        return True
-
                     if self.action is not None and self.action._has_data():
                         return True
 
-                    if self.require_remote is not None and self.require_remote._has_data():
+                    if self.hello_interval is not None:
                         return True
 
-                    if self.timeout is not None:
-                        return True
-
-                    if self.mode is not None:
+                    if self.link_monitor is not None and self.link_monitor._has_data():
                         return True
 
                     if self.mib_retrieval is not None:
+                        return True
+
+                    if self.mode is not None:
                         return True
 
                     if self.profile_name is not None:
@@ -9650,7 +9647,10 @@ class InterfaceConfigurations(object):
                     if self.remote_loopback is not None:
                         return True
 
-                    if self.hello_interval is not None:
+                    if self.require_remote is not None and self.require_remote._has_data():
+                        return True
+
+                    if self.timeout is not None:
                         return True
 
                     if self.udlf is not None:
@@ -9666,7 +9666,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features'
 
@@ -9677,16 +9677,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.filtering is not None:
+                if self.cfm is not None and self.cfm._has_data():
                     return True
 
-                if self.cfm is not None and self.cfm._has_data():
+                if self.ether_link_oam is not None and self.ether_link_oam._has_data():
                     return True
 
                 if self.ether_link_oam_enable is not None:
                     return True
 
-                if self.ether_link_oam is not None and self.ether_link_oam._has_data():
+                if self.filtering is not None:
                     return True
 
                 return False
@@ -9758,22 +9758,22 @@ class InterfaceConfigurations(object):
                 The Native VLAN identifier associated with this
                 trunk interface
                 
-                .. attribute:: vlan_type
-                
-                	Whether this interface is dot1ad or dot1Q
-                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 .. attribute:: vlan_identifier
                 
                 	VLAN identifier
                 	**type**\: int
                 
                 	**range:** 1..4094
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: vlan_type
+                
+                	Whether this interface is dot1ad or dot1Q
+                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -9791,13 +9791,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.vlan_type = None
                     self.vlan_identifier = None
+                    self.vlan_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:native-vlan-identifier'
 
@@ -9808,10 +9808,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.vlan_type is not None:
+                    if self.vlan_identifier is not None:
                         return True
 
-                    if self.vlan_identifier is not None:
+                    if self.vlan_type is not None:
                         return True
 
                     return False
@@ -9824,7 +9824,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-l2-eth-infra-cfg:vlan-trunk-configuration'
 
@@ -9866,7 +9866,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access'
 
@@ -9889,12 +9889,10 @@ class InterfaceConfigurations(object):
             """
             nV Satellite Fabric Link Configuration
             
-            .. attribute:: satellite
+            .. attribute:: ethernet_features
             
-            	Hub & Spoke connection to a single Satellite
-            	**type**\: int
-            
-            	**range:** 100..65534
+            	Ethernet Satellite configuration
+            	**type**\: :py:class:`EthernetFeatures <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
             
             .. attribute:: redundancy
             
@@ -9906,10 +9904,12 @@ class InterfaceConfigurations(object):
             	Remote Ports table
             	**type**\: :py:class:`RemotePorts <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts>`
             
-            .. attribute:: ethernet_features
+            .. attribute:: satellite
             
-            	Ethernet Satellite configuration
-            	**type**\: :py:class:`EthernetFeatures <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
+            	Hub & Spoke connection to a single Satellite
+            	**type**\: int
+            
+            	**range:** 100..65534
             
             
 
@@ -9920,13 +9920,13 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.satellite = None
+                self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures()
+                self.ethernet_features.parent = self
                 self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy()
                 self.redundancy.parent = self
                 self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts()
                 self.remote_ports.parent = self
-                self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures()
-                self.ethernet_features.parent = self
+                self.satellite = None
 
 
             class Redundancy(object):
@@ -9962,7 +9962,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:redundancy'
 
@@ -10057,13 +10057,13 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.port_type is None:
-                            raise YPYDataValidationError('Key property port_type is None')
+                            raise YPYModelError('Key property port_type is None')
                         if self.slot is None:
-                            raise YPYDataValidationError('Key property slot is None')
+                            raise YPYModelError('Key property slot is None')
                         if self.sub_slot is None:
-                            raise YPYDataValidationError('Key property sub_slot is None')
+                            raise YPYModelError('Key property sub_slot is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:remote-port[Cisco-IOS-XR-icpe-infra-cfg:port-type = ' + str(self.port_type) + '][Cisco-IOS-XR-icpe-infra-cfg:slot = ' + str(self.slot) + '][Cisco-IOS-XR-icpe-infra-cfg:sub-slot = ' + str(self.sub_slot) + ']'
 
@@ -10096,7 +10096,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:remote-ports'
 
@@ -10151,17 +10151,17 @@ class InterfaceConfigurations(object):
                     	Continuity\-Check Interval
                     	**type**\: :py:class:`CfmCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
                     
+                    .. attribute:: enable
+                    
+                    	Enable CFM on Satellite
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: level
                     
                     	Maintenance Domain Level
                     	**type**\: int
                     
                     	**range:** 0..7
-                    
-                    .. attribute:: enable
-                    
-                    	Enable CFM on Satellite
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -10173,13 +10173,13 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.continuity_check_interval = None
-                        self.level = None
                         self.enable = None
+                        self.level = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:cfm'
 
@@ -10193,10 +10193,10 @@ class InterfaceConfigurations(object):
                         if self.continuity_check_interval is not None:
                             return True
 
-                        if self.level is not None:
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.level is not None:
                             return True
 
                         return False
@@ -10209,7 +10209,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet-features'
 
@@ -10233,7 +10233,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link'
 
@@ -10244,7 +10244,7 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.satellite is not None:
+                if self.ethernet_features is not None and self.ethernet_features._has_data():
                     return True
 
                 if self.redundancy is not None and self.redundancy._has_data():
@@ -10253,7 +10253,7 @@ class InterfaceConfigurations(object):
                 if self.remote_ports is not None and self.remote_ports._has_data():
                     return True
 
-                if self.ethernet_features is not None and self.ethernet_features._has_data():
+                if self.satellite is not None:
                     return True
 
                 return False
@@ -10269,20 +10269,20 @@ class InterfaceConfigurations(object):
             Complex Network connection to one or more
             Satellites
             
-            .. attribute:: satellites
+            .. attribute:: enable
             
-            	Connected Satellite table
-            	**type**\: :py:class:`Satellites <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
+            	Enable
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: redundancy
             
             	Redundancy submode
             	**type**\: :py:class:`Redundancy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy>`
             
-            .. attribute:: enable
+            .. attribute:: satellites
             
-            	Enable
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Connected Satellite table
+            	**type**\: :py:class:`Satellites <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
             
             
 
@@ -10293,11 +10293,11 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.satellites = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites()
-                self.satellites.parent = self
+                self.enable = None
                 self.redundancy = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy()
                 self.redundancy.parent = self
-                self.enable = None
+                self.satellites = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites()
+                self.satellites.parent = self
 
 
             class Satellites(object):
@@ -10334,15 +10334,15 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 100..65534
                     
-                    .. attribute:: remote_ports
-                    
-                    	Remote Ports table
-                    	**type**\: :py:class:`RemotePorts <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
-                    
                     .. attribute:: enable
                     
                     	Enable
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: remote_ports
+                    
+                    	Remote Ports table
+                    	**type**\: :py:class:`RemotePorts <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
                     
                     
 
@@ -10354,9 +10354,9 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.satellite_id = None
+                        self.enable = None
                         self.remote_ports = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts()
                         self.remote_ports.parent = self
-                        self.enable = None
 
 
                     class RemotePorts(object):
@@ -10429,13 +10429,13 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.port_type is None:
-                                    raise YPYDataValidationError('Key property port_type is None')
+                                    raise YPYModelError('Key property port_type is None')
                                 if self.slot is None:
-                                    raise YPYDataValidationError('Key property slot is None')
+                                    raise YPYModelError('Key property slot is None')
                                 if self.sub_slot is None:
-                                    raise YPYDataValidationError('Key property sub_slot is None')
+                                    raise YPYModelError('Key property sub_slot is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:remote-port[Cisco-IOS-XR-icpe-infra-cfg:port-type = ' + str(self.port_type) + '][Cisco-IOS-XR-icpe-infra-cfg:slot = ' + str(self.slot) + '][Cisco-IOS-XR-icpe-infra-cfg:sub-slot = ' + str(self.sub_slot) + ']'
 
@@ -10468,7 +10468,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:remote-ports'
 
@@ -10494,9 +10494,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.satellite_id is None:
-                            raise YPYDataValidationError('Key property satellite_id is None')
+                            raise YPYModelError('Key property satellite_id is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:satellite[Cisco-IOS-XR-icpe-infra-cfg:satellite-id = ' + str(self.satellite_id) + ']'
 
@@ -10510,10 +10510,10 @@ class InterfaceConfigurations(object):
                         if self.satellite_id is not None:
                             return True
 
-                        if self.remote_ports is not None and self.remote_ports._has_data():
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.remote_ports is not None and self.remote_ports._has_data():
                             return True
 
                         return False
@@ -10526,7 +10526,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:satellites'
 
@@ -10583,7 +10583,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:redundancy'
 
@@ -10610,7 +10610,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network'
 
@@ -10621,13 +10621,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.satellites is not None and self.satellites._has_data():
+                if self.enable is not None:
                     return True
 
                 if self.redundancy is not None and self.redundancy._has_data():
                     return True
 
-                if self.enable is not None:
+                if self.satellites is not None and self.satellites._has_data():
                     return True
 
                 return False
@@ -10642,10 +10642,10 @@ class InterfaceConfigurations(object):
             """
             Disable LLDP TX or RX
             
-            .. attribute:: transmit
+            .. attribute:: lldp_intf_enter
             
-            	Disable LLDP TX
-            	**type**\: :py:class:`Transmit <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit>`
+            	enter LLDP interface submode
+            	**type**\: bool
             
             .. attribute:: _is_presence
             
@@ -10662,10 +10662,10 @@ class InterfaceConfigurations(object):
             	Is present if this instance represents presence container else not
             	**type**\: bool
             
-            .. attribute:: lldp_intf_enter
+            .. attribute:: transmit
             
-            	enter LLDP interface submode
-            	**type**\: bool
+            	Disable LLDP TX
+            	**type**\: :py:class:`Transmit <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit>`
             
             .. attribute:: _is_presence
             
@@ -10683,11 +10683,11 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.transmit = InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit()
-                self.transmit.parent = self
+                self.lldp_intf_enter = None
                 self.receive = InterfaceConfigurations.InterfaceConfiguration.Lldp.Receive()
                 self.receive.parent = self
-                self.lldp_intf_enter = None
+                self.transmit = InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit()
+                self.transmit.parent = self
 
 
             class Transmit(object):
@@ -10713,7 +10713,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-cfg:transmit'
 
@@ -10758,7 +10758,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-cfg:receive'
 
@@ -10782,7 +10782,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-cfg:lldp'
 
@@ -10793,13 +10793,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.transmit is not None and self.transmit._has_data():
+                if self.lldp_intf_enter is not None:
                     return True
 
                 if self.receive is not None and self.receive._has_data():
                     return True
 
-                if self.lldp_intf_enter is not None:
+                if self.transmit is not None and self.transmit._has_data():
                     return True
 
                 return False
@@ -10844,6 +10844,16 @@ class InterfaceConfigurations(object):
                 	Session Class
                 	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                 
+                .. attribute:: acl
+                
+                	Enable ACL matching for traffic mirroring
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: attachment
+                
+                	Attach the interface to a Monitor Session
+                	**type**\: :py:class:`Attachment <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                
                 .. attribute:: mirror_first
                 
                 	Mirror a specified number of bytes from start of packet
@@ -10851,20 +10861,10 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..10000
                 
-                .. attribute:: attachment
-                
-                	Attach the interface to a Monitor Session
-                	**type**\: :py:class:`Attachment <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                
                 .. attribute:: mirror_interval
                 
                 	Specify the mirror interval
                 	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
-                
-                .. attribute:: acl
-                
-                	Enable ACL matching for traffic mirroring
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -10876,27 +10876,15 @@ class InterfaceConfigurations(object):
                 def __init__(self):
                     self.parent = None
                     self.session_class = None
-                    self.mirror_first = None
-                    self.attachment = None
-                    self.mirror_interval = None
                     self.acl = None
+                    self.attachment = None
+                    self.mirror_first = None
+                    self.mirror_interval = None
 
 
                 class Attachment(object):
                     """
                     Attach the interface to a Monitor Session
-                    
-                    .. attribute:: session_name
-                    
-                    	Session Name
-                    	**type**\: str
-                    
-                    	**range:** 0..79
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
                     
                     .. attribute:: direction
                     
@@ -10918,6 +10906,18 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
+                    .. attribute:: session_name
+                    
+                    	Session Name
+                    	**type**\: str
+                    
+                    	**range:** 0..79
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -10929,14 +10929,14 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_name = None
                         self.direction = None
                         self.port_level_enable = None
+                        self.session_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:attachment'
 
@@ -10947,13 +10947,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.session_name is not None:
-                            return True
-
                         if self.direction is not None:
                             return True
 
                         if self.port_level_enable is not None:
+                            return True
+
+                        if self.session_name is not None:
                             return True
 
                         return False
@@ -10966,9 +10966,9 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.session_class is None:
-                        raise YPYDataValidationError('Key property session_class is None')
+                        raise YPYModelError('Key property session_class is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-cfg:session-class = ' + str(self.session_class) + ']'
 
@@ -10982,16 +10982,16 @@ class InterfaceConfigurations(object):
                     if self.session_class is not None:
                         return True
 
-                    if self.mirror_first is not None:
+                    if self.acl is not None:
                         return True
 
                     if self.attachment is not None and self.attachment._has_data():
                         return True
 
-                    if self.mirror_interval is not None:
+                    if self.mirror_first is not None:
                         return True
 
-                    if self.acl is not None:
+                    if self.mirror_interval is not None:
                         return True
 
                     return False
@@ -11004,7 +11004,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions'
 
@@ -11090,11 +11090,11 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.af_name is None:
-                        raise YPYDataValidationError('Key property af_name is None')
+                        raise YPYModelError('Key property af_name is None')
                     if self.saf_name is None:
-                        raise YPYDataValidationError('Key property saf_name is None')
+                        raise YPYModelError('Key property saf_name is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:af[Cisco-IOS-XR-infra-rsi-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-infra-rsi-cfg:saf-name = ' + str(self.saf_name) + ']'
 
@@ -11125,13 +11125,6 @@ class InterfaceConfigurations(object):
                 givenaddress\-family and topology on the
                 interface.
                 
-                .. attribute:: topology_name  <key>
-                
-                	Topology name
-                	**type**\: str
-                
-                	**range:** 0..32
-                
                 .. attribute:: af_name  <key>
                 
                 	Address\-family
@@ -11142,6 +11135,13 @@ class InterfaceConfigurations(object):
                 	Sub\-address\-family
                 	**type**\: :py:class:`VrfSubAddressFamilyEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
                 
+                .. attribute:: topology_name  <key>
+                
+                	Topology name
+                	**type**\: str
+                
+                	**range:** 0..32
+                
                 
 
                 """
@@ -11151,22 +11151,22 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.topology_name = None
                     self.af_name = None
                     self.saf_name = None
+                    self.topology_name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                    if self.topology_name is None:
-                        raise YPYDataValidationError('Key property topology_name is None')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.af_name is None:
-                        raise YPYDataValidationError('Key property af_name is None')
+                        raise YPYModelError('Key property af_name is None')
                     if self.saf_name is None:
-                        raise YPYDataValidationError('Key property saf_name is None')
+                        raise YPYModelError('Key property saf_name is None')
+                    if self.topology_name is None:
+                        raise YPYModelError('Key property topology_name is None')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:af-topology-name[Cisco-IOS-XR-infra-rsi-cfg:topology-name = ' + str(self.topology_name) + '][Cisco-IOS-XR-infra-rsi-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-infra-rsi-cfg:saf-name = ' + str(self.saf_name) + ']'
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:af-topology-name[Cisco-IOS-XR-infra-rsi-cfg:af-name = ' + str(self.af_name) + '][Cisco-IOS-XR-infra-rsi-cfg:saf-name = ' + str(self.saf_name) + '][Cisco-IOS-XR-infra-rsi-cfg:topology-name = ' + str(self.topology_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -11175,13 +11175,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.topology_name is not None:
-                        return True
-
                     if self.af_name is not None:
                         return True
 
                     if self.saf_name is not None:
+                        return True
+
+                    if self.topology_name is not None:
                         return True
 
                     return False
@@ -11194,7 +11194,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-cfg:afs'
 
@@ -11248,7 +11248,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-cfg:statistics'
 
@@ -11305,24 +11305,19 @@ class InterfaceConfigurations(object):
                 IPv6 Packet filter to be applied to inbound
                 packets
                 
+                .. attribute:: acl_name_array
+                
+                	Array of IPv6 Packet Filter Names to be applied to Inbound packets
+                	**type**\: list of str
+                
+                	**range:** 0..65
+                
                 .. attribute:: common_acl_name
                 
                 	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound packets, ACL providing HW optimization when applied on multiple interfaces. NOTE\: This parameter is mandatory if 'Name' is not specified
                 	**type**\: str
                 
                 	**range:** 0..65
-                
-                .. attribute:: name
-                
-                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                	**type**\: str
-                
-                	**range:** 0..65
-                
-                .. attribute:: interface_statistics
-                
-                	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them. NOTE\: InterfaceStatistics is allowed only if Name is specified
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: compression_level
                 
@@ -11331,17 +11326,22 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..3
                 
-                .. attribute:: acl_name_array
+                .. attribute:: interface_statistics
                 
-                	Array of IPv6 Packet Filter Names to be applied to Inbound packets
-                	**type**\: list of str
-                
-                	**range:** 0..65
+                	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them. NOTE\: InterfaceStatistics is allowed only if Name is specified
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: is_common_array
                 
                 	Array of CommonACL flags for each ACL. TRUE indicates HW optimization on multiple interfaces is provided
                 	**type**\: list of bool
+                
+                .. attribute:: name
+                
+                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                	**type**\: str
+                
+                	**range:** 0..65
                 
                 
 
@@ -11352,21 +11352,21 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.common_acl_name = None
-                    self.name = None
-                    self.interface_statistics = None
-                    self.compression_level = None
                     self.acl_name_array = YLeafList()
                     self.acl_name_array.parent = self
                     self.acl_name_array.name = 'acl_name_array'
+                    self.common_acl_name = None
+                    self.compression_level = None
+                    self.interface_statistics = None
                     self.is_common_array = YLeafList()
                     self.is_common_array.parent = self
                     self.is_common_array.name = 'is_common_array'
+                    self.name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:inbound'
 
@@ -11377,27 +11377,27 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.common_acl_name is not None:
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.interface_statistics is not None:
-                        return True
-
-                    if self.compression_level is not None:
-                        return True
-
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
                                 return True
 
+                    if self.common_acl_name is not None:
+                        return True
+
+                    if self.compression_level is not None:
+                        return True
+
+                    if self.interface_statistics is not None:
+                        return True
+
                     if self.is_common_array is not None:
                         for child in self.is_common_array:
                             if child is not None:
                                 return True
+
+                    if self.name is not None:
+                        return True
 
                     return False
 
@@ -11412,16 +11412,23 @@ class InterfaceConfigurations(object):
                 IPv6 Packet filter to be applied to outbound
                 packets
                 
-                .. attribute:: do_not_use
+                .. attribute:: acl_name_array
                 
-                	Reserved.  Error if specified
-                	**type**\: str
+                	Array of IPv6 Packet Filter Names to be applied to Inbound packets
+                	**type**\: list of str
                 
                 	**range:** 0..65
                 
-                .. attribute:: name
+                .. attribute:: compression_level
                 
-                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Outbound  packets
+                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
+                	**type**\: int
+                
+                	**range:** 0..3
+                
+                .. attribute:: do_not_use
+                
+                	Reserved.  Error if specified
                 	**type**\: str
                 
                 	**range:** 0..65
@@ -11431,24 +11438,17 @@ class InterfaceConfigurations(object):
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: compression_level
-                
-                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
-                	**type**\: int
-                
-                	**range:** 0..3
-                
-                .. attribute:: acl_name_array
-                
-                	Array of IPv6 Packet Filter Names to be applied to Inbound packets
-                	**type**\: list of str
-                
-                	**range:** 0..65
-                
                 .. attribute:: is_common_array
                 
                 	Array of CommonACL flags for each ACL. TRUE indicates HW optimization on multiple interfaces is provided
                 	**type**\: list of bool
+                
+                .. attribute:: name
+                
+                	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Outbound  packets
+                	**type**\: str
+                
+                	**range:** 0..65
                 
                 
 
@@ -11459,21 +11459,21 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.do_not_use = None
-                    self.name = None
-                    self.interface_statistics = None
-                    self.compression_level = None
                     self.acl_name_array = YLeafList()
                     self.acl_name_array.parent = self
                     self.acl_name_array.name = 'acl_name_array'
+                    self.compression_level = None
+                    self.do_not_use = None
+                    self.interface_statistics = None
                     self.is_common_array = YLeafList()
                     self.is_common_array.parent = self
                     self.is_common_array.name = 'is_common_array'
+                    self.name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:outbound'
 
@@ -11484,27 +11484,27 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.do_not_use is not None:
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.interface_statistics is not None:
-                        return True
-
-                    if self.compression_level is not None:
-                        return True
-
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
                                 return True
 
+                    if self.compression_level is not None:
+                        return True
+
+                    if self.do_not_use is not None:
+                        return True
+
+                    if self.interface_statistics is not None:
+                        return True
+
                     if self.is_common_array is not None:
                         for child in self.is_common_array:
                             if child is not None:
                                 return True
+
+                    if self.name is not None:
+                        return True
 
                     return False
 
@@ -11516,7 +11516,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:ipv6-packet-filter'
 
@@ -11546,16 +11546,16 @@ class InterfaceConfigurations(object):
             ES Packet Filtering configuration for the
             interface
             
-            .. attribute:: outbound
+            .. attribute:: inbound
             
-            	Name of filter to be applied to outbound packets
+            	Name of filter to be applied to inbound packets
             	**type**\: str
             
             	**range:** 0..65
             
-            .. attribute:: inbound
+            .. attribute:: outbound
             
-            	Name of filter to be applied to inbound packets
+            	Name of filter to be applied to outbound packets
             	**type**\: str
             
             	**range:** 0..65
@@ -11569,13 +11569,13 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.outbound = None
                 self.inbound = None
+                self.outbound = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:es-packet-filter'
 
@@ -11586,10 +11586,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.outbound is not None:
+                if self.inbound is not None:
                     return True
 
-                if self.inbound is not None:
+                if self.outbound is not None:
                     return True
 
                 return False
@@ -11605,15 +11605,15 @@ class InterfaceConfigurations(object):
             IPv4 Packet Filtering configuration for the
             interface
             
-            .. attribute:: outbound
-            
-            	IPv4 Packet filter to be applied to outbound packets
-            	**type**\: :py:class:`Outbound <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound>`
-            
             .. attribute:: inbound
             
             	IPv4 Packet filter to be applied to inbound packets
             	**type**\: :py:class:`Inbound <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Inbound>`
+            
+            .. attribute:: outbound
+            
+            	IPv4 Packet filter to be applied to outbound packets
+            	**type**\: :py:class:`Outbound <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound>`
             
             
 
@@ -11624,10 +11624,10 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.outbound = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound()
-                self.outbound.parent = self
                 self.inbound = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Inbound()
                 self.inbound.parent = self
+                self.outbound = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound()
+                self.outbound.parent = self
 
 
             class Outbound(object):
@@ -11635,16 +11635,23 @@ class InterfaceConfigurations(object):
                 IPv4 Packet filter to be applied to outbound
                 packets
                 
-                .. attribute:: do_not_use
+                .. attribute:: acl_name_array
                 
-                	Reserved.  Error if specified
-                	**type**\: str
+                	Array of IPv4 Packet Filter Names to be applied to Outbound packets
+                	**type**\: list of str
                 
                 	**range:** 0..65
                 
-                .. attribute:: name
+                .. attribute:: compression_level
                 
-                	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Outbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
+                	**type**\: int
+                
+                	**range:** 0..3
+                
+                .. attribute:: do_not_use
+                
+                	Reserved.  Error if specified
                 	**type**\: str
                 
                 	**range:** 0..65
@@ -11659,24 +11666,17 @@ class InterfaceConfigurations(object):
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: compression_level
-                
-                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
-                	**type**\: int
-                
-                	**range:** 0..3
-                
-                .. attribute:: acl_name_array
-                
-                	Array of IPv4 Packet Filter Names to be applied to Outbound packets
-                	**type**\: list of str
-                
-                	**range:** 0..65
-                
                 .. attribute:: is_common_array
                 
                 	Array of CommonACL flags for each ACL. TRUE indicates HW optimization on multiple interfaces is provided
                 	**type**\: list of bool
+                
+                .. attribute:: name
+                
+                	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Outbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                	**type**\: str
+                
+                	**range:** 0..65
                 
                 
 
@@ -11687,22 +11687,22 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.do_not_use = None
-                    self.name = None
-                    self.hardware_count = None
-                    self.interface_statistics = None
-                    self.compression_level = None
                     self.acl_name_array = YLeafList()
                     self.acl_name_array.parent = self
                     self.acl_name_array.name = 'acl_name_array'
+                    self.compression_level = None
+                    self.do_not_use = None
+                    self.hardware_count = None
+                    self.interface_statistics = None
                     self.is_common_array = YLeafList()
                     self.is_common_array.parent = self
                     self.is_common_array.name = 'is_common_array'
+                    self.name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:outbound'
 
@@ -11713,10 +11713,15 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.do_not_use is not None:
+                    if self.acl_name_array is not None:
+                        for child in self.acl_name_array:
+                            if child is not None:
+                                return True
+
+                    if self.compression_level is not None:
                         return True
 
-                    if self.name is not None:
+                    if self.do_not_use is not None:
                         return True
 
                     if self.hardware_count is not None:
@@ -11725,18 +11730,13 @@ class InterfaceConfigurations(object):
                     if self.interface_statistics is not None:
                         return True
 
-                    if self.compression_level is not None:
-                        return True
-
-                    if self.acl_name_array is not None:
-                        for child in self.acl_name_array:
-                            if child is not None:
-                                return True
-
                     if self.is_common_array is not None:
                         for child in self.is_common_array:
                             if child is not None:
                                 return True
+
+                    if self.name is not None:
+                        return True
 
                     return False
 
@@ -11751,6 +11751,13 @@ class InterfaceConfigurations(object):
                 IPv4 Packet filter to be applied to inbound
                 packets
                 
+                .. attribute:: acl_name_array
+                
+                	Array of IPv4 Packet Filter Names to be applied to Inbound packets
+                	**type**\: list of str
+                
+                	**range:** 0..65
+                
                 .. attribute:: common_acl_name
                 
                 	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Inbound packets, ACL providing HW optimization when applied on multiple interfaces. NOTE\: This parameter is mandatory if 'Name' is not specified
@@ -11758,12 +11765,12 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..65
                 
-                .. attribute:: name
+                .. attribute:: compression_level
                 
-                	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                	**type**\: str
+                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
+                	**type**\: int
                 
-                	**range:** 0..65
+                	**range:** 0..3
                 
                 .. attribute:: hardware_count
                 
@@ -11775,24 +11782,17 @@ class InterfaceConfigurations(object):
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them. NOTE\: InterfaceStatistics is allowed only if Name is specified
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: compression_level
-                
-                	The level of compression applied to the ACL on this interface. The range is 0 to 3 with default being no compression (0)
-                	**type**\: int
-                
-                	**range:** 0..3
-                
-                .. attribute:: acl_name_array
-                
-                	Array of IPv4 Packet Filter Names to be applied to Inbound packets
-                	**type**\: list of str
-                
-                	**range:** 0..65
-                
                 .. attribute:: is_common_array
                 
                 	Array of CommonACL flags for each ACL. TRUE indicates HW optimization on multiple interfaces is provided
                 	**type**\: list of bool
+                
+                .. attribute:: name
+                
+                	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                	**type**\: str
+                
+                	**range:** 0..65
                 
                 
 
@@ -11803,22 +11803,22 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.common_acl_name = None
-                    self.name = None
-                    self.hardware_count = None
-                    self.interface_statistics = None
-                    self.compression_level = None
                     self.acl_name_array = YLeafList()
                     self.acl_name_array.parent = self
                     self.acl_name_array.name = 'acl_name_array'
+                    self.common_acl_name = None
+                    self.compression_level = None
+                    self.hardware_count = None
+                    self.interface_statistics = None
                     self.is_common_array = YLeafList()
                     self.is_common_array.parent = self
                     self.is_common_array.name = 'is_common_array'
+                    self.name = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:inbound'
 
@@ -11829,10 +11829,15 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.acl_name_array is not None:
+                        for child in self.acl_name_array:
+                            if child is not None:
+                                return True
+
                     if self.common_acl_name is not None:
                         return True
 
-                    if self.name is not None:
+                    if self.compression_level is not None:
                         return True
 
                     if self.hardware_count is not None:
@@ -11841,18 +11846,13 @@ class InterfaceConfigurations(object):
                     if self.interface_statistics is not None:
                         return True
 
-                    if self.compression_level is not None:
-                        return True
-
-                    if self.acl_name_array is not None:
-                        for child in self.acl_name_array:
-                            if child is not None:
-                                return True
-
                     if self.is_common_array is not None:
                         for child in self.is_common_array:
                             if child is not None:
                                 return True
+
+                    if self.name is not None:
+                        return True
 
                     return False
 
@@ -11864,7 +11864,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-cfg:ipv4-packet-filter'
 
@@ -11875,10 +11875,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.outbound is not None and self.outbound._has_data():
+                if self.inbound is not None and self.inbound._has_data():
                     return True
 
-                if self.inbound is not None and self.inbound._has_data():
+                if self.outbound is not None and self.outbound._has_data():
                     return True
 
                 return False
@@ -11923,15 +11923,15 @@ class InterfaceConfigurations(object):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: sub
-                
-                	DAGR Submode configuration
-                	**type**\: :py:class:`Sub <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub>`
-                
                 .. attribute:: enter
                 
                 	DAGR Group Enter item
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: sub
+                
+                	DAGR Submode configuration
+                	**type**\: :py:class:`Sub <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub>`
                 
                 
 
@@ -11943,29 +11943,24 @@ class InterfaceConfigurations(object):
                 def __init__(self):
                     self.parent = None
                     self.ip_addr = None
+                    self.enter = None
                     self.sub = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub()
                     self.sub.parent = self
-                    self.enter = None
 
 
                 class Sub(object):
                     """
                     DAGR Submode configuration
                     
-                    .. attribute:: metric
-                    
-                    	Set Route Metric
-                    	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric>`
-                    
-                    .. attribute:: timers
-                    
-                    	Set Query Timers
-                    	**type**\: :py:class:`Timers <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers>`
-                    
                     .. attribute:: distance
                     
                     	Set Route Distance
                     	**type**\: :py:class:`Distance <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Distance>`
+                    
+                    .. attribute:: metric
+                    
+                    	Set Route Metric
+                    	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric>`
                     
                     .. attribute:: priority_timeout
                     
@@ -11973,6 +11968,11 @@ class InterfaceConfigurations(object):
                     	**type**\: int
                     
                     	**range:** 1..10000
+                    
+                    .. attribute:: timers
+                    
+                    	Set Query Timers
+                    	**type**\: :py:class:`Timers <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers>`
                     
                     
 
@@ -11983,13 +11983,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.metric = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric()
-                        self.metric.parent = self
-                        self.timers = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers()
-                        self.timers.parent = self
                         self.distance = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Distance()
                         self.distance.parent = self
+                        self.metric = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric()
+                        self.metric.parent = self
                         self.priority_timeout = None
+                        self.timers = InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers()
+                        self.timers.parent = self
 
 
                     class Metric(object):
@@ -12025,7 +12025,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:metric'
 
@@ -12083,7 +12083,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:timers'
 
@@ -12141,7 +12141,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:distance'
 
@@ -12168,7 +12168,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:sub'
 
@@ -12179,16 +12179,16 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.metric is not None and self.metric._has_data():
-                            return True
-
-                        if self.timers is not None and self.timers._has_data():
-                            return True
-
                         if self.distance is not None and self.distance._has_data():
                             return True
 
+                        if self.metric is not None and self.metric._has_data():
+                            return True
+
                         if self.priority_timeout is not None:
+                            return True
+
+                        if self.timers is not None and self.timers._has_data():
                             return True
 
                         return False
@@ -12201,9 +12201,9 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.ip_addr is None:
-                        raise YPYDataValidationError('Key property ip_addr is None')
+                        raise YPYModelError('Key property ip_addr is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:dagr[Cisco-IOS-XR-ipv4-arp-cfg:ip-addr = ' + str(self.ip_addr) + ']'
 
@@ -12217,10 +12217,10 @@ class InterfaceConfigurations(object):
                     if self.ip_addr is not None:
                         return True
 
-                    if self.sub is not None and self.sub._has_data():
+                    if self.enter is not None:
                         return True
 
-                    if self.enter is not None:
+                    if self.sub is not None and self.sub._has_data():
                         return True
 
                     return False
@@ -12233,7 +12233,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:dagrs'
 
@@ -12261,14 +12261,24 @@ class InterfaceConfigurations(object):
             """
             Configure Address Resolution Protocol
             
+            .. attribute:: gratuitous_ignore
+            
+            	Ignore the receipt of Gratuitous ARP packets on the interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: learning_disable
+            
+            	Disable the dynamic learning of ARP entries on the interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: learning_local
             
             	Enable the dynamic learning of ARP entries(for local subnet) on the interface
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: gratuitous_ignore
+            .. attribute:: local_proxy_arp
             
-            	Ignore the receipt of Gratuitous ARP packets on the interface
+            	Local Proxy ARP configuration
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: proxy_arp
@@ -12282,16 +12292,6 @@ class InterfaceConfigurations(object):
             	**type**\: int
             
             	**range:** 1..65535
-            
-            .. attribute:: learning_disable
-            
-            	Disable the dynamic learning of ARP entries on the interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: local_proxy_arp
-            
-            	Local Proxy ARP configuration
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: timeout
             
@@ -12309,18 +12309,18 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.learning_local = None
                 self.gratuitous_ignore = None
+                self.learning_disable = None
+                self.learning_local = None
+                self.local_proxy_arp = None
                 self.proxy_arp = None
                 self.purge_delay = None
-                self.learning_disable = None
-                self.local_proxy_arp = None
                 self.timeout = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:ipv4arp'
 
@@ -12331,22 +12331,22 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.gratuitous_ignore is not None:
+                    return True
+
+                if self.learning_disable is not None:
+                    return True
+
                 if self.learning_local is not None:
                     return True
 
-                if self.gratuitous_ignore is not None:
+                if self.local_proxy_arp is not None:
                     return True
 
                 if self.proxy_arp is not None:
                     return True
 
                 if self.purge_delay is not None:
-                    return True
-
-                if self.learning_disable is not None:
-                    return True
-
-                if self.local_proxy_arp is not None:
                     return True
 
                 if self.timeout is not None:
@@ -12364,25 +12364,20 @@ class InterfaceConfigurations(object):
             """
             Interface IPv4 Network configuration data
             
-            .. attribute:: bgp_pa
+            .. attribute:: addresses
             
-            	Interface ipv4 bgp configuration
-            	**type**\: :py:class:`BgpPa <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa>`
-            
-            .. attribute:: verify
-            
-            	Enable Verify handling for this interface
-            	**type**\: :py:class:`Verify <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify>`
+            	Set the IP address of an interface
+            	**type**\: :py:class:`Addresses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses>`
             
             .. attribute:: bgp
             
             	Interface ipv4 bgp configuration
             	**type**\: :py:class:`Bgp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp>`
             
-            .. attribute:: addresses
+            .. attribute:: bgp_pa
             
-            	Set the IP address of an interface
-            	**type**\: :py:class:`Addresses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses>`
+            	Interface ipv4 bgp configuration
+            	**type**\: :py:class:`BgpPa <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa>`
             
             .. attribute:: helper_addresses
             
@@ -12392,6 +12387,18 @@ class InterfaceConfigurations(object):
             .. attribute:: icmp_mask_reply
             
             	The flag for enabling sending of ICMP mask reply messages
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: mtu
+            
+            	The IP Maximum Transmission Unit
+            	**type**\: int
+            
+            	**range:** 68..65535
+            
+            .. attribute:: point_to_point
+            
+            	Enable point\-to\-point handling for this interface
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: tcp_mss_adjust_enable
@@ -12404,17 +12411,10 @@ class InterfaceConfigurations(object):
             	Disable TTL propagate on an interface
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: point_to_point
+            .. attribute:: verify
             
-            	Enable point\-to\-point handling for this interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: mtu
-            
-            	The IP Maximum Transmission Unit
-            	**type**\: int
-            
-            	**range:** 68..65535
+            	Enable Verify handling for this interface
+            	**type**\: :py:class:`Verify <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify>`
             
             
 
@@ -12425,21 +12425,21 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.bgp_pa = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa()
-                self.bgp_pa.parent = self
-                self.verify = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify()
-                self.verify.parent = self
-                self.bgp = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp()
-                self.bgp.parent = self
                 self.addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses()
                 self.addresses.parent = self
+                self.bgp = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp()
+                self.bgp.parent = self
+                self.bgp_pa = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa()
+                self.bgp_pa.parent = self
                 self.helper_addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.HelperAddresses()
                 self.helper_addresses.parent = self
                 self.icmp_mask_reply = None
+                self.mtu = None
+                self.point_to_point = None
                 self.tcp_mss_adjust_enable = None
                 self.ttl_propagate_disable = None
-                self.point_to_point = None
-                self.mtu = None
+                self.verify = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify()
+                self.verify.parent = self
 
 
             class BgpPa(object):
@@ -12475,14 +12475,14 @@ class InterfaceConfigurations(object):
                     """
                     Input
                     
-                    .. attribute:: source_accounting
-                    
-                    	BGP PA configuration on source
-                    	**type**\: bool
-                    
                     .. attribute:: destination_accounting
                     
                     	BGP PA configuration on destination
+                    	**type**\: bool
+                    
+                    .. attribute:: source_accounting
+                    
+                    	BGP PA configuration on source
                     	**type**\: bool
                     
                     
@@ -12494,13 +12494,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.source_accounting = None
                         self.destination_accounting = None
+                        self.source_accounting = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:input'
 
@@ -12511,10 +12511,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.source_accounting is not None:
+                        if self.destination_accounting is not None:
                             return True
 
-                        if self.destination_accounting is not None:
+                        if self.source_accounting is not None:
                             return True
 
                         return False
@@ -12529,14 +12529,14 @@ class InterfaceConfigurations(object):
                     """
                     Output
                     
-                    .. attribute:: source_accounting
-                    
-                    	BGP PA configuration on source
-                    	**type**\: bool
-                    
                     .. attribute:: destination_accounting
                     
                     	BGP PA configuration on destination
+                    	**type**\: bool
+                    
+                    .. attribute:: source_accounting
+                    
+                    	BGP PA configuration on source
                     	**type**\: bool
                     
                     
@@ -12548,13 +12548,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.source_accounting = None
                         self.destination_accounting = None
+                        self.source_accounting = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:output'
 
@@ -12565,10 +12565,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.source_accounting is not None:
+                        if self.destination_accounting is not None:
                             return True
 
-                        if self.destination_accounting is not None:
+                        if self.source_accounting is not None:
                             return True
 
                         return False
@@ -12581,7 +12581,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:bgp-pa'
 
@@ -12610,6 +12610,11 @@ class InterfaceConfigurations(object):
                 """
                 Enable Verify handling for this interface
                 
+                .. attribute:: default_ping
+                
+                	Allow default route to match when checking source address
+                	**type**\: :py:class:`Ipv4DefaultPingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPingEnum>`
+                
                 .. attribute:: reachable
                 
                 	Source is reachable via any interface or interface on which packet was received
@@ -12620,11 +12625,6 @@ class InterfaceConfigurations(object):
                 	Allow router to ping itself (opens vulnerability in verification)
                 	**type**\: :py:class:`Ipv4SelfPingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4SelfPingEnum>`
                 
-                .. attribute:: default_ping
-                
-                	Allow default route to match when checking source address
-                	**type**\: :py:class:`Ipv4DefaultPingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPingEnum>`
-                
                 
 
                 """
@@ -12634,14 +12634,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.default_ping = None
                     self.reachable = None
                     self.self_ping = None
-                    self.default_ping = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:verify'
 
@@ -12652,13 +12652,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.default_ping is not None:
+                        return True
+
                     if self.reachable is not None:
                         return True
 
                     if self.self_ping is not None:
-                        return True
-
-                    if self.default_ping is not None:
                         return True
 
                     return False
@@ -12673,15 +12673,15 @@ class InterfaceConfigurations(object):
                 """
                 Interface ipv4 bgp configuration
                 
-                .. attribute:: qppb
-                
-                	Interface ipv4 bgp policy propagation configuration
-                	**type**\: :py:class:`Qppb <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb>`
-                
                 .. attribute:: flow_tag
                 
                 	Interface ipv4 bgp policy propagation flow tag configuration
                 	**type**\: :py:class:`FlowTag <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag>`
+                
+                .. attribute:: qppb
+                
+                	Interface ipv4 bgp policy propagation configuration
+                	**type**\: :py:class:`Qppb <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb>`
                 
                 
 
@@ -12692,10 +12692,10 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.qppb = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb()
-                    self.qppb.parent = self
                     self.flow_tag = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag()
                     self.flow_tag.parent = self
+                    self.qppb = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb()
+                    self.qppb.parent = self
 
 
                 class Qppb(object):
@@ -12725,14 +12725,14 @@ class InterfaceConfigurations(object):
                         """
                         Input
                         
-                        .. attribute:: source
-                        
-                        	QPPB configuration on source
-                        	**type**\: :py:class:`Ipv4InterfaceQppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
-                        
                         .. attribute:: destination
                         
                         	QPPB configuration on destination
+                        	**type**\: :py:class:`Ipv4InterfaceQppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
+                        
+                        .. attribute:: source
+                        
+                        	QPPB configuration on source
                         	**type**\: :py:class:`Ipv4InterfaceQppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
                         
                         
@@ -12744,13 +12744,13 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.source = None
                             self.destination = None
+                            self.source = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:input'
 
@@ -12761,10 +12761,10 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.source is not None:
+                            if self.destination is not None:
                                 return True
 
-                            if self.destination is not None:
+                            if self.source is not None:
                                 return True
 
                             return False
@@ -12777,7 +12777,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:qppb'
 
@@ -12826,14 +12826,14 @@ class InterfaceConfigurations(object):
                         """
                         Input
                         
-                        .. attribute:: source
-                        
-                        	FlowTag configuration on source
-                        	**type**\: bool
-                        
                         .. attribute:: destination
                         
                         	FlowTag configuration on destination
+                        	**type**\: bool
+                        
+                        .. attribute:: source
+                        
+                        	FlowTag configuration on source
                         	**type**\: bool
                         
                         
@@ -12845,13 +12845,13 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.source = None
                             self.destination = None
+                            self.source = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:flow-tag-input'
 
@@ -12862,10 +12862,10 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.source is not None:
+                            if self.destination is not None:
                                 return True
 
-                            if self.destination is not None:
+                            if self.source is not None:
                                 return True
 
                             return False
@@ -12878,7 +12878,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:flow-tag'
 
@@ -12902,7 +12902,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:bgp'
 
@@ -12913,10 +12913,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.qppb is not None and self.qppb._has_data():
+                    if self.flow_tag is not None and self.flow_tag._has_data():
                         return True
 
-                    if self.flow_tag is not None and self.flow_tag._has_data():
+                    if self.qppb is not None and self.qppb._has_data():
                         return True
 
                     return False
@@ -12931,15 +12931,20 @@ class InterfaceConfigurations(object):
                 """
                 Set the IP address of an interface
                 
-                .. attribute:: secondaries
+                .. attribute:: dhcp
                 
-                	Specify a secondary address
-                	**type**\: :py:class:`Secondaries <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries>`
+                	IPv4 address and Mask negotiated via DHCP
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: primary
                 
                 	IP address and Mask
                 	**type**\: :py:class:`Primary <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Primary>`
+                
+                .. attribute:: secondaries
+                
+                	Specify a secondary address
+                	**type**\: :py:class:`Secondaries <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries>`
                 
                 .. attribute:: unnumbered
                 
@@ -12947,11 +12952,6 @@ class InterfaceConfigurations(object):
                 	**type**\: str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: dhcp
-                
-                	IPv4 address and Mask negotiated via DHCP
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -12962,11 +12962,11 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.dhcp = None
+                    self.primary = None
                     self.secondaries = InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries()
                     self.secondaries.parent = self
-                    self.primary = None
                     self.unnumbered = None
-                    self.dhcp = None
 
 
                 class Secondaries(object):
@@ -13033,9 +13033,9 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:secondary[Cisco-IOS-XR-ipv4-io-cfg:address = ' + str(self.address) + ']'
 
@@ -13065,7 +13065,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:secondaries'
 
@@ -13147,7 +13147,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:primary'
 
@@ -13177,7 +13177,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:addresses'
 
@@ -13188,16 +13188,16 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.secondaries is not None and self.secondaries._has_data():
+                    if self.dhcp is not None:
                         return True
 
                     if self.primary is not None and self.primary._has_data():
                         return True
 
-                    if self.unnumbered is not None:
+                    if self.secondaries is not None and self.secondaries._has_data():
                         return True
 
-                    if self.dhcp is not None:
+                    if self.unnumbered is not None:
                         return True
 
                     return False
@@ -13265,11 +13265,11 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
                         if self.vrf_name is None:
-                            raise YPYDataValidationError('Key property vrf_name is None')
+                            raise YPYModelError('Key property vrf_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:helper-address[Cisco-IOS-XR-ipv4-io-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-ipv4-io-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -13296,7 +13296,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:helper-addresses'
 
@@ -13322,7 +13322,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:ipv4-network'
 
@@ -13333,16 +13333,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.bgp_pa is not None and self.bgp_pa._has_data():
-                    return True
-
-                if self.verify is not None and self.verify._has_data():
+                if self.addresses is not None and self.addresses._has_data():
                     return True
 
                 if self.bgp is not None and self.bgp._has_data():
                     return True
 
-                if self.addresses is not None and self.addresses._has_data():
+                if self.bgp_pa is not None and self.bgp_pa._has_data():
                     return True
 
                 if self.helper_addresses is not None and self.helper_addresses._has_data():
@@ -13351,16 +13348,19 @@ class InterfaceConfigurations(object):
                 if self.icmp_mask_reply is not None:
                     return True
 
+                if self.mtu is not None:
+                    return True
+
+                if self.point_to_point is not None:
+                    return True
+
                 if self.tcp_mss_adjust_enable is not None:
                     return True
 
                 if self.ttl_propagate_disable is not None:
                     return True
 
-                if self.point_to_point is not None:
-                    return True
-
-                if self.mtu is not None:
+                if self.verify is not None and self.verify._has_data():
                     return True
 
                 return False
@@ -13381,14 +13381,14 @@ class InterfaceConfigurations(object):
             	Enable forwarding of directed broadcast
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: unreachables
-            
-            	Disable sending ICMP unreachables
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: redirects
             
             	Enable sending ICMP Redirect messages
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: unreachables
+            
+            	Disable sending ICMP unreachables
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
@@ -13401,13 +13401,13 @@ class InterfaceConfigurations(object):
             def __init__(self):
                 self.parent = None
                 self.directed_broadcast = None
-                self.unreachables = None
                 self.redirects = None
+                self.unreachables = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-cfg:ipv4-network-forwarding'
 
@@ -13421,10 +13421,10 @@ class InterfaceConfigurations(object):
                 if self.directed_broadcast is not None:
                     return True
 
-                if self.unreachables is not None:
+                if self.redirects is not None:
                     return True
 
-                if self.redirects is not None:
+                if self.unreachables is not None:
                     return True
 
                 return False
@@ -13439,26 +13439,6 @@ class InterfaceConfigurations(object):
             """
             Interface IPv6 Network configuration data
             
-            .. attribute:: bgp_qos_policy_propagation
-            
-            	Configure BGP QoS policy propagation
-            	**type**\: :py:class:`BgpQosPolicyPropagation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpQosPolicyPropagation>`
-            
-            .. attribute:: bgp_policy_accountings
-            
-            	IPv6 BGP Policy Accounting
-            	**type**\: :py:class:`BgpPolicyAccountings <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings>`
-            
-            .. attribute:: mac_address_filters
-            
-            	IPv6 Mac\-Filter for a multicast address
-            	**type**\: :py:class:`MacAddressFilters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters>`
-            
-            .. attribute:: verify
-            
-            	IPv6 Verify Unicast Souce Reachable
-            	**type**\: :py:class:`Verify <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify>`
-            
             .. attribute:: addresses
             
             	Set the IPv6 address of an interface
@@ -13469,12 +13449,37 @@ class InterfaceConfigurations(object):
             	Interface ipv6 bgp policy propagation flowtag configuration
             	**type**\: :py:class:`BgpFlowTagPolicyTable <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable>`
             
+            .. attribute:: bgp_policy_accountings
+            
+            	IPv6 BGP Policy Accounting
+            	**type**\: :py:class:`BgpPolicyAccountings <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings>`
+            
+            .. attribute:: bgp_qos_policy_propagation
+            
+            	Configure BGP QoS policy propagation
+            	**type**\: :py:class:`BgpQosPolicyPropagation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpQosPolicyPropagation>`
+            
+            .. attribute:: mac_address_filters
+            
+            	IPv6 Mac\-Filter for a multicast address
+            	**type**\: :py:class:`MacAddressFilters <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters>`
+            
             .. attribute:: mtu
             
             	MTU Setting of Interface
             	**type**\: int
             
             	**range:** 1280..65535
+            
+            .. attribute:: tcp_mss_adjust_enable
+            
+            	Enable TCP MSS adjust on an interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: ttl_propagate_disable
+            
+            	Disabled TTL propagate on an interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: unnumbered
             
@@ -13483,20 +13488,15 @@ class InterfaceConfigurations(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: ttl_propagate_disable
-            
-            	Disabled TTL propagate on an interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: tcp_mss_adjust_enable
-            
-            	Enable TCP MSS adjust on an interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: unreachables
             
             	Override Sending of ICMP Unreachable Messages
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: verify
+            
+            	IPv6 Verify Unicast Souce Reachable
+            	**type**\: :py:class:`Verify <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify>`
             
             
 
@@ -13507,30 +13507,30 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.bgp_qos_policy_propagation = None
-                self.bgp_policy_accountings = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings()
-                self.bgp_policy_accountings.parent = self
-                self.mac_address_filters = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters()
-                self.mac_address_filters.parent = self
-                self.verify = None
                 self.addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses()
                 self.addresses.parent = self
                 self.bgp_flow_tag_policy_table = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable()
                 self.bgp_flow_tag_policy_table.parent = self
+                self.bgp_policy_accountings = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings()
+                self.bgp_policy_accountings.parent = self
+                self.bgp_qos_policy_propagation = None
+                self.mac_address_filters = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters()
+                self.mac_address_filters.parent = self
                 self.mtu = None
-                self.unnumbered = None
-                self.ttl_propagate_disable = None
                 self.tcp_mss_adjust_enable = None
+                self.ttl_propagate_disable = None
+                self.unnumbered = None
                 self.unreachables = None
+                self.verify = None
 
 
             class BgpQosPolicyPropagation(object):
                 """
                 Configure BGP QoS policy propagation
                 
-                .. attribute:: source
+                .. attribute:: destination
                 
-                	QPPB configuration on source
+                	QPPB configuration on destination
                 	**type**\: :py:class:`Ipv6QppbEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
                 
                 .. attribute:: _is_presence
@@ -13538,9 +13538,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: destination
+                .. attribute:: source
                 
-                	QPPB configuration on destination
+                	QPPB configuration on source
                 	**type**\: :py:class:`Ipv6QppbEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
                 
                 .. attribute:: _is_presence
@@ -13559,13 +13559,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.source = None
                     self.destination = None
+                    self.source = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:bgp-qos-policy-propagation'
 
@@ -13576,10 +13576,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.source is not None:
+                    if self.destination is not None:
                         return True
 
-                    if self.destination is not None:
+                    if self.source is not None:
                         return True
 
                     return False
@@ -13650,9 +13650,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.direction is None:
-                            raise YPYDataValidationError('Key property direction is None')
+                            raise YPYModelError('Key property direction is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:bgp-policy-accounting[Cisco-IOS-XR-ipv6-ma-cfg:direction = ' + str(self.direction) + ']'
 
@@ -13682,7 +13682,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:bgp-policy-accountings'
 
@@ -13754,9 +13754,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.multicast_address is None:
-                            raise YPYDataValidationError('Key property multicast_address is None')
+                            raise YPYModelError('Key property multicast_address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:mac-address-filter[Cisco-IOS-XR-ipv6-ma-cfg:multicast-address = ' + str(self.multicast_address) + ']'
 
@@ -13780,7 +13780,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:mac-address-filters'
 
@@ -13808,6 +13808,16 @@ class InterfaceConfigurations(object):
                 """
                 IPv6 Verify Unicast Souce Reachable
                 
+                .. attribute:: default_ping
+                
+                	Allow Default Route
+                	**type**\: :py:class:`Ipv6DefaultPingEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPingEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: reachable
                 
                 	Source Reachable Interface
@@ -13828,16 +13838,6 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: default_ping
-                
-                	Allow Default Route
-                	**type**\: :py:class:`Ipv6DefaultPingEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPingEnum>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -13849,14 +13849,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.default_ping = None
                     self.reachable = None
                     self.self_ping = None
-                    self.default_ping = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:verify'
 
@@ -13867,13 +13867,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.default_ping is not None:
+                        return True
+
                     if self.reachable is not None:
                         return True
 
                     if self.self_ping is not None:
-                        return True
-
-                    if self.default_ping is not None:
                         return True
 
                     return False
@@ -13888,25 +13888,25 @@ class InterfaceConfigurations(object):
                 """
                 Set the IPv6 address of an interface
                 
-                .. attribute:: link_local_address
+                .. attribute:: auto_configuration
                 
-                	Link local IPv6 address
-                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.LinkLocalAddress>`
+                	Auto IPv6 Interface Configuration
+                	**type**\: :py:class:`AutoConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.AutoConfiguration>`
                 
                 .. attribute:: eui64_addresses
                 
                 	EUI\-64 IPv6 address Table
                 	**type**\: :py:class:`Eui64Addresses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses>`
                 
+                .. attribute:: link_local_address
+                
+                	Link local IPv6 address
+                	**type**\: :py:class:`LinkLocalAddress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.LinkLocalAddress>`
+                
                 .. attribute:: regular_addresses
                 
                 	Regular IPv6 address Table
                 	**type**\: :py:class:`RegularAddresses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses>`
-                
-                .. attribute:: auto_configuration
-                
-                	Auto IPv6 Interface Configuration
-                	**type**\: :py:class:`AutoConfiguration <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.AutoConfiguration>`
                 
                 
 
@@ -13917,13 +13917,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.link_local_address = None
-                    self.eui64_addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses()
-                    self.eui64_addresses.parent = self
-                    self.regular_addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses()
-                    self.regular_addresses.parent = self
                     self.auto_configuration = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.AutoConfiguration()
                     self.auto_configuration.parent = self
+                    self.eui64_addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses()
+                    self.eui64_addresses.parent = self
+                    self.link_local_address = None
+                    self.regular_addresses = InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses()
+                    self.regular_addresses.parent = self
 
 
                 class LinkLocalAddress(object):
@@ -13952,22 +13952,22 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: zone
-                    
-                    	IPv6 address zone
-                    	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     .. attribute:: route_tag
                     
                     	RouteTag
                     	**type**\: int
                     
                     	**range:** 1..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    .. attribute:: zone
+                    
+                    	IPv6 address zone
+                    	**type**\: str
                     
                     .. attribute:: _is_presence
                     
@@ -13986,13 +13986,13 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.address = None
-                        self.zone = None
                         self.route_tag = None
+                        self.zone = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:link-local-address'
 
@@ -14006,10 +14006,10 @@ class InterfaceConfigurations(object):
                         if self.address is not None:
                             return True
 
-                        if self.zone is not None:
+                        if self.route_tag is not None:
                             return True
 
-                        if self.route_tag is not None:
+                        if self.zone is not None:
                             return True
 
                         return False
@@ -14071,17 +14071,17 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 0..128
                         
-                        .. attribute:: zone
-                        
-                        	IPv6 address zone
-                        	**type**\: str
-                        
                         .. attribute:: route_tag
                         
                         	RouteTag
                         	**type**\: int
                         
                         	**range:** 1..4294967295
+                        
+                        .. attribute:: zone
+                        
+                        	IPv6 address zone
+                        	**type**\: str
                         
                         
 
@@ -14094,15 +14094,15 @@ class InterfaceConfigurations(object):
                             self.parent = None
                             self.address = None
                             self.prefix_length = None
-                            self.zone = None
                             self.route_tag = None
+                            self.zone = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:eui64-address[Cisco-IOS-XR-ipv6-ma-cfg:address = ' + str(self.address) + ']'
 
@@ -14119,10 +14119,10 @@ class InterfaceConfigurations(object):
                             if self.prefix_length is not None:
                                 return True
 
-                            if self.zone is not None:
+                            if self.route_tag is not None:
                                 return True
 
-                            if self.route_tag is not None:
+                            if self.zone is not None:
                                 return True
 
                             return False
@@ -14135,7 +14135,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:eui64-addresses'
 
@@ -14210,17 +14210,17 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 0..128
                         
-                        .. attribute:: zone
-                        
-                        	IPv6 address zone
-                        	**type**\: str
-                        
                         .. attribute:: route_tag
                         
                         	RouteTag
                         	**type**\: int
                         
                         	**range:** 1..4294967295
+                        
+                        .. attribute:: zone
+                        
+                        	IPv6 address zone
+                        	**type**\: str
                         
                         
 
@@ -14233,15 +14233,15 @@ class InterfaceConfigurations(object):
                             self.parent = None
                             self.address = None
                             self.prefix_length = None
-                            self.zone = None
                             self.route_tag = None
+                            self.zone = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.address is None:
-                                raise YPYDataValidationError('Key property address is None')
+                                raise YPYModelError('Key property address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:regular-address[Cisco-IOS-XR-ipv6-ma-cfg:address = ' + str(self.address) + ']'
 
@@ -14258,10 +14258,10 @@ class InterfaceConfigurations(object):
                             if self.prefix_length is not None:
                                 return True
 
-                            if self.zone is not None:
+                            if self.route_tag is not None:
                                 return True
 
-                            if self.route_tag is not None:
+                            if self.zone is not None:
                                 return True
 
                             return False
@@ -14274,7 +14274,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:regular-addresses'
 
@@ -14321,7 +14321,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:auto-configuration'
 
@@ -14345,7 +14345,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:addresses'
 
@@ -14356,16 +14356,16 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.link_local_address is not None and self.link_local_address._has_data():
+                    if self.auto_configuration is not None and self.auto_configuration._has_data():
                         return True
 
                     if self.eui64_addresses is not None and self.eui64_addresses._has_data():
                         return True
 
-                    if self.regular_addresses is not None and self.regular_addresses._has_data():
+                    if self.link_local_address is not None and self.link_local_address._has_data():
                         return True
 
-                    if self.auto_configuration is not None and self.auto_configuration._has_data():
+                    if self.regular_addresses is not None and self.regular_addresses._has_data():
                         return True
 
                     return False
@@ -14403,14 +14403,14 @@ class InterfaceConfigurations(object):
                     """
                     Input
                     
-                    .. attribute:: source
-                    
-                    	Flow Tag configuration on source
-                    	**type**\: bool
-                    
                     .. attribute:: destination
                     
                     	Flow Tag configuration on destination
+                    	**type**\: bool
+                    
+                    .. attribute:: source
+                    
+                    	Flow Tag configuration on source
                     	**type**\: bool
                     
                     
@@ -14422,13 +14422,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.source = None
                         self.destination = None
+                        self.source = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:bgp-flow-tag-policy'
 
@@ -14439,10 +14439,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.source is not None:
+                        if self.destination is not None:
                             return True
 
-                        if self.destination is not None:
+                        if self.source is not None:
                             return True
 
                         return False
@@ -14455,7 +14455,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:bgp-flow-tag-policy-table'
 
@@ -14479,7 +14479,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network'
 
@@ -14490,37 +14490,37 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.bgp_qos_policy_propagation is not None and self.bgp_qos_policy_propagation._has_data():
-                    return True
-
-                if self.bgp_policy_accountings is not None and self.bgp_policy_accountings._has_data():
-                    return True
-
-                if self.mac_address_filters is not None and self.mac_address_filters._has_data():
-                    return True
-
-                if self.verify is not None and self.verify._has_data():
-                    return True
-
                 if self.addresses is not None and self.addresses._has_data():
                     return True
 
                 if self.bgp_flow_tag_policy_table is not None and self.bgp_flow_tag_policy_table._has_data():
                     return True
 
+                if self.bgp_policy_accountings is not None and self.bgp_policy_accountings._has_data():
+                    return True
+
+                if self.bgp_qos_policy_propagation is not None and self.bgp_qos_policy_propagation._has_data():
+                    return True
+
+                if self.mac_address_filters is not None and self.mac_address_filters._has_data():
+                    return True
+
                 if self.mtu is not None:
-                    return True
-
-                if self.unnumbered is not None:
-                    return True
-
-                if self.ttl_propagate_disable is not None:
                     return True
 
                 if self.tcp_mss_adjust_enable is not None:
                     return True
 
+                if self.ttl_propagate_disable is not None:
+                    return True
+
+                if self.unnumbered is not None:
+                    return True
+
                 if self.unreachables is not None:
+                    return True
+
+                if self.verify is not None and self.verify._has_data():
                     return True
 
                 return False
@@ -14536,37 +14536,27 @@ class InterfaceConfigurations(object):
             IPv6 interface neighbor or neighbor discovery
             configuration
             
+            .. attribute:: cache_limit
+            
+            	Set the cache limit for neighbor entries
+            	**type**\: int
+            
+            	**range:** 0..128000
+            
             .. attribute:: duplicate_address_detection
             
             	Duplicate Address Detection (DAD)
             	**type**\: :py:class:`DuplicateAddressDetection <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection>`
-            
-            .. attribute:: ra_interval
-            
-            	Set IPv6 Router Advertisement (RA) interval in seconds
-            	**type**\: :py:class:`RaInterval <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval>`
             
             .. attribute:: ipv6_prefixes
             
             	Prefixes 
             	**type**\: :py:class:`Ipv6Prefixes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes>`
             
-            .. attribute:: reachable_time
+            .. attribute:: managed_config
             
-            	Set advertised reachability time in milliseconds
-            	**type**\: int
-            
-            	**range:** 0..3600000
-            
-            .. attribute:: ra_unspecify_hoplimit
-            
-            	Unspecify IPv6 Router Advertisement (RA) hop\-limit
+            	Host to use stateful protocol for address configuration
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: srp_multicast_encapsulation
-            
-            	Set SRP multicast prefer encapsulation
-            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             .. attribute:: ns_interval
             
@@ -14575,32 +14565,15 @@ class InterfaceConfigurations(object):
             
             	**range:** 1000..4294967295
             
-            .. attribute:: cache_limit
+            .. attribute:: other_config
             
-            	Set the cache limit for neighbor entries
-            	**type**\: int
-            
-            	**range:** 0..128000
-            
-            .. attribute:: redirect
-            
-            	Enable sending of ICMP Redirect messages
+            	Host to use stateful protocol for non\-address configuration
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: srp_unicast_encapsulation
+            .. attribute:: ra_interval
             
-            	Set SRP unicast prefer encapsulation
-            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
-            
-            .. attribute:: ramtu_suppress
-            
-            	Enable suppress MTU in IPv6 router advertisement
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: managed_config
-            
-            	Host to use stateful protocol for address configuration
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Set IPv6 Router Advertisement (RA) interval in seconds
+            	**type**\: :py:class:`RaInterval <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval>`
             
             .. attribute:: ra_lifetime
             
@@ -14609,20 +14582,47 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..9000
             
-            .. attribute:: other_config
-            
-            	Host to use stateful protocol for non\-address configuration
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: ra_suppress
             
             	Enable suppress IPv6 router advertisement
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: ra_unspecify_hoplimit
+            
+            	Unspecify IPv6 Router Advertisement (RA) hop\-limit
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: ramtu_suppress
+            
+            	Enable suppress MTU in IPv6 router advertisement
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: reachable_time
+            
+            	Set advertised reachability time in milliseconds
+            	**type**\: int
+            
+            	**range:** 0..3600000
+            
+            .. attribute:: redirect
+            
+            	Enable sending of ICMP Redirect messages
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: router_preference
             
             	RA Router Preference
             	**type**\: :py:class:`Ipv6NdRouterPrefEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
+            
+            .. attribute:: srp_multicast_encapsulation
+            
+            	Set SRP multicast prefer encapsulation
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            
+            .. attribute:: srp_unicast_encapsulation
+            
+            	Set SRP unicast prefer encapsulation
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             
 
@@ -14633,24 +14633,24 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
+                self.cache_limit = None
                 self.duplicate_address_detection = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection()
                 self.duplicate_address_detection.parent = self
-                self.ra_interval = None
                 self.ipv6_prefixes = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes()
                 self.ipv6_prefixes.parent = self
-                self.reachable_time = None
-                self.ra_unspecify_hoplimit = None
-                self.srp_multicast_encapsulation = None
-                self.ns_interval = None
-                self.cache_limit = None
-                self.redirect = None
-                self.srp_unicast_encapsulation = None
-                self.ramtu_suppress = None
                 self.managed_config = None
-                self.ra_lifetime = None
+                self.ns_interval = None
                 self.other_config = None
+                self.ra_interval = None
+                self.ra_lifetime = None
                 self.ra_suppress = None
+                self.ra_unspecify_hoplimit = None
+                self.ramtu_suppress = None
+                self.reachable_time = None
+                self.redirect = None
                 self.router_preference = None
+                self.srp_multicast_encapsulation = None
+                self.srp_unicast_encapsulation = None
 
 
             class DuplicateAddressDetection(object):
@@ -14678,7 +14678,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:duplicate-address-detection'
 
@@ -14746,7 +14746,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:ra-interval'
 
@@ -14805,67 +14805,12 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: prefix_zone
-                    
-                    	Prefix zone
-                    	**type**\: str
-                    
-                    	**range:** 0..9
-                    
-                    .. attribute:: prefix_length
-                    
-                    	Prefix mask length
-                    	**type**\: int
-                    
-                    	**range:** 0..128
-                    
-                    .. attribute:: valid_lifetime
-                    
-                    	Valid Lifetime (seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: preferred_lifetime
-                    
-                    	Preferred Lifetime (seconds) must be <= Valid Lifetime
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: off_link
-                    
-                    	If set, prefix will not be used for onlink determination
-                    	**type**\: bool
-                    
-                    .. attribute:: no_auto_config
-                    
-                    	If set, prefix will not be used for auto configuration
-                    	**type**\: bool
-                    
-                    .. attribute:: no_advertize
-                    
-                    	If set, prefix will not be advertized
-                    	**type**\: bool
-                    
-                    .. attribute:: expiry_month
-                    
-                    	Month to expire valid lifetime
-                    	**type**\: :py:class:`Ipv6NdMonthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
-                    
                     .. attribute:: expiry_date
                     
                     	Date to expire valid lifetime
                     	**type**\: int
                     
                     	**range:** 1..31
-                    
-                    .. attribute:: expiry_year
-                    
-                    	Year to expire valid lifetime
-                    	**type**\: int
-                    
-                    	**range:** 2003..2035
                     
                     .. attribute:: expiry_hour
                     
@@ -14881,10 +14826,32 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..59
                     
-                    .. attribute:: pref_expiry_month
+                    .. attribute:: expiry_month
                     
-                    	Month to expire preferred lifetime
+                    	Month to expire valid lifetime
                     	**type**\: :py:class:`Ipv6NdMonthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
+                    
+                    .. attribute:: expiry_year
+                    
+                    	Year to expire valid lifetime
+                    	**type**\: int
+                    
+                    	**range:** 2003..2035
+                    
+                    .. attribute:: no_advertize
+                    
+                    	If set, prefix will not be advertized
+                    	**type**\: bool
+                    
+                    .. attribute:: no_auto_config
+                    
+                    	If set, prefix will not be used for auto configuration
+                    	**type**\: bool
+                    
+                    .. attribute:: off_link
+                    
+                    	If set, prefix will not be used for onlink determination
+                    	**type**\: bool
                     
                     .. attribute:: pref_expiry_date
                     
@@ -14892,13 +14859,6 @@ class InterfaceConfigurations(object):
                     	**type**\: int
                     
                     	**range:** 1..31
-                    
-                    .. attribute:: pref_expiry_year
-                    
-                    	Year to expire preferred lifetime
-                    	**type**\: int
-                    
-                    	**range:** 2003..2035
                     
                     .. attribute:: pref_expiry_hour
                     
@@ -14914,6 +14874,46 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..59
                     
+                    .. attribute:: pref_expiry_month
+                    
+                    	Month to expire preferred lifetime
+                    	**type**\: :py:class:`Ipv6NdMonthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
+                    
+                    .. attribute:: pref_expiry_year
+                    
+                    	Year to expire preferred lifetime
+                    	**type**\: int
+                    
+                    	**range:** 2003..2035
+                    
+                    .. attribute:: preferred_lifetime
+                    
+                    	Preferred Lifetime (seconds) must be <= Valid Lifetime
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: prefix_length
+                    
+                    	Prefix mask length
+                    	**type**\: int
+                    
+                    	**range:** 0..128
+                    
+                    .. attribute:: prefix_zone
+                    
+                    	Prefix zone
+                    	**type**\: str
+                    
+                    	**range:** 0..9
+                    
+                    .. attribute:: valid_lifetime
+                    
+                    	Valid Lifetime (seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -14924,30 +14924,30 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.prefix = None
-                        self.prefix_zone = None
-                        self.prefix_length = None
-                        self.valid_lifetime = None
-                        self.preferred_lifetime = None
-                        self.off_link = None
-                        self.no_auto_config = None
-                        self.no_advertize = None
-                        self.expiry_month = None
                         self.expiry_date = None
-                        self.expiry_year = None
                         self.expiry_hour = None
                         self.expiry_minute = None
-                        self.pref_expiry_month = None
+                        self.expiry_month = None
+                        self.expiry_year = None
+                        self.no_advertize = None
+                        self.no_auto_config = None
+                        self.off_link = None
                         self.pref_expiry_date = None
-                        self.pref_expiry_year = None
                         self.pref_expiry_hour = None
                         self.pref_expiry_minute = None
+                        self.pref_expiry_month = None
+                        self.pref_expiry_year = None
+                        self.preferred_lifetime = None
+                        self.prefix_length = None
+                        self.prefix_zone = None
+                        self.valid_lifetime = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.prefix is None:
-                            raise YPYDataValidationError('Key property prefix is None')
+                            raise YPYModelError('Key property prefix is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-prefix[Cisco-IOS-XR-ipv6-nd-cfg:prefix = ' + str(self.prefix) + ']'
 
@@ -14961,34 +14961,7 @@ class InterfaceConfigurations(object):
                         if self.prefix is not None:
                             return True
 
-                        if self.prefix_zone is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        if self.valid_lifetime is not None:
-                            return True
-
-                        if self.preferred_lifetime is not None:
-                            return True
-
-                        if self.off_link is not None:
-                            return True
-
-                        if self.no_auto_config is not None:
-                            return True
-
-                        if self.no_advertize is not None:
-                            return True
-
-                        if self.expiry_month is not None:
-                            return True
-
                         if self.expiry_date is not None:
-                            return True
-
-                        if self.expiry_year is not None:
                             return True
 
                         if self.expiry_hour is not None:
@@ -14997,19 +14970,46 @@ class InterfaceConfigurations(object):
                         if self.expiry_minute is not None:
                             return True
 
-                        if self.pref_expiry_month is not None:
+                        if self.expiry_month is not None:
+                            return True
+
+                        if self.expiry_year is not None:
+                            return True
+
+                        if self.no_advertize is not None:
+                            return True
+
+                        if self.no_auto_config is not None:
+                            return True
+
+                        if self.off_link is not None:
                             return True
 
                         if self.pref_expiry_date is not None:
-                            return True
-
-                        if self.pref_expiry_year is not None:
                             return True
 
                         if self.pref_expiry_hour is not None:
                             return True
 
                         if self.pref_expiry_minute is not None:
+                            return True
+
+                        if self.pref_expiry_month is not None:
+                            return True
+
+                        if self.pref_expiry_year is not None:
+                            return True
+
+                        if self.preferred_lifetime is not None:
+                            return True
+
+                        if self.prefix_length is not None:
+                            return True
+
+                        if self.prefix_zone is not None:
+                            return True
+
+                        if self.valid_lifetime is not None:
                             return True
 
                         return False
@@ -15022,7 +15022,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-prefixes'
 
@@ -15048,7 +15048,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor'
 
@@ -15059,52 +15059,52 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
+                if self.cache_limit is not None:
                     return True
 
-                if self.ra_interval is not None and self.ra_interval._has_data():
+                if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                     return True
 
                 if self.ipv6_prefixes is not None and self.ipv6_prefixes._has_data():
                     return True
 
-                if self.reachable_time is not None:
-                    return True
-
-                if self.ra_unspecify_hoplimit is not None:
-                    return True
-
-                if self.srp_multicast_encapsulation is not None:
+                if self.managed_config is not None:
                     return True
 
                 if self.ns_interval is not None:
                     return True
 
-                if self.cache_limit is not None:
+                if self.other_config is not None:
                     return True
 
-                if self.redirect is not None:
-                    return True
-
-                if self.srp_unicast_encapsulation is not None:
-                    return True
-
-                if self.ramtu_suppress is not None:
-                    return True
-
-                if self.managed_config is not None:
+                if self.ra_interval is not None and self.ra_interval._has_data():
                     return True
 
                 if self.ra_lifetime is not None:
                     return True
 
-                if self.other_config is not None:
-                    return True
-
                 if self.ra_suppress is not None:
                     return True
 
+                if self.ra_unspecify_hoplimit is not None:
+                    return True
+
+                if self.ramtu_suppress is not None:
+                    return True
+
+                if self.reachable_time is not None:
+                    return True
+
+                if self.redirect is not None:
+                    return True
+
                 if self.router_preference is not None:
+                    return True
+
+                if self.srp_multicast_encapsulation is not None:
+                    return True
+
+                if self.srp_unicast_encapsulation is not None:
                     return True
 
                 return False
@@ -15119,65 +15119,50 @@ class InterfaceConfigurations(object):
             """
             MPLS tunnel attributes
             
-            .. attribute:: backup_bandwidth
+            .. attribute:: admin_mode
             
-            	Tunnel backup bandwidth requirement
-            	**type**\: :py:class:`BackupBandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth>`
+            	Performs admin operations on the optical tunnel interface
+            	**type**\: :py:class:`AdminMode <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode>`
             
-            .. attribute:: bfd_over_lsp
+            .. attribute:: affinity_mask
             
-            	BFD over TE LSP
-            	**type**\: :py:class:`BfdOverLsp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp>`
-            
-            .. attribute:: binding_segment_id_mpls
-            
-            	Allocate MPLS binding segment ID
-            	**type**\: :py:class:`BindingSegmentIdMpls <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls>`
+            	Set the affinity flags and mask
+            	**type**\: :py:class:`AffinityMask <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask>`
             
             .. attribute:: auto_bandwidth
             
             	Tunnel Interface Auto\-bandwidth configuration data
             	**type**\: :py:class:`AutoBandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth>`
             
-            .. attribute:: forwarding_adjacency
-            
-            	Forwarding adjacency announcement to IGP
-            	**type**\: :py:class:`ForwardingAdjacency <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency>`
-            
             .. attribute:: autoroute
             
             	Parameters for IGP routing over tunnel
             	**type**\: :py:class:`Autoroute <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute>`
             
-            .. attribute:: path_option_protects
+            .. attribute:: backup_bandwidth
             
-            	Tunnel path protection state
-            	**type**\: :py:class:`PathOptionProtects <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects>`
+            	Tunnel backup bandwidth requirement
+            	**type**\: :py:class:`BackupBandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth>`
+            
+            .. attribute:: bandwidth
+            
+            	Tunnel bandwidth requirement
+            	**type**\: :py:class:`Bandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bandwidth>`
+            
+            .. attribute:: bfd_over_lsp
+            
+            	BFD over TE LSP
+            	**type**\: :py:class:`BfdOverLsp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp>`
             
             .. attribute:: bidirectional
             
             	Tunnel Interface Bidirectional configuration data
             	**type**\: :py:class:`Bidirectional <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional>`
             
-            .. attribute:: admin_mode
+            .. attribute:: binding_segment_id_mpls
             
-            	Performs admin operations on the optical tunnel interface
-            	**type**\: :py:class:`AdminMode <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode>`
-            
-            .. attribute:: switching
-            
-            	Specify tunnel LSPs switching capability descriptor
-            	**type**\: :py:class:`Switching <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching>`
-            
-            .. attribute:: pce
-            
-            	PCE config
-            	**type**\: :py:class:`Pce <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce>`
-            
-            .. attribute:: path_protection
-            
-            	Specify MPLS tunnel to be path protected
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Allocate MPLS binding segment ID
+            	**type**\: :py:class:`BindingSegmentIdMpls <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls>`
             
             .. attribute:: destination
             
@@ -15186,10 +15171,56 @@ class InterfaceConfigurations(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: path_selection_metric
+            .. attribute:: fast_reroute
             
-            	Path selection metric configuration for this specific tunnel
-            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+            	Specify MPLS tunnel can be fast\-rerouted
+            	**type**\: :py:class:`FastReroute <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.FastReroute>`
+            
+            .. attribute:: forward_class
+            
+            	Forward class value
+            	**type**\: int
+            
+            	**range:** 1..7
+            
+            .. attribute:: forwarding_adjacency
+            
+            	Forwarding adjacency announcement to IGP
+            	**type**\: :py:class:`ForwardingAdjacency <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency>`
+            
+            .. attribute:: load_share
+            
+            	Tunnel loadsharing metric
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: new_style_affinities
+            
+            	Tunnel new style affinity attributes table
+            	**type**\: :py:class:`NewStyleAffinities <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities>`
+            
+            .. attribute:: path_invalidation
+            
+            	Path invalidation configuration for this specific tunnel
+            	**type**\: :py:class:`PathInvalidation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation>`
+            
+            .. attribute:: path_option_protects
+            
+            	Tunnel path protection state
+            	**type**\: :py:class:`PathOptionProtects <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects>`
+            
+            .. attribute:: path_protection
+            
+            	Specify MPLS tunnel to be path protected
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: path_selection_cost_limit
+            
+            	Path selection cost limit configuration for this specific tunnel
+            	**type**\: int
+            
+            	**range:** 1..4294967295
             
             .. attribute:: path_selection_hop_limit
             
@@ -15198,12 +15229,20 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..255
             
-            .. attribute:: forward_class
+            .. attribute:: path_selection_metric
             
-            	Forward class value
-            	**type**\: int
+            	Path selection metric configuration for this specific tunnel
+            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
             
-            	**range:** 1..7
+            .. attribute:: pce
+            
+            	PCE config
+            	**type**\: :py:class:`Pce <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce>`
+            
+            .. attribute:: policy_classes
+            
+            	Policy classes for PBTS
+            	**type**\: :py:class:`PolicyClasses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses>`
             
             .. attribute:: priority
             
@@ -15215,61 +15254,22 @@ class InterfaceConfigurations(object):
             	Record the route used by the tunnel
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: affinity_mask
-            
-            	Set the affinity flags and mask
-            	**type**\: :py:class:`AffinityMask <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask>`
-            
-            .. attribute:: bandwidth
-            
-            	Tunnel bandwidth requirement
-            	**type**\: :py:class:`Bandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bandwidth>`
-            
-            .. attribute:: policy_classes
-            
-            	Policy classes for PBTS
-            	**type**\: :py:class:`PolicyClasses <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses>`
-            
-            .. attribute:: path_selection_cost_limit
-            
-            	Path selection cost limit configuration for this specific tunnel
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: new_style_affinities
-            
-            	Tunnel new style affinity attributes table
-            	**type**\: :py:class:`NewStyleAffinities <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities>`
-            
-            .. attribute:: soft_preemption
-            
-            	Enable the soft\-preemption feature on the tunnel
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: fast_reroute
-            
-            	Specify MPLS tunnel can be fast\-rerouted
-            	**type**\: :py:class:`FastReroute <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.FastReroute>`
-            
-            .. attribute:: path_invalidation
-            
-            	Path invalidation configuration for this specific tunnel
-            	**type**\: :py:class:`PathInvalidation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation>`
-            
-            .. attribute:: load_share
-            
-            	Tunnel loadsharing metric
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
             .. attribute:: signalled_name
             
             	The name of the tunnel to be included in signalling messages
             	**type**\: str
             
             	**range:** 0..254
+            
+            .. attribute:: soft_preemption
+            
+            	Enable the soft\-preemption feature on the tunnel
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: switching
+            
+            	Specify tunnel LSPs switching capability descriptor
+            	**type**\: :py:class:`Switching <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching>`
             
             
 
@@ -15280,73 +15280,53 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.backup_bandwidth = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth()
-                self.backup_bandwidth.parent = self
-                self.bfd_over_lsp = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp()
-                self.bfd_over_lsp.parent = self
-                self.binding_segment_id_mpls = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls()
-                self.binding_segment_id_mpls.parent = self
-                self.auto_bandwidth = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth()
-                self.auto_bandwidth.parent = self
-                self.forwarding_adjacency = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency()
-                self.forwarding_adjacency.parent = self
-                self.autoroute = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute()
-                self.autoroute.parent = self
-                self.path_option_protects = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects()
-                self.path_option_protects.parent = self
-                self.bidirectional = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional()
-                self.bidirectional.parent = self
                 self.admin_mode = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode()
                 self.admin_mode.parent = self
-                self.switching = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching()
-                self.switching.parent = self
-                self.pce = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce()
-                self.pce.parent = self
-                self.path_protection = None
-                self.destination = None
-                self.path_selection_metric = None
-                self.path_selection_hop_limit = None
-                self.forward_class = None
-                self.priority = None
-                self.record_route = None
                 self.affinity_mask = None
+                self.auto_bandwidth = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth()
+                self.auto_bandwidth.parent = self
+                self.autoroute = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute()
+                self.autoroute.parent = self
+                self.backup_bandwidth = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth()
+                self.backup_bandwidth.parent = self
                 self.bandwidth = None
-                self.policy_classes = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses()
-                self.policy_classes.parent = self
-                self.path_selection_cost_limit = None
+                self.bfd_over_lsp = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp()
+                self.bfd_over_lsp.parent = self
+                self.bidirectional = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional()
+                self.bidirectional.parent = self
+                self.binding_segment_id_mpls = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls()
+                self.binding_segment_id_mpls.parent = self
+                self.destination = None
+                self.fast_reroute = None
+                self.forward_class = None
+                self.forwarding_adjacency = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency()
+                self.forwarding_adjacency.parent = self
+                self.load_share = None
                 self.new_style_affinities = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities()
                 self.new_style_affinities.parent = self
-                self.soft_preemption = None
-                self.fast_reroute = None
                 self.path_invalidation = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation()
                 self.path_invalidation.parent = self
-                self.load_share = None
+                self.path_option_protects = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects()
+                self.path_option_protects.parent = self
+                self.path_protection = None
+                self.path_selection_cost_limit = None
+                self.path_selection_hop_limit = None
+                self.path_selection_metric = None
+                self.pce = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce()
+                self.pce.parent = self
+                self.policy_classes = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses()
+                self.policy_classes.parent = self
+                self.priority = None
+                self.record_route = None
                 self.signalled_name = None
+                self.soft_preemption = None
+                self.switching = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching()
+                self.switching.parent = self
 
 
             class BackupBandwidth(object):
                 """
                 Tunnel backup bandwidth requirement
-                
-                .. attribute:: dste_type
-                
-                	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
-                
-                .. attribute:: pool_type
-                
-                	Backup bandwidth pool type, relevant only if DSTEType is PreStandardDSTE
-                	**type**\: :py:class:`MplsTeBackupBandwidthPoolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPoolEnum>`
-                
-                .. attribute:: class_type
-                
-                	Backup bandwidth class type, relevant only if DSTEType is StandardDSTE
-                	**type**\: :py:class:`MplsTeBackupBandwidthClassEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClassEnum>`
-                
-                .. attribute:: limit_type
-                
-                	Backup bandwidth limit type
-                	**type**\: :py:class:`MplsTeBandwidthLimitEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimitEnum>`
                 
                 .. attribute:: backup_bandwidth
                 
@@ -15354,6 +15334,26 @@ class InterfaceConfigurations(object):
                 	**type**\: int
                 
                 	**range:** 1..4294967295
+                
+                .. attribute:: class_type
+                
+                	Backup bandwidth class type, relevant only if DSTEType is StandardDSTE
+                	**type**\: :py:class:`MplsTeBackupBandwidthClassEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClassEnum>`
+                
+                .. attribute:: dste_type
+                
+                	DSTE\-standard flag
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                
+                .. attribute:: limit_type
+                
+                	Backup bandwidth limit type
+                	**type**\: :py:class:`MplsTeBandwidthLimitEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimitEnum>`
+                
+                .. attribute:: pool_type
+                
+                	Backup bandwidth pool type, relevant only if DSTEType is PreStandardDSTE
+                	**type**\: :py:class:`MplsTeBackupBandwidthPoolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPoolEnum>`
                 
                 
 
@@ -15364,16 +15364,16 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dste_type = None
-                    self.pool_type = None
-                    self.class_type = None
-                    self.limit_type = None
                     self.backup_bandwidth = None
+                    self.class_type = None
+                    self.dste_type = None
+                    self.limit_type = None
+                    self.pool_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup-bandwidth'
 
@@ -15384,19 +15384,19 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dste_type is not None:
-                        return True
-
-                    if self.pool_type is not None:
+                    if self.backup_bandwidth is not None:
                         return True
 
                     if self.class_type is not None:
                         return True
 
+                    if self.dste_type is not None:
+                        return True
+
                     if self.limit_type is not None:
                         return True
 
-                    if self.backup_bandwidth is not None:
+                    if self.pool_type is not None:
                         return True
 
                     return False
@@ -15411,30 +15411,6 @@ class InterfaceConfigurations(object):
                 """
                 BFD over TE LSP
                 
-                .. attribute:: dampening_initial_wait
-                
-                	Initial delay in milliseconds (default 16000)
-                	**type**\: int
-                
-                	**range:** 1..518400000
-                
-                .. attribute:: fast_detect
-                
-                	Enable BFD Fast Detect On the tunnel
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: enable
-                
-                	Always set to true
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: multiplier
-                
-                	Specify the multiplier for BFD failure detection
-                	**type**\: int
-                
-                	**range:** 3..10
-                
                 .. attribute:: bringup_timeout
                 
                 	Wait for session to come up in seconds (default 60)
@@ -15442,24 +15418,12 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 60..3600
                 
-                .. attribute:: periodic_ping_disable
+                .. attribute:: dampening_initial_wait
                 
-                	Disable Periodic LSP Ping for BFD over LSP
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: dampening_secondary_wait
-                
-                	Secondary delay in milliseconds (default 20000)
+                	Initial delay in milliseconds (default 16000)
                 	**type**\: int
                 
                 	**range:** 1..518400000
-                
-                .. attribute:: periodic_ping_interval
-                
-                	Periodic LSP Ping Interval in seconds (default 120)
-                	**type**\: int
-                
-                	**range:** 60..3600
                 
                 .. attribute:: dampening_maximum_wait
                 
@@ -15468,12 +15432,17 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..518400000
                 
-                .. attribute:: minimum_interval
+                .. attribute:: dampening_secondary_wait
                 
-                	Specify the minimum interval for BFD failure detection
+                	Secondary delay in milliseconds (default 20000)
                 	**type**\: int
                 
-                	**range:** 3..30000
+                	**range:** 1..518400000
+                
+                .. attribute:: enable
+                
+                	Always set to true
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: encap_mode
                 
@@ -15481,6 +15450,37 @@ class InterfaceConfigurations(object):
                 	**type**\: int
                 
                 	**range:** 0..1
+                
+                .. attribute:: fast_detect
+                
+                	Enable BFD Fast Detect On the tunnel
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: minimum_interval
+                
+                	Specify the minimum interval for BFD failure detection
+                	**type**\: int
+                
+                	**range:** 3..30000
+                
+                .. attribute:: multiplier
+                
+                	Specify the multiplier for BFD failure detection
+                	**type**\: int
+                
+                	**range:** 3..10
+                
+                .. attribute:: periodic_ping_disable
+                
+                	Disable Periodic LSP Ping for BFD over LSP
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: periodic_ping_interval
+                
+                	Periodic LSP Ping Interval in seconds (default 120)
+                	**type**\: int
+                
+                	**range:** 60..3600
                 
                 
 
@@ -15491,22 +15491,22 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dampening_initial_wait = None
-                    self.fast_detect = None
-                    self.enable = None
-                    self.multiplier = None
                     self.bringup_timeout = None
-                    self.periodic_ping_disable = None
-                    self.dampening_secondary_wait = None
-                    self.periodic_ping_interval = None
+                    self.dampening_initial_wait = None
                     self.dampening_maximum_wait = None
-                    self.minimum_interval = None
+                    self.dampening_secondary_wait = None
+                    self.enable = None
                     self.encap_mode = None
+                    self.fast_detect = None
+                    self.minimum_interval = None
+                    self.multiplier = None
+                    self.periodic_ping_disable = None
+                    self.periodic_ping_interval = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bfd-over-lsp'
 
@@ -15517,37 +15517,37 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dampening_initial_wait is not None:
-                        return True
-
-                    if self.fast_detect is not None:
-                        return True
-
-                    if self.enable is not None:
-                        return True
-
-                    if self.multiplier is not None:
-                        return True
-
                     if self.bringup_timeout is not None:
                         return True
 
-                    if self.periodic_ping_disable is not None:
-                        return True
-
-                    if self.dampening_secondary_wait is not None:
-                        return True
-
-                    if self.periodic_ping_interval is not None:
+                    if self.dampening_initial_wait is not None:
                         return True
 
                     if self.dampening_maximum_wait is not None:
                         return True
 
-                    if self.minimum_interval is not None:
+                    if self.dampening_secondary_wait is not None:
+                        return True
+
+                    if self.enable is not None:
                         return True
 
                     if self.encap_mode is not None:
+                        return True
+
+                    if self.fast_detect is not None:
+                        return True
+
+                    if self.minimum_interval is not None:
+                        return True
+
+                    if self.multiplier is not None:
+                        return True
+
+                    if self.periodic_ping_disable is not None:
+                        return True
+
+                    if self.periodic_ping_interval is not None:
                         return True
 
                     return False
@@ -15562,17 +15562,17 @@ class InterfaceConfigurations(object):
                 """
                 Allocate MPLS binding segment ID
                 
-                .. attribute:: segment_id_type
-                
-                	MPLS label value type
-                	**type**\: :py:class:`BindingSegmentIdEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentIdEnum>`
-                
                 .. attribute:: label_value
                 
                 	MPLS label
                 	**type**\: int
                 
                 	**range:** 16..4015
+                
+                .. attribute:: segment_id_type
+                
+                	MPLS label value type
+                	**type**\: :py:class:`BindingSegmentIdEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentIdEnum>`
                 
                 
 
@@ -15583,13 +15583,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.segment_id_type = None
                     self.label_value = None
+                    self.segment_id_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:binding-segment-id-mpls'
 
@@ -15600,10 +15600,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.segment_id_type is not None:
+                    if self.label_value is not None:
                         return True
 
-                    if self.label_value is not None:
+                    if self.segment_id_type is not None:
                         return True
 
                     return False
@@ -15619,30 +15619,10 @@ class InterfaceConfigurations(object):
                 Tunnel Interface Auto\-bandwidth configuration
                 data
                 
-                .. attribute:: underflow
-                
-                	Configuring the tunnel underflow detection
-                	**type**\: :py:class:`Underflow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow>`
-                
-                .. attribute:: overflow
-                
-                	Configuring the tunnel overflow detection
-                	**type**\: :py:class:`Overflow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow>`
-                
-                .. attribute:: bandwidth_limits
-                
-                	Set min/max bandwidth auto\-bw can apply on a tunnel
-                	**type**\: :py:class:`BandwidthLimits <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits>`
-                
                 .. attribute:: adjustment_threshold
                 
                 	Set the bandwidth change threshold to trigger adjustment
                 	**type**\: :py:class:`AdjustmentThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold>`
-                
-                .. attribute:: enabled
-                
-                	This object is only valid for tunnel interfaces and it controls whether that interface has auto\-bw enabled on it or not.The object must be set before any other auto\-bw configuration is supplied for the interface, and must be the last auto\-bw configuration object to be removed
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: application_frequency
                 
@@ -15651,10 +15631,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 5..10080
                 
+                .. attribute:: bandwidth_limits
+                
+                	Set min/max bandwidth auto\-bw can apply on a tunnel
+                	**type**\: :py:class:`BandwidthLimits <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits>`
+                
                 .. attribute:: collection_only
                 
                 	Enable bandwidth collection only, no auto\-bw adjustment
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: enabled
+                
+                	This object is only valid for tunnel interfaces and it controls whether that interface has auto\-bw enabled on it or not.The object must be set before any other auto\-bw configuration is supplied for the interface, and must be the last auto\-bw configuration object to be removed
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: overflow
+                
+                	Configuring the tunnel overflow detection
+                	**type**\: :py:class:`Overflow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow>`
+                
+                .. attribute:: underflow
+                
+                	Configuring the tunnel underflow detection
+                	**type**\: :py:class:`Underflow <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow>`
                 
                 
 
@@ -15665,18 +15665,30 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.underflow = None
-                    self.overflow = None
-                    self.bandwidth_limits = None
                     self.adjustment_threshold = None
-                    self.enabled = None
                     self.application_frequency = None
+                    self.bandwidth_limits = None
                     self.collection_only = None
+                    self.enabled = None
+                    self.overflow = None
+                    self.underflow = None
 
 
                 class Underflow(object):
                     """
                     Configuring the tunnel underflow detection
+                    
+                    .. attribute:: underflow_threshold_limit
+                    
+                    	Number of consecutive collections exceeding threshold
+                    	**type**\: int
+                    
+                    	**range:** 1..10
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: underflow_threshold_percent
                     
@@ -15702,18 +15714,6 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: underflow_threshold_limit
-                    
-                    	Number of consecutive collections exceeding threshold
-                    	**type**\: int
-                    
-                    	**range:** 1..10
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -15725,14 +15725,14 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.underflow_threshold_limit = None
                         self.underflow_threshold_percent = None
                         self.underflow_threshold_value = None
-                        self.underflow_threshold_limit = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:underflow'
 
@@ -15743,13 +15743,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.underflow_threshold_limit is not None:
+                            return True
+
                         if self.underflow_threshold_percent is not None:
                             return True
 
                         if self.underflow_threshold_value is not None:
-                            return True
-
-                        if self.underflow_threshold_limit is not None:
                             return True
 
                         return False
@@ -15763,6 +15763,18 @@ class InterfaceConfigurations(object):
                 class Overflow(object):
                     """
                     Configuring the tunnel overflow detection
+                    
+                    .. attribute:: overflow_threshold_limit
+                    
+                    	Number of consecutive collections exceeding threshold
+                    	**type**\: int
+                    
+                    	**range:** 1..10
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: overflow_threshold_percent
                     
@@ -15788,18 +15800,6 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: overflow_threshold_limit
-                    
-                    	Number of consecutive collections exceeding threshold
-                    	**type**\: int
-                    
-                    	**range:** 1..10
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -15811,14 +15811,14 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.overflow_threshold_limit = None
                         self.overflow_threshold_percent = None
                         self.overflow_threshold_value = None
-                        self.overflow_threshold_limit = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:overflow'
 
@@ -15829,13 +15829,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.overflow_threshold_limit is not None:
+                            return True
+
                         if self.overflow_threshold_percent is not None:
                             return True
 
                         if self.overflow_threshold_value is not None:
-                            return True
-
-                        if self.overflow_threshold_limit is not None:
                             return True
 
                         return False
@@ -15851,9 +15851,9 @@ class InterfaceConfigurations(object):
                     Set min/max bandwidth auto\-bw can apply on a
                     tunnel
                     
-                    .. attribute:: bandwidth_min_limit
+                    .. attribute:: bandwidth_max_limit
                     
-                    	Set minimum bandwidth auto\-bw can apply on a tunnel
+                    	Set maximum bandwidth auto\-bw can apply on a tunnel
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -15863,9 +15863,9 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: bandwidth_max_limit
+                    .. attribute:: bandwidth_min_limit
                     
-                    	Set maximum bandwidth auto\-bw can apply on a tunnel
+                    	Set minimum bandwidth auto\-bw can apply on a tunnel
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -15886,13 +15886,13 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.bandwidth_min_limit = None
                         self.bandwidth_max_limit = None
+                        self.bandwidth_min_limit = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth-limits'
 
@@ -15903,10 +15903,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.bandwidth_min_limit is not None:
+                        if self.bandwidth_max_limit is not None:
                             return True
 
-                        if self.bandwidth_max_limit is not None:
+                        if self.bandwidth_min_limit is not None:
                             return True
 
                         return False
@@ -15963,7 +15963,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:adjustment-threshold'
 
@@ -15990,7 +15990,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:auto-bandwidth'
 
@@ -16001,25 +16001,25 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.underflow is not None and self.underflow._has_data():
-                        return True
-
-                    if self.overflow is not None and self.overflow._has_data():
-                        return True
-
-                    if self.bandwidth_limits is not None and self.bandwidth_limits._has_data():
-                        return True
-
                     if self.adjustment_threshold is not None and self.adjustment_threshold._has_data():
-                        return True
-
-                    if self.enabled is not None:
                         return True
 
                     if self.application_frequency is not None:
                         return True
 
+                    if self.bandwidth_limits is not None and self.bandwidth_limits._has_data():
+                        return True
+
                     if self.collection_only is not None:
+                        return True
+
+                    if self.enabled is not None:
+                        return True
+
+                    if self.overflow is not None and self.overflow._has_data():
+                        return True
+
+                    if self.underflow is not None and self.underflow._has_data():
                         return True
 
                     return False
@@ -16039,17 +16039,17 @@ class InterfaceConfigurations(object):
                 	Enable forwarding adjacency
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: include_ipv6
-                
-                	Specify that the tunnel should be an IPv6 forwarding adjacency also
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: hold_time
                 
                 	Specify the holdtime for the tunnel as forwarding adjacency
                 	**type**\: int
                 
                 	**range:** 0..20000
+                
+                .. attribute:: include_ipv6
+                
+                	Specify that the tunnel should be an IPv6 forwarding adjacency also
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -16061,13 +16061,13 @@ class InterfaceConfigurations(object):
                 def __init__(self):
                     self.parent = None
                     self.enable = None
-                    self.include_ipv6 = None
                     self.hold_time = None
+                    self.include_ipv6 = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:forwarding-adjacency'
 
@@ -16081,10 +16081,10 @@ class InterfaceConfigurations(object):
                     if self.enable is not None:
                         return True
 
-                    if self.include_ipv6 is not None:
+                    if self.hold_time is not None:
                         return True
 
-                    if self.hold_time is not None:
+                    if self.include_ipv6 is not None:
                         return True
 
                     return False
@@ -16099,25 +16099,25 @@ class InterfaceConfigurations(object):
                 """
                 Parameters for IGP routing over tunnel
                 
-                .. attribute:: metric
-                
-                	Specify MPLS tunnel metric
-                	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric>`
-                
                 .. attribute:: autoroute_announce
                 
                 	Announce tunnel to IGP
                 	**type**\: :py:class:`AutorouteAnnounce <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce>`
+                
+                .. attribute:: destination
+                
+                	Adds tunnel's destination in RIB
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: destination_xr
                 
                 	Tunnel Autoroute Destination(s)
                 	**type**\: :py:class:`DestinationXr <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr>`
                 
-                .. attribute:: destination
+                .. attribute:: metric
                 
-                	Adds tunnel's destination in RIB
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Specify MPLS tunnel metric
+                	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric>`
                 
                 
 
@@ -16128,23 +16128,18 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.metric = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric()
-                    self.metric.parent = self
                     self.autoroute_announce = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce()
                     self.autoroute_announce.parent = self
+                    self.destination = None
                     self.destination_xr = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr()
                     self.destination_xr.parent = self
-                    self.destination = None
+                    self.metric = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric()
+                    self.metric.parent = self
 
 
                 class Metric(object):
                     """
                     Specify MPLS tunnel metric
-                    
-                    .. attribute:: metric_type
-                    
-                    	Autoroute tunnel metric type
-                    	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                     
                     .. attribute:: absolute_metric
                     
@@ -16153,19 +16148,24 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..2147483647
                     
-                    .. attribute:: relative_metric
-                    
-                    	The value of the adjustment
-                    	**type**\: int
-                    
-                    	**range:** \-10..10
-                    
                     .. attribute:: constant_metric
                     
                     	The constant metric value
                     	**type**\: int
                     
                     	**range:** 1..2147483647
+                    
+                    .. attribute:: metric_type
+                    
+                    	Autoroute tunnel metric type
+                    	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                    
+                    .. attribute:: relative_metric
+                    
+                    	The value of the adjustment
+                    	**type**\: int
+                    
+                    	**range:** \-10..10
                     
                     
 
@@ -16176,15 +16176,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.metric_type = None
                         self.absolute_metric = None
-                        self.relative_metric = None
                         self.constant_metric = None
+                        self.metric_type = None
+                        self.relative_metric = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:metric'
 
@@ -16195,16 +16195,16 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.metric_type is not None:
-                            return True
-
                         if self.absolute_metric is not None:
                             return True
 
-                        if self.relative_metric is not None:
+                        if self.constant_metric is not None:
                             return True
 
-                        if self.constant_metric is not None:
+                        if self.metric_type is not None:
+                            return True
+
+                        if self.relative_metric is not None:
                             return True
 
                         return False
@@ -16219,11 +16219,6 @@ class InterfaceConfigurations(object):
                     """
                     Announce tunnel to IGP
                     
-                    .. attribute:: metric
-                    
-                    	Specify MPLS tunnel metric
-                    	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric>`
-                    
                     .. attribute:: enable
                     
                     	Enable autoroute announce
@@ -16234,6 +16229,11 @@ class InterfaceConfigurations(object):
                     	Specify that the tunnel should be an IPv6 autoroute announce also
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: metric
+                    
+                    	Specify MPLS tunnel metric
+                    	**type**\: :py:class:`Metric <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric>`
+                    
                     
 
                     """
@@ -16243,20 +16243,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.metric = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric()
-                        self.metric.parent = self
                         self.enable = None
                         self.include_ipv6 = None
+                        self.metric = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric()
+                        self.metric.parent = self
 
 
                     class Metric(object):
                         """
                         Specify MPLS tunnel metric
-                        
-                        .. attribute:: metric_type
-                        
-                        	Autoroute tunnel metric type
-                        	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                         
                         .. attribute:: absolute_metric
                         
@@ -16265,19 +16260,24 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 1..2147483647
                         
-                        .. attribute:: relative_metric
-                        
-                        	The value of the adjustment
-                        	**type**\: int
-                        
-                        	**range:** \-10..10
-                        
                         .. attribute:: constant_metric
                         
                         	The constant metric value
                         	**type**\: int
                         
                         	**range:** 1..2147483647
+                        
+                        .. attribute:: metric_type
+                        
+                        	Autoroute tunnel metric type
+                        	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                        
+                        .. attribute:: relative_metric
+                        
+                        	The value of the adjustment
+                        	**type**\: int
+                        
+                        	**range:** \-10..10
                         
                         
 
@@ -16288,15 +16288,15 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.metric_type = None
                             self.absolute_metric = None
-                            self.relative_metric = None
                             self.constant_metric = None
+                            self.metric_type = None
+                            self.relative_metric = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:metric'
 
@@ -16307,16 +16307,16 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.metric_type is not None:
-                                return True
-
                             if self.absolute_metric is not None:
                                 return True
 
-                            if self.relative_metric is not None:
+                            if self.constant_metric is not None:
                                 return True
 
-                            if self.constant_metric is not None:
+                            if self.metric_type is not None:
+                                return True
+
+                            if self.relative_metric is not None:
                                 return True
 
                             return False
@@ -16329,7 +16329,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:autoroute-announce'
 
@@ -16340,13 +16340,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.metric is not None and self.metric._has_data():
-                            return True
-
                         if self.enable is not None:
                             return True
 
                         if self.include_ipv6 is not None:
+                            return True
+
+                        if self.metric is not None and self.metric._has_data():
                             return True
 
                         return False
@@ -16405,9 +16405,9 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.destination_address is None:
-                                raise YPYDataValidationError('Key property destination_address is None')
+                                raise YPYModelError('Key property destination_address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination[Cisco-IOS-XR-mpls-te-cfg:destination-address = ' + str(self.destination_address) + ']'
 
@@ -16431,7 +16431,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination-xr'
 
@@ -16457,7 +16457,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:autoroute'
 
@@ -16468,16 +16468,16 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.metric is not None and self.metric._has_data():
+                    if self.autoroute_announce is not None and self.autoroute_announce._has_data():
                         return True
 
-                    if self.autoroute_announce is not None and self.autoroute_announce._has_data():
+                    if self.destination is not None:
                         return True
 
                     if self.destination_xr is not None and self.destination_xr._has_data():
                         return True
 
-                    if self.destination is not None:
+                    if self.metric is not None and self.metric._has_data():
                         return True
 
                     return False
@@ -16573,84 +16573,12 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..1000
                             
-                            .. attribute:: path_type
-                            
-                            	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
-                            
-                            .. attribute:: path_id
-                            
-                            	The ID of the IP explicit path associated with this option
-                            	**type**\: int
-                            
-                            	**range:** 1..65535
-                            
-                            .. attribute:: path_name
-                            
-                            	The name of the IP explicit path associated with this option
-                            	**type**\: str
-                            
-                            .. attribute:: path_property
-                            
-                            	Deprecated
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: interface
-                            
-                            	Deprecated
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: output_label
-                            
-                            	Deprecated
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: destination
                             
                             	Deprecated
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: lockdown
-                            
-                            	Lockdown properties
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                            
-                            .. attribute:: verbatim
-                            
-                            	Verbatim properties
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                            
-                            .. attribute:: pce
-                            
-                            	PCE properties
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
-                            
-                            .. attribute:: pce_address
-                            
-                            	PCE address
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: igp_type
-                            
-                            	IGP type
-                            	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
-                            
-                            .. attribute:: igp_instance
-                            
-                            	IGP instance name
-                            	**type**\: str
-                            
-                            	**range:** 0..40
                             
                             .. attribute:: igp_area
                             
@@ -16666,10 +16594,77 @@ class InterfaceConfigurations(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            .. attribute:: igp_instance
+                            
+                            	IGP instance name
+                            	**type**\: str
+                            
+                            	**range:** 0..40
+                            
+                            .. attribute:: igp_type
+                            
+                            	IGP type
+                            	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
+                            
+                            .. attribute:: interface
+                            
+                            	Deprecated
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: lockdown
+                            
+                            	Lockdown properties
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            .. attribute:: output_label
+                            
+                            	Deprecated
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: path_id
+                            
+                            	The ID of the IP explicit path associated with this option
+                            	**type**\: int
+                            
+                            	**range:** 1..65535
+                            
+                            .. attribute:: path_name
+                            
+                            	The name of the IP explicit path associated with this option
+                            	**type**\: str
+                            
                             .. attribute:: path_option_attribute_set_name
                             
                             	Path option attribute set name
                             	**type**\: str
+                            
+                            .. attribute:: path_property
+                            
+                            	Deprecated
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: path_type
+                            
+                            	The type of the path option
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            
+                            .. attribute:: pce
+                            
+                            	PCE properties
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            .. attribute:: pce_address
+                            
+                            	PCE address
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: protected_by_preference_level
                             
@@ -16683,6 +16678,11 @@ class InterfaceConfigurations(object):
                             	SegmentRouting properties
                             	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
+                            .. attribute:: verbatim
+                            
+                            	Verbatim properties
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
                             
 
                             """
@@ -16693,31 +16693,31 @@ class InterfaceConfigurations(object):
                             def __init__(self):
                                 self.parent = None
                                 self.preference_level = None
-                                self.path_type = None
-                                self.path_id = None
-                                self.path_name = None
-                                self.path_property = None
-                                self.interface = None
-                                self.output_label = None
                                 self.destination = None
-                                self.lockdown = None
-                                self.verbatim = None
-                                self.pce = None
-                                self.pce_address = None
-                                self.igp_type = None
-                                self.igp_instance = None
                                 self.igp_area = None
                                 self.igp_area_ip_address_id = None
+                                self.igp_instance = None
+                                self.igp_type = None
+                                self.interface = None
+                                self.lockdown = None
+                                self.output_label = None
+                                self.path_id = None
+                                self.path_name = None
                                 self.path_option_attribute_set_name = None
+                                self.path_property = None
+                                self.path_type = None
+                                self.pce = None
+                                self.pce_address = None
                                 self.protected_by_preference_level = None
                                 self.segment_routing = None
+                                self.verbatim = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.preference_level is None:
-                                    raise YPYDataValidationError('Key property preference_level is None')
+                                    raise YPYModelError('Key property preference_level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option[Cisco-IOS-XR-mpls-te-cfg:preference-level = ' + str(self.preference_level) + ']'
 
@@ -16731,43 +16731,7 @@ class InterfaceConfigurations(object):
                                 if self.preference_level is not None:
                                     return True
 
-                                if self.path_type is not None:
-                                    return True
-
-                                if self.path_id is not None:
-                                    return True
-
-                                if self.path_name is not None:
-                                    return True
-
-                                if self.path_property is not None:
-                                    return True
-
-                                if self.interface is not None:
-                                    return True
-
-                                if self.output_label is not None:
-                                    return True
-
                                 if self.destination is not None:
-                                    return True
-
-                                if self.lockdown is not None:
-                                    return True
-
-                                if self.verbatim is not None:
-                                    return True
-
-                                if self.pce is not None:
-                                    return True
-
-                                if self.pce_address is not None:
-                                    return True
-
-                                if self.igp_type is not None:
-                                    return True
-
-                                if self.igp_instance is not None:
                                     return True
 
                                 if self.igp_area is not None:
@@ -16776,13 +16740,49 @@ class InterfaceConfigurations(object):
                                 if self.igp_area_ip_address_id is not None:
                                     return True
 
+                                if self.igp_instance is not None:
+                                    return True
+
+                                if self.igp_type is not None:
+                                    return True
+
+                                if self.interface is not None:
+                                    return True
+
+                                if self.lockdown is not None:
+                                    return True
+
+                                if self.output_label is not None:
+                                    return True
+
+                                if self.path_id is not None:
+                                    return True
+
+                                if self.path_name is not None:
+                                    return True
+
                                 if self.path_option_attribute_set_name is not None:
+                                    return True
+
+                                if self.path_property is not None:
+                                    return True
+
+                                if self.path_type is not None:
+                                    return True
+
+                                if self.pce is not None:
+                                    return True
+
+                                if self.pce_address is not None:
                                     return True
 
                                 if self.protected_by_preference_level is not None:
                                     return True
 
                                 if self.segment_routing is not None:
+                                    return True
+
+                                if self.verbatim is not None:
                                     return True
 
                                 return False
@@ -16795,7 +16795,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-options'
 
@@ -16821,9 +16821,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.protection is None:
-                            raise YPYDataValidationError('Key property protection is None')
+                            raise YPYModelError('Key property protection is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option-protect[Cisco-IOS-XR-mpls-te-cfg:protection = ' + str(self.protection) + ']'
 
@@ -16850,7 +16850,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option-protects'
 
@@ -16913,15 +16913,15 @@ class InterfaceConfigurations(object):
                     """
                     Association Corouted Type
                     
-                    .. attribute:: fault_oam
-                    
-                    	Tunnel Fault OAM
-                    	**type**\: :py:class:`FaultOam <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam>`
-                    
                     .. attribute:: enable
                     
                     	Controls whether association type is co\-routed
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: fault_oam
+                    
+                    	Tunnel Fault OAM
+                    	**type**\: :py:class:`FaultOam <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam>`
                     
                     
 
@@ -16932,9 +16932,9 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.enable = None
                         self.fault_oam = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam()
                         self.fault_oam.parent = self
-                        self.enable = None
 
 
                     class FaultOam(object):
@@ -16960,7 +16960,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fault-oam'
 
@@ -16984,7 +16984,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:association-corouted-type'
 
@@ -16995,10 +16995,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.fault_oam is not None and self.fault_oam._has_data():
+                        if self.enable is not None:
                             return True
 
-                        if self.enable is not None:
+                        if self.fault_oam is not None and self.fault_oam._has_data():
                             return True
 
                         return False
@@ -17014,12 +17014,34 @@ class InterfaceConfigurations(object):
                     Association ID, Source IP Address, and Global
                     ID
                     
+                    .. attribute:: association_global_id
+                    
+                    	Association Global ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: association_id
                     
                     	Association ID
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    .. attribute:: association_is_global_id_configured
+                    
+                    	Is Association Global ID Configured
+                    	**type**\: bool
                     
                     .. attribute:: _is_presence
                     
@@ -17038,28 +17060,6 @@ class InterfaceConfigurations(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: association_is_global_id_configured
-                    
-                    	Is Association Global ID Configured
-                    	**type**\: bool
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    .. attribute:: association_global_id
-                    
-                    	Association Global ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -17071,15 +17071,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.association_id = None
-                        self.association_source_address = None
-                        self.association_is_global_id_configured = None
                         self.association_global_id = None
+                        self.association_id = None
+                        self.association_is_global_id_configured = None
+                        self.association_source_address = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:association-parameters'
 
@@ -17090,16 +17090,16 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.association_id is not None:
+                        if self.association_global_id is not None:
                             return True
 
-                        if self.association_source_address is not None:
+                        if self.association_id is not None:
                             return True
 
                         if self.association_is_global_id_configured is not None:
                             return True
 
-                        if self.association_global_id is not None:
+                        if self.association_source_address is not None:
                             return True
 
                         return False
@@ -17112,7 +17112,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bidirectional'
 
@@ -17164,7 +17164,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:admin-mode'
 
@@ -17191,15 +17191,15 @@ class InterfaceConfigurations(object):
                 Specify tunnel LSPs switching capability
                 descriptor
                 
-                .. attribute:: transit
-                
-                	Specify transit switching descriptor parameters
-                	**type**\: :py:class:`Transit <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit>`
-                
                 .. attribute:: endpoint
                 
                 	Specify end point switching descriptor parameters
                 	**type**\: :py:class:`Endpoint <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint>`
+                
+                .. attribute:: transit
+                
+                	Specify transit switching descriptor parameters
+                	**type**\: :py:class:`Transit <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit>`
                 
                 
 
@@ -17210,8 +17210,8 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.transit = None
                     self.endpoint = None
+                    self.transit = None
 
 
                 class Transit(object):
@@ -17256,7 +17256,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:transit'
 
@@ -17323,7 +17323,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:endpoint'
 
@@ -17350,7 +17350,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:switching'
 
@@ -17361,10 +17361,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.transit is not None and self.transit._has_data():
+                    if self.endpoint is not None and self.endpoint._has_data():
                         return True
 
-                    if self.endpoint is not None and self.endpoint._has_data():
+                    if self.transit is not None and self.transit._has_data():
                         return True
 
                     return False
@@ -17379,14 +17379,14 @@ class InterfaceConfigurations(object):
                 """
                 PCE config
                 
-                .. attribute:: enable
-                
-                	Always set to true
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: delegation
                 
                 	Enable PCE Delegation
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: enable
+                
+                	Always set to true
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -17398,13 +17398,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.enable = None
                     self.delegation = None
+                    self.enable = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:pce'
 
@@ -17415,10 +17415,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.enable is not None:
+                    if self.delegation is not None:
                         return True
 
-                    if self.delegation is not None:
+                    if self.enable is not None:
                         return True
 
                     return False
@@ -17433,9 +17433,9 @@ class InterfaceConfigurations(object):
                 """
                 Tunnel Setup and Hold Priorities
                 
-                .. attribute:: setup_priority
+                .. attribute:: hold_priority
                 
-                	Setup Priority
+                	Hold Priority
                 	**type**\: int
                 
                 	**range:** 0..7
@@ -17445,9 +17445,9 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: hold_priority
+                .. attribute:: setup_priority
                 
-                	Hold Priority
+                	Setup Priority
                 	**type**\: int
                 
                 	**range:** 0..7
@@ -17468,13 +17468,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.setup_priority = None
                     self.hold_priority = None
+                    self.setup_priority = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -17485,10 +17485,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.setup_priority is not None:
+                    if self.hold_priority is not None:
                         return True
 
-                    if self.hold_priority is not None:
+                    if self.setup_priority is not None:
                         return True
 
                     return False
@@ -17544,7 +17544,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -17573,10 +17573,12 @@ class InterfaceConfigurations(object):
                 """
                 Tunnel bandwidth requirement
                 
-                .. attribute:: dste_type
+                .. attribute:: bandwidth
                 
-                	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                	The value of the bandwidth reserved by this tunnel in kbps
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: _is_presence
                 
@@ -17595,12 +17597,10 @@ class InterfaceConfigurations(object):
                 	Is present if this instance represents presence container else not
                 	**type**\: bool
                 
-                .. attribute:: bandwidth
+                .. attribute:: dste_type
                 
-                	The value of the bandwidth reserved by this tunnel in kbps
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	DSTE\-standard flag
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -17618,14 +17618,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dste_type = None
-                    self.class_or_pool_type = None
                     self.bandwidth = None
+                    self.class_or_pool_type = None
+                    self.dste_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
 
@@ -17636,13 +17636,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dste_type is not None:
+                    if self.bandwidth is not None:
                         return True
 
                     if self.class_or_pool_type is not None:
                         return True
 
-                    if self.bandwidth is not None:
+                    if self.dste_type is not None:
                         return True
 
                     return False
@@ -17680,7 +17680,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:policy-classes'
 
@@ -17731,14 +17731,16 @@ class InterfaceConfigurations(object):
                     """
                     Tunnel new style affinity attribute
                     
-                    .. attribute:: affinity_type  <key>
-                    
-                    	The type of the affinity entry
-                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                    
                     .. attribute:: affinity1  <key>
                     
                     	The name of the first affinity
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: affinity10  <key>
+                    
+                    	The name of the tenth affinity
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -17799,12 +17801,10 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: affinity10  <key>
+                    .. attribute:: affinity_type  <key>
                     
-                    	The name of the tenth affinity
-                    	**type**\: str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    	The type of the affinity entry
+                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -17815,8 +17815,8 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.affinity_type = None
                         self.affinity1 = None
+                        self.affinity10 = None
                         self.affinity2 = None
                         self.affinity3 = None
                         self.affinity4 = None
@@ -17825,36 +17825,36 @@ class InterfaceConfigurations(object):
                         self.affinity7 = None
                         self.affinity8 = None
                         self.affinity9 = None
-                        self.affinity10 = None
+                        self.affinity_type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.affinity_type is None:
-                            raise YPYDataValidationError('Key property affinity_type is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.affinity1 is None:
-                            raise YPYDataValidationError('Key property affinity1 is None')
-                        if self.affinity2 is None:
-                            raise YPYDataValidationError('Key property affinity2 is None')
-                        if self.affinity3 is None:
-                            raise YPYDataValidationError('Key property affinity3 is None')
-                        if self.affinity4 is None:
-                            raise YPYDataValidationError('Key property affinity4 is None')
-                        if self.affinity5 is None:
-                            raise YPYDataValidationError('Key property affinity5 is None')
-                        if self.affinity6 is None:
-                            raise YPYDataValidationError('Key property affinity6 is None')
-                        if self.affinity7 is None:
-                            raise YPYDataValidationError('Key property affinity7 is None')
-                        if self.affinity8 is None:
-                            raise YPYDataValidationError('Key property affinity8 is None')
-                        if self.affinity9 is None:
-                            raise YPYDataValidationError('Key property affinity9 is None')
+                            raise YPYModelError('Key property affinity1 is None')
                         if self.affinity10 is None:
-                            raise YPYDataValidationError('Key property affinity10 is None')
+                            raise YPYModelError('Key property affinity10 is None')
+                        if self.affinity2 is None:
+                            raise YPYModelError('Key property affinity2 is None')
+                        if self.affinity3 is None:
+                            raise YPYModelError('Key property affinity3 is None')
+                        if self.affinity4 is None:
+                            raise YPYModelError('Key property affinity4 is None')
+                        if self.affinity5 is None:
+                            raise YPYModelError('Key property affinity5 is None')
+                        if self.affinity6 is None:
+                            raise YPYModelError('Key property affinity6 is None')
+                        if self.affinity7 is None:
+                            raise YPYModelError('Key property affinity7 is None')
+                        if self.affinity8 is None:
+                            raise YPYModelError('Key property affinity8 is None')
+                        if self.affinity9 is None:
+                            raise YPYModelError('Key property affinity9 is None')
+                        if self.affinity_type is None:
+                            raise YPYModelError('Key property affinity_type is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -17863,10 +17863,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.affinity_type is not None:
+                        if self.affinity1 is not None:
                             return True
 
-                        if self.affinity1 is not None:
+                        if self.affinity10 is not None:
                             return True
 
                         if self.affinity2 is not None:
@@ -17893,7 +17893,7 @@ class InterfaceConfigurations(object):
                         if self.affinity9 is not None:
                             return True
 
-                        if self.affinity10 is not None:
+                        if self.affinity_type is not None:
                             return True
 
                         return False
@@ -17906,7 +17906,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -17975,7 +17975,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fast-reroute'
 
@@ -18005,17 +18005,17 @@ class InterfaceConfigurations(object):
                 Path invalidation configuration for this
                 specific tunnel
                 
+                .. attribute:: path_invalidation_action
+                
+                	Path Invalidation Action
+                	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                
                 .. attribute:: path_invalidation_timeout
                 
                 	Path Invalidation Timeout
                 	**type**\: int
                 
                 	**range:** 0..60000
-                
-                .. attribute:: path_invalidation_action
-                
-                	Path Invalidation Action
-                	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
                 
                 
 
@@ -18026,13 +18026,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.path_invalidation_timeout = None
                     self.path_invalidation_action = None
+                    self.path_invalidation_timeout = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-invalidation'
 
@@ -18043,10 +18043,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.path_invalidation_timeout is not None:
+                    if self.path_invalidation_action is not None:
                         return True
 
-                    if self.path_invalidation_action is not None:
+                    if self.path_invalidation_timeout is not None:
                         return True
 
                     return False
@@ -18059,7 +18059,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tunnel-te-attributes'
 
@@ -18070,52 +18070,73 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.backup_bandwidth is not None and self.backup_bandwidth._has_data():
+                if self.admin_mode is not None and self.admin_mode._has_data():
                     return True
 
-                if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
-                    return True
-
-                if self.binding_segment_id_mpls is not None and self.binding_segment_id_mpls._has_data():
+                if self.affinity_mask is not None and self.affinity_mask._has_data():
                     return True
 
                 if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
                     return True
 
-                if self.forwarding_adjacency is not None and self.forwarding_adjacency._has_data():
-                    return True
-
                 if self.autoroute is not None and self.autoroute._has_data():
                     return True
 
-                if self.path_option_protects is not None and self.path_option_protects._has_data():
+                if self.backup_bandwidth is not None and self.backup_bandwidth._has_data():
+                    return True
+
+                if self.bandwidth is not None and self.bandwidth._has_data():
+                    return True
+
+                if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
                     return True
 
                 if self.bidirectional is not None and self.bidirectional._has_data():
                     return True
 
-                if self.admin_mode is not None and self.admin_mode._has_data():
-                    return True
-
-                if self.switching is not None and self.switching._has_data():
-                    return True
-
-                if self.pce is not None and self.pce._has_data():
-                    return True
-
-                if self.path_protection is not None:
+                if self.binding_segment_id_mpls is not None and self.binding_segment_id_mpls._has_data():
                     return True
 
                 if self.destination is not None:
                     return True
 
-                if self.path_selection_metric is not None:
+                if self.fast_reroute is not None and self.fast_reroute._has_data():
+                    return True
+
+                if self.forward_class is not None:
+                    return True
+
+                if self.forwarding_adjacency is not None and self.forwarding_adjacency._has_data():
+                    return True
+
+                if self.load_share is not None:
+                    return True
+
+                if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                    return True
+
+                if self.path_invalidation is not None and self.path_invalidation._has_data():
+                    return True
+
+                if self.path_option_protects is not None and self.path_option_protects._has_data():
+                    return True
+
+                if self.path_protection is not None:
+                    return True
+
+                if self.path_selection_cost_limit is not None:
                     return True
 
                 if self.path_selection_hop_limit is not None:
                     return True
 
-                if self.forward_class is not None:
+                if self.path_selection_metric is not None:
+                    return True
+
+                if self.pce is not None and self.pce._has_data():
+                    return True
+
+                if self.policy_classes is not None and self.policy_classes._has_data():
                     return True
 
                 if self.priority is not None and self.priority._has_data():
@@ -18124,34 +18145,13 @@ class InterfaceConfigurations(object):
                 if self.record_route is not None:
                     return True
 
-                if self.affinity_mask is not None and self.affinity_mask._has_data():
-                    return True
-
-                if self.bandwidth is not None and self.bandwidth._has_data():
-                    return True
-
-                if self.policy_classes is not None and self.policy_classes._has_data():
-                    return True
-
-                if self.path_selection_cost_limit is not None:
-                    return True
-
-                if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                if self.signalled_name is not None:
                     return True
 
                 if self.soft_preemption is not None:
                     return True
 
-                if self.fast_reroute is not None and self.fast_reroute._has_data():
-                    return True
-
-                if self.path_invalidation is not None and self.path_invalidation._has_data():
-                    return True
-
-                if self.load_share is not None:
-                    return True
-
-                if self.signalled_name is not None:
+                if self.switching is not None and self.switching._has_data():
                     return True
 
                 return False
@@ -18170,11 +18170,6 @@ class InterfaceConfigurations(object):
             
             	Configure BFD parameters
             	**type**\: :py:class:`Bfd <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd>`
-            
-            .. attribute:: working_lsp
-            
-            	Working LSP
-            	**type**\: :py:class:`WorkingLsp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp>`
             
             .. attribute:: destination
             
@@ -18198,6 +18193,11 @@ class InterfaceConfigurations(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: working_lsp
+            
+            	Working LSP
+            	**type**\: :py:class:`WorkingLsp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp>`
+            
             
 
             """
@@ -18209,8 +18209,6 @@ class InterfaceConfigurations(object):
                 self.parent = None
                 self.bfd = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd()
                 self.bfd.parent = self
-                self.working_lsp = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp()
-                self.working_lsp.parent = self
                 self.destination = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Destination()
                 self.destination.parent = self
                 self.fault = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault()
@@ -18218,21 +18216,13 @@ class InterfaceConfigurations(object):
                 self.protect_lsp = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp()
                 self.protect_lsp.parent = self
                 self.source = None
+                self.working_lsp = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp()
+                self.working_lsp.parent = self
 
 
             class Bfd(object):
                 """
                 Configure BFD parameters
-                
-                .. attribute:: min_interval
-                
-                	Hello interval, either in milli\-seconds or in micro\-seconds
-                	**type**\: :py:class:`MinInterval <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval>`
-                
-                .. attribute:: min_interval_standby
-                
-                	Hello interval for standby transport profile LSP, either in milli\-seconds or in micro\-seconds
-                	**type**\: :py:class:`MinIntervalStandby <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby>`
                 
                 .. attribute:: detection_multiplier
                 
@@ -18245,6 +18235,16 @@ class InterfaceConfigurations(object):
                 
                 	Configure BFD parameters
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: min_interval
+                
+                	Hello interval, either in milli\-seconds or in micro\-seconds
+                	**type**\: :py:class:`MinInterval <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval>`
+                
+                .. attribute:: min_interval_standby
+                
+                	Hello interval for standby transport profile LSP, either in milli\-seconds or in micro\-seconds
+                	**type**\: :py:class:`MinIntervalStandby <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby>`
                 
                 .. attribute:: multiplier_standby
                 
@@ -18262,12 +18262,12 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.detection_multiplier = None
+                    self.enable = None
                     self.min_interval = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval()
                     self.min_interval.parent = self
                     self.min_interval_standby = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby()
                     self.min_interval_standby.parent = self
-                    self.detection_multiplier = None
-                    self.enable = None
                     self.multiplier_standby = None
 
 
@@ -18305,7 +18305,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:min-interval'
 
@@ -18365,7 +18365,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:min-interval-standby'
 
@@ -18392,7 +18392,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bfd'
 
@@ -18403,16 +18403,16 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.min_interval is not None and self.min_interval._has_data():
-                        return True
-
-                    if self.min_interval_standby is not None and self.min_interval_standby._has_data():
-                        return True
-
                     if self.detection_multiplier is not None:
                         return True
 
                     if self.enable is not None:
+                        return True
+
+                    if self.min_interval is not None and self.min_interval._has_data():
+                        return True
+
+                    if self.min_interval_standby is not None and self.min_interval_standby._has_data():
                         return True
 
                     if self.multiplier_standby is not None:
@@ -18429,11 +18429,6 @@ class InterfaceConfigurations(object):
             class WorkingLsp(object):
                 """
                 Working LSP
-                
-                .. attribute:: out_label
-                
-                	Outgoing MPLS label of the working LSP
-                	**type**\: :py:class:`OutLabel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp.OutLabel>`
                 
                 .. attribute:: in_label
                 
@@ -18454,6 +18449,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..65535
                 
+                .. attribute:: out_label
+                
+                	Outgoing MPLS label of the working LSP
+                	**type**\: :py:class:`OutLabel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp.OutLabel>`
+                
                 
 
                 """
@@ -18463,10 +18463,10 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.out_label = None
                     self.in_label = None
                     self.lockout = None
                     self.lsp_id = None
+                    self.out_label = None
 
 
                 class OutLabel(object):
@@ -18514,7 +18514,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:out-label'
 
@@ -18541,7 +18541,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:working-lsp'
 
@@ -18552,9 +18552,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.out_label is not None and self.out_label._has_data():
-                        return True
-
                     if self.in_label is not None:
                         return True
 
@@ -18562,6 +18559,9 @@ class InterfaceConfigurations(object):
                         return True
 
                     if self.lsp_id is not None:
+                        return True
+
+                    if self.out_label is not None and self.out_label._has_data():
                         return True
 
                     return False
@@ -18577,19 +18577,19 @@ class InterfaceConfigurations(object):
                 Node identifier and optional global identifier
                 and tunnel identifier at destination
                 
-                .. attribute:: node_id
-                
-                	Node identifier in IPv4 address format
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
                 .. attribute:: global_id
                 
                 	Numeric global identifier
                 	**type**\: int
                 
                 	**range:** 1..65535
+                
+                .. attribute:: node_id
+                
+                	Node identifier in IPv4 address format
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: tunnel_id
                 
@@ -18607,14 +18607,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.node_id = None
                     self.global_id = None
+                    self.node_id = None
                     self.tunnel_id = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination'
 
@@ -18625,10 +18625,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.node_id is not None:
+                    if self.global_id is not None:
                         return True
 
-                    if self.global_id is not None:
+                    if self.node_id is not None:
                         return True
 
                     if self.tunnel_id is not None:
@@ -18646,15 +18646,15 @@ class InterfaceConfigurations(object):
                 """
                 Fault management
                 
-                .. attribute:: protection_trigger
-                
-                	OAM events that trigger protection switching
-                	**type**\: :py:class:`ProtectionTrigger <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault.ProtectionTrigger>`
-                
                 .. attribute:: enable
                 
                 	Enter transport profile tunnel fault configuration
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: protection_trigger
+                
+                	OAM events that trigger protection switching
+                	**type**\: :py:class:`ProtectionTrigger <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault.ProtectionTrigger>`
                 
                 
 
@@ -18665,23 +18665,23 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.enable = None
                     self.protection_trigger = InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault.ProtectionTrigger()
                     self.protection_trigger.parent = self
-                    self.enable = None
 
 
                 class ProtectionTrigger(object):
                     """
                     OAM events that trigger protection switching
                     
-                    .. attribute:: ldi
-                    
-                    	Enable protection switching due to LDI event
-                    	**type**\: bool
-                    
                     .. attribute:: ais
                     
                     	Enable protection switching due to AIS event
+                    	**type**\: bool
+                    
+                    .. attribute:: ldi
+                    
+                    	Enable protection switching due to LDI event
                     	**type**\: bool
                     
                     .. attribute:: lkr
@@ -18698,14 +18698,14 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ldi = None
                         self.ais = None
+                        self.ldi = None
                         self.lkr = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:protection-trigger'
 
@@ -18716,10 +18716,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ldi is not None:
+                        if self.ais is not None:
                             return True
 
-                        if self.ais is not None:
+                        if self.ldi is not None:
                             return True
 
                         if self.lkr is not None:
@@ -18735,7 +18735,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fault'
 
@@ -18746,10 +18746,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.protection_trigger is not None and self.protection_trigger._has_data():
+                    if self.enable is not None:
                         return True
 
-                    if self.enable is not None:
+                    if self.protection_trigger is not None and self.protection_trigger._has_data():
                         return True
 
                     return False
@@ -18763,11 +18763,6 @@ class InterfaceConfigurations(object):
             class ProtectLsp(object):
                 """
                 Protect LSP
-                
-                .. attribute:: out_label
-                
-                	Outgoing MPLS label of the protect LSP
-                	**type**\: :py:class:`OutLabel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp.OutLabel>`
                 
                 .. attribute:: in_label
                 
@@ -18788,6 +18783,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..65535
                 
+                .. attribute:: out_label
+                
+                	Outgoing MPLS label of the protect LSP
+                	**type**\: :py:class:`OutLabel <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp.OutLabel>`
+                
                 
 
                 """
@@ -18797,10 +18797,10 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.out_label = None
                     self.in_label = None
                     self.lockout = None
                     self.lsp_id = None
+                    self.out_label = None
 
 
                 class OutLabel(object):
@@ -18848,7 +18848,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:out-label'
 
@@ -18875,7 +18875,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:protect-lsp'
 
@@ -18886,9 +18886,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.out_label is not None and self.out_label._has_data():
-                        return True
-
                     if self.in_label is not None:
                         return True
 
@@ -18896,6 +18893,9 @@ class InterfaceConfigurations(object):
                         return True
 
                     if self.lsp_id is not None:
+                        return True
+
+                    if self.out_label is not None and self.out_label._has_data():
                         return True
 
                     return False
@@ -18908,7 +18908,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:transport-profile-tunnel'
 
@@ -18920,9 +18920,6 @@ class InterfaceConfigurations(object):
                 if not self.is_config():
                     return False
                 if self.bfd is not None and self.bfd._has_data():
-                    return True
-
-                if self.working_lsp is not None and self.working_lsp._has_data():
                     return True
 
                 if self.destination is not None and self.destination._has_data():
@@ -18937,6 +18934,9 @@ class InterfaceConfigurations(object):
                 if self.source is not None:
                     return True
 
+                if self.working_lsp is not None and self.working_lsp._has_data():
+                    return True
+
                 return False
 
             @staticmethod
@@ -18949,54 +18949,20 @@ class InterfaceConfigurations(object):
             """
             MPLS P2MP tunnel attributes
             
-            .. attribute:: destination_leafs
+            .. attribute:: affinity_mask
             
-            	P2MP destination table
-            	**type**\: :py:class:`DestinationLeafs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs>`
-            
-            .. attribute:: priority
-            
-            	P2MP tunnel setup and hold priorities
-            	**type**\: :py:class:`Priority <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority>`
-            
-            .. attribute:: new_style_affinities
-            
-            	P2MP tunnel new style affinity attributes table
-            	**type**\: :py:class:`NewStyleAffinities <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities>`
+            	P2MP tunnel affinity and mask
+            	**type**\: :py:class:`AffinityMask <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask>`
             
             .. attribute:: bandwidth
             
             	P2MP tunnel bandwidth requirement
             	**type**\: :py:class:`Bandwidth <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth>`
             
-            .. attribute:: affinity_mask
+            .. attribute:: destination_leafs
             
-            	P2MP tunnel affinity and mask
-            	**type**\: :py:class:`AffinityMask <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask>`
-            
-            .. attribute:: record_route
-            
-            	Record route used by individual P2MP S2L(s)
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: signalled_name
-            
-            	The name of the P2MP tunnel to be included in signalling messages
-            	**type**\: str
-            
-            	**range:** 0..254
-            
-            .. attribute:: path_selection_metric
-            
-            	Path selection configuration for this specific tunnel
-            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
-            
-            .. attribute:: signalled_payload
-            
-            	P2MP tunnel ipv6 signalled payload
-            	**type**\: str
-            
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
+            	P2MP destination table
+            	**type**\: :py:class:`DestinationLeafs <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs>`
             
             .. attribute:: fast_reroute
             
@@ -19013,6 +18979,40 @@ class InterfaceConfigurations(object):
             	Log tunnel LSP messages
             	**type**\: :py:class:`Logging <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Logging>`
             
+            .. attribute:: new_style_affinities
+            
+            	P2MP tunnel new style affinity attributes table
+            	**type**\: :py:class:`NewStyleAffinities <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities>`
+            
+            .. attribute:: path_selection_metric
+            
+            	Path selection configuration for this specific tunnel
+            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+            
+            .. attribute:: priority
+            
+            	P2MP tunnel setup and hold priorities
+            	**type**\: :py:class:`Priority <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority>`
+            
+            .. attribute:: record_route
+            
+            	Record route used by individual P2MP S2L(s)
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: signalled_name
+            
+            	The name of the P2MP tunnel to be included in signalling messages
+            	**type**\: str
+            
+            	**range:** 0..254
+            
+            .. attribute:: signalled_payload
+            
+            	P2MP tunnel ipv6 signalled payload
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{1,8}
+            
             
 
             """
@@ -19022,24 +19022,24 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_leafs = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs()
-                self.destination_leafs.parent = self
-                self.priority = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority()
-                self.priority.parent = self
-                self.new_style_affinities = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities()
-                self.new_style_affinities.parent = self
-                self.bandwidth = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth()
-                self.bandwidth.parent = self
                 self.affinity_mask = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask()
                 self.affinity_mask.parent = self
-                self.record_route = None
-                self.signalled_name = None
-                self.path_selection_metric = None
-                self.signalled_payload = None
+                self.bandwidth = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth()
+                self.bandwidth.parent = self
+                self.destination_leafs = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs()
+                self.destination_leafs.parent = self
                 self.fast_reroute = None
                 self.impose_explicit_null = None
                 self.logging = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Logging()
                 self.logging.parent = self
+                self.new_style_affinities = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities()
+                self.new_style_affinities.parent = self
+                self.path_selection_metric = None
+                self.priority = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority()
+                self.priority.parent = self
+                self.record_route = None
+                self.signalled_name = None
+                self.signalled_payload = None
 
 
             class DestinationLeafs(object):
@@ -19076,25 +19076,25 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: s2l_logging
+                    .. attribute:: destination
                     
-                    	Log tunnel destination s2l messages
-                    	**type**\: :py:class:`S2LLogging <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging>`
-                    
-                    .. attribute:: path_options
-                    
-                    	P2MP destination path\-options attributes table
-                    	**type**\: :py:class:`PathOptions <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions>`
+                    	Always set to true
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: destination_disable
                     
                     	Disables P2MP destination
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: destination
+                    .. attribute:: path_options
                     
-                    	Always set to true
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	P2MP destination path\-options attributes table
+                    	**type**\: :py:class:`PathOptions <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions>`
+                    
+                    .. attribute:: s2l_logging
+                    
+                    	Log tunnel destination s2l messages
+                    	**type**\: :py:class:`S2LLogging <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging>`
                     
                     
 
@@ -19106,22 +19106,17 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.address = None
-                        self.s2l_logging = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging()
-                        self.s2l_logging.parent = self
+                        self.destination = None
+                        self.destination_disable = None
                         self.path_options = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions()
                         self.path_options.parent = self
-                        self.destination_disable = None
-                        self.destination = None
+                        self.s2l_logging = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging()
+                        self.s2l_logging.parent = self
 
 
                     class S2LLogging(object):
                         """
                         Log tunnel destination s2l messages
-                        
-                        .. attribute:: s2l_reroute_messsage
-                        
-                        	Log tunnel destination s2l rereoute messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: s2l_insufficient_bw_messsage
                         
@@ -19131,6 +19126,11 @@ class InterfaceConfigurations(object):
                         .. attribute:: s2l_pcalc_failure_message
                         
                         	Enable logging for destination s2l path\-calculation failures
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: s2l_reroute_messsage
+                        
+                        	Log tunnel destination s2l rereoute messages
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: s2l_state_message
@@ -19147,15 +19147,15 @@ class InterfaceConfigurations(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.s2l_reroute_messsage = None
                             self.s2l_insufficient_bw_messsage = None
                             self.s2l_pcalc_failure_message = None
+                            self.s2l_reroute_messsage = None
                             self.s2l_state_message = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:s2l-logging'
 
@@ -19166,13 +19166,13 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.s2l_reroute_messsage is not None:
-                                return True
-
                             if self.s2l_insufficient_bw_messsage is not None:
                                 return True
 
                             if self.s2l_pcalc_failure_message is not None:
+                                return True
+
+                            if self.s2l_reroute_messsage is not None:
                                 return True
 
                             if self.s2l_state_message is not None:
@@ -19221,10 +19221,10 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..1000
                             
-                            .. attribute:: path_type
+                            .. attribute:: lockdown
                             
-                            	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            	Path option properties
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: path_id
                             
@@ -19238,10 +19238,10 @@ class InterfaceConfigurations(object):
                             	The name of the IP explicit path associated with this option
                             	**type**\: str
                             
-                            .. attribute:: lockdown
+                            .. attribute:: path_type
                             
-                            	Path option properties
-                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	The type of the path option
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             .. attribute:: verbatim
                             
@@ -19258,18 +19258,18 @@ class InterfaceConfigurations(object):
                             def __init__(self):
                                 self.parent = None
                                 self.preference_level = None
-                                self.path_type = None
+                                self.lockdown = None
                                 self.path_id = None
                                 self.path_name = None
-                                self.lockdown = None
+                                self.path_type = None
                                 self.verbatim = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.preference_level is None:
-                                    raise YPYDataValidationError('Key property preference_level is None')
+                                    raise YPYModelError('Key property preference_level is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-option[Cisco-IOS-XR-mpls-te-cfg:preference-level = ' + str(self.preference_level) + ']'
 
@@ -19283,7 +19283,7 @@ class InterfaceConfigurations(object):
                                 if self.preference_level is not None:
                                     return True
 
-                                if self.path_type is not None:
+                                if self.lockdown is not None:
                                     return True
 
                                 if self.path_id is not None:
@@ -19292,7 +19292,7 @@ class InterfaceConfigurations(object):
                                 if self.path_name is not None:
                                     return True
 
-                                if self.lockdown is not None:
+                                if self.path_type is not None:
                                     return True
 
                                 if self.verbatim is not None:
@@ -19308,7 +19308,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-options'
 
@@ -19334,9 +19334,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
+                            raise YPYModelError('Key property address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination-leaf[Cisco-IOS-XR-mpls-te-cfg:address = ' + str(self.address) + ']'
 
@@ -19350,16 +19350,16 @@ class InterfaceConfigurations(object):
                         if self.address is not None:
                             return True
 
-                        if self.s2l_logging is not None and self.s2l_logging._has_data():
-                            return True
-
-                        if self.path_options is not None and self.path_options._has_data():
+                        if self.destination is not None:
                             return True
 
                         if self.destination_disable is not None:
                             return True
 
-                        if self.destination is not None:
+                        if self.path_options is not None and self.path_options._has_data():
+                            return True
+
+                        if self.s2l_logging is not None and self.s2l_logging._has_data():
                             return True
 
                         return False
@@ -19372,7 +19372,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination-leafs'
 
@@ -19400,16 +19400,16 @@ class InterfaceConfigurations(object):
                 """
                 P2MP tunnel setup and hold priorities
                 
-                .. attribute:: setup_priority
+                .. attribute:: hold_priority
                 
-                	Setup Priority
+                	Hold Priority
                 	**type**\: int
                 
                 	**range:** 0..7
                 
-                .. attribute:: hold_priority
+                .. attribute:: setup_priority
                 
-                	Hold Priority
+                	Setup Priority
                 	**type**\: int
                 
                 	**range:** 0..7
@@ -19423,13 +19423,13 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.setup_priority = None
                     self.hold_priority = None
+                    self.setup_priority = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
 
@@ -19440,10 +19440,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.setup_priority is not None:
+                    if self.hold_priority is not None:
                         return True
 
-                    if self.hold_priority is not None:
+                    if self.setup_priority is not None:
                         return True
 
                     return False
@@ -19481,14 +19481,16 @@ class InterfaceConfigurations(object):
                     """
                     Tunnel new style affinity attribute
                     
-                    .. attribute:: affinity_type  <key>
-                    
-                    	The type of the affinity entry
-                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                    
                     .. attribute:: affinity1  <key>
                     
                     	The name of the first affinity
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: affinity10  <key>
+                    
+                    	The name of the tenth affinity
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -19549,12 +19551,10 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: affinity10  <key>
+                    .. attribute:: affinity_type  <key>
                     
-                    	The name of the tenth affinity
-                    	**type**\: str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    	The type of the affinity entry
+                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -19565,8 +19565,8 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.affinity_type = None
                         self.affinity1 = None
+                        self.affinity10 = None
                         self.affinity2 = None
                         self.affinity3 = None
                         self.affinity4 = None
@@ -19575,36 +19575,36 @@ class InterfaceConfigurations(object):
                         self.affinity7 = None
                         self.affinity8 = None
                         self.affinity9 = None
-                        self.affinity10 = None
+                        self.affinity_type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.affinity_type is None:
-                            raise YPYDataValidationError('Key property affinity_type is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.affinity1 is None:
-                            raise YPYDataValidationError('Key property affinity1 is None')
-                        if self.affinity2 is None:
-                            raise YPYDataValidationError('Key property affinity2 is None')
-                        if self.affinity3 is None:
-                            raise YPYDataValidationError('Key property affinity3 is None')
-                        if self.affinity4 is None:
-                            raise YPYDataValidationError('Key property affinity4 is None')
-                        if self.affinity5 is None:
-                            raise YPYDataValidationError('Key property affinity5 is None')
-                        if self.affinity6 is None:
-                            raise YPYDataValidationError('Key property affinity6 is None')
-                        if self.affinity7 is None:
-                            raise YPYDataValidationError('Key property affinity7 is None')
-                        if self.affinity8 is None:
-                            raise YPYDataValidationError('Key property affinity8 is None')
-                        if self.affinity9 is None:
-                            raise YPYDataValidationError('Key property affinity9 is None')
+                            raise YPYModelError('Key property affinity1 is None')
                         if self.affinity10 is None:
-                            raise YPYDataValidationError('Key property affinity10 is None')
+                            raise YPYModelError('Key property affinity10 is None')
+                        if self.affinity2 is None:
+                            raise YPYModelError('Key property affinity2 is None')
+                        if self.affinity3 is None:
+                            raise YPYModelError('Key property affinity3 is None')
+                        if self.affinity4 is None:
+                            raise YPYModelError('Key property affinity4 is None')
+                        if self.affinity5 is None:
+                            raise YPYModelError('Key property affinity5 is None')
+                        if self.affinity6 is None:
+                            raise YPYModelError('Key property affinity6 is None')
+                        if self.affinity7 is None:
+                            raise YPYModelError('Key property affinity7 is None')
+                        if self.affinity8 is None:
+                            raise YPYModelError('Key property affinity8 is None')
+                        if self.affinity9 is None:
+                            raise YPYModelError('Key property affinity9 is None')
+                        if self.affinity_type is None:
+                            raise YPYModelError('Key property affinity_type is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -19613,10 +19613,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.affinity_type is not None:
+                        if self.affinity1 is not None:
                             return True
 
-                        if self.affinity1 is not None:
+                        if self.affinity10 is not None:
                             return True
 
                         if self.affinity2 is not None:
@@ -19643,7 +19643,7 @@ class InterfaceConfigurations(object):
                         if self.affinity9 is not None:
                             return True
 
-                        if self.affinity10 is not None:
+                        if self.affinity_type is not None:
                             return True
 
                         return False
@@ -19656,7 +19656,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
 
@@ -19684,10 +19684,12 @@ class InterfaceConfigurations(object):
                 """
                 P2MP tunnel bandwidth requirement
                 
-                .. attribute:: dste_type
+                .. attribute:: bandwidth
                 
-                	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                	The value of the bandwidth reserved by this tunnel in kbps
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: class_or_pool_type
                 
@@ -19696,12 +19698,10 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..1
                 
-                .. attribute:: bandwidth
+                .. attribute:: dste_type
                 
-                	The value of the bandwidth reserved by this tunnel in kbps
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	DSTE\-standard flag
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 
 
@@ -19712,14 +19712,14 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dste_type = None
-                    self.class_or_pool_type = None
                     self.bandwidth = None
+                    self.class_or_pool_type = None
+                    self.dste_type = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
 
@@ -19730,13 +19730,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dste_type is not None:
+                    if self.bandwidth is not None:
                         return True
 
                     if self.class_or_pool_type is not None:
                         return True
 
-                    if self.bandwidth is not None:
+                    if self.dste_type is not None:
                         return True
 
                     return False
@@ -19780,7 +19780,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
 
@@ -19809,14 +19809,9 @@ class InterfaceConfigurations(object):
                 """
                 Log tunnel LSP messages
                 
-                .. attribute:: insufficient_bw_message
+                .. attribute:: all
                 
-                	Log tunnel messages for insufficient bandwidth
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: reoptimized_message
-                
-                	Log tunnel reoptimized messages
+                	Log all events for a tunnel
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: bandwidth_change_message
@@ -19824,9 +19819,9 @@ class InterfaceConfigurations(object):
                 	Log tunnel bandwidth change messages
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: all
+                .. attribute:: insufficient_bw_message
                 
-                	Log all events for a tunnel
+                	Log tunnel messages for insufficient bandwidth
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: pcalc_failure_message
@@ -19834,24 +19829,29 @@ class InterfaceConfigurations(object):
                 	Enable logging for path\-calculation failures
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: state_message
-                
-                	Log tunnel state messages
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: reoptimize_attempts_message
                 
                 	Log tunnel reoptimization attempts messages
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: sub_lsp_state_message
+                .. attribute:: reoptimized_message
                 
-                	Log all tunnel sub\-LSP state messages
+                	Log tunnel reoptimized messages
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: reroute_messsage
                 
                 	Log tunnel rereoute messages
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: state_message
+                
+                	Log tunnel state messages
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: sub_lsp_state_message
+                
+                	Log all tunnel sub\-LSP state messages
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
@@ -19863,20 +19863,20 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.insufficient_bw_message = None
-                    self.reoptimized_message = None
-                    self.bandwidth_change_message = None
                     self.all = None
+                    self.bandwidth_change_message = None
+                    self.insufficient_bw_message = None
                     self.pcalc_failure_message = None
-                    self.state_message = None
                     self.reoptimize_attempts_message = None
-                    self.sub_lsp_state_message = None
+                    self.reoptimized_message = None
                     self.reroute_messsage = None
+                    self.state_message = None
+                    self.sub_lsp_state_message = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
 
@@ -19887,31 +19887,31 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.insufficient_bw_message is not None:
-                        return True
-
-                    if self.reoptimized_message is not None:
+                    if self.all is not None:
                         return True
 
                     if self.bandwidth_change_message is not None:
                         return True
 
-                    if self.all is not None:
+                    if self.insufficient_bw_message is not None:
                         return True
 
                     if self.pcalc_failure_message is not None:
                         return True
 
-                    if self.state_message is not None:
-                        return True
-
                     if self.reoptimize_attempts_message is not None:
                         return True
 
-                    if self.sub_lsp_state_message is not None:
+                    if self.reoptimized_message is not None:
                         return True
 
                     if self.reroute_messsage is not None:
+                        return True
+
+                    if self.state_message is not None:
+                        return True
+
+                    if self.sub_lsp_state_message is not None:
                         return True
 
                     return False
@@ -19924,7 +19924,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:mte-tunnel-attributes'
 
@@ -19935,31 +19935,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.destination_leafs is not None and self.destination_leafs._has_data():
-                    return True
-
-                if self.priority is not None and self.priority._has_data():
-                    return True
-
-                if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                if self.affinity_mask is not None and self.affinity_mask._has_data():
                     return True
 
                 if self.bandwidth is not None and self.bandwidth._has_data():
                     return True
 
-                if self.affinity_mask is not None and self.affinity_mask._has_data():
-                    return True
-
-                if self.record_route is not None:
-                    return True
-
-                if self.signalled_name is not None:
-                    return True
-
-                if self.path_selection_metric is not None:
-                    return True
-
-                if self.signalled_payload is not None:
+                if self.destination_leafs is not None and self.destination_leafs._has_data():
                     return True
 
                 if self.fast_reroute is not None:
@@ -19969,6 +19951,24 @@ class InterfaceConfigurations(object):
                     return True
 
                 if self.logging is not None and self.logging._has_data():
+                    return True
+
+                if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                    return True
+
+                if self.path_selection_metric is not None:
+                    return True
+
+                if self.priority is not None and self.priority._has_data():
+                    return True
+
+                if self.record_route is not None:
+                    return True
+
+                if self.signalled_name is not None:
+                    return True
+
+                if self.signalled_payload is not None:
                     return True
 
                 return False
@@ -19983,6 +19983,20 @@ class InterfaceConfigurations(object):
             """
             Interface QOS configuration
             
+            .. attribute:: actual_rate_down
+            
+            	Minimum bandwidth guaranteed for a subscriber
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: actual_rate_up
+            
+            	Minimum bandwidth guaranteed for a subscriber
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
             .. attribute:: input
             
             	Ingress service policy
@@ -19993,20 +20007,6 @@ class InterfaceConfigurations(object):
             	Egress service policy
             	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output>`
             
-            .. attribute:: actual_rate_up
-            
-            	Minimum bandwidth guaranteed for a subscriber
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: actual_rate_down
-            
-            	Minimum bandwidth guaranteed for a subscriber
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
             
 
             """
@@ -20016,12 +20016,12 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
+                self.actual_rate_down = None
+                self.actual_rate_up = None
                 self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input()
                 self.input.parent = self
                 self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output()
                 self.output.parent = self
-                self.actual_rate_up = None
-                self.actual_rate_down = None
 
 
             class Input(object):
@@ -20070,17 +20070,7 @@ class InterfaceConfigurations(object):
                     
                     	**range:** \-63..63
                     
-                    .. attribute:: spi_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
                     .. attribute:: policy_merge
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
-                    
-                    .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
@@ -20091,6 +20081,16 @@ class InterfaceConfigurations(object):
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: service_fragment_parent_policy
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
+                    
+                    .. attribute:: spi_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
@@ -20107,18 +20107,18 @@ class InterfaceConfigurations(object):
                         self.service_policy_name = None
                         self.account_type = None
                         self.l1_user_defined = None
-                        self.spi_name = None
                         self.policy_merge = None
-                        self.subscriber_parent_policy = None
                         self.resource_id = None
                         self.service_fragment_parent_policy = None
+                        self.spi_name = None
+                        self.subscriber_parent_policy = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.service_policy_name is None:
-                            raise YPYDataValidationError('Key property service_policy_name is None')
+                            raise YPYModelError('Key property service_policy_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-cfg:service-policy[Cisco-IOS-XR-ncs5500-qos-cfg:service-policy-name = ' + str(self.service_policy_name) + ']'
 
@@ -20138,19 +20138,19 @@ class InterfaceConfigurations(object):
                         if self.l1_user_defined is not None:
                             return True
 
-                        if self.spi_name is not None:
-                            return True
-
                         if self.policy_merge is not None:
-                            return True
-
-                        if self.subscriber_parent_policy is not None:
                             return True
 
                         if self.resource_id is not None:
                             return True
 
                         if self.service_fragment_parent_policy is not None:
+                            return True
+
+                        if self.spi_name is not None:
+                            return True
+
+                        if self.subscriber_parent_policy is not None:
                             return True
 
                         return False
@@ -20163,7 +20163,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-cfg:input'
 
@@ -20233,17 +20233,7 @@ class InterfaceConfigurations(object):
                     
                     	**range:** \-63..63
                     
-                    .. attribute:: spi_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: str
-                    
                     .. attribute:: policy_merge
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
-                    
-                    .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
@@ -20254,6 +20244,16 @@ class InterfaceConfigurations(object):
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: service_fragment_parent_policy
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
+                    
+                    .. attribute:: spi_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: str
+                    
+                    .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
@@ -20270,18 +20270,18 @@ class InterfaceConfigurations(object):
                         self.service_policy_name = None
                         self.account_type = None
                         self.l1_user_defined = None
-                        self.spi_name = None
                         self.policy_merge = None
-                        self.subscriber_parent_policy = None
                         self.resource_id = None
                         self.service_fragment_parent_policy = None
+                        self.spi_name = None
+                        self.subscriber_parent_policy = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.service_policy_name is None:
-                            raise YPYDataValidationError('Key property service_policy_name is None')
+                            raise YPYModelError('Key property service_policy_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-cfg:service-policy[Cisco-IOS-XR-ncs5500-qos-cfg:service-policy-name = ' + str(self.service_policy_name) + ']'
 
@@ -20301,19 +20301,19 @@ class InterfaceConfigurations(object):
                         if self.l1_user_defined is not None:
                             return True
 
-                        if self.spi_name is not None:
-                            return True
-
                         if self.policy_merge is not None:
-                            return True
-
-                        if self.subscriber_parent_policy is not None:
                             return True
 
                         if self.resource_id is not None:
                             return True
 
                         if self.service_fragment_parent_policy is not None:
+                            return True
+
+                        if self.spi_name is not None:
+                            return True
+
+                        if self.subscriber_parent_policy is not None:
                             return True
 
                         return False
@@ -20326,7 +20326,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-cfg:output'
 
@@ -20352,7 +20352,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-cfg:Cisco-IOS-XR-ncs5500-qos-cfg_qos'
 
@@ -20363,16 +20363,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.input is not None and self.input._has_data():
-                    return True
-
-                if self.output is not None and self.output._has_data():
+                if self.actual_rate_down is not None:
                     return True
 
                 if self.actual_rate_up is not None:
                     return True
 
-                if self.actual_rate_down is not None:
+                if self.input is not None and self.input._has_data():
+                    return True
+
+                if self.output is not None and self.output._has_data():
                     return True
 
                 return False
@@ -20434,7 +20434,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
 
@@ -20458,7 +20458,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
 
@@ -20487,40 +20487,10 @@ class InterfaceConfigurations(object):
             """
             Configure pm parameters
             
-            .. attribute:: stm_hour24
-            
-            	set STM threshold
-            	**type**\: :py:class:`StmHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24>`
-            
-            .. attribute:: minute15_gfp
-            
-            	set opr min threshold
-            	**type**\: :py:class:`Minute15Gfp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp>`
-            
-            .. attribute:: sonet_minute15
-            
-            	set Sonet threshold
-            	**type**\: :py:class:`SonetMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15>`
-            
-            .. attribute:: hour24_gfp
-            
-            	Configure pm parameters of gfp 24 hour interval
-            	**type**\: :py:class:`Hour24Gfp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp>`
-            
             .. attribute:: ethernet_hour24
             
             	Configure pm parameters of 24 hour interval
             	**type**\: :py:class:`EthernetHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24>`
-            
-            .. attribute:: minute15otn_tcms
-            
-            	set opr min threshold
-            	**type**\: :py:class:`Minute15OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms>`
-            
-            .. attribute:: oc_hour24
-            
-            	set Oc threshold
-            	**type**\: :py:class:`OcHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24>`
             
             .. attribute:: ethernet_minute15
             
@@ -20532,60 +20502,90 @@ class InterfaceConfigurations(object):
             	set HO\_VC threshold
             	**type**\: :py:class:`HoVcHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24>`
             
-            .. attribute:: hour24otn_tcms
+            .. attribute:: ho_vc_minute15
             
-            	Configure pm parameters of tcm's 24 hour interval
-            	**type**\: :py:class:`Hour24OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms>`
-            
-            .. attribute:: sts_minute15
-            
-            	set STS threshold
-            	**type**\: :py:class:`StsMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15>`
+            	set HO\_VC threshold
+            	**type**\: :py:class:`HoVcMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15>`
             
             .. attribute:: hour24
             
             	Configure pm parameters of 24 hour interval
             	**type**\: :py:class:`Hour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24>`
             
-            .. attribute:: ho_vc_minute15
+            .. attribute:: hour24_gfp
             
-            	set HO\_VC threshold
-            	**type**\: :py:class:`HoVcMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15>`
-            
-            .. attribute:: sts_hour24
-            
-            	set STS threshold
-            	**type**\: :py:class:`StsHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24>`
-            
-            .. attribute:: stm_minute15
-            
-            	set STM threshold
-            	**type**\: :py:class:`StmMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15>`
-            
-            .. attribute:: sonet_hour24
-            
-            	set Sonet threshold
-            	**type**\: :py:class:`SonetHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24>`
-            
-            .. attribute:: minute15_path
-            
-            	set opr min threshold
-            	**type**\: :py:class:`Minute15Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path>`
-            
-            .. attribute:: oc_minute15
-            
-            	set OC threshold
-            	**type**\: :py:class:`OcMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15>`
+            	Configure pm parameters of gfp 24 hour interval
+            	**type**\: :py:class:`Hour24Gfp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp>`
             
             .. attribute:: hour24_path
             
             	Configure pm parameters of pathmonitor 24 hour interval
             	**type**\: :py:class:`Hour24Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path>`
             
+            .. attribute:: hour24otn_tcms
+            
+            	Configure pm parameters of tcm's 24 hour interval
+            	**type**\: :py:class:`Hour24OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms>`
+            
             .. attribute:: minute15
             
             	set opr min threshold
             	**type**\: :py:class:`Minute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15>`
+            
+            .. attribute:: minute15_gfp
+            
+            	set opr min threshold
+            	**type**\: :py:class:`Minute15Gfp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp>`
+            
+            .. attribute:: minute15_path
+            
+            	set opr min threshold
+            	**type**\: :py:class:`Minute15Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path>`
+            
+            .. attribute:: minute15otn_tcms
+            
+            	set opr min threshold
+            	**type**\: :py:class:`Minute15OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms>`
+            
+            .. attribute:: oc_hour24
+            
+            	set Oc threshold
+            	**type**\: :py:class:`OcHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24>`
+            
+            .. attribute:: oc_minute15
+            
+            	set OC threshold
+            	**type**\: :py:class:`OcMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15>`
+            
+            .. attribute:: sonet_hour24
+            
+            	set Sonet threshold
+            	**type**\: :py:class:`SonetHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24>`
+            
+            .. attribute:: sonet_minute15
+            
+            	set Sonet threshold
+            	**type**\: :py:class:`SonetMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15>`
+            
+            .. attribute:: stm_hour24
+            
+            	set STM threshold
+            	**type**\: :py:class:`StmHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24>`
+            
+            .. attribute:: stm_minute15
+            
+            	set STM threshold
+            	**type**\: :py:class:`StmMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15>`
+            
+            .. attribute:: sts_hour24
+            
+            	set STS threshold
+            	**type**\: :py:class:`StsHour24 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24>`
+            
+            .. attribute:: sts_minute15
+            
+            	set STS threshold
+            	**type**\: :py:class:`StsMinute15 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15>`
             
             
 
@@ -20596,46 +20596,46 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.stm_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24()
-                self.stm_hour24.parent = self
-                self.minute15_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp()
-                self.minute15_gfp.parent = self
-                self.sonet_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15()
-                self.sonet_minute15.parent = self
-                self.hour24_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp()
-                self.hour24_gfp.parent = self
                 self.ethernet_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24()
                 self.ethernet_hour24.parent = self
-                self.minute15otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms()
-                self.minute15otn_tcms.parent = self
-                self.oc_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24()
-                self.oc_hour24.parent = self
                 self.ethernet_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15()
                 self.ethernet_minute15.parent = self
                 self.ho_vc_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24()
                 self.ho_vc_hour24.parent = self
-                self.hour24otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms()
-                self.hour24otn_tcms.parent = self
-                self.sts_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15()
-                self.sts_minute15.parent = self
-                self.hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24()
-                self.hour24.parent = self
                 self.ho_vc_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15()
                 self.ho_vc_minute15.parent = self
-                self.sts_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24()
-                self.sts_hour24.parent = self
-                self.stm_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15()
-                self.stm_minute15.parent = self
-                self.sonet_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24()
-                self.sonet_hour24.parent = self
-                self.minute15_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path()
-                self.minute15_path.parent = self
-                self.oc_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15()
-                self.oc_minute15.parent = self
+                self.hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24()
+                self.hour24.parent = self
+                self.hour24_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp()
+                self.hour24_gfp.parent = self
                 self.hour24_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path()
                 self.hour24_path.parent = self
+                self.hour24otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms()
+                self.hour24otn_tcms.parent = self
                 self.minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15()
                 self.minute15.parent = self
+                self.minute15_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp()
+                self.minute15_gfp.parent = self
+                self.minute15_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path()
+                self.minute15_path.parent = self
+                self.minute15otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms()
+                self.minute15otn_tcms.parent = self
+                self.oc_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24()
+                self.oc_hour24.parent = self
+                self.oc_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15()
+                self.oc_minute15.parent = self
+                self.sonet_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24()
+                self.sonet_hour24.parent = self
+                self.sonet_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15()
+                self.sonet_minute15.parent = self
+                self.stm_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24()
+                self.stm_hour24.parent = self
+                self.stm_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15()
+                self.stm_minute15.parent = self
+                self.sts_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24()
+                self.sts_hour24.parent = self
+                self.sts_minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15()
+                self.sts_minute15.parent = self
 
 
             class StmHour24(object):
@@ -20741,9 +20741,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.stm_report is None:
-                                    raise YPYDataValidationError('Key property stm_report is None')
+                                    raise YPYModelError('Key property stm_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24-stm-report[Cisco-IOS-XR-pmengine-cfg:stm-report = ' + str(self.stm_report) + ']'
 
@@ -20770,7 +20770,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24-stm-reports'
 
@@ -20848,9 +20848,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.stm_threshold is None:
-                                    raise YPYDataValidationError('Key property stm_threshold is None')
+                                    raise YPYModelError('Key property stm_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24-stm-threshold[Cisco-IOS-XR-pmengine-cfg:stm-threshold = ' + str(self.stm_threshold) + ']'
 
@@ -20877,7 +20877,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24-stm-thresholds'
 
@@ -20903,7 +20903,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24-stm'
 
@@ -20930,7 +20930,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-hour24'
 
@@ -21049,9 +21049,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.gfp_report is None:
-                                    raise YPYDataValidationError('Key property gfp_report is None')
+                                    raise YPYModelError('Key property gfp_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp-report[Cisco-IOS-XR-pmengine-cfg:gfp-report = ' + str(self.gfp_report) + ']'
 
@@ -21075,7 +21075,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp-reports'
 
@@ -21153,9 +21153,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.gfp_threshold is None:
-                                    raise YPYDataValidationError('Key property gfp_threshold is None')
+                                    raise YPYModelError('Key property gfp_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp-threshold[Cisco-IOS-XR-pmengine-cfg:gfp-threshold = ' + str(self.gfp_threshold) + ']'
 
@@ -21182,7 +21182,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp-thresholds'
 
@@ -21208,7 +21208,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp'
 
@@ -21235,7 +21235,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-gfp'
 
@@ -21261,15 +21261,15 @@ class InterfaceConfigurations(object):
                 """
                 set Sonet threshold
                 
-                .. attribute:: sonet_minute15_path
-                
-                	Configure Path performance monitoring
-                	**type**\: :py:class:`SonetMinute15Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path>`
-                
                 .. attribute:: sonet_minute15_ocn
                 
                 	Configure ocn performance monitoring
                 	**type**\: :py:class:`SonetMinute15Ocn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn>`
+                
+                .. attribute:: sonet_minute15_path
+                
+                	Configure Path performance monitoring
+                	**type**\: :py:class:`SonetMinute15Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path>`
                 
                 
 
@@ -21280,10 +21280,10 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.sonet_minute15_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path()
-                    self.sonet_minute15_path.parent = self
                     self.sonet_minute15_ocn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn()
                     self.sonet_minute15_ocn.parent = self
+                    self.sonet_minute15_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path()
+                    self.sonet_minute15_path.parent = self
 
 
                 class SonetMinute15Path(object):
@@ -21361,9 +21361,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_report is None:
-                                    raise YPYDataValidationError('Key property path_report is None')
+                                    raise YPYModelError('Key property path_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-path-report[Cisco-IOS-XR-pmengine-cfg:path-report = ' + str(self.path_report) + ']'
 
@@ -21387,7 +21387,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-path-reports'
 
@@ -21465,9 +21465,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_threshold is None:
-                                    raise YPYDataValidationError('Key property path_threshold is None')
+                                    raise YPYModelError('Key property path_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-path-threshold[Cisco-IOS-XR-pmengine-cfg:path-threshold = ' + str(self.path_threshold) + ']'
 
@@ -21494,7 +21494,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-path-thresholds'
 
@@ -21520,7 +21520,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-path'
 
@@ -21620,9 +21620,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_report is None:
-                                    raise YPYDataValidationError('Key property ocn_report is None')
+                                    raise YPYModelError('Key property ocn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-ocn-report[Cisco-IOS-XR-pmengine-cfg:ocn-report = ' + str(self.ocn_report) + ']'
 
@@ -21646,7 +21646,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-ocn-reports'
 
@@ -21724,9 +21724,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_threshold is None:
-                                    raise YPYDataValidationError('Key property ocn_threshold is None')
+                                    raise YPYModelError('Key property ocn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-ocn-threshold[Cisco-IOS-XR-pmengine-cfg:ocn-threshold = ' + str(self.ocn_threshold) + ']'
 
@@ -21753,7 +21753,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-ocn-thresholds'
 
@@ -21779,7 +21779,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15-ocn'
 
@@ -21806,7 +21806,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-minute15'
 
@@ -21817,10 +21817,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.sonet_minute15_path is not None and self.sonet_minute15_path._has_data():
+                    if self.sonet_minute15_ocn is not None and self.sonet_minute15_ocn._has_data():
                         return True
 
-                    if self.sonet_minute15_ocn is not None and self.sonet_minute15_ocn._has_data():
+                    if self.sonet_minute15_path is not None and self.sonet_minute15_path._has_data():
                         return True
 
                     return False
@@ -21928,9 +21928,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.gfp_report is None:
-                                    raise YPYDataValidationError('Key property gfp_report is None')
+                                    raise YPYModelError('Key property gfp_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp-report[Cisco-IOS-XR-pmengine-cfg:gfp-report = ' + str(self.gfp_report) + ']'
 
@@ -21954,7 +21954,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp-reports'
 
@@ -22032,9 +22032,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.gfp_threshold is None:
-                                    raise YPYDataValidationError('Key property gfp_threshold is None')
+                                    raise YPYModelError('Key property gfp_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp-threshold[Cisco-IOS-XR-pmengine-cfg:gfp-threshold = ' + str(self.gfp_threshold) + ']'
 
@@ -22061,7 +22061,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp-thresholds'
 
@@ -22087,7 +22087,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp'
 
@@ -22114,7 +22114,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-gfp'
 
@@ -22162,15 +22162,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure ether performance monitoring
                     
-                    .. attribute:: hour24_ether_thresholds
-                    
-                    	Configure threshold on ether parameters
-                    	**type**\: :py:class:`Hour24EtherThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds>`
-                    
                     .. attribute:: hour24_ether_reports
                     
                     	set ether TCA reporting status
                     	**type**\: :py:class:`Hour24EtherReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports>`
+                    
+                    .. attribute:: hour24_ether_thresholds
+                    
+                    	Configure threshold on ether parameters
+                    	**type**\: :py:class:`Hour24EtherThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds>`
                     
                     
 
@@ -22181,10 +22181,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24_ether_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds()
-                        self.hour24_ether_thresholds.parent = self
                         self.hour24_ether_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports()
                         self.hour24_ether_reports.parent = self
+                        self.hour24_ether_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds()
+                        self.hour24_ether_thresholds.parent = self
 
 
                     class Hour24EtherThresholds(object):
@@ -22241,9 +22241,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ether_threshold is None:
-                                    raise YPYDataValidationError('Key property ether_threshold is None')
+                                    raise YPYModelError('Key property ether_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-ether-threshold[Cisco-IOS-XR-pmengine-cfg:ether-threshold = ' + str(self.ether_threshold) + ']'
 
@@ -22270,7 +22270,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-ether-thresholds'
 
@@ -22340,9 +22340,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ether_report is None:
-                                    raise YPYDataValidationError('Key property ether_report is None')
+                                    raise YPYModelError('Key property ether_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-ether-report[Cisco-IOS-XR-pmengine-cfg:ether-report = ' + str(self.ether_report) + ']'
 
@@ -22366,7 +22366,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-ether-reports'
 
@@ -22392,7 +22392,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-ether'
 
@@ -22403,10 +22403,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hour24_ether_thresholds is not None and self.hour24_ether_thresholds._has_data():
+                        if self.hour24_ether_reports is not None and self.hour24_ether_reports._has_data():
                             return True
 
-                        if self.hour24_ether_reports is not None and self.hour24_ether_reports._has_data():
+                        if self.hour24_ether_thresholds is not None and self.hour24_ether_thresholds._has_data():
                             return True
 
                         return False
@@ -22419,7 +22419,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ethernet-hour24'
 
@@ -22556,9 +22556,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-tcm-thresh[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -22585,7 +22585,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-tcm-threshes'
 
@@ -22661,9 +22661,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-tcm-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -22690,7 +22690,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-tcm-reports'
 
@@ -22716,9 +22716,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.tcm_number is None:
-                            raise YPYDataValidationError('Key property tcm_number is None')
+                            raise YPYModelError('Key property tcm_number is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-tcm[Cisco-IOS-XR-pmengine-cfg:tcm-number = ' + str(self.tcm_number) + ']'
 
@@ -22748,7 +22748,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-tcms'
 
@@ -22875,9 +22875,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_report is None:
-                                    raise YPYDataValidationError('Key property ocn_report is None')
+                                    raise YPYModelError('Key property ocn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24-ocn-report[Cisco-IOS-XR-pmengine-cfg:ocn-report = ' + str(self.ocn_report) + ']'
 
@@ -22904,7 +22904,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24-ocn-reports'
 
@@ -22982,9 +22982,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_threshold is None:
-                                    raise YPYDataValidationError('Key property ocn_threshold is None')
+                                    raise YPYModelError('Key property ocn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24-ocn-threshold[Cisco-IOS-XR-pmengine-cfg:ocn-threshold = ' + str(self.ocn_threshold) + ']'
 
@@ -23011,7 +23011,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24-ocn-thresholds'
 
@@ -23037,7 +23037,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24-ocn'
 
@@ -23064,7 +23064,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-hour24'
 
@@ -23112,15 +23112,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure ether performance monitoring
                     
-                    .. attribute:: minute15_ether_thresholds
-                    
-                    	Configure threshold on ether parameters
-                    	**type**\: :py:class:`Minute15EtherThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds>`
-                    
                     .. attribute:: minute15_ether_reports
                     
                     	set ether TCA reporting status
                     	**type**\: :py:class:`Minute15EtherReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports>`
+                    
+                    .. attribute:: minute15_ether_thresholds
+                    
+                    	Configure threshold on ether parameters
+                    	**type**\: :py:class:`Minute15EtherThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds>`
                     
                     
 
@@ -23131,10 +23131,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minute15_ether_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds()
-                        self.minute15_ether_thresholds.parent = self
                         self.minute15_ether_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports()
                         self.minute15_ether_reports.parent = self
+                        self.minute15_ether_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds()
+                        self.minute15_ether_thresholds.parent = self
 
 
                     class Minute15EtherThresholds(object):
@@ -23191,9 +23191,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ether_threshold is None:
-                                    raise YPYDataValidationError('Key property ether_threshold is None')
+                                    raise YPYModelError('Key property ether_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-ether-threshold[Cisco-IOS-XR-pmengine-cfg:ether-threshold = ' + str(self.ether_threshold) + ']'
 
@@ -23220,7 +23220,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-ether-thresholds'
 
@@ -23290,9 +23290,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ether_report is None:
-                                    raise YPYDataValidationError('Key property ether_report is None')
+                                    raise YPYModelError('Key property ether_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-ether-report[Cisco-IOS-XR-pmengine-cfg:ether-report = ' + str(self.ether_report) + ']'
 
@@ -23316,7 +23316,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-ether-reports'
 
@@ -23342,7 +23342,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-ether'
 
@@ -23353,10 +23353,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.minute15_ether_thresholds is not None and self.minute15_ether_thresholds._has_data():
+                        if self.minute15_ether_reports is not None and self.minute15_ether_reports._has_data():
                             return True
 
-                        if self.minute15_ether_reports is not None and self.minute15_ether_reports._has_data():
+                        if self.minute15_ether_thresholds is not None and self.minute15_ether_thresholds._has_data():
                             return True
 
                         return False
@@ -23369,7 +23369,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ethernet-minute15'
 
@@ -23494,9 +23494,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ho_vc_report is None:
-                                    raise YPYDataValidationError('Key property ho_vc_report is None')
+                                    raise YPYModelError('Key property ho_vc_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24ho-vc-report[Cisco-IOS-XR-pmengine-cfg:ho-vc-report = ' + str(self.ho_vc_report) + ']'
 
@@ -23523,7 +23523,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24ho-vc-reports'
 
@@ -23601,9 +23601,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ho_vc_threshold is None:
-                                    raise YPYDataValidationError('Key property ho_vc_threshold is None')
+                                    raise YPYModelError('Key property ho_vc_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24ho-vc-threshold[Cisco-IOS-XR-pmengine-cfg:ho-vc-threshold = ' + str(self.ho_vc_threshold) + ']'
 
@@ -23630,7 +23630,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24ho-vc-thresholds'
 
@@ -23656,7 +23656,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24ho-vc'
 
@@ -23683,7 +23683,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-hour24'
 
@@ -23741,15 +23741,15 @@ class InterfaceConfigurations(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: hour24otn_tcm_thresholds
-                    
-                    	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Hour24OtnTcmThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds>`
-                    
                     .. attribute:: hour24otn_tcm_reports
                     
                     	set otn TCA reporting status
                     	**type**\: :py:class:`Hour24OtnTcmReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports>`
+                    
+                    .. attribute:: hour24otn_tcm_thresholds
+                    
+                    	Configure threshold on otn parameters
+                    	**type**\: :py:class:`Hour24OtnTcmThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds>`
                     
                     
 
@@ -23761,10 +23761,10 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.tcm_number = None
-                        self.hour24otn_tcm_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds()
-                        self.hour24otn_tcm_thresholds.parent = self
                         self.hour24otn_tcm_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports()
                         self.hour24otn_tcm_reports.parent = self
+                        self.hour24otn_tcm_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds()
+                        self.hour24otn_tcm_thresholds.parent = self
 
 
                     class Hour24OtnTcmThresholds(object):
@@ -23821,9 +23821,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcm-threshold[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -23850,7 +23850,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcm-thresholds'
 
@@ -23926,9 +23926,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcm-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -23955,7 +23955,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcm-reports'
 
@@ -23981,9 +23981,9 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.tcm_number is None:
-                            raise YPYDataValidationError('Key property tcm_number is None')
+                            raise YPYModelError('Key property tcm_number is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcm[Cisco-IOS-XR-pmengine-cfg:tcm-number = ' + str(self.tcm_number) + ']'
 
@@ -23997,10 +23997,10 @@ class InterfaceConfigurations(object):
                         if self.tcm_number is not None:
                             return True
 
-                        if self.hour24otn_tcm_thresholds is not None and self.hour24otn_tcm_thresholds._has_data():
+                        if self.hour24otn_tcm_reports is not None and self.hour24otn_tcm_reports._has_data():
                             return True
 
-                        if self.hour24otn_tcm_reports is not None and self.hour24otn_tcm_reports._has_data():
+                        if self.hour24otn_tcm_thresholds is not None and self.hour24otn_tcm_thresholds._has_data():
                             return True
 
                         return False
@@ -24013,7 +24013,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-tcms'
 
@@ -24140,9 +24140,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_report is None:
-                                    raise YPYDataValidationError('Key property path_report is None')
+                                    raise YPYModelError('Key property path_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15-path-report[Cisco-IOS-XR-pmengine-cfg:path-report = ' + str(self.path_report) + ']'
 
@@ -24169,7 +24169,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15-path-reports'
 
@@ -24247,9 +24247,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_threshold is None:
-                                    raise YPYDataValidationError('Key property path_threshold is None')
+                                    raise YPYModelError('Key property path_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15-path-threshold[Cisco-IOS-XR-pmengine-cfg:path-threshold = ' + str(self.path_threshold) + ']'
 
@@ -24276,7 +24276,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15-path-thresholds'
 
@@ -24302,7 +24302,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15-path'
 
@@ -24329,7 +24329,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-minute15'
 
@@ -24355,11 +24355,6 @@ class InterfaceConfigurations(object):
                 """
                 Configure pm parameters of 24 hour interval
                 
-                .. attribute:: hour24otn
-                
-                	configure otn g709 performance monitoring
-                	**type**\: :py:class:`Hour24Otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn>`
-                
                 .. attribute:: hour24_optics
                 
                 	Configure optics performance monitoring
@@ -24370,6 +24365,11 @@ class InterfaceConfigurations(object):
                 	Configure fec g709 performance monitoring
                 	**type**\: :py:class:`Hour24Fec <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec>`
                 
+                .. attribute:: hour24otn
+                
+                	configure otn g709 performance monitoring
+                	**type**\: :py:class:`Hour24Otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn>`
+                
                 
 
                 """
@@ -24379,27 +24379,27 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.hour24otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn()
-                    self.hour24otn.parent = self
                     self.hour24_optics = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics()
                     self.hour24_optics.parent = self
                     self.hour24fec = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec()
                     self.hour24fec.parent = self
+                    self.hour24otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn()
+                    self.hour24otn.parent = self
 
 
                 class Hour24Otn(object):
                     """
                     configure otn g709 performance monitoring
                     
-                    .. attribute:: hour24otn_thresholds
-                    
-                    	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Hour24OtnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds>`
-                    
                     .. attribute:: hour24otn_reports
                     
                     	set otn TCA reporting status
                     	**type**\: :py:class:`Hour24OtnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports>`
+                    
+                    .. attribute:: hour24otn_thresholds
+                    
+                    	Configure threshold on otn parameters
+                    	**type**\: :py:class:`Hour24OtnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds>`
                     
                     
 
@@ -24410,10 +24410,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24otn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds()
-                        self.hour24otn_thresholds.parent = self
                         self.hour24otn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports()
                         self.hour24otn_reports.parent = self
+                        self.hour24otn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds()
+                        self.hour24otn_thresholds.parent = self
 
 
                     class Hour24OtnThresholds(object):
@@ -24470,9 +24470,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-threshold[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -24499,7 +24499,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-thresholds'
 
@@ -24575,9 +24575,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -24604,7 +24604,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-reports'
 
@@ -24630,7 +24630,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn'
 
@@ -24641,10 +24641,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hour24otn_thresholds is not None and self.hour24otn_thresholds._has_data():
+                        if self.hour24otn_reports is not None and self.hour24otn_reports._has_data():
                             return True
 
-                        if self.hour24otn_reports is not None and self.hour24otn_reports._has_data():
+                        if self.hour24otn_thresholds is not None and self.hour24otn_thresholds._has_data():
                             return True
 
                         return False
@@ -24659,15 +24659,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure optics performance monitoring
                     
-                    .. attribute:: hour24_optics_thresholds
-                    
-                    	Configure threshold on optics parameters
-                    	**type**\: :py:class:`Hour24OpticsThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds>`
-                    
                     .. attribute:: hour24_optics_reports
                     
                     	set optics TCA reporting status
                     	**type**\: :py:class:`Hour24OpticsReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports>`
+                    
+                    .. attribute:: hour24_optics_thresholds
+                    
+                    	Configure threshold on optics parameters
+                    	**type**\: :py:class:`Hour24OpticsThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds>`
                     
                     
 
@@ -24678,10 +24678,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24_optics_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds()
-                        self.hour24_optics_thresholds.parent = self
                         self.hour24_optics_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports()
                         self.hour24_optics_reports.parent = self
+                        self.hour24_optics_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds()
+                        self.hour24_optics_thresholds.parent = self
 
 
                     class Hour24OpticsThresholds(object):
@@ -24738,9 +24738,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.optics_threshold is None:
-                                    raise YPYDataValidationError('Key property optics_threshold is None')
+                                    raise YPYModelError('Key property optics_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-optics-threshold[Cisco-IOS-XR-pmengine-cfg:optics-threshold = ' + str(self.optics_threshold) + ']'
 
@@ -24767,7 +24767,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-optics-thresholds'
 
@@ -24837,9 +24837,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.optics_report is None:
-                                    raise YPYDataValidationError('Key property optics_report is None')
+                                    raise YPYModelError('Key property optics_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-optics-report[Cisco-IOS-XR-pmengine-cfg:optics-report = ' + str(self.optics_report) + ']'
 
@@ -24863,7 +24863,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-optics-reports'
 
@@ -24889,7 +24889,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-optics'
 
@@ -24900,10 +24900,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hour24_optics_thresholds is not None and self.hour24_optics_thresholds._has_data():
+                        if self.hour24_optics_reports is not None and self.hour24_optics_reports._has_data():
                             return True
 
-                        if self.hour24_optics_reports is not None and self.hour24_optics_reports._has_data():
+                        if self.hour24_optics_thresholds is not None and self.hour24_optics_thresholds._has_data():
                             return True
 
                         return False
@@ -24918,15 +24918,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure fec g709 performance monitoring
                     
-                    .. attribute:: hour24fec_thresholds
-                    
-                    	Configure fec threshold
-                    	**type**\: :py:class:`Hour24FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds>`
-                    
                     .. attribute:: hour24fec_reports
                     
                     	set fec TCA reporting status
                     	**type**\: :py:class:`Hour24FecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports>`
+                    
+                    .. attribute:: hour24fec_thresholds
+                    
+                    	Configure fec threshold
+                    	**type**\: :py:class:`Hour24FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds>`
                     
                     
 
@@ -24937,10 +24937,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds()
-                        self.hour24fec_thresholds.parent = self
                         self.hour24fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports()
                         self.hour24fec_reports.parent = self
+                        self.hour24fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds()
+                        self.hour24fec_thresholds.parent = self
 
 
                     class Hour24FecThresholds(object):
@@ -24997,9 +24997,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.fec_threshold is None:
-                                    raise YPYDataValidationError('Key property fec_threshold is None')
+                                    raise YPYModelError('Key property fec_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
 
@@ -25026,7 +25026,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-thresholds'
 
@@ -25102,9 +25102,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.fec_report is None:
-                                    raise YPYDataValidationError('Key property fec_report is None')
+                                    raise YPYModelError('Key property fec_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
 
@@ -25131,7 +25131,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-reports'
 
@@ -25157,7 +25157,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec'
 
@@ -25168,10 +25168,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.hour24fec_thresholds is not None and self.hour24fec_thresholds._has_data():
+                        if self.hour24fec_reports is not None and self.hour24fec_reports._has_data():
                             return True
 
-                        if self.hour24fec_reports is not None and self.hour24fec_reports._has_data():
+                        if self.hour24fec_thresholds is not None and self.hour24fec_thresholds._has_data():
                             return True
 
                         return False
@@ -25184,7 +25184,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24'
 
@@ -25195,13 +25195,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.hour24otn is not None and self.hour24otn._has_data():
-                        return True
-
                     if self.hour24_optics is not None and self.hour24_optics._has_data():
                         return True
 
                     if self.hour24fec is not None and self.hour24fec._has_data():
+                        return True
+
+                    if self.hour24otn is not None and self.hour24otn._has_data():
                         return True
 
                     return False
@@ -25315,9 +25315,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ho_vc_report is None:
-                                    raise YPYDataValidationError('Key property ho_vc_report is None')
+                                    raise YPYModelError('Key property ho_vc_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15ho-vc-report[Cisco-IOS-XR-pmengine-cfg:ho-vc-report = ' + str(self.ho_vc_report) + ']'
 
@@ -25344,7 +25344,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15ho-vc-reports'
 
@@ -25422,9 +25422,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ho_vc_threshold is None:
-                                    raise YPYDataValidationError('Key property ho_vc_threshold is None')
+                                    raise YPYModelError('Key property ho_vc_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15ho-vc-threshold[Cisco-IOS-XR-pmengine-cfg:ho-vc-threshold = ' + str(self.ho_vc_threshold) + ']'
 
@@ -25451,7 +25451,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15ho-vc-thresholds'
 
@@ -25477,7 +25477,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15ho-vc'
 
@@ -25504,7 +25504,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:ho-vc-minute15'
 
@@ -25552,15 +25552,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure Path performance monitoring
                     
-                    .. attribute:: sts_hour24_path_thresholds
-                    
-                    	Configure threshold on Path parameters
-                    	**type**\: :py:class:`StsHour24PathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds>`
-                    
                     .. attribute:: sts_hour24_path_reports
                     
                     	set Path TCA reporting status
                     	**type**\: :py:class:`StsHour24PathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports>`
+                    
+                    .. attribute:: sts_hour24_path_thresholds
+                    
+                    	Configure threshold on Path parameters
+                    	**type**\: :py:class:`StsHour24PathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds>`
                     
                     
 
@@ -25571,10 +25571,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sts_hour24_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds()
-                        self.sts_hour24_path_thresholds.parent = self
                         self.sts_hour24_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports()
                         self.sts_hour24_path_reports.parent = self
+                        self.sts_hour24_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds()
+                        self.sts_hour24_path_thresholds.parent = self
 
 
                     class StsHour24PathThresholds(object):
@@ -25631,9 +25631,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_threshold is None:
-                                    raise YPYDataValidationError('Key property path_threshold is None')
+                                    raise YPYModelError('Key property path_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24-path-threshold[Cisco-IOS-XR-pmengine-cfg:path-threshold = ' + str(self.path_threshold) + ']'
 
@@ -25660,7 +25660,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24-path-thresholds'
 
@@ -25736,9 +25736,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_report is None:
-                                    raise YPYDataValidationError('Key property path_report is None')
+                                    raise YPYModelError('Key property path_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24-path-report[Cisco-IOS-XR-pmengine-cfg:path-report = ' + str(self.path_report) + ']'
 
@@ -25765,7 +25765,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24-path-reports'
 
@@ -25791,7 +25791,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24-path'
 
@@ -25802,10 +25802,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sts_hour24_path_thresholds is not None and self.sts_hour24_path_thresholds._has_data():
+                        if self.sts_hour24_path_reports is not None and self.sts_hour24_path_reports._has_data():
                             return True
 
-                        if self.sts_hour24_path_reports is not None and self.sts_hour24_path_reports._has_data():
+                        if self.sts_hour24_path_thresholds is not None and self.sts_hour24_path_thresholds._has_data():
                             return True
 
                         return False
@@ -25818,7 +25818,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sts-hour24'
 
@@ -25943,9 +25943,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.stm_report is None:
-                                    raise YPYDataValidationError('Key property stm_report is None')
+                                    raise YPYModelError('Key property stm_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15-stm-report[Cisco-IOS-XR-pmengine-cfg:stm-report = ' + str(self.stm_report) + ']'
 
@@ -25972,7 +25972,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15-stm-reports'
 
@@ -26050,9 +26050,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.stm_threshold is None:
-                                    raise YPYDataValidationError('Key property stm_threshold is None')
+                                    raise YPYModelError('Key property stm_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15-stm-threshold[Cisco-IOS-XR-pmengine-cfg:stm-threshold = ' + str(self.stm_threshold) + ']'
 
@@ -26079,7 +26079,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15-stm-thresholds'
 
@@ -26105,7 +26105,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15-stm'
 
@@ -26132,7 +26132,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:stm-minute15'
 
@@ -26158,15 +26158,15 @@ class InterfaceConfigurations(object):
                 """
                 set Sonet threshold
                 
-                .. attribute:: sonet_hour24_path
-                
-                	Configure Path performance monitoring
-                	**type**\: :py:class:`SonetHour24Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path>`
-                
                 .. attribute:: sonet_hour24_ocn
                 
                 	Configure ocn performance monitoring
                 	**type**\: :py:class:`SonetHour24Ocn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn>`
+                
+                .. attribute:: sonet_hour24_path
+                
+                	Configure Path performance monitoring
+                	**type**\: :py:class:`SonetHour24Path <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path>`
                 
                 
 
@@ -26177,25 +26177,25 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.sonet_hour24_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path()
-                    self.sonet_hour24_path.parent = self
                     self.sonet_hour24_ocn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn()
                     self.sonet_hour24_ocn.parent = self
+                    self.sonet_hour24_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path()
+                    self.sonet_hour24_path.parent = self
 
 
                 class SonetHour24Path(object):
                     """
                     Configure Path performance monitoring
                     
-                    .. attribute:: sonet_hour24_path_thresholds
-                    
-                    	Configure threshold on Path parameters
-                    	**type**\: :py:class:`SonetHour24PathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds>`
-                    
                     .. attribute:: sonet_hour24_path_reports
                     
                     	set Path TCA reporting status
                     	**type**\: :py:class:`SonetHour24PathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports>`
+                    
+                    .. attribute:: sonet_hour24_path_thresholds
+                    
+                    	Configure threshold on Path parameters
+                    	**type**\: :py:class:`SonetHour24PathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds>`
                     
                     
 
@@ -26206,10 +26206,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sonet_hour24_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds()
-                        self.sonet_hour24_path_thresholds.parent = self
                         self.sonet_hour24_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports()
                         self.sonet_hour24_path_reports.parent = self
+                        self.sonet_hour24_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds()
+                        self.sonet_hour24_path_thresholds.parent = self
 
 
                     class SonetHour24PathThresholds(object):
@@ -26266,9 +26266,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_threshold is None:
-                                    raise YPYDataValidationError('Key property path_threshold is None')
+                                    raise YPYModelError('Key property path_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-path-threshold[Cisco-IOS-XR-pmengine-cfg:path-threshold = ' + str(self.path_threshold) + ']'
 
@@ -26295,7 +26295,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-path-thresholds'
 
@@ -26365,9 +26365,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.path_report is None:
-                                    raise YPYDataValidationError('Key property path_report is None')
+                                    raise YPYModelError('Key property path_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-path-report[Cisco-IOS-XR-pmengine-cfg:path-report = ' + str(self.path_report) + ']'
 
@@ -26391,7 +26391,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-path-reports'
 
@@ -26417,7 +26417,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-path'
 
@@ -26428,10 +26428,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sonet_hour24_path_thresholds is not None and self.sonet_hour24_path_thresholds._has_data():
+                        if self.sonet_hour24_path_reports is not None and self.sonet_hour24_path_reports._has_data():
                             return True
 
-                        if self.sonet_hour24_path_reports is not None and self.sonet_hour24_path_reports._has_data():
+                        if self.sonet_hour24_path_thresholds is not None and self.sonet_hour24_path_thresholds._has_data():
                             return True
 
                         return False
@@ -26446,15 +26446,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure ocn performance monitoring
                     
-                    .. attribute:: sonet_hour24_ocn_thresholds
-                    
-                    	Configure threshold on ocn parameters
-                    	**type**\: :py:class:`SonetHour24OcnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds>`
-                    
                     .. attribute:: sonet_hour24_ocn_reports
                     
                     	set ocn TCA reporting status
                     	**type**\: :py:class:`SonetHour24OcnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports>`
+                    
+                    .. attribute:: sonet_hour24_ocn_thresholds
+                    
+                    	Configure threshold on ocn parameters
+                    	**type**\: :py:class:`SonetHour24OcnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds>`
                     
                     
 
@@ -26465,10 +26465,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sonet_hour24_ocn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds()
-                        self.sonet_hour24_ocn_thresholds.parent = self
                         self.sonet_hour24_ocn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports()
                         self.sonet_hour24_ocn_reports.parent = self
+                        self.sonet_hour24_ocn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds()
+                        self.sonet_hour24_ocn_thresholds.parent = self
 
 
                     class SonetHour24OcnThresholds(object):
@@ -26525,9 +26525,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_threshold is None:
-                                    raise YPYDataValidationError('Key property ocn_threshold is None')
+                                    raise YPYModelError('Key property ocn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-ocn-threshold[Cisco-IOS-XR-pmengine-cfg:ocn-threshold = ' + str(self.ocn_threshold) + ']'
 
@@ -26554,7 +26554,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-ocn-thresholds'
 
@@ -26624,9 +26624,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_report is None:
-                                    raise YPYDataValidationError('Key property ocn_report is None')
+                                    raise YPYModelError('Key property ocn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-ocn-report[Cisco-IOS-XR-pmengine-cfg:ocn-report = ' + str(self.ocn_report) + ']'
 
@@ -26650,7 +26650,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-ocn-reports'
 
@@ -26676,7 +26676,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24-ocn'
 
@@ -26687,10 +26687,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sonet_hour24_ocn_thresholds is not None and self.sonet_hour24_ocn_thresholds._has_data():
+                        if self.sonet_hour24_ocn_reports is not None and self.sonet_hour24_ocn_reports._has_data():
                             return True
 
-                        if self.sonet_hour24_ocn_reports is not None and self.sonet_hour24_ocn_reports._has_data():
+                        if self.sonet_hour24_ocn_thresholds is not None and self.sonet_hour24_ocn_thresholds._has_data():
                             return True
 
                         return False
@@ -26703,7 +26703,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:sonet-hour24'
 
@@ -26714,10 +26714,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.sonet_hour24_path is not None and self.sonet_hour24_path._has_data():
+                    if self.sonet_hour24_ocn is not None and self.sonet_hour24_ocn._has_data():
                         return True
 
-                    if self.sonet_hour24_ocn is not None and self.sonet_hour24_ocn._has_data():
+                    if self.sonet_hour24_path is not None and self.sonet_hour24_path._has_data():
                         return True
 
                     return False
@@ -26754,15 +26754,15 @@ class InterfaceConfigurations(object):
                     """
                     configure otn g709 performance monitoring
                     
-                    .. attribute:: minute15otn_path_reports
-                    
-                    	set otn TCA reporting status
-                    	**type**\: :py:class:`Minute15OtnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports>`
-                    
                     .. attribute:: min15_otn_path_threshes
                     
                     	Configure threshold on otn parameters
                     	**type**\: :py:class:`Min15OtnPathThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes>`
+                    
+                    .. attribute:: minute15otn_path_reports
+                    
+                    	set otn TCA reporting status
+                    	**type**\: :py:class:`Minute15OtnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports>`
                     
                     
 
@@ -26773,10 +26773,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minute15otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports()
-                        self.minute15otn_path_reports.parent = self
                         self.min15_otn_path_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes()
                         self.min15_otn_path_threshes.parent = self
+                        self.minute15otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports()
+                        self.minute15otn_path_reports.parent = self
 
 
                     class Minute15OtnPathReports(object):
@@ -26831,9 +26831,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -26860,7 +26860,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-reports'
 
@@ -26938,9 +26938,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-thresh[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -26967,7 +26967,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-threshes'
 
@@ -26993,7 +26993,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path'
 
@@ -27004,10 +27004,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.minute15otn_path_reports is not None and self.minute15otn_path_reports._has_data():
+                        if self.min15_otn_path_threshes is not None and self.min15_otn_path_threshes._has_data():
                             return True
 
-                        if self.min15_otn_path_threshes is not None and self.min15_otn_path_threshes._has_data():
+                        if self.minute15otn_path_reports is not None and self.minute15otn_path_reports._has_data():
                             return True
 
                         return False
@@ -27020,7 +27020,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-path'
 
@@ -27145,9 +27145,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_report is None:
-                                    raise YPYDataValidationError('Key property ocn_report is None')
+                                    raise YPYModelError('Key property ocn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15-ocn-report[Cisco-IOS-XR-pmengine-cfg:ocn-report = ' + str(self.ocn_report) + ']'
 
@@ -27174,7 +27174,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15-ocn-reports'
 
@@ -27252,9 +27252,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ocn_threshold is None:
-                                    raise YPYDataValidationError('Key property ocn_threshold is None')
+                                    raise YPYModelError('Key property ocn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15-ocn-threshold[Cisco-IOS-XR-pmengine-cfg:ocn-threshold = ' + str(self.ocn_threshold) + ']'
 
@@ -27281,7 +27281,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15-ocn-thresholds'
 
@@ -27307,7 +27307,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15-ocn'
 
@@ -27334,7 +27334,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:oc-minute15'
 
@@ -27460,9 +27460,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -27489,7 +27489,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-reports'
 
@@ -27567,9 +27567,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-threshold[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -27596,7 +27596,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-thresholds'
 
@@ -27622,7 +27622,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path'
 
@@ -27649,7 +27649,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-path'
 
@@ -27711,15 +27711,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure optics performance monitoring
                     
-                    .. attribute:: minute15_optics_thresholds
-                    
-                    	Configure threshold on optics parameters
-                    	**type**\: :py:class:`Minute15OpticsThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds>`
-                    
                     .. attribute:: minute15_optics_reports
                     
                     	set optics TCA reporting status
                     	**type**\: :py:class:`Minute15OpticsReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports>`
+                    
+                    .. attribute:: minute15_optics_thresholds
+                    
+                    	Configure threshold on optics parameters
+                    	**type**\: :py:class:`Minute15OpticsThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds>`
                     
                     
 
@@ -27730,10 +27730,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minute15_optics_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds()
-                        self.minute15_optics_thresholds.parent = self
                         self.minute15_optics_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports()
                         self.minute15_optics_reports.parent = self
+                        self.minute15_optics_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds()
+                        self.minute15_optics_thresholds.parent = self
 
 
                     class Minute15OpticsThresholds(object):
@@ -27790,9 +27790,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.optics_threshold is None:
-                                    raise YPYDataValidationError('Key property optics_threshold is None')
+                                    raise YPYModelError('Key property optics_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-optics-threshold[Cisco-IOS-XR-pmengine-cfg:optics-threshold = ' + str(self.optics_threshold) + ']'
 
@@ -27819,7 +27819,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-optics-thresholds'
 
@@ -27889,9 +27889,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.optics_report is None:
-                                    raise YPYDataValidationError('Key property optics_report is None')
+                                    raise YPYModelError('Key property optics_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-optics-report[Cisco-IOS-XR-pmengine-cfg:optics-report = ' + str(self.optics_report) + ']'
 
@@ -27915,7 +27915,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-optics-reports'
 
@@ -27941,7 +27941,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-optics'
 
@@ -27952,10 +27952,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.minute15_optics_thresholds is not None and self.minute15_optics_thresholds._has_data():
+                        if self.minute15_optics_reports is not None and self.minute15_optics_reports._has_data():
                             return True
 
-                        if self.minute15_optics_reports is not None and self.minute15_optics_reports._has_data():
+                        if self.minute15_optics_thresholds is not None and self.minute15_optics_thresholds._has_data():
                             return True
 
                         return False
@@ -27970,15 +27970,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure fec g709 performance monitoring
                     
-                    .. attribute:: minute15fec_thresholds
-                    
-                    	Configure fec threshold
-                    	**type**\: :py:class:`Minute15FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds>`
-                    
                     .. attribute:: minute15fec_reports
                     
                     	set fec TCA reporting status
                     	**type**\: :py:class:`Minute15FecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports>`
+                    
+                    .. attribute:: minute15fec_thresholds
+                    
+                    	Configure fec threshold
+                    	**type**\: :py:class:`Minute15FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds>`
                     
                     
 
@@ -27989,10 +27989,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minute15fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds()
-                        self.minute15fec_thresholds.parent = self
                         self.minute15fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports()
                         self.minute15fec_reports.parent = self
+                        self.minute15fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds()
+                        self.minute15fec_thresholds.parent = self
 
 
                     class Minute15FecThresholds(object):
@@ -28049,9 +28049,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.fec_threshold is None:
-                                    raise YPYDataValidationError('Key property fec_threshold is None')
+                                    raise YPYModelError('Key property fec_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
 
@@ -28078,7 +28078,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-thresholds'
 
@@ -28154,9 +28154,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.fec_report is None:
-                                    raise YPYDataValidationError('Key property fec_report is None')
+                                    raise YPYModelError('Key property fec_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
 
@@ -28183,7 +28183,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-reports'
 
@@ -28209,7 +28209,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec'
 
@@ -28220,10 +28220,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.minute15fec_thresholds is not None and self.minute15fec_thresholds._has_data():
+                        if self.minute15fec_reports is not None and self.minute15fec_reports._has_data():
                             return True
 
-                        if self.minute15fec_reports is not None and self.minute15fec_reports._has_data():
+                        if self.minute15fec_thresholds is not None and self.minute15fec_thresholds._has_data():
                             return True
 
                         return False
@@ -28317,9 +28317,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
+                                    raise YPYModelError('Key property otn_threshold is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-thresh[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
 
@@ -28346,7 +28346,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-threshes'
 
@@ -28422,9 +28422,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
+                                    raise YPYModelError('Key property otn_report is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
 
@@ -28451,7 +28451,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-reports'
 
@@ -28477,7 +28477,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn'
 
@@ -28504,7 +28504,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15'
 
@@ -28534,7 +28534,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:performance-management'
 
@@ -28545,25 +28545,7 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.stm_hour24 is not None and self.stm_hour24._has_data():
-                    return True
-
-                if self.minute15_gfp is not None and self.minute15_gfp._has_data():
-                    return True
-
-                if self.sonet_minute15 is not None and self.sonet_minute15._has_data():
-                    return True
-
-                if self.hour24_gfp is not None and self.hour24_gfp._has_data():
-                    return True
-
                 if self.ethernet_hour24 is not None and self.ethernet_hour24._has_data():
-                    return True
-
-                if self.minute15otn_tcms is not None and self.minute15otn_tcms._has_data():
-                    return True
-
-                if self.oc_hour24 is not None and self.oc_hour24._has_data():
                     return True
 
                 if self.ethernet_minute15 is not None and self.ethernet_minute15._has_data():
@@ -28572,37 +28554,55 @@ class InterfaceConfigurations(object):
                 if self.ho_vc_hour24 is not None and self.ho_vc_hour24._has_data():
                     return True
 
-                if self.hour24otn_tcms is not None and self.hour24otn_tcms._has_data():
-                    return True
-
-                if self.sts_minute15 is not None and self.sts_minute15._has_data():
+                if self.ho_vc_minute15 is not None and self.ho_vc_minute15._has_data():
                     return True
 
                 if self.hour24 is not None and self.hour24._has_data():
                     return True
 
-                if self.ho_vc_minute15 is not None and self.ho_vc_minute15._has_data():
-                    return True
-
-                if self.sts_hour24 is not None and self.sts_hour24._has_data():
-                    return True
-
-                if self.stm_minute15 is not None and self.stm_minute15._has_data():
-                    return True
-
-                if self.sonet_hour24 is not None and self.sonet_hour24._has_data():
-                    return True
-
-                if self.minute15_path is not None and self.minute15_path._has_data():
-                    return True
-
-                if self.oc_minute15 is not None and self.oc_minute15._has_data():
+                if self.hour24_gfp is not None and self.hour24_gfp._has_data():
                     return True
 
                 if self.hour24_path is not None and self.hour24_path._has_data():
                     return True
 
+                if self.hour24otn_tcms is not None and self.hour24otn_tcms._has_data():
+                    return True
+
                 if self.minute15 is not None and self.minute15._has_data():
+                    return True
+
+                if self.minute15_gfp is not None and self.minute15_gfp._has_data():
+                    return True
+
+                if self.minute15_path is not None and self.minute15_path._has_data():
+                    return True
+
+                if self.minute15otn_tcms is not None and self.minute15otn_tcms._has_data():
+                    return True
+
+                if self.oc_hour24 is not None and self.oc_hour24._has_data():
+                    return True
+
+                if self.oc_minute15 is not None and self.oc_minute15._has_data():
+                    return True
+
+                if self.sonet_hour24 is not None and self.sonet_hour24._has_data():
+                    return True
+
+                if self.sonet_minute15 is not None and self.sonet_minute15._has_data():
+                    return True
+
+                if self.stm_hour24 is not None and self.stm_hour24._has_data():
+                    return True
+
+                if self.stm_minute15 is not None and self.stm_minute15._has_data():
+                    return True
+
+                if self.sts_hour24 is not None and self.sts_hour24._has_data():
+                    return True
+
+                if self.sts_minute15 is not None and self.sts_minute15._has_data():
                     return True
 
                 return False
@@ -28617,20 +28617,12 @@ class InterfaceConfigurations(object):
             """
             Interface QOS configuration
             
-            .. attribute:: output
+            .. attribute:: actual_rate_down
             
-            	Egress service policy
-            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output>`
+            	Minimum bandwidth guaranteed for a subscriber
+            	**type**\: int
             
-            .. attribute:: l2_overhead
-            
-            	Layer 2 overhead accounting
-            	**type**\: :py:class:`L2Overhead <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead>`
-            
-            .. attribute:: input
-            
-            	Ingress service policy
-            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input>`
+            	**range:** 1..4294967295
             
             .. attribute:: actual_rate_up
             
@@ -28639,6 +28631,16 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..4294967295
             
+            .. attribute:: input
+            
+            	Ingress service policy
+            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input>`
+            
+            .. attribute:: l2_overhead
+            
+            	Layer 2 overhead accounting
+            	**type**\: :py:class:`L2Overhead <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead>`
+            
             .. attribute:: minimum_bandwidth
             
             	Minimum bandwidth guaranteed for a subscriber
@@ -28646,12 +28648,10 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..4294967295
             
-            .. attribute:: actual_rate_down
+            .. attribute:: output
             
-            	Minimum bandwidth guaranteed for a subscriber
-            	**type**\: int
-            
-            	**range:** 1..4294967295
+            	Egress service policy
+            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output>`
             
             
 
@@ -28662,15 +28662,15 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output()
-                self.output.parent = self
-                self.l2_overhead = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead()
-                self.l2_overhead.parent = self
+                self.actual_rate_down = None
+                self.actual_rate_up = None
                 self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input()
                 self.input.parent = self
-                self.actual_rate_up = None
+                self.l2_overhead = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead()
+                self.l2_overhead.parent = self
                 self.minimum_bandwidth = None
-                self.actual_rate_down = None
+                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output()
+                self.output.parent = self
 
 
             class Output(object):
@@ -28719,20 +28719,10 @@ class InterfaceConfigurations(object):
                     
                     	**range:** \-63..63
                     
-                    .. attribute:: spi_name
-                    
-                    	Name of the SPI
-                    	**type**\: str
-                    
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupportedEnum>`
-                    
-                    .. attribute:: subscriber_parent_policy
-                    
-                    	TRUE if service\-policy applied on svlan
-                    	**type**\: bool
                     
                     .. attribute:: resource_id
                     
@@ -28744,6 +28734,16 @@ class InterfaceConfigurations(object):
                     .. attribute:: service_fragment_parent_policy
                     
                     	TRUE if service\-policy applied is a service\-fragment policy)
+                    	**type**\: bool
+                    
+                    .. attribute:: spi_name
+                    
+                    	Name of the SPI
+                    	**type**\: str
+                    
+                    .. attribute:: subscriber_parent_policy
+                    
+                    	TRUE if service\-policy applied on svlan
                     	**type**\: bool
                     
                     
@@ -28758,18 +28758,18 @@ class InterfaceConfigurations(object):
                         self.service_policy_name = None
                         self.account_type = None
                         self.l1_user_defined = None
-                        self.spi_name = None
                         self.policy_merge = None
-                        self.subscriber_parent_policy = None
                         self.resource_id = None
                         self.service_fragment_parent_policy = None
+                        self.spi_name = None
+                        self.subscriber_parent_policy = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.service_policy_name is None:
-                            raise YPYDataValidationError('Key property service_policy_name is None')
+                            raise YPYModelError('Key property service_policy_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:service-policy[Cisco-IOS-XR-skp-qos-cfg:service-policy-name = ' + str(self.service_policy_name) + ']'
 
@@ -28789,19 +28789,19 @@ class InterfaceConfigurations(object):
                         if self.l1_user_defined is not None:
                             return True
 
-                        if self.spi_name is not None:
-                            return True
-
                         if self.policy_merge is not None:
-                            return True
-
-                        if self.subscriber_parent_policy is not None:
                             return True
 
                         if self.resource_id is not None:
                             return True
 
                         if self.service_fragment_parent_policy is not None:
+                            return True
+
+                        if self.spi_name is not None:
+                            return True
+
+                        if self.subscriber_parent_policy is not None:
                             return True
 
                         return False
@@ -28814,7 +28814,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:output'
 
@@ -28870,6 +28870,11 @@ class InterfaceConfigurations(object):
                     """
                     Access Loop Encapsulation
                     
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to be included for overhead calculation
+                    	**type**\: bool
+                    
                     .. attribute:: data_link_type
                     
                     	Data link type
@@ -28879,11 +28884,6 @@ class InterfaceConfigurations(object):
                     
                     	Encap used between the DSLAM and CPE
                     	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.Qosl2EncapEnum>`
-                    
-                    .. attribute:: atm_cell_tax
-                    
-                    	ATM cell tax to be included for overhead calculation
-                    	**type**\: bool
                     
                     .. attribute:: l2_user_defined
                     
@@ -28901,15 +28901,15 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.atm_cell_tax = None
                         self.data_link_type = None
                         self.encap_type = None
-                        self.atm_cell_tax = None
                         self.l2_user_defined = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:account'
 
@@ -28920,13 +28920,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.atm_cell_tax is not None:
+                            return True
+
                         if self.data_link_type is not None:
                             return True
 
                         if self.encap_type is not None:
-                            return True
-
-                        if self.atm_cell_tax is not None:
                             return True
 
                         if self.l2_user_defined is not None:
@@ -28942,7 +28942,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:l2-overhead'
 
@@ -29013,20 +29013,10 @@ class InterfaceConfigurations(object):
                     
                     	**range:** \-63..63
                     
-                    .. attribute:: spi_name
-                    
-                    	Name of the SPI
-                    	**type**\: str
-                    
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupportedEnum>`
-                    
-                    .. attribute:: subscriber_parent_policy
-                    
-                    	TRUE if service\-policy applied on svlan
-                    	**type**\: bool
                     
                     .. attribute:: resource_id
                     
@@ -29038,6 +29028,16 @@ class InterfaceConfigurations(object):
                     .. attribute:: service_fragment_parent_policy
                     
                     	TRUE if service\-policy applied is a service\-fragment policy)
+                    	**type**\: bool
+                    
+                    .. attribute:: spi_name
+                    
+                    	Name of the SPI
+                    	**type**\: str
+                    
+                    .. attribute:: subscriber_parent_policy
+                    
+                    	TRUE if service\-policy applied on svlan
                     	**type**\: bool
                     
                     
@@ -29052,18 +29052,18 @@ class InterfaceConfigurations(object):
                         self.service_policy_name = None
                         self.account_type = None
                         self.l1_user_defined = None
-                        self.spi_name = None
                         self.policy_merge = None
-                        self.subscriber_parent_policy = None
                         self.resource_id = None
                         self.service_fragment_parent_policy = None
+                        self.spi_name = None
+                        self.subscriber_parent_policy = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.service_policy_name is None:
-                            raise YPYDataValidationError('Key property service_policy_name is None')
+                            raise YPYModelError('Key property service_policy_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:service-policy[Cisco-IOS-XR-skp-qos-cfg:service-policy-name = ' + str(self.service_policy_name) + ']'
 
@@ -29083,19 +29083,19 @@ class InterfaceConfigurations(object):
                         if self.l1_user_defined is not None:
                             return True
 
-                        if self.spi_name is not None:
-                            return True
-
                         if self.policy_merge is not None:
-                            return True
-
-                        if self.subscriber_parent_policy is not None:
                             return True
 
                         if self.resource_id is not None:
                             return True
 
                         if self.service_fragment_parent_policy is not None:
+                            return True
+
+                        if self.spi_name is not None:
+                            return True
+
+                        if self.subscriber_parent_policy is not None:
                             return True
 
                         return False
@@ -29108,7 +29108,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:input'
 
@@ -29134,7 +29134,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-skp-qos-cfg:Cisco-IOS-XR-skp-qos-cfg_qos'
 
@@ -29145,22 +29145,22 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.output is not None and self.output._has_data():
-                    return True
-
-                if self.l2_overhead is not None and self.l2_overhead._has_data():
-                    return True
-
-                if self.input is not None and self.input._has_data():
+                if self.actual_rate_down is not None:
                     return True
 
                 if self.actual_rate_up is not None:
                     return True
 
+                if self.input is not None and self.input._has_data():
+                    return True
+
+                if self.l2_overhead is not None and self.l2_overhead._has_data():
+                    return True
+
                 if self.minimum_bandwidth is not None:
                     return True
 
-                if self.actual_rate_down is not None:
+                if self.output is not None and self.output._has_data():
                     return True
 
                 return False
@@ -29175,20 +29175,20 @@ class InterfaceConfigurations(object):
             """
             Interface netflow configuration
             
-            .. attribute:: mpls
+            .. attribute:: ipv4
             
-            	Configure MPLS netflow
-            	**type**\: :py:class:`Mpls <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls>`
+            	Configure IPv4 netflow
+            	**type**\: :py:class:`Ipv4 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4>`
             
             .. attribute:: ipv6
             
             	Configure IPv6 netflow
             	**type**\: :py:class:`Ipv6 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6>`
             
-            .. attribute:: ipv4
+            .. attribute:: mpls
             
-            	Configure IPv4 netflow
-            	**type**\: :py:class:`Ipv4 <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4>`
+            	Configure MPLS netflow
+            	**type**\: :py:class:`Mpls <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls>`
             
             
 
@@ -29199,12 +29199,12 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.mpls = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls()
-                self.mpls.parent = self
-                self.ipv6 = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6()
-                self.ipv6.parent = self
                 self.ipv4 = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4()
                 self.ipv4.parent = self
+                self.ipv6 = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6()
+                self.ipv6.parent = self
+                self.mpls = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls()
+                self.mpls.parent = self
 
 
             class Mpls(object):
@@ -29233,15 +29233,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure a flow monitor map
                     
-                    .. attribute:: ingress
-                    
-                    	Configure ingress monitoring direction
-                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress>`
-                    
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
                     	**type**\: :py:class:`Egress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress>`
+                    
+                    .. attribute:: ingress
+                    
+                    	Configure ingress monitoring direction
+                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -29252,10 +29252,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress()
-                        self.ingress.parent = self
                         self.egress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress()
                         self.egress.parent = self
+                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress()
+                        self.ingress.parent = self
 
 
                     class Ingress(object):
@@ -29312,9 +29312,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -29341,7 +29341,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:ingress'
 
@@ -29419,9 +29419,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -29448,7 +29448,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:egress'
 
@@ -29474,7 +29474,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map'
 
@@ -29485,10 +29485,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ingress is not None and self.ingress._has_data():
+                        if self.egress is not None and self.egress._has_data():
                             return True
 
-                        if self.egress is not None and self.egress._has_data():
+                        if self.ingress is not None and self.ingress._has_data():
                             return True
 
                         return False
@@ -29501,7 +29501,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:mpls'
 
@@ -29549,15 +29549,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure a flow monitor map
                     
-                    .. attribute:: ingress
-                    
-                    	Configure ingress monitoring direction
-                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress>`
-                    
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
                     	**type**\: :py:class:`Egress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress>`
+                    
+                    .. attribute:: ingress
+                    
+                    	Configure ingress monitoring direction
+                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -29568,10 +29568,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress()
-                        self.ingress.parent = self
                         self.egress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress()
                         self.egress.parent = self
+                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress()
+                        self.ingress.parent = self
 
 
                     class Ingress(object):
@@ -29628,9 +29628,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -29657,7 +29657,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:ingress'
 
@@ -29735,9 +29735,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -29764,7 +29764,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:egress'
 
@@ -29790,7 +29790,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map'
 
@@ -29801,10 +29801,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ingress is not None and self.ingress._has_data():
+                        if self.egress is not None and self.egress._has_data():
                             return True
 
-                        if self.egress is not None and self.egress._has_data():
+                        if self.ingress is not None and self.ingress._has_data():
                             return True
 
                         return False
@@ -29817,7 +29817,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:ipv6'
 
@@ -29865,15 +29865,15 @@ class InterfaceConfigurations(object):
                     """
                     Configure a flow monitor map
                     
-                    .. attribute:: ingress
-                    
-                    	Configure ingress monitoring direction
-                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress>`
-                    
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
                     	**type**\: :py:class:`Egress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress>`
+                    
+                    .. attribute:: ingress
+                    
+                    	Configure ingress monitoring direction
+                    	**type**\: :py:class:`Ingress <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -29884,10 +29884,10 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress()
-                        self.ingress.parent = self
                         self.egress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress()
                         self.egress.parent = self
+                        self.ingress = InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress()
+                        self.ingress.parent = self
 
 
                     class Ingress(object):
@@ -29944,9 +29944,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -29973,7 +29973,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:ingress'
 
@@ -30051,9 +30051,9 @@ class InterfaceConfigurations(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.monitor_map_name is None:
-                                    raise YPYDataValidationError('Key property monitor_map_name is None')
+                                    raise YPYModelError('Key property monitor_map_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-name[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
 
@@ -30080,7 +30080,7 @@ class InterfaceConfigurations(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:egress'
 
@@ -30106,7 +30106,7 @@ class InterfaceConfigurations(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map'
 
@@ -30117,10 +30117,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ingress is not None and self.ingress._has_data():
+                        if self.egress is not None and self.egress._has_data():
                             return True
 
-                        if self.egress is not None and self.egress._has_data():
+                        if self.ingress is not None and self.ingress._has_data():
                             return True
 
                         return False
@@ -30133,7 +30133,7 @@ class InterfaceConfigurations(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:ipv4'
 
@@ -30157,7 +30157,7 @@ class InterfaceConfigurations(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow'
 
@@ -30168,13 +30168,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.mpls is not None and self.mpls._has_data():
+                if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
                 if self.ipv6 is not None and self.ipv6._has_data():
                     return True
 
-                if self.ipv4 is not None and self.ipv4._has_data():
+                if self.mpls is not None and self.mpls._has_data():
                     return True
 
                 return False
@@ -30189,45 +30189,10 @@ class InterfaceConfigurations(object):
             """
             WANPHY port controller configuration
             
-            .. attribute:: report_path_rdi
-            
-            	Configure Path Remote Defect Indicator reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: report_los
-            
-            	Configure Loss Of Signal reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: report_path_lcd
-            
-            	Configure Path Loss Of Code\-Group Delineation reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: report_path_fe_plm
-            
-            	Configure Path Far End Payload Label Mismatch reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: lan_mode
             
             	Configure LAN Mode
             	**type**\: :py:class:`WanphyLanModeEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg.WanphyLanModeEnum>`
-            
-            .. attribute:: report_path_plm
-            
-            	Configure Path Payload Label Mismatch reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: report_path_fe_ais
-            
-            	Configure Path Far End Payload Label Mismatch reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: report_path_ais
-            
-            	Configure Path Alarm Indication Signal reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: report_line_ais
             
@@ -30244,6 +30209,41 @@ class InterfaceConfigurations(object):
             	Configure Loss Of Pointer reporting
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: report_los
+            
+            	Configure Loss Of Signal reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_ais
+            
+            	Configure Path Alarm Indication Signal reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_fe_ais
+            
+            	Configure Path Far End Payload Label Mismatch reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_fe_plm
+            
+            	Configure Path Far End Payload Label Mismatch reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_lcd
+            
+            	Configure Path Loss Of Code\-Group Delineation reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_plm
+            
+            	Configure Path Payload Label Mismatch reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: report_path_rdi
+            
+            	Configure Path Remote Defect Indicator reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: report_rdi
             
             	Configure Remote Defect Indicator reporting
@@ -30254,17 +30254,17 @@ class InterfaceConfigurations(object):
             	Configure B2 BER in excess of SD threshold reporting
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: report_sf_ber
+            
+            	Configure B2 BER in excess of SF threshold reporting
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: threshold_sd_ber
             
             	Bit error rate is 10 to the minus n, where n is threshold value
             	**type**\: int
             
             	**range:** 3..9
-            
-            .. attribute:: report_sf_ber
-            
-            	Configure B2 BER in excess of SF threshold reporting
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: threshold_sf_ber
             
@@ -30287,28 +30287,28 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.report_path_rdi = None
-                self.report_los = None
-                self.report_path_lcd = None
-                self.report_path_fe_plm = None
                 self.lan_mode = None
-                self.report_path_plm = None
-                self.report_path_fe_ais = None
-                self.report_path_ais = None
                 self.report_line_ais = None
                 self.report_lof = None
                 self.report_lop = None
+                self.report_los = None
+                self.report_path_ais = None
+                self.report_path_fe_ais = None
+                self.report_path_fe_plm = None
+                self.report_path_lcd = None
+                self.report_path_plm = None
+                self.report_path_rdi = None
                 self.report_rdi = None
                 self.report_sd_ber = None
-                self.threshold_sd_ber = None
                 self.report_sf_ber = None
+                self.threshold_sd_ber = None
                 self.threshold_sf_ber = None
                 self.wan_mode = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-wanphy-ui-cfg:wanphy'
 
@@ -30319,28 +30319,7 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.report_path_rdi is not None:
-                    return True
-
-                if self.report_los is not None:
-                    return True
-
-                if self.report_path_lcd is not None:
-                    return True
-
-                if self.report_path_fe_plm is not None:
-                    return True
-
                 if self.lan_mode is not None:
-                    return True
-
-                if self.report_path_plm is not None:
-                    return True
-
-                if self.report_path_fe_ais is not None:
-                    return True
-
-                if self.report_path_ais is not None:
                     return True
 
                 if self.report_line_ais is not None:
@@ -30352,16 +30331,37 @@ class InterfaceConfigurations(object):
                 if self.report_lop is not None:
                     return True
 
+                if self.report_los is not None:
+                    return True
+
+                if self.report_path_ais is not None:
+                    return True
+
+                if self.report_path_fe_ais is not None:
+                    return True
+
+                if self.report_path_fe_plm is not None:
+                    return True
+
+                if self.report_path_lcd is not None:
+                    return True
+
+                if self.report_path_plm is not None:
+                    return True
+
+                if self.report_path_rdi is not None:
+                    return True
+
                 if self.report_rdi is not None:
                     return True
 
                 if self.report_sd_ber is not None:
                     return True
 
-                if self.threshold_sd_ber is not None:
+                if self.report_sf_ber is not None:
                     return True
 
-                if self.report_sf_ber is not None:
+                if self.threshold_sd_ber is not None:
                     return True
 
                 if self.threshold_sf_ber is not None:
@@ -30380,9 +30380,9 @@ class InterfaceConfigurations(object):
         @property
         def _common_path(self):
             if self.active is None:
-                raise YPYDataValidationError('Key property active is None')
+                raise YPYModelError('Key property active is None')
             if self.interface_name is None:
-                raise YPYDataValidationError('Key property interface_name is None')
+                raise YPYModelError('Key property interface_name is None')
 
             return '/Cisco-IOS-XR-ifmgr-cfg:interface-configurations/Cisco-IOS-XR-ifmgr-cfg:interface-configuration[Cisco-IOS-XR-ifmgr-cfg:active = ' + str(self.active) + '][Cisco-IOS-XR-ifmgr-cfg:interface-name = ' + str(self.interface_name) + ']'
 
@@ -30399,46 +30399,13 @@ class InterfaceConfigurations(object):
             if self.interface_name is not None:
                 return True
 
-            if self.dampening is not None and self.dampening._has_data():
-                return True
-
-            if self.mtus is not None and self.mtus._has_data():
-                return True
-
-            if self.encapsulation is not None and self.encapsulation._has_data():
-                return True
-
-            if self.shutdown is not None:
-                return True
-
-            if self.interface_virtual is not None:
-                return True
-
-            if self.secondary_admin_state is not None:
-                return True
-
-            if self.interface_mode_non_physical is not None:
-                return True
-
-            if self.bandwidth is not None:
-                return True
-
-            if self.link_status is not None:
-                return True
-
-            if self.description is not None:
-                return True
-
-            if self.pseudowire_ether is not None and self.pseudowire_ether._has_data():
-                return True
-
-            if self.pseudowire_iw is not None and self.pseudowire_iw._has_data():
-                return True
-
-            if self.l2_transport is not None and self.l2_transport._has_data():
+            if self.afs is not None and self.afs._has_data():
                 return True
 
             if self.atm is not None and self.atm._has_data():
+                return True
+
+            if self.bandwidth is not None:
                 return True
 
             if self.bfd is not None and self.bfd._has_data():
@@ -30447,43 +30414,97 @@ class InterfaceConfigurations(object):
             if self.bundle is not None and self.bundle._has_data():
                 return True
 
-            if self.lacp is not None and self.lacp._has_data():
-                return True
-
             if self.bundle_member is not None and self.bundle_member._has_data():
-                return True
-
-            if self.mlacp is not None and self.mlacp._has_data():
                 return True
 
             if self.cdp is not None and self.cdp._has_data():
                 return True
 
-            if self.optics is not None and self.optics._has_data():
+            if self.cisco_ios_xr_ncs5500_qos_cfg_qos is not None and self.cisco_ios_xr_ncs5500_qos_cfg_qos._has_data():
                 return True
 
-            if self.otu is not None and self.otu._has_data():
+            if self.cisco_ios_xr_skp_qos_cfg_qos is not None and self.cisco_ios_xr_skp_qos_cfg_qos._has_data():
+                return True
+
+            if self.dagrs is not None and self.dagrs._has_data():
+                return True
+
+            if self.dampening is not None and self.dampening._has_data():
+                return True
+
+            if self.description is not None:
+                return True
+
+            if self.encapsulation is not None and self.encapsulation._has_data():
+                return True
+
+            if self.es_packet_filter is not None and self.es_packet_filter._has_data():
                 return True
 
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
-            if self.vlan_sub_configuration is not None and self.vlan_sub_configuration._has_data():
-                return True
-
-            if self.ethernet_service is not None and self.ethernet_service._has_data():
-                return True
-
             if self.ethernet_bng is not None and self.ethernet_bng._has_data():
-                return True
-
-            if self.mac_accounting is not None and self.mac_accounting._has_data():
                 return True
 
             if self.ethernet_features is not None and self.ethernet_features._has_data():
                 return True
 
-            if self.vlan_trunk_configuration is not None and self.vlan_trunk_configuration._has_data():
+            if self.ethernet_service is not None and self.ethernet_service._has_data():
+                return True
+
+            if self.interface_mode_non_physical is not None:
+                return True
+
+            if self.interface_virtual is not None:
+                return True
+
+            if self.ipv4_network is not None and self.ipv4_network._has_data():
+                return True
+
+            if self.ipv4_network_forwarding is not None and self.ipv4_network_forwarding._has_data():
+                return True
+
+            if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
+                return True
+
+            if self.ipv4arp is not None and self.ipv4arp._has_data():
+                return True
+
+            if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
+                return True
+
+            if self.ipv6_network is not None and self.ipv6_network._has_data():
+                return True
+
+            if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
+                return True
+
+            if self.l2_transport is not None and self.l2_transport._has_data():
+                return True
+
+            if self.lacp is not None and self.lacp._has_data():
+                return True
+
+            if self.link_status is not None:
+                return True
+
+            if self.lldp is not None and self.lldp._has_data():
+                return True
+
+            if self.mac_accounting is not None and self.mac_accounting._has_data():
+                return True
+
+            if self.mlacp is not None and self.mlacp._has_data():
+                return True
+
+            if self.mte_tunnel_attributes is not None and self.mte_tunnel_attributes._has_data():
+                return True
+
+            if self.mtus is not None and self.mtus._has_data():
+                return True
+
+            if self.net_flow is not None and self.net_flow._has_data():
                 return True
 
             if self.nv_satellite_access is not None and self.nv_satellite_access._has_data():
@@ -30495,58 +30516,10 @@ class InterfaceConfigurations(object):
             if self.nv_satellite_fabric_network is not None and self.nv_satellite_fabric_network._has_data():
                 return True
 
-            if self.lldp is not None and self.lldp._has_data():
+            if self.optics is not None and self.optics._has_data():
                 return True
 
-            if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                return True
-
-            if self.vrf is not None:
-                return True
-
-            if self.afs is not None and self.afs._has_data():
-                return True
-
-            if self.statistics is not None and self.statistics._has_data():
-                return True
-
-            if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                return True
-
-            if self.es_packet_filter is not None and self.es_packet_filter._has_data():
-                return True
-
-            if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                return True
-
-            if self.dagrs is not None and self.dagrs._has_data():
-                return True
-
-            if self.ipv4arp is not None and self.ipv4arp._has_data():
-                return True
-
-            if self.ipv4_network is not None and self.ipv4_network._has_data():
-                return True
-
-            if self.ipv4_network_forwarding is not None and self.ipv4_network_forwarding._has_data():
-                return True
-
-            if self.ipv6_network is not None and self.ipv6_network._has_data():
-                return True
-
-            if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                return True
-
-            if self.tunnel_te_attributes is not None and self.tunnel_te_attributes._has_data():
-                return True
-
-            if self.transport_profile_tunnel is not None and self.transport_profile_tunnel._has_data():
-                return True
-
-            if self.mte_tunnel_attributes is not None and self.mte_tunnel_attributes._has_data():
-                return True
-
-            if self.cisco_ios_xr_ncs5500_qos_cfg_qos is not None and self.cisco_ios_xr_ncs5500_qos_cfg_qos._has_data():
+            if self.otu is not None and self.otu._has_data():
                 return True
 
             if self.pbr is not None and self.pbr._has_data():
@@ -30555,10 +30528,37 @@ class InterfaceConfigurations(object):
             if self.performance_management is not None and self.performance_management._has_data():
                 return True
 
-            if self.cisco_ios_xr_skp_qos_cfg_qos is not None and self.cisco_ios_xr_skp_qos_cfg_qos._has_data():
+            if self.pseudowire_ether is not None and self.pseudowire_ether._has_data():
                 return True
 
-            if self.net_flow is not None and self.net_flow._has_data():
+            if self.pseudowire_iw is not None and self.pseudowire_iw._has_data():
+                return True
+
+            if self.secondary_admin_state is not None:
+                return True
+
+            if self.shutdown is not None:
+                return True
+
+            if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
+                return True
+
+            if self.statistics is not None and self.statistics._has_data():
+                return True
+
+            if self.transport_profile_tunnel is not None and self.transport_profile_tunnel._has_data():
+                return True
+
+            if self.tunnel_te_attributes is not None and self.tunnel_te_attributes._has_data():
+                return True
+
+            if self.vlan_sub_configuration is not None and self.vlan_sub_configuration._has_data():
+                return True
+
+            if self.vlan_trunk_configuration is not None and self.vlan_trunk_configuration._has_data():
+                return True
+
+            if self.vrf is not None:
                 return True
 
             if self.wanphy is not None and self.wanphy._has_data():

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -74,15 +74,15 @@ class HwModule(object):
     """
     mxp hw\-module command chain
     
-    .. attribute:: slice_ids
-    
-    	Slice information
-    	**type**\: :py:class:`SliceIds <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
-    
     .. attribute:: slice_all
     
     	Information for all slices
     	**type**\: :py:class:`SliceAll <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
+    
+    .. attribute:: slice_ids
+    
+    	Slice information
+    	**type**\: :py:class:`SliceIds <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
     
     
 
@@ -92,10 +92,10 @@ class HwModule(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.slice_ids = HwModule.SliceIds()
-        self.slice_ids.parent = self
         self.slice_all = HwModule.SliceAll()
         self.slice_all.parent = self
+        self.slice_ids = HwModule.SliceIds()
+        self.slice_ids.parent = self
 
 
     class SliceIds(object):
@@ -156,16 +156,33 @@ class HwModule(object):
                 """
                 slice info
                 
-                .. attribute:: slice_id
+                .. attribute:: client_port
                 
-                	SliceId
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	client port
+                	**type**\: list of :py:class:`ClientPort <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
                 
                 .. attribute:: client_rate
                 
                 	ClientRate
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dp_fpg_ver
+                
+                	DpFpgVer
+                	**type**\: str
+                
+                	**range:** 0..16
+                
+                .. attribute:: hardware_status
+                
+                	HardwareStatus
+                	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+                
+                .. attribute:: slice_id
+                
+                	SliceId
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -177,23 +194,6 @@ class HwModule(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: hardware_status
-                
-                	HardwareStatus
-                	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
-                
-                .. attribute:: dp_fpg_ver
-                
-                	DpFpgVer
-                	**type**\: str
-                
-                	**range:** 0..16
-                
-                .. attribute:: client_port
-                
-                	client port
-                	**type**\: list of :py:class:`ClientPort <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
-                
                 
 
                 """
@@ -203,14 +203,14 @@ class HwModule(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.slice_id = None
-                    self.client_rate = None
-                    self.trunk_rate = None
-                    self.hardware_status = None
-                    self.dp_fpg_ver = None
                     self.client_port = YList()
                     self.client_port.parent = self
                     self.client_port.name = 'client_port'
+                    self.client_rate = None
+                    self.dp_fpg_ver = None
+                    self.hardware_status = None
+                    self.slice_id = None
+                    self.trunk_rate = None
 
 
                 class ClientPort(object):
@@ -248,19 +248,19 @@ class HwModule(object):
                         """
                         trunk port
                         
-                        .. attribute:: trunk_name
-                        
-                        	TrunkName
-                        	**type**\: str
-                        
-                        	**range:** 0..64
-                        
                         .. attribute:: percentage
                         
                         	Percentage
                         	**type**\: str
                         
                         	**range:** 0..8
+                        
+                        .. attribute:: trunk_name
+                        
+                        	TrunkName
+                        	**type**\: str
+                        
+                        	**range:** 0..64
                         
                         
 
@@ -271,13 +271,13 @@ class HwModule(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.trunk_name = None
                             self.percentage = None
+                            self.trunk_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:trunk-port'
 
@@ -288,10 +288,10 @@ class HwModule(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.trunk_name is not None:
+                            if self.percentage is not None:
                                 return True
 
-                            if self.percentage is not None:
+                            if self.trunk_name is not None:
                                 return True
 
                             return False
@@ -304,7 +304,7 @@ class HwModule(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:client-port'
 
@@ -333,7 +333,7 @@ class HwModule(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:slice-info'
 
@@ -344,25 +344,25 @@ class HwModule(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.slice_id is not None:
-                        return True
+                    if self.client_port is not None:
+                        for child_ref in self.client_port:
+                            if child_ref._has_data():
+                                return True
 
                     if self.client_rate is not None:
-                        return True
-
-                    if self.trunk_rate is not None:
-                        return True
-
-                    if self.hardware_status is not None:
                         return True
 
                     if self.dp_fpg_ver is not None:
                         return True
 
-                    if self.client_port is not None:
-                        for child_ref in self.client_port:
-                            if child_ref._has_data():
-                                return True
+                    if self.hardware_status is not None:
+                        return True
+
+                    if self.slice_id is not None:
+                        return True
+
+                    if self.trunk_rate is not None:
+                        return True
 
                     return False
 
@@ -374,7 +374,7 @@ class HwModule(object):
             @property
             def _common_path(self):
                 if self.slice_num is None:
-                    raise YPYDataValidationError('Key property slice_num is None')
+                    raise YPYModelError('Key property slice_num is None')
 
                 return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-ids/Cisco-IOS-XR-ncs1k-mxp-oper:slice-id[Cisco-IOS-XR-ncs1k-mxp-oper:slice-num = ' + str(self.slice_num) + ']'
 
@@ -452,16 +452,33 @@ class HwModule(object):
             """
             slice info
             
-            .. attribute:: slice_id
+            .. attribute:: client_port
             
-            	SliceId
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	client port
+            	**type**\: list of :py:class:`ClientPort <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
             
             .. attribute:: client_rate
             
             	ClientRate
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dp_fpg_ver
+            
+            	DpFpgVer
+            	**type**\: str
+            
+            	**range:** 0..16
+            
+            .. attribute:: hardware_status
+            
+            	HardwareStatus
+            	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+            
+            .. attribute:: slice_id
+            
+            	SliceId
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -473,23 +490,6 @@ class HwModule(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: hardware_status
-            
-            	HardwareStatus
-            	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
-            
-            .. attribute:: dp_fpg_ver
-            
-            	DpFpgVer
-            	**type**\: str
-            
-            	**range:** 0..16
-            
-            .. attribute:: client_port
-            
-            	client port
-            	**type**\: list of :py:class:`ClientPort <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
-            
             
 
             """
@@ -499,14 +499,14 @@ class HwModule(object):
 
             def __init__(self):
                 self.parent = None
-                self.slice_id = None
-                self.client_rate = None
-                self.trunk_rate = None
-                self.hardware_status = None
-                self.dp_fpg_ver = None
                 self.client_port = YList()
                 self.client_port.parent = self
                 self.client_port.name = 'client_port'
+                self.client_rate = None
+                self.dp_fpg_ver = None
+                self.hardware_status = None
+                self.slice_id = None
+                self.trunk_rate = None
 
 
             class ClientPort(object):
@@ -544,19 +544,19 @@ class HwModule(object):
                     """
                     trunk port
                     
-                    .. attribute:: trunk_name
-                    
-                    	TrunkName
-                    	**type**\: str
-                    
-                    	**range:** 0..64
-                    
                     .. attribute:: percentage
                     
                     	Percentage
                     	**type**\: str
                     
                     	**range:** 0..8
+                    
+                    .. attribute:: trunk_name
+                    
+                    	TrunkName
+                    	**type**\: str
+                    
+                    	**range:** 0..64
                     
                     
 
@@ -567,8 +567,8 @@ class HwModule(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.trunk_name = None
                         self.percentage = None
+                        self.trunk_name = None
 
                     @property
                     def _common_path(self):
@@ -582,10 +582,10 @@ class HwModule(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.trunk_name is not None:
+                        if self.percentage is not None:
                             return True
 
-                        if self.percentage is not None:
+                        if self.trunk_name is not None:
                             return True
 
                         return False
@@ -634,25 +634,25 @@ class HwModule(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.slice_id is not None:
-                    return True
+                if self.client_port is not None:
+                    for child_ref in self.client_port:
+                        if child_ref._has_data():
+                            return True
 
                 if self.client_rate is not None:
-                    return True
-
-                if self.trunk_rate is not None:
-                    return True
-
-                if self.hardware_status is not None:
                     return True
 
                 if self.dp_fpg_ver is not None:
                     return True
 
-                if self.client_port is not None:
-                    for child_ref in self.client_port:
-                        if child_ref._has_data():
-                            return True
+                if self.hardware_status is not None:
+                    return True
+
+                if self.slice_id is not None:
+                    return True
+
+                if self.trunk_rate is not None:
+                    return True
 
                 return False
 
@@ -697,10 +697,10 @@ class HwModule(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.slice_ids is not None and self.slice_ids._has_data():
+        if self.slice_all is not None and self.slice_all._has_data():
             return True
 
-        if self.slice_all is not None and self.slice_all._has_data():
+        if self.slice_ids is not None and self.slice_ids._has_data():
             return True
 
         return False

@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -81,23 +81,9 @@ class RedundancyGroupManager(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: multi_router_aps_group_number
+            .. attribute:: backup_interface_handle
             
-            	Configured interchassis redundancy group number
-            	**type**\: str
-            
-            	**range:** 0..64
-            
-            .. attribute:: controller_name_xr
-            
-            	Name of controller being backed up
-            	**type**\: str
-            
-            	**range:** 0..64
-            
-            .. attribute:: controller_handle
-            
-            	Handle of controller being backed up
+            	Backup interface handle
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
@@ -109,13 +95,6 @@ class RedundancyGroupManager(object):
             
             	**range:** 0..64
             
-            .. attribute:: backup_interface_handle
-            
-            	Backup interface handle
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
             .. attribute:: backup_interface_next_hop_ip_address
             
             	Backup interface next hop IP address
@@ -123,9 +102,30 @@ class RedundancyGroupManager(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: controller_handle
+            
+            	Handle of controller being backed up
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: controller_name_xr
+            
+            	Name of controller being backed up
+            	**type**\: str
+            
+            	**range:** 0..64
+            
             .. attribute:: inter_chassis_group_state
             
             	Configured interchassis redundancy group state
+            	**type**\: str
+            
+            	**range:** 0..64
+            
+            .. attribute:: multi_router_aps_group_number
+            
+            	Configured interchassis redundancy group number
             	**type**\: str
             
             	**range:** 0..64
@@ -140,18 +140,18 @@ class RedundancyGroupManager(object):
             def __init__(self):
                 self.parent = None
                 self.controller_name = None
-                self.multi_router_aps_group_number = None
-                self.controller_name_xr = None
-                self.controller_handle = None
-                self.backup_interface_name = None
                 self.backup_interface_handle = None
+                self.backup_interface_name = None
                 self.backup_interface_next_hop_ip_address = None
+                self.controller_handle = None
+                self.controller_name_xr = None
                 self.inter_chassis_group_state = None
+                self.multi_router_aps_group_number = None
 
             @property
             def _common_path(self):
                 if self.controller_name is None:
-                    raise YPYDataValidationError('Key property controller_name is None')
+                    raise YPYModelError('Key property controller_name is None')
 
                 return '/Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/Cisco-IOS-XR-rgmgr-oper:controllers/Cisco-IOS-XR-rgmgr-oper:controller[Cisco-IOS-XR-rgmgr-oper:controller-name = ' + str(self.controller_name) + ']'
 
@@ -165,25 +165,25 @@ class RedundancyGroupManager(object):
                 if self.controller_name is not None:
                     return True
 
-                if self.multi_router_aps_group_number is not None:
-                    return True
-
-                if self.controller_name_xr is not None:
-                    return True
-
-                if self.controller_handle is not None:
+                if self.backup_interface_handle is not None:
                     return True
 
                 if self.backup_interface_name is not None:
                     return True
 
-                if self.backup_interface_handle is not None:
-                    return True
-
                 if self.backup_interface_next_hop_ip_address is not None:
                     return True
 
+                if self.controller_handle is not None:
+                    return True
+
+                if self.controller_name_xr is not None:
+                    return True
+
                 if self.inter_chassis_group_state is not None:
+                    return True
+
+                if self.multi_router_aps_group_number is not None:
                     return True
 
                 return False

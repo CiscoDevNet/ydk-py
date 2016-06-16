@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -52,7 +52,7 @@ class ServerDomainLkupEnum(Enum):
 
 
 
-class HostAddressBase_Identity(object):
+class HostAddressBaseIdentity(object):
     """
     Base identity for Host\-address
     
@@ -69,7 +69,7 @@ class HostAddressBase_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['HostAddressBase_Identity']['meta_info']
+        return meta._meta_table['HostAddressBaseIdentity']['meta_info']
 
 
 class IpDomain(object):
@@ -127,15 +127,15 @@ class IpDomain(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: server
-            
-            	Domain server data
-            	**type**\: :py:class:`Server <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
-            
             .. attribute:: hosts
             
             	List of domain hosts
             	**type**\: :py:class:`Hosts <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
+            
+            .. attribute:: server
+            
+            	Domain server data
+            	**type**\: :py:class:`Server <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
             
 
@@ -147,15 +147,22 @@ class IpDomain(object):
             def __init__(self):
                 self.parent = None
                 self.vrf_name = None
-                self.server = IpDomain.Vrfs.Vrf.Server()
-                self.server.parent = self
                 self.hosts = IpDomain.Vrfs.Vrf.Hosts()
                 self.hosts.parent = self
+                self.server = IpDomain.Vrfs.Vrf.Server()
+                self.server.parent = self
 
 
             class Server(object):
                 """
                 Domain server data
+                
+                .. attribute:: domain
+                
+                	Domain list
+                	**type**\: list of str
+                
+                	**range:** 0..256
                 
                 .. attribute:: domain_lookup
                 
@@ -166,13 +173,6 @@ class IpDomain(object):
                 
                 	Domain name
                 	**type**\: str
-                
-                	**range:** 0..256
-                
-                .. attribute:: domain
-                
-                	Domain list
-                	**type**\: list of str
                 
                 	**range:** 0..256
                 
@@ -190,11 +190,11 @@ class IpDomain(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.domain_lookup = None
-                    self.domain_name = None
                     self.domain = YLeafList()
                     self.domain.parent = self
                     self.domain.name = 'domain'
+                    self.domain_lookup = None
+                    self.domain_name = None
                     self.server_address = YList()
                     self.server_address.parent = self
                     self.server_address.name = 'server_address'
@@ -207,7 +207,7 @@ class IpDomain(object):
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\: :py:class:`HostAddressBase_Identity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBase_Identity>`
+                    	**type**\: :py:class:`HostAddressBaseIdentity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                     
                     .. attribute:: ipv4_address
                     
@@ -239,7 +239,7 @@ class IpDomain(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:server-address'
 
@@ -269,7 +269,7 @@ class IpDomain(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:server'
 
@@ -280,16 +280,16 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.domain is not None:
+                        for child in self.domain:
+                            if child is not None:
+                                return True
+
                     if self.domain_lookup is not None:
                         return True
 
                     if self.domain_name is not None:
                         return True
-
-                    if self.domain is not None:
-                        for child in self.domain:
-                            if child is not None:
-                                return True
 
                     if self.server_address is not None:
                         for child_ref in self.server_address:
@@ -337,15 +337,10 @@ class IpDomain(object):
                     	Hostname
                     	**type**\: str
                     
-                    .. attribute:: host_alias_list
-                    
-                    	Host alias
-                    	**type**\: :py:class:`HostAliasList <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
-                    
                     .. attribute:: af_name
                     
                     	Address type
-                    	**type**\: :py:class:`HostAddressBase_Identity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBase_Identity>`
+                    	**type**\: :py:class:`HostAddressBaseIdentity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                     
                     .. attribute:: age
                     
@@ -359,6 +354,11 @@ class IpDomain(object):
                     	Host address list
                     	**type**\: list of :py:class:`HostAddress <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
                     
+                    .. attribute:: host_alias_list
+                    
+                    	Host alias
+                    	**type**\: :py:class:`HostAliasList <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
+                    
                     
 
                     """
@@ -369,13 +369,13 @@ class IpDomain(object):
                     def __init__(self):
                         self.parent = None
                         self.host_name = None
-                        self.host_alias_list = IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList()
-                        self.host_alias_list.parent = self
                         self.af_name = None
                         self.age = None
                         self.host_address = YList()
                         self.host_address.parent = self
                         self.host_address.name = 'host_address'
+                        self.host_alias_list = IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList()
+                        self.host_alias_list.parent = self
 
 
                     class HostAliasList(object):
@@ -405,7 +405,7 @@ class IpDomain(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host-alias-list'
 
@@ -436,7 +436,7 @@ class IpDomain(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`HostAddressBase_Identity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBase_Identity>`
+                        	**type**\: :py:class:`HostAddressBaseIdentity <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         
@@ -468,7 +468,7 @@ class IpDomain(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host-address'
 
@@ -498,9 +498,9 @@ class IpDomain(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.host_name is None:
-                            raise YPYDataValidationError('Key property host_name is None')
+                            raise YPYModelError('Key property host_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host[Cisco-IOS-XR-ip-domain-oper:host-name = ' + str(self.host_name) + ']'
 
@@ -514,9 +514,6 @@ class IpDomain(object):
                         if self.host_name is not None:
                             return True
 
-                        if self.host_alias_list is not None and self.host_alias_list._has_data():
-                            return True
-
                         if self.af_name is not None:
                             return True
 
@@ -528,6 +525,9 @@ class IpDomain(object):
                                 if child_ref._has_data():
                                     return True
 
+                        if self.host_alias_list is not None and self.host_alias_list._has_data():
+                            return True
+
                         return False
 
                     @staticmethod
@@ -538,7 +538,7 @@ class IpDomain(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:hosts'
 
@@ -564,7 +564,7 @@ class IpDomain(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ip-domain-oper:ip-domain/Cisco-IOS-XR-ip-domain-oper:vrfs/Cisco-IOS-XR-ip-domain-oper:vrf[Cisco-IOS-XR-ip-domain-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -578,10 +578,10 @@ class IpDomain(object):
                 if self.vrf_name is not None:
                     return True
 
-                if self.server is not None and self.server._has_data():
+                if self.hosts is not None and self.hosts._has_data():
                     return True
 
-                if self.hosts is not None and self.hosts._has_data():
+                if self.server is not None and self.server._has_data():
                     return True
 
                 return False
@@ -638,7 +638,7 @@ class IpDomain(object):
         return meta._meta_table['IpDomain']['meta_info']
 
 
-class Ipv4_Identity(HostAddressBase_Identity):
+class Ipv4Identity(HostAddressBaseIdentity):
     """
     IPv4 family address
     
@@ -650,15 +650,15 @@ class Ipv4_Identity(HostAddressBase_Identity):
     _revision = '2015-09-29'
 
     def __init__(self):
-        HostAddressBase_Identity.__init__(self)
+        HostAddressBaseIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['Ipv4_Identity']['meta_info']
+        return meta._meta_table['Ipv4Identity']['meta_info']
 
 
-class Ipv6_Identity(HostAddressBase_Identity):
+class Ipv6Identity(HostAddressBaseIdentity):
     """
     IPv6 family address
     
@@ -670,11 +670,11 @@ class Ipv6_Identity(HostAddressBase_Identity):
     _revision = '2015-09-29'
 
     def __init__(self):
-        HostAddressBase_Identity.__init__(self)
+        HostAddressBaseIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['Ipv6_Identity']['meta_info']
+        return meta._meta_table['Ipv6Identity']['meta_info']
 
 

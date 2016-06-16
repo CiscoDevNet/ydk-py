@@ -25,7 +25,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -33,30 +33,6 @@ from ydk.errors import YPYError, YPYDataValidationError
 class Watchdog(object):
     """
     watchdog
-    
-    .. attribute:: threshold_memory
-    
-    	Memory thresholds
-    	**type**\: :py:class:`ThresholdMemory <ydk.models.wd.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
-    
-    .. attribute:: threshold_memory_switchover
-    
-    	switchover the RP at configured memory state
-    	**type**\: int
-    
-    	**range:** 2..4
-    
-    .. attribute:: restart_deadlock_disable
-    
-    	Disable watchdog restart deadlock
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: monitor_qnet_timeout
-    
-    	Watchdog monitor transport qnet timeout
-    	**type**\: int
-    
-    	**range:** 10..3600
     
     .. attribute:: monitor_cpuhog_timeout
     
@@ -72,19 +48,16 @@ class Watchdog(object):
     
     	**range:** 60..3600
     
+    .. attribute:: monitor_qnet_timeout
+    
+    	Watchdog monitor transport qnet timeout
+    	**type**\: int
+    
+    	**range:** 10..3600
+    
     .. attribute:: overload_notification
     
     	Disable critical event notification
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: restart_cpuhog_disable
-    
-    	Disable watchdog restart cpu\-hog
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: restart_memoryhog_disable
-    
-    	Disable watchdog restart memory\-hog
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: overload_throttle_timeout
@@ -94,6 +67,33 @@ class Watchdog(object):
     
     	**range:** 5..120
     
+    .. attribute:: restart_cpuhog_disable
+    
+    	Disable watchdog restart cpu\-hog
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: restart_deadlock_disable
+    
+    	Disable watchdog restart deadlock
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: restart_memoryhog_disable
+    
+    	Disable watchdog restart memory\-hog
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: threshold_memory
+    
+    	Memory thresholds
+    	**type**\: :py:class:`ThresholdMemory <ydk.models.wd.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
+    
+    .. attribute:: threshold_memory_switchover
+    
+    	switchover the RP at configured memory state
+    	**type**\: int
+    
+    	**range:** 2..4
+    
     
 
     """
@@ -102,22 +102,29 @@ class Watchdog(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.monitor_cpuhog_timeout = None
+        self.monitor_procnto_timeout = None
+        self.monitor_qnet_timeout = None
+        self.overload_notification = None
+        self.overload_throttle_timeout = None
+        self.restart_cpuhog_disable = None
+        self.restart_deadlock_disable = None
+        self.restart_memoryhog_disable = None
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
         self.threshold_memory_switchover = None
-        self.restart_deadlock_disable = None
-        self.monitor_qnet_timeout = None
-        self.monitor_cpuhog_timeout = None
-        self.monitor_procnto_timeout = None
-        self.overload_notification = None
-        self.restart_cpuhog_disable = None
-        self.restart_memoryhog_disable = None
-        self.overload_throttle_timeout = None
 
 
     class ThresholdMemory(object):
         """
         Memory thresholds
+        
+        .. attribute:: critical
+        
+        	Threshold, Range(3, severe)
+        	**type**\: int
+        
+        	**range:** 3..40
         
         .. attribute:: minor
         
@@ -133,13 +140,6 @@ class Watchdog(object):
         
         	**range:** 4..40
         
-        .. attribute:: critical
-        
-        	Threshold, Range(3, severe)
-        	**type**\: int
-        
-        	**range:** 3..40
-        
         
 
         """
@@ -149,9 +149,9 @@ class Watchdog(object):
 
         def __init__(self):
             self.parent = None
+            self.critical = None
             self.minor = None
             self.severe = None
-            self.critical = None
 
         @property
         def _common_path(self):
@@ -165,13 +165,13 @@ class Watchdog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.critical is not None:
+                return True
+
             if self.minor is not None:
                 return True
 
             if self.severe is not None:
-                return True
-
-            if self.critical is not None:
                 return True
 
             return False
@@ -193,34 +193,34 @@ class Watchdog(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.threshold_memory is not None and self.threshold_memory._has_data():
-            return True
-
-        if self.threshold_memory_switchover is not None:
-            return True
-
-        if self.restart_deadlock_disable is not None:
-            return True
-
-        if self.monitor_qnet_timeout is not None:
-            return True
-
         if self.monitor_cpuhog_timeout is not None:
             return True
 
         if self.monitor_procnto_timeout is not None:
             return True
 
+        if self.monitor_qnet_timeout is not None:
+            return True
+
         if self.overload_notification is not None:
+            return True
+
+        if self.overload_throttle_timeout is not None:
             return True
 
         if self.restart_cpuhog_disable is not None:
             return True
 
+        if self.restart_deadlock_disable is not None:
+            return True
+
         if self.restart_memoryhog_disable is not None:
             return True
 
-        if self.overload_throttle_timeout is not None:
+        if self.threshold_memory is not None and self.threshold_memory._has_data():
+            return True
+
+        if self.threshold_memory_switchover is not None:
             return True
 
         return False

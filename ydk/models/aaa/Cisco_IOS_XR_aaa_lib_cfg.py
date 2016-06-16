@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg import AaaLocaldTaskClassEnum
@@ -219,40 +219,45 @@ class Aaa(object):
     """
     Authentication, Authorization and Accounting
     
-    .. attribute:: accountings
-    
-    	AAA accounting
-    	**type**\: :py:class:`Accountings <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
-    
-    .. attribute:: authorizations
-    
-    	AAA authorization
-    	**type**\: :py:class:`Authorizations <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
-    
     .. attribute:: accounting_update
     
     	Configuration related to 'update' accounting
     	**type**\: :py:class:`AccountingUpdate <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AccountingUpdate>`
+    
+    .. attribute:: accountings
+    
+    	AAA accounting
+    	**type**\: :py:class:`Accountings <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
     
     .. attribute:: authentications
     
     	AAA authentication
     	**type**\: :py:class:`Authentications <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
     
-    .. attribute:: server_groups
+    .. attribute:: authorizations
     
-    	AAA group definitions
-    	**type**\: :py:class:`ServerGroups <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
+    	AAA authorization
+    	**type**\: :py:class:`Authorizations <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
     
     .. attribute:: default_taskgroup
     
     	This class is used for setting the default taskgroup to be used for remote server authentication
     	**type**\: str
     
-    .. attribute:: usernames
+    .. attribute:: radius
     
-    	Configure local usernames
-    	**type**\: :py:class:`Usernames <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
+    	Remote Access Dial\-In User Service
+    	**type**\: :py:class:`Radius <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
+    
+    .. attribute:: server_groups
+    
+    	AAA group definitions
+    	**type**\: :py:class:`ServerGroups <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
+    
+    .. attribute:: tacacs
+    
+    	Modify TACACS+ query parameters
+    	**type**\: :py:class:`Tacacs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
     
     .. attribute:: taskgroups
     
@@ -264,15 +269,10 @@ class Aaa(object):
     	Specify a Usergroup to inherit from
     	**type**\: :py:class:`Usergroups <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups>`
     
-    .. attribute:: radius
+    .. attribute:: usernames
     
-    	Remote Access Dial\-In User Service
-    	**type**\: :py:class:`Radius <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
-    
-    .. attribute:: tacacs
-    
-    	Modify TACACS+ query parameters
-    	**type**\: :py:class:`Tacacs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
+    	Configure local usernames
+    	**type**\: :py:class:`Usernames <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
     
     
 
@@ -282,26 +282,26 @@ class Aaa(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.accounting_update = None
         self.accountings = Aaa.Accountings()
         self.accountings.parent = self
-        self.authorizations = Aaa.Authorizations()
-        self.authorizations.parent = self
-        self.accounting_update = None
         self.authentications = Aaa.Authentications()
         self.authentications.parent = self
+        self.authorizations = Aaa.Authorizations()
+        self.authorizations.parent = self
+        self.default_taskgroup = None
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
         self.server_groups = Aaa.ServerGroups()
         self.server_groups.parent = self
-        self.default_taskgroup = None
-        self.usernames = Aaa.Usernames()
-        self.usernames.parent = self
+        self.tacacs = Aaa.Tacacs()
+        self.tacacs.parent = self
         self.taskgroups = Aaa.Taskgroups()
         self.taskgroups.parent = self
         self.usergroups = Aaa.Usergroups()
         self.usergroups.parent = self
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self.tacacs = Aaa.Tacacs()
-        self.tacacs.parent = self
+        self.usernames = Aaa.Usernames()
+        self.usernames.parent = self
 
 
     class Accountings(object):
@@ -331,13 +331,6 @@ class Aaa(object):
             """
             Configurations related to accounting
             
-            .. attribute:: type  <key>
-            
-            	exec\:Account exec sessions, commands\: Account CLI commands
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: listname  <key>
             
             	Named accounting list
@@ -345,30 +338,37 @@ class Aaa(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: rp_failover
+            .. attribute:: type  <key>
             
-            	rpfailover
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	exec\:Account exec sessions, commands\: Account CLI commands
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: broadcast
             
             	Broadcast
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: type_xr
-            
-            	Stop only/Start Stop
-            	**type**\: :py:class:`AaaAccountingEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingEnum>`
-            
             .. attribute:: method
             
             	Method Types
             	**type**\: list of :py:class:`AaaMethodEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
+            .. attribute:: rp_failover
+            
+            	rpfailover
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: server_group_name
             
             	Server group names
             	**type**\: list of str
+            
+            .. attribute:: type_xr
+            
+            	Stop only/Start Stop
+            	**type**\: :py:class:`AaaAccountingEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingEnum>`
             
             
 
@@ -379,26 +379,26 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
                 self.listname = None
-                self.rp_failover = None
+                self.type = None
                 self.broadcast = None
-                self.type_xr = None
                 self.method = YLeafList()
                 self.method.parent = self
                 self.method.name = 'method'
+                self.rp_failover = None
                 self.server_group_name = YLeafList()
                 self.server_group_name.parent = self
                 self.server_group_name.name = 'server_group_name'
+                self.type_xr = None
 
             @property
             def _common_path(self):
-                if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
                 if self.listname is None:
-                    raise YPYDataValidationError('Key property listname is None')
+                    raise YPYModelError('Key property listname is None')
+                if self.type is None:
+                    raise YPYModelError('Key property type is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:accountings/Cisco-IOS-XR-aaa-lib-cfg:accounting[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:accountings/Cisco-IOS-XR-aaa-lib-cfg:accounting[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -407,19 +407,13 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
-                    return True
-
                 if self.listname is not None:
                     return True
 
-                if self.rp_failover is not None:
+                if self.type is not None:
                     return True
 
                 if self.broadcast is not None:
-                    return True
-
-                if self.type_xr is not None:
                     return True
 
                 if self.method is not None:
@@ -427,10 +421,16 @@ class Aaa(object):
                         if child is not None:
                             return True
 
+                if self.rp_failover is not None:
+                    return True
+
                 if self.server_group_name is not None:
                     for child in self.server_group_name:
                         if child is not None:
                             return True
+
+                if self.type_xr is not None:
+                    return True
 
                 return False
 
@@ -491,16 +491,16 @@ class Aaa(object):
             """
             Configurations related to authorization
             
-            .. attribute:: type  <key>
+            .. attribute:: listname  <key>
             
-            	network\: Authorize IKE requests, commands\: Authorize CLI commands
+            	List name for AAA authorization
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: listname  <key>
+            .. attribute:: type  <key>
             
-            	List name for AAA authorization
+            	network\: Authorize IKE requests, commands\: Authorize CLI commands
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -524,8 +524,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
                 self.listname = None
+                self.type = None
                 self.method = YLeafList()
                 self.method.parent = self
                 self.method.name = 'method'
@@ -535,12 +535,12 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
                 if self.listname is None:
-                    raise YPYDataValidationError('Key property listname is None')
+                    raise YPYModelError('Key property listname is None')
+                if self.type is None:
+                    raise YPYModelError('Key property type is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authorizations/Cisco-IOS-XR-aaa-lib-cfg:authorization[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authorizations/Cisco-IOS-XR-aaa-lib-cfg:authorization[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -549,10 +549,10 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.listname is not None:
                     return True
 
-                if self.listname is not None:
+                if self.type is not None:
                     return True
 
                 if self.method is not None:
@@ -601,22 +601,22 @@ class Aaa(object):
         """
         Configuration related to 'update' accounting
         
-        .. attribute:: type
-        
-        	newinfo/periodic
-        	**type**\: :py:class:`AaaAccountingUpdateEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdateEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: periodic_interval
         
         	Periodic update interval in minutes
         	**type**\: int
         
         	**range:** 0..35791394
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: type
+        
+        	newinfo/periodic
+        	**type**\: :py:class:`AaaAccountingUpdateEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdateEnum>`
         
         .. attribute:: _is_presence
         
@@ -634,8 +634,8 @@ class Aaa(object):
 
         def __init__(self):
             self.parent = None
-            self.type = None
             self.periodic_interval = None
+            self.type = None
 
         @property
         def _common_path(self):
@@ -649,10 +649,10 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.type is not None:
+            if self.periodic_interval is not None:
                 return True
 
-            if self.periodic_interval is not None:
+            if self.type is not None:
                 return True
 
             return False
@@ -690,16 +690,16 @@ class Aaa(object):
             """
             Configurations related to authentication
             
-            .. attribute:: type  <key>
+            .. attribute:: listname  <key>
             
-            	login\: Authenticate login sessions, ppp\: Authenticate ppp sessions
+            	List name for AAA authentication
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: listname  <key>
+            .. attribute:: type  <key>
             
-            	List name for AAA authentication
+            	login\: Authenticate login sessions, ppp\: Authenticate ppp sessions
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -723,8 +723,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.type = None
                 self.listname = None
+                self.type = None
                 self.method = YLeafList()
                 self.method.parent = self
                 self.method.name = 'method'
@@ -734,12 +734,12 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.type is None:
-                    raise YPYDataValidationError('Key property type is None')
                 if self.listname is None:
-                    raise YPYDataValidationError('Key property listname is None')
+                    raise YPYModelError('Key property listname is None')
+                if self.type is None:
+                    raise YPYModelError('Key property type is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authentications/Cisco-IOS-XR-aaa-lib-cfg:authentication[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authentications/Cisco-IOS-XR-aaa-lib-cfg:authentication[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -748,10 +748,10 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.type is not None:
+                if self.listname is not None:
                     return True
 
-                if self.listname is not None:
+                if self.type is not None:
                     return True
 
                 if self.method is not None:
@@ -864,26 +864,6 @@ class Aaa(object):
                 	List of filters in server group
                 	**type**\: :py:class:`Accounting <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting>`
                 
-                .. attribute:: servers
-                
-                	List of RADIUS servers present in the group
-                	**type**\: :py:class:`Servers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
-                
-                .. attribute:: private_servers
-                
-                	List of private RADIUS servers present in the group
-                	**type**\: :py:class:`PrivateServers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
-                
-                .. attribute:: server_group_throttle
-                
-                	Radius throttling options
-                	**type**\: :py:class:`ServerGroupThrottle <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
-                
-                .. attribute:: load_balance
-                
-                	Radius load\-balancing options
-                	**type**\: :py:class:`LoadBalance <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
-                
                 .. attribute:: authorization
                 
                 	List of filters in server group
@@ -896,6 +876,26 @@ class Aaa(object):
                 
                 	**range:** 1..1440
                 
+                .. attribute:: load_balance
+                
+                	Radius load\-balancing options
+                	**type**\: :py:class:`LoadBalance <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
+                
+                .. attribute:: private_servers
+                
+                	List of private RADIUS servers present in the group
+                	**type**\: :py:class:`PrivateServers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
+                
+                .. attribute:: server_group_throttle
+                
+                	Radius throttling options
+                	**type**\: :py:class:`ServerGroupThrottle <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
+                
+                .. attribute:: servers
+                
+                	List of RADIUS servers present in the group
+                	**type**\: :py:class:`Servers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
+                
                 .. attribute:: source_interface
                 
                 	Specify interface for source address in RADIUS packets
@@ -903,15 +903,15 @@ class Aaa(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: vrf
-                
-                	Specify VRF name of RADIUS group
-                	**type**\: str
-                
                 .. attribute:: throttle
                 
                 	Radius throttling options
                 	**type**\: :py:class:`Throttle <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle>`
+                
+                .. attribute:: vrf
+                
+                	Specify VRF name of RADIUS group
+                	**type**\: str
                 
                 
 
@@ -925,36 +925,36 @@ class Aaa(object):
                     self.server_group_name = None
                     self.accounting = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting()
                     self.accounting.parent = self
-                    self.servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers()
-                    self.servers.parent = self
+                    self.authorization = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization()
+                    self.authorization.parent = self
+                    self.dead_time = None
+                    self.load_balance = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance()
+                    self.load_balance.parent = self
                     self.private_servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers()
                     self.private_servers.parent = self
                     self.server_group_throttle = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle()
                     self.server_group_throttle.parent = self
-                    self.load_balance = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance()
-                    self.load_balance.parent = self
-                    self.authorization = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization()
-                    self.authorization.parent = self
-                    self.dead_time = None
+                    self.servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers()
+                    self.servers.parent = self
                     self.source_interface = None
-                    self.vrf = None
                     self.throttle = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle()
                     self.throttle.parent = self
+                    self.vrf = None
 
 
                 class Accounting(object):
                     """
                     List of filters in server group
                     
-                    .. attribute:: request
-                    
-                    	Specify a filter in server group
-                    	**type**\: :py:class:`Request <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
-                    
                     .. attribute:: reply
                     
                     	Specify a filter in server group
                     	**type**\: :py:class:`Reply <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply>`
+                    
+                    .. attribute:: request
+                    
+                    	Specify a filter in server group
+                    	**type**\: :py:class:`Request <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
                     
                     
 
@@ -965,10 +965,10 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request()
-                        self.request.parent = self
                         self.reply = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply()
                         self.reply.parent = self
+                        self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request()
+                        self.request.parent = self
 
 
                     class Request(object):
@@ -1000,7 +1000,7 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:request'
 
@@ -1054,7 +1054,7 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:reply'
 
@@ -1081,7 +1081,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:accounting'
 
@@ -1092,10 +1092,10 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.request is not None and self.request._has_data():
+                        if self.reply is not None and self.reply._has_data():
                             return True
 
-                        if self.reply is not None and self.reply._has_data():
+                        if self.request is not None and self.request._has_data():
                             return True
 
                         return False
@@ -1133,12 +1133,19 @@ class Aaa(object):
                         """
                         A server to include in the server group
                         
-                        .. attribute:: ordering_index  <key>
+                        .. attribute:: acct_port_number  <key>
                         
-                        	This is used to sort the servers in the order of precedence
+                        	Accounting Port number (standard port 1646)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..65535
+                        
+                        .. attribute:: auth_port_number  <key>
+                        
+                        	Authentication Port number (standard port 1645)
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: ip_address  <key>
                         
@@ -1157,19 +1164,12 @@ class Aaa(object):
                         
                         
                         ----
-                        .. attribute:: auth_port_number  <key>
+                        .. attribute:: ordering_index  <key>
                         
-                        	Authentication Port number (standard port 1645)
+                        	This is used to sort the servers in the order of precedence
                         	**type**\: int
                         
-                        	**range:** 0..65535
-                        
-                        .. attribute:: acct_port_number  <key>
-                        
-                        	Accounting Port number (standard port 1646)
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
+                        	**range:** \-2147483648..2147483647
                         
                         
 
@@ -1180,25 +1180,25 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.ordering_index = None
-                            self.ip_address = None
-                            self.auth_port_number = None
                             self.acct_port_number = None
+                            self.auth_port_number = None
+                            self.ip_address = None
+                            self.ordering_index = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.ordering_index is None:
-                                raise YPYDataValidationError('Key property ordering_index is None')
-                            if self.ip_address is None:
-                                raise YPYDataValidationError('Key property ip_address is None')
-                            if self.auth_port_number is None:
-                                raise YPYDataValidationError('Key property auth_port_number is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.acct_port_number is None:
-                                raise YPYDataValidationError('Key property acct_port_number is None')
+                                raise YPYModelError('Key property acct_port_number is None')
+                            if self.auth_port_number is None:
+                                raise YPYModelError('Key property auth_port_number is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:server[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:server[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -1207,16 +1207,16 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.ordering_index is not None:
-                                return True
-
-                            if self.ip_address is not None:
+                            if self.acct_port_number is not None:
                                 return True
 
                             if self.auth_port_number is not None:
                                 return True
 
-                            if self.acct_port_number is not None:
+                            if self.ip_address is not None:
+                                return True
+
+                            if self.ordering_index is not None:
                                 return True
 
                             return False
@@ -1229,7 +1229,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:servers'
 
@@ -1282,12 +1282,19 @@ class Aaa(object):
                         A private server to include in the server
                         group
                         
-                        .. attribute:: ordering_index  <key>
+                        .. attribute:: acct_port_number  <key>
                         
-                        	This is used to sort the servers in the order of precedence
+                        	Accounting Port number (standard port 1646)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..65535
+                        
+                        .. attribute:: auth_port_number  <key>
+                        
+                        	Authentication Port number (standard port 1645)
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: ip_address  <key>
                         
@@ -1306,38 +1313,12 @@ class Aaa(object):
                         
                         
                         ----
-                        .. attribute:: auth_port_number  <key>
+                        .. attribute:: ordering_index  <key>
                         
-                        	Authentication Port number (standard port 1645)
+                        	This is used to sort the servers in the order of precedence
                         	**type**\: int
                         
-                        	**range:** 0..65535
-                        
-                        .. attribute:: acct_port_number  <key>
-                        
-                        	Accounting Port number (standard port 1646)
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: private_timeout
-                        
-                        	Time to wait for a RADIUS server to reply
-                        	**type**\: int
-                        
-                        	**range:** 1..1000
-                        
-                        .. attribute:: ignore_accounting_port
-                        
-                        	Ignore Accounting port
-                        	**type**\: bool
-                        
-                        .. attribute:: private_retransmit
-                        
-                        	Number of times to retransmit a request to the RADIUS server
-                        	**type**\: int
-                        
-                        	**range:** 1..100
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: idle_time
                         
@@ -1346,6 +1327,16 @@ class Aaa(object):
                         
                         	**range:** 1..60
                         
+                        .. attribute:: ignore_accounting_port
+                        
+                        	Ignore Accounting port
+                        	**type**\: bool
+                        
+                        .. attribute:: ignore_auth_port
+                        
+                        	Ignore authentication Port
+                        	**type**\: bool
+                        
                         .. attribute:: private_key
                         
                         	RADIUS encryption key
@@ -1353,15 +1344,24 @@ class Aaa(object):
                         
                         	**pattern:** (!.+)\|([^!].+)
                         
+                        .. attribute:: private_retransmit
+                        
+                        	Number of times to retransmit a request to the RADIUS server
+                        	**type**\: int
+                        
+                        	**range:** 1..100
+                        
+                        .. attribute:: private_timeout
+                        
+                        	Time to wait for a RADIUS server to reply
+                        	**type**\: int
+                        
+                        	**range:** 1..1000
+                        
                         .. attribute:: username
                         
                         	Username to be tested for automated testing
                         	**type**\: str
-                        
-                        .. attribute:: ignore_auth_port
-                        
-                        	Ignore authentication Port
-                        	**type**\: bool
                         
                         
 
@@ -1372,32 +1372,32 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.ordering_index = None
-                            self.ip_address = None
-                            self.auth_port_number = None
                             self.acct_port_number = None
-                            self.private_timeout = None
-                            self.ignore_accounting_port = None
-                            self.private_retransmit = None
+                            self.auth_port_number = None
+                            self.ip_address = None
+                            self.ordering_index = None
                             self.idle_time = None
-                            self.private_key = None
-                            self.username = None
+                            self.ignore_accounting_port = None
                             self.ignore_auth_port = None
+                            self.private_key = None
+                            self.private_retransmit = None
+                            self.private_timeout = None
+                            self.username = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.ordering_index is None:
-                                raise YPYDataValidationError('Key property ordering_index is None')
-                            if self.ip_address is None:
-                                raise YPYDataValidationError('Key property ip_address is None')
-                            if self.auth_port_number is None:
-                                raise YPYDataValidationError('Key property auth_port_number is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.acct_port_number is None:
-                                raise YPYDataValidationError('Key property acct_port_number is None')
+                                raise YPYModelError('Key property acct_port_number is None')
+                            if self.auth_port_number is None:
+                                raise YPYModelError('Key property auth_port_number is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:private-server[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:private-server[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -1406,37 +1406,37 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.ordering_index is not None:
-                                return True
-
-                            if self.ip_address is not None:
+                            if self.acct_port_number is not None:
                                 return True
 
                             if self.auth_port_number is not None:
                                 return True
 
-                            if self.acct_port_number is not None:
+                            if self.ip_address is not None:
                                 return True
 
-                            if self.private_timeout is not None:
-                                return True
-
-                            if self.ignore_accounting_port is not None:
-                                return True
-
-                            if self.private_retransmit is not None:
+                            if self.ordering_index is not None:
                                 return True
 
                             if self.idle_time is not None:
                                 return True
 
-                            if self.private_key is not None:
-                                return True
-
-                            if self.username is not None:
+                            if self.ignore_accounting_port is not None:
                                 return True
 
                             if self.ignore_auth_port is not None:
+                                return True
+
+                            if self.private_key is not None:
+                                return True
+
+                            if self.private_retransmit is not None:
+                                return True
+
+                            if self.private_timeout is not None:
+                                return True
+
+                            if self.username is not None:
                                 return True
 
                             return False
@@ -1449,7 +1449,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:private-servers'
 
@@ -1514,7 +1514,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:server-group-throttle'
 
@@ -1590,13 +1590,6 @@ class Aaa(object):
                             """
                             Batch size for selection of the server
                             
-                            .. attribute:: least_outstanding
-                            
-                            	Pick the server with the least transactions outstanding
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: batch_size
                             
                             	Batch size for selection of the server
@@ -1611,6 +1604,13 @@ class Aaa(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: least_outstanding
+                            
+                            	Pick the server with the least transactions outstanding
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
                             
 
                             """
@@ -1620,14 +1620,14 @@ class Aaa(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.least_outstanding = None
                                 self.batch_size = None
                                 self.ignore_preferred_server = None
+                                self.least_outstanding = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:name'
 
@@ -1638,13 +1638,13 @@ class Aaa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.least_outstanding is not None:
-                                    return True
-
                                 if self.batch_size is not None:
                                     return True
 
                                 if self.ignore_preferred_server is not None:
+                                    return True
+
+                                if self.least_outstanding is not None:
                                     return True
 
                                 return False
@@ -1657,7 +1657,7 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:method'
 
@@ -1681,7 +1681,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:load-balance'
 
@@ -1707,15 +1707,15 @@ class Aaa(object):
                     """
                     List of filters in server group
                     
-                    .. attribute:: request
-                    
-                    	Specify a filter in server group
-                    	**type**\: :py:class:`Request <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
-                    
                     .. attribute:: reply
                     
                     	Specify a filter in server group
                     	**type**\: :py:class:`Reply <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply>`
+                    
+                    .. attribute:: request
+                    
+                    	Specify a filter in server group
+                    	**type**\: :py:class:`Request <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
                     
                     
 
@@ -1726,10 +1726,10 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request()
-                        self.request.parent = self
                         self.reply = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply()
                         self.reply.parent = self
+                        self.request = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request()
+                        self.request.parent = self
 
 
                     class Request(object):
@@ -1761,7 +1761,7 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:request'
 
@@ -1815,7 +1815,7 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:reply'
 
@@ -1842,7 +1842,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:authorization'
 
@@ -1853,10 +1853,10 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.request is not None and self.request._has_data():
+                        if self.reply is not None and self.reply._has_data():
                             return True
 
-                        if self.reply is not None and self.reply._has_data():
+                        if self.request is not None and self.request._has_data():
                             return True
 
                         return False
@@ -1908,7 +1908,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:throttle'
 
@@ -1938,7 +1938,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.server_group_name is None:
-                        raise YPYDataValidationError('Key property server_group_name is None')
+                        raise YPYModelError('Key property server_group_name is None')
 
                     return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-groups/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius-server-group[Cisco-IOS-XR-aaa-protocol-radius-cfg:server-group-name = ' + str(self.server_group_name) + ']'
 
@@ -1955,7 +1955,13 @@ class Aaa(object):
                     if self.accounting is not None and self.accounting._has_data():
                         return True
 
-                    if self.servers is not None and self.servers._has_data():
+                    if self.authorization is not None and self.authorization._has_data():
+                        return True
+
+                    if self.dead_time is not None:
+                        return True
+
+                    if self.load_balance is not None and self.load_balance._has_data():
                         return True
 
                     if self.private_servers is not None and self.private_servers._has_data():
@@ -1964,22 +1970,16 @@ class Aaa(object):
                     if self.server_group_throttle is not None and self.server_group_throttle._has_data():
                         return True
 
-                    if self.load_balance is not None and self.load_balance._has_data():
-                        return True
-
-                    if self.authorization is not None and self.authorization._has_data():
-                        return True
-
-                    if self.dead_time is not None:
+                    if self.servers is not None and self.servers._has_data():
                         return True
 
                     if self.source_interface is not None:
                         return True
 
-                    if self.vrf is not None:
+                    if self.throttle is not None and self.throttle._has_data():
                         return True
 
-                    if self.throttle is not None and self.throttle._has_data():
+                    if self.vrf is not None:
                         return True
 
                     return False
@@ -2048,15 +2048,15 @@ class Aaa(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: servers
-                
-                	Specify a TACACS+ server
-                	**type**\: :py:class:`Servers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
-                
                 .. attribute:: private_servers
                 
                 	List of private TACACS servers present in the group
                 	**type**\: :py:class:`PrivateServers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
+                
+                .. attribute:: servers
+                
+                	Specify a TACACS+ server
+                	**type**\: :py:class:`Servers <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
                 
                 .. attribute:: vrf
                 
@@ -2073,10 +2073,10 @@ class Aaa(object):
                 def __init__(self):
                     self.parent = None
                     self.server_group_name = None
-                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
-                    self.servers.parent = self
                     self.private_servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers()
                     self.private_servers.parent = self
+                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
+                    self.servers.parent = self
                     self.vrf = None
 
 
@@ -2107,13 +2107,6 @@ class Aaa(object):
                         """
                         A server to include in the server group
                         
-                        .. attribute:: ordering_index  <key>
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         .. attribute:: ip_address  <key>
                         
                         	IP address of TACACS+ server
@@ -2131,6 +2124,13 @@ class Aaa(object):
                         
                         
                         ----
+                        .. attribute:: ordering_index  <key>
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
                         
 
                         """
@@ -2140,19 +2140,19 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.ordering_index = None
                             self.ip_address = None
+                            self.ordering_index = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.ordering_index is None:
-                                raise YPYDataValidationError('Key property ordering_index is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip_address is None:
-                                raise YPYDataValidationError('Key property ip_address is None')
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:server[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:server[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2161,10 +2161,10 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.ordering_index is not None:
+                            if self.ip_address is not None:
                                 return True
 
-                            if self.ip_address is not None:
+                            if self.ordering_index is not None:
                                 return True
 
                             return False
@@ -2177,7 +2177,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:servers'
 
@@ -2230,13 +2230,6 @@ class Aaa(object):
                         A private server to include in the server
                         group
                         
-                        .. attribute:: ordering_index  <key>
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         .. attribute:: ip_address  <key>
                         
                         	IP address of TACACS+ server
@@ -2254,6 +2247,13 @@ class Aaa(object):
                         
                         
                         ----
+                        .. attribute:: ordering_index  <key>
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
                         .. attribute:: port_number  <key>
                         
                         	Port number (standard 49)
@@ -2284,8 +2284,8 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.ordering_index = None
                             self.ip_address = None
+                            self.ordering_index = None
                             self.port_number = None
                             self.key = None
                             self.timeout = None
@@ -2293,15 +2293,15 @@ class Aaa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.ordering_index is None:
-                                raise YPYDataValidationError('Key property ordering_index is None')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.ip_address is None:
-                                raise YPYDataValidationError('Key property ip_address is None')
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
                             if self.port_number is None:
-                                raise YPYDataValidationError('Key property port_number is None')
+                                raise YPYModelError('Key property port_number is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-server[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-server[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2310,10 +2310,10 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.ordering_index is not None:
+                            if self.ip_address is not None:
                                 return True
 
-                            if self.ip_address is not None:
+                            if self.ordering_index is not None:
                                 return True
 
                             if self.port_number is not None:
@@ -2335,7 +2335,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-servers'
 
@@ -2361,7 +2361,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.server_group_name is None:
-                        raise YPYDataValidationError('Key property server_group_name is None')
+                        raise YPYModelError('Key property server_group_name is None')
 
                     return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-group[Cisco-IOS-XR-aaa-tacacs-cfg:server-group-name = ' + str(self.server_group_name) + ']'
 
@@ -2375,10 +2375,10 @@ class Aaa(object):
                     if self.server_group_name is not None:
                         return True
 
-                    if self.servers is not None and self.servers._has_data():
+                    if self.private_servers is not None and self.private_servers._has_data():
                         return True
 
-                    if self.private_servers is not None and self.private_servers._has_data():
+                    if self.servers is not None and self.servers._has_data():
                         return True
 
                     if self.vrf is not None:
@@ -2473,10 +2473,12 @@ class Aaa(object):
             	Username
             	**type**\: str
             
-            .. attribute:: usergroup_under_usernames
+            .. attribute:: password
             
-            	Specify the usergroup to which this user belongs
-            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            	Specify the password for the user
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: secret
             
@@ -2485,12 +2487,10 @@ class Aaa(object):
             
             	**pattern:** (!.+)\|([^!].+)
             
-            .. attribute:: password
+            .. attribute:: usergroup_under_usernames
             
-            	Specify the password for the user
-            	**type**\: str
-            
-            	**pattern:** (!.+)\|([^!].+)
+            	Specify the usergroup to which this user belongs
+            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             
 
@@ -2502,10 +2502,10 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
+                self.password = None
+                self.secret = None
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
-                self.secret = None
-                self.password = None
 
 
             class UsergroupUnderUsernames(object):
@@ -2557,9 +2557,9 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:usergroup-under-username[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -2583,7 +2583,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:usergroup-under-usernames'
 
@@ -2609,7 +2609,7 @@ class Aaa(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/Cisco-IOS-XR-aaa-locald-cfg:username[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -2623,13 +2623,13 @@ class Aaa(object):
                 if self.name is not None:
                     return True
 
-                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
+                if self.password is not None:
                     return True
 
                 if self.secret is not None:
                     return True
 
-                if self.password is not None:
+                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
                     return True
 
                 return False
@@ -2696,6 +2696,11 @@ class Aaa(object):
             	Taskgroup name
             	**type**\: str
             
+            .. attribute:: description
+            
+            	Description for the task group
+            	**type**\: str
+            
             .. attribute:: taskgroup_under_taskgroups
             
             	Specify a taskgroup to inherit from
@@ -2705,11 +2710,6 @@ class Aaa(object):
             
             	Specify task IDs to be part of this group
             	**type**\: :py:class:`Tasks <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks>`
-            
-            .. attribute:: description
-            
-            	Description for the task group
-            	**type**\: str
             
             
 
@@ -2721,11 +2721,11 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
+                self.description = None
                 self.taskgroup_under_taskgroups = Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups()
                 self.taskgroup_under_taskgroups.parent = self
                 self.tasks = Aaa.Taskgroups.Taskgroup.Tasks()
                 self.tasks.parent = self
-                self.description = None
 
 
             class TaskgroupUnderTaskgroups(object):
@@ -2776,9 +2776,9 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:taskgroup-under-taskgroup[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -2802,7 +2802,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:taskgroup-under-taskgroups'
 
@@ -2853,15 +2853,15 @@ class Aaa(object):
                     """
                     Task ID to be included
                     
-                    .. attribute:: type  <key>
-                    
-                    	This specifies the operation permitted for this task eg\: read/write/execute/debug
-                    	**type**\: :py:class:`AaaLocaldTaskClassEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
-                    
                     .. attribute:: task_id  <key>
                     
                     	Task ID to which permission is to be granted (please use class AllTasks to get a list of valid task IDs)
                     	**type**\: str
+                    
+                    .. attribute:: type  <key>
+                    
+                    	This specifies the operation permitted for this task eg\: read/write/execute/debug
+                    	**type**\: :py:class:`AaaLocaldTaskClassEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
                     
                     
 
@@ -2872,19 +2872,19 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.type = None
                         self.task_id = None
+                        self.type = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.type is None:
-                            raise YPYDataValidationError('Key property type is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.task_id is None:
-                            raise YPYDataValidationError('Key property task_id is None')
+                            raise YPYModelError('Key property task_id is None')
+                        if self.type is None:
+                            raise YPYModelError('Key property type is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:task[Cisco-IOS-XR-aaa-locald-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-locald-cfg:task-id = ' + str(self.task_id) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:task[Cisco-IOS-XR-aaa-locald-cfg:task-id = ' + str(self.task_id) + '][Cisco-IOS-XR-aaa-locald-cfg:type = ' + str(self.type) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -2893,10 +2893,10 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.type is not None:
+                        if self.task_id is not None:
                             return True
 
-                        if self.task_id is not None:
+                        if self.type is not None:
                             return True
 
                         return False
@@ -2909,7 +2909,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:tasks'
 
@@ -2935,7 +2935,7 @@ class Aaa(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:taskgroups/Cisco-IOS-XR-aaa-locald-cfg:taskgroup[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -2949,13 +2949,13 @@ class Aaa(object):
                 if self.name is not None:
                     return True
 
+                if self.description is not None:
+                    return True
+
                 if self.taskgroup_under_taskgroups is not None and self.taskgroup_under_taskgroups._has_data():
                     return True
 
                 if self.tasks is not None and self.tasks._has_data():
-                    return True
-
-                if self.description is not None:
                     return True
 
                 return False
@@ -3022,6 +3022,11 @@ class Aaa(object):
             	Usergroup name
             	**type**\: str
             
+            .. attribute:: description
+            
+            	Description for the user group
+            	**type**\: str
+            
             .. attribute:: taskgroup_under_usergroups
             
             	Task group associated with this group
@@ -3031,11 +3036,6 @@ class Aaa(object):
             
             	User group to be inherited by this group
             	**type**\: :py:class:`UsergroupUnderUsergroups <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups>`
-            
-            .. attribute:: description
-            
-            	Description for the user group
-            	**type**\: str
             
             
 
@@ -3047,11 +3047,11 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
+                self.description = None
                 self.taskgroup_under_usergroups = Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups()
                 self.taskgroup_under_usergroups.parent = self
                 self.usergroup_under_usergroups = Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups()
                 self.usergroup_under_usergroups.parent = self
-                self.description = None
 
 
             class TaskgroupUnderUsergroups(object):
@@ -3102,9 +3102,9 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:taskgroup-under-usergroup[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -3128,7 +3128,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:taskgroup-under-usergroups'
 
@@ -3200,9 +3200,9 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:usergroup-under-usergroup[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -3226,7 +3226,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:usergroup-under-usergroups'
 
@@ -3252,7 +3252,7 @@ class Aaa(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usergroups/Cisco-IOS-XR-aaa-locald-cfg:usergroup[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
@@ -3266,13 +3266,13 @@ class Aaa(object):
                 if self.name is not None:
                     return True
 
+                if self.description is not None:
+                    return True
+
                 if self.taskgroup_under_usergroups is not None and self.taskgroup_under_usergroups._has_data():
                     return True
 
                 if self.usergroup_under_usergroups is not None and self.usergroup_under_usergroups._has_data():
-                    return True
-
-                if self.description is not None:
                     return True
 
                 return False
@@ -3311,72 +3311,15 @@ class Aaa(object):
         """
         Remote Access Dial\-In User Service
         
-        .. attribute:: hosts
-        
-        	List of RADIUS servers
-        	**type**\: :py:class:`Hosts <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
-        
-        .. attribute:: dead_criteria
-        
-        	RADIUS server dead criteria
-        	**type**\: :py:class:`DeadCriteria <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
-        
-        .. attribute:: disallow
-        
-        	disallow null\-username
-        	**type**\: :py:class:`Disallow <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
-        
-        .. attribute:: ipv6
-        
-        	IPv6 configuration
-        	**type**\: :py:class:`Ipv6 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
-        
-        .. attribute:: dynamic_authorization
-        
-        	RADIUS dynamic authorization
-        	**type**\: :py:class:`DynamicAuthorization <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
-        
-        .. attribute:: load_balance_options
-        
-        	Radius load\-balancing options
-        	**type**\: :py:class:`LoadBalanceOptions <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
-        
-        .. attribute:: vsa
-        
-        	VSA  ignore configuration for RADIUS server
-        	**type**\: :py:class:`Vsa <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
-        
-        .. attribute:: vrfs
-        
-        	List of VRFs
-        	**type**\: :py:class:`Vrfs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
-        
-        .. attribute:: ipv4
-        
-        	IPv4 configuration
-        	**type**\: :py:class:`Ipv4 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
-        
-        .. attribute:: radius_attribute
-        
-        	attribute
-        	**type**\: :py:class:`RadiusAttribute <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
-        
         .. attribute:: attributes
         
         	Table of attribute list
         	**type**\: :py:class:`Attributes <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes>`
         
-        .. attribute:: source_port
+        .. attribute:: dead_criteria
         
-        	Source port
-        	**type**\: :py:class:`SourcePort <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
-        
-        .. attribute:: retransmit
-        
-        	Number of times to retransmit a request to the RADIUS server
-        	**type**\: int
-        
-        	**range:** 1..100
+        	RADIUS server dead criteria
+        	**type**\: :py:class:`DeadCriteria <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
         
         .. attribute:: dead_time
         
@@ -3385,16 +3328,24 @@ class Aaa(object):
         
         	**range:** 1..1440
         
-        .. attribute:: key
+        .. attribute:: disallow
         
-        	RADIUS encryption key
-        	**type**\: str
+        	disallow null\-username
+        	**type**\: :py:class:`Disallow <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
         
-        	**pattern:** (!.+)\|([^!].+)
+        .. attribute:: dynamic_authorization
         
-        .. attribute:: timeout
+        	RADIUS dynamic authorization
+        	**type**\: :py:class:`DynamicAuthorization <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
         
-        	Time to wait for a RADIUS server to reply
+        .. attribute:: hosts
+        
+        	List of RADIUS servers
+        	**type**\: :py:class:`Hosts <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
+        
+        .. attribute:: idle_time
+        
+        	Idle time for RADIUS server
         	**type**\: int
         
         	**range:** 1..1000
@@ -3404,14 +3355,58 @@ class Aaa(object):
         	Time to wait for a RADIUS server to reply
         	**type**\: bool
         
+        .. attribute:: ignore_auth_port
+        
+        	Time to wait for a RADIUS server to reply
+        	**type**\: bool
+        
+        .. attribute:: ipv4
+        
+        	IPv4 configuration
+        	**type**\: :py:class:`Ipv4 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
+        
+        .. attribute:: ipv6
+        
+        	IPv6 configuration
+        	**type**\: :py:class:`Ipv6 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
+        
+        .. attribute:: key
+        
+        	RADIUS encryption key
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
+        
+        .. attribute:: load_balance_options
+        
+        	Radius load\-balancing options
+        	**type**\: :py:class:`LoadBalanceOptions <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
+        
+        .. attribute:: radius_attribute
+        
+        	attribute
+        	**type**\: :py:class:`RadiusAttribute <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
+        
+        .. attribute:: retransmit
+        
+        	Number of times to retransmit a request to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 1..100
+        
+        .. attribute:: source_port
+        
+        	Source port
+        	**type**\: :py:class:`SourcePort <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
+        
         .. attribute:: throttle
         
         	Radius throttling options
         	**type**\: :py:class:`Throttle <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Throttle>`
         
-        .. attribute:: idle_time
+        .. attribute:: timeout
         
-        	Idle time for RADIUS server
+        	Time to wait for a RADIUS server to reply
         	**type**\: int
         
         	**range:** 1..1000
@@ -3421,10 +3416,15 @@ class Aaa(object):
         	Username to be tested for automated testing
         	**type**\: str
         
-        .. attribute:: ignore_auth_port
+        .. attribute:: vrfs
         
-        	Time to wait for a RADIUS server to reply
-        	**type**\: bool
+        	List of VRFs
+        	**type**\: :py:class:`Vrfs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
+        
+        .. attribute:: vsa
+        
+        	VSA  ignore configuration for RADIUS server
+        	**type**\: :py:class:`Vsa <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
         
         
 
@@ -3435,40 +3435,40 @@ class Aaa(object):
 
         def __init__(self):
             self.parent = None
-            self.hosts = Aaa.Radius.Hosts()
-            self.hosts.parent = self
-            self.dead_criteria = Aaa.Radius.DeadCriteria()
-            self.dead_criteria.parent = self
-            self.disallow = Aaa.Radius.Disallow()
-            self.disallow.parent = self
-            self.ipv6 = Aaa.Radius.Ipv6()
-            self.ipv6.parent = self
-            self.dynamic_authorization = Aaa.Radius.DynamicAuthorization()
-            self.dynamic_authorization.parent = self
-            self.load_balance_options = Aaa.Radius.LoadBalanceOptions()
-            self.load_balance_options.parent = self
-            self.vsa = Aaa.Radius.Vsa()
-            self.vsa.parent = self
-            self.vrfs = Aaa.Radius.Vrfs()
-            self.vrfs.parent = self
-            self.ipv4 = Aaa.Radius.Ipv4()
-            self.ipv4.parent = self
-            self.radius_attribute = Aaa.Radius.RadiusAttribute()
-            self.radius_attribute.parent = self
             self.attributes = Aaa.Radius.Attributes()
             self.attributes.parent = self
+            self.dead_criteria = Aaa.Radius.DeadCriteria()
+            self.dead_criteria.parent = self
+            self.dead_time = None
+            self.disallow = Aaa.Radius.Disallow()
+            self.disallow.parent = self
+            self.dynamic_authorization = Aaa.Radius.DynamicAuthorization()
+            self.dynamic_authorization.parent = self
+            self.hosts = Aaa.Radius.Hosts()
+            self.hosts.parent = self
+            self.idle_time = None
+            self.ignore_accounting_port = None
+            self.ignore_auth_port = None
+            self.ipv4 = Aaa.Radius.Ipv4()
+            self.ipv4.parent = self
+            self.ipv6 = Aaa.Radius.Ipv6()
+            self.ipv6.parent = self
+            self.key = None
+            self.load_balance_options = Aaa.Radius.LoadBalanceOptions()
+            self.load_balance_options.parent = self
+            self.radius_attribute = Aaa.Radius.RadiusAttribute()
+            self.radius_attribute.parent = self
+            self.retransmit = None
             self.source_port = Aaa.Radius.SourcePort()
             self.source_port.parent = self
-            self.retransmit = None
-            self.dead_time = None
-            self.key = None
-            self.timeout = None
-            self.ignore_accounting_port = None
             self.throttle = Aaa.Radius.Throttle()
             self.throttle.parent = self
-            self.idle_time = None
+            self.timeout = None
             self.username = None
-            self.ignore_auth_port = None
+            self.vrfs = Aaa.Radius.Vrfs()
+            self.vrfs.parent = self
+            self.vsa = Aaa.Radius.Vsa()
+            self.vsa.parent = self
 
 
         class Hosts(object):
@@ -3498,12 +3498,19 @@ class Aaa(object):
                 """
                 Instance of a RADIUS server
                 
-                .. attribute:: ordering_index  <key>
+                .. attribute:: acct_port_number  <key>
                 
-                	This is used to sort the servers in the order of precedence
+                	Accounting Port number (standard port 1646)
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..65535
+                
+                .. attribute:: auth_port_number  <key>
+                
+                	Authentication Port number (standard port 1645)
+                	**type**\: int
+                
+                	**range:** 0..65535
                 
                 .. attribute:: ip_address  <key>
                 
@@ -3522,19 +3529,19 @@ class Aaa(object):
                 
                 
                 ----
-                .. attribute:: auth_port_number  <key>
+                .. attribute:: ordering_index  <key>
                 
-                	Authentication Port number (standard port 1645)
+                	This is used to sort the servers in the order of precedence
                 	**type**\: int
                 
-                	**range:** 0..65535
+                	**range:** \-2147483648..2147483647
                 
-                .. attribute:: acct_port_number  <key>
+                .. attribute:: host_key
                 
-                	Accounting Port number (standard port 1646)
-                	**type**\: int
+                	RADIUS encryption key
+                	**type**\: str
                 
-                	**range:** 0..65535
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: host_retransmit
                 
@@ -3550,18 +3557,6 @@ class Aaa(object):
                 
                 	**range:** 1..1000
                 
-                .. attribute:: host_key
-                
-                	RADIUS encryption key
-                	**type**\: str
-                
-                	**pattern:** (!.+)\|([^!].+)
-                
-                .. attribute:: ignore_accounting_port
-                
-                	Time to wait for a RADIUS server to reply
-                	**type**\: bool
-                
                 .. attribute:: idle_time
                 
                 	Idle time for RADIUS server
@@ -3569,15 +3564,20 @@ class Aaa(object):
                 
                 	**range:** 1..1000
                 
-                .. attribute:: username
+                .. attribute:: ignore_accounting_port
                 
-                	Username to be tested for automated testing
-                	**type**\: str
+                	Time to wait for a RADIUS server to reply
+                	**type**\: bool
                 
                 .. attribute:: ignore_auth_port
                 
                 	Time to wait for a RADIUS server to reply
                 	**type**\: bool
+                
+                .. attribute:: username
+                
+                	Username to be tested for automated testing
+                	**type**\: str
                 
                 
 
@@ -3588,30 +3588,30 @@ class Aaa(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ordering_index = None
-                    self.ip_address = None
-                    self.auth_port_number = None
                     self.acct_port_number = None
+                    self.auth_port_number = None
+                    self.ip_address = None
+                    self.ordering_index = None
+                    self.host_key = None
                     self.host_retransmit = None
                     self.host_timeout = None
-                    self.host_key = None
-                    self.ignore_accounting_port = None
                     self.idle_time = None
-                    self.username = None
+                    self.ignore_accounting_port = None
                     self.ignore_auth_port = None
+                    self.username = None
 
                 @property
                 def _common_path(self):
-                    if self.ordering_index is None:
-                        raise YPYDataValidationError('Key property ordering_index is None')
-                    if self.ip_address is None:
-                        raise YPYDataValidationError('Key property ip_address is None')
-                    if self.auth_port_number is None:
-                        raise YPYDataValidationError('Key property auth_port_number is None')
                     if self.acct_port_number is None:
-                        raise YPYDataValidationError('Key property acct_port_number is None')
+                        raise YPYModelError('Key property acct_port_number is None')
+                    if self.auth_port_number is None:
+                        raise YPYModelError('Key property auth_port_number is None')
+                    if self.ip_address is None:
+                        raise YPYModelError('Key property ip_address is None')
+                    if self.ordering_index is None:
+                        raise YPYModelError('Key property ordering_index is None')
 
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:hosts/Cisco-IOS-XR-aaa-protocol-radius-cfg:host[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:hosts/Cisco-IOS-XR-aaa-protocol-radius-cfg:host[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -3620,16 +3620,19 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ordering_index is not None:
-                        return True
-
-                    if self.ip_address is not None:
+                    if self.acct_port_number is not None:
                         return True
 
                     if self.auth_port_number is not None:
                         return True
 
-                    if self.acct_port_number is not None:
+                    if self.ip_address is not None:
+                        return True
+
+                    if self.ordering_index is not None:
+                        return True
+
+                    if self.host_key is not None:
                         return True
 
                     if self.host_retransmit is not None:
@@ -3638,19 +3641,16 @@ class Aaa(object):
                     if self.host_timeout is not None:
                         return True
 
-                    if self.host_key is not None:
+                    if self.idle_time is not None:
                         return True
 
                     if self.ignore_accounting_port is not None:
                         return True
 
-                    if self.idle_time is not None:
+                    if self.ignore_auth_port is not None:
                         return True
 
                     if self.username is not None:
-                        return True
-
-                    if self.ignore_auth_port is not None:
                         return True
 
                     return False
@@ -3689,19 +3689,19 @@ class Aaa(object):
             """
             RADIUS server dead criteria
             
-            .. attribute:: tries
-            
-            	The number of consecutive timeouts the router must experience in order to mark the server as dead. All transmissions, including the initial transmit and all retransmits, will be counted
-            	**type**\: int
-            
-            	**range:** 1..100
-            
             .. attribute:: time
             
             	The minimum amount of time which must elapse since the router last received a valid RADIUS packet from the server prior to marking it dead
             	**type**\: int
             
             	**range:** 1..120
+            
+            .. attribute:: tries
+            
+            	The number of consecutive timeouts the router must experience in order to mark the server as dead. All transmissions, including the initial transmit and all retransmits, will be counted
+            	**type**\: int
+            
+            	**range:** 1..100
             
             
 
@@ -3712,8 +3712,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.tries = None
                 self.time = None
+                self.tries = None
 
             @property
             def _common_path(self):
@@ -3727,10 +3727,10 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.tries is not None:
+                if self.time is not None:
                     return True
 
-                if self.time is not None:
+                if self.tries is not None:
                     return True
 
                 return False
@@ -3843,6 +3843,11 @@ class Aaa(object):
             """
             RADIUS dynamic authorization
             
+            .. attribute:: authentication_type
+            
+            	RADIUS  dynamic  authorization  type
+            	**type**\: :py:class:`AaaAuthenticationEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthenticationEnum>`
+            
             .. attribute:: clients
             
             	Client data
@@ -3860,11 +3865,6 @@ class Aaa(object):
             
             	**range:** 1000..5000
             
-            .. attribute:: authentication_type
-            
-            	RADIUS  dynamic  authorization  type
-            	**type**\: :py:class:`AaaAuthenticationEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthenticationEnum>`
-            
             .. attribute:: server_key
             
             	RADIUS CoA client encryption key
@@ -3881,11 +3881,11 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
+                self.authentication_type = None
                 self.clients = Aaa.Radius.DynamicAuthorization.Clients()
                 self.clients.parent = self
                 self.ignore = None
                 self.port = None
-                self.authentication_type = None
                 self.server_key = None
 
 
@@ -3963,7 +3963,7 @@ class Aaa(object):
                     @property
                     def _common_path(self):
                         if self.ip_address is None:
-                            raise YPYDataValidationError('Key property ip_address is None')
+                            raise YPYModelError('Key property ip_address is None')
 
                         return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:dynamic-authorization/Cisco-IOS-XR-aaa-protocol-radius-cfg:clients/Cisco-IOS-XR-aaa-protocol-radius-cfg:client[Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -3992,13 +3992,6 @@ class Aaa(object):
                     """
                     Client data
                     
-                    .. attribute:: vrf_name  <key>
-                    
-                    	VRF name
-                    	**type**\: str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: ip_address  <key>
                     
                     	IP address of COA client
@@ -4016,6 +4009,13 @@ class Aaa(object):
                     
                     
                     ----
+                    .. attribute:: vrf_name  <key>
+                    
+                    	VRF name
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
                     .. attribute:: server_key
                     
                     	RADIUS CoA client encryption key
@@ -4032,18 +4032,18 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.vrf_name = None
                         self.ip_address = None
+                        self.vrf_name = None
                         self.server_key = None
 
                     @property
                     def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYDataValidationError('Key property vrf_name is None')
                         if self.ip_address is None:
-                            raise YPYDataValidationError('Key property ip_address is None')
+                            raise YPYModelError('Key property ip_address is None')
+                        if self.vrf_name is None:
+                            raise YPYModelError('Key property vrf_name is None')
 
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:dynamic-authorization/Cisco-IOS-XR-aaa-protocol-radius-cfg:clients/Cisco-IOS-XR-aaa-protocol-radius-cfg:client-vrf-name[Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + ']'
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:dynamic-authorization/Cisco-IOS-XR-aaa-protocol-radius-cfg:clients/Cisco-IOS-XR-aaa-protocol-radius-cfg:client-vrf-name[Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -4052,10 +4052,10 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.vrf_name is not None:
+                        if self.ip_address is not None:
                             return True
 
-                        if self.ip_address is not None:
+                        if self.vrf_name is not None:
                             return True
 
                         if self.server_key is not None:
@@ -4109,6 +4109,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.authentication_type is not None:
+                    return True
+
                 if self.clients is not None and self.clients._has_data():
                     return True
 
@@ -4116,9 +4119,6 @@ class Aaa(object):
                     return True
 
                 if self.port is not None:
-                    return True
-
-                if self.authentication_type is not None:
                     return True
 
                 if self.server_key is not None:
@@ -4463,7 +4463,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.vrf_name is None:
-                        raise YPYDataValidationError('Key property vrf_name is None')
+                        raise YPYModelError('Key property vrf_name is None')
 
                     return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrfs/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf[Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -4849,7 +4849,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.attribute_list_name is None:
-                        raise YPYDataValidationError('Key property attribute_list_name is None')
+                        raise YPYModelError('Key property attribute_list_name is None')
 
                     return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:attributes/Cisco-IOS-XR-aaa-protocol-radius-cfg:attribute[Cisco-IOS-XR-aaa-protocol-radius-cfg:attribute-list-name = ' + str(self.attribute_list_name) + ']'
 
@@ -5019,67 +5019,67 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.hosts is not None and self.hosts._has_data():
+            if self.attributes is not None and self.attributes._has_data():
                 return True
 
             if self.dead_criteria is not None and self.dead_criteria._has_data():
                 return True
 
-            if self.disallow is not None and self.disallow._has_data():
+            if self.dead_time is not None:
                 return True
 
-            if self.ipv6 is not None and self.ipv6._has_data():
+            if self.disallow is not None and self.disallow._has_data():
                 return True
 
             if self.dynamic_authorization is not None and self.dynamic_authorization._has_data():
                 return True
 
-            if self.load_balance_options is not None and self.load_balance_options._has_data():
-                return True
-
-            if self.vsa is not None and self.vsa._has_data():
-                return True
-
-            if self.vrfs is not None and self.vrfs._has_data():
-                return True
-
-            if self.ipv4 is not None and self.ipv4._has_data():
-                return True
-
-            if self.radius_attribute is not None and self.radius_attribute._has_data():
-                return True
-
-            if self.attributes is not None and self.attributes._has_data():
-                return True
-
-            if self.source_port is not None and self.source_port._has_data():
-                return True
-
-            if self.retransmit is not None:
-                return True
-
-            if self.dead_time is not None:
-                return True
-
-            if self.key is not None:
-                return True
-
-            if self.timeout is not None:
-                return True
-
-            if self.ignore_accounting_port is not None:
-                return True
-
-            if self.throttle is not None and self.throttle._has_data():
+            if self.hosts is not None and self.hosts._has_data():
                 return True
 
             if self.idle_time is not None:
                 return True
 
-            if self.username is not None:
+            if self.ignore_accounting_port is not None:
                 return True
 
             if self.ignore_auth_port is not None:
+                return True
+
+            if self.ipv4 is not None and self.ipv4._has_data():
+                return True
+
+            if self.ipv6 is not None and self.ipv6._has_data():
+                return True
+
+            if self.key is not None:
+                return True
+
+            if self.load_balance_options is not None and self.load_balance_options._has_data():
+                return True
+
+            if self.radius_attribute is not None and self.radius_attribute._has_data():
+                return True
+
+            if self.retransmit is not None:
+                return True
+
+            if self.source_port is not None and self.source_port._has_data():
+                return True
+
+            if self.throttle is not None and self.throttle._has_data():
+                return True
+
+            if self.timeout is not None:
+                return True
+
+            if self.username is not None:
+                return True
+
+            if self.vrfs is not None and self.vrfs._has_data():
+                return True
+
+            if self.vsa is not None and self.vsa._has_data():
                 return True
 
             return False
@@ -5094,11 +5094,6 @@ class Aaa(object):
         """
         Modify TACACS+ query parameters
         
-        .. attribute:: ipv6
-        
-        	IPv6 configuration
-        	**type**\: :py:class:`Ipv6 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
-        
         .. attribute:: hosts
         
         	Specify a TACACS+ server
@@ -5109,10 +5104,10 @@ class Aaa(object):
         	IPv4 configuration
         	**type**\: :py:class:`Ipv4 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
         
-        .. attribute:: vrfs
+        .. attribute:: ipv6
         
-        	List of VRFs
-        	**type**\: :py:class:`Vrfs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
+        	IPv6 configuration
+        	**type**\: :py:class:`Ipv6 <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
         
         .. attribute:: key
         
@@ -5121,6 +5116,11 @@ class Aaa(object):
         
         	**pattern:** (!.+)\|([^!].+)
         
+        .. attribute:: single_connect
+        
+        	Use a single connection for all sessions for a given TACACS+ server
+        	**type**\: bool
+        
         .. attribute:: timeout
         
         	Time to wait for a TACACS+ server to reply
@@ -5128,10 +5128,10 @@ class Aaa(object):
         
         	**range:** 1..1000
         
-        .. attribute:: single_connect
+        .. attribute:: vrfs
         
-        	Use a single connection for all sessions for a given TACACS+ server
-        	**type**\: bool
+        	List of VRFs
+        	**type**\: :py:class:`Vrfs <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
         
         
 
@@ -5142,17 +5142,17 @@ class Aaa(object):
 
         def __init__(self):
             self.parent = None
-            self.ipv6 = Aaa.Tacacs.Ipv6()
-            self.ipv6.parent = self
             self.hosts = Aaa.Tacacs.Hosts()
             self.hosts.parent = self
             self.ipv4 = Aaa.Tacacs.Ipv4()
             self.ipv4.parent = self
+            self.ipv6 = Aaa.Tacacs.Ipv6()
+            self.ipv6.parent = self
+            self.key = None
+            self.single_connect = None
+            self.timeout = None
             self.vrfs = Aaa.Tacacs.Vrfs()
             self.vrfs.parent = self
-            self.key = None
-            self.timeout = None
-            self.single_connect = None
 
 
         class Ipv6(object):
@@ -5235,13 +5235,6 @@ class Aaa(object):
                 """
                 One of the TACACS+ servers
                 
-                .. attribute:: ordering_index  <key>
-                
-                	This is used to sort the servers in the order of precedence
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: ip_address  <key>
                 
                 	IP address of TACACS+ server
@@ -5259,6 +5252,13 @@ class Aaa(object):
                 
                 
                 ----
+                .. attribute:: ordering_index  <key>
+                
+                	This is used to sort the servers in the order of precedence
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: port_number  <key>
                 
                 	Port number (standard 49)
@@ -5273,17 +5273,17 @@ class Aaa(object):
                 
                 	**pattern:** (!.+)\|([^!].+)
                 
+                .. attribute:: single_connect
+                
+                	Use a single connection for all sessions for a given TACACS+ server
+                	**type**\: bool
+                
                 .. attribute:: timeout
                 
                 	Time to wait for a TACACS+ server to reply
                 	**type**\: int
                 
                 	**range:** 1..1000
-                
-                .. attribute:: single_connect
-                
-                	Use a single connection for all sessions for a given TACACS+ server
-                	**type**\: bool
                 
                 
 
@@ -5294,23 +5294,23 @@ class Aaa(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ordering_index = None
                     self.ip_address = None
+                    self.ordering_index = None
                     self.port_number = None
                     self.key = None
-                    self.timeout = None
                     self.single_connect = None
+                    self.timeout = None
 
                 @property
                 def _common_path(self):
-                    if self.ordering_index is None:
-                        raise YPYDataValidationError('Key property ordering_index is None')
                     if self.ip_address is None:
-                        raise YPYDataValidationError('Key property ip_address is None')
+                        raise YPYModelError('Key property ip_address is None')
+                    if self.ordering_index is None:
+                        raise YPYModelError('Key property ordering_index is None')
                     if self.port_number is None:
-                        raise YPYDataValidationError('Key property port_number is None')
+                        raise YPYModelError('Key property port_number is None')
 
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts/Cisco-IOS-XR-aaa-tacacs-cfg:host[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts/Cisco-IOS-XR-aaa-tacacs-cfg:host[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -5319,10 +5319,10 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ordering_index is not None:
+                    if self.ip_address is not None:
                         return True
 
-                    if self.ip_address is not None:
+                    if self.ordering_index is not None:
                         return True
 
                     if self.port_number is not None:
@@ -5331,10 +5331,10 @@ class Aaa(object):
                     if self.key is not None:
                         return True
 
-                    if self.timeout is not None:
+                    if self.single_connect is not None:
                         return True
 
-                    if self.single_connect is not None:
+                    if self.timeout is not None:
                         return True
 
                     return False
@@ -5478,7 +5478,7 @@ class Aaa(object):
                 @property
                 def _common_path(self):
                     if self.vrf_name is None:
-                        raise YPYDataValidationError('Key property vrf_name is None')
+                        raise YPYModelError('Key property vrf_name is None')
 
                     return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:vrfs/Cisco-IOS-XR-aaa-tacacs-cfg:vrf[Cisco-IOS-XR-aaa-tacacs-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -5538,25 +5538,25 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.ipv6 is not None and self.ipv6._has_data():
-                return True
-
             if self.hosts is not None and self.hosts._has_data():
                 return True
 
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
-            if self.vrfs is not None and self.vrfs._has_data():
+            if self.ipv6 is not None and self.ipv6._has_data():
                 return True
 
             if self.key is not None:
                 return True
 
+            if self.single_connect is not None:
+                return True
+
             if self.timeout is not None:
                 return True
 
-            if self.single_connect is not None:
+            if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
             return False
@@ -5578,25 +5578,28 @@ class Aaa(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.accountings is not None and self.accountings._has_data():
-            return True
-
-        if self.authorizations is not None and self.authorizations._has_data():
-            return True
-
         if self.accounting_update is not None and self.accounting_update._has_data():
+            return True
+
+        if self.accountings is not None and self.accountings._has_data():
             return True
 
         if self.authentications is not None and self.authentications._has_data():
             return True
 
-        if self.server_groups is not None and self.server_groups._has_data():
+        if self.authorizations is not None and self.authorizations._has_data():
             return True
 
         if self.default_taskgroup is not None:
             return True
 
-        if self.usernames is not None and self.usernames._has_data():
+        if self.radius is not None and self.radius._has_data():
+            return True
+
+        if self.server_groups is not None and self.server_groups._has_data():
+            return True
+
+        if self.tacacs is not None and self.tacacs._has_data():
             return True
 
         if self.taskgroups is not None and self.taskgroups._has_data():
@@ -5605,10 +5608,7 @@ class Aaa(object):
         if self.usergroups is not None and self.usergroups._has_data():
             return True
 
-        if self.radius is not None and self.radius._has_data():
-            return True
-
-        if self.tacacs is not None and self.tacacs._has_data():
+        if self.usernames is not None and self.usernames._has_data():
             return True
 
         return False

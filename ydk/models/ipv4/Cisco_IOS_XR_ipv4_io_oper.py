@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperLineStateEnum
@@ -97,15 +97,15 @@ class Ipv4Network(object):
     """
     IPv4 network operational data
     
-    .. attribute:: nodes
-    
-    	Node\-specific IPv4 network operational data
-    	**type**\: :py:class:`Nodes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes>`
-    
     .. attribute:: interfaces
     
     	IPv4 network operational interface data
     	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces>`
+    
+    .. attribute:: nodes
+    
+    	Node\-specific IPv4 network operational data
+    	**type**\: :py:class:`Nodes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes>`
     
     
 
@@ -115,10 +115,10 @@ class Ipv4Network(object):
     _revision = '2015-10-20'
 
     def __init__(self):
-        self.nodes = Ipv4Network.Nodes()
-        self.nodes.parent = self
         self.interfaces = Ipv4Network.Interfaces()
         self.interfaces.parent = self
+        self.nodes = Ipv4Network.Nodes()
+        self.nodes.parent = self
 
 
     class Nodes(object):
@@ -186,15 +186,15 @@ class Ipv4Network(object):
                 """
                 IPv4 network operational interface data
                 
-                .. attribute:: vrfs
-                
-                	VRF specific IPv4 network operational interface data
-                	**type**\: :py:class:`Vrfs <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs>`
-                
                 .. attribute:: summary
                 
                 	Summary of IPv4 network operational interface data on a node
                 	**type**\: :py:class:`Summary <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary>`
+                
+                .. attribute:: vrfs
+                
+                	VRF specific IPv4 network operational interface data
+                	**type**\: :py:class:`Vrfs <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs>`
                 
                 
 
@@ -205,10 +205,10 @@ class Ipv4Network(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.vrfs = Ipv4Network.Nodes.Node.InterfaceData.Vrfs()
-                    self.vrfs.parent = self
                     self.summary = Ipv4Network.Nodes.Node.InterfaceData.Summary()
                     self.summary.parent = self
+                    self.vrfs = Ipv4Network.Nodes.Node.InterfaceData.Vrfs()
+                    self.vrfs.parent = self
 
 
                 class Vrfs(object):
@@ -308,6 +308,11 @@ class Ipv4Network(object):
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
+                                .. attribute:: line_state
+                                
+                                	Line state of the interface
+                                	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineStateEnum>`
+                                
                                 .. attribute:: primary_address
                                 
                                 	Primary address
@@ -322,11 +327,6 @@ class Ipv4Network(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: line_state
-                                
-                                	Line state of the interface
-                                	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineStateEnum>`
-                                
                                 
 
                                 """
@@ -337,16 +337,16 @@ class Ipv4Network(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.interface_name = None
+                                    self.line_state = None
                                     self.primary_address = None
                                     self.vrf_id = None
-                                    self.line_state = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:brief[Cisco-IOS-XR-ipv4-io-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -360,13 +360,13 @@ class Ipv4Network(object):
                                     if self.interface_name is not None:
                                         return True
 
+                                    if self.line_state is not None:
+                                        return True
+
                                     if self.primary_address is not None:
                                         return True
 
                                     if self.vrf_id is not None:
-                                        return True
-
-                                    if self.line_state is not None:
                                         return True
 
                                     return False
@@ -379,7 +379,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:briefs'
 
@@ -444,83 +444,65 @@ class Ipv4Network(object):
                                 	ACLs configured on the interface
                                 	**type**\: :py:class:`Acl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl>`
                                 
-                                .. attribute:: multi_acl
-                                
-                                	Multi ACLs configured on the interface
-                                	**type**\: :py:class:`MultiAcl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl>`
-                                
-                                .. attribute:: helper_address
-                                
-                                	Helper Addresses configured on the interface
-                                	**type**\: :py:class:`HelperAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress>`
-                                
-                                .. attribute:: rpf
-                                
-                                	RPF config on the interface
-                                	**type**\: :py:class:`Rpf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
-                                
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\: :py:class:`BgpPa <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
-                                
-                                .. attribute:: pub_utime
-                                
-                                	Address Publish Time
-                                	**type**\: :py:class:`PubUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
-                                
-                                .. attribute:: idb_utime
-                                
-                                	IDB Create Time
-                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\: :py:class:`CapsUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
-                                .. attribute:: fwd_en_utime
+                                .. attribute:: direct_broadcast
                                 
-                                	FWD ENABLE Time
-                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                	Are direct broadcasts sent on the interface?
+                                	**type**\: bool
+                                
+                                .. attribute:: flow_tag_dst
+                                
+                                	Is BGP Flow Tag Destination is enable
+                                	**type**\: bool
+                                
+                                .. attribute:: flow_tag_src
+                                
+                                	Is BGP Flow Tag Source is enable
+                                	**type**\: bool
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\: :py:class:`FwdDisUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
-                                .. attribute:: primary_address
+                                .. attribute:: fwd_en_utime
                                 
-                                	Primary address
-                                	**type**\: str
+                                	FWD ENABLE Time
+                                	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                .. attribute:: helper_address
                                 
-                                .. attribute:: vrf_id
+                                	Helper Addresses configured on the interface
+                                	**type**\: :py:class:`HelperAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress>`
                                 
-                                	VRF ID of the interface
-                                	**type**\: int
+                                .. attribute:: idb_utime
                                 
-                                	**range:** 0..4294967295
+                                	IDB Create Time
+                                	**type**\: :py:class:`IdbUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
                                 
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
                                 	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineStateEnum>`
                                 
-                                .. attribute:: prefix_length
+                                .. attribute:: mask_reply
                                 
-                                	Prefix length of primary address
-                                	**type**\: int
+                                	Are mask replies sent on the interface?
+                                	**type**\: bool
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: mlacp_active
                                 
-                                .. attribute:: route_tag
-                                
-                                	Route tag associated with the primary address (0 = no tag)
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	Is mLACP state Active (valid if RG ID exists)
+                                	**type**\: bool
                                 
                                 .. attribute:: mtu
                                 
@@ -529,24 +511,43 @@ class Ipv4Network(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: unreachable
+                                .. attribute:: multi_acl
                                 
-                                	Are ICMP unreachables sent on the interface?
+                                	Multi ACLs configured on the interface
+                                	**type**\: :py:class:`MultiAcl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl>`
+                                
+                                .. attribute:: multicast_group
+                                
+                                	Multicast groups joined on the interface
+                                	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
+                                
+                                .. attribute:: prefix_length
+                                
+                                	Prefix length of primary address
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: primary_address
+                                
+                                	Primary address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: proxy_arp_disabled
+                                
+                                	Is Proxy ARP disabled on the interface?
                                 	**type**\: bool
+                                
+                                .. attribute:: pub_utime
+                                
+                                	Address Publish Time
+                                	**type**\: :py:class:`PubUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
                                 
                                 .. attribute:: redirect
                                 
                                 	Are ICMP redirects sent on the interface?
-                                	**type**\: bool
-                                
-                                .. attribute:: direct_broadcast
-                                
-                                	Are direct broadcasts sent on the interface?
-                                	**type**\: bool
-                                
-                                .. attribute:: mask_reply
-                                
-                                	Are mask replies sent on the interface?
                                 	**type**\: bool
                                 
                                 .. attribute:: rg_id_exists
@@ -554,40 +555,39 @@ class Ipv4Network(object):
                                 	Does ICCP RG ID exist on the interface?
                                 	**type**\: bool
                                 
-                                .. attribute:: mlacp_active
+                                .. attribute:: route_tag
                                 
-                                	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\: bool
+                                	Route tag associated with the primary address (0 = no tag)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rpf
+                                
+                                	RPF config on the interface
+                                	**type**\: :py:class:`Rpf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                
+                                .. attribute:: secondary_address
+                                
+                                	Secondary addresses on the interface
+                                	**type**\: list of :py:class:`SecondaryAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress>`
                                 
                                 .. attribute:: unnumbered_interface_name
                                 
                                 	Name of referenced interface (valid if unnumbered)
                                 	**type**\: str
                                 
-                                .. attribute:: proxy_arp_disabled
+                                .. attribute:: unreachable
                                 
-                                	Is Proxy ARP disabled on the interface?
+                                	Are ICMP unreachables sent on the interface?
                                 	**type**\: bool
                                 
-                                .. attribute:: flow_tag_src
+                                .. attribute:: vrf_id
                                 
-                                	Is BGP Flow Tag Source is enable
-                                	**type**\: bool
+                                	VRF ID of the interface
+                                	**type**\: int
                                 
-                                .. attribute:: flow_tag_dst
-                                
-                                	Is BGP Flow Tag Destination is enable
-                                	**type**\: bool
-                                
-                                .. attribute:: multicast_group
-                                
-                                	Multicast groups joined on the interface
-                                	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
-                                
-                                .. attribute:: secondary_address
-                                
-                                	Secondary addresses on the interface
-                                	**type**\: list of :py:class:`SecondaryAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress>`
+                                	**range:** 0..4294967295
                                 
                                 
 
@@ -601,61 +601,51 @@ class Ipv4Network(object):
                                     self.interface_name = None
                                     self.acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl()
                                     self.acl.parent = self
-                                    self.multi_acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl()
-                                    self.multi_acl.parent = self
-                                    self.helper_address = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress()
-                                    self.helper_address.parent = self
-                                    self.rpf = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
-                                    self.rpf.parent = self
                                     self.bgp_pa = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa()
                                     self.bgp_pa.parent = self
-                                    self.pub_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime()
-                                    self.pub_utime.parent = self
-                                    self.idb_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
-                                    self.idb_utime.parent = self
                                     self.caps_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
                                     self.caps_utime.parent = self
-                                    self.fwd_en_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
-                                    self.fwd_en_utime.parent = self
+                                    self.direct_broadcast = None
+                                    self.flow_tag_dst = None
+                                    self.flow_tag_src = None
                                     self.fwd_dis_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
                                     self.fwd_dis_utime.parent = self
-                                    self.primary_address = None
-                                    self.vrf_id = None
+                                    self.fwd_en_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime()
+                                    self.fwd_en_utime.parent = self
+                                    self.helper_address = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress()
+                                    self.helper_address.parent = self
+                                    self.idb_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime()
+                                    self.idb_utime.parent = self
                                     self.line_state = None
-                                    self.prefix_length = None
-                                    self.route_tag = None
-                                    self.mtu = None
-                                    self.unreachable = None
-                                    self.redirect = None
-                                    self.direct_broadcast = None
                                     self.mask_reply = None
-                                    self.rg_id_exists = None
                                     self.mlacp_active = None
-                                    self.unnumbered_interface_name = None
-                                    self.proxy_arp_disabled = None
-                                    self.flow_tag_src = None
-                                    self.flow_tag_dst = None
+                                    self.mtu = None
+                                    self.multi_acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl()
+                                    self.multi_acl.parent = self
                                     self.multicast_group = YList()
                                     self.multicast_group.parent = self
                                     self.multicast_group.name = 'multicast_group'
+                                    self.prefix_length = None
+                                    self.primary_address = None
+                                    self.proxy_arp_disabled = None
+                                    self.pub_utime = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime()
+                                    self.pub_utime.parent = self
+                                    self.redirect = None
+                                    self.rg_id_exists = None
+                                    self.route_tag = None
+                                    self.rpf = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf()
+                                    self.rpf.parent = self
                                     self.secondary_address = YList()
                                     self.secondary_address.parent = self
                                     self.secondary_address.name = 'secondary_address'
+                                    self.unnumbered_interface_name = None
+                                    self.unreachable = None
+                                    self.vrf_id = None
 
 
                                 class Acl(object):
                                     """
                                     ACLs configured on the interface
-                                    
-                                    .. attribute:: inbound
-                                    
-                                    	ACL applied to incoming packets
-                                    	**type**\: str
-                                    
-                                    .. attribute:: outbound
-                                    
-                                    	ACL applied to outgoing packets
-                                    	**type**\: str
                                     
                                     .. attribute:: common_in_bound
                                     
@@ -667,6 +657,16 @@ class Ipv4Network(object):
                                     	Common ACL applied to outgoing packets
                                     	**type**\: str
                                     
+                                    .. attribute:: inbound
+                                    
+                                    	ACL applied to incoming packets
+                                    	**type**\: str
+                                    
+                                    .. attribute:: outbound
+                                    
+                                    	ACL applied to outgoing packets
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -676,15 +676,15 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.inbound = None
-                                        self.outbound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
+                                        self.inbound = None
+                                        self.outbound = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:acl'
 
@@ -695,16 +695,16 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.inbound is not None:
-                                            return True
-
-                                        if self.outbound is not None:
-                                            return True
-
                                         if self.common_in_bound is not None:
                                             return True
 
                                         if self.common_out_bound is not None:
+                                            return True
+
+                                        if self.inbound is not None:
+                                            return True
+
+                                        if self.outbound is not None:
                                             return True
 
                                         return False
@@ -719,6 +719,11 @@ class Ipv4Network(object):
                                     """
                                     Multi ACLs configured on the interface
                                     
+                                    .. attribute:: common
+                                    
+                                    	Common ACLs
+                                    	**type**\: list of str
+                                    
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
@@ -727,11 +732,6 @@ class Ipv4Network(object):
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\: list of str
-                                    
-                                    .. attribute:: common
-                                    
-                                    	Common ACLs
                                     	**type**\: list of str
                                     
                                     
@@ -743,20 +743,20 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.common = YLeafList()
+                                        self.common.parent = self
+                                        self.common.name = 'common'
                                         self.inbound = YLeafList()
                                         self.inbound.parent = self
                                         self.inbound.name = 'inbound'
                                         self.outbound = YLeafList()
                                         self.outbound.parent = self
                                         self.outbound.name = 'outbound'
-                                        self.common = YLeafList()
-                                        self.common.parent = self
-                                        self.common.name = 'common'
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:multi-acl'
 
@@ -767,6 +767,11 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
+                                        if self.common is not None:
+                                            for child in self.common:
+                                                if child is not None:
+                                                    return True
+
                                         if self.inbound is not None:
                                             for child in self.inbound:
                                                 if child is not None:
@@ -774,11 +779,6 @@ class Ipv4Network(object):
 
                                         if self.outbound is not None:
                                             for child in self.outbound:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.common is not None:
-                                            for child in self.common:
                                                 if child is not None:
                                                     return True
 
@@ -817,7 +817,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:helper-address'
 
@@ -845,11 +845,6 @@ class Ipv4Network(object):
                                     """
                                     RPF config on the interface
                                     
-                                    .. attribute:: enable
-                                    
-                                    	Enable RPF config
-                                    	**type**\: bool
-                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
@@ -858,6 +853,11 @@ class Ipv4Network(object):
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable RPF config
                                     	**type**\: bool
                                     
                                     .. attribute:: mode
@@ -874,15 +874,15 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
+                                        self.enable = None
                                         self.mode = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:rpf'
 
@@ -893,13 +893,13 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.enable is not None:
-                                            return True
-
                                         if self.allow_default_route is not None:
                                             return True
 
                                         if self.allow_self_ping is not None:
+                                            return True
+
+                                        if self.enable is not None:
                                             return True
 
                                         if self.mode is not None:
@@ -946,6 +946,11 @@ class Ipv4Network(object):
                                         """
                                         BGP PA input config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -954,11 +959,6 @@ class Ipv4Network(object):
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
                                         	**type**\: bool
                                         
                                         
@@ -970,14 +970,14 @@ class Ipv4Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:input'
 
@@ -988,13 +988,13 @@ class Ipv4Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -1009,6 +1009,11 @@ class Ipv4Network(object):
                                         """
                                         BGP PA output config
                                         
+                                        .. attribute:: destination
+                                        
+                                        	Enable destination accouting
+                                        	**type**\: bool
+                                        
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
@@ -1017,11 +1022,6 @@ class Ipv4Network(object):
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: destination
-                                        
-                                        	Enable destination accouting
                                         	**type**\: bool
                                         
                                         
@@ -1033,14 +1033,14 @@ class Ipv4Network(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.destination = None
                                             self.enable = None
                                             self.source = None
-                                            self.destination = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:output'
 
@@ -1051,13 +1051,13 @@ class Ipv4Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.destination is not None:
+                                                return True
+
                                             if self.enable is not None:
                                                 return True
 
                                             if self.source is not None:
-                                                return True
-
-                                            if self.destination is not None:
                                                 return True
 
                                             return False
@@ -1070,7 +1070,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:bgp-pa'
 
@@ -1112,7 +1112,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:pub-utime'
 
@@ -1148,7 +1148,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:idb-utime'
 
@@ -1184,7 +1184,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:caps-utime'
 
@@ -1220,7 +1220,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:fwd-en-utime'
 
@@ -1256,7 +1256,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:fwd-dis-utime'
 
@@ -1300,7 +1300,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:multicast-group'
 
@@ -1363,7 +1363,7 @@ class Ipv4Network(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:secondary-address'
 
@@ -1393,9 +1393,9 @@ class Ipv4Network(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.interface_name is None:
-                                        raise YPYDataValidationError('Key property interface_name is None')
+                                        raise YPYModelError('Key property interface_name is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:detail[Cisco-IOS-XR-ipv4-io-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1412,79 +1412,46 @@ class Ipv4Network(object):
                                     if self.acl is not None and self.acl._has_data():
                                         return True
 
-                                    if self.multi_acl is not None and self.multi_acl._has_data():
-                                        return True
-
-                                    if self.helper_address is not None and self.helper_address._has_data():
-                                        return True
-
-                                    if self.rpf is not None and self.rpf._has_data():
-                                        return True
-
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
-                                        return True
-
-                                    if self.pub_utime is not None and self.pub_utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime._has_data():
                                         return True
 
                                     if self.caps_utime is not None and self.caps_utime._has_data():
                                         return True
 
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                        return True
-
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
-                                        return True
-
-                                    if self.primary_address is not None:
-                                        return True
-
-                                    if self.vrf_id is not None:
-                                        return True
-
-                                    if self.line_state is not None:
-                                        return True
-
-                                    if self.prefix_length is not None:
-                                        return True
-
-                                    if self.route_tag is not None:
-                                        return True
-
-                                    if self.mtu is not None:
-                                        return True
-
-                                    if self.unreachable is not None:
-                                        return True
-
-                                    if self.redirect is not None:
-                                        return True
-
                                     if self.direct_broadcast is not None:
                                         return True
 
-                                    if self.mask_reply is not None:
-                                        return True
-
-                                    if self.rg_id_exists is not None:
-                                        return True
-
-                                    if self.mlacp_active is not None:
-                                        return True
-
-                                    if self.unnumbered_interface_name is not None:
-                                        return True
-
-                                    if self.proxy_arp_disabled is not None:
+                                    if self.flow_tag_dst is not None:
                                         return True
 
                                     if self.flow_tag_src is not None:
                                         return True
 
-                                    if self.flow_tag_dst is not None:
+                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
+                                        return True
+
+                                    if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
+                                        return True
+
+                                    if self.helper_address is not None and self.helper_address._has_data():
+                                        return True
+
+                                    if self.idb_utime is not None and self.idb_utime._has_data():
+                                        return True
+
+                                    if self.line_state is not None:
+                                        return True
+
+                                    if self.mask_reply is not None:
+                                        return True
+
+                                    if self.mlacp_active is not None:
+                                        return True
+
+                                    if self.mtu is not None:
+                                        return True
+
+                                    if self.multi_acl is not None and self.multi_acl._has_data():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -1492,10 +1459,43 @@ class Ipv4Network(object):
                                             if child_ref._has_data():
                                                 return True
 
+                                    if self.prefix_length is not None:
+                                        return True
+
+                                    if self.primary_address is not None:
+                                        return True
+
+                                    if self.proxy_arp_disabled is not None:
+                                        return True
+
+                                    if self.pub_utime is not None and self.pub_utime._has_data():
+                                        return True
+
+                                    if self.redirect is not None:
+                                        return True
+
+                                    if self.rg_id_exists is not None:
+                                        return True
+
+                                    if self.route_tag is not None:
+                                        return True
+
+                                    if self.rpf is not None and self.rpf._has_data():
+                                        return True
+
                                     if self.secondary_address is not None:
                                         for child_ref in self.secondary_address:
                                             if child_ref._has_data():
                                                 return True
+
+                                    if self.unnumbered_interface_name is not None:
+                                        return True
+
+                                    if self.unreachable is not None:
+                                        return True
+
+                                    if self.vrf_id is not None:
+                                        return True
 
                                     return False
 
@@ -1507,7 +1507,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:details'
 
@@ -1533,9 +1533,9 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:vrf[Cisco-IOS-XR-ipv4-io-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1565,7 +1565,7 @@ class Ipv4Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:vrfs'
 
@@ -1594,16 +1594,6 @@ class Ipv4Network(object):
                     Summary of IPv4 network operational interface
                     data on a node
                     
-                    .. attribute:: if_up_up
-                    
-                    	Number of interfaces (up,up)
-                    	**type**\: :py:class:`IfUpUp <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
-                    
-                    .. attribute:: if_up_down
-                    
-                    	Number of interfaces (up,down)
-                    	**type**\: :py:class:`IfUpDown <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
-                    
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
@@ -1614,12 +1604,22 @@ class Ipv4Network(object):
                     	Number of interfaces (shutdown,down)
                     	**type**\: :py:class:`IfShutdownDown <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
                     
+                    .. attribute:: if_up_down
+                    
+                    	Number of interfaces (up,down)
+                    	**type**\: :py:class:`IfUpDown <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    
                     .. attribute:: if_up_down_basecaps_up
                     
                     	Number of interfaces (up,down) with basecaps up
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: if_up_up
+                    
+                    	Number of interfaces (up,up)
+                    	**type**\: :py:class:`IfUpUp <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
                     
 
@@ -1630,15 +1630,15 @@ class Ipv4Network(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.if_up_up = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
-                        self.if_up_up.parent = self
-                        self.if_up_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
-                        self.if_up_down.parent = self
                         self.if_down_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown()
                         self.if_down_down.parent = self
                         self.if_shutdown_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown()
                         self.if_shutdown_down.parent = self
+                        self.if_up_down = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown()
+                        self.if_up_down.parent = self
                         self.if_up_down_basecaps_up = None
+                        self.if_up_up = Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp()
+                        self.if_up_up.parent = self
 
 
                     class IfUpUp(object):
@@ -1674,7 +1674,7 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:if-up-up'
 
@@ -1732,7 +1732,7 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:if-up-down'
 
@@ -1790,7 +1790,7 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:if-down-down'
 
@@ -1848,7 +1848,7 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:if-shutdown-down'
 
@@ -1875,7 +1875,7 @@ class Ipv4Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:summary'
 
@@ -1886,19 +1886,19 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.if_up_up is not None and self.if_up_up._has_data():
-                            return True
-
-                        if self.if_up_down is not None and self.if_up_down._has_data():
-                            return True
-
                         if self.if_down_down is not None and self.if_down_down._has_data():
                             return True
 
                         if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                             return True
 
+                        if self.if_up_down is not None and self.if_up_down._has_data():
+                            return True
+
                         if self.if_up_down_basecaps_up is not None:
+                            return True
+
+                        if self.if_up_up is not None and self.if_up_up._has_data():
                             return True
 
                         return False
@@ -1911,7 +1911,7 @@ class Ipv4Network(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:interface-data'
 
@@ -1922,10 +1922,10 @@ class Ipv4Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.vrfs is not None and self.vrfs._has_data():
+                    if self.summary is not None and self.summary._has_data():
                         return True
 
-                    if self.summary is not None and self.summary._has_data():
+                    if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
                     return False
@@ -1963,15 +1963,15 @@ class Ipv4Network(object):
                     """
                     Traffic statistics for a node
                     
-                    .. attribute:: ipv4_stats
-                    
-                    	IPv4 Network Stats
-                    	**type**\: :py:class:`Ipv4Stats <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats>`
-                    
                     .. attribute:: icmp_stats
                     
                     	ICMP Stats
                     	**type**\: :py:class:`IcmpStats <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats>`
+                    
+                    .. attribute:: ipv4_stats
+                    
+                    	IPv4 Network Stats
+                    	**type**\: :py:class:`Ipv4Stats <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats>`
                     
                     
 
@@ -1982,33 +1982,19 @@ class Ipv4Network(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ipv4_stats = Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats()
-                        self.ipv4_stats.parent = self
                         self.icmp_stats = Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats()
                         self.icmp_stats.parent = self
+                        self.ipv4_stats = Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats()
+                        self.ipv4_stats.parent = self
 
 
                     class Ipv4Stats(object):
                         """
                         IPv4 Network Stats
                         
-                        .. attribute:: input_packets
+                        .. attribute:: bad_header
                         
-                        	Input Packets
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: received_packets
-                        
-                        	Received Packets
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: format_errors
-                        
-                        	Format Errors
+                        	Bad Header
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2020,86 +2006,9 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: bad_source_address
-                        
-                        	Bad Source Address
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bad_header
-                        
-                        	Bad Header
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: no_protocol
-                        
-                        	No Protocol
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: no_gateway
-                        
-                        	No Gateway
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassemble_input
-                        
-                        	RaInput
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassembled
-                        
-                        	Reassembled
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassemble_timeout
-                        
-                        	Reassembly Timeout
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassemble_max_drop
-                        
-                        	Reassembly Max Drop
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassemble_failed
-                        
-                        	Reassembly Failed
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: options_present
-                        
-                        	IP Options Present
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: bad_option
                         
                         	Bad Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: unknown_option
-                        
-                        	Unknown Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2111,142 +2020,16 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: bad_source_address
+                        
+                        	Bad Source Address
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: basic_security_option
                         
                         	Basic Security Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: extended_security_option
-                        
-                        	Extended Security Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: cipso_option
-                        
-                        	Cipso Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: strict_source_route_option
-                        
-                        	Strict Source Route Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: loose_source_route_option
-                        
-                        	Loose Source Route Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: record_route_option
-                        
-                        	Record Route Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sid_option
-                        
-                        	SID Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: timestamp_option
-                        
-                        	Timestamp Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: router_alert_option
-                        
-                        	Router Alert Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: noop_option
-                        
-                        	Noop Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: end_option
-                        
-                        	End Option
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: packets_output
-                        
-                        	Packets Output
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: packets_forwarded
-                        
-                        	Packets Forwarded
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: packets_fragmented
-                        
-                        	Packets Fragmented
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: fragment_count
-                        
-                        	Fragment Count
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: encapsultion_failed
-                        
-                        	Encapsulation Failed
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: no_router
-                        
-                        	No Router
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: packet_too_big
-                        
-                        	Packet Too Big
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: multicast_in
-                        
-                        	Multicast In
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: multicast_out
-                        
-                        	Multicast Out
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2265,30 +2048,58 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lisp_v4_encap
+                        .. attribute:: cipso_option
                         
-                        	Lisp IPv4 encapped packets
+                        	Cipso Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lisp_v4_decap
+                        .. attribute:: encapsultion_failed
                         
-                        	Lisp IPv4 decapped packets
+                        	Encapsulation Failed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lisp_v6_encap
+                        .. attribute:: end_option
                         
-                        	Lisp IPv6 encapped packets
+                        	End Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lisp_v6_decap
+                        .. attribute:: extended_security_option
                         
-                        	Lisp IPv6 decapped packets
+                        	Extended Security Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: format_errors
+                        
+                        	Format Errors
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: fragment_count
+                        
+                        	Fragment Count
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: input_packets
+                        
+                        	Input Packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lisp_decap_error
+                        
+                        	Lisp decap errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2300,9 +2111,198 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lisp_decap_error
+                        .. attribute:: lisp_v4_decap
                         
-                        	Lisp decap errors
+                        	Lisp IPv4 decapped packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lisp_v4_encap
+                        
+                        	Lisp IPv4 encapped packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lisp_v6_decap
+                        
+                        	Lisp IPv6 decapped packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lisp_v6_encap
+                        
+                        	Lisp IPv6 encapped packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: loose_source_route_option
+                        
+                        	Loose Source Route Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: multicast_in
+                        
+                        	Multicast In
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: multicast_out
+                        
+                        	Multicast Out
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: no_gateway
+                        
+                        	No Gateway
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: no_protocol
+                        
+                        	No Protocol
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: no_router
+                        
+                        	No Router
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: noop_option
+                        
+                        	Noop Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: options_present
+                        
+                        	IP Options Present
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: packet_too_big
+                        
+                        	Packet Too Big
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: packets_forwarded
+                        
+                        	Packets Forwarded
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: packets_fragmented
+                        
+                        	Packets Fragmented
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: packets_output
+                        
+                        	Packets Output
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reassemble_failed
+                        
+                        	Reassembly Failed
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reassemble_input
+                        
+                        	RaInput
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reassemble_max_drop
+                        
+                        	Reassembly Max Drop
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reassemble_timeout
+                        
+                        	Reassembly Timeout
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reassembled
+                        
+                        	Reassembled
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: received_packets
+                        
+                        	Received Packets
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: record_route_option
+                        
+                        	Record Route Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: router_alert_option
+                        
+                        	Router Alert Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sid_option
+                        
+                        	SID Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: strict_source_route_option
+                        
+                        	Strict Source Route Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: timestamp_option
+                        
+                        	Timestamp Option
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: unknown_option
+                        
+                        	Unknown Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2316,56 +2316,56 @@ class Ipv4Network(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.input_packets = None
-                            self.received_packets = None
-                            self.format_errors = None
-                            self.bad_hop_count = None
-                            self.bad_source_address = None
                             self.bad_header = None
-                            self.no_protocol = None
-                            self.no_gateway = None
-                            self.reassemble_input = None
-                            self.reassembled = None
-                            self.reassemble_timeout = None
-                            self.reassemble_max_drop = None
-                            self.reassemble_failed = None
-                            self.options_present = None
+                            self.bad_hop_count = None
                             self.bad_option = None
-                            self.unknown_option = None
                             self.bad_security_option = None
+                            self.bad_source_address = None
                             self.basic_security_option = None
-                            self.extended_security_option = None
-                            self.cipso_option = None
-                            self.strict_source_route_option = None
-                            self.loose_source_route_option = None
-                            self.record_route_option = None
-                            self.sid_option = None
-                            self.timestamp_option = None
-                            self.router_alert_option = None
-                            self.noop_option = None
-                            self.end_option = None
-                            self.packets_output = None
-                            self.packets_forwarded = None
-                            self.packets_fragmented = None
-                            self.fragment_count = None
-                            self.encapsultion_failed = None
-                            self.no_router = None
-                            self.packet_too_big = None
-                            self.multicast_in = None
-                            self.multicast_out = None
                             self.broadcast_in = None
                             self.broadcast_out = None
-                            self.lisp_v4_encap = None
-                            self.lisp_v4_decap = None
-                            self.lisp_v6_encap = None
-                            self.lisp_v6_decap = None
-                            self.lisp_encap_error = None
+                            self.cipso_option = None
+                            self.encapsultion_failed = None
+                            self.end_option = None
+                            self.extended_security_option = None
+                            self.format_errors = None
+                            self.fragment_count = None
+                            self.input_packets = None
                             self.lisp_decap_error = None
+                            self.lisp_encap_error = None
+                            self.lisp_v4_decap = None
+                            self.lisp_v4_encap = None
+                            self.lisp_v6_decap = None
+                            self.lisp_v6_encap = None
+                            self.loose_source_route_option = None
+                            self.multicast_in = None
+                            self.multicast_out = None
+                            self.no_gateway = None
+                            self.no_protocol = None
+                            self.no_router = None
+                            self.noop_option = None
+                            self.options_present = None
+                            self.packet_too_big = None
+                            self.packets_forwarded = None
+                            self.packets_fragmented = None
+                            self.packets_output = None
+                            self.reassemble_failed = None
+                            self.reassemble_input = None
+                            self.reassemble_max_drop = None
+                            self.reassemble_timeout = None
+                            self.reassembled = None
+                            self.received_packets = None
+                            self.record_route_option = None
+                            self.router_alert_option = None
+                            self.sid_option = None
+                            self.strict_source_route_option = None
+                            self.timestamp_option = None
+                            self.unknown_option = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:ipv4-stats'
 
@@ -2376,115 +2376,22 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.input_packets is not None:
-                                return True
-
-                            if self.received_packets is not None:
-                                return True
-
-                            if self.format_errors is not None:
+                            if self.bad_header is not None:
                                 return True
 
                             if self.bad_hop_count is not None:
                                 return True
 
-                            if self.bad_source_address is not None:
-                                return True
-
-                            if self.bad_header is not None:
-                                return True
-
-                            if self.no_protocol is not None:
-                                return True
-
-                            if self.no_gateway is not None:
-                                return True
-
-                            if self.reassemble_input is not None:
-                                return True
-
-                            if self.reassembled is not None:
-                                return True
-
-                            if self.reassemble_timeout is not None:
-                                return True
-
-                            if self.reassemble_max_drop is not None:
-                                return True
-
-                            if self.reassemble_failed is not None:
-                                return True
-
-                            if self.options_present is not None:
-                                return True
-
                             if self.bad_option is not None:
-                                return True
-
-                            if self.unknown_option is not None:
                                 return True
 
                             if self.bad_security_option is not None:
                                 return True
 
+                            if self.bad_source_address is not None:
+                                return True
+
                             if self.basic_security_option is not None:
-                                return True
-
-                            if self.extended_security_option is not None:
-                                return True
-
-                            if self.cipso_option is not None:
-                                return True
-
-                            if self.strict_source_route_option is not None:
-                                return True
-
-                            if self.loose_source_route_option is not None:
-                                return True
-
-                            if self.record_route_option is not None:
-                                return True
-
-                            if self.sid_option is not None:
-                                return True
-
-                            if self.timestamp_option is not None:
-                                return True
-
-                            if self.router_alert_option is not None:
-                                return True
-
-                            if self.noop_option is not None:
-                                return True
-
-                            if self.end_option is not None:
-                                return True
-
-                            if self.packets_output is not None:
-                                return True
-
-                            if self.packets_forwarded is not None:
-                                return True
-
-                            if self.packets_fragmented is not None:
-                                return True
-
-                            if self.fragment_count is not None:
-                                return True
-
-                            if self.encapsultion_failed is not None:
-                                return True
-
-                            if self.no_router is not None:
-                                return True
-
-                            if self.packet_too_big is not None:
-                                return True
-
-                            if self.multicast_in is not None:
-                                return True
-
-                            if self.multicast_out is not None:
                                 return True
 
                             if self.broadcast_in is not None:
@@ -2493,22 +2400,115 @@ class Ipv4Network(object):
                             if self.broadcast_out is not None:
                                 return True
 
-                            if self.lisp_v4_encap is not None:
+                            if self.cipso_option is not None:
                                 return True
 
-                            if self.lisp_v4_decap is not None:
+                            if self.encapsultion_failed is not None:
                                 return True
 
-                            if self.lisp_v6_encap is not None:
+                            if self.end_option is not None:
                                 return True
 
-                            if self.lisp_v6_decap is not None:
+                            if self.extended_security_option is not None:
+                                return True
+
+                            if self.format_errors is not None:
+                                return True
+
+                            if self.fragment_count is not None:
+                                return True
+
+                            if self.input_packets is not None:
+                                return True
+
+                            if self.lisp_decap_error is not None:
                                 return True
 
                             if self.lisp_encap_error is not None:
                                 return True
 
-                            if self.lisp_decap_error is not None:
+                            if self.lisp_v4_decap is not None:
+                                return True
+
+                            if self.lisp_v4_encap is not None:
+                                return True
+
+                            if self.lisp_v6_decap is not None:
+                                return True
+
+                            if self.lisp_v6_encap is not None:
+                                return True
+
+                            if self.loose_source_route_option is not None:
+                                return True
+
+                            if self.multicast_in is not None:
+                                return True
+
+                            if self.multicast_out is not None:
+                                return True
+
+                            if self.no_gateway is not None:
+                                return True
+
+                            if self.no_protocol is not None:
+                                return True
+
+                            if self.no_router is not None:
+                                return True
+
+                            if self.noop_option is not None:
+                                return True
+
+                            if self.options_present is not None:
+                                return True
+
+                            if self.packet_too_big is not None:
+                                return True
+
+                            if self.packets_forwarded is not None:
+                                return True
+
+                            if self.packets_fragmented is not None:
+                                return True
+
+                            if self.packets_output is not None:
+                                return True
+
+                            if self.reassemble_failed is not None:
+                                return True
+
+                            if self.reassemble_input is not None:
+                                return True
+
+                            if self.reassemble_max_drop is not None:
+                                return True
+
+                            if self.reassemble_timeout is not None:
+                                return True
+
+                            if self.reassembled is not None:
+                                return True
+
+                            if self.received_packets is not None:
+                                return True
+
+                            if self.record_route_option is not None:
+                                return True
+
+                            if self.router_alert_option is not None:
+                                return True
+
+                            if self.sid_option is not None:
+                                return True
+
+                            if self.strict_source_route_option is not None:
+                                return True
+
+                            if self.timestamp_option is not None:
+                                return True
+
+                            if self.unknown_option is not None:
                                 return True
 
                             return False
@@ -2523,30 +2523,9 @@ class Ipv4Network(object):
                         """
                         ICMP Stats
                         
-                        .. attribute:: received
+                        .. attribute:: admin_unreachable_received
                         
-                        	ICMP Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: checksum_error
-                        
-                        	ICMP Checksum Errors
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: unknown
-                        
-                        	ICMP Unknown
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: output
-                        
-                        	ICMP Transmitted
+                        	ICMP Admin Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2558,72 +2537,37 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: network_unreachable_sent
+                        .. attribute:: checksum_error
                         
-                        	ICMP Network Unreachable Sent
+                        	ICMP Checksum Errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: host_unreachable_sent
+                        .. attribute:: echo_reply_received
                         
-                        	ICMP Host Unreachable Sent
+                        	ICMP Echo Reply Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: protocol_unreachable_sent
+                        .. attribute:: echo_reply_sent
                         
-                        	ICMP Protocol Unreachable Sent
+                        	ICMP Echo Reply Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: port_unreachable_sent
+                        .. attribute:: echo_request_received
                         
-                        	ICMP Port Unreachable Sent
+                        	ICMP Echo Request Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: fragment_unreachable_sent
+                        .. attribute:: echo_request_sent
                         
-                        	ICMP Fragment Unreachable Sent
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: admin_unreachable_received
-                        
-                        	ICMP Admin Unreachable Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: network_unreachable_received
-                        
-                        	ICMP Network Unreachable Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: host_unreachable_received
-                        
-                        	ICMP Host Unreachable Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: protocol_unreachable_received
-                        
-                        	ICMP Protocol Unreachable Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: port_unreachable_received
-                        
-                        	ICMP Port Unreachable Received
+                        	ICMP Echo Request Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2635,16 +2579,9 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: hopcount_sent
+                        .. attribute:: fragment_unreachable_sent
                         
-                        	ICMP Hopcount Sent
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reassembly_sent
-                        
-                        	ICMP Reassembly Sent
+                        	ICMP Fragment Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2656,9 +2593,72 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: reassebly_received
+                        .. attribute:: hopcount_sent
                         
-                        	ICMP Reassembly Received
+                        	ICMP Hopcount Sent
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: host_unreachable_received
+                        
+                        	ICMP Host Unreachable Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: host_unreachable_sent
+                        
+                        	ICMP Host Unreachable Sent
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mask_reply_received
+                        
+                        	ICMP Mask Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mask_reply_sent
+                        
+                        	ICMP Mask Sent
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mask_request_received
+                        
+                        	ICMP Mask Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mask_request_sent
+                        
+                        	ICMP Mask Sent
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: network_unreachable_received
+                        
+                        	ICMP Network Unreachable Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: network_unreachable_sent
+                        
+                        	ICMP Network Unreachable Sent
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: output
+                        
+                        	ICMP Transmitted
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2677,65 +2677,51 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: echo_request_sent
+                        .. attribute:: port_unreachable_received
                         
-                        	ICMP Echo Request Sent
+                        	ICMP Port Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: echo_request_received
+                        .. attribute:: port_unreachable_sent
                         
-                        	ICMP Echo Request Sent
+                        	ICMP Port Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: echo_reply_sent
+                        .. attribute:: protocol_unreachable_received
                         
-                        	ICMP Echo Reply Sent
+                        	ICMP Protocol Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: echo_reply_received
+                        .. attribute:: protocol_unreachable_sent
                         
-                        	ICMP Echo Reply Received
+                        	ICMP Protocol Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: mask_request_sent
+                        .. attribute:: reassebly_received
                         
-                        	ICMP Mask Sent
+                        	ICMP Reassembly Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: mask_request_received
+                        .. attribute:: reassembly_sent
                         
-                        	ICMP Mask Received
+                        	ICMP Reassembly Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: mask_reply_sent
+                        .. attribute:: received
                         
-                        	ICMP Mask Sent
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mask_reply_received
-                        
-                        	ICMP Mask Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: source_quench_received
-                        
-                        	ICMP Source Quench
+                        	ICMP Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -2754,20 +2740,6 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: timestamp_received
-                        
-                        	ICMP Timestamp Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: timestamp_reply_received
-                        
-                        	ICMP Timestamp Reply Received
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: router_advert_received
                         
                         	ICMP Router Advertisement Received
@@ -2782,6 +2754,34 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: source_quench_received
+                        
+                        	ICMP Source Quench
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: timestamp_received
+                        
+                        	ICMP Timestamp Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: timestamp_reply_received
+                        
+                        	ICMP Timestamp Reply Received
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: unknown
+                        
+                        	ICMP Unknown
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -2791,48 +2791,48 @@ class Ipv4Network(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.received = None
-                            self.checksum_error = None
-                            self.unknown = None
-                            self.output = None
-                            self.admin_unreachable_sent = None
-                            self.network_unreachable_sent = None
-                            self.host_unreachable_sent = None
-                            self.protocol_unreachable_sent = None
-                            self.port_unreachable_sent = None
-                            self.fragment_unreachable_sent = None
                             self.admin_unreachable_received = None
-                            self.network_unreachable_received = None
-                            self.host_unreachable_received = None
-                            self.protocol_unreachable_received = None
-                            self.port_unreachable_received = None
+                            self.admin_unreachable_sent = None
+                            self.checksum_error = None
+                            self.echo_reply_received = None
+                            self.echo_reply_sent = None
+                            self.echo_request_received = None
+                            self.echo_request_sent = None
                             self.fragment_unreachable_received = None
-                            self.hopcount_sent = None
-                            self.reassembly_sent = None
+                            self.fragment_unreachable_sent = None
                             self.hopcount_received = None
-                            self.reassebly_received = None
+                            self.hopcount_sent = None
+                            self.host_unreachable_received = None
+                            self.host_unreachable_sent = None
+                            self.mask_reply_received = None
+                            self.mask_reply_sent = None
+                            self.mask_request_received = None
+                            self.mask_request_sent = None
+                            self.network_unreachable_received = None
+                            self.network_unreachable_sent = None
+                            self.output = None
                             self.param_error_received = None
                             self.param_error_send = None
-                            self.echo_request_sent = None
-                            self.echo_request_received = None
-                            self.echo_reply_sent = None
-                            self.echo_reply_received = None
-                            self.mask_request_sent = None
-                            self.mask_request_received = None
-                            self.mask_reply_sent = None
-                            self.mask_reply_received = None
-                            self.source_quench_received = None
+                            self.port_unreachable_received = None
+                            self.port_unreachable_sent = None
+                            self.protocol_unreachable_received = None
+                            self.protocol_unreachable_sent = None
+                            self.reassebly_received = None
+                            self.reassembly_sent = None
+                            self.received = None
                             self.redirect_received = None
                             self.redirect_send = None
-                            self.timestamp_received = None
-                            self.timestamp_reply_received = None
                             self.router_advert_received = None
                             self.router_solicit_received = None
+                            self.source_quench_received = None
+                            self.timestamp_received = None
+                            self.timestamp_reply_received = None
+                            self.unknown = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:icmp-stats'
 
@@ -2843,64 +2843,64 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.received is not None:
-                                return True
-
-                            if self.checksum_error is not None:
-                                return True
-
-                            if self.unknown is not None:
-                                return True
-
-                            if self.output is not None:
+                            if self.admin_unreachable_received is not None:
                                 return True
 
                             if self.admin_unreachable_sent is not None:
                                 return True
 
-                            if self.network_unreachable_sent is not None:
+                            if self.checksum_error is not None:
                                 return True
 
-                            if self.host_unreachable_sent is not None:
+                            if self.echo_reply_received is not None:
                                 return True
 
-                            if self.protocol_unreachable_sent is not None:
+                            if self.echo_reply_sent is not None:
                                 return True
 
-                            if self.port_unreachable_sent is not None:
+                            if self.echo_request_received is not None:
                                 return True
 
-                            if self.fragment_unreachable_sent is not None:
-                                return True
-
-                            if self.admin_unreachable_received is not None:
-                                return True
-
-                            if self.network_unreachable_received is not None:
-                                return True
-
-                            if self.host_unreachable_received is not None:
-                                return True
-
-                            if self.protocol_unreachable_received is not None:
-                                return True
-
-                            if self.port_unreachable_received is not None:
+                            if self.echo_request_sent is not None:
                                 return True
 
                             if self.fragment_unreachable_received is not None:
                                 return True
 
-                            if self.hopcount_sent is not None:
-                                return True
-
-                            if self.reassembly_sent is not None:
+                            if self.fragment_unreachable_sent is not None:
                                 return True
 
                             if self.hopcount_received is not None:
                                 return True
 
-                            if self.reassebly_received is not None:
+                            if self.hopcount_sent is not None:
+                                return True
+
+                            if self.host_unreachable_received is not None:
+                                return True
+
+                            if self.host_unreachable_sent is not None:
+                                return True
+
+                            if self.mask_reply_received is not None:
+                                return True
+
+                            if self.mask_reply_sent is not None:
+                                return True
+
+                            if self.mask_request_received is not None:
+                                return True
+
+                            if self.mask_request_sent is not None:
+                                return True
+
+                            if self.network_unreachable_received is not None:
+                                return True
+
+                            if self.network_unreachable_sent is not None:
+                                return True
+
+                            if self.output is not None:
                                 return True
 
                             if self.param_error_received is not None:
@@ -2909,31 +2909,25 @@ class Ipv4Network(object):
                             if self.param_error_send is not None:
                                 return True
 
-                            if self.echo_request_sent is not None:
+                            if self.port_unreachable_received is not None:
                                 return True
 
-                            if self.echo_request_received is not None:
+                            if self.port_unreachable_sent is not None:
                                 return True
 
-                            if self.echo_reply_sent is not None:
+                            if self.protocol_unreachable_received is not None:
                                 return True
 
-                            if self.echo_reply_received is not None:
+                            if self.protocol_unreachable_sent is not None:
                                 return True
 
-                            if self.mask_request_sent is not None:
+                            if self.reassebly_received is not None:
                                 return True
 
-                            if self.mask_request_received is not None:
+                            if self.reassembly_sent is not None:
                                 return True
 
-                            if self.mask_reply_sent is not None:
-                                return True
-
-                            if self.mask_reply_received is not None:
-                                return True
-
-                            if self.source_quench_received is not None:
+                            if self.received is not None:
                                 return True
 
                             if self.redirect_received is not None:
@@ -2942,16 +2936,22 @@ class Ipv4Network(object):
                             if self.redirect_send is not None:
                                 return True
 
+                            if self.router_advert_received is not None:
+                                return True
+
+                            if self.router_solicit_received is not None:
+                                return True
+
+                            if self.source_quench_received is not None:
+                                return True
+
                             if self.timestamp_received is not None:
                                 return True
 
                             if self.timestamp_reply_received is not None:
                                 return True
 
-                            if self.router_advert_received is not None:
-                                return True
-
-                            if self.router_solicit_received is not None:
+                            if self.unknown is not None:
                                 return True
 
                             return False
@@ -2964,7 +2964,7 @@ class Ipv4Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:traffic'
 
@@ -2975,10 +2975,10 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ipv4_stats is not None and self.ipv4_stats._has_data():
+                        if self.icmp_stats is not None and self.icmp_stats._has_data():
                             return True
 
-                        if self.icmp_stats is not None and self.icmp_stats._has_data():
+                        if self.ipv4_stats is not None and self.ipv4_stats._has_data():
                             return True
 
                         return False
@@ -2991,7 +2991,7 @@ class Ipv4Network(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-io-oper:statistics'
 
@@ -3015,7 +3015,7 @@ class Ipv4Network(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-io-oper:nodes/Cisco-IOS-XR-ipv4-io-oper:node[Cisco-IOS-XR-ipv4-io-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -3154,15 +3154,15 @@ class Ipv4Network(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: detail
-                    
-                    	Detail IPv4 network operational data for an interface
-                    	**type**\: :py:class:`Detail <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail>`
-                    
                     .. attribute:: brief
                     
                     	Brief IPv4 network operational data for an interface
                     	**type**\: :py:class:`Brief <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief>`
+                    
+                    .. attribute:: detail
+                    
+                    	Detail IPv4 network operational data for an interface
+                    	**type**\: :py:class:`Detail <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail>`
                     
                     
 
@@ -3174,10 +3174,10 @@ class Ipv4Network(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.detail = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail()
-                        self.detail.parent = self
                         self.brief = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief()
                         self.brief.parent = self
+                        self.detail = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail()
+                        self.detail.parent = self
 
 
                     class Detail(object):
@@ -3190,83 +3190,65 @@ class Ipv4Network(object):
                         	ACLs configured on the interface
                         	**type**\: :py:class:`Acl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl>`
                         
-                        .. attribute:: multi_acl
-                        
-                        	Multi ACLs configured on the interface
-                        	**type**\: :py:class:`MultiAcl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl>`
-                        
-                        .. attribute:: helper_address
-                        
-                        	Helper Addresses configured on the interface
-                        	**type**\: :py:class:`HelperAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress>`
-                        
-                        .. attribute:: rpf
-                        
-                        	RPF config on the interface
-                        	**type**\: :py:class:`Rpf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf>`
-                        
                         .. attribute:: bgp_pa
                         
                         	BGP PA config on the interface
                         	**type**\: :py:class:`BgpPa <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa>`
-                        
-                        .. attribute:: pub_utime
-                        
-                        	Address Publish Time
-                        	**type**\: :py:class:`PubUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
-                        
-                        .. attribute:: idb_utime
-                        
-                        	IDB Create Time
-                        	**type**\: :py:class:`IdbUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
                         
                         .. attribute:: caps_utime
                         
                         	CAPS Add Time
                         	**type**\: :py:class:`CapsUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime>`
                         
-                        .. attribute:: fwd_en_utime
+                        .. attribute:: direct_broadcast
                         
-                        	FWD ENABLE Time
-                        	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
+                        	Are direct broadcasts sent on the interface?
+                        	**type**\: bool
+                        
+                        .. attribute:: flow_tag_dst
+                        
+                        	Is BGP Flow Tag Destination is enable
+                        	**type**\: bool
+                        
+                        .. attribute:: flow_tag_src
+                        
+                        	Is BGP Flow Tag Source is enable
+                        	**type**\: bool
                         
                         .. attribute:: fwd_dis_utime
                         
                         	FWD DISABLE Time
                         	**type**\: :py:class:`FwdDisUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime>`
                         
-                        .. attribute:: primary_address
+                        .. attribute:: fwd_en_utime
                         
-                        	Primary address
-                        	**type**\: str
+                        	FWD ENABLE Time
+                        	**type**\: :py:class:`FwdEnUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: helper_address
                         
-                        .. attribute:: vrf_id
+                        	Helper Addresses configured on the interface
+                        	**type**\: :py:class:`HelperAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress>`
                         
-                        	VRF ID of the interface
-                        	**type**\: int
+                        .. attribute:: idb_utime
                         
-                        	**range:** 0..4294967295
+                        	IDB Create Time
+                        	**type**\: :py:class:`IdbUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
                         
                         .. attribute:: line_state
                         
                         	Line state of the interface
                         	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineStateEnum>`
                         
-                        .. attribute:: prefix_length
+                        .. attribute:: mask_reply
                         
-                        	Prefix length of primary address
-                        	**type**\: int
+                        	Are mask replies sent on the interface?
+                        	**type**\: bool
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: mlacp_active
                         
-                        .. attribute:: route_tag
-                        
-                        	Route tag associated with the primary address (0 = no tag)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	Is mLACP state Active (valid if RG ID exists)
+                        	**type**\: bool
                         
                         .. attribute:: mtu
                         
@@ -3275,24 +3257,43 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: unreachable
+                        .. attribute:: multi_acl
                         
-                        	Are ICMP unreachables sent on the interface?
+                        	Multi ACLs configured on the interface
+                        	**type**\: :py:class:`MultiAcl <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl>`
+                        
+                        .. attribute:: multicast_group
+                        
+                        	Multicast groups joined on the interface
+                        	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup>`
+                        
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length of primary address
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: primary_address
+                        
+                        	Primary address
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: proxy_arp_disabled
+                        
+                        	Is Proxy ARP disabled on the interface?
                         	**type**\: bool
+                        
+                        .. attribute:: pub_utime
+                        
+                        	Address Publish Time
+                        	**type**\: :py:class:`PubUtime <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
                         
                         .. attribute:: redirect
                         
                         	Are ICMP redirects sent on the interface?
-                        	**type**\: bool
-                        
-                        .. attribute:: direct_broadcast
-                        
-                        	Are direct broadcasts sent on the interface?
-                        	**type**\: bool
-                        
-                        .. attribute:: mask_reply
-                        
-                        	Are mask replies sent on the interface?
                         	**type**\: bool
                         
                         .. attribute:: rg_id_exists
@@ -3300,40 +3301,39 @@ class Ipv4Network(object):
                         	Does ICCP RG ID exist on the interface?
                         	**type**\: bool
                         
-                        .. attribute:: mlacp_active
+                        .. attribute:: route_tag
                         
-                        	Is mLACP state Active (valid if RG ID exists)
-                        	**type**\: bool
+                        	Route tag associated with the primary address (0 = no tag)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: rpf
+                        
+                        	RPF config on the interface
+                        	**type**\: :py:class:`Rpf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf>`
+                        
+                        .. attribute:: secondary_address
+                        
+                        	Secondary addresses on the interface
+                        	**type**\: list of :py:class:`SecondaryAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress>`
                         
                         .. attribute:: unnumbered_interface_name
                         
                         	Name of referenced interface (valid if unnumbered)
                         	**type**\: str
                         
-                        .. attribute:: proxy_arp_disabled
+                        .. attribute:: unreachable
                         
-                        	Is Proxy ARP disabled on the interface?
+                        	Are ICMP unreachables sent on the interface?
                         	**type**\: bool
                         
-                        .. attribute:: flow_tag_src
+                        .. attribute:: vrf_id
                         
-                        	Is BGP Flow Tag Source is enable
-                        	**type**\: bool
+                        	VRF ID of the interface
+                        	**type**\: int
                         
-                        .. attribute:: flow_tag_dst
-                        
-                        	Is BGP Flow Tag Destination is enable
-                        	**type**\: bool
-                        
-                        .. attribute:: multicast_group
-                        
-                        	Multicast groups joined on the interface
-                        	**type**\: list of :py:class:`MulticastGroup <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup>`
-                        
-                        .. attribute:: secondary_address
-                        
-                        	Secondary addresses on the interface
-                        	**type**\: list of :py:class:`SecondaryAddress <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -3346,61 +3346,51 @@ class Ipv4Network(object):
                             self.parent = None
                             self.acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl()
                             self.acl.parent = self
-                            self.multi_acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl()
-                            self.multi_acl.parent = self
-                            self.helper_address = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress()
-                            self.helper_address.parent = self
-                            self.rpf = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf()
-                            self.rpf.parent = self
                             self.bgp_pa = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa()
                             self.bgp_pa.parent = self
-                            self.pub_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime()
-                            self.pub_utime.parent = self
-                            self.idb_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime()
-                            self.idb_utime.parent = self
                             self.caps_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime()
                             self.caps_utime.parent = self
-                            self.fwd_en_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime()
-                            self.fwd_en_utime.parent = self
+                            self.direct_broadcast = None
+                            self.flow_tag_dst = None
+                            self.flow_tag_src = None
                             self.fwd_dis_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime()
                             self.fwd_dis_utime.parent = self
-                            self.primary_address = None
-                            self.vrf_id = None
+                            self.fwd_en_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime()
+                            self.fwd_en_utime.parent = self
+                            self.helper_address = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress()
+                            self.helper_address.parent = self
+                            self.idb_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime()
+                            self.idb_utime.parent = self
                             self.line_state = None
-                            self.prefix_length = None
-                            self.route_tag = None
-                            self.mtu = None
-                            self.unreachable = None
-                            self.redirect = None
-                            self.direct_broadcast = None
                             self.mask_reply = None
-                            self.rg_id_exists = None
                             self.mlacp_active = None
-                            self.unnumbered_interface_name = None
-                            self.proxy_arp_disabled = None
-                            self.flow_tag_src = None
-                            self.flow_tag_dst = None
+                            self.mtu = None
+                            self.multi_acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl()
+                            self.multi_acl.parent = self
                             self.multicast_group = YList()
                             self.multicast_group.parent = self
                             self.multicast_group.name = 'multicast_group'
+                            self.prefix_length = None
+                            self.primary_address = None
+                            self.proxy_arp_disabled = None
+                            self.pub_utime = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime()
+                            self.pub_utime.parent = self
+                            self.redirect = None
+                            self.rg_id_exists = None
+                            self.route_tag = None
+                            self.rpf = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf()
+                            self.rpf.parent = self
                             self.secondary_address = YList()
                             self.secondary_address.parent = self
                             self.secondary_address.name = 'secondary_address'
+                            self.unnumbered_interface_name = None
+                            self.unreachable = None
+                            self.vrf_id = None
 
 
                         class Acl(object):
                             """
                             ACLs configured on the interface
-                            
-                            .. attribute:: inbound
-                            
-                            	ACL applied to incoming packets
-                            	**type**\: str
-                            
-                            .. attribute:: outbound
-                            
-                            	ACL applied to outgoing packets
-                            	**type**\: str
                             
                             .. attribute:: common_in_bound
                             
@@ -3412,6 +3402,16 @@ class Ipv4Network(object):
                             	Common ACL applied to outgoing packets
                             	**type**\: str
                             
+                            .. attribute:: inbound
+                            
+                            	ACL applied to incoming packets
+                            	**type**\: str
+                            
+                            .. attribute:: outbound
+                            
+                            	ACL applied to outgoing packets
+                            	**type**\: str
+                            
                             
 
                             """
@@ -3421,15 +3421,15 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.inbound = None
-                                self.outbound = None
                                 self.common_in_bound = None
                                 self.common_out_bound = None
+                                self.inbound = None
+                                self.outbound = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:acl'
 
@@ -3440,16 +3440,16 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.inbound is not None:
-                                    return True
-
-                                if self.outbound is not None:
-                                    return True
-
                                 if self.common_in_bound is not None:
                                     return True
 
                                 if self.common_out_bound is not None:
+                                    return True
+
+                                if self.inbound is not None:
+                                    return True
+
+                                if self.outbound is not None:
                                     return True
 
                                 return False
@@ -3464,6 +3464,11 @@ class Ipv4Network(object):
                             """
                             Multi ACLs configured on the interface
                             
+                            .. attribute:: common
+                            
+                            	Common ACLs
+                            	**type**\: list of str
+                            
                             .. attribute:: inbound
                             
                             	Inbound ACLs
@@ -3472,11 +3477,6 @@ class Ipv4Network(object):
                             .. attribute:: outbound
                             
                             	Outbound ACLs
-                            	**type**\: list of str
-                            
-                            .. attribute:: common
-                            
-                            	Common ACLs
                             	**type**\: list of str
                             
                             
@@ -3488,20 +3488,20 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.common = YLeafList()
+                                self.common.parent = self
+                                self.common.name = 'common'
                                 self.inbound = YLeafList()
                                 self.inbound.parent = self
                                 self.inbound.name = 'inbound'
                                 self.outbound = YLeafList()
                                 self.outbound.parent = self
                                 self.outbound.name = 'outbound'
-                                self.common = YLeafList()
-                                self.common.parent = self
-                                self.common.name = 'common'
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:multi-acl'
 
@@ -3512,6 +3512,11 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.common is not None:
+                                    for child in self.common:
+                                        if child is not None:
+                                            return True
+
                                 if self.inbound is not None:
                                     for child in self.inbound:
                                         if child is not None:
@@ -3519,11 +3524,6 @@ class Ipv4Network(object):
 
                                 if self.outbound is not None:
                                     for child in self.outbound:
-                                        if child is not None:
-                                            return True
-
-                                if self.common is not None:
-                                    for child in self.common:
                                         if child is not None:
                                             return True
 
@@ -3562,7 +3562,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:helper-address'
 
@@ -3590,11 +3590,6 @@ class Ipv4Network(object):
                             """
                             RPF config on the interface
                             
-                            .. attribute:: enable
-                            
-                            	Enable RPF config
-                            	**type**\: bool
-                            
                             .. attribute:: allow_default_route
                             
                             	Allow Default Route
@@ -3603,6 +3598,11 @@ class Ipv4Network(object):
                             .. attribute:: allow_self_ping
                             
                             	Allow Self Ping
+                            	**type**\: bool
+                            
+                            .. attribute:: enable
+                            
+                            	Enable RPF config
                             	**type**\: bool
                             
                             .. attribute:: mode
@@ -3619,15 +3619,15 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable = None
                                 self.allow_default_route = None
                                 self.allow_self_ping = None
+                                self.enable = None
                                 self.mode = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:rpf'
 
@@ -3638,13 +3638,13 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable is not None:
-                                    return True
-
                                 if self.allow_default_route is not None:
                                     return True
 
                                 if self.allow_self_ping is not None:
+                                    return True
+
+                                if self.enable is not None:
                                     return True
 
                                 if self.mode is not None:
@@ -3691,6 +3691,11 @@ class Ipv4Network(object):
                                 """
                                 BGP PA input config
                                 
+                                .. attribute:: destination
+                                
+                                	Enable destination accouting
+                                	**type**\: bool
+                                
                                 .. attribute:: enable
                                 
                                 	Enable BGP PA for ingress/egress
@@ -3699,11 +3704,6 @@ class Ipv4Network(object):
                                 .. attribute:: source
                                 
                                 	Enable source accouting
-                                	**type**\: bool
-                                
-                                .. attribute:: destination
-                                
-                                	Enable destination accouting
                                 	**type**\: bool
                                 
                                 
@@ -3715,14 +3715,14 @@ class Ipv4Network(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.destination = None
                                     self.enable = None
                                     self.source = None
-                                    self.destination = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:input'
 
@@ -3733,13 +3733,13 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.destination is not None:
+                                        return True
+
                                     if self.enable is not None:
                                         return True
 
                                     if self.source is not None:
-                                        return True
-
-                                    if self.destination is not None:
                                         return True
 
                                     return False
@@ -3754,6 +3754,11 @@ class Ipv4Network(object):
                                 """
                                 BGP PA output config
                                 
+                                .. attribute:: destination
+                                
+                                	Enable destination accouting
+                                	**type**\: bool
+                                
                                 .. attribute:: enable
                                 
                                 	Enable BGP PA for ingress/egress
@@ -3762,11 +3767,6 @@ class Ipv4Network(object):
                                 .. attribute:: source
                                 
                                 	Enable source accouting
-                                	**type**\: bool
-                                
-                                .. attribute:: destination
-                                
-                                	Enable destination accouting
                                 	**type**\: bool
                                 
                                 
@@ -3778,14 +3778,14 @@ class Ipv4Network(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.destination = None
                                     self.enable = None
                                     self.source = None
-                                    self.destination = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:output'
 
@@ -3796,13 +3796,13 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.destination is not None:
+                                        return True
+
                                     if self.enable is not None:
                                         return True
 
                                     if self.source is not None:
-                                        return True
-
-                                    if self.destination is not None:
                                         return True
 
                                     return False
@@ -3815,7 +3815,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:bgp-pa'
 
@@ -3857,7 +3857,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:pub-utime'
 
@@ -3893,7 +3893,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:idb-utime'
 
@@ -3929,7 +3929,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:caps-utime'
 
@@ -3965,7 +3965,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:fwd-en-utime'
 
@@ -4001,7 +4001,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:fwd-dis-utime'
 
@@ -4045,7 +4045,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:multicast-group'
 
@@ -4108,7 +4108,7 @@ class Ipv4Network(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:secondary-address'
 
@@ -4138,7 +4138,7 @@ class Ipv4Network(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:detail'
 
@@ -4152,79 +4152,46 @@ class Ipv4Network(object):
                             if self.acl is not None and self.acl._has_data():
                                 return True
 
-                            if self.multi_acl is not None and self.multi_acl._has_data():
-                                return True
-
-                            if self.helper_address is not None and self.helper_address._has_data():
-                                return True
-
-                            if self.rpf is not None and self.rpf._has_data():
-                                return True
-
                             if self.bgp_pa is not None and self.bgp_pa._has_data():
-                                return True
-
-                            if self.pub_utime is not None and self.pub_utime._has_data():
-                                return True
-
-                            if self.idb_utime is not None and self.idb_utime._has_data():
                                 return True
 
                             if self.caps_utime is not None and self.caps_utime._has_data():
                                 return True
 
-                            if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                return True
-
-                            if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
-                                return True
-
-                            if self.primary_address is not None:
-                                return True
-
-                            if self.vrf_id is not None:
-                                return True
-
-                            if self.line_state is not None:
-                                return True
-
-                            if self.prefix_length is not None:
-                                return True
-
-                            if self.route_tag is not None:
-                                return True
-
-                            if self.mtu is not None:
-                                return True
-
-                            if self.unreachable is not None:
-                                return True
-
-                            if self.redirect is not None:
-                                return True
-
                             if self.direct_broadcast is not None:
                                 return True
 
-                            if self.mask_reply is not None:
-                                return True
-
-                            if self.rg_id_exists is not None:
-                                return True
-
-                            if self.mlacp_active is not None:
-                                return True
-
-                            if self.unnumbered_interface_name is not None:
-                                return True
-
-                            if self.proxy_arp_disabled is not None:
+                            if self.flow_tag_dst is not None:
                                 return True
 
                             if self.flow_tag_src is not None:
                                 return True
 
-                            if self.flow_tag_dst is not None:
+                            if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
+                                return True
+
+                            if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
+                                return True
+
+                            if self.helper_address is not None and self.helper_address._has_data():
+                                return True
+
+                            if self.idb_utime is not None and self.idb_utime._has_data():
+                                return True
+
+                            if self.line_state is not None:
+                                return True
+
+                            if self.mask_reply is not None:
+                                return True
+
+                            if self.mlacp_active is not None:
+                                return True
+
+                            if self.mtu is not None:
+                                return True
+
+                            if self.multi_acl is not None and self.multi_acl._has_data():
                                 return True
 
                             if self.multicast_group is not None:
@@ -4232,10 +4199,43 @@ class Ipv4Network(object):
                                     if child_ref._has_data():
                                         return True
 
+                            if self.prefix_length is not None:
+                                return True
+
+                            if self.primary_address is not None:
+                                return True
+
+                            if self.proxy_arp_disabled is not None:
+                                return True
+
+                            if self.pub_utime is not None and self.pub_utime._has_data():
+                                return True
+
+                            if self.redirect is not None:
+                                return True
+
+                            if self.rg_id_exists is not None:
+                                return True
+
+                            if self.route_tag is not None:
+                                return True
+
+                            if self.rpf is not None and self.rpf._has_data():
+                                return True
+
                             if self.secondary_address is not None:
                                 for child_ref in self.secondary_address:
                                     if child_ref._has_data():
                                         return True
+
+                            if self.unnumbered_interface_name is not None:
+                                return True
+
+                            if self.unreachable is not None:
+                                return True
+
+                            if self.vrf_id is not None:
+                                return True
 
                             return False
 
@@ -4249,6 +4249,11 @@ class Ipv4Network(object):
                         """
                         Brief IPv4 network operational data for an
                         interface
+                        
+                        .. attribute:: line_state
+                        
+                        	Line state of the interface
+                        	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineStateEnum>`
                         
                         .. attribute:: primary_address
                         
@@ -4264,11 +4269,6 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: line_state
-                        
-                        	Line state of the interface
-                        	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineStateEnum>`
-                        
                         
 
                         """
@@ -4278,14 +4278,14 @@ class Ipv4Network(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.line_state = None
                             self.primary_address = None
                             self.vrf_id = None
-                            self.line_state = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:brief'
 
@@ -4296,13 +4296,13 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.line_state is not None:
+                                return True
+
                             if self.primary_address is not None:
                                 return True
 
                             if self.vrf_id is not None:
-                                return True
-
-                            if self.line_state is not None:
                                 return True
 
                             return False
@@ -4315,9 +4315,9 @@ class Ipv4Network(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.vrf_name is None:
-                            raise YPYDataValidationError('Key property vrf_name is None')
+                            raise YPYModelError('Key property vrf_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:vrf[Cisco-IOS-XR-ipv4-ma-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -4331,10 +4331,10 @@ class Ipv4Network(object):
                         if self.vrf_name is not None:
                             return True
 
-                        if self.detail is not None and self.detail._has_data():
+                        if self.brief is not None and self.brief._has_data():
                             return True
 
-                        if self.brief is not None and self.brief._has_data():
+                        if self.detail is not None and self.detail._has_data():
                             return True
 
                         return False
@@ -4347,7 +4347,7 @@ class Ipv4Network(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-oper:vrfs'
 
@@ -4373,7 +4373,7 @@ class Ipv4Network(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/Cisco-IOS-XR-ipv4-ma-oper:interface[Cisco-IOS-XR-ipv4-ma-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -4433,10 +4433,10 @@ class Ipv4Network(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.nodes is not None and self.nodes._has_data():
+        if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces._has_data():
+        if self.nodes is not None and self.nodes._has_data():
             return True
 
         return False

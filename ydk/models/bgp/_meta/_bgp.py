@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -80,6 +80,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.RouteSelectionOptions.Config',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -89,13 +96,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -105,19 +111,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -138,6 +138,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.RouteSelectionOptions.State',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -147,13 +154,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -163,19 +169,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -557,12 +557,6 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.Global.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
@@ -574,6 +568,12 @@ _meta_table = {
                 '''                Multipath parameters for iBGP
                 ''',
                 'ibgp',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
                 'bgp', False),
             ],
             'bgp',
@@ -592,6 +592,15 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -613,15 +622,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
                 'bgp', False),
             ],
             'bgp',
@@ -640,6 +640,15 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -661,15 +670,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
                 'bgp', False),
             ],
             'bgp',
@@ -824,14 +824,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -849,12 +847,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -867,14 +867,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -892,12 +890,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -940,6 +940,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -948,14 +956,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -975,6 +975,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -983,14 +991,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1062,19 +1062,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State', 
                 [], [], 
@@ -1101,6 +1101,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1109,14 +1117,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1136,6 +1136,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1144,14 +1152,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1223,19 +1223,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State', 
                 [], [], 
@@ -1262,6 +1262,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1270,14 +1278,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1297,6 +1297,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1305,14 +1313,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1375,6 +1375,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1383,14 +1391,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1410,6 +1410,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1418,14 +1426,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1488,6 +1488,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1496,14 +1504,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1523,6 +1523,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1531,14 +1539,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1601,6 +1601,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1609,14 +1617,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1636,6 +1636,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1644,14 +1652,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1714,6 +1714,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1722,14 +1730,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1749,6 +1749,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1757,14 +1765,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1827,6 +1827,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1835,14 +1843,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1862,6 +1862,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1870,14 +1878,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1940,6 +1940,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1948,14 +1956,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -1975,6 +1975,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -1983,14 +1991,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -2053,6 +2053,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -2061,14 +2069,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -2088,6 +2088,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -2096,14 +2104,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -2159,6 +2159,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -2168,13 +2175,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2184,19 +2190,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2217,6 +2217,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -2226,13 +2233,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2242,19 +2248,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2477,12 +2477,6 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
@@ -2494,6 +2488,12 @@ _meta_table = {
                 '''                Multipath parameters for iBGP
                 ''',
                 'ibgp',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
                 'bgp', False),
             ],
             'bgp',
@@ -2513,24 +2513,6 @@ _meta_table = {
                 ''',
                 'afi_safi_name',
                 'bgp', True),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating to BGP graceful-restart
-                ''',
-                'graceful_restart',
-                'bgp', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Config', 
-                [], [], 
-                '''                Configuration parameters for the AFI-SAFI
-                ''',
-                'config',
-                'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.State', 
-                [], [], 
-                '''                State information relating to the AFI-SAFI
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy', 
                 [], [], 
                 '''                Anchor point for routing policies in the model.
@@ -2540,17 +2522,17 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'bgp', False),
-            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Config', 
                 [], [], 
-                '''                IPv4 unicast configuration options
+                '''                Configuration parameters for the AFI-SAFI
                 ''',
-                'ipv4_unicast',
+                'config',
                 'bgp', False),
-            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart', 
                 [], [], 
-                '''                IPv6 unicast configuration options
+                '''                Parameters relating to BGP graceful-restart
                 ''',
-                'ipv6_unicast',
+                'graceful_restart',
                 'bgp', False),
             _MetaInfoClassMember('ipv4-labelled-unicast', REFERENCE_CLASS, 'Ipv4LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast', 
                 [], [], 
@@ -2558,41 +2540,23 @@ _meta_table = {
                 ''',
                 'ipv4_labelled_unicast',
                 'bgp', False),
+            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast', 
+                [], [], 
+                '''                IPv4 unicast configuration options
+                ''',
+                'ipv4_unicast',
+                'bgp', False),
             _MetaInfoClassMember('ipv6-labelled-unicast', REFERENCE_CLASS, 'Ipv6LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast', 
                 [], [], 
                 '''                IPv6 Labelled Unicast configuration options
                 ''',
                 'ipv6_labelled_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast', 
                 [], [], 
-                '''                Unicast IPv4 L3VPN configuration options
+                '''                IPv6 unicast configuration options
                 ''',
-                'l3vpn_ipv4_unicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
-                [], [], 
-                '''                Unicast IPv6 L3VPN configuration options
-                ''',
-                'l3vpn_ipv6_unicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
-                [], [], 
-                '''                Multicast IPv4 L3VPN configuration options
-                ''',
-                'l3vpn_ipv4_multicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
-                [], [], 
-                '''                Multicast IPv6 L3VPN configuration options
-                ''',
-                'l3vpn_ipv6_multicast',
-                'bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls', 
-                [], [], 
-                '''                BGP-signalled VPLS configuration options
-                ''',
-                'l2vpn_vpls',
+                'ipv6_unicast',
                 'bgp', False),
             _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
@@ -2600,11 +2564,47 @@ _meta_table = {
                 ''',
                 'l2vpn_evpn',
                 'bgp', False),
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls', 
+                [], [], 
+                '''                BGP-signalled VPLS configuration options
+                ''',
+                'l2vpn_vpls',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
+                [], [], 
+                '''                Multicast IPv4 L3VPN configuration options
+                ''',
+                'l3vpn_ipv4_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+                [], [], 
+                '''                Unicast IPv4 L3VPN configuration options
+                ''',
+                'l3vpn_ipv4_unicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
+                [], [], 
+                '''                Multicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
+                [], [], 
+                '''                Unicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_unicast',
+                'bgp', False),
             _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions', 
                 [], [], 
                 '''                Parameters relating to options for route selection
                 ''',
                 'route_selection_options',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.State', 
+                [], [], 
+                '''                State information relating to the AFI-SAFI
+                ''',
+                'state',
                 'bgp', False),
             _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths', 
                 [], [], 
@@ -2642,14 +2642,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -2667,12 +2665,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -2685,14 +2685,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -2710,12 +2708,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -2751,52 +2751,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.Config', 
-                [], [], 
-                '''                Configuration parameters relating to the global BGP router
-                ''',
-                'config',
-                'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.State', 
-                [], [], 
-                '''                State information relating to the global BGP router
-                ''',
-                'state',
-                'bgp', False),
-            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.bgp.bgp', 'Bgp.Global.RouteSelectionOptions', 
-                [], [], 
-                '''                Parameters relating to options for route selection
-                ''',
-                'route_selection_options',
-                'bgp', False),
-            _MetaInfoClassMember('default-route-distance', REFERENCE_CLASS, 'DefaultRouteDistance' , 'ydk.models.bgp.bgp', 'Bgp.Global.DefaultRouteDistance', 
-                [], [], 
-                '''                Administrative distance (or preference) assigned to
-                routes received from different sources
-                (external, internal, and local).
-                ''',
-                'default_route_distance',
-                'bgp', False),
-            _MetaInfoClassMember('confederation', REFERENCE_CLASS, 'Confederation' , 'ydk.models.bgp.bgp', 'Bgp.Global.Confederation', 
-                [], [], 
-                '''                Parameters indicating whether the local system acts as part
-                of a BGP confederation
-                ''',
-                'confederation',
-                'bgp', False),
-            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.Global.UseMultiplePaths', 
-                [], [], 
-                '''                Parameters related to the use of multiple paths for the
-                same NLRI
-                ''',
-                'use_multiple_paths',
-                'bgp', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Global.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating the graceful restart mechanism for BGP
-                ''',
-                'graceful_restart',
-                'bgp', False),
             _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis', 
                 [], [], 
                 '''                Address family specific configuration
@@ -2812,6 +2766,52 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'bgp', False),
+            _MetaInfoClassMember('confederation', REFERENCE_CLASS, 'Confederation' , 'ydk.models.bgp.bgp', 'Bgp.Global.Confederation', 
+                [], [], 
+                '''                Parameters indicating whether the local system acts as part
+                of a BGP confederation
+                ''',
+                'confederation',
+                'bgp', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.Config', 
+                [], [], 
+                '''                Configuration parameters relating to the global BGP router
+                ''',
+                'config',
+                'bgp', False),
+            _MetaInfoClassMember('default-route-distance', REFERENCE_CLASS, 'DefaultRouteDistance' , 'ydk.models.bgp.bgp', 'Bgp.Global.DefaultRouteDistance', 
+                [], [], 
+                '''                Administrative distance (or preference) assigned to
+                routes received from different sources
+                (external, internal, and local).
+                ''',
+                'default_route_distance',
+                'bgp', False),
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Global.GracefulRestart', 
+                [], [], 
+                '''                Parameters relating the graceful restart mechanism for BGP
+                ''',
+                'graceful_restart',
+                'bgp', False),
+            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.bgp.bgp', 'Bgp.Global.RouteSelectionOptions', 
+                [], [], 
+                '''                Parameters relating to options for route selection
+                ''',
+                'route_selection_options',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.State', 
+                [], [], 
+                '''                State information relating to the global BGP router
+                ''',
+                'state',
+                'bgp', False),
+            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.Global.UseMultiplePaths', 
+                [], [], 
+                '''                Parameters related to the use of multiple paths for the
+                same NLRI
+                ''',
+                'use_multiple_paths',
+                'bgp', False),
             ],
             'bgp',
             'global',
@@ -2823,11 +2823,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.Config',
             False, 
             [
-            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number of the peer.
+            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configures an MD5 authentication password for use with
+                neighboring devices.
                 ''',
-                'peer_as',
+                'auth_password',
+                'bgp', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An optional textual description (intended primarily for use
+                with a peer or group
+                ''',
+                'description',
                 'bgp', False),
             _MetaInfoClassMember('local-as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2838,19 +2846,43 @@ _meta_table = {
                 ''',
                 'local_as',
                 'bgp', False),
+            _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Address of the BGP peer, either in IPv4 or IPv6
+                ''',
+                'neighbor_address',
+                'bgp', False, [
+                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address of the BGP peer, either in IPv4 or IPv6
+                        ''',
+                        'neighbor_address',
+                        'bgp', False),
+                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address of the BGP peer, either in IPv4 or IPv6
+                        ''',
+                        'neighbor_address',
+                        'bgp', False),
+                ]),
+            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number of the peer.
+                ''',
+                'peer_as',
+                'bgp', False),
+            _MetaInfoClassMember('peer-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The peer-group with which this neighbor is associated
+                ''',
+                'peer_group',
+                'bgp', False),
             _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
-                'bgp', False),
-            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configures an MD5 authentication password for use with
-                neighboring devices.
-                ''',
-                'auth_password',
                 'bgp', False),
             _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
@@ -2872,38 +2904,6 @@ _meta_table = {
                 ''',
                 'send_community',
                 'bgp', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An optional textual description (intended primarily for use
-                with a peer or group
-                ''',
-                'description',
-                'bgp', False),
-            _MetaInfoClassMember('peer-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The peer-group with which this neighbor is associated
-                ''',
-                'peer_group',
-                'bgp', False),
-            _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Address of the BGP peer, either in IPv4 or IPv6
-                ''',
-                'neighbor_address',
-                'bgp', False, [
-                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Address of the BGP peer, either in IPv4 or IPv6
-                        ''',
-                        'neighbor_address',
-                        'bgp', False),
-                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Address of the BGP peer, either in IPv4 or IPv6
-                        ''',
-                        'neighbor_address',
-                        'bgp', False),
-                ]),
             ],
             'bgp',
             'config',
@@ -2915,19 +2915,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.State.Messages.Sent',
             False, 
             [
-            _MetaInfoClassMember('UPDATE', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of BGP UPDATE messages announcing, withdrawing
-                or modifying paths exchanged.
-                ''',
-                'update',
-                'bgp', False),
-            _MetaInfoClassMember('NOTIFICATION', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('NOTIFICATION', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of BGP NOTIFICATION messages indicating an
                 error condition has occurred exchanged.
                 ''',
                 'notification',
+                'bgp', False),
+            _MetaInfoClassMember('UPDATE', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of BGP UPDATE messages announcing, withdrawing
+                or modifying paths exchanged.
+                ''',
+                'update',
                 'bgp', False),
             ],
             'bgp',
@@ -2940,19 +2940,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.State.Messages.Received',
             False, 
             [
-            _MetaInfoClassMember('UPDATE', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of BGP UPDATE messages announcing, withdrawing
-                or modifying paths exchanged.
-                ''',
-                'update',
-                'bgp', False),
-            _MetaInfoClassMember('NOTIFICATION', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('NOTIFICATION', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of BGP NOTIFICATION messages indicating an
                 error condition has occurred exchanged.
                 ''',
                 'notification',
+                'bgp', False),
+            _MetaInfoClassMember('UPDATE', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of BGP UPDATE messages announcing, withdrawing
+                or modifying paths exchanged.
+                ''',
+                'update',
                 'bgp', False),
             ],
             'bgp',
@@ -2965,17 +2965,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.State.Messages',
             False, 
             [
-            _MetaInfoClassMember('sent', REFERENCE_CLASS, 'Sent' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Messages.Sent', 
-                [], [], 
-                '''                Counters relating to BGP messages sent to the neighbor
-                ''',
-                'sent',
-                'bgp', False),
             _MetaInfoClassMember('received', REFERENCE_CLASS, 'Received' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Messages.Received', 
                 [], [], 
                 '''                Counters for BGP messages received from the neighbor
                 ''',
                 'received',
+                'bgp', False),
+            _MetaInfoClassMember('sent', REFERENCE_CLASS, 'Sent' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Messages.Sent', 
+                [], [], 
+                '''                Counters relating to BGP messages sent to the neighbor
+                ''',
+                'sent',
                 'bgp', False),
             ],
             'bgp',
@@ -3021,11 +3021,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.State',
             False, 
             [
-            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number of the peer.
+            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configures an MD5 authentication password for use with
+                neighboring devices.
                 ''',
-                'peer_as',
+                'auth_password',
+                'bgp', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An optional textual description (intended primarily for use
+                with a peer or group
+                ''',
+                'description',
                 'bgp', False),
             _MetaInfoClassMember('local-as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -3036,6 +3044,44 @@ _meta_table = {
                 ''',
                 'local_as',
                 'bgp', False),
+            _MetaInfoClassMember('messages', REFERENCE_CLASS, 'Messages' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Messages', 
+                [], [], 
+                '''                Counters for BGP messages sent and received from the
+                neighbor
+                ''',
+                'messages',
+                'bgp', False),
+            _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Address of the BGP peer, either in IPv4 or IPv6
+                ''',
+                'neighbor_address',
+                'bgp', False, [
+                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address of the BGP peer, either in IPv4 or IPv6
+                        ''',
+                        'neighbor_address',
+                        'bgp', False),
+                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address of the BGP peer, either in IPv4 or IPv6
+                        ''',
+                        'neighbor_address',
+                        'bgp', False),
+                ]),
+            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number of the peer.
+                ''',
+                'peer_as',
+                'bgp', False),
+            _MetaInfoClassMember('peer-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The peer-group with which this neighbor is associated
+                ''',
+                'peer_group',
+                'bgp', False),
             _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
@@ -3043,12 +3089,12 @@ _meta_table = {
                 ''',
                 'peer_type',
                 'bgp', False),
-            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('queues', REFERENCE_CLASS, 'Queues' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Queues', 
                 [], [], 
-                '''                Configures an MD5 authentication password for use with
-                neighboring devices.
+                '''                Counters related to queued messages associated with the
+                BGP neighbor
                 ''',
-                'auth_password',
+                'queues',
                 'bgp', False),
             _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
@@ -3070,38 +3116,6 @@ _meta_table = {
                 ''',
                 'send_community',
                 'bgp', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An optional textual description (intended primarily for use
-                with a peer or group
-                ''',
-                'description',
-                'bgp', False),
-            _MetaInfoClassMember('peer-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The peer-group with which this neighbor is associated
-                ''',
-                'peer_group',
-                'bgp', False),
-            _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Address of the BGP peer, either in IPv4 or IPv6
-                ''',
-                'neighbor_address',
-                'bgp', False, [
-                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Address of the BGP peer, either in IPv4 or IPv6
-                        ''',
-                        'neighbor_address',
-                        'bgp', False),
-                    _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Address of the BGP peer, either in IPv4 or IPv6
-                        ''',
-                        'neighbor_address',
-                        'bgp', False),
-                ]),
             _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'SessionStateEnum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.SessionStateEnum', 
                 [], [], 
                 '''                Operational state of the BGP peer
@@ -3113,20 +3127,6 @@ _meta_table = {
                 '''                BGP capabilities negotiated as supported with the peer
                 ''',
                 'supported_capabilities',
-                'bgp', False),
-            _MetaInfoClassMember('messages', REFERENCE_CLASS, 'Messages' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Messages', 
-                [], [], 
-                '''                Counters for BGP messages sent and received from the
-                neighbor
-                ''',
-                'messages',
-                'bgp', False),
-            _MetaInfoClassMember('queues', REFERENCE_CLASS, 'Queues' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.Queues', 
-                [], [], 
-                '''                Counters related to queued messages associated with the
-                BGP neighbor
-                ''',
-                'queues',
                 'bgp', False),
             ],
             'bgp',
@@ -3220,6 +3220,12 @@ _meta_table = {
                 ''',
                 'minimum_advertisement_interval',
                 'bgp', False),
+            _MetaInfoClassMember('negotiated-hold-time', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                The negotiated hold-time for the BGP session
+                ''',
+                'negotiated_hold_time',
+                'bgp', False),
             _MetaInfoClassMember('uptime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                This timer determines the amount of time since the
@@ -3227,12 +3233,6 @@ _meta_table = {
                 state
                 ''',
                 'uptime',
-                'bgp', False),
-            _MetaInfoClassMember('negotiated-hold-time', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                The negotiated hold-time for the BGP session
-                ''',
-                'negotiated_hold_time',
                 'bgp', False),
             ],
             'bgp',
@@ -3270,26 +3270,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.Transport.Config',
             False, 
             [
-            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Sets the max segment size for BGP TCP sessions.
-                ''',
-                'tcp_mss',
-                'bgp', False),
-            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Turns path mtu discovery for BGP TCP sessions on (true)
-                or off (false)
-                ''',
-                'mtu_discovery',
-                'bgp', False),
-            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Wait for peers to issue requests to open a BGP session,
-                rather than initiating sessions from the local router.
-                ''',
-                'passive_mode',
-                'bgp', False),
             _MetaInfoClassMember('local-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Set the local IP (either IPv4 or IPv6) address to use
@@ -3337,23 +3317,6 @@ _meta_table = {
                         'local_address',
                         'bgp', False),
                 ]),
-            ],
-            'bgp',
-            'config',
-            _yang_ns._namespaces['bgp'],
-        'ydk.models.bgp.bgp'
-        ),
-    },
-    'Bgp.Neighbors.Neighbor.Transport.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.Transport.State',
-            False, 
-            [
-            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Sets the max segment size for BGP TCP sessions.
-                ''',
-                'tcp_mss',
-                'bgp', False),
             _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Turns path mtu discovery for BGP TCP sessions on (true)
@@ -3368,6 +3331,23 @@ _meta_table = {
                 ''',
                 'passive_mode',
                 'bgp', False),
+            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Sets the max segment size for BGP TCP sessions.
+                ''',
+                'tcp_mss',
+                'bgp', False),
+            ],
+            'bgp',
+            'config',
+            _yang_ns._namespaces['bgp'],
+        'ydk.models.bgp.bgp'
+        ),
+    },
+    'Bgp.Neighbors.Neighbor.Transport.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.Transport.State',
+            False, 
+            [
             _MetaInfoClassMember('local-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Set the local IP (either IPv4 or IPv6) address to use
@@ -3422,6 +3402,20 @@ _meta_table = {
                 ''',
                 'local_port',
                 'bgp', False),
+            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Turns path mtu discovery for BGP TCP sessions on (true)
+                or off (false)
+                ''',
+                'mtu_discovery',
+                'bgp', False),
+            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Wait for peers to issue requests to open a BGP session,
+                rather than initiating sessions from the local router.
+                ''',
+                'passive_mode',
+                'bgp', False),
             _MetaInfoClassMember('remote-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Remote address to which the BGP session has been
@@ -3450,6 +3444,12 @@ _meta_table = {
                 supporting the BGP session
                 ''',
                 'remote_port',
+                'bgp', False),
+            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Sets the max segment size for BGP TCP sessions.
+                ''',
+                'tcp_mss',
                 'bgp', False),
             ],
             'bgp',
@@ -3506,14 +3506,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.ErrorHandling.State',
             False, 
             [
-            _MetaInfoClassMember('treat-as-withdraw', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Specify whether erroneous UPDATE messages for which the
-                NLRI can be extracted are reated as though the NLRI is
-                withdrawn - avoiding session reset
-                ''',
-                'treat_as_withdraw',
-                'bgp', False),
             _MetaInfoClassMember('erroneous-update-messages', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                The number of BGP UPDATE messages for which the
@@ -3521,6 +3513,14 @@ _meta_table = {
                 on erroneous message contents
                 ''',
                 'erroneous_update_messages',
+                'bgp', False),
+            _MetaInfoClassMember('treat-as-withdraw', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify whether erroneous UPDATE messages for which the
+                NLRI can be extracted are reated as though the NLRI is
+                withdrawn - avoiding session reset
+                ''',
+                'treat_as_withdraw',
                 'bgp', False),
             ],
             'bgp',
@@ -3697,6 +3697,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.RouteReflector.Config',
             False, 
             [
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure the neighbor as a route reflector client.
+                ''',
+                'route_reflector_client',
+                'bgp', False),
             _MetaInfoClassMember('route-reflector-cluster-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                route-reflector cluster id to use when local router is
@@ -3725,12 +3731,6 @@ _meta_table = {
                         'route_reflector_cluster_id',
                         'bgp', False),
                 ]),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure the neighbor as a route reflector client.
-                ''',
-                'route_reflector_client',
-                'bgp', False),
             ],
             'bgp',
             'config',
@@ -3742,6 +3742,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.RouteReflector.State',
             False, 
             [
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure the neighbor as a route reflector client.
+                ''',
+                'route_reflector_client',
+                'bgp', False),
             _MetaInfoClassMember('route-reflector-cluster-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                route-reflector cluster id to use when local router is
@@ -3770,12 +3776,6 @@ _meta_table = {
                         'route_reflector_cluster_id',
                         'bgp', False),
                 ]),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure the neighbor as a route reflector client.
-                ''',
-                'route_reflector_client',
-                'bgp', False),
             ],
             'bgp',
             'state',
@@ -3978,6 +3978,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State',
             False, 
             [
+            _MetaInfoClassMember('advertised', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This leaf indicates whether the ability to support
+                graceful-restart has been advertised to the peer
+                ''',
+                'advertised',
+                'bgp', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                This leaf indicates whether graceful-restart is enabled for
@@ -3991,13 +3998,6 @@ _meta_table = {
                 ability to support graceful-restart for this AFI-SAFI
                 ''',
                 'received',
-                'bgp', False),
-            _MetaInfoClassMember('advertised', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                This leaf indicates whether the ability to support
-                graceful-restart has been advertised to the peer
-                ''',
-                'advertised',
                 'bgp', False),
             ],
             'bgp',
@@ -4057,6 +4057,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes',
             False, 
             [
+            _MetaInfoClassMember('installed', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of advertised prefixes installed in the
+                Loc-RIB
+                ''',
+                'installed',
+                'bgp', False),
             _MetaInfoClassMember('received', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                The number of prefixes received from the neighbor
@@ -4069,13 +4076,6 @@ _meta_table = {
                 ''',
                 'sent',
                 'bgp', False),
-            _MetaInfoClassMember('installed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of advertised prefixes installed in the
-                Loc-RIB
-                ''',
-                'installed',
-                'bgp', False),
             ],
             'bgp',
             'prefixes',
@@ -4087,6 +4087,16 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State',
             False, 
             [
+            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This value indicates whether a particular AFI-SAFI has
+                been succesfully negotiated with the peer. An AFI-SAFI
+                may be enabled in the current running configuration, but a
+                session restart may be required in order to negotiate the new
+                capability.
+                ''',
+                'active',
+                'bgp', False),
             _MetaInfoClassMember('afi-safi-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                AFI,SAFI
@@ -4099,16 +4109,6 @@ _meta_table = {
                 enabled for the neighbour or group
                 ''',
                 'enabled',
-                'bgp', False),
-            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                This value indicates whether a particular AFI-SAFI has
-                been succesfully negotiated with the peer. An AFI-SAFI
-                may be enabled in the current running configuration, but a
-                session restart may be required in order to negotiate the new
-                capability.
-                ''',
-                'active',
                 'bgp', False),
             _MetaInfoClassMember('prefixes', REFERENCE_CLASS, 'Prefixes' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes', 
                 [], [], 
@@ -4127,14 +4127,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -4152,12 +4150,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -4170,14 +4170,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -4195,12 +4193,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -4243,6 +4243,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4251,14 +4259,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4278,6 +4278,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4286,14 +4294,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4365,19 +4365,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State', 
                 [], [], 
@@ -4404,6 +4404,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4412,14 +4420,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4439,6 +4439,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4447,14 +4455,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4526,19 +4526,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State', 
                 [], [], 
@@ -4565,6 +4565,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4573,14 +4581,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4600,6 +4600,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4608,14 +4616,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4678,6 +4678,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4686,14 +4694,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4713,6 +4713,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4721,14 +4729,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4791,6 +4791,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4799,14 +4807,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4826,6 +4826,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4834,14 +4842,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4904,6 +4904,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4912,14 +4920,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -4939,6 +4939,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -4947,14 +4955,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5017,6 +5017,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5025,14 +5033,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5052,6 +5052,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5060,14 +5068,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5130,6 +5130,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5138,14 +5146,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5165,6 +5165,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5173,14 +5181,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5243,6 +5243,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5251,14 +5259,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5278,6 +5278,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5286,14 +5294,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5356,6 +5356,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5364,14 +5372,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5391,6 +5391,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -5399,14 +5407,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -5567,17 +5567,17 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath configuration for eBGP
                 ''',
                 'ebgp',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
                 'bgp', False),
             ],
             'bgp',
@@ -5597,24 +5597,6 @@ _meta_table = {
                 ''',
                 'afi_safi_name',
                 'bgp', True),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating to BGP graceful-restart
-                ''',
-                'graceful_restart',
-                'bgp', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config', 
-                [], [], 
-                '''                Configuration parameters for the AFI-SAFI
-                ''',
-                'config',
-                'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State', 
-                [], [], 
-                '''                State information relating to the AFI-SAFI
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy', 
                 [], [], 
                 '''                Anchor point for routing policies in the model.
@@ -5624,17 +5606,17 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'bgp', False),
-            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config', 
                 [], [], 
-                '''                IPv4 unicast configuration options
+                '''                Configuration parameters for the AFI-SAFI
                 ''',
-                'ipv4_unicast',
+                'config',
                 'bgp', False),
-            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart', 
                 [], [], 
-                '''                IPv6 unicast configuration options
+                '''                Parameters relating to BGP graceful-restart
                 ''',
-                'ipv6_unicast',
+                'graceful_restart',
                 'bgp', False),
             _MetaInfoClassMember('ipv4-labelled-unicast', REFERENCE_CLASS, 'Ipv4LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast', 
                 [], [], 
@@ -5642,35 +5624,29 @@ _meta_table = {
                 ''',
                 'ipv4_labelled_unicast',
                 'bgp', False),
+            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast', 
+                [], [], 
+                '''                IPv4 unicast configuration options
+                ''',
+                'ipv4_unicast',
+                'bgp', False),
             _MetaInfoClassMember('ipv6-labelled-unicast', REFERENCE_CLASS, 'Ipv6LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast', 
                 [], [], 
                 '''                IPv6 Labelled Unicast configuration options
                 ''',
                 'ipv6_labelled_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast', 
                 [], [], 
-                '''                Unicast IPv4 L3VPN configuration options
+                '''                IPv6 unicast configuration options
                 ''',
-                'l3vpn_ipv4_unicast',
+                'ipv6_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
+            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
-                '''                Unicast IPv6 L3VPN configuration options
+                '''                BGP EVPN configuration options
                 ''',
-                'l3vpn_ipv6_unicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
-                [], [], 
-                '''                Multicast IPv4 L3VPN configuration options
-                ''',
-                'l3vpn_ipv4_multicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
-                [], [], 
-                '''                Multicast IPv6 L3VPN configuration options
-                ''',
-                'l3vpn_ipv6_multicast',
+                'l2vpn_evpn',
                 'bgp', False),
             _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
@@ -5678,11 +5654,35 @@ _meta_table = {
                 ''',
                 'l2vpn_vpls',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn', 
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
                 [], [], 
-                '''                BGP EVPN configuration options
+                '''                Multicast IPv4 L3VPN configuration options
                 ''',
-                'l2vpn_evpn',
+                'l3vpn_ipv4_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+                [], [], 
+                '''                Unicast IPv4 L3VPN configuration options
+                ''',
+                'l3vpn_ipv4_unicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
+                [], [], 
+                '''                Multicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
+                [], [], 
+                '''                Unicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_unicast',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State', 
+                [], [], 
+                '''                State information relating to the AFI-SAFI
+                ''',
+                'state',
                 'bgp', False),
             _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths', 
                 [], [], 
@@ -5726,6 +5726,15 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -5747,15 +5756,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
                 'bgp', False),
             ],
             'bgp',
@@ -5780,6 +5780,47 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
+            _MetaInfoClassMember('local-restarting', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This flag indicates whether the local neighbor is currently
+                restarting. The flag is unset after all NLRI have been
+                advertised to the peer, and the End-of-RIB (EOR) marker has
+                been unset
+                ''',
+                'local_restarting',
+                'bgp', False),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum', 
+                [], [], 
+                '''                Ths leaf indicates the mode of operation of BGP graceful
+                restart with the peer
+                ''',
+                'mode',
+                'bgp', False),
+            _MetaInfoClassMember('peer-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4096)], [], 
+                '''                The period of time (advertised by the peer) that
+                the peer expects a restart of a BGP session to
+                take
+                ''',
+                'peer_restart_time',
+                'bgp', False),
+            _MetaInfoClassMember('peer-restarting', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This flag indicates whether the remote neighbor is currently
+                in the process of restarting, and hence received routes are
+                currently stale
+                ''',
+                'peer_restarting',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -5801,47 +5842,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
-                'bgp', False),
-            _MetaInfoClassMember('peer-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4096)], [], 
-                '''                The period of time (advertised by the peer) that
-                the peer expects a restart of a BGP session to
-                take
-                ''',
-                'peer_restart_time',
-                'bgp', False),
-            _MetaInfoClassMember('peer-restarting', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                This flag indicates whether the remote neighbor is currently
-                in the process of restarting, and hence received routes are
-                currently stale
-                ''',
-                'peer_restarting',
-                'bgp', False),
-            _MetaInfoClassMember('local-restarting', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                This flag indicates whether the local neighbor is currently
-                restarting. The flag is unset after all NLRI have been
-                advertised to the peer, and the End-of-RIB (EOR) marker has
-                been unset
-                ''',
-                'local_restarting',
-                'bgp', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum', 
-                [], [], 
-                '''                Ths leaf indicates the mode of operation of BGP graceful
-                restart with the peer
-                ''',
-                'mode',
                 'bgp', False),
             ],
             'bgp',
@@ -5877,14 +5877,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -5902,12 +5900,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -5920,14 +5920,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -5945,12 +5943,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -6091,17 +6091,17 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath configuration for eBGP
                 ''',
                 'ebgp',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
                 'bgp', False),
             ],
             'bgp',
@@ -6136,12 +6136,74 @@ _meta_table = {
                         'neighbor_address',
                         'bgp', True),
                 ]),
+            _MetaInfoClassMember('add-paths', REFERENCE_CLASS, 'AddPaths' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AddPaths', 
+                [], [], 
+                '''                Parameters relating to the advertisement and receipt of
+                multiple paths for a single NLRI (add-paths)
+                ''',
+                'add_paths',
+                'bgp', False),
+            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis', 
+                [], [], 
+                '''                Per-address-family configuration parameters associated with
+                the neighbor or group
+                ''',
+                'afi_safis',
+                'bgp', False),
+            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.ApplyPolicy', 
+                [], [], 
+                '''                Anchor point for routing policies in the model.
+                Import and export policies are with respect to the local
+                routing table, i.e., export (send) and import (receive),
+                depending on the context.
+                ''',
+                'apply_policy',
+                'bgp', False),
+            _MetaInfoClassMember('as-path-options', REFERENCE_CLASS, 'AsPathOptions' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AsPathOptions', 
+                [], [], 
+                '''                AS_PATH manipulation parameters for the BGP neighbor or
+                group
+                ''',
+                'as_path_options',
+                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the BGP neighbor or
                 group
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.EbgpMultihop', 
+                [], [], 
+                '''                eBGP multi-hop parameters for the BGP neighbor or group
+                ''',
+                'ebgp_multihop',
+                'bgp', False),
+            _MetaInfoClassMember('error-handling', REFERENCE_CLASS, 'ErrorHandling' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.ErrorHandling', 
+                [], [], 
+                '''                Error handling parameters used for the BGP neighbor or
+                group
+                ''',
+                'error_handling',
+                'bgp', False),
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart', 
+                [], [], 
+                '''                Parameters relating the graceful restart mechanism for BGP
+                ''',
+                'graceful_restart',
+                'bgp', False),
+            _MetaInfoClassMember('logging-options', REFERENCE_CLASS, 'LoggingOptions' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.LoggingOptions', 
+                [], [], 
+                '''                Logging options for events related to the BGP neighbor or
+                group
+                ''',
+                'logging_options',
+                'bgp', False),
+            _MetaInfoClassMember('route-reflector', REFERENCE_CLASS, 'RouteReflector' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.RouteReflector', 
+                [], [], 
+                '''                Route reflector parameters for the BGP neighbor or group
+                ''',
+                'route_reflector',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State', 
                 [], [], 
@@ -6160,68 +6222,6 @@ _meta_table = {
                 '''                Transport session parameters for the BGP neighbor or group
                 ''',
                 'transport',
-                'bgp', False),
-            _MetaInfoClassMember('error-handling', REFERENCE_CLASS, 'ErrorHandling' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.ErrorHandling', 
-                [], [], 
-                '''                Error handling parameters used for the BGP neighbor or
-                group
-                ''',
-                'error_handling',
-                'bgp', False),
-            _MetaInfoClassMember('logging-options', REFERENCE_CLASS, 'LoggingOptions' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.LoggingOptions', 
-                [], [], 
-                '''                Logging options for events related to the BGP neighbor or
-                group
-                ''',
-                'logging_options',
-                'bgp', False),
-            _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.EbgpMultihop', 
-                [], [], 
-                '''                eBGP multi-hop parameters for the BGP neighbor or group
-                ''',
-                'ebgp_multihop',
-                'bgp', False),
-            _MetaInfoClassMember('route-reflector', REFERENCE_CLASS, 'RouteReflector' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.RouteReflector', 
-                [], [], 
-                '''                Route reflector parameters for the BGP neighbor or group
-                ''',
-                'route_reflector',
-                'bgp', False),
-            _MetaInfoClassMember('as-path-options', REFERENCE_CLASS, 'AsPathOptions' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AsPathOptions', 
-                [], [], 
-                '''                AS_PATH manipulation parameters for the BGP neighbor or
-                group
-                ''',
-                'as_path_options',
-                'bgp', False),
-            _MetaInfoClassMember('add-paths', REFERENCE_CLASS, 'AddPaths' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AddPaths', 
-                [], [], 
-                '''                Parameters relating to the advertisement and receipt of
-                multiple paths for a single NLRI (add-paths)
-                ''',
-                'add_paths',
-                'bgp', False),
-            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis', 
-                [], [], 
-                '''                Per-address-family configuration parameters associated with
-                the neighbor or group
-                ''',
-                'afi_safis',
-                'bgp', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating the graceful restart mechanism for BGP
-                ''',
-                'graceful_restart',
-                'bgp', False),
-            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.ApplyPolicy', 
-                [], [], 
-                '''                Anchor point for routing policies in the model.
-                Import and export policies are with respect to the local
-                routing table, i.e., export (send) and import (receive),
-                depending on the context.
-                ''',
-                'apply_policy',
                 'bgp', False),
             _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.UseMultiplePaths', 
                 [], [], 
@@ -6259,11 +6259,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.Config',
             False, 
             [
-            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number of the peer.
+            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configures an MD5 authentication password for use with
+                neighboring devices.
                 ''',
-                'peer_as',
+                'auth_password',
+                'bgp', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An optional textual description (intended primarily for use
+                with a peer or group
+                ''',
+                'description',
                 'bgp', False),
             _MetaInfoClassMember('local-as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6274,19 +6282,24 @@ _meta_table = {
                 ''',
                 'local_as',
                 'bgp', False),
+            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number of the peer.
+                ''',
+                'peer_as',
+                'bgp', False),
+            _MetaInfoClassMember('peer-group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the BGP peer-group
+                ''',
+                'peer_group_name',
+                'bgp', False),
             _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
-                'bgp', False),
-            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configures an MD5 authentication password for use with
-                neighboring devices.
-                ''',
-                'auth_password',
                 'bgp', False),
             _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
@@ -6307,19 +6320,6 @@ _meta_table = {
                 community attribute
                 ''',
                 'send_community',
-                'bgp', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An optional textual description (intended primarily for use
-                with a peer or group
-                ''',
-                'description',
-                'bgp', False),
-            _MetaInfoClassMember('peer-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the BGP peer-group
-                ''',
-                'peer_group_name',
                 'bgp', False),
             ],
             'bgp',
@@ -6332,11 +6332,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.State',
             False, 
             [
-            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number of the peer.
+            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configures an MD5 authentication password for use with
+                neighboring devices.
                 ''',
-                'peer_as',
+                'auth_password',
+                'bgp', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An optional textual description (intended primarily for use
+                with a peer or group
+                ''',
+                'description',
                 'bgp', False),
             _MetaInfoClassMember('local-as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6347,19 +6355,24 @@ _meta_table = {
                 ''',
                 'local_as',
                 'bgp', False),
+            _MetaInfoClassMember('peer-as', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number of the peer.
+                ''',
+                'peer_as',
+                'bgp', False),
+            _MetaInfoClassMember('peer-group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the BGP peer-group
+                ''',
+                'peer_group_name',
+                'bgp', False),
             _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
-                'bgp', False),
-            _MetaInfoClassMember('auth-password', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configures an MD5 authentication password for use with
-                neighboring devices.
-                ''',
-                'auth_password',
                 'bgp', False),
             _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
@@ -6380,19 +6393,6 @@ _meta_table = {
                 community attribute
                 ''',
                 'send_community',
-                'bgp', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An optional textual description (intended primarily for use
-                with a peer or group
-                ''',
-                'description',
-                'bgp', False),
-            _MetaInfoClassMember('peer-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the BGP peer-group
-                ''',
-                'peer_group_name',
                 'bgp', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6534,26 +6534,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.Transport.Config',
             False, 
             [
-            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Sets the max segment size for BGP TCP sessions.
-                ''',
-                'tcp_mss',
-                'bgp', False),
-            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Turns path mtu discovery for BGP TCP sessions on (true)
-                or off (false)
-                ''',
-                'mtu_discovery',
-                'bgp', False),
-            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Wait for peers to issue requests to open a BGP session,
-                rather than initiating sessions from the local router.
-                ''',
-                'passive_mode',
-                'bgp', False),
             _MetaInfoClassMember('local-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Set the local IP (either IPv4 or IPv6) address to use
@@ -6601,6 +6581,26 @@ _meta_table = {
                         'local_address',
                         'bgp', False),
                 ]),
+            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Turns path mtu discovery for BGP TCP sessions on (true)
+                or off (false)
+                ''',
+                'mtu_discovery',
+                'bgp', False),
+            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Wait for peers to issue requests to open a BGP session,
+                rather than initiating sessions from the local router.
+                ''',
+                'passive_mode',
+                'bgp', False),
+            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Sets the max segment size for BGP TCP sessions.
+                ''',
+                'tcp_mss',
+                'bgp', False),
             ],
             'bgp',
             'config',
@@ -6612,26 +6612,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.Transport.State',
             False, 
             [
-            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Sets the max segment size for BGP TCP sessions.
-                ''',
-                'tcp_mss',
-                'bgp', False),
-            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Turns path mtu discovery for BGP TCP sessions on (true)
-                or off (false)
-                ''',
-                'mtu_discovery',
-                'bgp', False),
-            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Wait for peers to issue requests to open a BGP session,
-                rather than initiating sessions from the local router.
-                ''',
-                'passive_mode',
-                'bgp', False),
             _MetaInfoClassMember('local-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Set the local IP (either IPv4 or IPv6) address to use
@@ -6679,6 +6659,26 @@ _meta_table = {
                         'local_address',
                         'bgp', False),
                 ]),
+            _MetaInfoClassMember('mtu-discovery', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Turns path mtu discovery for BGP TCP sessions on (true)
+                or off (false)
+                ''',
+                'mtu_discovery',
+                'bgp', False),
+            _MetaInfoClassMember('passive-mode', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Wait for peers to issue requests to open a BGP session,
+                rather than initiating sessions from the local router.
+                ''',
+                'passive_mode',
+                'bgp', False),
+            _MetaInfoClassMember('tcp-mss', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Sets the max segment size for BGP TCP sessions.
+                ''',
+                'tcp_mss',
+                'bgp', False),
             ],
             'bgp',
             'state',
@@ -6917,6 +6917,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.RouteReflector.Config',
             False, 
             [
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure the neighbor as a route reflector client.
+                ''',
+                'route_reflector_client',
+                'bgp', False),
             _MetaInfoClassMember('route-reflector-cluster-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                route-reflector cluster id to use when local router is
@@ -6945,12 +6951,6 @@ _meta_table = {
                         'route_reflector_cluster_id',
                         'bgp', False),
                 ]),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure the neighbor as a route reflector client.
-                ''',
-                'route_reflector_client',
-                'bgp', False),
             ],
             'bgp',
             'config',
@@ -6962,6 +6962,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.RouteReflector.State',
             False, 
             [
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure the neighbor as a route reflector client.
+                ''',
+                'route_reflector_client',
+                'bgp', False),
             _MetaInfoClassMember('route-reflector-cluster-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                route-reflector cluster id to use when local router is
@@ -6990,12 +6996,6 @@ _meta_table = {
                         'route_reflector_cluster_id',
                         'bgp', False),
                 ]),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure the neighbor as a route reflector client.
-                ''',
-                'route_reflector_client',
-                'bgp', False),
             ],
             'bgp',
             'state',
@@ -7287,14 +7287,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -7312,12 +7310,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -7330,14 +7330,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -7355,12 +7353,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -7403,6 +7403,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7411,14 +7419,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7438,6 +7438,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7446,14 +7454,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7525,19 +7525,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State', 
                 [], [], 
@@ -7564,6 +7564,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7572,14 +7580,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7599,6 +7599,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7607,14 +7615,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7686,19 +7686,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
-                [], [], 
-                '''                Configure the maximum number of prefixes that will be
-                accepted from a peer
-                ''',
-                'prefix_limit',
-                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
+                [], [], 
+                '''                Configure the maximum number of prefixes that will be
+                accepted from a peer
+                ''',
+                'prefix_limit',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State', 
                 [], [], 
@@ -7725,6 +7725,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7733,14 +7741,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7760,6 +7760,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7768,14 +7776,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7838,6 +7838,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7846,14 +7854,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7873,6 +7873,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7881,14 +7889,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7951,6 +7951,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7959,14 +7967,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -7986,6 +7986,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -7994,14 +8002,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8064,6 +8064,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8072,14 +8080,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8099,6 +8099,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8107,14 +8115,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8177,6 +8177,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8185,14 +8193,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8212,6 +8212,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8220,14 +8228,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8290,6 +8290,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8298,14 +8306,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8325,6 +8325,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8333,14 +8341,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8403,6 +8403,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8411,14 +8419,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8438,6 +8438,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8446,14 +8454,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8516,6 +8516,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8524,14 +8532,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8551,6 +8551,14 @@ _meta_table = {
                 ''',
                 'max_prefixes',
                 'bgp', False),
+            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Time interval in seconds after which the BGP session
+                is re-established after being torn down due to exceeding
+                the max-prefix limit.
+                ''',
+                'restart_timer',
+                'bgp', False),
             _MetaInfoClassMember('shutdown-threshold-pct', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                Threshold on number of prefixes that can be received
@@ -8559,14 +8567,6 @@ _meta_table = {
                 max-prefixes
                 ''',
                 'shutdown_threshold_pct',
-                'bgp', False),
-            _MetaInfoClassMember('restart-timer', ATTRIBUTE, 'Decimal64' , None, None, 
-                [('-92233720368547758.08', '92233720368547758.07')], [], 
-                '''                Time interval in seconds after which the BGP session
-                is re-established after being torn down due to exceeding
-                the max-prefix limit.
-                ''',
-                'restart_timer',
                 'bgp', False),
             ],
             'bgp',
@@ -8800,12 +8800,6 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
@@ -8818,6 +8812,12 @@ _meta_table = {
                 ''',
                 'ibgp',
                 'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
+                'bgp', False),
             ],
             'bgp',
             'use-multiple-paths',
@@ -8829,6 +8829,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -8838,13 +8845,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8854,19 +8860,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8887,6 +8887,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State',
             False, 
             [
+            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Advertise inactive routes to external peers.  The
+                default is to only advertise active routes.
+                ''',
+                'advertise_inactive_routes',
+                'bgp', False),
             _MetaInfoClassMember('always-compare-med', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Compare multi-exit discriminator (MED) value from
@@ -8896,13 +8903,12 @@ _meta_table = {
                 ''',
                 'always_compare_med',
                 'bgp', False),
-            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Ignore the AS path length when selecting the best path.
-                The default is to use the AS path length and prefer paths
-                with shorter length.
+                '''                Flag to enable sending / receiving accumulated IGP
+                attribute in routing updates
                 ''',
-                'ignore_as_path_length',
+                'enable_aigp',
                 'bgp', False),
             _MetaInfoClassMember('external-compare-router-id', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8912,19 +8918,13 @@ _meta_table = {
                 ''',
                 'external_compare_router_id',
                 'bgp', False),
-            _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('ignore-as-path-length', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise inactive routes to external peers.  The
-                default is to only advertise active routes.
+                '''                Ignore the AS path length when selecting the best path.
+                The default is to use the AS path length and prefer paths
+                with shorter length.
                 ''',
-                'advertise_inactive_routes',
-                'bgp', False),
-            _MetaInfoClassMember('enable-aigp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable sending / receiving accumulated IGP
-                attribute in routing updates
-                ''',
-                'enable_aigp',
+                'ignore_as_path_length',
                 'bgp', False),
             _MetaInfoClassMember('ignore-next-hop-igp-metric', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8976,24 +8976,6 @@ _meta_table = {
                 ''',
                 'afi_safi_name',
                 'bgp', True),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating to BGP graceful-restart
-                ''',
-                'graceful_restart',
-                'bgp', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config', 
-                [], [], 
-                '''                Configuration parameters for the AFI-SAFI
-                ''',
-                'config',
-                'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State', 
-                [], [], 
-                '''                State information relating to the AFI-SAFI
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy', 
                 [], [], 
                 '''                Anchor point for routing policies in the model.
@@ -9003,17 +8985,17 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'bgp', False),
-            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config', 
                 [], [], 
-                '''                IPv4 unicast configuration options
+                '''                Configuration parameters for the AFI-SAFI
                 ''',
-                'ipv4_unicast',
+                'config',
                 'bgp', False),
-            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart', 
                 [], [], 
-                '''                IPv6 unicast configuration options
+                '''                Parameters relating to BGP graceful-restart
                 ''',
-                'ipv6_unicast',
+                'graceful_restart',
                 'bgp', False),
             _MetaInfoClassMember('ipv4-labelled-unicast', REFERENCE_CLASS, 'Ipv4LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast', 
                 [], [], 
@@ -9021,41 +9003,23 @@ _meta_table = {
                 ''',
                 'ipv4_labelled_unicast',
                 'bgp', False),
+            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast', 
+                [], [], 
+                '''                IPv4 unicast configuration options
+                ''',
+                'ipv4_unicast',
+                'bgp', False),
             _MetaInfoClassMember('ipv6-labelled-unicast', REFERENCE_CLASS, 'Ipv6LabelledUnicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast', 
                 [], [], 
                 '''                IPv6 Labelled Unicast configuration options
                 ''',
                 'ipv6_labelled_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast', 
                 [], [], 
-                '''                Unicast IPv4 L3VPN configuration options
+                '''                IPv6 unicast configuration options
                 ''',
-                'l3vpn_ipv4_unicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
-                [], [], 
-                '''                Unicast IPv6 L3VPN configuration options
-                ''',
-                'l3vpn_ipv6_unicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
-                [], [], 
-                '''                Multicast IPv4 L3VPN configuration options
-                ''',
-                'l3vpn_ipv4_multicast',
-                'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
-                [], [], 
-                '''                Multicast IPv6 L3VPN configuration options
-                ''',
-                'l3vpn_ipv6_multicast',
-                'bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls', 
-                [], [], 
-                '''                BGP-signalled VPLS configuration options
-                ''',
-                'l2vpn_vpls',
+                'ipv6_unicast',
                 'bgp', False),
             _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
@@ -9063,18 +9027,54 @@ _meta_table = {
                 ''',
                 'l2vpn_evpn',
                 'bgp', False),
-            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths', 
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
-                '''                Parameters related to the use of multiple paths for the
-                same NLRI
+                '''                BGP-signalled VPLS configuration options
                 ''',
-                'use_multiple_paths',
+                'l2vpn_vpls',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
+                [], [], 
+                '''                Multicast IPv4 L3VPN configuration options
+                ''',
+                'l3vpn_ipv4_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+                [], [], 
+                '''                Unicast IPv4 L3VPN configuration options
+                ''',
+                'l3vpn_ipv4_unicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
+                [], [], 
+                '''                Multicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_multicast',
+                'bgp', False),
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
+                [], [], 
+                '''                Unicast IPv6 L3VPN configuration options
+                ''',
+                'l3vpn_ipv6_unicast',
                 'bgp', False),
             _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions', 
                 [], [], 
                 '''                Parameters relating to options for route selection
                 ''',
                 'route_selection_options',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State', 
+                [], [], 
+                '''                State information relating to the AFI-SAFI
+                ''',
+                'state',
+                'bgp', False),
+            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths', 
+                [], [], 
+                '''                Parameters related to the use of multiple paths for the
+                same NLRI
+                ''',
+                'use_multiple_paths',
                 'bgp', False),
             ],
             'bgp',
@@ -9111,6 +9111,15 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -9132,15 +9141,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
                 'bgp', False),
             ],
             'bgp',
@@ -9159,6 +9159,15 @@ _meta_table = {
                 ''',
                 'enabled',
                 'bgp', False),
+            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable graceful-restart in helper mode only. When this
+                leaf is set, the local system does not retain forwarding
+                its own state during a restart, but supports procedures
+                for the receiving speaker, as defined in RFC4724.
+                ''',
+                'helper_only',
+                'bgp', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4096)], [], 
                 '''                Estimated time (in seconds) for the local BGP speaker to
@@ -9180,15 +9189,6 @@ _meta_table = {
                 Selection_Deferral_Timer in RFC4724
                 ''',
                 'stale_routes_time',
-                'bgp', False),
-            _MetaInfoClassMember('helper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable graceful-restart in helper mode only. When this
-                leaf is set, the local system does not retain forwarding
-                its own state during a restart, but supports procedures
-                for the receiving speaker, as defined in RFC4724.
-                ''',
-                'helper_only',
                 'bgp', False),
             ],
             'bgp',
@@ -9224,14 +9224,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -9249,12 +9247,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -9267,14 +9267,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
-                '''                list of policy names in sequence to be applied on
-                receiving a routing update in the current context, e.g.,
-                for the current peer group, neighbor, address family,
-                etc.
+                '''                explicitly set a default policy if no policy definition
+                in the export policy chain is satisfied.
                 ''',
-                'import_policy',
+                'default_export_policy',
                 'bgp', False),
             _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
@@ -9292,12 +9290,14 @@ _meta_table = {
                 ''',
                 'export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
+            _MetaInfoClassMember('import-policy', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
-                '''                explicitly set a default policy if no policy definition
-                in the export policy chain is satisfied.
+                '''                list of policy names in sequence to be applied on
+                receiving a routing update in the current context, e.g.,
+                for the current peer group, neighbor, address family,
+                etc.
                 ''',
-                'default_export_policy',
+                'import_policy',
                 'bgp', False),
             ],
             'bgp',
@@ -9511,12 +9511,6 @@ _meta_table = {
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State', 
-                [], [], 
-                '''                State parameters relating to multipath
-                ''',
-                'state',
-                'bgp', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
@@ -9528,6 +9522,12 @@ _meta_table = {
                 '''                Multipath parameters for iBGP
                 ''',
                 'ibgp',
+                'bgp', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State', 
+                [], [], 
+                '''                State parameters relating to multipath
+                ''',
+                'state',
                 'bgp', False),
             ],
             'bgp',
@@ -9547,12 +9547,74 @@ _meta_table = {
                 ''',
                 'peer_group_name',
                 'bgp', True),
+            _MetaInfoClassMember('add-paths', REFERENCE_CLASS, 'AddPaths' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AddPaths', 
+                [], [], 
+                '''                Parameters relating to the advertisement and receipt of
+                multiple paths for a single NLRI (add-paths)
+                ''',
+                'add_paths',
+                'bgp', False),
+            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis', 
+                [], [], 
+                '''                Per-address-family configuration parameters associated with
+                the neighbor or group
+                ''',
+                'afi_safis',
+                'bgp', False),
+            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.ApplyPolicy', 
+                [], [], 
+                '''                Anchor point for routing policies in the model.
+                Import and export policies are with respect to the local
+                routing table, i.e., export (send) and import (receive),
+                depending on the context.
+                ''',
+                'apply_policy',
+                'bgp', False),
+            _MetaInfoClassMember('as-path-options', REFERENCE_CLASS, 'AsPathOptions' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AsPathOptions', 
+                [], [], 
+                '''                AS_PATH manipulation parameters for the BGP neighbor or
+                group
+                ''',
+                'as_path_options',
+                'bgp', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the BGP neighbor or
                 group
                 ''',
                 'config',
+                'bgp', False),
+            _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.EbgpMultihop', 
+                [], [], 
+                '''                eBGP multi-hop parameters for the BGP neighbor or group
+                ''',
+                'ebgp_multihop',
+                'bgp', False),
+            _MetaInfoClassMember('error-handling', REFERENCE_CLASS, 'ErrorHandling' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.ErrorHandling', 
+                [], [], 
+                '''                Error handling parameters used for the BGP neighbor or
+                group
+                ''',
+                'error_handling',
+                'bgp', False),
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.GracefulRestart', 
+                [], [], 
+                '''                Parameters relating the graceful restart mechanism for BGP
+                ''',
+                'graceful_restart',
+                'bgp', False),
+            _MetaInfoClassMember('logging-options', REFERENCE_CLASS, 'LoggingOptions' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.LoggingOptions', 
+                [], [], 
+                '''                Logging options for events related to the BGP neighbor or
+                group
+                ''',
+                'logging_options',
+                'bgp', False),
+            _MetaInfoClassMember('route-reflector', REFERENCE_CLASS, 'RouteReflector' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.RouteReflector', 
+                [], [], 
+                '''                Route reflector parameters for the BGP neighbor or group
+                ''',
+                'route_reflector',
                 'bgp', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.State', 
                 [], [], 
@@ -9571,68 +9633,6 @@ _meta_table = {
                 '''                Transport session parameters for the BGP neighbor or group
                 ''',
                 'transport',
-                'bgp', False),
-            _MetaInfoClassMember('error-handling', REFERENCE_CLASS, 'ErrorHandling' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.ErrorHandling', 
-                [], [], 
-                '''                Error handling parameters used for the BGP neighbor or
-                group
-                ''',
-                'error_handling',
-                'bgp', False),
-            _MetaInfoClassMember('logging-options', REFERENCE_CLASS, 'LoggingOptions' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.LoggingOptions', 
-                [], [], 
-                '''                Logging options for events related to the BGP neighbor or
-                group
-                ''',
-                'logging_options',
-                'bgp', False),
-            _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.EbgpMultihop', 
-                [], [], 
-                '''                eBGP multi-hop parameters for the BGP neighbor or group
-                ''',
-                'ebgp_multihop',
-                'bgp', False),
-            _MetaInfoClassMember('route-reflector', REFERENCE_CLASS, 'RouteReflector' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.RouteReflector', 
-                [], [], 
-                '''                Route reflector parameters for the BGP neighbor or group
-                ''',
-                'route_reflector',
-                'bgp', False),
-            _MetaInfoClassMember('as-path-options', REFERENCE_CLASS, 'AsPathOptions' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AsPathOptions', 
-                [], [], 
-                '''                AS_PATH manipulation parameters for the BGP neighbor or
-                group
-                ''',
-                'as_path_options',
-                'bgp', False),
-            _MetaInfoClassMember('add-paths', REFERENCE_CLASS, 'AddPaths' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AddPaths', 
-                [], [], 
-                '''                Parameters relating to the advertisement and receipt of
-                multiple paths for a single NLRI (add-paths)
-                ''',
-                'add_paths',
-                'bgp', False),
-            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis', 
-                [], [], 
-                '''                Per-address-family configuration parameters associated with
-                the neighbor or group
-                ''',
-                'afi_safis',
-                'bgp', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.GracefulRestart', 
-                [], [], 
-                '''                Parameters relating the graceful restart mechanism for BGP
-                ''',
-                'graceful_restart',
-                'bgp', False),
-            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.ApplyPolicy', 
-                [], [], 
-                '''                Anchor point for routing policies in the model.
-                Import and export policies are with respect to the local
-                routing table, i.e., export (send) and import (receive),
-                depending on the context.
-                ''',
-                'apply_policy',
                 'bgp', False),
             _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.UseMultiplePaths', 
                 [], [], 

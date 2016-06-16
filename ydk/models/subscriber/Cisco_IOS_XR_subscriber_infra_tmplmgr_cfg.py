@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
@@ -38,15 +38,15 @@ class DynamicTemplate(object):
     """
     All dynamic template configurations
     
-    .. attribute:: ppps
-    
-    	Templates of the PPP Type
-    	**type**\: :py:class:`Ppps <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps>`
-    
     .. attribute:: ip_subscribers
     
     	The IP Subscriber Template Table
     	**type**\: :py:class:`IpSubscribers <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers>`
+    
+    .. attribute:: ppps
+    
+    	Templates of the PPP Type
+    	**type**\: :py:class:`Ppps <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps>`
     
     .. attribute:: subscriber_services
     
@@ -61,10 +61,10 @@ class DynamicTemplate(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        self.ppps = DynamicTemplate.Ppps()
-        self.ppps.parent = self
         self.ip_subscribers = DynamicTemplate.IpSubscribers()
         self.ip_subscribers.parent = self
+        self.ppps = DynamicTemplate.Ppps()
+        self.ppps.parent = self
         self.subscriber_services = DynamicTemplate.SubscriberServices()
         self.subscriber_services.parent = self
 
@@ -103,6 +103,46 @@ class DynamicTemplate(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: dhcpv6
+            
+            	Interface dhcpv6 configuration data
+            	**type**\: :py:class:`Dhcpv6 <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6>`
+            
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
+            
+            .. attribute:: ipv4_packet_filter
+            
+            	IPv4 Packet Filtering configuration for the template
+            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter>`
+            
+            .. attribute:: ipv6_neighbor
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor>`
+            
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
+            
+            .. attribute:: ipv6_packet_filter
+            
+            	IPv6 Packet Filtering configuration for the interface
+            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter>`
+            
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
+            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -115,46 +155,6 @@ class DynamicTemplate(object):
             
             	**range:** 0..32
             
-            .. attribute:: ipv4_packet_filter
-            
-            	IPv4 Packet Filtering configuration for the template
-            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter>`
-            
-            .. attribute:: ipv6_packet_filter
-            
-            	IPv6 Packet Filtering configuration for the interface
-            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4Network>`
-            
-            .. attribute:: ipv6_network
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network>`
-            
-            .. attribute:: ipv6_neighbor
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor>`
-            
-            .. attribute:: dhcpv6
-            
-            	Interface dhcpv6 configuration data
-            	**type**\: :py:class:`Dhcpv6 <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6>`
-            
-            .. attribute:: pbr
-            
-            	Dynamic Template PBR configuration
-            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
-            
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
-            
             
 
             """
@@ -165,25 +165,25 @@ class DynamicTemplate(object):
             def __init__(self):
                 self.parent = None
                 self.template_name = None
-                self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
-                self.span_monitor_sessions.parent = self
-                self.vrf = None
-                self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
-                self.ipv4_packet_filter.parent = self
-                self.ipv6_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter()
-                self.ipv6_packet_filter.parent = self
-                self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
-                self.ipv4_network.parent = self
-                self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
-                self.ipv6_network.parent = self
-                self.ipv6_neighbor = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor()
-                self.ipv6_neighbor.parent = self
                 self.dhcpv6 = DynamicTemplate.Ppps.Ppp.Dhcpv6()
                 self.dhcpv6.parent = self
+                self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
+                self.ipv4_network.parent = self
+                self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
+                self.ipv4_packet_filter.parent = self
+                self.ipv6_neighbor = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor()
+                self.ipv6_neighbor.parent = self
+                self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
+                self.ipv6_network.parent = self
+                self.ipv6_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter()
+                self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
                 self.pbr.parent = self
                 self.qos = DynamicTemplate.Ppps.Ppp.Qos()
                 self.qos.parent = self
+                self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self.vrf = None
 
 
             class SpanMonitorSessions(object):
@@ -219,6 +219,16 @@ class DynamicTemplate(object):
                     	Session Class
                     	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
@@ -226,20 +236,10 @@ class DynamicTemplate(object):
                     
                     	**range:** 1..10000
                     
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
                     	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -251,27 +251,15 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.session_class = None
-                        self.mirror_first = None
-                        self.attachment = None
-                        self.mirror_interval = None
                         self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
 
 
                     class Attachment(object):
                         """
                         Attach the interface to a Monitor Session
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\: str
-                        
-                        	**range:** 0..79
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
                         
                         .. attribute:: direction
                         
@@ -293,6 +281,18 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -304,14 +304,14 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.session_name = None
                             self.direction = None
                             self.port_level_enable = None
+                            self.session_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
 
@@ -322,13 +322,13 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.session_name is not None:
-                                return True
-
                             if self.direction is not None:
                                 return True
 
                             if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
                                 return True
 
                             return False
@@ -341,9 +341,9 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.session_class is None:
-                            raise YPYDataValidationError('Key property session_class is None')
+                            raise YPYModelError('Key property session_class is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
 
@@ -357,16 +357,16 @@ class DynamicTemplate(object):
                         if self.session_class is not None:
                             return True
 
-                        if self.mirror_first is not None:
+                        if self.acl is not None:
                             return True
 
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.mirror_interval is not None:
+                        if self.mirror_first is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.mirror_interval is not None:
                             return True
 
                         return False
@@ -379,7 +379,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
 
@@ -408,15 +408,15 @@ class DynamicTemplate(object):
                 IPv4 Packet Filtering configuration for the
                 template
                 
-                .. attribute:: outbound
-                
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
-                
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
                 	**type**\: :py:class:`Inbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
                 
                 
 
@@ -427,9 +427,9 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.outbound = None
                     self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self.outbound = None
 
 
                 class Outbound(object):
@@ -441,18 +441,6 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -479,6 +467,18 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -491,14 +491,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -512,13 +512,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -539,13 +539,6 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\: str
-                    
-                    	**range:** 0..65
-                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
@@ -555,6 +548,13 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     
 
@@ -566,14 +566,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -587,13 +587,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -606,7 +606,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
 
@@ -617,10 +617,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.outbound is not None and self.outbound._has_data():
+                    if self.inbound is not None and self.inbound._has_data():
                         return True
 
-                    if self.inbound is not None and self.inbound._has_data():
+                    if self.outbound is not None and self.outbound._has_data():
                         return True
 
                     return False
@@ -670,17 +670,17 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\: str
                     
                     	**range:** 0..65
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -692,13 +692,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -712,10 +712,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -741,22 +741,22 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: name
+                    .. attribute:: interface_statistics
                     
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: interface_statistics
+                    .. attribute:: name
                     
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -775,13 +775,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -795,10 +795,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -811,7 +811,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
 
@@ -840,11 +840,6 @@ class DynamicTemplate(object):
                 """
                 Interface IPv4 Network configuration data
                 
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
-                
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
@@ -852,12 +847,17 @@ class DynamicTemplate(object):
                 
                 	**range:** 68..65535
                 
-                .. attribute:: unreachables
+                .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
                 
-                .. attribute:: rpf
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
@@ -871,15 +871,15 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.unnumbered = None
                     self.mtu = None
-                    self.unreachables = None
                     self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
 
@@ -890,16 +890,16 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.unnumbered is not None:
-                        return True
-
                     if self.mtu is not None:
                         return True
 
-                    if self.unreachables is not None:
+                    if self.rpf is not None:
                         return True
 
-                    if self.rpf is not None:
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
                         return True
 
                     return False
@@ -997,7 +997,7 @@ class DynamicTemplate(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
 
@@ -1021,7 +1021,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
 
@@ -1045,7 +1045,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
 
@@ -1080,25 +1080,15 @@ class DynamicTemplate(object):
                 """
                 Interface IPv6 Network configuration data
                 
-                .. attribute:: framed_prefix
-                
-                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix>`
-                
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
                 	**type**\: :py:class:`DuplicateAddressDetection <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection>`
                 
-                .. attribute:: ra_initial
+                .. attribute:: framed_prefix
                 
-                	IPv6 ND RA Initial
-                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial>`
-                
-                .. attribute:: ra_hop_limit
-                
-                	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
+                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix>`
                 
                 .. attribute:: framed_prefix_pool
                 
@@ -1110,20 +1100,32 @@ class DynamicTemplate(object):
                 	Host to use stateful protocol for address configuration
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: other_config
+                .. attribute:: ns_interval
                 
-                	Host to use stateful protocol for non\-address configuration
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Set advertised NS retransmission interval in milliseconds
+                	**type**\: int
                 
-                .. attribute:: start_ra_on_ipv6_enable
-                
-                	Start RA on ipv6\-enable config
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	**range:** 1000..3600000
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: other_config
+                
+                	Host to use stateful protocol for non\-address configuration
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: ra_hop_limit
+                
+                	IPv6 ND RA HopLimit
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                
+                .. attribute:: ra_initial
+                
+                	IPv6 ND RA Initial
+                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial>`
                 
                 .. attribute:: ra_interval
                 
@@ -1139,19 +1141,9 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..9000
                 
-                .. attribute:: router_preference
-                
-                	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
-                
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: ra_unicast
-                
-                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
@@ -1159,9 +1151,9 @@ class DynamicTemplate(object):
                 	RA suppress MTU flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: suppress_cache_learning
+                .. attribute:: ra_unicast
                 
-                	Suppress cache learning flag
+                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
@@ -1171,12 +1163,20 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..3600000
                 
-                .. attribute:: ns_interval
+                .. attribute:: router_preference
                 
-                	Set advertised NS retransmission interval in milliseconds
-                	**type**\: int
+                	RA Router Preference
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
-                	**range:** 1000..3600000
+                .. attribute:: start_ra_on_ipv6_enable
+                
+                	Start RA on ipv6\-enable config
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: suppress_cache_learning
+                
+                	Suppress cache learning flag
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -1187,25 +1187,25 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.framed_prefix = None
                     self.duplicate_address_detection = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
-                    self.ra_initial = None
-                    self.ra_hop_limit = None
+                    self.framed_prefix = None
                     self.framed_prefix_pool = None
                     self.managed_config = None
-                    self.other_config = None
-                    self.start_ra_on_ipv6_enable = None
+                    self.ns_interval = None
                     self.nud_enable = None
+                    self.other_config = None
+                    self.ra_hop_limit = None
+                    self.ra_initial = None
                     self.ra_interval = None
                     self.ra_lifetime = None
-                    self.router_preference = None
                     self.ra_suppress = None
-                    self.ra_unicast = None
                     self.ra_suppress_mtu = None
-                    self.suppress_cache_learning = None
+                    self.ra_unicast = None
                     self.reachable_time = None
-                    self.ns_interval = None
+                    self.router_preference = None
+                    self.start_ra_on_ipv6_enable = None
+                    self.suppress_cache_learning = None
 
 
                 class FramedPrefix(object):
@@ -1213,22 +1213,22 @@ class DynamicTemplate(object):
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
                     
-                    .. attribute:: prefix_length
+                    .. attribute:: prefix
                     
-                    	IPv6 framed prefix length
-                    	**type**\: int
-                    
-                    	**range:** 0..128
+                    	IPV6 framed prefix address
+                    	**type**\: str
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: prefix
+                    .. attribute:: prefix_length
                     
-                    	IPV6 framed prefix address
-                    	**type**\: str
+                    	IPv6 framed prefix length
+                    	**type**\: int
+                    
+                    	**range:** 0..128
                     
                     .. attribute:: _is_presence
                     
@@ -1246,13 +1246,13 @@ class DynamicTemplate(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_length = None
                         self.prefix = None
+                        self.prefix_length = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
 
@@ -1263,10 +1263,10 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.prefix_length is not None:
+                        if self.prefix is not None:
                             return True
 
-                        if self.prefix is not None:
+                        if self.prefix_length is not None:
                             return True
 
                         return False
@@ -1302,7 +1302,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
 
@@ -1369,7 +1369,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
 
@@ -1396,7 +1396,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
 
@@ -1407,16 +1407,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_hop_limit is not None:
+                    if self.framed_prefix is not None and self.framed_prefix._has_data():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -1425,13 +1419,19 @@ class DynamicTemplate(object):
                     if self.managed_config is not None:
                         return True
 
-                    if self.other_config is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
+                    if self.ns_interval is not None:
                         return True
 
                     if self.nud_enable is not None:
+                        return True
+
+                    if self.other_config is not None:
+                        return True
+
+                    if self.ra_hop_limit is not None:
+                        return True
+
+                    if self.ra_initial is not None and self.ra_initial._has_data():
                         return True
 
                     if self.ra_interval is not None:
@@ -1440,25 +1440,25 @@ class DynamicTemplate(object):
                     if self.ra_lifetime is not None:
                         return True
 
-                    if self.router_preference is not None:
-                        return True
-
                     if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
                         return True
 
                     if self.ra_suppress_mtu is not None:
                         return True
 
-                    if self.suppress_cache_learning is not None:
+                    if self.ra_unicast is not None:
                         return True
 
                     if self.reachable_time is not None:
                         return True
 
-                    if self.ns_interval is not None:
+                    if self.router_preference is not None:
+                        return True
+
+                    if self.start_ra_on_ipv6_enable is not None:
+                        return True
+
+                    if self.suppress_cache_learning is not None:
                         return True
 
                     return False
@@ -1473,10 +1473,25 @@ class DynamicTemplate(object):
                 """
                 Interface dhcpv6 configuration data
                 
+                .. attribute:: address_pool
+                
+                	The pool to be used for Address assignment
+                	**type**\: str
+                
+                .. attribute:: class_
+                
+                	The class to be used for proxy/server profile
+                	**type**\: str
+                
                 .. attribute:: delegated_prefix
                 
                 	The prefix to be used for Prefix Delegation
                 	**type**\: :py:class:`DelegatedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix>`
+                
+                .. attribute:: delegated_prefix_pool
+                
+                	The pool to be used for Prefix Delegation
+                	**type**\: str
                 
                 .. attribute:: dns_ipv6address
                 
@@ -1484,21 +1499,6 @@ class DynamicTemplate(object):
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: address_pool
-                
-                	The pool to be used for Address assignment
-                	**type**\: str
-                
-                .. attribute:: delegated_prefix_pool
-                
-                	The pool to be used for Prefix Delegation
-                	**type**\: str
-                
-                .. attribute:: class_
-                
-                	The class to be used for proxy/server profile
-                	**type**\: str
                 
                 .. attribute:: stateful_address
                 
@@ -1516,11 +1516,11 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.delegated_prefix = None
-                    self.dns_ipv6address = None
                     self.address_pool = None
-                    self.delegated_prefix_pool = None
                     self.class_ = None
+                    self.delegated_prefix = None
+                    self.delegated_prefix_pool = None
+                    self.dns_ipv6address = None
                     self.stateful_address = None
 
 
@@ -1569,7 +1569,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:delegated-prefix'
 
@@ -1596,7 +1596,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6'
 
@@ -1607,19 +1607,19 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.dns_ipv6address is not None:
-                        return True
-
                     if self.address_pool is not None:
+                        return True
+
+                    if self.class_ is not None:
+                        return True
+
+                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
                         return True
 
                     if self.delegated_prefix_pool is not None:
                         return True
 
-                    if self.class_ is not None:
+                    if self.dns_ipv6address is not None:
                         return True
 
                     if self.stateful_address is not None:
@@ -1684,7 +1684,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
 
@@ -1708,7 +1708,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
 
@@ -1737,11 +1737,6 @@ class DynamicTemplate(object):
                 """
                 QoS dynamically applied configuration template
                 
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
-                
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
@@ -1752,6 +1747,11 @@ class DynamicTemplate(object):
                 	QoS to be applied in egress direction
                 	**type**\: :py:class:`Output <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
                 
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
+                
                 
 
                 """
@@ -1761,12 +1761,12 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
-                    self.service_policy.parent = self
                     self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
                     self.account.parent = self
                     self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
                     self.output.parent = self
+                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
+                    self.service_policy.parent = self
 
 
                 class ServicePolicy(object):
@@ -1801,10 +1801,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber ingress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -1815,16 +1815,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -1853,10 +1843,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -1874,17 +1874,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
 
@@ -1895,13 +1895,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -1910,7 +1907,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -1925,10 +1925,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber egress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -1939,16 +1939,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -1977,10 +1967,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -1998,17 +1998,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -2019,13 +2019,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -2034,7 +2031,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -2047,7 +2047,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
 
@@ -2081,15 +2081,15 @@ class DynamicTemplate(object):
                     	ATM adaptation layer AAL
                     	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -2108,14 +2108,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.aal = None
-                        self.encapsulation = None
                         self.atm_cell_tax = None
+                        self.encapsulation = None
                         self.user_defined = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
 
@@ -2129,10 +2129,10 @@ class DynamicTemplate(object):
                         if self.aal is not None:
                             return True
 
-                        if self.encapsulation is not None:
+                        if self.atm_cell_tax is not None:
                             return True
 
-                        if self.atm_cell_tax is not None:
+                        if self.encapsulation is not None:
                             return True
 
                         if self.user_defined is not None:
@@ -2171,7 +2171,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -2195,7 +2195,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
 
@@ -2206,13 +2206,13 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     if self.account is not None and self.account._has_data():
                         return True
 
                     if self.output is not None and self.output._has_data():
+                        return True
+
+                    if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
                     return False
@@ -2225,7 +2225,7 @@ class DynamicTemplate(object):
             @property
             def _common_path(self):
                 if self.template_name is None:
-                    raise YPYDataValidationError('Key property template_name is None')
+                    raise YPYModelError('Key property template_name is None')
 
                 return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ppps/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ppp[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
 
@@ -2239,34 +2239,34 @@ class DynamicTemplate(object):
                 if self.template_name is not None:
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
+                if self.dhcpv6 is not None and self.dhcpv6._has_data():
                     return True
 
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
                     return True
 
-                if self.ipv6_network is not None and self.ipv6_network._has_data():
+                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                     return True
 
                 if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
                     return True
 
-                if self.dhcpv6 is not None and self.dhcpv6._has_data():
+                if self.ipv6_network is not None and self.ipv6_network._has_data():
+                    return True
+
+                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
                     return True
 
                 if self.qos is not None and self.qos._has_data():
+                    return True
+
+                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
+                    return True
+
+                if self.vrf is not None:
                     return True
 
                 return False
@@ -2335,6 +2335,46 @@ class DynamicTemplate(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: dhcpv6
+            
+            	Interface dhcpv6 configuration data
+            	**type**\: :py:class:`Dhcpv6 <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6>`
+            
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
+            
+            .. attribute:: ipv4_packet_filter
+            
+            	IPv4 Packet Filtering configuration for the template
+            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter>`
+            
+            .. attribute:: ipv6_neighbor
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor>`
+            
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
+            
+            .. attribute:: ipv6_packet_filter
+            
+            	IPv6 Packet Filtering configuration for the interface
+            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter>`
+            
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
+            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -2347,46 +2387,6 @@ class DynamicTemplate(object):
             
             	**range:** 0..32
             
-            .. attribute:: ipv4_packet_filter
-            
-            	IPv4 Packet Filtering configuration for the template
-            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter>`
-            
-            .. attribute:: ipv6_packet_filter
-            
-            	IPv6 Packet Filtering configuration for the interface
-            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network>`
-            
-            .. attribute:: ipv6_network
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network>`
-            
-            .. attribute:: ipv6_neighbor
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor>`
-            
-            .. attribute:: dhcpv6
-            
-            	Interface dhcpv6 configuration data
-            	**type**\: :py:class:`Dhcpv6 <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6>`
-            
-            .. attribute:: pbr
-            
-            	Dynamic Template PBR configuration
-            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
-            
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
-            
             
 
             """
@@ -2397,25 +2397,25 @@ class DynamicTemplate(object):
             def __init__(self):
                 self.parent = None
                 self.template_name = None
-                self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
-                self.span_monitor_sessions.parent = self
-                self.vrf = None
-                self.ipv4_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter()
-                self.ipv4_packet_filter.parent = self
-                self.ipv6_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter()
-                self.ipv6_packet_filter.parent = self
-                self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
-                self.ipv4_network.parent = self
-                self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
-                self.ipv6_network.parent = self
-                self.ipv6_neighbor = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor()
-                self.ipv6_neighbor.parent = self
                 self.dhcpv6 = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6()
                 self.dhcpv6.parent = self
+                self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
+                self.ipv4_network.parent = self
+                self.ipv4_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter()
+                self.ipv4_packet_filter.parent = self
+                self.ipv6_neighbor = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor()
+                self.ipv6_neighbor.parent = self
+                self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
+                self.ipv6_network.parent = self
+                self.ipv6_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter()
+                self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
                 self.pbr.parent = self
                 self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
                 self.qos.parent = self
+                self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self.vrf = None
 
 
             class SpanMonitorSessions(object):
@@ -2451,6 +2451,16 @@ class DynamicTemplate(object):
                     	Session Class
                     	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
@@ -2458,20 +2468,10 @@ class DynamicTemplate(object):
                     
                     	**range:** 1..10000
                     
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
                     	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -2483,27 +2483,15 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.session_class = None
-                        self.mirror_first = None
-                        self.attachment = None
-                        self.mirror_interval = None
                         self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
 
 
                     class Attachment(object):
                         """
                         Attach the interface to a Monitor Session
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\: str
-                        
-                        	**range:** 0..79
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
                         
                         .. attribute:: direction
                         
@@ -2525,6 +2513,18 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -2536,14 +2536,14 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.session_name = None
                             self.direction = None
                             self.port_level_enable = None
+                            self.session_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
 
@@ -2554,13 +2554,13 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.session_name is not None:
-                                return True
-
                             if self.direction is not None:
                                 return True
 
                             if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
                                 return True
 
                             return False
@@ -2573,9 +2573,9 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.session_class is None:
-                            raise YPYDataValidationError('Key property session_class is None')
+                            raise YPYModelError('Key property session_class is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
 
@@ -2589,16 +2589,16 @@ class DynamicTemplate(object):
                         if self.session_class is not None:
                             return True
 
-                        if self.mirror_first is not None:
+                        if self.acl is not None:
                             return True
 
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.mirror_interval is not None:
+                        if self.mirror_first is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.mirror_interval is not None:
                             return True
 
                         return False
@@ -2611,7 +2611,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
 
@@ -2640,15 +2640,15 @@ class DynamicTemplate(object):
                 IPv4 Packet Filtering configuration for the
                 template
                 
-                .. attribute:: outbound
-                
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
-                
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
                 	**type**\: :py:class:`Inbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
                 
                 
 
@@ -2659,9 +2659,9 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.outbound = None
                     self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self.outbound = None
 
 
                 class Outbound(object):
@@ -2673,18 +2673,6 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -2711,6 +2699,18 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -2723,14 +2723,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -2744,13 +2744,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -2771,13 +2771,6 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\: str
-                    
-                    	**range:** 0..65
-                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
@@ -2787,6 +2780,13 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     
 
@@ -2798,14 +2798,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -2819,13 +2819,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -2838,7 +2838,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
 
@@ -2849,10 +2849,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.outbound is not None and self.outbound._has_data():
+                    if self.inbound is not None and self.inbound._has_data():
                         return True
 
-                    if self.inbound is not None and self.inbound._has_data():
+                    if self.outbound is not None and self.outbound._has_data():
                         return True
 
                     return False
@@ -2902,17 +2902,17 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\: str
                     
                     	**range:** 0..65
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -2924,13 +2924,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -2944,10 +2944,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -2973,22 +2973,22 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: name
+                    .. attribute:: interface_statistics
                     
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: interface_statistics
+                    .. attribute:: name
                     
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -3007,13 +3007,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -3027,10 +3027,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -3043,7 +3043,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
 
@@ -3072,11 +3072,6 @@ class DynamicTemplate(object):
                 """
                 Interface IPv4 Network configuration data
                 
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
-                
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
@@ -3084,12 +3079,17 @@ class DynamicTemplate(object):
                 
                 	**range:** 68..65535
                 
-                .. attribute:: unreachables
+                .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
                 
-                .. attribute:: rpf
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
@@ -3103,15 +3103,15 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.unnumbered = None
                     self.mtu = None
-                    self.unreachables = None
                     self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
 
@@ -3122,16 +3122,16 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.unnumbered is not None:
-                        return True
-
                     if self.mtu is not None:
                         return True
 
-                    if self.unreachables is not None:
+                    if self.rpf is not None:
                         return True
 
-                    if self.rpf is not None:
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
                         return True
 
                     return False
@@ -3229,7 +3229,7 @@ class DynamicTemplate(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
 
@@ -3253,7 +3253,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
 
@@ -3277,7 +3277,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
 
@@ -3312,25 +3312,15 @@ class DynamicTemplate(object):
                 """
                 Interface IPv6 Network configuration data
                 
-                .. attribute:: framed_prefix
-                
-                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix>`
-                
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
                 	**type**\: :py:class:`DuplicateAddressDetection <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection>`
                 
-                .. attribute:: ra_initial
+                .. attribute:: framed_prefix
                 
-                	IPv6 ND RA Initial
-                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial>`
-                
-                .. attribute:: ra_hop_limit
-                
-                	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
+                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix>`
                 
                 .. attribute:: framed_prefix_pool
                 
@@ -3342,20 +3332,32 @@ class DynamicTemplate(object):
                 	Host to use stateful protocol for address configuration
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: other_config
+                .. attribute:: ns_interval
                 
-                	Host to use stateful protocol for non\-address configuration
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Set advertised NS retransmission interval in milliseconds
+                	**type**\: int
                 
-                .. attribute:: start_ra_on_ipv6_enable
-                
-                	Start RA on ipv6\-enable config
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	**range:** 1000..3600000
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: other_config
+                
+                	Host to use stateful protocol for non\-address configuration
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: ra_hop_limit
+                
+                	IPv6 ND RA HopLimit
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                
+                .. attribute:: ra_initial
+                
+                	IPv6 ND RA Initial
+                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial>`
                 
                 .. attribute:: ra_interval
                 
@@ -3371,19 +3373,9 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..9000
                 
-                .. attribute:: router_preference
-                
-                	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
-                
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: ra_unicast
-                
-                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
@@ -3391,9 +3383,9 @@ class DynamicTemplate(object):
                 	RA suppress MTU flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: suppress_cache_learning
+                .. attribute:: ra_unicast
                 
-                	Suppress cache learning flag
+                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
@@ -3403,12 +3395,20 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..3600000
                 
-                .. attribute:: ns_interval
+                .. attribute:: router_preference
                 
-                	Set advertised NS retransmission interval in milliseconds
-                	**type**\: int
+                	RA Router Preference
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
-                	**range:** 1000..3600000
+                .. attribute:: start_ra_on_ipv6_enable
+                
+                	Start RA on ipv6\-enable config
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: suppress_cache_learning
+                
+                	Suppress cache learning flag
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -3419,25 +3419,25 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.framed_prefix = None
                     self.duplicate_address_detection = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
-                    self.ra_initial = None
-                    self.ra_hop_limit = None
+                    self.framed_prefix = None
                     self.framed_prefix_pool = None
                     self.managed_config = None
-                    self.other_config = None
-                    self.start_ra_on_ipv6_enable = None
+                    self.ns_interval = None
                     self.nud_enable = None
+                    self.other_config = None
+                    self.ra_hop_limit = None
+                    self.ra_initial = None
                     self.ra_interval = None
                     self.ra_lifetime = None
-                    self.router_preference = None
                     self.ra_suppress = None
-                    self.ra_unicast = None
                     self.ra_suppress_mtu = None
-                    self.suppress_cache_learning = None
+                    self.ra_unicast = None
                     self.reachable_time = None
-                    self.ns_interval = None
+                    self.router_preference = None
+                    self.start_ra_on_ipv6_enable = None
+                    self.suppress_cache_learning = None
 
 
                 class FramedPrefix(object):
@@ -3445,22 +3445,22 @@ class DynamicTemplate(object):
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
                     
-                    .. attribute:: prefix_length
+                    .. attribute:: prefix
                     
-                    	IPv6 framed prefix length
-                    	**type**\: int
-                    
-                    	**range:** 0..128
+                    	IPV6 framed prefix address
+                    	**type**\: str
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: prefix
+                    .. attribute:: prefix_length
                     
-                    	IPV6 framed prefix address
-                    	**type**\: str
+                    	IPv6 framed prefix length
+                    	**type**\: int
+                    
+                    	**range:** 0..128
                     
                     .. attribute:: _is_presence
                     
@@ -3478,13 +3478,13 @@ class DynamicTemplate(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_length = None
                         self.prefix = None
+                        self.prefix_length = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
 
@@ -3495,10 +3495,10 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.prefix_length is not None:
+                        if self.prefix is not None:
                             return True
 
-                        if self.prefix is not None:
+                        if self.prefix_length is not None:
                             return True
 
                         return False
@@ -3534,7 +3534,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
 
@@ -3601,7 +3601,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
 
@@ -3628,7 +3628,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
 
@@ -3639,16 +3639,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_hop_limit is not None:
+                    if self.framed_prefix is not None and self.framed_prefix._has_data():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -3657,13 +3651,19 @@ class DynamicTemplate(object):
                     if self.managed_config is not None:
                         return True
 
-                    if self.other_config is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
+                    if self.ns_interval is not None:
                         return True
 
                     if self.nud_enable is not None:
+                        return True
+
+                    if self.other_config is not None:
+                        return True
+
+                    if self.ra_hop_limit is not None:
+                        return True
+
+                    if self.ra_initial is not None and self.ra_initial._has_data():
                         return True
 
                     if self.ra_interval is not None:
@@ -3672,25 +3672,25 @@ class DynamicTemplate(object):
                     if self.ra_lifetime is not None:
                         return True
 
-                    if self.router_preference is not None:
-                        return True
-
                     if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
                         return True
 
                     if self.ra_suppress_mtu is not None:
                         return True
 
-                    if self.suppress_cache_learning is not None:
+                    if self.ra_unicast is not None:
                         return True
 
                     if self.reachable_time is not None:
                         return True
 
-                    if self.ns_interval is not None:
+                    if self.router_preference is not None:
+                        return True
+
+                    if self.start_ra_on_ipv6_enable is not None:
+                        return True
+
+                    if self.suppress_cache_learning is not None:
                         return True
 
                     return False
@@ -3705,10 +3705,25 @@ class DynamicTemplate(object):
                 """
                 Interface dhcpv6 configuration data
                 
+                .. attribute:: address_pool
+                
+                	The pool to be used for Address assignment
+                	**type**\: str
+                
+                .. attribute:: class_
+                
+                	The class to be used for proxy/server profile
+                	**type**\: str
+                
                 .. attribute:: delegated_prefix
                 
                 	The prefix to be used for Prefix Delegation
                 	**type**\: :py:class:`DelegatedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix>`
+                
+                .. attribute:: delegated_prefix_pool
+                
+                	The pool to be used for Prefix Delegation
+                	**type**\: str
                 
                 .. attribute:: dns_ipv6address
                 
@@ -3716,21 +3731,6 @@ class DynamicTemplate(object):
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: address_pool
-                
-                	The pool to be used for Address assignment
-                	**type**\: str
-                
-                .. attribute:: delegated_prefix_pool
-                
-                	The pool to be used for Prefix Delegation
-                	**type**\: str
-                
-                .. attribute:: class_
-                
-                	The class to be used for proxy/server profile
-                	**type**\: str
                 
                 .. attribute:: stateful_address
                 
@@ -3748,11 +3748,11 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.delegated_prefix = None
-                    self.dns_ipv6address = None
                     self.address_pool = None
-                    self.delegated_prefix_pool = None
                     self.class_ = None
+                    self.delegated_prefix = None
+                    self.delegated_prefix_pool = None
+                    self.dns_ipv6address = None
                     self.stateful_address = None
 
 
@@ -3801,7 +3801,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:delegated-prefix'
 
@@ -3828,7 +3828,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6'
 
@@ -3839,19 +3839,19 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.dns_ipv6address is not None:
-                        return True
-
                     if self.address_pool is not None:
+                        return True
+
+                    if self.class_ is not None:
+                        return True
+
+                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
                         return True
 
                     if self.delegated_prefix_pool is not None:
                         return True
 
-                    if self.class_ is not None:
+                    if self.dns_ipv6address is not None:
                         return True
 
                     if self.stateful_address is not None:
@@ -3916,7 +3916,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
 
@@ -3940,7 +3940,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
 
@@ -3969,11 +3969,6 @@ class DynamicTemplate(object):
                 """
                 QoS dynamically applied configuration template
                 
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
-                
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
@@ -3984,6 +3979,11 @@ class DynamicTemplate(object):
                 	QoS to be applied in egress direction
                 	**type**\: :py:class:`Output <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
                 
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
+                
                 
 
                 """
@@ -3993,12 +3993,12 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
-                    self.service_policy.parent = self
                     self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
                     self.account.parent = self
                     self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
                     self.output.parent = self
+                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
+                    self.service_policy.parent = self
 
 
                 class ServicePolicy(object):
@@ -4033,10 +4033,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber ingress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -4047,16 +4047,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -4085,10 +4075,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -4106,17 +4106,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
 
@@ -4127,13 +4127,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -4142,7 +4139,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -4157,10 +4157,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber egress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -4171,16 +4171,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -4209,10 +4199,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -4230,17 +4230,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -4251,13 +4251,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -4266,7 +4263,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -4279,7 +4279,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
 
@@ -4313,15 +4313,15 @@ class DynamicTemplate(object):
                     	ATM adaptation layer AAL
                     	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -4340,14 +4340,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.aal = None
-                        self.encapsulation = None
                         self.atm_cell_tax = None
+                        self.encapsulation = None
                         self.user_defined = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
 
@@ -4361,10 +4361,10 @@ class DynamicTemplate(object):
                         if self.aal is not None:
                             return True
 
-                        if self.encapsulation is not None:
+                        if self.atm_cell_tax is not None:
                             return True
 
-                        if self.atm_cell_tax is not None:
+                        if self.encapsulation is not None:
                             return True
 
                         if self.user_defined is not None:
@@ -4403,7 +4403,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -4427,7 +4427,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
 
@@ -4438,13 +4438,13 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     if self.account is not None and self.account._has_data():
                         return True
 
                     if self.output is not None and self.output._has_data():
+                        return True
+
+                    if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
                     return False
@@ -4457,7 +4457,7 @@ class DynamicTemplate(object):
             @property
             def _common_path(self):
                 if self.template_name is None:
-                    raise YPYDataValidationError('Key property template_name is None')
+                    raise YPYModelError('Key property template_name is None')
 
                 return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ip-subscribers/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ip-subscriber[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
 
@@ -4471,34 +4471,34 @@ class DynamicTemplate(object):
                 if self.template_name is not None:
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
+                if self.dhcpv6 is not None and self.dhcpv6._has_data():
                     return True
 
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
                     return True
 
-                if self.ipv6_network is not None and self.ipv6_network._has_data():
+                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                     return True
 
                 if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
                     return True
 
-                if self.dhcpv6 is not None and self.dhcpv6._has_data():
+                if self.ipv6_network is not None and self.ipv6_network._has_data():
+                    return True
+
+                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
                     return True
 
                 if self.qos is not None and self.qos._has_data():
+                    return True
+
+                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
+                    return True
+
+                if self.vrf is not None:
                     return True
 
                 return False
@@ -4567,6 +4567,41 @@ class DynamicTemplate(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: ipv4_network
+            
+            	Interface IPv4 Network configuration data
+            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
+            
+            .. attribute:: ipv4_packet_filter
+            
+            	IPv4 Packet Filtering configuration for the template
+            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter>`
+            
+            .. attribute:: ipv6_neighbor
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor>`
+            
+            .. attribute:: ipv6_network
+            
+            	Interface IPv6 Network configuration data
+            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
+            
+            .. attribute:: ipv6_packet_filter
+            
+            	IPv6 Packet Filtering configuration for the interface
+            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter>`
+            
+            .. attribute:: pbr
+            
+            	Dynamic Template PBR configuration
+            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
+            
+            .. attribute:: qos
+            
+            	QoS dynamically applied configuration template
+            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
+            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -4579,41 +4614,6 @@ class DynamicTemplate(object):
             
             	**range:** 0..32
             
-            .. attribute:: ipv4_packet_filter
-            
-            	IPv4 Packet Filtering configuration for the template
-            	**type**\: :py:class:`Ipv4PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter>`
-            
-            .. attribute:: ipv6_packet_filter
-            
-            	IPv6 Packet Filtering configuration for the interface
-            	**type**\: :py:class:`Ipv6PacketFilter <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter>`
-            
-            .. attribute:: ipv4_network
-            
-            	Interface IPv4 Network configuration data
-            	**type**\: :py:class:`Ipv4Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network>`
-            
-            .. attribute:: ipv6_network
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Network <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network>`
-            
-            .. attribute:: ipv6_neighbor
-            
-            	Interface IPv6 Network configuration data
-            	**type**\: :py:class:`Ipv6Neighbor <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor>`
-            
-            .. attribute:: pbr
-            
-            	Dynamic Template PBR configuration
-            	**type**\: :py:class:`Pbr <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
-            
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\: :py:class:`Qos <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
-            
             
 
             """
@@ -4624,23 +4624,23 @@ class DynamicTemplate(object):
             def __init__(self):
                 self.parent = None
                 self.template_name = None
-                self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
-                self.span_monitor_sessions.parent = self
-                self.vrf = None
-                self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
-                self.ipv4_packet_filter.parent = self
-                self.ipv6_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter()
-                self.ipv6_packet_filter.parent = self
                 self.ipv4_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network()
                 self.ipv4_network.parent = self
-                self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
-                self.ipv6_network.parent = self
+                self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
+                self.ipv4_packet_filter.parent = self
                 self.ipv6_neighbor = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor()
                 self.ipv6_neighbor.parent = self
+                self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
+                self.ipv6_network.parent = self
+                self.ipv6_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter()
+                self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
                 self.pbr.parent = self
                 self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
                 self.qos.parent = self
+                self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
+                self.span_monitor_sessions.parent = self
+                self.vrf = None
 
 
             class SpanMonitorSessions(object):
@@ -4676,6 +4676,16 @@ class DynamicTemplate(object):
                     	Session Class
                     	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
                     .. attribute:: mirror_first
                     
                     	Mirror a specified number of bytes from start of packet
@@ -4683,20 +4693,10 @@ class DynamicTemplate(object):
                     
                     	**range:** 1..10000
                     
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\: :py:class:`Attachment <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
                     	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -4708,27 +4708,15 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.session_class = None
-                        self.mirror_first = None
-                        self.attachment = None
-                        self.mirror_interval = None
                         self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
 
 
                     class Attachment(object):
                         """
                         Attach the interface to a Monitor Session
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\: str
-                        
-                        	**range:** 0..79
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
                         
                         .. attribute:: direction
                         
@@ -4750,6 +4738,18 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\: str
+                        
+                        	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -4761,14 +4761,14 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.session_name = None
                             self.direction = None
                             self.port_level_enable = None
+                            self.session_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
 
@@ -4779,13 +4779,13 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.session_name is not None:
-                                return True
-
                             if self.direction is not None:
                                 return True
 
                             if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
                                 return True
 
                             return False
@@ -4798,9 +4798,9 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.session_class is None:
-                            raise YPYDataValidationError('Key property session_class is None')
+                            raise YPYModelError('Key property session_class is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
 
@@ -4814,16 +4814,16 @@ class DynamicTemplate(object):
                         if self.session_class is not None:
                             return True
 
-                        if self.mirror_first is not None:
+                        if self.acl is not None:
                             return True
 
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.mirror_interval is not None:
+                        if self.mirror_first is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.mirror_interval is not None:
                             return True
 
                         return False
@@ -4836,7 +4836,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
 
@@ -4865,15 +4865,15 @@ class DynamicTemplate(object):
                 IPv4 Packet Filtering configuration for the
                 template
                 
-                .. attribute:: outbound
-                
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
-                
                 .. attribute:: inbound
                 
                 	IPv4 Packet filter to be applied to inbound packets
                 	**type**\: :py:class:`Inbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\: :py:class:`Outbound <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
                 
                 
 
@@ -4884,9 +4884,9 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.outbound = None
                     self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self.outbound = None
 
 
                 class Outbound(object):
@@ -4898,18 +4898,6 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: str
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -4936,6 +4924,18 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -4948,14 +4948,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -4969,13 +4969,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -4996,13 +4996,6 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\: str
-                    
-                    	**range:** 0..65
-                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
@@ -5012,6 +5005,13 @@ class DynamicTemplate(object):
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     
 
@@ -5023,14 +5023,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.hardware_count = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -5044,13 +5044,13 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
-                            return True
-
                         if self.hardware_count is not None:
                             return True
 
                         if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
                             return True
 
                         return False
@@ -5063,7 +5063,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
 
@@ -5074,10 +5074,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.outbound is not None and self.outbound._has_data():
+                    if self.inbound is not None and self.inbound._has_data():
                         return True
 
-                    if self.inbound is not None and self.inbound._has_data():
+                    if self.outbound is not None and self.outbound._has_data():
                         return True
 
                     return False
@@ -5127,17 +5127,17 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: name
                     
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\: str
                     
                     	**range:** 0..65
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -5149,13 +5149,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
 
@@ -5169,10 +5169,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -5198,22 +5198,22 @@ class DynamicTemplate(object):
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: name
+                    .. attribute:: interface_statistics
                     
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\: str
-                    
-                    	**range:** 0..65
+                    	Not supported (Leave unspecified)
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: interface_statistics
+                    .. attribute:: name
                     
-                    	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\: str
+                    
+                    	**range:** 0..65
                     
                     .. attribute:: _is_presence
                     
@@ -5232,13 +5232,13 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.common_acl_name = None
-                        self.name = None
                         self.interface_statistics = None
+                        self.name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
 
@@ -5252,10 +5252,10 @@ class DynamicTemplate(object):
                         if self.common_acl_name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.interface_statistics is not None:
                             return True
 
-                        if self.interface_statistics is not None:
+                        if self.name is not None:
                             return True
 
                         return False
@@ -5268,7 +5268,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
 
@@ -5297,11 +5297,6 @@ class DynamicTemplate(object):
                 """
                 Interface IPv4 Network configuration data
                 
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\: str
-                
                 .. attribute:: mtu
                 
                 	The IP Maximum Transmission Unit
@@ -5309,12 +5304,17 @@ class DynamicTemplate(object):
                 
                 	**range:** 68..65535
                 
-                .. attribute:: unreachables
+                .. attribute:: rpf
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
                 
-                .. attribute:: rpf
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\: str
+                
+                .. attribute:: unreachables
                 
                 	TRUE if enabled, FALSE if disabled
                 	**type**\: bool
@@ -5328,15 +5328,15 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.unnumbered = None
                     self.mtu = None
-                    self.unreachables = None
                     self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
 
@@ -5347,16 +5347,16 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.unnumbered is not None:
-                        return True
-
                     if self.mtu is not None:
                         return True
 
-                    if self.unreachables is not None:
+                    if self.rpf is not None:
                         return True
 
-                    if self.rpf is not None:
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
                         return True
 
                     return False
@@ -5454,7 +5454,7 @@ class DynamicTemplate(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
 
@@ -5478,7 +5478,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
 
@@ -5502,7 +5502,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
 
@@ -5537,25 +5537,15 @@ class DynamicTemplate(object):
                 """
                 Interface IPv6 Network configuration data
                 
-                .. attribute:: framed_prefix
-                
-                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
-                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix>`
-                
                 .. attribute:: duplicate_address_detection
                 
                 	Duplicate Address Detection (DAD)
                 	**type**\: :py:class:`DuplicateAddressDetection <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection>`
                 
-                .. attribute:: ra_initial
+                .. attribute:: framed_prefix
                 
-                	IPv6 ND RA Initial
-                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial>`
-                
-                .. attribute:: ra_hop_limit
-                
-                	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                	Set the IPv6 framed ipv6 prefix for a subscriber interface 
+                	**type**\: :py:class:`FramedPrefix <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix>`
                 
                 .. attribute:: framed_prefix_pool
                 
@@ -5567,20 +5557,32 @@ class DynamicTemplate(object):
                 	Host to use stateful protocol for address configuration
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: other_config
+                .. attribute:: ns_interval
                 
-                	Host to use stateful protocol for non\-address configuration
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Set advertised NS retransmission interval in milliseconds
+                	**type**\: int
                 
-                .. attribute:: start_ra_on_ipv6_enable
-                
-                	Start RA on ipv6\-enable config
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	**range:** 1000..3600000
                 
                 .. attribute:: nud_enable
                 
                 	NUD enable
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: other_config
+                
+                	Host to use stateful protocol for non\-address configuration
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: ra_hop_limit
+                
+                	IPv6 ND RA HopLimit
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
+                
+                .. attribute:: ra_initial
+                
+                	IPv6 ND RA Initial
+                	**type**\: :py:class:`RaInitial <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial>`
                 
                 .. attribute:: ra_interval
                 
@@ -5596,19 +5598,9 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..9000
                 
-                .. attribute:: router_preference
-                
-                	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
-                
                 .. attribute:: ra_suppress
                 
                 	Enable suppress IPv6 router advertisement
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: ra_unicast
-                
-                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: ra_suppress_mtu
@@ -5616,9 +5608,9 @@ class DynamicTemplate(object):
                 	RA suppress MTU flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: suppress_cache_learning
+                .. attribute:: ra_unicast
                 
-                	Suppress cache learning flag
+                	Enable RA unicast Flag
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: reachable_time
@@ -5628,12 +5620,20 @@ class DynamicTemplate(object):
                 
                 	**range:** 0..3600000
                 
-                .. attribute:: ns_interval
+                .. attribute:: router_preference
                 
-                	Set advertised NS retransmission interval in milliseconds
-                	**type**\: int
+                	RA Router Preference
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
-                	**range:** 1000..3600000
+                .. attribute:: start_ra_on_ipv6_enable
+                
+                	Start RA on ipv6\-enable config
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: suppress_cache_learning
+                
+                	Suppress cache learning flag
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -5644,25 +5644,25 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.framed_prefix = None
                     self.duplicate_address_detection = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
-                    self.ra_initial = None
-                    self.ra_hop_limit = None
+                    self.framed_prefix = None
                     self.framed_prefix_pool = None
                     self.managed_config = None
-                    self.other_config = None
-                    self.start_ra_on_ipv6_enable = None
+                    self.ns_interval = None
                     self.nud_enable = None
+                    self.other_config = None
+                    self.ra_hop_limit = None
+                    self.ra_initial = None
                     self.ra_interval = None
                     self.ra_lifetime = None
-                    self.router_preference = None
                     self.ra_suppress = None
-                    self.ra_unicast = None
                     self.ra_suppress_mtu = None
-                    self.suppress_cache_learning = None
+                    self.ra_unicast = None
                     self.reachable_time = None
-                    self.ns_interval = None
+                    self.router_preference = None
+                    self.start_ra_on_ipv6_enable = None
+                    self.suppress_cache_learning = None
 
 
                 class FramedPrefix(object):
@@ -5670,22 +5670,22 @@ class DynamicTemplate(object):
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
                     
-                    .. attribute:: prefix_length
+                    .. attribute:: prefix
                     
-                    	IPv6 framed prefix length
-                    	**type**\: int
-                    
-                    	**range:** 0..128
+                    	IPV6 framed prefix address
+                    	**type**\: str
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: prefix
+                    .. attribute:: prefix_length
                     
-                    	IPV6 framed prefix address
-                    	**type**\: str
+                    	IPv6 framed prefix length
+                    	**type**\: int
+                    
+                    	**range:** 0..128
                     
                     .. attribute:: _is_presence
                     
@@ -5703,13 +5703,13 @@ class DynamicTemplate(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_length = None
                         self.prefix = None
+                        self.prefix_length = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
 
@@ -5720,10 +5720,10 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.prefix_length is not None:
+                        if self.prefix is not None:
                             return True
 
-                        if self.prefix is not None:
+                        if self.prefix_length is not None:
                             return True
 
                         return False
@@ -5759,7 +5759,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
 
@@ -5826,7 +5826,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
 
@@ -5853,7 +5853,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
 
@@ -5864,16 +5864,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_hop_limit is not None:
+                    if self.framed_prefix is not None and self.framed_prefix._has_data():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -5882,13 +5876,19 @@ class DynamicTemplate(object):
                     if self.managed_config is not None:
                         return True
 
-                    if self.other_config is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
+                    if self.ns_interval is not None:
                         return True
 
                     if self.nud_enable is not None:
+                        return True
+
+                    if self.other_config is not None:
+                        return True
+
+                    if self.ra_hop_limit is not None:
+                        return True
+
+                    if self.ra_initial is not None and self.ra_initial._has_data():
                         return True
 
                     if self.ra_interval is not None:
@@ -5897,25 +5897,25 @@ class DynamicTemplate(object):
                     if self.ra_lifetime is not None:
                         return True
 
-                    if self.router_preference is not None:
-                        return True
-
                     if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
                         return True
 
                     if self.ra_suppress_mtu is not None:
                         return True
 
-                    if self.suppress_cache_learning is not None:
+                    if self.ra_unicast is not None:
                         return True
 
                     if self.reachable_time is not None:
                         return True
 
-                    if self.ns_interval is not None:
+                    if self.router_preference is not None:
+                        return True
+
+                    if self.start_ra_on_ipv6_enable is not None:
+                        return True
+
+                    if self.suppress_cache_learning is not None:
                         return True
 
                     return False
@@ -5977,7 +5977,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
 
@@ -6001,7 +6001,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
 
@@ -6030,11 +6030,6 @@ class DynamicTemplate(object):
                 """
                 QoS dynamically applied configuration template
                 
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
-                
                 .. attribute:: account
                 
                 	QoS L2 overhead accounting
@@ -6045,6 +6040,11 @@ class DynamicTemplate(object):
                 	QoS to be applied in egress direction
                 	**type**\: :py:class:`Output <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
                 
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\: :py:class:`ServicePolicy <ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
+                
                 
 
                 """
@@ -6054,12 +6054,12 @@ class DynamicTemplate(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
-                    self.service_policy.parent = self
                     self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
                     self.account.parent = self
                     self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
                     self.output.parent = self
+                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
+                    self.service_policy.parent = self
 
 
                 class ServicePolicy(object):
@@ -6094,10 +6094,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber ingress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -6108,16 +6108,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -6146,10 +6136,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -6167,17 +6167,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
 
@@ -6188,13 +6188,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -6203,7 +6200,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -6218,10 +6218,10 @@ class DynamicTemplate(object):
                         """
                         Subscriber egress policy
                         
-                        .. attribute:: policy_name
+                        .. attribute:: account_stats
                         
-                        	Name of policy\-map
-                        	**type**\: str
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\: bool
                         
                         .. attribute:: _is_presence
                         
@@ -6232,16 +6232,6 @@ class DynamicTemplate(object):
                         
                         	Turn off L2 or L3 accounting
                         	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -6270,10 +6260,20 @@ class DynamicTemplate(object):
                         	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
-                        .. attribute:: account_stats
+                        .. attribute:: policy_name
                         
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	Name of policy\-map
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\: str
                         
                         .. attribute:: _is_presence
                         
@@ -6291,17 +6291,17 @@ class DynamicTemplate(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.policy_name = None
+                            self.account_stats = None
                             self.account_type = None
-                            self.spi_name = None
                             self.merge = None
                             self.merge_id = None
-                            self.account_stats = None
+                            self.policy_name = None
+                            self.spi_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -6312,13 +6312,10 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.policy_name is not None:
+                            if self.account_stats is not None:
                                 return True
 
                             if self.account_type is not None:
-                                return True
-
-                            if self.spi_name is not None:
                                 return True
 
                             if self.merge is not None:
@@ -6327,7 +6324,10 @@ class DynamicTemplate(object):
                             if self.merge_id is not None:
                                 return True
 
-                            if self.account_stats is not None:
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
                                 return True
 
                             return False
@@ -6340,7 +6340,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
 
@@ -6374,15 +6374,15 @@ class DynamicTemplate(object):
                     	ATM adaptation layer AAL
                     	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
                     .. attribute:: atm_cell_tax
                     
                     	ATM cell tax to L2 overhead
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -6401,14 +6401,14 @@ class DynamicTemplate(object):
                     def __init__(self):
                         self.parent = None
                         self.aal = None
-                        self.encapsulation = None
                         self.atm_cell_tax = None
+                        self.encapsulation = None
                         self.user_defined = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
 
@@ -6422,10 +6422,10 @@ class DynamicTemplate(object):
                         if self.aal is not None:
                             return True
 
-                        if self.encapsulation is not None:
+                        if self.atm_cell_tax is not None:
                             return True
 
-                        if self.atm_cell_tax is not None:
+                        if self.encapsulation is not None:
                             return True
 
                         if self.user_defined is not None:
@@ -6464,7 +6464,7 @@ class DynamicTemplate(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
 
@@ -6488,7 +6488,7 @@ class DynamicTemplate(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
 
@@ -6499,13 +6499,13 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     if self.account is not None and self.account._has_data():
                         return True
 
                     if self.output is not None and self.output._has_data():
+                        return True
+
+                    if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
                     return False
@@ -6518,7 +6518,7 @@ class DynamicTemplate(object):
             @property
             def _common_path(self):
                 if self.template_name is None:
-                    raise YPYDataValidationError('Key property template_name is None')
+                    raise YPYModelError('Key property template_name is None')
 
                 return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:subscriber-services/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:subscriber-service[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
 
@@ -6532,31 +6532,31 @@ class DynamicTemplate(object):
                 if self.template_name is not None:
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
+                if self.ipv4_network is not None and self.ipv4_network._has_data():
                     return True
 
                 if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                     return True
 
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network._has_data():
+                if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
                     return True
 
                 if self.ipv6_network is not None and self.ipv6_network._has_data():
                     return True
 
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
+                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
                     return True
 
                 if self.qos is not None and self.qos._has_data():
+                    return True
+
+                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
+                    return True
+
+                if self.vrf is not None:
                     return True
 
                 return False
@@ -6602,10 +6602,10 @@ class DynamicTemplate(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.ppps is not None and self.ppps._has_data():
+        if self.ip_subscribers is not None and self.ip_subscribers._has_data():
             return True
 
-        if self.ip_subscribers is not None and self.ip_subscribers._has_data():
+        if self.ppps is not None and self.ppps._has_data():
             return True
 
         if self.subscriber_services is not None and self.subscriber_services._has_data():

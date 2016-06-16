@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -198,9 +198,30 @@ class Dhcpv6(object):
         	Database feature configured
         	**type**\: bool
         
-        .. attribute:: version
+        .. attribute:: failed_full_file_write_count
         
-        	Current file version
+        	Failed full file write count
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: failed_incremental_file_write_count
+        
+        	Failed incremental file write count
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: full_file_record_count
+        
+        	Full file record count
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: full_file_write_count
+        
+        	Full file write count
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -208,6 +229,34 @@ class Dhcpv6(object):
         .. attribute:: full_file_write_interval
         
         	Full file write interval in minutes
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: incremental_file_record_count
+        
+        	Incremental file record count
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: incremental_file_write_count
+        
+        	Incremental file write count
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: incremental_file_write_interval
+        
+        	Incremental file write interval in minutes
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: last_full_file_write_error_timestamp
+        
+        	Last full file write error timestamp since epoch
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -226,37 +275,9 @@ class Dhcpv6(object):
         
         	**range:** 0..4294967295
         
-        .. attribute:: full_file_write_count
+        .. attribute:: last_incremental_file_write_error_timestamp
         
-        	Full file write count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: failed_full_file_write_count
-        
-        	Failed full file write count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: full_file_record_count
-        
-        	Full file record count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: last_full_file_write_error_timestamp
-        
-        	Last full file write error timestamp since epoch
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: incremental_file_write_interval
-        
-        	Incremental file write interval in minutes
+        	Last incremental file write error timestamp since epoch
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -275,30 +296,9 @@ class Dhcpv6(object):
         
         	**range:** 0..4294967295
         
-        .. attribute:: incremental_file_write_count
+        .. attribute:: version
         
-        	Incremental file write count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: failed_incremental_file_write_count
-        
-        	Failed incremental file write count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: incremental_file_record_count
-        
-        	Incremental file record count
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: last_incremental_file_write_error_timestamp
-        
-        	Last incremental file write error timestamp since epoch
+        	Current file version
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -313,21 +313,21 @@ class Dhcpv6(object):
         def __init__(self):
             self.parent = None
             self.configured = None
-            self.version = None
+            self.failed_full_file_write_count = None
+            self.failed_incremental_file_write_count = None
+            self.full_file_record_count = None
+            self.full_file_write_count = None
             self.full_file_write_interval = None
+            self.incremental_file_record_count = None
+            self.incremental_file_write_count = None
+            self.incremental_file_write_interval = None
+            self.last_full_file_write_error_timestamp = None
             self.last_full_write_file_name = None
             self.last_full_write_time = None
-            self.full_file_write_count = None
-            self.failed_full_file_write_count = None
-            self.full_file_record_count = None
-            self.last_full_file_write_error_timestamp = None
-            self.incremental_file_write_interval = None
+            self.last_incremental_file_write_error_timestamp = None
             self.last_incremental_write_file_name = None
             self.last_incremental_write_time = None
-            self.incremental_file_write_count = None
-            self.failed_incremental_file_write_count = None
-            self.incremental_file_record_count = None
-            self.last_incremental_file_write_error_timestamp = None
+            self.version = None
 
         @property
         def _common_path(self):
@@ -344,10 +344,31 @@ class Dhcpv6(object):
             if self.configured is not None:
                 return True
 
-            if self.version is not None:
+            if self.failed_full_file_write_count is not None:
+                return True
+
+            if self.failed_incremental_file_write_count is not None:
+                return True
+
+            if self.full_file_record_count is not None:
+                return True
+
+            if self.full_file_write_count is not None:
                 return True
 
             if self.full_file_write_interval is not None:
+                return True
+
+            if self.incremental_file_record_count is not None:
+                return True
+
+            if self.incremental_file_write_count is not None:
+                return True
+
+            if self.incremental_file_write_interval is not None:
+                return True
+
+            if self.last_full_file_write_error_timestamp is not None:
                 return True
 
             if self.last_full_write_file_name is not None:
@@ -356,19 +377,7 @@ class Dhcpv6(object):
             if self.last_full_write_time is not None:
                 return True
 
-            if self.full_file_write_count is not None:
-                return True
-
-            if self.failed_full_file_write_count is not None:
-                return True
-
-            if self.full_file_record_count is not None:
-                return True
-
-            if self.last_full_file_write_error_timestamp is not None:
-                return True
-
-            if self.incremental_file_write_interval is not None:
+            if self.last_incremental_file_write_error_timestamp is not None:
                 return True
 
             if self.last_incremental_write_file_name is not None:
@@ -377,16 +386,7 @@ class Dhcpv6(object):
             if self.last_incremental_write_time is not None:
                 return True
 
-            if self.incremental_file_write_count is not None:
-                return True
-
-            if self.failed_incremental_file_write_count is not None:
-                return True
-
-            if self.incremental_file_record_count is not None:
-                return True
-
-            if self.last_incremental_file_write_error_timestamp is not None:
+            if self.version is not None:
                 return True
 
             return False
@@ -436,15 +436,15 @@ class Dhcpv6(object):
             	IPv6 DHCP proxy operational data
             	**type**\: :py:class:`Proxy <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy>`
             
-            .. attribute:: server
-            
-            	IPv6 DHCP server operational data
-            	**type**\: :py:class:`Server <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server>`
-            
             .. attribute:: relay
             
             	IPv6 DHCP relay operational data
             	**type**\: :py:class:`Relay <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay>`
+            
+            .. attribute:: server
+            
+            	IPv6 DHCP server operational data
+            	**type**\: :py:class:`Server <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server>`
             
             
 
@@ -458,20 +458,20 @@ class Dhcpv6(object):
                 self.node_name = None
                 self.proxy = Dhcpv6.Nodes.Node.Proxy()
                 self.proxy.parent = self
-                self.server = Dhcpv6.Nodes.Node.Server()
-                self.server.parent = self
                 self.relay = Dhcpv6.Nodes.Node.Relay()
                 self.relay.parent = self
+                self.server = Dhcpv6.Nodes.Node.Server()
+                self.server.parent = self
 
 
             class Proxy(object):
                 """
                 IPv6 DHCP proxy operational data
                 
-                .. attribute:: vrfs
+                .. attribute:: binding
                 
-                	DHCPV6 proxy list of VRF names
-                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs>`
+                	DHCPV6 proxy bindings
+                	**type**\: :py:class:`Binding <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding>`
                 
                 .. attribute:: profiles
                 
@@ -483,10 +483,10 @@ class Dhcpv6(object):
                 	DHCPv6 proxy statistics
                 	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics>`
                 
-                .. attribute:: binding
+                .. attribute:: vrfs
                 
-                	DHCPV6 proxy bindings
-                	**type**\: :py:class:`Binding <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding>`
+                	DHCPV6 proxy list of VRF names
+                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs>`
                 
                 
 
@@ -497,14 +497,14 @@ class Dhcpv6(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.vrfs = Dhcpv6.Nodes.Node.Proxy.Vrfs()
-                    self.vrfs.parent = self
+                    self.binding = Dhcpv6.Nodes.Node.Proxy.Binding()
+                    self.binding.parent = self
                     self.profiles = Dhcpv6.Nodes.Node.Proxy.Profiles()
                     self.profiles.parent = self
                     self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics()
                     self.statistics.parent = self
-                    self.binding = Dhcpv6.Nodes.Node.Proxy.Binding()
-                    self.binding.parent = self
+                    self.vrfs = Dhcpv6.Nodes.Node.Proxy.Vrfs()
+                    self.vrfs.parent = self
 
 
                 class Vrfs(object):
@@ -564,25 +564,10 @@ class Dhcpv6(object):
                             """
                             IPv6 DHCP proxy statistics
                             
-                            .. attribute:: solicit
-                            
-                            	DHCPV6 solicit packets
-                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit>`
-                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\: :py:class:`Advertise <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise>`
-                            
-                            .. attribute:: request
-                            
-                            	DHCPV6 request packets
-                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
-                            
-                            .. attribute:: reply
-                            
-                            	DHCPV6 reply packets
-                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply>`
                             
                             .. attribute:: confirm
                             
@@ -594,30 +579,40 @@ class Dhcpv6(object):
                             	DHCPV6 decline packets
                             	**type**\: :py:class:`Decline <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
                             
-                            .. attribute:: renew
+                            .. attribute:: inform
                             
-                            	DHCPV6 renew packets
-                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew>`
+                            	DHCPV6 inform packets
+                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCPV6 lease query packets
+                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_query_data
+                            
+                            	DHCPV6 lease query data packets
+                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            .. attribute:: lease_query_done
+                            
+                            	DHCPV6 lease query done packets
+                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            
+                            .. attribute:: lease_query_reply
+                            
+                            	DHCPV6 lease query reply packets
+                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\: :py:class:`Rebind <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind>`
                             
-                            .. attribute:: release
-                            
-                            	DHCPV6 release packets
-                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
-                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\: :py:class:`Reconfig <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCPV6 inform packets
-                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: relay_forward
                             
@@ -629,25 +624,30 @@ class Dhcpv6(object):
                             	DHCPV6 relay reply packets
                             	**type**\: :py:class:`RelayReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply>`
                             
-                            .. attribute:: lease_query
+                            .. attribute:: release
                             
-                            	DHCPV6 lease query packets
-                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	DHCPV6 release packets
+                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
                             
-                            .. attribute:: lease_query_reply
+                            .. attribute:: renew
                             
-                            	DHCPV6 lease query reply packets
-                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply>`
+                            	DHCPV6 renew packets
+                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew>`
                             
-                            .. attribute:: lease_query_done
+                            .. attribute:: reply
                             
-                            	DHCPV6 lease query done packets
-                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            	DHCPV6 reply packets
+                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply>`
                             
-                            .. attribute:: lease_query_data
+                            .. attribute:: request
                             
-                            	DHCPV6 lease query data packets
-                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            	DHCPV6 request packets
+                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: solicit
+                            
+                            	DHCPV6 solicit packets
+                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit>`
                             
                             
 
@@ -658,64 +658,64 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.solicit = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit()
-                                self.solicit.parent = self
                                 self.advertise = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise()
                                 self.advertise.parent = self
-                                self.request = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self.reply = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply()
-                                self.reply.parent = self
                                 self.confirm = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm()
                                 self.confirm.parent = self
                                 self.decline = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline()
                                 self.decline.parent = self
-                                self.renew = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew()
-                                self.renew.parent = self
-                                self.rebind = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind()
-                                self.rebind.parent = self
-                                self.release = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release()
-                                self.release.parent = self
-                                self.reconfig = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig()
-                                self.reconfig.parent = self
                                 self.inform = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform()
                                 self.inform.parent = self
+                                self.lease_query = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self.lease_query_data = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData()
+                                self.lease_query_data.parent = self
+                                self.lease_query_done = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone()
+                                self.lease_query_done.parent = self
+                                self.lease_query_reply = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply()
+                                self.lease_query_reply.parent = self
+                                self.rebind = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind()
+                                self.rebind.parent = self
+                                self.reconfig = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig()
+                                self.reconfig.parent = self
                                 self.relay_forward = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward()
                                 self.relay_forward.parent = self
                                 self.relay_reply = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply()
                                 self.relay_reply.parent = self
-                                self.lease_query = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self.lease_query_reply = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply()
-                                self.lease_query_reply.parent = self
-                                self.lease_query_done = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone()
-                                self.lease_query_done.parent = self
-                                self.lease_query_data = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData()
-                                self.lease_query_data.parent = self
+                                self.release = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release()
+                                self.release.parent = self
+                                self.renew = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew()
+                                self.renew.parent = self
+                                self.reply = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply()
+                                self.reply.parent = self
+                                self.request = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self.solicit = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit()
+                                self.solicit.parent = self
 
 
                             class Solicit(object):
                                 """
                                 DHCPV6 solicit packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -728,14 +728,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:solicit'
 
@@ -746,13 +746,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -767,24 +767,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 advertise packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -797,14 +797,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:advertise'
 
@@ -815,13 +815,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -836,24 +836,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 request packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -866,14 +866,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:request'
 
@@ -884,13 +884,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -905,24 +905,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -935,14 +935,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reply'
 
@@ -953,13 +953,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -974,24 +974,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 confirm packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1004,14 +1004,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:confirm'
 
@@ -1022,13 +1022,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1043,24 +1043,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 decline packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1073,14 +1073,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:decline'
 
@@ -1091,13 +1091,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1112,24 +1112,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 renew packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1142,14 +1142,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:renew'
 
@@ -1160,13 +1160,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1181,24 +1181,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 rebind packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1211,14 +1211,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:rebind'
 
@@ -1229,13 +1229,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1250,24 +1250,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 release packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1280,14 +1280,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:release'
 
@@ -1298,13 +1298,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1319,24 +1319,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reconfig packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1349,14 +1349,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reconfig'
 
@@ -1367,13 +1367,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1388,24 +1388,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 inform packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1418,14 +1418,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:inform'
 
@@ -1436,13 +1436,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1457,24 +1457,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay forward packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1487,14 +1487,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-forward'
 
@@ -1505,13 +1505,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1526,24 +1526,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1556,14 +1556,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-reply'
 
@@ -1574,13 +1574,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1595,24 +1595,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1625,14 +1625,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query'
 
@@ -1643,13 +1643,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1664,24 +1664,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1694,14 +1694,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-reply'
 
@@ -1712,13 +1712,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1733,24 +1733,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query done packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1763,14 +1763,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-done'
 
@@ -1781,13 +1781,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1802,24 +1802,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query data packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1832,14 +1832,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-data'
 
@@ -1850,13 +1850,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -1869,7 +1869,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -1880,16 +1880,7 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.solicit is not None and self.solicit._has_data():
-                                    return True
-
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.request is not None and self.request._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply._has_data():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
@@ -1898,19 +1889,25 @@ class Dhcpv6(object):
                                 if self.decline is not None and self.decline._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew._has_data():
+                                if self.inform is not None and self.inform._has_data():
+                                    return True
+
+                                if self.lease_query is not None and self.lease_query._has_data():
+                                    return True
+
+                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                    return True
+
+                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                    return True
+
+                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
                                 if self.rebind is not None and self.rebind._has_data():
                                     return True
 
-                                if self.release is not None and self.release._has_data():
-                                    return True
-
                                 if self.reconfig is not None and self.reconfig._has_data():
-                                    return True
-
-                                if self.inform is not None and self.inform._has_data():
                                     return True
 
                                 if self.relay_forward is not None and self.relay_forward._has_data():
@@ -1919,16 +1916,19 @@ class Dhcpv6(object):
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.lease_query is not None and self.lease_query._has_data():
+                                if self.release is not None and self.release._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
+                                if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                if self.reply is not None and self.reply._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                if self.request is not None and self.request._has_data():
+                                    return True
+
+                                if self.solicit is not None and self.solicit._has_data():
                                     return True
 
                                 return False
@@ -1941,9 +1941,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1970,7 +1970,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrfs'
 
@@ -2028,15 +2028,15 @@ class Dhcpv6(object):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
-                        .. attribute:: throttle_infos
-                        
-                        	DHCPV6 throttle table
-                        	**type**\: :py:class:`ThrottleInfos <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos>`
-                        
                         .. attribute:: info
                         
                         	IPv6 DHCP proxy profile Info
                         	**type**\: :py:class:`Info <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info>`
+                        
+                        .. attribute:: throttle_infos
+                        
+                        	DHCPV6 throttle table
+                        	**type**\: :py:class:`ThrottleInfos <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos>`
                         
                         
 
@@ -2048,10 +2048,10 @@ class Dhcpv6(object):
                         def __init__(self):
                             self.parent = None
                             self.profile_name = None
-                            self.throttle_infos = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos()
-                            self.throttle_infos.parent = self
                             self.info = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info()
                             self.info.parent = self
+                            self.throttle_infos = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos()
+                            self.throttle_infos.parent = self
 
 
                         class ThrottleInfos(object):
@@ -2134,9 +2134,9 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.mac_address is None:
-                                        raise YPYDataValidationError('Key property mac_address is None')
+                                        raise YPYModelError('Key property mac_address is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:throttle-info[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:mac-address = ' + str(self.mac_address) + ']'
 
@@ -2172,7 +2172,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:throttle-infos'
 
@@ -2205,15 +2205,31 @@ class Dhcpv6(object):
                             	Interface id references
                             	**type**\: :py:class:`InterfaceIdReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences>`
                             
-                            .. attribute:: vrf_references
+                            .. attribute:: interface_name
                             
-                            	VRF references
-                            	**type**\: :py:class:`VrfReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences>`
+                            	Interface names
+                            	**type**\: list of str
+                            
+                            	**range:** 0..65
                             
                             .. attribute:: interface_references
                             
                             	Interface references
                             	**type**\: :py:class:`InterfaceReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences>`
+                            
+                            .. attribute:: profile_helper_address
+                            
+                            	Helper addresses
+                            	**type**\: list of str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: profile_link_address
+                            
+                            	Link address
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: profile_name
                             
@@ -2229,20 +2245,6 @@ class Dhcpv6(object):
                             
                             	**range:** 0..257
                             
-                            .. attribute:: profile_link_address
-                            
-                            	Link address
-                            	**type**\: str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: profile_helper_address
-                            
-                            	Helper addresses
-                            	**type**\: list of str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: vrf_name
                             
                             	VRF names
@@ -2250,12 +2252,10 @@ class Dhcpv6(object):
                             
                             	**range:** 0..33
                             
-                            .. attribute:: interface_name
+                            .. attribute:: vrf_references
                             
-                            	Interface names
-                            	**type**\: list of str
-                            
-                            	**range:** 0..65
+                            	VRF references
+                            	**type**\: :py:class:`VrfReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences>`
                             
                             
 
@@ -2268,22 +2268,22 @@ class Dhcpv6(object):
                                 self.parent = None
                                 self.interface_id_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences()
                                 self.interface_id_references.parent = self
-                                self.vrf_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences()
-                                self.vrf_references.parent = self
-                                self.interface_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences()
-                                self.interface_references.parent = self
-                                self.profile_name = None
-                                self.remote_id = None
-                                self.profile_link_address = None
-                                self.profile_helper_address = YLeafList()
-                                self.profile_helper_address.parent = self
-                                self.profile_helper_address.name = 'profile_helper_address'
-                                self.vrf_name = YLeafList()
-                                self.vrf_name.parent = self
-                                self.vrf_name.name = 'vrf_name'
                                 self.interface_name = YLeafList()
                                 self.interface_name.parent = self
                                 self.interface_name.name = 'interface_name'
+                                self.interface_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences()
+                                self.interface_references.parent = self
+                                self.profile_helper_address = YLeafList()
+                                self.profile_helper_address.parent = self
+                                self.profile_helper_address.name = 'profile_helper_address'
+                                self.profile_link_address = None
+                                self.profile_name = None
+                                self.remote_id = None
+                                self.vrf_name = YLeafList()
+                                self.vrf_name.parent = self
+                                self.vrf_name.name = 'vrf_name'
+                                self.vrf_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences()
+                                self.vrf_references.parent = self
 
 
                             class InterfaceIdReferences(object):
@@ -2342,7 +2342,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-proxy-iid-reference'
 
@@ -2369,7 +2369,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface-id-references'
 
@@ -2441,7 +2441,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-proxy-vrf-reference'
 
@@ -2465,7 +2465,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf-references'
 
@@ -2537,7 +2537,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-proxy-interface-reference'
 
@@ -2561,7 +2561,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface-references'
 
@@ -2587,7 +2587,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:info'
 
@@ -2601,10 +2601,20 @@ class Dhcpv6(object):
                                 if self.interface_id_references is not None and self.interface_id_references._has_data():
                                     return True
 
-                                if self.vrf_references is not None and self.vrf_references._has_data():
-                                    return True
+                                if self.interface_name is not None:
+                                    for child in self.interface_name:
+                                        if child is not None:
+                                            return True
 
                                 if self.interface_references is not None and self.interface_references._has_data():
+                                    return True
+
+                                if self.profile_helper_address is not None:
+                                    for child in self.profile_helper_address:
+                                        if child is not None:
+                                            return True
+
+                                if self.profile_link_address is not None:
                                     return True
 
                                 if self.profile_name is not None:
@@ -2613,23 +2623,13 @@ class Dhcpv6(object):
                                 if self.remote_id is not None:
                                     return True
 
-                                if self.profile_link_address is not None:
-                                    return True
-
-                                if self.profile_helper_address is not None:
-                                    for child in self.profile_helper_address:
-                                        if child is not None:
-                                            return True
-
                                 if self.vrf_name is not None:
                                     for child in self.vrf_name:
                                         if child is not None:
                                             return True
 
-                                if self.interface_name is not None:
-                                    for child in self.interface_name:
-                                        if child is not None:
-                                            return True
+                                if self.vrf_references is not None and self.vrf_references._has_data():
+                                    return True
 
                                 return False
 
@@ -2641,9 +2641,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.profile_name is None:
-                                raise YPYDataValidationError('Key property profile_name is None')
+                                raise YPYModelError('Key property profile_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profile[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profile-name = ' + str(self.profile_name) + ']'
 
@@ -2657,10 +2657,10 @@ class Dhcpv6(object):
                             if self.profile_name is not None:
                                 return True
 
-                            if self.throttle_infos is not None and self.throttle_infos._has_data():
+                            if self.info is not None and self.info._has_data():
                                 return True
 
-                            if self.info is not None and self.info._has_data():
+                            if self.throttle_infos is not None and self.throttle_infos._has_data():
                                 return True
 
                             return False
@@ -2673,7 +2673,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profiles'
 
@@ -2754,24 +2754,24 @@ class Dhcpv6(object):
                             """
                             Proxy statistics
                             
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2784,14 +2784,14 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.dropped_packets = None
                                 self.received_packets = None
                                 self.transmitted_packets = None
-                                self.dropped_packets = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -2802,13 +2802,13 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.dropped_packets is not None:
+                                    return True
+
                                 if self.received_packets is not None:
                                     return True
 
                                 if self.transmitted_packets is not None:
-                                    return True
-
-                                if self.dropped_packets is not None:
                                     return True
 
                                 return False
@@ -2821,7 +2821,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-proxy-stat'
 
@@ -2848,7 +2848,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -2935,83 +2935,12 @@ class Dhcpv6(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: ia_id_pd
-                            
-                            	List of DHCPv6 IA\_ID/PDs
-                            	**type**\: :py:class:`IaIdPd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd>`
-                            
-                            .. attribute:: duid
-                            
-                            	Client DUID
-                            	**type**\: str
-                            
-                            .. attribute:: client_flag
-                            
-                            	DHCPV6 client flag
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: subscriber_label
-                            
-                            	DHCPV6 subscriber label
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: vrf_name
-                            
-                            	DHCPVV6 client/subscriber VRF name
-                            	**type**\: str
-                            
-                            	**range:** 0..33
-                            
-                            .. attribute:: mac_address
-                            
-                            	Client MAC address
-                            	**type**\: str
-                            
-                            .. attribute:: ia_id_p_ds
-                            
-                            	Number of ia\_id/pd
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: interface_name
-                            
-                            	DHCPV6 access interface to client
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
                             .. attribute:: access_vrf_name
                             
                             	DHCPV6 access VRF name to client
                             	**type**\: str
                             
                             	**range:** 0..33
-                            
-                            .. attribute:: proxy_binding_tags
-                            
-                            	DHCPV6 VLAN tag count
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: proxy_binding_outer_tag
-                            
-                            	DHCPV6 VLAN Outer VLAN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: proxy_binding_inner_tag
-                            
-                            	DHCPV6 VLAN Inner VLAN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: class_name
                             
@@ -3020,54 +2949,17 @@ class Dhcpv6(object):
                             
                             	**range:** 0..64
                             
-                            .. attribute:: pool_name
+                            .. attribute:: client_flag
                             
-                            	DHCPV6 pool name
+                            	DHCPV6 client flag
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: duid
+                            
+                            	Client DUID
                             	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: rx_remote_id
-                            
-                            	DHCPV6 received Remote ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: tx_remote_id
-                            
-                            	DHCPV6 transmitted Remote ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: rx_interface_id
-                            
-                            	DHCPV6 received Interface ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: tx_interface_id
-                            
-                            	DHCPV6 transmitted Interface ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: server_ipv6_address
-                            
-                            	DHCPV6 server IPv6 address
-                            	**type**\: str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: profile_name
-                            
-                            	DHCPV6 profile name
-                            	**type**\: str
-                            
-                            	**range:** 0..65
                             
                             .. attribute:: framed_ipv6_prefix
                             
@@ -3083,10 +2975,97 @@ class Dhcpv6(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: ia_id_p_ds
+                            
+                            	Number of ia\_id/pd
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ia_id_pd
+                            
+                            	List of DHCPv6 IA\_ID/PDs
+                            	**type**\: :py:class:`IaIdPd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd>`
+                            
+                            .. attribute:: interface_name
+                            
+                            	DHCPV6 access interface to client
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
                             	**type**\: bool
+                            
+                            .. attribute:: mac_address
+                            
+                            	Client MAC address
+                            	**type**\: str
+                            
+                            .. attribute:: pool_name
+                            
+                            	DHCPV6 pool name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: profile_name
+                            
+                            	DHCPV6 profile name
+                            	**type**\: str
+                            
+                            	**range:** 0..65
+                            
+                            .. attribute:: proxy_binding_inner_tag
+                            
+                            	DHCPV6 VLAN Inner VLAN
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: proxy_binding_outer_tag
+                            
+                            	DHCPV6 VLAN Outer VLAN
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: proxy_binding_tags
+                            
+                            	DHCPV6 VLAN tag count
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: rx_interface_id
+                            
+                            	DHCPV6 received Interface ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: rx_remote_id
+                            
+                            	DHCPV6 received Remote ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: server_ipv6_address
+                            
+                            	DHCPV6 server IPv6 address
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: srg_intf_role
+                            
+                            	DHCPV6 SRG Intf Role
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: srg_state
                             
@@ -3095,12 +3074,33 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: srg_intf_role
+                            .. attribute:: subscriber_label
                             
-                            	DHCPV6 SRG Intf Role
+                            	DHCPV6 subscriber label
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: tx_interface_id
+                            
+                            	DHCPV6 transmitted Interface ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: tx_remote_id
+                            
+                            	DHCPV6 transmitted Remote ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: vrf_name
+                            
+                            	DHCPVV6 client/subscriber VRF name
+                            	**type**\: str
+                            
+                            	**range:** 0..33
                             
                             
 
@@ -3112,32 +3112,32 @@ class Dhcpv6(object):
                             def __init__(self):
                                 self.parent = None
                                 self.client_id = None
-                                self.ia_id_pd = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd()
-                                self.ia_id_pd.parent = self
-                                self.duid = None
-                                self.client_flag = None
-                                self.subscriber_label = None
-                                self.vrf_name = None
-                                self.mac_address = None
-                                self.ia_id_p_ds = None
-                                self.interface_name = None
                                 self.access_vrf_name = None
-                                self.proxy_binding_tags = None
-                                self.proxy_binding_outer_tag = None
-                                self.proxy_binding_inner_tag = None
                                 self.class_name = None
-                                self.pool_name = None
-                                self.rx_remote_id = None
-                                self.tx_remote_id = None
-                                self.rx_interface_id = None
-                                self.tx_interface_id = None
-                                self.server_ipv6_address = None
-                                self.profile_name = None
+                                self.client_flag = None
+                                self.duid = None
                                 self.framed_ipv6_prefix = None
                                 self.framed_prefix_length = None
+                                self.ia_id_p_ds = None
+                                self.ia_id_pd = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd()
+                                self.ia_id_pd.parent = self
+                                self.interface_name = None
                                 self.is_nak_next_renew = None
-                                self.srg_state = None
+                                self.mac_address = None
+                                self.pool_name = None
+                                self.profile_name = None
+                                self.proxy_binding_inner_tag = None
+                                self.proxy_binding_outer_tag = None
+                                self.proxy_binding_tags = None
+                                self.rx_interface_id = None
+                                self.rx_remote_id = None
+                                self.server_ipv6_address = None
                                 self.srg_intf_role = None
+                                self.srg_state = None
+                                self.subscriber_label = None
+                                self.tx_interface_id = None
+                                self.tx_remote_id = None
+                                self.vrf_name = None
 
 
                             class IaIdPd(object):
@@ -3172,10 +3172,12 @@ class Dhcpv6(object):
                                     	List of addresses in this IA
                                     	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses>`
                                     
-                                    .. attribute:: ia_type
+                                    .. attribute:: flags
                                     
-                                    	IA type
-                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
+                                    	FSM Flag for this IA
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: ia_id
                                     
@@ -3184,12 +3186,15 @@ class Dhcpv6(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: flags
+                                    .. attribute:: ia_type
                                     
-                                    	FSM Flag for this IA
-                                    	**type**\: int
+                                    	IA type
+                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
                                     
-                                    	**range:** 0..4294967295
+                                    .. attribute:: state
+                                    
+                                    	State
+                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     .. attribute:: total_address
                                     
@@ -3197,11 +3202,6 @@ class Dhcpv6(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
-                                    
-                                    .. attribute:: state
-                                    
-                                    	State
-                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     
 
@@ -3214,11 +3214,11 @@ class Dhcpv6(object):
                                         self.parent = None
                                         self.addresses = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
-                                        self.ia_type = None
-                                        self.ia_id = None
                                         self.flags = None
-                                        self.total_address = None
+                                        self.ia_id = None
+                                        self.ia_type = None
                                         self.state = None
+                                        self.total_address = None
 
 
                                     class Addresses(object):
@@ -3248,6 +3248,13 @@ class Dhcpv6(object):
                                             """
                                             bag dhcpv6d addr attrb
                                             
+                                            .. attribute:: lease_time
+                                            
+                                            	Lease time in seconds
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
                                             .. attribute:: prefix
                                             
                                             	IPv6 prefix
@@ -3261,13 +3268,6 @@ class Dhcpv6(object):
                                             	**type**\: int
                                             
                                             	**range:** 0..255
-                                            
-                                            .. attribute:: lease_time
-                                            
-                                            	Lease time in seconds
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: remaining_lease_time
                                             
@@ -3285,15 +3285,15 @@ class Dhcpv6(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.lease_time = None
                                                 self.prefix = None
                                                 self.prefix_length = None
-                                                self.lease_time = None
                                                 self.remaining_lease_time = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:bag-dhcpv6d-addr-attrb'
 
@@ -3304,13 +3304,13 @@ class Dhcpv6(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
+                                                if self.lease_time is not None:
+                                                    return True
+
                                                 if self.prefix is not None:
                                                     return True
 
                                                 if self.prefix_length is not None:
-                                                    return True
-
-                                                if self.lease_time is not None:
                                                     return True
 
                                                 if self.remaining_lease_time is not None:
@@ -3326,7 +3326,7 @@ class Dhcpv6(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:addresses'
 
@@ -3352,7 +3352,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:bag-dhcpv6d-ia-id-pd-info'
 
@@ -3366,19 +3366,19 @@ class Dhcpv6(object):
                                         if self.addresses is not None and self.addresses._has_data():
                                             return True
 
-                                        if self.ia_type is not None:
+                                        if self.flags is not None:
                                             return True
 
                                         if self.ia_id is not None:
                                             return True
 
-                                        if self.flags is not None:
-                                            return True
-
-                                        if self.total_address is not None:
+                                        if self.ia_type is not None:
                                             return True
 
                                         if self.state is not None:
+                                            return True
+
+                                        if self.total_address is not None:
                                             return True
 
                                         return False
@@ -3391,7 +3391,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ia-id-pd'
 
@@ -3417,9 +3417,9 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.client_id is None:
-                                    raise YPYDataValidationError('Key property client_id is None')
+                                    raise YPYModelError('Key property client_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client-id = ' + str(self.client_id) + ']'
 
@@ -3433,64 +3433,16 @@ class Dhcpv6(object):
                                 if self.client_id is not None:
                                     return True
 
-                                if self.ia_id_pd is not None and self.ia_id_pd._has_data():
-                                    return True
-
-                                if self.duid is not None:
-                                    return True
-
-                                if self.client_flag is not None:
-                                    return True
-
-                                if self.subscriber_label is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                if self.mac_address is not None:
-                                    return True
-
-                                if self.ia_id_p_ds is not None:
-                                    return True
-
-                                if self.interface_name is not None:
-                                    return True
-
                                 if self.access_vrf_name is not None:
-                                    return True
-
-                                if self.proxy_binding_tags is not None:
-                                    return True
-
-                                if self.proxy_binding_outer_tag is not None:
-                                    return True
-
-                                if self.proxy_binding_inner_tag is not None:
                                     return True
 
                                 if self.class_name is not None:
                                     return True
 
-                                if self.pool_name is not None:
+                                if self.client_flag is not None:
                                     return True
 
-                                if self.rx_remote_id is not None:
-                                    return True
-
-                                if self.tx_remote_id is not None:
-                                    return True
-
-                                if self.rx_interface_id is not None:
-                                    return True
-
-                                if self.tx_interface_id is not None:
-                                    return True
-
-                                if self.server_ipv6_address is not None:
-                                    return True
-
-                                if self.profile_name is not None:
+                                if self.duid is not None:
                                     return True
 
                                 if self.framed_ipv6_prefix is not None:
@@ -3499,13 +3451,61 @@ class Dhcpv6(object):
                                 if self.framed_prefix_length is not None:
                                     return True
 
+                                if self.ia_id_p_ds is not None:
+                                    return True
+
+                                if self.ia_id_pd is not None and self.ia_id_pd._has_data():
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
                                 if self.is_nak_next_renew is not None:
+                                    return True
+
+                                if self.mac_address is not None:
+                                    return True
+
+                                if self.pool_name is not None:
+                                    return True
+
+                                if self.profile_name is not None:
+                                    return True
+
+                                if self.proxy_binding_inner_tag is not None:
+                                    return True
+
+                                if self.proxy_binding_outer_tag is not None:
+                                    return True
+
+                                if self.proxy_binding_tags is not None:
+                                    return True
+
+                                if self.rx_interface_id is not None:
+                                    return True
+
+                                if self.rx_remote_id is not None:
+                                    return True
+
+                                if self.server_ipv6_address is not None:
+                                    return True
+
+                                if self.srg_intf_role is not None:
                                     return True
 
                                 if self.srg_state is not None:
                                     return True
 
-                                if self.srg_intf_role is not None:
+                                if self.subscriber_label is not None:
+                                    return True
+
+                                if self.tx_interface_id is not None:
+                                    return True
+
+                                if self.tx_remote_id is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
                                     return True
 
                                 return False
@@ -3518,7 +3518,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:clients'
 
@@ -3546,6 +3546,13 @@ class Dhcpv6(object):
                         """
                         DHCPV6 proxy binding summary
                         
+                        .. attribute:: clients
+                        
+                        	Total number of clients
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: iana
                         
                         	IANA proxy binding summary
@@ -3556,13 +3563,6 @@ class Dhcpv6(object):
                         	IAPD proxy binding summary
                         	**type**\: :py:class:`Iapd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd>`
                         
-                        .. attribute:: clients
-                        
-                        	Total number of clients
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         
 
                         """
@@ -3572,27 +3572,20 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.clients = None
                             self.iana = Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana()
                             self.iana.parent = self
                             self.iapd = Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd()
                             self.iapd.parent = self
-                            self.clients = None
 
 
                         class Iana(object):
                             """
                             IANA proxy binding summary
                             
-                            .. attribute:: initializing_clients
+                            .. attribute:: bound_clients
                             
-                            	Number of clients in init state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dpm_waiting_clients
-                            
-                            	Number of clients waiting on DPM to validate subscriber
+                            	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3604,9 +3597,9 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: msg_waiting_clients
+                            .. attribute:: dpm_waiting_clients
                             
-                            	Number of clients waiting for a message from the client/server
+                            	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3618,16 +3611,23 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: rib_waiting_clients
+                            .. attribute:: initializing_clients
                             
-                            	Number of clients in waiting on RIB response
+                            	Number of clients in init state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bound_clients
+                            .. attribute:: msg_waiting_clients
                             
-                            	Number of clients in bound state
+                            	Number of clients waiting for a message from the client/server
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: rib_waiting_clients
+                            
+                            	Number of clients in waiting on RIB response
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3641,18 +3641,18 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.initializing_clients = None
-                                self.dpm_waiting_clients = None
-                                self.daps_waiting_clients = None
-                                self.msg_waiting_clients = None
-                                self.iedge_waiting_clients = None
-                                self.rib_waiting_clients = None
                                 self.bound_clients = None
+                                self.daps_waiting_clients = None
+                                self.dpm_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.initializing_clients = None
+                                self.msg_waiting_clients = None
+                                self.rib_waiting_clients = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:iana'
 
@@ -3663,25 +3663,25 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.initializing_clients is not None:
-                                    return True
-
-                                if self.dpm_waiting_clients is not None:
+                                if self.bound_clients is not None:
                                     return True
 
                                 if self.daps_waiting_clients is not None:
                                     return True
 
-                                if self.msg_waiting_clients is not None:
+                                if self.dpm_waiting_clients is not None:
                                     return True
 
                                 if self.iedge_waiting_clients is not None:
                                     return True
 
-                                if self.rib_waiting_clients is not None:
+                                if self.initializing_clients is not None:
                                     return True
 
-                                if self.bound_clients is not None:
+                                if self.msg_waiting_clients is not None:
+                                    return True
+
+                                if self.rib_waiting_clients is not None:
                                     return True
 
                                 return False
@@ -3696,16 +3696,9 @@ class Dhcpv6(object):
                             """
                             IAPD proxy binding summary
                             
-                            .. attribute:: initializing_clients
+                            .. attribute:: bound_clients
                             
-                            	Number of clients in init state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dpm_waiting_clients
-                            
-                            	Number of clients waiting on DPM to validate subscriber
+                            	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3717,9 +3710,9 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: msg_waiting_clients
+                            .. attribute:: dpm_waiting_clients
                             
-                            	Number of clients waiting for a message from the client/server
+                            	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3731,16 +3724,23 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: rib_waiting_clients
+                            .. attribute:: initializing_clients
                             
-                            	Number of clients in waiting on RIB response
+                            	Number of clients in init state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bound_clients
+                            .. attribute:: msg_waiting_clients
                             
-                            	Number of clients in bound state
+                            	Number of clients waiting for a message from the client/server
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: rib_waiting_clients
+                            
+                            	Number of clients in waiting on RIB response
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -3754,18 +3754,18 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.initializing_clients = None
-                                self.dpm_waiting_clients = None
-                                self.daps_waiting_clients = None
-                                self.msg_waiting_clients = None
-                                self.iedge_waiting_clients = None
-                                self.rib_waiting_clients = None
                                 self.bound_clients = None
+                                self.daps_waiting_clients = None
+                                self.dpm_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.initializing_clients = None
+                                self.msg_waiting_clients = None
+                                self.rib_waiting_clients = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:iapd'
 
@@ -3776,25 +3776,25 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.initializing_clients is not None:
-                                    return True
-
-                                if self.dpm_waiting_clients is not None:
+                                if self.bound_clients is not None:
                                     return True
 
                                 if self.daps_waiting_clients is not None:
                                     return True
 
-                                if self.msg_waiting_clients is not None:
+                                if self.dpm_waiting_clients is not None:
                                     return True
 
                                 if self.iedge_waiting_clients is not None:
                                     return True
 
-                                if self.rib_waiting_clients is not None:
+                                if self.initializing_clients is not None:
                                     return True
 
-                                if self.bound_clients is not None:
+                                if self.msg_waiting_clients is not None:
+                                    return True
+
+                                if self.rib_waiting_clients is not None:
                                     return True
 
                                 return False
@@ -3807,7 +3807,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:summary'
 
@@ -3818,13 +3818,13 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.clients is not None:
+                                return True
+
                             if self.iana is not None and self.iana._has_data():
                                 return True
 
                             if self.iapd is not None and self.iapd._has_data():
-                                return True
-
-                            if self.clients is not None:
                                 return True
 
                             return False
@@ -3837,7 +3837,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:binding'
 
@@ -3864,7 +3864,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:proxy'
 
@@ -3875,7 +3875,7 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.vrfs is not None and self.vrfs._has_data():
+                    if self.binding is not None and self.binding._has_data():
                         return True
 
                     if self.profiles is not None and self.profiles._has_data():
@@ -3884,7 +3884,7 @@ class Dhcpv6(object):
                     if self.statistics is not None and self.statistics._has_data():
                         return True
 
-                    if self.binding is not None and self.binding._has_data():
+                    if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
                     return False
@@ -3904,11 +3904,6 @@ class Dhcpv6(object):
                 	DHCPV6 server bindings
                 	**type**\: :py:class:`Binding <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding>`
                 
-                .. attribute:: vrfs
-                
-                	DHCPV6 server list of VRF names
-                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs>`
-                
                 .. attribute:: profiles
                 
                 	IPv6 DHCP server profile
@@ -3918,6 +3913,11 @@ class Dhcpv6(object):
                 
                 	DHCPv6 server statistics
                 	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics>`
+                
+                .. attribute:: vrfs
+                
+                	DHCPV6 server list of VRF names
+                	**type**\: :py:class:`Vrfs <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs>`
                 
                 
 
@@ -3930,27 +3930,27 @@ class Dhcpv6(object):
                     self.parent = None
                     self.binding = Dhcpv6.Nodes.Node.Server.Binding()
                     self.binding.parent = self
-                    self.vrfs = Dhcpv6.Nodes.Node.Server.Vrfs()
-                    self.vrfs.parent = self
                     self.profiles = Dhcpv6.Nodes.Node.Server.Profiles()
                     self.profiles.parent = self
                     self.statistics = Dhcpv6.Nodes.Node.Server.Statistics()
                     self.statistics.parent = self
+                    self.vrfs = Dhcpv6.Nodes.Node.Server.Vrfs()
+                    self.vrfs.parent = self
 
 
                 class Binding(object):
                     """
                     DHCPV6 server bindings
                     
-                    .. attribute:: summary
-                    
-                    	DHCPV6 server binding summary
-                    	**type**\: :py:class:`Summary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary>`
-                    
                     .. attribute:: clients
                     
                     	DHCPV6 server client bindings
                     	**type**\: :py:class:`Clients <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients>`
+                    
+                    .. attribute:: summary
+                    
+                    	DHCPV6 server binding summary
+                    	**type**\: :py:class:`Summary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary>`
                     
                     
 
@@ -3961,15 +3961,22 @@ class Dhcpv6(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.summary = Dhcpv6.Nodes.Node.Server.Binding.Summary()
-                        self.summary.parent = self
                         self.clients = Dhcpv6.Nodes.Node.Server.Binding.Clients()
                         self.clients.parent = self
+                        self.summary = Dhcpv6.Nodes.Node.Server.Binding.Summary()
+                        self.summary.parent = self
 
 
                     class Summary(object):
                         """
                         DHCPV6 server binding summary
+                        
+                        .. attribute:: clients
+                        
+                        	Total number of clients
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: iana
                         
@@ -3981,13 +3988,6 @@ class Dhcpv6(object):
                         	IAPD server binding summary
                         	**type**\: :py:class:`Iapd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd>`
                         
-                        .. attribute:: clients
-                        
-                        	Total number of clients
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         
 
                         """
@@ -3997,27 +3997,20 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.clients = None
                             self.iana = Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana()
                             self.iana.parent = self
                             self.iapd = Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd()
                             self.iapd.parent = self
-                            self.clients = None
 
 
                         class Iana(object):
                             """
                             IANA server binding summary
                             
-                            .. attribute:: initializing_clients
+                            .. attribute:: bound_clients
                             
-                            	Number of clients in init state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dpm_waiting_clients
-                            
-                            	Number of clients waiting on DPM to validate subscriber
+                            	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4029,9 +4022,9 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: request_waiting_clients
+                            .. attribute:: dpm_waiting_clients
                             
-                            	Number of clients waiting for a request from the client
+                            	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4043,16 +4036,23 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: rib_waiting_clients
+                            .. attribute:: initializing_clients
                             
-                            	Number of clients in waiting for RIB response
+                            	Number of clients in init state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bound_clients
+                            .. attribute:: request_waiting_clients
                             
-                            	Number of clients in bound state
+                            	Number of clients waiting for a request from the client
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: rib_waiting_clients
+                            
+                            	Number of clients in waiting for RIB response
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4066,18 +4066,18 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.initializing_clients = None
-                                self.dpm_waiting_clients = None
-                                self.daps_waiting_clients = None
-                                self.request_waiting_clients = None
-                                self.iedge_waiting_clients = None
-                                self.rib_waiting_clients = None
                                 self.bound_clients = None
+                                self.daps_waiting_clients = None
+                                self.dpm_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.initializing_clients = None
+                                self.request_waiting_clients = None
+                                self.rib_waiting_clients = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:iana'
 
@@ -4088,25 +4088,25 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.initializing_clients is not None:
-                                    return True
-
-                                if self.dpm_waiting_clients is not None:
+                                if self.bound_clients is not None:
                                     return True
 
                                 if self.daps_waiting_clients is not None:
                                     return True
 
-                                if self.request_waiting_clients is not None:
+                                if self.dpm_waiting_clients is not None:
                                     return True
 
                                 if self.iedge_waiting_clients is not None:
                                     return True
 
-                                if self.rib_waiting_clients is not None:
+                                if self.initializing_clients is not None:
                                     return True
 
-                                if self.bound_clients is not None:
+                                if self.request_waiting_clients is not None:
+                                    return True
+
+                                if self.rib_waiting_clients is not None:
                                     return True
 
                                 return False
@@ -4121,16 +4121,9 @@ class Dhcpv6(object):
                             """
                             IAPD server binding summary
                             
-                            .. attribute:: initializing_clients
+                            .. attribute:: bound_clients
                             
-                            	Number of clients in init state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dpm_waiting_clients
-                            
-                            	Number of clients waiting on DPM to validate subscriber
+                            	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4142,9 +4135,9 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: request_waiting_clients
+                            .. attribute:: dpm_waiting_clients
                             
-                            	Number of clients waiting for a request from the client
+                            	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4156,16 +4149,23 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: rib_waiting_clients
+                            .. attribute:: initializing_clients
                             
-                            	Number of clients in waiting for RIB response
+                            	Number of clients in init state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bound_clients
+                            .. attribute:: request_waiting_clients
                             
-                            	Number of clients in bound state
+                            	Number of clients waiting for a request from the client
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: rib_waiting_clients
+                            
+                            	Number of clients in waiting for RIB response
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4179,18 +4179,18 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.initializing_clients = None
-                                self.dpm_waiting_clients = None
-                                self.daps_waiting_clients = None
-                                self.request_waiting_clients = None
-                                self.iedge_waiting_clients = None
-                                self.rib_waiting_clients = None
                                 self.bound_clients = None
+                                self.daps_waiting_clients = None
+                                self.dpm_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.initializing_clients = None
+                                self.request_waiting_clients = None
+                                self.rib_waiting_clients = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:iapd'
 
@@ -4201,25 +4201,25 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.initializing_clients is not None:
-                                    return True
-
-                                if self.dpm_waiting_clients is not None:
+                                if self.bound_clients is not None:
                                     return True
 
                                 if self.daps_waiting_clients is not None:
                                     return True
 
-                                if self.request_waiting_clients is not None:
+                                if self.dpm_waiting_clients is not None:
                                     return True
 
                                 if self.iedge_waiting_clients is not None:
                                     return True
 
-                                if self.rib_waiting_clients is not None:
+                                if self.initializing_clients is not None:
                                     return True
 
-                                if self.bound_clients is not None:
+                                if self.request_waiting_clients is not None:
+                                    return True
+
+                                if self.rib_waiting_clients is not None:
                                     return True
 
                                 return False
@@ -4232,7 +4232,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:summary'
 
@@ -4243,13 +4243,13 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.clients is not None:
+                                return True
+
                             if self.iana is not None and self.iana._has_data():
                                 return True
 
                             if self.iapd is not None and self.iapd._has_data():
-                                return True
-
-                            if self.clients is not None:
                                 return True
 
                             return False
@@ -4294,15 +4294,33 @@ class Dhcpv6(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: ia_id_pd
+                            .. attribute:: access_vrf_name
                             
-                            	List of DHCPv6 IA\_ID/PDs
-                            	**type**\: :py:class:`IaIdPd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd>`
-                            
-                            .. attribute:: duid
-                            
-                            	Client DUID
+                            	DHCPV6 access VRF name to client
                             	**type**\: str
+                            
+                            	**range:** 0..33
+                            
+                            .. attribute:: address_pool_name
+                            
+                            	DHCPV6 server address pool name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: class_name
+                            
+                            	DHCPV6 class name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: client_flag
+                            
+                            	DHCPV6 client flag
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: client_id_xr
                             
@@ -4311,9 +4329,134 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: client_flag
+                            .. attribute:: dns_server_count
                             
-                            	DHCPV6 client flag
+                            	DNS server count
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: duid
+                            
+                            	Client DUID
+                            	**type**\: str
+                            
+                            .. attribute:: framed_ipv6_prefix
+                            
+                            	DHCPV6 framed ipv6 addess used by ND
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: framed_prefix_length
+                            
+                            	DHCPV6 framed ipv6 prefix length used by ND
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: ia_id_p_ds
+                            
+                            	Number of ia\_id/pd
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ia_id_pd
+                            
+                            	List of DHCPv6 IA\_ID/PDs
+                            	**type**\: :py:class:`IaIdPd <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd>`
+                            
+                            .. attribute:: interface_name
+                            
+                            	DHCPV6 access interface to client
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: is_nak_next_renew
+                            
+                            	Is true if DHCPv6 next renew from client will be NAK'd
+                            	**type**\: bool
+                            
+                            .. attribute:: link_local_address
+                            
+                            	DHCPV6 IPv6 client link local address
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: mac_address
+                            
+                            	Client MAC address
+                            	**type**\: str
+                            
+                            .. attribute:: pool_name
+                            
+                            	DHCPV6 pool name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: prefix_pool_name
+                            
+                            	DHCPV6 server prefix pool name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: profile_name
+                            
+                            	DHCPV6 profile name
+                            	**type**\: str
+                            
+                            	**range:** 0..64
+                            
+                            .. attribute:: rx_interface_id
+                            
+                            	DHCPV6 received Interface ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: rx_remote_id
+                            
+                            	DHCPV6 received Remote ID
+                            	**type**\: str
+                            
+                            	**range:** 0..771
+                            
+                            .. attribute:: server_binding_inner_tag
+                            
+                            	DHCPV6 VLAN Inner VLAN
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: server_binding_outer_tag
+                            
+                            	DHCPV6 VLAN Outer VLAN
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: server_binding_tags
+                            
+                            	DHCPV6 VLAN tag count
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: srg_intf_role
+                            
+                            	DHCPV6 SRG Intf Role
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: srg_state
+                            
+                            	DHCPV6 SRG state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4332,149 +4475,6 @@ class Dhcpv6(object):
                             
                             	**range:** 0..33
                             
-                            .. attribute:: mac_address
-                            
-                            	Client MAC address
-                            	**type**\: str
-                            
-                            .. attribute:: ia_id_p_ds
-                            
-                            	Number of ia\_id/pd
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: link_local_address
-                            
-                            	DHCPV6 IPv6 client link local address
-                            	**type**\: str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: interface_name
-                            
-                            	DHCPV6 access interface to client
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: access_vrf_name
-                            
-                            	DHCPV6 access VRF name to client
-                            	**type**\: str
-                            
-                            	**range:** 0..33
-                            
-                            .. attribute:: server_binding_tags
-                            
-                            	DHCPV6 VLAN tag count
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: server_binding_outer_tag
-                            
-                            	DHCPV6 VLAN Outer VLAN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: server_binding_inner_tag
-                            
-                            	DHCPV6 VLAN Inner VLAN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pool_name
-                            
-                            	DHCPV6 pool name
-                            	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: profile_name
-                            
-                            	DHCPV6 profile name
-                            	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: framed_ipv6_prefix
-                            
-                            	DHCPV6 framed ipv6 addess used by ND
-                            	**type**\: str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: framed_prefix_length
-                            
-                            	DHCPV6 framed ipv6 prefix length used by ND
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: class_name
-                            
-                            	DHCPV6 class name
-                            	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: rx_remote_id
-                            
-                            	DHCPV6 received Remote ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: rx_interface_id
-                            
-                            	DHCPV6 received Interface ID
-                            	**type**\: str
-                            
-                            	**range:** 0..771
-                            
-                            .. attribute:: prefix_pool_name
-                            
-                            	DHCPV6 server prefix pool name
-                            	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: address_pool_name
-                            
-                            	DHCPV6 server address pool name
-                            	**type**\: str
-                            
-                            	**range:** 0..64
-                            
-                            .. attribute:: dns_server_count
-                            
-                            	DNS server count
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_nak_next_renew
-                            
-                            	Is true if DHCPv6 next renew from client will be NAK'd
-                            	**type**\: bool
-                            
-                            .. attribute:: srg_state
-                            
-                            	DHCPV6 SRG state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: srg_intf_role
-                            
-                            	DHCPV6 SRG Intf Role
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             
 
                             """
@@ -4485,34 +4485,34 @@ class Dhcpv6(object):
                             def __init__(self):
                                 self.parent = None
                                 self.client_id = None
-                                self.ia_id_pd = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd()
-                                self.ia_id_pd.parent = self
-                                self.duid = None
-                                self.client_id_xr = None
-                                self.client_flag = None
-                                self.subscriber_label = None
-                                self.vrf_name = None
-                                self.mac_address = None
-                                self.ia_id_p_ds = None
-                                self.link_local_address = None
-                                self.interface_name = None
                                 self.access_vrf_name = None
-                                self.server_binding_tags = None
-                                self.server_binding_outer_tag = None
-                                self.server_binding_inner_tag = None
-                                self.pool_name = None
-                                self.profile_name = None
+                                self.address_pool_name = None
+                                self.class_name = None
+                                self.client_flag = None
+                                self.client_id_xr = None
+                                self.dns_server_count = None
+                                self.duid = None
                                 self.framed_ipv6_prefix = None
                                 self.framed_prefix_length = None
-                                self.class_name = None
-                                self.rx_remote_id = None
-                                self.rx_interface_id = None
-                                self.prefix_pool_name = None
-                                self.address_pool_name = None
-                                self.dns_server_count = None
+                                self.ia_id_p_ds = None
+                                self.ia_id_pd = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd()
+                                self.ia_id_pd.parent = self
+                                self.interface_name = None
                                 self.is_nak_next_renew = None
-                                self.srg_state = None
+                                self.link_local_address = None
+                                self.mac_address = None
+                                self.pool_name = None
+                                self.prefix_pool_name = None
+                                self.profile_name = None
+                                self.rx_interface_id = None
+                                self.rx_remote_id = None
+                                self.server_binding_inner_tag = None
+                                self.server_binding_outer_tag = None
+                                self.server_binding_tags = None
                                 self.srg_intf_role = None
+                                self.srg_state = None
+                                self.subscriber_label = None
+                                self.vrf_name = None
 
 
                             class IaIdPd(object):
@@ -4547,10 +4547,12 @@ class Dhcpv6(object):
                                     	List of addresses in this IA
                                     	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses>`
                                     
-                                    .. attribute:: ia_type
+                                    .. attribute:: flags
                                     
-                                    	IA type
-                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
+                                    	FSM Flag for this IA
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: ia_id
                                     
@@ -4559,12 +4561,15 @@ class Dhcpv6(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: flags
+                                    .. attribute:: ia_type
                                     
-                                    	FSM Flag for this IA
-                                    	**type**\: int
+                                    	IA type
+                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
                                     
-                                    	**range:** 0..4294967295
+                                    .. attribute:: state
+                                    
+                                    	State
+                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     .. attribute:: total_address
                                     
@@ -4572,11 +4577,6 @@ class Dhcpv6(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
-                                    
-                                    .. attribute:: state
-                                    
-                                    	State
-                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     
 
@@ -4589,11 +4589,11 @@ class Dhcpv6(object):
                                         self.parent = None
                                         self.addresses = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
-                                        self.ia_type = None
-                                        self.ia_id = None
                                         self.flags = None
-                                        self.total_address = None
+                                        self.ia_id = None
+                                        self.ia_type = None
                                         self.state = None
+                                        self.total_address = None
 
 
                                     class Addresses(object):
@@ -4623,6 +4623,13 @@ class Dhcpv6(object):
                                             """
                                             bag dhcpv6d addr attrb
                                             
+                                            .. attribute:: lease_time
+                                            
+                                            	Lease time in seconds
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
                                             .. attribute:: prefix
                                             
                                             	IPv6 prefix
@@ -4636,13 +4643,6 @@ class Dhcpv6(object):
                                             	**type**\: int
                                             
                                             	**range:** 0..255
-                                            
-                                            .. attribute:: lease_time
-                                            
-                                            	Lease time in seconds
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: remaining_lease_time
                                             
@@ -4660,15 +4660,15 @@ class Dhcpv6(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.lease_time = None
                                                 self.prefix = None
                                                 self.prefix_length = None
-                                                self.lease_time = None
                                                 self.remaining_lease_time = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:bag-dhcpv6d-addr-attrb'
 
@@ -4679,13 +4679,13 @@ class Dhcpv6(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
+                                                if self.lease_time is not None:
+                                                    return True
+
                                                 if self.prefix is not None:
                                                     return True
 
                                                 if self.prefix_length is not None:
-                                                    return True
-
-                                                if self.lease_time is not None:
                                                     return True
 
                                                 if self.remaining_lease_time is not None:
@@ -4701,7 +4701,7 @@ class Dhcpv6(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:addresses'
 
@@ -4727,7 +4727,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:bag-dhcpv6d-ia-id-pd-info'
 
@@ -4741,19 +4741,19 @@ class Dhcpv6(object):
                                         if self.addresses is not None and self.addresses._has_data():
                                             return True
 
-                                        if self.ia_type is not None:
+                                        if self.flags is not None:
                                             return True
 
                                         if self.ia_id is not None:
                                             return True
 
-                                        if self.flags is not None:
-                                            return True
-
-                                        if self.total_address is not None:
+                                        if self.ia_type is not None:
                                             return True
 
                                         if self.state is not None:
+                                            return True
+
+                                        if self.total_address is not None:
                                             return True
 
                                         return False
@@ -4766,7 +4766,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ia-id-pd'
 
@@ -4792,9 +4792,9 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.client_id is None:
-                                    raise YPYDataValidationError('Key property client_id is None')
+                                    raise YPYModelError('Key property client_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client-id = ' + str(self.client_id) + ']'
 
@@ -4808,52 +4808,25 @@ class Dhcpv6(object):
                                 if self.client_id is not None:
                                     return True
 
-                                if self.ia_id_pd is not None and self.ia_id_pd._has_data():
+                                if self.access_vrf_name is not None:
                                     return True
 
-                                if self.duid is not None:
+                                if self.address_pool_name is not None:
                                     return True
 
-                                if self.client_id_xr is not None:
+                                if self.class_name is not None:
                                     return True
 
                                 if self.client_flag is not None:
                                     return True
 
-                                if self.subscriber_label is not None:
+                                if self.client_id_xr is not None:
                                     return True
 
-                                if self.vrf_name is not None:
+                                if self.dns_server_count is not None:
                                     return True
 
-                                if self.mac_address is not None:
-                                    return True
-
-                                if self.ia_id_p_ds is not None:
-                                    return True
-
-                                if self.link_local_address is not None:
-                                    return True
-
-                                if self.interface_name is not None:
-                                    return True
-
-                                if self.access_vrf_name is not None:
-                                    return True
-
-                                if self.server_binding_tags is not None:
-                                    return True
-
-                                if self.server_binding_outer_tag is not None:
-                                    return True
-
-                                if self.server_binding_inner_tag is not None:
-                                    return True
-
-                                if self.pool_name is not None:
-                                    return True
-
-                                if self.profile_name is not None:
+                                if self.duid is not None:
                                     return True
 
                                 if self.framed_ipv6_prefix is not None:
@@ -4862,31 +4835,58 @@ class Dhcpv6(object):
                                 if self.framed_prefix_length is not None:
                                     return True
 
-                                if self.class_name is not None:
+                                if self.ia_id_p_ds is not None:
                                     return True
 
-                                if self.rx_remote_id is not None:
+                                if self.ia_id_pd is not None and self.ia_id_pd._has_data():
                                     return True
 
-                                if self.rx_interface_id is not None:
-                                    return True
-
-                                if self.prefix_pool_name is not None:
-                                    return True
-
-                                if self.address_pool_name is not None:
-                                    return True
-
-                                if self.dns_server_count is not None:
+                                if self.interface_name is not None:
                                     return True
 
                                 if self.is_nak_next_renew is not None:
                                     return True
 
-                                if self.srg_state is not None:
+                                if self.link_local_address is not None:
+                                    return True
+
+                                if self.mac_address is not None:
+                                    return True
+
+                                if self.pool_name is not None:
+                                    return True
+
+                                if self.prefix_pool_name is not None:
+                                    return True
+
+                                if self.profile_name is not None:
+                                    return True
+
+                                if self.rx_interface_id is not None:
+                                    return True
+
+                                if self.rx_remote_id is not None:
+                                    return True
+
+                                if self.server_binding_inner_tag is not None:
+                                    return True
+
+                                if self.server_binding_outer_tag is not None:
+                                    return True
+
+                                if self.server_binding_tags is not None:
                                     return True
 
                                 if self.srg_intf_role is not None:
+                                    return True
+
+                                if self.srg_state is not None:
+                                    return True
+
+                                if self.subscriber_label is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
                                     return True
 
                                 return False
@@ -4899,7 +4899,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:clients'
 
@@ -4925,7 +4925,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:binding'
 
@@ -4936,10 +4936,10 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.summary is not None and self.summary._has_data():
+                        if self.clients is not None and self.clients._has_data():
                             return True
 
-                        if self.clients is not None and self.clients._has_data():
+                        if self.summary is not None and self.summary._has_data():
                             return True
 
                         return False
@@ -5007,25 +5007,10 @@ class Dhcpv6(object):
                             """
                             IPv6 DHCP server statistics
                             
-                            .. attribute:: solicit
-                            
-                            	DHCPV6 solicit packets
-                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit>`
-                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\: :py:class:`Advertise <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise>`
-                            
-                            .. attribute:: request
-                            
-                            	DHCPV6 request packets
-                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
-                            
-                            .. attribute:: reply
-                            
-                            	DHCPV6 reply packets
-                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply>`
                             
                             .. attribute:: confirm
                             
@@ -5037,30 +5022,40 @@ class Dhcpv6(object):
                             	DHCPV6 decline packets
                             	**type**\: :py:class:`Decline <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
                             
-                            .. attribute:: renew
+                            .. attribute:: inform
                             
-                            	DHCPV6 renew packets
-                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew>`
+                            	DHCPV6 inform packets
+                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCPV6 lease query packets
+                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_query_data
+                            
+                            	DHCPV6 lease query data packets
+                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            .. attribute:: lease_query_done
+                            
+                            	DHCPV6 lease query done packets
+                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            
+                            .. attribute:: lease_query_reply
+                            
+                            	DHCPV6 lease query reply packets
+                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\: :py:class:`Rebind <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind>`
                             
-                            .. attribute:: release
-                            
-                            	DHCPV6 release packets
-                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
-                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\: :py:class:`Reconfig <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCPV6 inform packets
-                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: relay_forward
                             
@@ -5072,25 +5067,30 @@ class Dhcpv6(object):
                             	DHCPV6 relay reply packets
                             	**type**\: :py:class:`RelayReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply>`
                             
-                            .. attribute:: lease_query
+                            .. attribute:: release
                             
-                            	DHCPV6 lease query packets
-                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	DHCPV6 release packets
+                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
                             
-                            .. attribute:: lease_query_reply
+                            .. attribute:: renew
                             
-                            	DHCPV6 lease query reply packets
-                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply>`
+                            	DHCPV6 renew packets
+                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew>`
                             
-                            .. attribute:: lease_query_done
+                            .. attribute:: reply
                             
-                            	DHCPV6 lease query done packets
-                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            	DHCPV6 reply packets
+                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply>`
                             
-                            .. attribute:: lease_query_data
+                            .. attribute:: request
                             
-                            	DHCPV6 lease query data packets
-                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            	DHCPV6 request packets
+                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: solicit
+                            
+                            	DHCPV6 solicit packets
+                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit>`
                             
                             
 
@@ -5101,64 +5101,64 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.solicit = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit()
-                                self.solicit.parent = self
                                 self.advertise = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise()
                                 self.advertise.parent = self
-                                self.request = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self.reply = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply()
-                                self.reply.parent = self
                                 self.confirm = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm()
                                 self.confirm.parent = self
                                 self.decline = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline()
                                 self.decline.parent = self
-                                self.renew = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew()
-                                self.renew.parent = self
-                                self.rebind = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind()
-                                self.rebind.parent = self
-                                self.release = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release()
-                                self.release.parent = self
-                                self.reconfig = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig()
-                                self.reconfig.parent = self
                                 self.inform = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform()
                                 self.inform.parent = self
+                                self.lease_query = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self.lease_query_data = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData()
+                                self.lease_query_data.parent = self
+                                self.lease_query_done = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone()
+                                self.lease_query_done.parent = self
+                                self.lease_query_reply = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply()
+                                self.lease_query_reply.parent = self
+                                self.rebind = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind()
+                                self.rebind.parent = self
+                                self.reconfig = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig()
+                                self.reconfig.parent = self
                                 self.relay_forward = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward()
                                 self.relay_forward.parent = self
                                 self.relay_reply = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply()
                                 self.relay_reply.parent = self
-                                self.lease_query = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self.lease_query_reply = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply()
-                                self.lease_query_reply.parent = self
-                                self.lease_query_done = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone()
-                                self.lease_query_done.parent = self
-                                self.lease_query_data = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData()
-                                self.lease_query_data.parent = self
+                                self.release = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release()
+                                self.release.parent = self
+                                self.renew = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew()
+                                self.renew.parent = self
+                                self.reply = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply()
+                                self.reply.parent = self
+                                self.request = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self.solicit = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit()
+                                self.solicit.parent = self
 
 
                             class Solicit(object):
                                 """
                                 DHCPV6 solicit packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5171,14 +5171,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:solicit'
 
@@ -5189,13 +5189,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5210,24 +5210,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 advertise packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5240,14 +5240,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:advertise'
 
@@ -5258,13 +5258,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5279,24 +5279,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 request packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5309,14 +5309,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:request'
 
@@ -5327,13 +5327,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5348,24 +5348,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5378,14 +5378,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reply'
 
@@ -5396,13 +5396,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5417,24 +5417,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 confirm packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5447,14 +5447,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:confirm'
 
@@ -5465,13 +5465,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5486,24 +5486,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 decline packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5516,14 +5516,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:decline'
 
@@ -5534,13 +5534,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5555,24 +5555,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 renew packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5585,14 +5585,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:renew'
 
@@ -5603,13 +5603,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5624,24 +5624,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 rebind packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5654,14 +5654,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:rebind'
 
@@ -5672,13 +5672,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5693,24 +5693,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 release packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5723,14 +5723,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:release'
 
@@ -5741,13 +5741,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5762,24 +5762,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reconfig packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5792,14 +5792,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reconfig'
 
@@ -5810,13 +5810,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5831,24 +5831,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 inform packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5861,14 +5861,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:inform'
 
@@ -5879,13 +5879,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5900,24 +5900,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay forward packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5930,14 +5930,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-forward'
 
@@ -5948,13 +5948,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -5969,24 +5969,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5999,14 +5999,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-reply'
 
@@ -6017,13 +6017,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -6038,24 +6038,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6068,14 +6068,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query'
 
@@ -6086,13 +6086,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -6107,24 +6107,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6137,14 +6137,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-reply'
 
@@ -6155,13 +6155,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -6176,24 +6176,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query done packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6206,14 +6206,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-done'
 
@@ -6224,13 +6224,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -6245,24 +6245,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query data packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6275,14 +6275,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-data'
 
@@ -6293,13 +6293,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -6312,7 +6312,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -6323,16 +6323,7 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.solicit is not None and self.solicit._has_data():
-                                    return True
-
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.request is not None and self.request._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply._has_data():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
@@ -6341,19 +6332,25 @@ class Dhcpv6(object):
                                 if self.decline is not None and self.decline._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew._has_data():
+                                if self.inform is not None and self.inform._has_data():
+                                    return True
+
+                                if self.lease_query is not None and self.lease_query._has_data():
+                                    return True
+
+                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                    return True
+
+                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                    return True
+
+                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
                                 if self.rebind is not None and self.rebind._has_data():
                                     return True
 
-                                if self.release is not None and self.release._has_data():
-                                    return True
-
                                 if self.reconfig is not None and self.reconfig._has_data():
-                                    return True
-
-                                if self.inform is not None and self.inform._has_data():
                                     return True
 
                                 if self.relay_forward is not None and self.relay_forward._has_data():
@@ -6362,16 +6359,19 @@ class Dhcpv6(object):
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.lease_query is not None and self.lease_query._has_data():
+                                if self.release is not None and self.release._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
+                                if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                if self.reply is not None and self.reply._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                if self.request is not None and self.request._has_data():
+                                    return True
+
+                                if self.solicit is not None and self.solicit._has_data():
                                     return True
 
                                 return False
@@ -6384,9 +6384,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -6413,7 +6413,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrfs'
 
@@ -6501,47 +6501,9 @@ class Dhcpv6(object):
                             """
                             IPv6 DHCP server profile Info
                             
-                            .. attribute:: lease
-                            
-                            	Server lease time
-                            	**type**\: :py:class:`Lease <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease>`
-                            
-                            .. attribute:: interface_references
-                            
-                            	Interface references
-                            	**type**\: :py:class:`InterfaceReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences>`
-                            
-                            .. attribute:: profile_name
-                            
-                            	Server profile name
-                            	**type**\: str
-                            
-                            	**range:** 0..65
-                            
-                            .. attribute:: domain_name
-                            
-                            	Server domain name
-                            	**type**\: str
-                            
-                            	**range:** 0..65
-                            
-                            .. attribute:: profile_dns
-                            
-                            	DNS address count
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
                             .. attribute:: aftr_name
                             
                             	Server aftr name
-                            	**type**\: str
-                            
-                            	**range:** 0..65
-                            
-                            .. attribute:: framed_addr_pool_name
-                            
-                            	Server framed address pool name
                             	**type**\: str
                             
                             	**range:** 0..65
@@ -6553,10 +6515,36 @@ class Dhcpv6(object):
                             
                             	**range:** 0..65
                             
-                            .. attribute:: rapid_commit
+                            .. attribute:: domain_name
                             
-                            	Rapid Commit
-                            	**type**\: bool
+                            	Server domain name
+                            	**type**\: str
+                            
+                            	**range:** 0..65
+                            
+                            .. attribute:: framed_addr_pool_name
+                            
+                            	Server framed address pool name
+                            	**type**\: str
+                            
+                            	**range:** 0..65
+                            
+                            .. attribute:: interface_references
+                            
+                            	Interface references
+                            	**type**\: :py:class:`InterfaceReferences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences>`
+                            
+                            .. attribute:: lease
+                            
+                            	Server lease time
+                            	**type**\: :py:class:`Lease <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease>`
+                            
+                            .. attribute:: profile_dns
+                            
+                            	DNS address count
+                            	**type**\: int
+                            
+                            	**range:** 0..255
                             
                             .. attribute:: profile_dns_address
                             
@@ -6564,6 +6552,18 @@ class Dhcpv6(object):
                             	**type**\: list of str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: profile_name
+                            
+                            	Server profile name
+                            	**type**\: str
+                            
+                            	**range:** 0..65
+                            
+                            .. attribute:: rapid_commit
+                            
+                            	Rapid Commit
+                            	**type**\: bool
                             
                             
 
@@ -6574,20 +6574,20 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.lease = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease()
-                                self.lease.parent = self
+                                self.aftr_name = None
+                                self.delegated_prefix_pool_name = None
+                                self.domain_name = None
+                                self.framed_addr_pool_name = None
                                 self.interface_references = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences()
                                 self.interface_references.parent = self
-                                self.profile_name = None
-                                self.domain_name = None
+                                self.lease = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease()
+                                self.lease.parent = self
                                 self.profile_dns = None
-                                self.aftr_name = None
-                                self.framed_addr_pool_name = None
-                                self.delegated_prefix_pool_name = None
-                                self.rapid_commit = None
                                 self.profile_dns_address = YLeafList()
                                 self.profile_dns_address.parent = self
                                 self.profile_dns_address.name = 'profile_dns_address'
+                                self.profile_name = None
+                                self.rapid_commit = None
 
 
                             class Lease(object):
@@ -6623,7 +6623,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease'
 
@@ -6696,7 +6696,7 @@ class Dhcpv6(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-server-interface-reference'
 
@@ -6720,7 +6720,7 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface-references'
 
@@ -6746,7 +6746,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:info'
 
@@ -6757,37 +6757,37 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.lease is not None and self.lease._has_data():
-                                    return True
-
-                                if self.interface_references is not None and self.interface_references._has_data():
-                                    return True
-
-                                if self.profile_name is not None:
-                                    return True
-
-                                if self.domain_name is not None:
-                                    return True
-
-                                if self.profile_dns is not None:
-                                    return True
-
                                 if self.aftr_name is not None:
-                                    return True
-
-                                if self.framed_addr_pool_name is not None:
                                     return True
 
                                 if self.delegated_prefix_pool_name is not None:
                                     return True
 
-                                if self.rapid_commit is not None:
+                                if self.domain_name is not None:
+                                    return True
+
+                                if self.framed_addr_pool_name is not None:
+                                    return True
+
+                                if self.interface_references is not None and self.interface_references._has_data():
+                                    return True
+
+                                if self.lease is not None and self.lease._has_data():
+                                    return True
+
+                                if self.profile_dns is not None:
                                     return True
 
                                 if self.profile_dns_address is not None:
                                     for child in self.profile_dns_address:
                                         if child is not None:
                                             return True
+
+                                if self.profile_name is not None:
+                                    return True
+
+                                if self.rapid_commit is not None:
+                                    return True
 
                                 return False
 
@@ -6877,9 +6877,9 @@ class Dhcpv6(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.mac_address is None:
-                                        raise YPYDataValidationError('Key property mac_address is None')
+                                        raise YPYModelError('Key property mac_address is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:throttle-info[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:mac-address = ' + str(self.mac_address) + ']'
 
@@ -6915,7 +6915,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:throttle-infos'
 
@@ -6941,9 +6941,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.profile_name is None:
-                                raise YPYDataValidationError('Key property profile_name is None')
+                                raise YPYModelError('Key property profile_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profile[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profile-name = ' + str(self.profile_name) + ']'
 
@@ -6973,7 +6973,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:profiles'
 
@@ -7054,24 +7054,24 @@ class Dhcpv6(object):
                             """
                             Server statistics
                             
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -7084,14 +7084,14 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.dropped_packets = None
                                 self.received_packets = None
                                 self.transmitted_packets = None
-                                self.dropped_packets = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -7102,13 +7102,13 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.dropped_packets is not None:
+                                    return True
+
                                 if self.received_packets is not None:
                                     return True
 
                                 if self.transmitted_packets is not None:
-                                    return True
-
-                                if self.dropped_packets is not None:
                                     return True
 
                                 return False
@@ -7121,7 +7121,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-server-stat'
 
@@ -7148,7 +7148,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -7174,7 +7174,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:server'
 
@@ -7188,13 +7188,13 @@ class Dhcpv6(object):
                     if self.binding is not None and self.binding._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs._has_data():
-                        return True
-
                     if self.profiles is not None and self.profiles._has_data():
                         return True
 
                     if self.statistics is not None and self.statistics._has_data():
+                        return True
+
+                    if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
                     return False
@@ -7209,15 +7209,15 @@ class Dhcpv6(object):
                 """
                 IPv6 DHCP relay operational data
                 
-                .. attribute:: statistics
-                
-                	DHCPv6 relay statistics
-                	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics>`
-                
                 .. attribute:: binding
                 
                 	DHCPV6 relay bindings
                 	**type**\: :py:class:`Binding <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding>`
+                
+                .. attribute:: statistics
+                
+                	DHCPv6 relay statistics
+                	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics>`
                 
                 .. attribute:: vrfs
                 
@@ -7233,10 +7233,10 @@ class Dhcpv6(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics()
-                    self.statistics.parent = self
                     self.binding = Dhcpv6.Nodes.Node.Relay.Binding()
                     self.binding.parent = self
+                    self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics()
+                    self.statistics.parent = self
                     self.vrfs = Dhcpv6.Nodes.Node.Relay.Vrfs()
                     self.vrfs.parent = self
 
@@ -7298,24 +7298,24 @@ class Dhcpv6(object):
                             """
                             Relay statistics
                             
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\: int
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -7328,14 +7328,14 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.dropped_packets = None
                                 self.received_packets = None
                                 self.transmitted_packets = None
-                                self.dropped_packets = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -7346,13 +7346,13 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.dropped_packets is not None:
+                                    return True
+
                                 if self.received_packets is not None:
                                     return True
 
                                 if self.transmitted_packets is not None:
-                                    return True
-
-                                if self.dropped_packets is not None:
                                     return True
 
                                 return False
@@ -7365,7 +7365,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:ipv6-dhcpv6d-relay-stat'
 
@@ -7392,7 +7392,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -7420,15 +7420,15 @@ class Dhcpv6(object):
                     """
                     DHCPV6 relay bindings
                     
-                    .. attribute:: summary
-                    
-                    	DHCPV6 relay binding summary
-                    	**type**\: :py:class:`Summary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Summary>`
-                    
                     .. attribute:: clients
                     
                     	DHCPV6 relay client bindings
                     	**type**\: :py:class:`Clients <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Clients>`
+                    
+                    .. attribute:: summary
+                    
+                    	DHCPV6 relay binding summary
+                    	**type**\: :py:class:`Summary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Summary>`
                     
                     
 
@@ -7439,10 +7439,10 @@ class Dhcpv6(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.summary = Dhcpv6.Nodes.Node.Relay.Binding.Summary()
-                        self.summary.parent = self
                         self.clients = Dhcpv6.Nodes.Node.Relay.Binding.Clients()
                         self.clients.parent = self
+                        self.summary = Dhcpv6.Nodes.Node.Relay.Binding.Summary()
+                        self.summary.parent = self
 
 
                     class Summary(object):
@@ -7470,7 +7470,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:summary'
 
@@ -7526,11 +7526,6 @@ class Dhcpv6(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: duid
-                            
-                            	Client DUID
-                            	**type**\: str
-                            
                             .. attribute:: client_id_xr
                             
                             	Client unique identifier
@@ -7538,37 +7533,14 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: prefix_length
+                            .. attribute:: duid
                             
-                            	length of prefix
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: prefix
-                            
-                            	DHCPV6 IPv6 Prefix allotted to client
+                            	Client DUID
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            .. attribute:: ia_id
                             
-                            .. attribute:: vrf_name
-                            
-                            	DHCPv6 client/subscriber Vrf name
-                            	**type**\: str
-                            
-                            	**range:** 0..33
-                            
-                            .. attribute:: lifetime
-                            
-                            	Client route lifetime
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rem_life_time
-                            
-                            	Client route remaining lifetime
+                            	IA\_ID of this IA
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -7580,6 +7552,13 @@ class Dhcpv6(object):
                             
                             	**range:** 0..65
                             
+                            .. attribute:: lifetime
+                            
+                            	Client route lifetime
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: next_hop_addr
                             
                             	Next hop is our address
@@ -7587,12 +7566,19 @@ class Dhcpv6(object):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: ia_id
+                            .. attribute:: prefix
                             
-                            	IA\_ID of this IA
+                            	DHCPV6 IPv6 Prefix allotted to client
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: prefix_length
+                            
+                            	length of prefix
                             	**type**\: int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
                             
                             .. attribute:: relay_profile_name
                             
@@ -7600,6 +7586,20 @@ class Dhcpv6(object):
                             	**type**\: str
                             
                             	**range:** 0..65
+                            
+                            .. attribute:: rem_life_time
+                            
+                            	Client route remaining lifetime
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: vrf_name
+                            
+                            	DHCPv6 client/subscriber Vrf name
+                            	**type**\: str
+                            
+                            	**range:** 0..33
                             
                             
 
@@ -7611,24 +7611,24 @@ class Dhcpv6(object):
                             def __init__(self):
                                 self.parent = None
                                 self.client_id = None
-                                self.duid = None
                                 self.client_id_xr = None
-                                self.prefix_length = None
-                                self.prefix = None
-                                self.vrf_name = None
-                                self.lifetime = None
-                                self.rem_life_time = None
-                                self.interface_name = None
-                                self.next_hop_addr = None
+                                self.duid = None
                                 self.ia_id = None
+                                self.interface_name = None
+                                self.lifetime = None
+                                self.next_hop_addr = None
+                                self.prefix = None
+                                self.prefix_length = None
                                 self.relay_profile_name = None
+                                self.rem_life_time = None
+                                self.vrf_name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.client_id is None:
-                                    raise YPYDataValidationError('Key property client_id is None')
+                                    raise YPYModelError('Key property client_id is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:client-id = ' + str(self.client_id) + ']'
 
@@ -7642,37 +7642,37 @@ class Dhcpv6(object):
                                 if self.client_id is not None:
                                     return True
 
-                                if self.duid is not None:
-                                    return True
-
                                 if self.client_id_xr is not None:
                                     return True
 
-                                if self.prefix_length is not None:
-                                    return True
-
-                                if self.prefix is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                if self.lifetime is not None:
-                                    return True
-
-                                if self.rem_life_time is not None:
-                                    return True
-
-                                if self.interface_name is not None:
-                                    return True
-
-                                if self.next_hop_addr is not None:
+                                if self.duid is not None:
                                     return True
 
                                 if self.ia_id is not None:
                                     return True
 
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.lifetime is not None:
+                                    return True
+
+                                if self.next_hop_addr is not None:
+                                    return True
+
+                                if self.prefix is not None:
+                                    return True
+
+                                if self.prefix_length is not None:
+                                    return True
+
                                 if self.relay_profile_name is not None:
+                                    return True
+
+                                if self.rem_life_time is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
                                     return True
 
                                 return False
@@ -7685,7 +7685,7 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:clients'
 
@@ -7711,7 +7711,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:binding'
 
@@ -7722,10 +7722,10 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.summary is not None and self.summary._has_data():
+                        if self.clients is not None and self.clients._has_data():
                             return True
 
-                        if self.clients is not None and self.clients._has_data():
+                        if self.summary is not None and self.summary._has_data():
                             return True
 
                         return False
@@ -7793,25 +7793,10 @@ class Dhcpv6(object):
                             """
                             IPv6 DHCP relay statistics
                             
-                            .. attribute:: solicit
-                            
-                            	DHCPV6 solicit packets
-                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit>`
-                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\: :py:class:`Advertise <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise>`
-                            
-                            .. attribute:: request
-                            
-                            	DHCPV6 request packets
-                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request>`
-                            
-                            .. attribute:: reply
-                            
-                            	DHCPV6 reply packets
-                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply>`
                             
                             .. attribute:: confirm
                             
@@ -7823,30 +7808,40 @@ class Dhcpv6(object):
                             	DHCPV6 decline packets
                             	**type**\: :py:class:`Decline <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline>`
                             
-                            .. attribute:: renew
+                            .. attribute:: inform
                             
-                            	DHCPV6 renew packets
-                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew>`
+                            	DHCPV6 inform packets
+                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCPV6 lease query packets
+                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_query_data
+                            
+                            	DHCPV6 lease query data packets
+                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            .. attribute:: lease_query_done
+                            
+                            	DHCPV6 lease query done packets
+                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            
+                            .. attribute:: lease_query_reply
+                            
+                            	DHCPV6 lease query reply packets
+                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\: :py:class:`Rebind <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind>`
                             
-                            .. attribute:: release
-                            
-                            	DHCPV6 release packets
-                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release>`
-                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\: :py:class:`Reconfig <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCPV6 inform packets
-                            	**type**\: :py:class:`Inform <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: relay_forward
                             
@@ -7858,25 +7853,30 @@ class Dhcpv6(object):
                             	DHCPV6 relay reply packets
                             	**type**\: :py:class:`RelayReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply>`
                             
-                            .. attribute:: lease_query
+                            .. attribute:: release
                             
-                            	DHCPV6 lease query packets
-                            	**type**\: :py:class:`LeaseQuery <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	DHCPV6 release packets
+                            	**type**\: :py:class:`Release <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release>`
                             
-                            .. attribute:: lease_query_reply
+                            .. attribute:: renew
                             
-                            	DHCPV6 lease query reply packets
-                            	**type**\: :py:class:`LeaseQueryReply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply>`
+                            	DHCPV6 renew packets
+                            	**type**\: :py:class:`Renew <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew>`
                             
-                            .. attribute:: lease_query_done
+                            .. attribute:: reply
                             
-                            	DHCPV6 lease query done packets
-                            	**type**\: :py:class:`LeaseQueryDone <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone>`
+                            	DHCPV6 reply packets
+                            	**type**\: :py:class:`Reply <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply>`
                             
-                            .. attribute:: lease_query_data
+                            .. attribute:: request
                             
-                            	DHCPV6 lease query data packets
-                            	**type**\: :py:class:`LeaseQueryData <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            	DHCPV6 request packets
+                            	**type**\: :py:class:`Request <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: solicit
+                            
+                            	DHCPV6 solicit packets
+                            	**type**\: :py:class:`Solicit <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit>`
                             
                             
 
@@ -7887,64 +7887,64 @@ class Dhcpv6(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.solicit = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit()
-                                self.solicit.parent = self
                                 self.advertise = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise()
                                 self.advertise.parent = self
-                                self.request = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self.reply = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply()
-                                self.reply.parent = self
                                 self.confirm = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm()
                                 self.confirm.parent = self
                                 self.decline = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline()
                                 self.decline.parent = self
-                                self.renew = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew()
-                                self.renew.parent = self
-                                self.rebind = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind()
-                                self.rebind.parent = self
-                                self.release = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release()
-                                self.release.parent = self
-                                self.reconfig = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig()
-                                self.reconfig.parent = self
                                 self.inform = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform()
                                 self.inform.parent = self
+                                self.lease_query = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self.lease_query_data = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData()
+                                self.lease_query_data.parent = self
+                                self.lease_query_done = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone()
+                                self.lease_query_done.parent = self
+                                self.lease_query_reply = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply()
+                                self.lease_query_reply.parent = self
+                                self.rebind = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind()
+                                self.rebind.parent = self
+                                self.reconfig = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig()
+                                self.reconfig.parent = self
                                 self.relay_forward = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward()
                                 self.relay_forward.parent = self
                                 self.relay_reply = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply()
                                 self.relay_reply.parent = self
-                                self.lease_query = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self.lease_query_reply = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply()
-                                self.lease_query_reply.parent = self
-                                self.lease_query_done = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone()
-                                self.lease_query_done.parent = self
-                                self.lease_query_data = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData()
-                                self.lease_query_data.parent = self
+                                self.release = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release()
+                                self.release.parent = self
+                                self.renew = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew()
+                                self.renew.parent = self
+                                self.reply = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply()
+                                self.reply.parent = self
+                                self.request = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self.solicit = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit()
+                                self.solicit.parent = self
 
 
                             class Solicit(object):
                                 """
                                 DHCPV6 solicit packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7957,14 +7957,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:solicit'
 
@@ -7975,13 +7975,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -7996,24 +7996,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 advertise packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8026,14 +8026,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:advertise'
 
@@ -8044,13 +8044,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8065,24 +8065,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 request packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8095,14 +8095,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:request'
 
@@ -8113,13 +8113,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8134,24 +8134,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8164,14 +8164,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reply'
 
@@ -8182,13 +8182,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8203,24 +8203,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 confirm packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8233,14 +8233,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:confirm'
 
@@ -8251,13 +8251,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8272,24 +8272,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 decline packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8302,14 +8302,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:decline'
 
@@ -8320,13 +8320,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8341,24 +8341,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 renew packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8371,14 +8371,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:renew'
 
@@ -8389,13 +8389,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8410,24 +8410,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 rebind packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8440,14 +8440,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:rebind'
 
@@ -8458,13 +8458,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8479,24 +8479,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 release packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8509,14 +8509,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:release'
 
@@ -8527,13 +8527,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8548,24 +8548,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 reconfig packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8578,14 +8578,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:reconfig'
 
@@ -8596,13 +8596,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8617,24 +8617,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 inform packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8647,14 +8647,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:inform'
 
@@ -8665,13 +8665,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8686,24 +8686,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay forward packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8716,14 +8716,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-forward'
 
@@ -8734,13 +8734,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8755,24 +8755,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 relay reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8785,14 +8785,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay-reply'
 
@@ -8803,13 +8803,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8824,24 +8824,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8854,14 +8854,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query'
 
@@ -8872,13 +8872,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8893,24 +8893,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query reply packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8923,14 +8923,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-reply'
 
@@ -8941,13 +8941,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -8962,24 +8962,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query done packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8992,14 +8992,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-done'
 
@@ -9010,13 +9010,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -9031,24 +9031,24 @@ class Dhcpv6(object):
                                 """
                                 DHCPV6 lease query data packets
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9061,14 +9061,14 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dropped_packets = None
                                     self.received_packets = None
                                     self.transmitted_packets = None
-                                    self.dropped_packets = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:lease-query-data'
 
@@ -9079,13 +9079,13 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dropped_packets is not None:
+                                        return True
+
                                     if self.received_packets is not None:
                                         return True
 
                                     if self.transmitted_packets is not None:
-                                        return True
-
-                                    if self.dropped_packets is not None:
                                         return True
 
                                     return False
@@ -9098,7 +9098,7 @@ class Dhcpv6(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:statistics'
 
@@ -9109,16 +9109,7 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.solicit is not None and self.solicit._has_data():
-                                    return True
-
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.request is not None and self.request._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply._has_data():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
@@ -9127,19 +9118,25 @@ class Dhcpv6(object):
                                 if self.decline is not None and self.decline._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew._has_data():
+                                if self.inform is not None and self.inform._has_data():
+                                    return True
+
+                                if self.lease_query is not None and self.lease_query._has_data():
+                                    return True
+
+                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                    return True
+
+                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                    return True
+
+                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
                                 if self.rebind is not None and self.rebind._has_data():
                                     return True
 
-                                if self.release is not None and self.release._has_data():
-                                    return True
-
                                 if self.reconfig is not None and self.reconfig._has_data():
-                                    return True
-
-                                if self.inform is not None and self.inform._has_data():
                                     return True
 
                                 if self.relay_forward is not None and self.relay_forward._has_data():
@@ -9148,16 +9145,19 @@ class Dhcpv6(object):
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.lease_query is not None and self.lease_query._has_data():
+                                if self.release is not None and self.release._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply._has_data():
+                                if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.lease_query_done is not None and self.lease_query_done._has_data():
+                                if self.reply is not None and self.reply._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data._has_data():
+                                if self.request is not None and self.request._has_data():
+                                    return True
+
+                                if self.solicit is not None and self.solicit._has_data():
                                     return True
 
                                 return False
@@ -9170,9 +9170,9 @@ class Dhcpv6(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.vrf_name is None:
-                                raise YPYDataValidationError('Key property vrf_name is None')
+                                raise YPYModelError('Key property vrf_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -9199,7 +9199,7 @@ class Dhcpv6(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:vrfs'
 
@@ -9225,7 +9225,7 @@ class Dhcpv6(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:relay'
 
@@ -9236,10 +9236,10 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.statistics is not None and self.statistics._has_data():
+                    if self.binding is not None and self.binding._has_data():
                         return True
 
-                    if self.binding is not None and self.binding._has_data():
+                    if self.statistics is not None and self.statistics._has_data():
                         return True
 
                     if self.vrfs is not None and self.vrfs._has_data():
@@ -9255,7 +9255,7 @@ class Dhcpv6(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:nodes/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:node[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -9272,10 +9272,10 @@ class Dhcpv6(object):
                 if self.proxy is not None and self.proxy._has_data():
                     return True
 
-                if self.server is not None and self.server._has_data():
+                if self.relay is not None and self.relay._has_data():
                     return True
 
-                if self.relay is not None and self.relay._has_data():
+                if self.server is not None and self.server._has_data():
                     return True
 
                 return False

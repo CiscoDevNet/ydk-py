@@ -142,6 +142,9 @@ class XmlDecoder(object):
                 return int(text)
             else:
                 return text
+            return int(text)
+        elif _type == 'long':
+            return long(text)
         elif _type == 'str':
             return text
         elif _type == 'bool':
@@ -151,10 +154,8 @@ class XmlDecoder(object):
                 return True
         elif _type == 'Decimal64':
             return Decimal64(text)
-
         elif _type == 'bits':
             pass
-
         else:
             pass
 
@@ -166,7 +167,11 @@ class XmlDecoder(object):
             results.parent = entity
             results.name = member.presentation_name
             for elem in elems:
-                result = XmlDecoder._to_real_type_helper(elem, member, entity)
+                result = None
+                if 'Enum' in member.ptype:
+                    result = XmlDecoder._bind_to_enum_helper(member, elem)
+                else:
+                    result = XmlDecoder._to_real_type_helper(elem, member, entity)
                 results.append(result)
             return results
         else:
@@ -267,28 +272,7 @@ class XmlDecoder(object):
                     instance = eval(eval_getinstance)
                     entity.__dict__[member.presentation_name] = instance
             elif member.mtype == REFERENCE_ENUM_CLASS:
-                exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
-                exec exec_import
-                # first get the enum_class
-                meta_info = eval('%s._meta_info()' % member.clazz_name)
-                enum_literal_key = rt[0].text
-                if enum_literal_key not in meta_info.literal_map:
-                    sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
-                    values = ','.join(meta_info.literal_map)
-                    sp_logger.error('Cannot find enum literal with name %s in enum clazz %s(%s) trying with different case',
-                                    enum_literal_key, member.clazz_name, values)
-                    # hack change the case and check
-                    if enum_literal_key.upper() in meta_info.literal_map:
-                        sp_logger.debug('Found literal using secondary mechanism')
-                        enum_literal = meta_info.literal_map[enum_literal_key.upper()]
-                        entity.__dict__[member.presentation_name] = eval('%s.%s' % (member.clazz_name, enum_literal))
-                    elif enum_literal_key.lower() in meta_info.literal_map:
-                        sp_logger.debug('Found literal using secondary mechanism')
-                        enum_literal = meta_info.literal_map[enum_literal_key.lower()]
-                        entity.__dict__[member.presentation_name] = eval('%s.%s' % (member.clazz_name, enum_literal))
-                else:
-                    enum_literal = meta_info.literal_map[enum_literal_key]
-                    entity.__dict__[member.presentation_name] = eval('%s.%s' % (member.clazz_name, enum_literal))
+                entity.__dict__[member.presentation_name] = XmlDecoder._bind_to_enum_helper(member, rt[0])
             elif member.mtype == REFERENCE_BITS:
                 exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
                 exec exec_import
@@ -297,6 +281,31 @@ class XmlDecoder(object):
                     entity.__dict__[member.presentation_name][key] = True
             elif member.mtype == REFERENCE_UNION:
                 entity.__dict__[member.presentation_name] = XmlDecoder._to_real_union_type_helper(rt, member, entity)
+    
+    @staticmethod
+    def _bind_to_enum_helper(member, elem):
+        exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
+        exec exec_import
+        # first get the enum_class
+        meta_info = eval('%s._meta_info()' % member.clazz_name)
+        enum_literal_key = elem.text
+        if enum_literal_key not in meta_info.literal_map:
+            sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+            values = ','.join(meta_info.literal_map)
+            sp_logger.error('Cannot find enum literal with name %s in enum clazz %s(%s) trying with different case',
+                            enum_literal_key, member.clazz_name, values)
+            # hack change the case and check
+            if enum_literal_key.upper() in meta_info.literal_map:
+                sp_logger.debug('Found literal using secondary mechanism')
+                enum_literal = meta_info.literal_map[enum_literal_key.upper()]
+                return eval('%s.%s' % (member.clazz_name, enum_literal))
+            elif enum_literal_key.lower() in meta_info.literal_map:
+                sp_logger.debug('Found literal using secondary mechanism')
+                enum_literal = meta_info.literal_map[enum_literal_key.lower()]
+                return eval('%s.%s' % (member.clazz_name, enum_literal))
+        else:
+            enum_literal = meta_info.literal_map[enum_literal_key]
+            return eval('%s.%s' % (member.clazz_name, enum_literal))
 
 
 def get_root(root, common_path, module_nmsp):

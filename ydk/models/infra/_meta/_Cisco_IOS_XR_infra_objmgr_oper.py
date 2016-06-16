@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -182,6 +182,12 @@ _meta_table = {
                 ''',
                 'operator_type',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('operator-type-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Operator
+                ''',
+                'operator_type_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('port', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Port number
@@ -201,12 +207,6 @@ _meta_table = {
                         'port',
                         'Cisco-IOS-XR-infra-objmgr-oper', False),
                 ]),
-            _MetaInfoClassMember('operator-type-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Operator
-                ''',
-                'operator_type_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('port-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Port
@@ -241,25 +241,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.PortRanges.PortRange',
             False, 
             [
-            _MetaInfoClassMember('start-port', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Start port number
-                ''',
-                'start_port',
-                'Cisco-IOS-XR-infra-objmgr-oper', False, [
-                    _MetaInfoClassMember('start-port', REFERENCE_ENUM_CLASS, 'StartPortEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'StartPortEnum', 
-                        [], [], 
-                        '''                        Start port number
-                        ''',
-                        'start_port',
-                        'Cisco-IOS-XR-infra-objmgr-oper', False),
-                    _MetaInfoClassMember('start-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
-                        '''                        Start port number
-                        ''',
-                        'start_port',
-                        'Cisco-IOS-XR-infra-objmgr-oper', False),
-                ]),
             _MetaInfoClassMember('end-port', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                End port number
@@ -279,17 +260,36 @@ _meta_table = {
                         'end_port',
                         'Cisco-IOS-XR-infra-objmgr-oper', False),
                 ]),
-            _MetaInfoClassMember('start-port-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Port start address
-                ''',
-                'start_port_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('end-port-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Port end address
                 ''',
                 'end_port_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('start-port', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Start port number
+                ''',
+                'start_port',
+                'Cisco-IOS-XR-infra-objmgr-oper', False, [
+                    _MetaInfoClassMember('start-port', REFERENCE_ENUM_CLASS, 'StartPortEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'StartPortEnum', 
+                        [], [], 
+                        '''                        Start port number
+                        ''',
+                        'start_port',
+                        'Cisco-IOS-XR-infra-objmgr-oper', False),
+                    _MetaInfoClassMember('start-port', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 65535)], [], 
+                        '''                        Start port number
+                        ''',
+                        'start_port',
+                        'Cisco-IOS-XR-infra-objmgr-oper', False),
+                ]),
+            _MetaInfoClassMember('start-port-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Port start address
+                ''',
+                'start_port_xr',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -377,17 +377,17 @@ _meta_table = {
                 ''',
                 'operators',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('port-ranges', REFERENCE_CLASS, 'PortRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Port.Objects.Object.PortRanges', 
-                [], [], 
-                '''                Table of PortRange
-                ''',
-                'port_ranges',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('parent-groups', REFERENCE_CLASS, 'ParentGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Port.Objects.Object.ParentGroups', 
                 [], [], 
                 '''                Table of ParentGroup
                 ''',
                 'parent_groups',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('port-ranges', REFERENCE_CLASS, 'PortRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Port.Objects.Object.PortRanges', 
+                [], [], 
+                '''                Table of PortRange
+                ''',
+                'port_ranges',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -486,17 +486,17 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 Address
-                ''',
-                'prefix_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('prefix-length-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 Address
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -526,29 +526,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange',
             False, 
             [
-            _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv6 address
-                ''',
-                'start_address',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address
                 ''',
                 'end_address',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('start-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Range start address
-                ''',
-                'start_address_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('end-address-xr', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Range end address
                 ''',
                 'end_address_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address
+                ''',
+                'start_address',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('start-address-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Range start address
+                ''',
+                'start_address_xr',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -665,11 +665,11 @@ _meta_table = {
                 ''',
                 'object_name',
                 'Cisco-IOS-XR-infra-objmgr-oper', True),
-            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups', 
+            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges', 
                 [], [], 
-                '''                Table of NestedGroup
+                '''                Table of AddressRange
                 ''',
-                'nested_groups',
+                'address_ranges',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.Addresses', 
                 [], [], 
@@ -677,23 +677,23 @@ _meta_table = {
                 ''',
                 'addresses',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges', 
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.Hosts', 
                 [], [], 
-                '''                Table of AddressRange
+                '''                Table of Host
                 ''',
-                'address_ranges',
+                'hosts',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups', 
+                [], [], 
+                '''                Table of NestedGroup
+                ''',
+                'nested_groups',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('parent-groups', REFERENCE_CLASS, 'ParentGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups', 
                 [], [], 
                 '''                Table of parent object group
                 ''',
                 'parent_groups',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6.Objects.Object.Hosts', 
-                [], [], 
-                '''                Table of Host
-                ''',
-                'hosts',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -792,17 +792,17 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 Address
-                ''',
-                'prefix_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('prefix-length-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 Address
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -832,29 +832,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange',
             False, 
             [
-            _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 address
-                ''',
-                'start_address',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'end_address',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('start-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Range start address
-                ''',
-                'start_address_xr',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('end-address-xr', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Range end address
                 ''',
                 'end_address_xr',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address
+                ''',
+                'start_address',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('start-address-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Range start address
+                ''',
+                'start_address_xr',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -971,11 +971,11 @@ _meta_table = {
                 ''',
                 'object_name',
                 'Cisco-IOS-XR-infra-objmgr-oper', True),
-            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups', 
+            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges', 
                 [], [], 
-                '''                Table of NestedGroup
+                '''                Table of AddressRange
                 ''',
-                'nested_groups',
+                'address_ranges',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.Addresses', 
                 [], [], 
@@ -983,23 +983,23 @@ _meta_table = {
                 ''',
                 'addresses',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges', 
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.Hosts', 
                 [], [], 
-                '''                Table of AddressRange
+                '''                Table of Host
                 ''',
-                'address_ranges',
+                'hosts',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups', 
+                [], [], 
+                '''                Table of NestedGroup
+                ''',
+                'nested_groups',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('parent-groups', REFERENCE_CLASS, 'ParentGroups' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups', 
                 [], [], 
                 '''                Table of parent object group
                 ''',
                 'parent_groups',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4.Objects.Object.Hosts', 
-                [], [], 
-                '''                Table of Host
-                ''',
-                'hosts',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -1046,17 +1046,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network',
             False, 
             [
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6', 
-                [], [], 
-                '''                IPv6 object group
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv4', 
                 [], [], 
                 '''                IPv4 object group
                 ''',
                 'ipv4',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network.Ipv6', 
+                [], [], 
+                '''                IPv6 object group
+                ''',
+                'ipv6',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',
@@ -1069,17 +1069,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup',
             False, 
             [
-            _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Port', 
-                [], [], 
-                '''                Port object group
-                ''',
-                'port',
-                'Cisco-IOS-XR-infra-objmgr-oper', False),
             _MetaInfoClassMember('network', REFERENCE_CLASS, 'Network' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Network', 
                 [], [], 
                 '''                Network object group
                 ''',
                 'network',
+                'Cisco-IOS-XR-infra-objmgr-oper', False),
+            _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'ObjectGroup.Port', 
+                [], [], 
+                '''                Port object group
+                ''',
+                'port',
                 'Cisco-IOS-XR-infra-objmgr-oper', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-oper',

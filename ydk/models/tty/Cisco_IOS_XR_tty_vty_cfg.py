@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -122,7 +122,7 @@ class Vty(object):
             @property
             def _common_path(self):
                 if self.pool_name is None:
-                    raise YPYDataValidationError('Key property pool_name is None')
+                    raise YPYModelError('Key property pool_name is None')
 
                 return '/Cisco-IOS-XR-tty-vty-cfg:vty/Cisco-IOS-XR-tty-vty-cfg:vty-pools/Cisco-IOS-XR-tty-vty-cfg:vty-pool[Cisco-IOS-XR-tty-vty-cfg:pool-name = ' + str(self.pool_name) + ']'
 

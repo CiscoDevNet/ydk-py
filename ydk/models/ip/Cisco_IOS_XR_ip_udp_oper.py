@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -1463,9 +1463,9 @@ class Udp(object):
                     """
                     UDP Traffic statistics for IPv4
                     
-                    .. attribute:: udp_input_packets
+                    .. attribute:: udp_bad_length_packets
                     
-                    	UDP Received
+                    	UDP bad length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1477,6 +1477,20 @@ class Udp(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: udp_dropped_packets
+                    
+                    	UDP drop for other reason
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: udp_input_packets
+                    
+                    	UDP Received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
@@ -1484,23 +1498,9 @@ class Udp(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: udp_bad_length_packets
-                    
-                    	UDP bad length
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: udp_dropped_packets
-                    
-                    	UDP drop for other reason
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1514,17 +1514,17 @@ class Udp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.udp_input_packets = None
-                        self.udp_checksum_error_packets = None
-                        self.udp_no_port_packets = None
                         self.udp_bad_length_packets = None
-                        self.udp_output_packets = None
+                        self.udp_checksum_error_packets = None
                         self.udp_dropped_packets = None
+                        self.udp_input_packets = None
+                        self.udp_no_port_packets = None
+                        self.udp_output_packets = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:ipv4-traffic'
 
@@ -1535,22 +1535,22 @@ class Udp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.udp_input_packets is not None:
+                        if self.udp_bad_length_packets is not None:
                             return True
 
                         if self.udp_checksum_error_packets is not None:
                             return True
 
+                        if self.udp_dropped_packets is not None:
+                            return True
+
+                        if self.udp_input_packets is not None:
+                            return True
+
                         if self.udp_no_port_packets is not None:
                             return True
 
-                        if self.udp_bad_length_packets is not None:
-                            return True
-
                         if self.udp_output_packets is not None:
-                            return True
-
-                        if self.udp_dropped_packets is not None:
                             return True
 
                         return False
@@ -1565,9 +1565,9 @@ class Udp(object):
                     """
                     UDP Traffic statistics for IPv6
                     
-                    .. attribute:: udp_input_packets
+                    .. attribute:: udp_bad_length_packets
                     
-                    	UDP Received
+                    	UDP bad length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1579,6 +1579,20 @@ class Udp(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: udp_dropped_packets
+                    
+                    	UDP drop for other reason
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: udp_input_packets
+                    
+                    	UDP Received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
@@ -1586,23 +1600,9 @@ class Udp(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: udp_bad_length_packets
-                    
-                    	UDP bad length
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: udp_dropped_packets
-                    
-                    	UDP drop for other reason
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1616,17 +1616,17 @@ class Udp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.udp_input_packets = None
-                        self.udp_checksum_error_packets = None
-                        self.udp_no_port_packets = None
                         self.udp_bad_length_packets = None
-                        self.udp_output_packets = None
+                        self.udp_checksum_error_packets = None
                         self.udp_dropped_packets = None
+                        self.udp_input_packets = None
+                        self.udp_no_port_packets = None
+                        self.udp_output_packets = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:ipv6-traffic'
 
@@ -1637,22 +1637,22 @@ class Udp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.udp_input_packets is not None:
+                        if self.udp_bad_length_packets is not None:
                             return True
 
                         if self.udp_checksum_error_packets is not None:
                             return True
 
+                        if self.udp_dropped_packets is not None:
+                            return True
+
+                        if self.udp_input_packets is not None:
+                            return True
+
                         if self.udp_no_port_packets is not None:
                             return True
 
-                        if self.udp_bad_length_packets is not None:
-                            return True
-
                         if self.udp_output_packets is not None:
-                            return True
-
-                        if self.udp_dropped_packets is not None:
                             return True
 
                         return False
@@ -1665,7 +1665,7 @@ class Udp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:statistics'
 
@@ -1692,7 +1692,7 @@ class Udp(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ip-udp-oper:udp/Cisco-IOS-XR-ip-udp-oper:nodes/Cisco-IOS-XR-ip-udp-oper:node[Cisco-IOS-XR-ip-udp-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -1818,25 +1818,25 @@ class UdpConnection(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: statistics
-            
-            	Statistics of UDP connections
-            	**type**\: :py:class:`Statistics <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
-            
             .. attribute:: lpts
             
             	LPTS statistical data
             	**type**\: :py:class:`Lpts <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
+            
+            .. attribute:: pcb_briefs
+            
+            	Brief information for list of UDP connections
+            	**type**\: :py:class:`PcbBriefs <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
             
             .. attribute:: pcb_details
             
             	Detail information for list of UDP connections 
             	**type**\: :py:class:`PcbDetails <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
             
-            .. attribute:: pcb_briefs
+            .. attribute:: statistics
             
-            	Brief information for list of UDP connections
-            	**type**\: :py:class:`PcbBriefs <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
+            	Statistics of UDP connections
+            	**type**\: :py:class:`Statistics <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
             
             
 
@@ -1848,14 +1848,14 @@ class UdpConnection(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.statistics = UdpConnection.Nodes.Node.Statistics()
-                self.statistics.parent = self
                 self.lpts = UdpConnection.Nodes.Node.Lpts()
                 self.lpts.parent = self
-                self.pcb_details = UdpConnection.Nodes.Node.PcbDetails()
-                self.pcb_details.parent = self
                 self.pcb_briefs = UdpConnection.Nodes.Node.PcbBriefs()
                 self.pcb_briefs.parent = self
+                self.pcb_details = UdpConnection.Nodes.Node.PcbDetails()
+                self.pcb_details.parent = self
+                self.statistics = UdpConnection.Nodes.Node.Statistics()
+                self.statistics.parent = self
 
 
             class Statistics(object):
@@ -1867,15 +1867,15 @@ class UdpConnection(object):
                 	Table listing clients
                 	**type**\: :py:class:`Clients <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
                 
-                .. attribute:: summary
-                
-                	Summary statistics across all UDP connections
-                	**type**\: :py:class:`Summary <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
-                
                 .. attribute:: pcb_statistics
                 
                 	Table listing the UDP connections for which statistics are provided
                 	**type**\: :py:class:`PcbStatistics <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
+                
+                .. attribute:: summary
+                
+                	Summary statistics across all UDP connections
+                	**type**\: :py:class:`Summary <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -1888,10 +1888,10 @@ class UdpConnection(object):
                     self.parent = None
                     self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
                     self.clients.parent = self
-                    self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
-                    self.summary.parent = self
                     self.pcb_statistics = UdpConnection.Nodes.Node.Statistics.PcbStatistics()
                     self.pcb_statistics.parent = self
+                    self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
+                    self.summary.parent = self
 
 
                 class Clients(object):
@@ -1990,9 +1990,9 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.client_id is None:
-                                raise YPYDataValidationError('Key property client_id is None')
+                                raise YPYModelError('Key property client_id is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:client[Cisco-IOS-XR-ip-udp-oper:client-id = ' + str(self.client_id) + ']'
 
@@ -2034,7 +2034,7 @@ class UdpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:clients'
 
@@ -2062,62 +2062,6 @@ class UdpConnection(object):
                     """
                     Summary statistics across all UDP connections
                     
-                    .. attribute:: received_total_packets
-                    
-                    	Total packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_no_port_packets
-                    
-                    	Packets received when no wild listener
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_bad_checksum_packets
-                    
-                    	Packets received has bad checksum
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_too_short_packets
-                    
-                    	Packets received is too short
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: received_drop_packets
-                    
-                    	Packets dropped for other reasons
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_total_packets
-                    
-                    	Total packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sent_error_packets
-                    
-                    	Total send erorr packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: forward_broadcast_packets
-                    
-                    	Total forwarding broadcast packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: cloned_packets
                     
                     	Total cloned packets
@@ -2132,6 +2076,62 @@ class UdpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: forward_broadcast_packets
+                    
+                    	Total forwarding broadcast packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_bad_checksum_packets
+                    
+                    	Packets received has bad checksum
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_drop_packets
+                    
+                    	Packets dropped for other reasons
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_no_port_packets
+                    
+                    	Packets received when no wild listener
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_too_short_packets
+                    
+                    	Packets received is too short
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: received_total_packets
+                    
+                    	Total packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_error_packets
+                    
+                    	Total send erorr packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sent_total_packets
+                    
+                    	Total packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -2141,21 +2141,21 @@ class UdpConnection(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.received_total_packets = None
-                        self.received_no_port_packets = None
-                        self.received_bad_checksum_packets = None
-                        self.received_too_short_packets = None
-                        self.received_drop_packets = None
-                        self.sent_total_packets = None
-                        self.sent_error_packets = None
-                        self.forward_broadcast_packets = None
                         self.cloned_packets = None
                         self.failed_clone_packets = None
+                        self.forward_broadcast_packets = None
+                        self.received_bad_checksum_packets = None
+                        self.received_drop_packets = None
+                        self.received_no_port_packets = None
+                        self.received_too_short_packets = None
+                        self.received_total_packets = None
+                        self.sent_error_packets = None
+                        self.sent_total_packets = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:summary'
 
@@ -2166,34 +2166,34 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.received_total_packets is not None:
+                        if self.cloned_packets is not None:
                             return True
 
-                        if self.received_no_port_packets is not None:
-                            return True
-
-                        if self.received_bad_checksum_packets is not None:
-                            return True
-
-                        if self.received_too_short_packets is not None:
-                            return True
-
-                        if self.received_drop_packets is not None:
-                            return True
-
-                        if self.sent_total_packets is not None:
-                            return True
-
-                        if self.sent_error_packets is not None:
+                        if self.failed_clone_packets is not None:
                             return True
 
                         if self.forward_broadcast_packets is not None:
                             return True
 
-                        if self.cloned_packets is not None:
+                        if self.received_bad_checksum_packets is not None:
                             return True
 
-                        if self.failed_clone_packets is not None:
+                        if self.received_drop_packets is not None:
+                            return True
+
+                        if self.received_no_port_packets is not None:
+                            return True
+
+                        if self.received_too_short_packets is not None:
+                            return True
+
+                        if self.received_total_packets is not None:
+                            return True
+
+                        if self.sent_error_packets is not None:
+                            return True
+
+                        if self.sent_total_packets is not None:
                             return True
 
                         return False
@@ -2239,20 +2239,20 @@ class UdpConnection(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: send
+                        .. attribute:: is_paw_socket
                         
-                        	UDP send statistics
-                        	**type**\: :py:class:`Send <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
+                        	True if paw socket
+                        	**type**\: bool
                         
                         .. attribute:: receive
                         
                         	UDP receive statistics
                         	**type**\: :py:class:`Receive <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
                         
-                        .. attribute:: is_paw_socket
+                        .. attribute:: send
                         
-                        	True if paw socket
-                        	**type**\: bool
+                        	UDP send statistics
+                        	**type**\: :py:class:`Send <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
                         
                         
 
@@ -2264,44 +2264,23 @@ class UdpConnection(object):
                         def __init__(self):
                             self.parent = None
                             self.pcb_address = None
-                            self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
-                            self.send.parent = self
+                            self.is_paw_socket = None
                             self.receive = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive()
                             self.receive.parent = self
-                            self.is_paw_socket = None
+                            self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
+                            self.send.parent = self
 
 
                         class Send(object):
                             """
                             UDP send statistics
                             
-                            .. attribute:: received_application_bytes
+                            .. attribute:: failed_queued_net_io_packets
                             
-                            	Bytes received from application
+                            	Packets failed getting queued to network (NetIO)
                             	**type**\: int
                             
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: received_xipc_pulses
-                            
-                            	XIPC pulses received from application
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: sent_network_packets
-                            
-                            	Packets sent to network (v4/v6 IO)
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: sent_net_io_packets
-                            
-                            	Packets sent to network (NetIO)
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
+                            	**range:** 0..4294967295
                             
                             .. attribute:: failed_queued_network_packets
                             
@@ -2310,12 +2289,33 @@ class UdpConnection(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: failed_queued_net_io_packets
+                            .. attribute:: received_application_bytes
                             
-                            	Packets failed getting queued to network (NetIO)
-                            	**type**\: int
+                            	Bytes received from application
+                            	**type**\: long
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: received_xipc_pulses
+                            
+                            	XIPC pulses received from application
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sent_net_io_packets
+                            
+                            	Packets sent to network (NetIO)
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sent_network_packets
+                            
+                            	Packets sent to network (v4/v6 IO)
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
                             
                             
 
@@ -2326,17 +2326,17 @@ class UdpConnection(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.failed_queued_net_io_packets = None
+                                self.failed_queued_network_packets = None
                                 self.received_application_bytes = None
                                 self.received_xipc_pulses = None
-                                self.sent_network_packets = None
                                 self.sent_net_io_packets = None
-                                self.failed_queued_network_packets = None
-                                self.failed_queued_net_io_packets = None
+                                self.sent_network_packets = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:send'
 
@@ -2347,22 +2347,22 @@ class UdpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.failed_queued_net_io_packets is not None:
+                                    return True
+
+                                if self.failed_queued_network_packets is not None:
+                                    return True
+
                                 if self.received_application_bytes is not None:
                                     return True
 
                                 if self.received_xipc_pulses is not None:
                                     return True
 
-                                if self.sent_network_packets is not None:
-                                    return True
-
                                 if self.sent_net_io_packets is not None:
                                     return True
 
-                                if self.failed_queued_network_packets is not None:
-                                    return True
-
-                                if self.failed_queued_net_io_packets is not None:
+                                if self.sent_network_packets is not None:
                                     return True
 
                                 return False
@@ -2377,26 +2377,12 @@ class UdpConnection(object):
                             """
                             UDP receive statistics
                             
-                            .. attribute:: received_network_packets
-                            
-                            	Packets received from network
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
                             .. attribute:: failed_queued_application_packets
                             
                             	Packets failed queued to application
                             	**type**\: int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: queued_application_packets
-                            
-                            	Packets queued to application
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: failed_queued_application_socket_packets
                             
@@ -2405,10 +2391,24 @@ class UdpConnection(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: queued_application_packets
+                            
+                            	Packets queued to application
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             .. attribute:: queued_application_socket_packets
                             
                             	Packets queued to application on socket
-                            	**type**\: int
+                            	**type**\: long
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: received_network_packets
+                            
+                            	Packets received from network
+                            	**type**\: long
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2421,16 +2421,16 @@ class UdpConnection(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.received_network_packets = None
                                 self.failed_queued_application_packets = None
-                                self.queued_application_packets = None
                                 self.failed_queued_application_socket_packets = None
+                                self.queued_application_packets = None
                                 self.queued_application_socket_packets = None
+                                self.received_network_packets = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:receive'
 
@@ -2441,19 +2441,19 @@ class UdpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.received_network_packets is not None:
-                                    return True
-
                                 if self.failed_queued_application_packets is not None:
-                                    return True
-
-                                if self.queued_application_packets is not None:
                                     return True
 
                                 if self.failed_queued_application_socket_packets is not None:
                                     return True
 
+                                if self.queued_application_packets is not None:
+                                    return True
+
                                 if self.queued_application_socket_packets is not None:
+                                    return True
+
+                                if self.received_network_packets is not None:
                                     return True
 
                                 return False
@@ -2466,9 +2466,9 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.pcb_address is None:
-                                raise YPYDataValidationError('Key property pcb_address is None')
+                                raise YPYModelError('Key property pcb_address is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-statistic[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
 
@@ -2482,13 +2482,13 @@ class UdpConnection(object):
                             if self.pcb_address is not None:
                                 return True
 
-                            if self.send is not None and self.send._has_data():
+                            if self.is_paw_socket is not None:
                                 return True
 
                             if self.receive is not None and self.receive._has_data():
                                 return True
 
-                            if self.is_paw_socket is not None:
+                            if self.send is not None and self.send._has_data():
                                 return True
 
                             return False
@@ -2501,7 +2501,7 @@ class UdpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-statistics'
 
@@ -2527,7 +2527,7 @@ class UdpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:statistics'
 
@@ -2541,10 +2541,10 @@ class UdpConnection(object):
                     if self.clients is not None and self.clients._has_data():
                         return True
 
-                    if self.summary is not None and self.summary._has_data():
+                    if self.pcb_statistics is not None and self.pcb_statistics._has_data():
                         return True
 
-                    if self.pcb_statistics is not None and self.pcb_statistics._has_data():
+                    if self.summary is not None and self.summary._has_data():
                         return True
 
                     return False
@@ -2662,20 +2662,22 @@ class UdpConnection(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
-                                .. attribute:: local_address
+                                .. attribute:: common
                                 
-                                	Local IP address
-                                	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
+                                	Common PCB information
+                                	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
                                 
                                 .. attribute:: foreign_address
                                 
                                 	Remote IP address
                                 	**type**\: :py:class:`ForeignAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
                                 
-                                .. attribute:: common
+                                .. attribute:: foreign_port
                                 
-                                	Common PCB information
-                                	**type**\: :py:class:`Common <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
+                                	Remote port
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
                                 
                                 .. attribute:: l4_protocol
                                 
@@ -2684,16 +2686,14 @@ class UdpConnection(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: local_address
+                                
+                                	Local IP address
+                                	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
+                                
                                 .. attribute:: local_port
                                 
                                 	Local port
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: foreign_port
-                                
-                                	Remote port
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
@@ -2708,15 +2708,15 @@ class UdpConnection(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.pcb_address = None
-                                    self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
-                                    self.local_address.parent = self
-                                    self.foreign_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress()
-                                    self.foreign_address.parent = self
                                     self.common = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common()
                                     self.common.parent = self
-                                    self.l4_protocol = None
-                                    self.local_port = None
+                                    self.foreign_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress()
+                                    self.foreign_address.parent = self
                                     self.foreign_port = None
+                                    self.l4_protocol = None
+                                    self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
+                                    self.local_address.parent = self
+                                    self.local_port = None
 
 
                                 class LocalAddress(object):
@@ -2758,7 +2758,7 @@ class UdpConnection(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
 
@@ -2825,7 +2825,7 @@ class UdpConnection(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
 
@@ -2857,15 +2857,15 @@ class UdpConnection(object):
                                     """
                                     Common PCB information
                                     
-                                    .. attribute:: lpts_pcb
-                                    
-                                    	LPTS PCB information
-                                    	**type**\: :py:class:`LptsPcb <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
-                                    
                                     .. attribute:: af_name
                                     
                                     	Address Family
                                     	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    
+                                    .. attribute:: lpts_pcb
+                                    
+                                    	LPTS PCB information
+                                    	**type**\: :py:class:`LptsPcb <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
                                     
                                     
 
@@ -2876,36 +2876,24 @@ class UdpConnection(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.af_name = None
                                         self.lpts_pcb = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb()
                                         self.lpts_pcb.parent = self
-                                        self.af_name = None
 
 
                                     class LptsPcb(object):
                                         """
                                         LPTS PCB information
                                         
-                                        .. attribute:: options
-                                        
-                                        	Receive options
-                                        	**type**\: :py:class:`Options <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
-                                        
-                                        .. attribute:: lpts_flags
-                                        
-                                        	LPTS flags
-                                        	**type**\: :py:class:`LptsFlags <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
-                                        
                                         .. attribute:: accept_mask
                                         
                                         	AcceptMask
                                         	**type**\: :py:class:`AcceptMask <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
                                         
-                                        .. attribute:: ttl
+                                        .. attribute:: filter
                                         
-                                        	Minimum TTL
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
+                                        	Interface Filters
+                                        	**type**\: list of :py:class:`Filter <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
                                         
                                         .. attribute:: flow_types_info
                                         
@@ -2914,10 +2902,22 @@ class UdpConnection(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: filter
+                                        .. attribute:: lpts_flags
                                         
-                                        	Interface Filters
-                                        	**type**\: list of :py:class:`Filter <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
+                                        	LPTS flags
+                                        	**type**\: :py:class:`LptsFlags <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
+                                        
+                                        .. attribute:: options
+                                        
+                                        	Receive options
+                                        	**type**\: :py:class:`Options <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
+                                        
+                                        .. attribute:: ttl
+                                        
+                                        	Minimum TTL
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         
 
@@ -2928,31 +2928,31 @@ class UdpConnection(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
-                                            self.options.parent = self
-                                            self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
-                                            self.lpts_flags.parent = self
                                             self.accept_mask = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask()
                                             self.accept_mask.parent = self
-                                            self.ttl = None
-                                            self.flow_types_info = None
                                             self.filter = YList()
                                             self.filter.parent = self
                                             self.filter.name = 'filter'
+                                            self.flow_types_info = None
+                                            self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
+                                            self.lpts_flags.parent = self
+                                            self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
+                                            self.options.parent = self
+                                            self.ttl = None
 
 
                                         class Options(object):
                                             """
                                             Receive options
                                             
-                                            .. attribute:: is_receive_filter
-                                            
-                                            	Receive filter enabled
-                                            	**type**\: bool
-                                            
                                             .. attribute:: is_ip_sla
                                             
                                             	IP SLA
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: is_receive_filter
+                                            
+                                            	Receive filter enabled
                                             	**type**\: bool
                                             
                                             
@@ -2964,13 +2964,13 @@ class UdpConnection(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.is_receive_filter = None
                                                 self.is_ip_sla = None
+                                                self.is_receive_filter = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:options'
 
@@ -2981,10 +2981,10 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_receive_filter is not None:
+                                                if self.is_ip_sla is not None:
                                                     return True
 
-                                                if self.is_ip_sla is not None:
+                                                if self.is_receive_filter is not None:
                                                     return True
 
                                                 return False
@@ -2999,9 +2999,9 @@ class UdpConnection(object):
                                             """
                                             LPTS flags
                                             
-                                            .. attribute:: is_pcb_bound
+                                            .. attribute:: is_ignore_vrf_filter
                                             
-                                            	PCB bound
+                                            	Ignore VRF Filter
                                             	**type**\: bool
                                             
                                             .. attribute:: is_local_address_ignore
@@ -3009,9 +3009,9 @@ class UdpConnection(object):
                                             	Sent drop packets
                                             	**type**\: bool
                                             
-                                            .. attribute:: is_ignore_vrf_filter
+                                            .. attribute:: is_pcb_bound
                                             
-                                            	Ignore VRF Filter
+                                            	PCB bound
                                             	**type**\: bool
                                             
                                             
@@ -3023,14 +3023,14 @@ class UdpConnection(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.is_pcb_bound = None
-                                                self.is_local_address_ignore = None
                                                 self.is_ignore_vrf_filter = None
+                                                self.is_local_address_ignore = None
+                                                self.is_pcb_bound = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts-flags'
 
@@ -3041,13 +3041,13 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_pcb_bound is not None:
+                                                if self.is_ignore_vrf_filter is not None:
                                                     return True
 
                                                 if self.is_local_address_ignore is not None:
                                                     return True
 
-                                                if self.is_ignore_vrf_filter is not None:
+                                                if self.is_pcb_bound is not None:
                                                     return True
 
                                                 return False
@@ -3067,6 +3067,16 @@ class UdpConnection(object):
                                             	Set interface
                                             	**type**\: bool
                                             
+                                            .. attribute:: is_local_address
+                                            
+                                            	Set Local Address
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: is_local_port
+                                            
+                                            	Set Local Port
+                                            	**type**\: bool
+                                            
                                             .. attribute:: is_packet_type
                                             
                                             	Set packet type
@@ -3082,16 +3092,6 @@ class UdpConnection(object):
                                             	Set Remote Port
                                             	**type**\: bool
                                             
-                                            .. attribute:: is_local_address
-                                            
-                                            	Set Local Address
-                                            	**type**\: bool
-                                            
-                                            .. attribute:: is_local_port
-                                            
-                                            	Set Local Port
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -3102,16 +3102,16 @@ class UdpConnection(object):
                                             def __init__(self):
                                                 self.parent = None
                                                 self.is_interface = None
+                                                self.is_local_address = None
+                                                self.is_local_port = None
                                                 self.is_packet_type = None
                                                 self.is_remote_address = None
                                                 self.is_remote_port = None
-                                                self.is_local_address = None
-                                                self.is_local_port = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:accept-mask'
 
@@ -3125,6 +3125,12 @@ class UdpConnection(object):
                                                 if self.is_interface is not None:
                                                     return True
 
+                                                if self.is_local_address is not None:
+                                                    return True
+
+                                                if self.is_local_port is not None:
+                                                    return True
+
                                                 if self.is_packet_type is not None:
                                                     return True
 
@@ -3132,12 +3138,6 @@ class UdpConnection(object):
                                                     return True
 
                                                 if self.is_remote_port is not None:
-                                                    return True
-
-                                                if self.is_local_address is not None:
-                                                    return True
-
-                                                if self.is_local_port is not None:
                                                     return True
 
                                                 return False
@@ -3152,20 +3152,12 @@ class UdpConnection(object):
                                             """
                                             Interface Filters
                                             
-                                            .. attribute:: packet_type
+                                            .. attribute:: flow_types_info
                                             
-                                            	Protocol\-specific packet type
-                                            	**type**\: :py:class:`PacketType <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
+                                            	flow information
+                                            	**type**\: int
                                             
-                                            .. attribute:: remote_address
-                                            
-                                            	Remote address
-                                            	**type**\: :py:class:`RemoteAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
-                                            
-                                            .. attribute:: local_address
-                                            
-                                            	Local address
-                                            	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: interface_name
                                             
@@ -3174,16 +3166,33 @@ class UdpConnection(object):
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
-                                            .. attribute:: remote_length
+                                            .. attribute:: local_address
                                             
-                                            	Remote address length
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..65535
+                                            	Local address
+                                            	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
                                             
                                             .. attribute:: local_length
                                             
                                             	Local address length
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            .. attribute:: packet_type
+                                            
+                                            	Protocol\-specific packet type
+                                            	**type**\: :py:class:`PacketType <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
+                                            
+                                            .. attribute:: priority
+                                            
+                                            	Priority
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: receive_local_port
+                                            
+                                            	Receive Local port
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
@@ -3195,19 +3204,17 @@ class UdpConnection(object):
                                             
                                             	**range:** 0..65535
                                             
-                                            .. attribute:: receive_local_port
+                                            .. attribute:: remote_address
                                             
-                                            	Receive Local port
+                                            	Remote address
+                                            	**type**\: :py:class:`RemoteAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
+                                            
+                                            .. attribute:: remote_length
+                                            
+                                            	Remote address length
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
-                                            
-                                            .. attribute:: priority
-                                            
-                                            	Priority
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..255
                                             
                                             .. attribute:: ttl
                                             
@@ -3215,13 +3222,6 @@ class UdpConnection(object):
                                             	**type**\: int
                                             
                                             	**range:** 0..255
-                                            
-                                            .. attribute:: flow_types_info
-                                            
-                                            	flow information
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
                                             
                                             
 
@@ -3232,40 +3232,35 @@ class UdpConnection(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
-                                                self.packet_type.parent = self
-                                                self.remote_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress()
-                                                self.remote_address.parent = self
+                                                self.flow_types_info = None
+                                                self.interface_name = None
                                                 self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress()
                                                 self.local_address.parent = self
-                                                self.interface_name = None
-                                                self.remote_length = None
                                                 self.local_length = None
-                                                self.receive_remote_port = None
-                                                self.receive_local_port = None
+                                                self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
+                                                self.packet_type.parent = self
                                                 self.priority = None
+                                                self.receive_local_port = None
+                                                self.receive_remote_port = None
+                                                self.remote_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress()
+                                                self.remote_address.parent = self
+                                                self.remote_length = None
                                                 self.ttl = None
-                                                self.flow_types_info = None
 
 
                                             class PacketType(object):
                                                 """
                                                 Protocol\-specific packet type
                                                 
-                                                .. attribute:: type
+                                                .. attribute:: icm_pv6_message_type
                                                 
-                                                	Type
-                                                	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
+                                                	ICMPv6 message type
+                                                	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
                                                 	**type**\: :py:class:`MessageTypeIcmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpEnum>`
-                                                
-                                                .. attribute:: icm_pv6_message_type
-                                                
-                                                	ICMPv6 message type
-                                                	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
@@ -3279,6 +3274,11 @@ class UdpConnection(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                .. attribute:: type
+                                                
+                                                	Type
+                                                	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
+                                                
                                                 
 
                                                 """
@@ -3288,16 +3288,16 @@ class UdpConnection(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.type = None
-                                                    self.icmp_message_type = None
                                                     self.icm_pv6_message_type = None
+                                                    self.icmp_message_type = None
                                                     self.igmp_message_type = None
                                                     self.message_id = None
+                                                    self.type = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:packet-type'
 
@@ -3308,19 +3308,19 @@ class UdpConnection(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.type is not None:
+                                                    if self.icm_pv6_message_type is not None:
                                                         return True
 
                                                     if self.icmp_message_type is not None:
-                                                        return True
-
-                                                    if self.icm_pv6_message_type is not None:
                                                         return True
 
                                                     if self.igmp_message_type is not None:
                                                         return True
 
                                                     if self.message_id is not None:
+                                                        return True
+
+                                                    if self.type is not None:
                                                         return True
 
                                                     return False
@@ -3370,7 +3370,7 @@ class UdpConnection(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:remote-address'
 
@@ -3437,7 +3437,7 @@ class UdpConnection(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
 
@@ -3467,7 +3467,7 @@ class UdpConnection(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:filter'
 
@@ -3478,37 +3478,37 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.packet_type is not None and self.packet_type._has_data():
-                                                    return True
-
-                                                if self.remote_address is not None and self.remote_address._has_data():
-                                                    return True
-
-                                                if self.local_address is not None and self.local_address._has_data():
+                                                if self.flow_types_info is not None:
                                                     return True
 
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                if self.remote_length is not None:
+                                                if self.local_address is not None and self.local_address._has_data():
                                                     return True
 
                                                 if self.local_length is not None:
                                                     return True
 
-                                                if self.receive_remote_port is not None:
-                                                    return True
-
-                                                if self.receive_local_port is not None:
+                                                if self.packet_type is not None and self.packet_type._has_data():
                                                     return True
 
                                                 if self.priority is not None:
                                                     return True
 
-                                                if self.ttl is not None:
+                                                if self.receive_local_port is not None:
                                                     return True
 
-                                                if self.flow_types_info is not None:
+                                                if self.receive_remote_port is not None:
+                                                    return True
+
+                                                if self.remote_address is not None and self.remote_address._has_data():
+                                                    return True
+
+                                                if self.remote_length is not None:
+                                                    return True
+
+                                                if self.ttl is not None:
                                                     return True
 
                                                 return False
@@ -3521,7 +3521,7 @@ class UdpConnection(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts-pcb'
 
@@ -3532,25 +3532,25 @@ class UdpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.options is not None and self.options._has_data():
-                                                return True
-
-                                            if self.lpts_flags is not None and self.lpts_flags._has_data():
-                                                return True
-
                                             if self.accept_mask is not None and self.accept_mask._has_data():
-                                                return True
-
-                                            if self.ttl is not None:
-                                                return True
-
-                                            if self.flow_types_info is not None:
                                                 return True
 
                                             if self.filter is not None:
                                                 for child_ref in self.filter:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.flow_types_info is not None:
+                                                return True
+
+                                            if self.lpts_flags is not None and self.lpts_flags._has_data():
+                                                return True
+
+                                            if self.options is not None and self.options._has_data():
+                                                return True
+
+                                            if self.ttl is not None:
+                                                return True
 
                                             return False
 
@@ -3562,7 +3562,7 @@ class UdpConnection(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:common'
 
@@ -3573,10 +3573,10 @@ class UdpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.lpts_pcb is not None and self.lpts_pcb._has_data():
+                                        if self.af_name is not None:
                                             return True
 
-                                        if self.af_name is not None:
+                                        if self.lpts_pcb is not None and self.lpts_pcb._has_data():
                                             return True
 
                                         return False
@@ -3589,9 +3589,9 @@ class UdpConnection(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.pcb_address is None:
-                                        raise YPYDataValidationError('Key property pcb_address is None')
+                                        raise YPYModelError('Key property pcb_address is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
 
@@ -3605,22 +3605,22 @@ class UdpConnection(object):
                                     if self.pcb_address is not None:
                                         return True
 
-                                    if self.local_address is not None and self.local_address._has_data():
+                                    if self.common is not None and self.common._has_data():
                                         return True
 
                                     if self.foreign_address is not None and self.foreign_address._has_data():
                                         return True
 
-                                    if self.common is not None and self.common._has_data():
+                                    if self.foreign_port is not None:
                                         return True
 
                                     if self.l4_protocol is not None:
                                         return True
 
-                                    if self.local_port is not None:
+                                    if self.local_address is not None and self.local_address._has_data():
                                         return True
 
-                                    if self.foreign_port is not None:
+                                    if self.local_port is not None:
                                         return True
 
                                     return False
@@ -3633,7 +3633,7 @@ class UdpConnection(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcbs'
 
@@ -3659,9 +3659,9 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.query_name is None:
-                                raise YPYDataValidationError('Key property query_name is None')
+                                raise YPYModelError('Key property query_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:query[Cisco-IOS-XR-ip-udp-oper:query-name = ' + str(self.query_name) + ']'
 
@@ -3688,7 +3688,7 @@ class UdpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:queries'
 
@@ -3714,7 +3714,7 @@ class UdpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts'
 
@@ -3771,27 +3771,27 @@ class UdpConnection(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: local_address
+                    .. attribute:: af_name
                     
-                    	Local address
-                    	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
+                    	Address family
+                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
                     	**type**\: :py:class:`ForeignAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
                     
-                    .. attribute:: af_name
+                    .. attribute:: foreign_port
                     
-                    	Address family
-                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
-                    
-                    .. attribute:: local_process_id
-                    
-                    	ID of local process
+                    	Foreign port
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..65535
+                    
+                    .. attribute:: local_address
+                    
+                    	Local address
+                    	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
                     
                     .. attribute:: local_port
                     
@@ -3800,12 +3800,12 @@ class UdpConnection(object):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: foreign_port
+                    .. attribute:: local_process_id
                     
-                    	Foreign port
+                    	ID of local process
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4294967295
                     
                     .. attribute:: receive_queue
                     
@@ -3831,14 +3831,14 @@ class UdpConnection(object):
                     def __init__(self):
                         self.parent = None
                         self.pcb_address = None
-                        self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
-                        self.local_address.parent = self
+                        self.af_name = None
                         self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.af_name = None
-                        self.local_process_id = None
-                        self.local_port = None
                         self.foreign_port = None
+                        self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
+                        self.local_address.parent = self
+                        self.local_port = None
+                        self.local_process_id = None
                         self.receive_queue = None
                         self.send_queue = None
 
@@ -3882,7 +3882,7 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
 
@@ -3949,7 +3949,7 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
 
@@ -3979,9 +3979,9 @@ class UdpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pcb_address is None:
-                            raise YPYDataValidationError('Key property pcb_address is None')
+                            raise YPYModelError('Key property pcb_address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-detail[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
 
@@ -3995,22 +3995,22 @@ class UdpConnection(object):
                         if self.pcb_address is not None:
                             return True
 
-                        if self.local_address is not None and self.local_address._has_data():
+                        if self.af_name is not None:
                             return True
 
                         if self.foreign_address is not None and self.foreign_address._has_data():
                             return True
 
-                        if self.af_name is not None:
+                        if self.foreign_port is not None:
                             return True
 
-                        if self.local_process_id is not None:
+                        if self.local_address is not None and self.local_address._has_data():
                             return True
 
                         if self.local_port is not None:
                             return True
 
-                        if self.foreign_port is not None:
+                        if self.local_process_id is not None:
                             return True
 
                         if self.receive_queue is not None:
@@ -4029,7 +4029,7 @@ class UdpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-details'
 
@@ -4087,31 +4087,31 @@ class UdpConnection(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: local_address
+                    .. attribute:: af_name
                     
-                    	Local address
-                    	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    	Address family
+                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
                     	**type**\: :py:class:`ForeignAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
                     
-                    .. attribute:: af_name
+                    .. attribute:: foreign_port
                     
-                    	Address family
-                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
-                    
-                    .. attribute:: local_port
-                    
-                    	Local port
+                    	Foreign port
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: foreign_port
+                    .. attribute:: local_address
                     
-                    	Foreign port
+                    	Local address
+                    	**type**\: :py:class:`LocalAddress <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    
+                    .. attribute:: local_port
+                    
+                    	Local port
                     	**type**\: int
                     
                     	**range:** 0..65535
@@ -4140,13 +4140,13 @@ class UdpConnection(object):
                     def __init__(self):
                         self.parent = None
                         self.pcb_address = None
-                        self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
-                        self.local_address.parent = self
+                        self.af_name = None
                         self.foreign_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.af_name = None
-                        self.local_port = None
                         self.foreign_port = None
+                        self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
+                        self.local_address.parent = self
+                        self.local_port = None
                         self.receive_queue = None
                         self.send_queue = None
 
@@ -4190,7 +4190,7 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
 
@@ -4257,7 +4257,7 @@ class UdpConnection(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
 
@@ -4287,9 +4287,9 @@ class UdpConnection(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pcb_address is None:
-                            raise YPYDataValidationError('Key property pcb_address is None')
+                            raise YPYModelError('Key property pcb_address is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-brief[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
 
@@ -4303,19 +4303,19 @@ class UdpConnection(object):
                         if self.pcb_address is not None:
                             return True
 
-                        if self.local_address is not None and self.local_address._has_data():
+                        if self.af_name is not None:
                             return True
 
                         if self.foreign_address is not None and self.foreign_address._has_data():
                             return True
 
-                        if self.af_name is not None:
+                        if self.foreign_port is not None:
+                            return True
+
+                        if self.local_address is not None and self.local_address._has_data():
                             return True
 
                         if self.local_port is not None:
-                            return True
-
-                        if self.foreign_port is not None:
                             return True
 
                         if self.receive_queue is not None:
@@ -4334,7 +4334,7 @@ class UdpConnection(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-briefs'
 
@@ -4360,7 +4360,7 @@ class UdpConnection(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ip-udp-oper:udp-connection/Cisco-IOS-XR-ip-udp-oper:nodes/Cisco-IOS-XR-ip-udp-oper:node[Cisco-IOS-XR-ip-udp-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -4374,16 +4374,16 @@ class UdpConnection(object):
                 if self.node_name is not None:
                     return True
 
-                if self.statistics is not None and self.statistics._has_data():
+                if self.lpts is not None and self.lpts._has_data():
                     return True
 
-                if self.lpts is not None and self.lpts._has_data():
+                if self.pcb_briefs is not None and self.pcb_briefs._has_data():
                     return True
 
                 if self.pcb_details is not None and self.pcb_details._has_data():
                     return True
 
-                if self.pcb_briefs is not None and self.pcb_briefs._has_data():
+                if self.statistics is not None and self.statistics._has_data():
                     return True
 
                 return False

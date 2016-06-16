@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -39,8 +39,8 @@ _meta_table = {
             'SPECIFIED':'SPECIFIED',
             'AUTO':'AUTO',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'PathComputationMethod_Identity' : {
-        'meta_info' : _MetaInfoClass('PathComputationMethod_Identity',
+    'PathComputationMethodIdentity' : {
+        'meta_info' : _MetaInfoClass('PathComputationMethodIdentity',
             False, 
             [
             ],
@@ -54,7 +54,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Global.Config',
             False, 
             [
-            _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelType_Identity', 
+            _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelTypeIdentity', 
                 [], [], 
                 '''                The null-label type used, implicit or explicit
                 ''',
@@ -71,7 +71,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Global.State',
             False, 
             [
-            _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelType_Identity', 
+            _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelTypeIdentity', 
                 [], [], 
                 '''                The null-label type used, implicit or explicit
                 ''',
@@ -88,17 +88,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes.Interface.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to interface name
-                ''',
-                'name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('mpls-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable MPLS forwarding on this interfacek
                 ''',
                 'mpls_enabled',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to interface name
+                ''',
+                'name',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -111,17 +111,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes.Interface.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to interface name
-                ''',
-                'name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('mpls-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable MPLS forwarding on this interfacek
                 ''',
                 'mpls_enabled',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to interface name
+                ''',
+                'name',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -186,17 +186,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.State', 
-                [], [], 
-                '''                Top level global MPLS state
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('mpls-interface-attributes', REFERENCE_CLASS, 'MplsInterfaceAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.MplsInterfaceAttributes', 
                 [], [], 
                 '''                Parameters related to MPLS interfaces
                 ''',
                 'mpls_interface_attributes',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.State', 
+                [], [], 
+                '''                Top level global MPLS state
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -209,18 +209,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                SRLG group identifier
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                group ID for the SRLG
-                ''',
-                'value',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                The cost of the SRLG to the computation
@@ -234,6 +222,18 @@ _meta_table = {
                 statically configured
                 ''',
                 'flooding_type',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                SRLG group identifier
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                group ID for the SRLG
+                ''',
+                'value',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -246,18 +246,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                SRLG group identifier
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                group ID for the SRLG
-                ''',
-                'value',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                The cost of the SRLG to the computation
@@ -271,6 +259,18 @@ _meta_table = {
                 statically configured
                 ''',
                 'flooding_type',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                SRLG group identifier
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                group ID for the SRLG
+                ''',
+                'value',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -506,20 +506,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config',
             False, 
             [
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
-                [], [], 
-                '''                The type of threshold that should be used to specify the
-                values at which bandwidth is flooded. DELTA indicates that
-                the local system should flood IGP updates when a change in
-                reserved bandwidth >= the specified delta occurs on the
-                interface. Where THRESHOLD-CROSSED is specified, the local
-                system should trigger an update (and hence flood) the
-                reserved bandwidth when the reserved bandwidth changes such
-                that it crosses, or becomes equal to one of the threshold
-                values
-                ''',
-                'threshold_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
@@ -527,6 +513,14 @@ _meta_table = {
                 being flooded
                 ''',
                 'delta_percentage',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is decreasing.
+                ''',
+                'down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum', 
                 [], [], 
@@ -541,21 +535,19 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is increasing.
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
+                [], [], 
+                '''                The type of threshold that should be used to specify the
+                values at which bandwidth is flooded. DELTA indicates that
+                the local system should flood IGP updates when a change in
+                reserved bandwidth >= the specified delta occurs on the
+                interface. Where THRESHOLD-CROSSED is specified, the local
+                system should trigger an update (and hence flood) the
+                reserved bandwidth when the reserved bandwidth changes such
+                that it crosses, or becomes equal to one of the threshold
+                values
                 ''',
-                'up_thresholds',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is decreasing.
-                ''',
-                'down_thresholds',
+                'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 100)], [], 
@@ -565,6 +557,14 @@ _meta_table = {
                 increasing and decreasing
                 ''',
                 'up_down_thresholds',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is increasing.
+                ''',
+                'up_thresholds',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -587,20 +587,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State',
             False, 
             [
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
-                [], [], 
-                '''                The type of threshold that should be used to specify the
-                values at which bandwidth is flooded. DELTA indicates that
-                the local system should flood IGP updates when a change in
-                reserved bandwidth >= the specified delta occurs on the
-                interface. Where THRESHOLD-CROSSED is specified, the local
-                system should trigger an update (and hence flood) the
-                reserved bandwidth when the reserved bandwidth changes such
-                that it crosses, or becomes equal to one of the threshold
-                values
-                ''',
-                'threshold_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
@@ -608,6 +594,14 @@ _meta_table = {
                 being flooded
                 ''',
                 'delta_percentage',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is decreasing.
+                ''',
+                'down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum', 
                 [], [], 
@@ -622,21 +616,19 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is increasing.
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
+                [], [], 
+                '''                The type of threshold that should be used to specify the
+                values at which bandwidth is flooded. DELTA indicates that
+                the local system should flood IGP updates when a change in
+                reserved bandwidth >= the specified delta occurs on the
+                interface. Where THRESHOLD-CROSSED is specified, the local
+                system should trigger an update (and hence flood) the
+                reserved bandwidth when the reserved bandwidth changes such
+                that it crosses, or becomes equal to one of the threshold
+                values
                 ''',
-                'up_thresholds',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is decreasing.
-                ''',
-                'down_thresholds',
+                'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 100)], [], 
@@ -646,6 +638,14 @@ _meta_table = {
                 increasing and decreasing
                 ''',
                 'up_down_thresholds',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is increasing.
+                ''',
+                'up_thresholds',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -785,19 +785,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.TeLspTimers.Config',
             False, 
             [
-            _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                delay the use of newly installed te lsp for a
-                specified amount of time.
-                ''',
-                'install_delay',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cleanup-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                delay the removal of old te lsp for a specified
                 amount of time
                 ''',
                 'cleanup_delay',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                delay the use of newly installed te lsp for a
+                specified amount of time.
+                ''',
+                'install_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -817,19 +817,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.TeLspTimers.State',
             False, 
             [
-            _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                delay the use of newly installed te lsp for a
-                specified amount of time.
-                ''',
-                'install_delay',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cleanup-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                delay the removal of old te lsp for a specified
                 amount of time
                 ''',
                 'cleanup_delay',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                delay the use of newly installed te lsp for a
+                specified amount of time.
+                ''',
+                'install_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -873,12 +873,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes',
             False, 
             [
-            _MetaInfoClassMember('srlg', REFERENCE_CLASS, 'Srlg' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg', 
-                [], [], 
-                '''                Shared risk link groups attributes
-                ''',
-                'srlg',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('igp-flooding-bandwidth', REFERENCE_CLASS, 'IgpFloodingBandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth', 
                 [], [], 
                 '''                Interface bandwidth change percentages
@@ -893,6 +887,12 @@ _meta_table = {
                 and state
                 ''',
                 'mpls_admin_groups',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('srlg', REFERENCE_CLASS, 'Srlg' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg', 
+                [], [], 
+                '''                Shared risk link groups attributes
+                ''',
+                'srlg',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('te-lsp-timers', REFERENCE_CLASS, 'TeLspTimers' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.TeLspTimers', 
                 [], [], 
@@ -912,17 +912,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeInterfaceAttributes.Interface.Config',
             False, 
             [
+            _MetaInfoClassMember('admin-group', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                list of admin groups (by name) on the interface
+                ''',
+                'admin_group',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                reference to interface name
                 ''',
                 'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                TE specific metric for the link
-                ''',
-                'te_metric',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('srlg-membership', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
@@ -931,11 +931,11 @@ _meta_table = {
                 ''',
                 'srlg_membership',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                list of admin groups (by name) on the interface
+            _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                TE specific metric for the link
                 ''',
-                'admin_group',
+                'te_metric',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -948,17 +948,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeInterfaceAttributes.Interface.State',
             False, 
             [
+            _MetaInfoClassMember('admin-group', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                list of admin groups (by name) on the interface
+                ''',
+                'admin_group',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                reference to interface name
                 ''',
                 'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                TE specific metric for the link
-                ''',
-                'te_metric',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('srlg-membership', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
@@ -967,11 +967,11 @@ _meta_table = {
                 ''',
                 'srlg_membership',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                list of admin groups (by name) on the interface
+            _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                TE specific metric for the link
                 ''',
-                'admin_group',
+                'te_metric',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -994,20 +994,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config',
             False, 
             [
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
-                [], [], 
-                '''                The type of threshold that should be used to specify the
-                values at which bandwidth is flooded. DELTA indicates that
-                the local system should flood IGP updates when a change in
-                reserved bandwidth >= the specified delta occurs on the
-                interface. Where THRESHOLD-CROSSED is specified, the local
-                system should trigger an update (and hence flood) the
-                reserved bandwidth when the reserved bandwidth changes such
-                that it crosses, or becomes equal to one of the threshold
-                values
-                ''',
-                'threshold_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
@@ -1015,6 +1001,14 @@ _meta_table = {
                 being flooded
                 ''',
                 'delta_percentage',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is decreasing.
+                ''',
+                'down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum', 
                 [], [], 
@@ -1029,21 +1023,19 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is increasing.
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
+                [], [], 
+                '''                The type of threshold that should be used to specify the
+                values at which bandwidth is flooded. DELTA indicates that
+                the local system should flood IGP updates when a change in
+                reserved bandwidth >= the specified delta occurs on the
+                interface. Where THRESHOLD-CROSSED is specified, the local
+                system should trigger an update (and hence flood) the
+                reserved bandwidth when the reserved bandwidth changes such
+                that it crosses, or becomes equal to one of the threshold
+                values
                 ''',
-                'up_thresholds',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is decreasing.
-                ''',
-                'down_thresholds',
+                'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 100)], [], 
@@ -1053,6 +1045,14 @@ _meta_table = {
                 increasing and decreasing
                 ''',
                 'up_down_thresholds',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is increasing.
+                ''',
+                'up_thresholds',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1075,20 +1075,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State',
             False, 
             [
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
-                [], [], 
-                '''                The type of threshold that should be used to specify the
-                values at which bandwidth is flooded. DELTA indicates that
-                the local system should flood IGP updates when a change in
-                reserved bandwidth >= the specified delta occurs on the
-                interface. Where THRESHOLD-CROSSED is specified, the local
-                system should trigger an update (and hence flood) the
-                reserved bandwidth when the reserved bandwidth changes such
-                that it crosses, or becomes equal to one of the threshold
-                values
-                ''',
-                'threshold_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
                 [(0, 100)], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
@@ -1096,6 +1082,14 @@ _meta_table = {
                 being flooded
                 ''',
                 'delta_percentage',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is decreasing.
+                ''',
+                'down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum', 
                 [], [], 
@@ -1110,21 +1104,19 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is increasing.
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
+                [], [], 
+                '''                The type of threshold that should be used to specify the
+                values at which bandwidth is flooded. DELTA indicates that
+                the local system should flood IGP updates when a change in
+                reserved bandwidth >= the specified delta occurs on the
+                interface. Where THRESHOLD-CROSSED is specified, the local
+                system should trigger an update (and hence flood) the
+                reserved bandwidth when the reserved bandwidth changes such
+                that it crosses, or becomes equal to one of the threshold
+                values
                 ''',
-                'up_thresholds',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                The thresholds (expressed as a percentage of the maximum
-                reservable bandwidth) at which bandwidth updates are to be
-                triggered when the bandwidth is decreasing.
-                ''',
-                'down_thresholds',
+                'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 100)], [], 
@@ -1134,6 +1126,14 @@ _meta_table = {
                 increasing and decreasing
                 ''',
                 'up_down_thresholds',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                The thresholds (expressed as a percentage of the maximum
+                reservable bandwidth) at which bandwidth updates are to be
+                triggered when the bandwidth is increasing.
+                ''',
+                'up_thresholds',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1182,12 +1182,6 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.State', 
-                [], [], 
-                '''                State parameters related to TE interfaces
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('igp-flooding-bandwidth', REFERENCE_CLASS, 'IgpFloodingBandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth', 
                 [], [], 
                 '''                Interface bandwidth change percentages
@@ -1195,6 +1189,12 @@ _meta_table = {
                 engineering database (TED)
                 ''',
                 'igp_flooding_bandwidth',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.State', 
+                [], [], 
+                '''                State parameters related to TE interfaces
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1246,25 +1246,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session',
             False, 
             [
-            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Origin address of RSVP session
-                ''',
-                'source_address',
-                'openconfig-mpls', True, [
-                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Origin address of RSVP session
-                        ''',
-                        'source_address',
-                        'openconfig-mpls', True),
-                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Origin address of RSVP session
-                        ''',
-                        'source_address',
-                        'openconfig-mpls', True),
-                ]),
             _MetaInfoClassMember('destination-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Destination address of RSVP session
@@ -1284,35 +1265,43 @@ _meta_table = {
                         'destination_address',
                         'openconfig-mpls', True),
                 ]),
-            _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                RSVP source port
-                ''',
-                'source_port',
-                'openconfig-mpls', True),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                RSVP source port
                 ''',
                 'destination_port',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum', 
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                Enumeration of RSVP session states
+                '''                Origin address of RSVP session
                 ''',
-                'status',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum', 
-                [], [], 
-                '''                Enumeration of possible RSVP session types
-                ''',
-                'type',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
+                'source_address',
+                'openconfig-mpls', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Origin address of RSVP session
+                        ''',
+                        'source_address',
+                        'openconfig-mpls', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Origin address of RSVP session
+                        ''',
+                        'source_address',
+                        'openconfig-mpls', True),
+                ]),
+            _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Unique identifier of RSVP session
+                '''                RSVP source port
                 ''',
-                'tunnel_id',
+                'source_port',
+                'openconfig-mpls', True),
+            _MetaInfoClassMember('associated-lsps', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                List of label switched paths associated with this RSVP
+                session
+                ''',
+                'associated_lsps',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('label-in', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -1352,12 +1341,23 @@ _meta_table = {
                         'label_out',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('associated-lsps', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum', 
                 [], [], 
-                '''                List of label switched paths associated with this RSVP
-                session
+                '''                Enumeration of RSVP session states
                 ''',
-                'associated_lsps',
+                'status',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique identifier of RSVP session
+                ''',
+                'tunnel_id',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum', 
+                [], [], 
+                '''                Enumeration of possible RSVP session types
+                ''',
+                'type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1522,17 +1522,17 @@ _meta_table = {
                 ''',
                 'enable',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Graceful restart time (seconds).
-                ''',
-                'restart_time',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                RSVP state recovery time
                 ''',
                 'recovery_time',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Graceful restart time (seconds).
+                ''',
+                'restart_time',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1551,17 +1551,17 @@ _meta_table = {
                 ''',
                 'enable',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Graceful restart time (seconds).
-                ''',
-                'restart_time',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                RSVP state recovery time
                 ''',
                 'recovery_time',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Graceful restart time (seconds).
+                ''',
+                'restart_time',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1748,132 +1748,132 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TODO
-                ''',
-                'path_timeouts',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TODO
-                ''',
-                'reservation_timeouts',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RSVP messages dropped due to rate limiting
-                ''',
-                'rate_limited_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path messages
-                ''',
-                'in_path_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path Error messages
-                ''',
-                'in_path_error_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path Tear messages
-                ''',
-                'in_path_tear_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv messages
-                ''',
-                'in_reservation_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv Error messages
-                ''',
-                'in_reservation_error_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv Tear messages
-                ''',
-                'in_reservation_tear_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP hello messages
-                ''',
-                'in_hello_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP summary refresh messages
-                ''',
-                'in_srefresh_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of received RSVP refresh reduction ack
                 messages
                 ''',
                 'in_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP PATH messages
+                '''                Number of received RSVP hello messages
                 ''',
-                'out_path_messages',
+                'in_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Path Error messages
+                '''                Number of received RSVP Path Error messages
                 ''',
-                'out_path_error_messages',
+                'in_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Path Tear messages
+                '''                Number of received RSVP Path messages
                 ''',
-                'out_path_tear_messages',
+                'in_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv messages
+                '''                Number of received RSVP Path Tear messages
                 ''',
-                'out_reservation_messages',
+                'in_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv Error messages
+                '''                Number of received RSVP Resv Error messages
                 ''',
-                'out_reservation_error_messages',
+                'in_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv Tear messages
+                '''                Number of received RSVP Resv messages
                 ''',
-                'out_reservation_tear_messages',
+                'in_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of received RSVP Resv Tear messages
+                ''',
+                'in_reservation_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of received RSVP summary refresh messages
+                ''',
+                'in_srefresh_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP refresh reduction ack messages
+                ''',
+                'out_ack_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of sent RSVP hello messages
                 ''',
                 'out_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Path Error messages
+                ''',
+                'out_path_error_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP PATH messages
+                ''',
+                'out_path_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Path Tear messages
+                ''',
+                'out_path_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv Error messages
+                ''',
+                'out_reservation_error_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv messages
+                ''',
+                'out_reservation_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv Tear messages
+                ''',
+                'out_reservation_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of sent RSVP summary refresh messages
                 ''',
                 'out_srefresh_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP refresh reduction ack messages
+                '''                TODO
                 ''',
-                'out_ack_messages',
+                'path_timeouts',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RSVP messages dropped due to rate limiting
+                ''',
+                'rate_limited_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TODO
+                ''',
+                'reservation_timeouts',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -1910,18 +1910,18 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'openconfig-mpls', False),
+            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.Hellos', 
+                [], [], 
+                '''                Top level container for RSVP hello parameters
+                ''',
+                'hellos',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('soft-preemption', REFERENCE_CLASS, 'SoftPreemption' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption', 
                 [], [], 
                 '''                Protocol options relating to RSVP
                 soft preemption
                 ''',
                 'soft_preemption',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.Hellos', 
-                [], [], 
-                '''                Top level container for RSVP hello parameters
-                ''',
-                'hellos',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.State', 
                 [], [], 
@@ -1963,13 +1963,13 @@ _meta_table = {
                 ''',
                 'priority',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Bandwidth currently available
                 ''',
                 'available_bandwidth',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('reserved-bandwidth', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('reserved-bandwidth', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Bandwidth currently reserved
                 ''',
@@ -1986,114 +1986,114 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path messages
-                ''',
-                'in_path_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path Error messages
-                ''',
-                'in_path_error_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Path Tear messages
-                ''',
-                'in_path_tear_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv messages
-                ''',
-                'in_reservation_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv Error messages
-                ''',
-                'in_reservation_error_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP Resv Tear messages
-                ''',
-                'in_reservation_tear_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP hello messages
-                ''',
-                'in_hello_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of received RSVP summary refresh messages
-                ''',
-                'in_srefresh_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of received RSVP refresh reduction ack
                 messages
                 ''',
                 'in_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP PATH messages
+                '''                Number of received RSVP hello messages
                 ''',
-                'out_path_messages',
+                'in_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Path Error messages
+                '''                Number of received RSVP Path Error messages
                 ''',
-                'out_path_error_messages',
+                'in_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Path Tear messages
+                '''                Number of received RSVP Path messages
                 ''',
-                'out_path_tear_messages',
+                'in_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv messages
+                '''                Number of received RSVP Path Tear messages
                 ''',
-                'out_reservation_messages',
+                'in_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv Error messages
+                '''                Number of received RSVP Resv Error messages
                 ''',
-                'out_reservation_error_messages',
+                'in_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP Resv Tear messages
+                '''                Number of received RSVP Resv messages
                 ''',
-                'out_reservation_tear_messages',
+                'in_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of received RSVP Resv Tear messages
+                ''',
+                'in_reservation_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of received RSVP summary refresh messages
+                ''',
+                'in_srefresh_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP refresh reduction ack messages
+                ''',
+                'out_ack_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of sent RSVP hello messages
                 ''',
                 'out_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Path Error messages
+                ''',
+                'out_path_error_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP PATH messages
+                ''',
+                'out_path_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Path Tear messages
+                ''',
+                'out_path_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv Error messages
+                ''',
+                'out_reservation_error_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv messages
+                ''',
+                'out_reservation_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of sent RSVP Resv Tear messages
+                ''',
+                'out_reservation_tear_messages',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of sent RSVP summary refresh messages
                 ''',
                 'out_srefresh_messages',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of sent RSVP refresh reduction ack messages
-                ''',
-                'out_ack_messages',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2106,6 +2106,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State',
             False, 
             [
+            _MetaInfoClassMember('active-reservation-count', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of active RSVP reservations
+                ''',
+                'active_reservation_count',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('bandwidth', REFERENCE_LIST, 'Bandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth', 
                 [], [], 
                 '''                Available and reserved bandwidth by priority on
@@ -2113,23 +2119,17 @@ _meta_table = {
                 ''',
                 'bandwidth',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('highwater-mark', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Maximum bandwidth ever reserved
-                ''',
-                'highwater_mark',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('active-reservation-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of active RSVP reservations
-                ''',
-                'active_reservation_count',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters', 
                 [], [], 
                 '''                Interface specific RSVP statistics and counters
                 ''',
                 'counters',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('highwater-mark', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Maximum bandwidth ever reserved
+                ''',
+                'highwater_mark',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2218,18 +2218,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enables RSVP authentication on the node.
-                ''',
-                'enable',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                authenticate RSVP signaling
                 messages
                 ''',
                 'authentication_key',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enables RSVP authentication on the node.
+                ''',
+                'enable',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2242,18 +2242,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enables RSVP authentication on the node.
-                ''',
-                'enable',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                authenticate RSVP signaling
                 messages
                 ''',
                 'authentication_key',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enables RSVP authentication on the node.
+                ''',
+                'enable',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2352,19 +2352,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config',
             False, 
             [
-            _MetaInfoClassMember('link-protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionType_Identity', 
-                [], [], 
-                '''                Style of mpls frr protection desired:
-                link, link-node, or unprotected
-                ''',
-                'link_protection_style_requested',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('bypass-optimize-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                interval between periodic optimization
                 of the bypass LSPs
                 ''',
                 'bypass_optimize_interval',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('link-protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionTypeIdentity', 
+                [], [], 
+                '''                Style of mpls frr protection desired:
+                link, link-node, or unprotected
+                ''',
+                'link_protection_style_requested',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2377,19 +2377,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State',
             False, 
             [
-            _MetaInfoClassMember('link-protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionType_Identity', 
-                [], [], 
-                '''                Style of mpls frr protection desired:
-                link, link-node, or unprotected
-                ''',
-                'link_protection_style_requested',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('bypass-optimize-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                interval between periodic optimization
                 of the bypass LSPs
                 ''',
                 'bypass_optimize_interval',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('link-protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionTypeIdentity', 
+                [], [], 
+                '''                Style of mpls frr protection desired:
+                link, link-node, or unprotected
+                ''',
+                'link_protection_style_requested',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2431,24 +2431,6 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config', 
-                [], [], 
-                '''                Configuration of per-interface RSVP parameters
-                ''',
-                'config',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State', 
-                [], [], 
-                '''                Per-interface RSVP protocol and state information
-                ''',
-                'state',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos', 
-                [], [], 
-                '''                Top level container for RSVP hello parameters
-                ''',
-                'hellos',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication', 
                 [], [], 
                 '''                Configuration and state parameters relating to RSVP
@@ -2456,18 +2438,36 @@ _meta_table = {
                 ''',
                 'authentication',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('subscription', REFERENCE_CLASS, 'Subscription' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config', 
                 [], [], 
-                '''                Bandwidth percentage reservable by RSVP
-                on an interface
+                '''                Configuration of per-interface RSVP parameters
                 ''',
-                'subscription',
+                'config',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos', 
+                [], [], 
+                '''                Top level container for RSVP hello parameters
+                ''',
+                'hellos',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('protection', REFERENCE_CLASS, 'Protection' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection', 
                 [], [], 
                 '''                link-protection (NHOP) related configuration
                 ''',
                 'protection',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State', 
+                [], [], 
+                '''                Per-interface RSVP protocol and state information
+                ''',
+                'state',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('subscription', REFERENCE_CLASS, 'Subscription' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription', 
+                [], [], 
+                '''                Bandwidth percentage reservable by RSVP
+                on an interface
+                ''',
+                'subscription',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2497,19 +2497,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe',
             False, 
             [
-            _MetaInfoClassMember('sessions', REFERENCE_CLASS, 'Sessions' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions', 
-                [], [], 
-                '''                Configuration and state of RSVP sessions
-                ''',
-                'sessions',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Neighbors', 
-                [], [], 
-                '''                Configuration and state for RSVP neighbors connecting
-                to the device
-                ''',
-                'neighbors',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global', 
                 [], [], 
                 '''                Platform wide RSVP configuration and state
@@ -2521,6 +2508,19 @@ _meta_table = {
                 '''                Attributes relating to RSVP-TE enabled interfaces
                 ''',
                 'interface_attributes',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Neighbors', 
+                [], [], 
+                '''                Configuration and state for RSVP neighbors connecting
+                to the device
+                ''',
+                'neighbors',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('sessions', REFERENCE_CLASS, 'Sessions' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions', 
+                [], [], 
+                '''                Configuration and state of RSVP sessions
+                ''',
+                'sessions',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2556,17 +2556,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.SegmentRouting.Srgb.State',
             False, 
             [
+            _MetaInfoClassMember('free', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of SRGB indexes that have not yet been allocated
+                ''',
+                'free',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Lower value in the block.
                 ''',
                 'lower_bound',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Upper value in the block.
-                ''',
-                'upper_bound',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2574,11 +2574,11 @@ _meta_table = {
                 ''',
                 'size',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('free', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of SRGB indexes that have not yet been allocated
+                '''                Upper value in the block.
                 ''',
-                'free',
+                'upper_bound',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2766,6 +2766,13 @@ _meta_table = {
                 ''',
                 'interface',
                 'openconfig-mpls', True),
+            _MetaInfoClassMember('adjacency-sid', REFERENCE_CLASS, 'AdjacencySid' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid', 
+                [], [], 
+                '''                Configuration for Adjacency SIDs that are related to
+                the specified interface
+                ''',
+                'adjacency_sid',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config', 
                 [], [], 
                 '''                Interface configuration parameters for Segment Routing
@@ -2780,13 +2787,6 @@ _meta_table = {
                 ''',
                 'state',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('adjacency-sid', REFERENCE_CLASS, 'AdjacencySid' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid', 
-                [], [], 
-                '''                Configuration for Adjacency SIDs that are related to
-                the specified interface
-                ''',
-                'adjacency_sid',
-                'openconfig-mpls', False),
             ],
             'openconfig-mpls',
             'interfaces',
@@ -2798,6 +2798,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.SegmentRouting',
             False, 
             [
+            _MetaInfoClassMember('interfaces', REFERENCE_LIST, 'Interfaces' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces', 
+                [], [], 
+                '''                List of interfaces with associated segment routing
+                configuration
+                ''',
+                'interfaces',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('srgb', REFERENCE_LIST, 'Srgb' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Srgb', 
                 [], [], 
                 '''                List of Segment Routing Global Block (SRGB) entries. These
@@ -2805,13 +2812,6 @@ _meta_table = {
                 entries.
                 ''',
                 'srgb',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_LIST, 'Interfaces' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces', 
-                [], [], 
-                '''                List of interfaces with associated segment routing
-                configuration
-                ''',
-                'interfaces',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -2852,6 +2852,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols',
             False, 
             [
+            _MetaInfoClassMember('ldp', REFERENCE_CLASS, 'Ldp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.Ldp', 
+                [], [], 
+                '''                LDP global signaling configuration
+                ''',
+                'ldp',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('rsvp-te', REFERENCE_CLASS, 'RsvpTe' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe', 
                 [], [], 
                 '''                RSVP-TE global signaling protocol configuration
@@ -2863,12 +2869,6 @@ _meta_table = {
                 '''                SR global signaling config
                 ''',
                 'segment_routing',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('ldp', REFERENCE_CLASS, 'Ldp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.Ldp', 
-                [], [], 
-                '''                LDP global signaling configuration
-                ''',
-                'ldp',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3048,18 +3048,18 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
+            _MetaInfoClassMember('explicit-route-objects', REFERENCE_LIST, 'ExplicitRouteObjects' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects', 
+                [], [], 
+                '''                List of explicit route objects
+                ''',
+                'explicit_route_objects',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State', 
                 [], [], 
                 '''                Operational state parameters relating to the named
                 explicit paths
                 ''',
                 'state',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('explicit-route-objects', REFERENCE_LIST, 'ExplicitRouteObjects' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects', 
-                [], [], 
-                '''                List of explicit route objects
-                ''',
-                'explicit_route_objects',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3072,23 +3072,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('admin-status', REFERENCE_IDENTITY_CLASS, 'TunnelAdminStatusIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelAdminStatusIdentity', 
                 [], [], 
-                '''                The tunnel name
+                '''                TE tunnel administrative state.
                 ''',
-                'name',
+                'admin_status',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Identity', 
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Tunnel type, p2p or p2mp
+                '''                optional text description for the tunnel
                 ''',
-                'type',
+                'description',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('signaling-protocol', REFERENCE_IDENTITY_CLASS, 'TunnelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Identity', 
-                [], [], 
-                '''                Signaling protocol used to set up this tunnel
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
                 ''',
-                'signaling_protocol',
+                'hold_priority',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('local-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -3112,25 +3114,6 @@ _meta_table = {
                         'local_id',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                optional text description for the tunnel
-                ''',
-                'description',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-status', REFERENCE_IDENTITY_CLASS, 'TunnelAdminStatus_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelAdminStatus_Identity', 
-                [], [], 
-                '''                TE tunnel administrative state.
-                ''',
-                'admin_status',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Specifies a preference for this tunnel.
-                A lower number signifies a better preference
-                ''',
-                'preference',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('metric', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                LSP metric, either explicit or IGP
@@ -3150,7 +3133,20 @@ _meta_table = {
                         'metric',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionType_Identity', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The tunnel name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Specifies a preference for this tunnel.
+                A lower number signifies a better preference
+                ''',
+                'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionTypeIdentity', 
                 [], [], 
                 '''                style of mpls frr protection desired: can be
                 link, link-node or unprotected.
@@ -3163,6 +3159,26 @@ _meta_table = {
                 a traffic engineered LSP
                 ''',
                 'reoptimize_timer',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                RSVP-TE preemption priority during LSP setup, lower is
+                higher priority; default 7 indicates that LSP will not
+                preempt established LSPs during setup
+                ''',
+                'setup_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('signaling-protocol', REFERENCE_IDENTITY_CLASS, 'TunnelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeIdentity', 
+                [], [], 
+                '''                Signaling protocol used to set up this tunnel
+                ''',
+                'signaling_protocol',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('soft-preemption', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enables RSVP soft-preemption on this LSP
+                ''',
+                'soft_preemption',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('source', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -3183,27 +3199,11 @@ _meta_table = {
                         'source',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('soft-preemption', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeIdentity', 
                 [], [], 
-                '''                Enables RSVP soft-preemption on this LSP
+                '''                Tunnel type, p2p or p2mp
                 ''',
-                'soft_preemption',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                RSVP-TE preemption priority during LSP setup, lower is
-                higher priority; default 7 indicates that LSP will not
-                preempt established LSPs during setup
-                ''',
-                'setup_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
-                ''',
-                'hold_priority',
+                'type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3216,38 +3216,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of bytes that have been forwarded over the
                 label switched path.
                 ''',
                 'bytes',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of pacets that have been forwarded over the
-                label switched path.
-                ''',
-                'packets',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('path-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of path changes for the label switched path
-                ''',
-                'path_changes',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('state-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of state changes for the label switched path
-                ''',
-                'state_changes',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('online-time', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                Indication of the time the label switched path
-                transitioned to an Oper Up or in-service state
-                ''',
-                'online_time',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('current-path-time', ATTRIBUTE, 'str' , None, None, 
                 [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
@@ -3264,6 +3238,32 @@ _meta_table = {
                 ''',
                 'next_reoptimization_time',
                 'openconfig-mpls', False),
+            _MetaInfoClassMember('online-time', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                Indication of the time the label switched path
+                transitioned to an Oper Up or in-service state
+                ''',
+                'online_time',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of pacets that have been forwarded over the
+                label switched path.
+                ''',
+                'packets',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('path-changes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of path changes for the label switched path
+                ''',
+                'path_changes',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state-changes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of state changes for the label switched path
+                ''',
+                'state_changes',
+                'openconfig-mpls', False),
             ],
             'openconfig-mpls',
             'counters',
@@ -3275,23 +3275,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('admin-status', REFERENCE_IDENTITY_CLASS, 'TunnelAdminStatusIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelAdminStatusIdentity', 
                 [], [], 
-                '''                The tunnel name
+                '''                TE tunnel administrative state.
                 ''',
-                'name',
+                'admin_status',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Identity', 
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters', 
                 [], [], 
-                '''                Tunnel type, p2p or p2mp
+                '''                State data for MPLS label switched paths. This state
+                data is specific to a single label switched path.
                 ''',
-                'type',
+                'counters',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('signaling-protocol', REFERENCE_IDENTITY_CLASS, 'TunnelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Identity', 
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Signaling protocol used to set up this tunnel
+                '''                optional text description for the tunnel
                 ''',
-                'signaling_protocol',
+                'description',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
+                ''',
+                'hold_priority',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('local-id', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -3315,25 +3324,6 @@ _meta_table = {
                         'local_id',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                optional text description for the tunnel
-                ''',
-                'description',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-status', REFERENCE_IDENTITY_CLASS, 'TunnelAdminStatus_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelAdminStatus_Identity', 
-                [], [], 
-                '''                TE tunnel administrative state.
-                ''',
-                'admin_status',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Specifies a preference for this tunnel.
-                A lower number signifies a better preference
-                ''',
-                'preference',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('metric', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                LSP metric, either explicit or IGP
@@ -3353,7 +3343,26 @@ _meta_table = {
                         'metric',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionType_Identity', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The tunnel name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('oper-status', REFERENCE_IDENTITY_CLASS, 'LspOperStatusIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'LspOperStatusIdentity', 
+                [], [], 
+                '''                The operational status of the TE tunnel
+                ''',
+                'oper_status',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Specifies a preference for this tunnel.
+                A lower number signifies a better preference
+                ''',
+                'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('protection-style-requested', REFERENCE_IDENTITY_CLASS, 'ProtectionTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'ProtectionTypeIdentity', 
                 [], [], 
                 '''                style of mpls frr protection desired: can be
                 link, link-node or unprotected.
@@ -3366,6 +3375,33 @@ _meta_table = {
                 a traffic engineered LSP
                 ''',
                 'reoptimize_timer',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('role', REFERENCE_IDENTITY_CLASS, 'LspRoleIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'LspRoleIdentity', 
+                [], [], 
+                '''                The lsp role at the current node, whether it is headend,
+                transit or tailend.
+                ''',
+                'role',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                RSVP-TE preemption priority during LSP setup, lower is
+                higher priority; default 7 indicates that LSP will not
+                preempt established LSPs during setup
+                ''',
+                'setup_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('signaling-protocol', REFERENCE_IDENTITY_CLASS, 'TunnelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeIdentity', 
+                [], [], 
+                '''                Signaling protocol used to set up this tunnel
+                ''',
+                'signaling_protocol',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('soft-preemption', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enables RSVP soft-preemption on this LSP
+                ''',
+                'soft_preemption',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('source', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -3386,47 +3422,11 @@ _meta_table = {
                         'source',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('soft-preemption', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeIdentity', 
                 [], [], 
-                '''                Enables RSVP soft-preemption on this LSP
+                '''                Tunnel type, p2p or p2mp
                 ''',
-                'soft_preemption',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                RSVP-TE preemption priority during LSP setup, lower is
-                higher priority; default 7 indicates that LSP will not
-                preempt established LSPs during setup
-                ''',
-                'setup_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
-                ''',
-                'hold_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('oper-status', REFERENCE_IDENTITY_CLASS, 'LspOperStatus_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'LspOperStatus_Identity', 
-                [], [], 
-                '''                The operational status of the TE tunnel
-                ''',
-                'oper_status',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('role', REFERENCE_IDENTITY_CLASS, 'LspRole_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'LspRole_Identity', 
-                [], [], 
-                '''                The lsp role at the current node, whether it is headend,
-                transit or tailend.
-                ''',
-                'role',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters', 
-                [], [], 
-                '''                State data for MPLS label switched paths. This state
-                data is specific to a single label switched path.
-                ''',
-                'counters',
+                'type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3439,19 +3439,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config',
             False, 
             [
-            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
-                [], [], 
-                '''                The method used for settign the bandwidth, either explicitly
-                specified or configured
-                ''',
-                'specification_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('set-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                set bandwidth explicitly, e.g., using
                 offline calculation
                 ''',
                 'set_bandwidth',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
+                [], [], 
+                '''                The method used for settign the bandwidth, either explicitly
+                specified or configured
+                ''',
+                'specification_type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3464,19 +3464,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State',
             False, 
             [
-            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
-                [], [], 
-                '''                The method used for settign the bandwidth, either explicitly
-                specified or configured
-                ''',
-                'specification_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('set-bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                set bandwidth explicitly, e.g., using
                 offline calculation
                 ''',
                 'set_bandwidth',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
+                [], [], 
+                '''                The method used for settign the bandwidth, either explicitly
+                specified or configured
+                ''',
+                'specification_type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3489,27 +3489,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config',
             False, 
             [
-            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                enables mpls auto-bandwidth on the
-                lsp
-                ''',
-                'enabled',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                set the minimum bandwidth in Mbps for an
-                auto-bandwidth LSP
-                ''',
-                'min_bw',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                set the maximum bandwidth in Mbps for an
-                auto-bandwidth LSP
-                ''',
-                'max_bw',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('adjust-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                time in seconds between adjustments to
@@ -3526,6 +3505,27 @@ _meta_table = {
                 triggered
                 ''',
                 'adjust_threshold',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                enables mpls auto-bandwidth on the
+                lsp
+                ''',
+                'enabled',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                set the maximum bandwidth in Mbps for an
+                auto-bandwidth LSP
+                ''',
+                'max_bw',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                set the minimum bandwidth in Mbps for an
+                auto-bandwidth LSP
+                ''',
+                'min_bw',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3538,27 +3538,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State',
             False, 
             [
-            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                enables mpls auto-bandwidth on the
-                lsp
-                ''',
-                'enabled',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                set the minimum bandwidth in Mbps for an
-                auto-bandwidth LSP
-                ''',
-                'min_bw',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                set the maximum bandwidth in Mbps for an
-                auto-bandwidth LSP
-                ''',
-                'max_bw',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('adjust-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                time in seconds between adjustments to
@@ -3575,6 +3554,27 @@ _meta_table = {
                 triggered
                 ''',
                 'adjust_threshold',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                enables mpls auto-bandwidth on the
+                lsp
+                ''',
+                'enabled',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                set the maximum bandwidth in Mbps for an
+                auto-bandwidth LSP
+                ''',
+                'max_bw',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                set the minimum bandwidth in Mbps for an
+                auto-bandwidth LSP
+                ''',
+                'min_bw',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3683,19 +3683,19 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                bandwidth percentage change to trigger
-                and underflow event
-                ''',
-                'underflow_threshold',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                number of consecutive underflow sample
                 events needed to trigger an underflow adjustment
                 ''',
                 'trigger_event_count',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                bandwidth percentage change to trigger
+                and underflow event
+                ''',
+                'underflow_threshold',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3715,19 +3715,19 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
-                '''                bandwidth percentage change to trigger
-                and underflow event
-                ''',
-                'underflow_threshold',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                number of consecutive underflow sample
                 events needed to trigger an underflow adjustment
                 ''',
                 'trigger_event_count',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 100)], [], 
+                '''                bandwidth percentage change to trigger
+                and underflow event
+                ''',
+                'underflow_threshold',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3772,19 +3772,19 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State', 
-                [], [], 
-                '''                State parameters relating to MPLS
-                auto-bandwidth on the tunnel.
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('overflow', REFERENCE_CLASS, 'Overflow' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow', 
                 [], [], 
                 '''                configuration of MPLS overflow bandwidth
                 adjustement for the LSP
                 ''',
                 'overflow',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State', 
+                [], [], 
+                '''                State parameters relating to MPLS
+                auto-bandwidth on the tunnel.
+                ''',
+                'state',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('underflow', REFERENCE_CLASS, 'Underflow' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow', 
                 [], [], 
@@ -3804,6 +3804,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth',
             False, 
             [
+            _MetaInfoClassMember('auto-bandwidth', REFERENCE_CLASS, 'AutoBandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth', 
+                [], [], 
+                '''                Parameters related to auto-bandwidth
+                ''',
+                'auto_bandwidth',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config', 
                 [], [], 
                 '''                Configuration parameters related to bandwidth on TE
@@ -3817,12 +3823,6 @@ _meta_table = {
                 configuration of TE tunnels
                 ''',
                 'state',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('auto-bandwidth', REFERENCE_CLASS, 'AutoBandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth', 
-                [], [], 
-                '''                Parameters related to auto-bandwidth
-                ''',
-                'auto_bandwidth',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3895,32 +3895,40 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path name
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethod_Identity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethod_Identity', 
-                [], [], 
-                '''                The method used for computing the path, either
-                locally computed, queried from a server or not
-                computed at all (explicitly configured).
-                ''',
-                'path_computation_method',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable CSPF for locally computed LSPs
-                ''',
-                'use_cspf',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
                 ''',
                 'cspf_tiebreaker',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to a defined path
+                ''',
+                'explicit_path_name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
+                ''',
+                'hold_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethodIdentity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethodIdentity', 
+                [], [], 
+                '''                The method used for computing the path, either
+                locally computed, queried from a server or not
+                computed at all (explicitly configured).
+                ''',
+                'path_computation_method',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('path-computation-server', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -3944,18 +3952,19 @@ _meta_table = {
                         'path_computation_server',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to a defined path
-                ''',
-                'explicit_path_name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600)], [], 
+                '''                sets the time between attempts to establish the
+                LSP
+                ''',
+                'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -3965,20 +3974,11 @@ _meta_table = {
                 ''',
                 'setup_priority',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
+            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag to enable CSPF for locally computed LSPs
                 ''',
-                'hold_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
-                '''                sets the time between attempts to establish the
-                LSP
-                ''',
-                'retry_timer',
+                'use_cspf',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -3991,32 +3991,40 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path name
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethod_Identity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethod_Identity', 
-                [], [], 
-                '''                The method used for computing the path, either
-                locally computed, queried from a server or not
-                computed at all (explicitly configured).
-                ''',
-                'path_computation_method',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable CSPF for locally computed LSPs
-                ''',
-                'use_cspf',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
                 ''',
                 'cspf_tiebreaker',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to a defined path
+                ''',
+                'explicit_path_name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
+                ''',
+                'hold_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethodIdentity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethodIdentity', 
+                [], [], 
+                '''                The method used for computing the path, either
+                locally computed, queried from a server or not
+                computed at all (explicitly configured).
+                ''',
+                'path_computation_method',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('path-computation-server', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -4040,18 +4048,19 @@ _meta_table = {
                         'path_computation_server',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to a defined path
-                ''',
-                'explicit_path_name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600)], [], 
+                '''                sets the time between attempts to establish the
+                LSP
+                ''',
+                'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -4061,20 +4070,11 @@ _meta_table = {
                 ''',
                 'setup_priority',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
+            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag to enable CSPF for locally computed LSPs
                 ''',
-                'hold_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
-                '''                sets the time between attempts to establish the
-                LSP
-                ''',
-                'retry_timer',
+                'use_cspf',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4087,13 +4087,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config',
             False, 
             [
-            _MetaInfoClassMember('secondary-path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                A reference to the secondary path that should be utilised
-                when the containing primary path option is in use
-                ''',
-                'secondary_path',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                The priority of the specified secondary path option. Higher
@@ -4101,6 +4094,13 @@ _meta_table = {
                 path reference with a priority of 0 is the most preferred
                 ''',
                 'priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('secondary-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                A reference to the secondary path that should be utilised
+                when the containing primary path option is in use
+                ''',
+                'secondary_path',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4113,12 +4113,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State',
             False, 
             [
-            _MetaInfoClassMember('secondary-path', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                A reference to the secondary path that should be utilised
-                when the containing primary path option is in use
+                '''                Indicates the current active path option that has
+                been selected of the candidate secondary paths
                 ''',
-                'secondary_path',
+                'active',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -4128,12 +4128,12 @@ _meta_table = {
                 ''',
                 'priority',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('secondary-path', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Indicates the current active path option that has
-                been selected of the candidate secondary paths
+                '''                A reference to the secondary path that should be utilised
+                when the containing primary path option is in use
                 ''',
-                'active',
+                'secondary_path',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4290,17 +4290,12 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config', 
+            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups', 
                 [], [], 
-                '''                Configuration parameters related to paths
+                '''                Top-level container for include/exclude constraints for
+                link affinities
                 ''',
-                'config',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State', 
-                [], [], 
-                '''                State parameters related to paths
-                ''',
-                'state',
+                'admin_groups',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('candidate-secondary-paths', REFERENCE_CLASS, 'CandidateSecondaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths', 
                 [], [], 
@@ -4317,12 +4312,17 @@ _meta_table = {
                 ''',
                 'candidate_secondary_paths',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config', 
                 [], [], 
-                '''                Top-level container for include/exclude constraints for
-                link affinities
+                '''                Configuration parameters related to paths
                 ''',
-                'admin_groups',
+                'config',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State', 
+                [], [], 
+                '''                State parameters related to paths
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4335,32 +4335,40 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path name
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethod_Identity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethod_Identity', 
-                [], [], 
-                '''                The method used for computing the path, either
-                locally computed, queried from a server or not
-                computed at all (explicitly configured).
-                ''',
-                'path_computation_method',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable CSPF for locally computed LSPs
-                ''',
-                'use_cspf',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
                 ''',
                 'cspf_tiebreaker',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to a defined path
+                ''',
+                'explicit_path_name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
+                ''',
+                'hold_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethodIdentity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethodIdentity', 
+                [], [], 
+                '''                The method used for computing the path, either
+                locally computed, queried from a server or not
+                computed at all (explicitly configured).
+                ''',
+                'path_computation_method',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('path-computation-server', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -4384,18 +4392,19 @@ _meta_table = {
                         'path_computation_server',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to a defined path
-                ''',
-                'explicit_path_name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600)], [], 
+                '''                sets the time between attempts to establish the
+                LSP
+                ''',
+                'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -4405,20 +4414,11 @@ _meta_table = {
                 ''',
                 'setup_priority',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
+            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag to enable CSPF for locally computed LSPs
                 ''',
-                'hold_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
-                '''                sets the time between attempts to establish the
-                LSP
-                ''',
-                'retry_timer',
+                'use_cspf',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4431,32 +4431,40 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Path name
-                ''',
-                'name',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethod_Identity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethod_Identity', 
-                [], [], 
-                '''                The method used for computing the path, either
-                locally computed, queried from a server or not
-                computed at all (explicitly configured).
-                ''',
-                'path_computation_method',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag to enable CSPF for locally computed LSPs
-                ''',
-                'use_cspf',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
                 ''',
                 'cspf_tiebreaker',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                reference to a defined path
+                ''',
+                'explicit_path_name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                preemption priority once the LSP is established,
+                lower is higher priority; default 0 indicates other LSPs
+                will not preempt the LSPs once established
+                ''',
+                'hold_priority',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path name
+                ''',
+                'name',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('path-computation-method', REFERENCE_IDENTITY_CLASS, 'PathComputationMethodIdentity' , 'ydk.models.openconfig.openconfig_mpls', 'PathComputationMethodIdentity', 
+                [], [], 
+                '''                The method used for computing the path, either
+                locally computed, queried from a server or not
+                computed at all (explicitly configured).
+                ''',
+                'path_computation_method',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('path-computation-server', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -4480,18 +4488,19 @@ _meta_table = {
                         'path_computation_server',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                reference to a defined path
-                ''',
-                'explicit_path_name',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600)], [], 
+                '''                sets the time between attempts to establish the
+                LSP
+                ''',
+                'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -4501,20 +4510,11 @@ _meta_table = {
                 ''',
                 'setup_priority',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                preemption priority once the LSP is established,
-                lower is higher priority; default 0 indicates other LSPs
-                will not preempt the LSPs once established
+            _MetaInfoClassMember('use-cspf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag to enable CSPF for locally computed LSPs
                 ''',
-                'hold_priority',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
-                '''                sets the time between attempts to establish the
-                LSP
-                ''',
-                'retry_timer',
+                'use_cspf',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4620,6 +4620,13 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
+            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups', 
+                [], [], 
+                '''                Top-level container for include/exclude constraints for
+                link affinities
+                ''',
+                'admin_groups',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config', 
                 [], [], 
                 '''                Configuration parameters related to paths
@@ -4631,13 +4638,6 @@ _meta_table = {
                 '''                State parameters related to paths
                 ''',
                 'state',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups', 
-                [], [], 
-                '''                Top-level container for include/exclude constraints for
-                link affinities
-                ''',
-                'admin_groups',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4656,12 +4656,6 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State', 
-                [], [], 
-                '''                State parameters for P2P LSPs
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('p2p-primary-paths', REFERENCE_LIST, 'P2PPrimaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths', 
                 [], [], 
                 '''                List of p2p primary paths for a tunnel
@@ -4673,6 +4667,12 @@ _meta_table = {
                 '''                List of p2p primary paths for a tunnel
                 ''',
                 'p2p_secondary_paths',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State', 
+                [], [], 
+                '''                State parameters for P2P LSPs
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4691,35 +4691,35 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelType_Identity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Identity', 
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'TunnelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeIdentity', 
                 [], [], 
                 '''                The tunnel type, p2p or p2mp.
                 ''',
                 'type',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Config', 
-                [], [], 
-                '''                Configuration parameters related to TE tunnels:
-                ''',
-                'config',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.State', 
-                [], [], 
-                '''                State parameters related to TE tunnels
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth', 
                 [], [], 
                 '''                Bandwidth configuration for TE LSPs
                 ''',
                 'bandwidth',
                 'openconfig-mpls', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.Config', 
+                [], [], 
+                '''                Configuration parameters related to TE tunnels:
+                ''',
+                'config',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('p2p-tunnel-attributes', REFERENCE_CLASS, 'P2PTunnelAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes', 
                 [], [], 
                 '''                Parameters related to LSPs of type P2P
                 ''',
                 'p2p_tunnel_attributes',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.State', 
+                [], [], 
+                '''                State parameters related to TE tunnels
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4815,23 +4815,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel',
             False, 
             [
-            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
-                [], [], 
-                '''                specifies the type of LSP, e.g., P2P or P2MP
-                ''',
-                'tunnel_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('ldp-type', REFERENCE_ENUM_CLASS, 'LdpTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum', 
                 [], [], 
                 '''                specify basic or targeted LDP LSP
                 ''',
                 'ldp_type',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2PLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp', 
+            _MetaInfoClassMember('mp2mp-lsp', REFERENCE_CLASS, 'Mp2MpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp', 
                 [], [], 
-                '''                properties of point-to-point tunnels
+                '''                properties of multipoint-to-multipoint tunnels
                 ''',
-                'p2p_lsp',
+                'mp2mp_lsp',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('p2mp-lsp', REFERENCE_CLASS, 'P2MpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp', 
                 [], [], 
@@ -4839,11 +4833,17 @@ _meta_table = {
                 ''',
                 'p2mp_lsp',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('mp2mp-lsp', REFERENCE_CLASS, 'Mp2MpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp', 
+            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2PLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp', 
                 [], [], 
-                '''                properties of multipoint-to-multipoint tunnels
+                '''                properties of point-to-point tunnels
                 ''',
-                'mp2mp_lsp',
+                'p2p_lsp',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
+                [], [], 
+                '''                specifies the type of LSP, e.g., P2P or P2MP
+                ''',
+                'tunnel_type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4945,13 +4945,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum', 
+            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum', 
                 [], [], 
-                '''                Specifies how the value of the Prefix-SID should be
-                interpreted - whether as an offset to the SRGB, or as an
-                absolute value
+                '''                Configuration relating to the LFIB actions for the
+                Prefix-SID to be used by the penultimate-hop
                 ''',
-                'type',
+                'last_hop_behavior',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('node-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4961,12 +4960,13 @@ _meta_table = {
                 ''',
                 'node_flag',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum', 
                 [], [], 
-                '''                Configuration relating to the LFIB actions for the
-                Prefix-SID to be used by the penultimate-hop
+                '''                Specifies how the value of the Prefix-SID should be
+                interpreted - whether as an offset to the SRGB, or as an
+                absolute value
                 ''',
-                'last_hop_behavior',
+                'type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -4990,13 +4990,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum', 
+            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum', 
                 [], [], 
-                '''                Specifies how the value of the Prefix-SID should be
-                interpreted - whether as an offset to the SRGB, or as an
-                absolute value
+                '''                Configuration relating to the LFIB actions for the
+                Prefix-SID to be used by the penultimate-hop
                 ''',
-                'type',
+                'last_hop_behavior',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('node-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5006,12 +5005,13 @@ _meta_table = {
                 ''',
                 'node_flag',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum', 
                 [], [], 
-                '''                Configuration relating to the LFIB actions for the
-                Prefix-SID to be used by the penultimate-hop
+                '''                Specifies how the value of the Prefix-SID should be
+                interpreted - whether as an offset to the SRGB, or as an
+                absolute value
                 ''',
-                'last_hop_behavior',
+                'type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -5075,18 +5075,18 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State', 
-                [], [], 
-                '''                Operational state relating to a FEC advertised by SR
-                ''',
-                'state',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid', 
                 [], [], 
                 '''                Parameters relating to the Prefix-SID
                 used for the originated FEC
                 ''',
                 'prefix_sid',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State', 
+                [], [], 
+                '''                Operational state relating to a FEC advertised by SR
+                ''',
+                'state',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -5116,17 +5116,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel',
             False, 
             [
-            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
-                [], [], 
-                '''                specifies the type of LSP, e.g., P2P or P2MP
-                ''',
-                'tunnel_type',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2PLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp', 
                 [], [], 
                 '''                properties of point-to-point tunnels
                 ''',
                 'p2p_lsp',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
+                [], [], 
+                '''                specifies the type of LSP, e.g., P2P or P2MP
+                ''',
+                'tunnel_type',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -5199,25 +5199,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress',
             False, 
             [
-            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                next hop IP address for the LSP
-                ''',
-                'next_hop',
-                'openconfig-mpls', False, [
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                ]),
             _MetaInfoClassMember('incoming-label', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                label value on the incoming packet
@@ -5235,6 +5216,25 @@ _meta_table = {
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
+                        'openconfig-mpls', False),
+                ]),
+            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                next hop IP address for the LSP
+                ''',
+                'next_hop',
+                'openconfig-mpls', False, [
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
+                        'openconfig-mpls', False),
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('push-label', REFERENCE_UNION, 'str' , None, None, 
@@ -5270,25 +5270,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit',
             False, 
             [
-            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                next hop IP address for the LSP
-                ''',
-                'next_hop',
-                'openconfig-mpls', False, [
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                ]),
             _MetaInfoClassMember('incoming-label', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                label value on the incoming packet
@@ -5306,6 +5287,25 @@ _meta_table = {
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
+                        'openconfig-mpls', False),
+                ]),
+            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                next hop IP address for the LSP
+                ''',
+                'next_hop',
+                'openconfig-mpls', False, [
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
+                        'openconfig-mpls', False),
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('push-label', REFERENCE_UNION, 'str' , None, None, 
@@ -5341,25 +5341,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress',
             False, 
             [
-            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                next hop IP address for the LSP
-                ''',
-                'next_hop',
-                'openconfig-mpls', False, [
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        next hop IP address for the LSP
-                        ''',
-                        'next_hop',
-                        'openconfig-mpls', False),
-                ]),
             _MetaInfoClassMember('incoming-label', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                label value on the incoming packet
@@ -5377,6 +5358,25 @@ _meta_table = {
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
+                        'openconfig-mpls', False),
+                ]),
+            _MetaInfoClassMember('next-hop', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                next hop IP address for the LSP
+                ''',
+                'next_hop',
+                'openconfig-mpls', False, [
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
+                        'openconfig-mpls', False),
+                    _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        next hop IP address for the LSP
+                        ''',
+                        'next_hop',
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('push-label', REFERENCE_UNION, 'str' , None, None, 
@@ -5418,6 +5418,13 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
+            _MetaInfoClassMember('egress', REFERENCE_CLASS, 'Egress' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress', 
+                [], [], 
+                '''                static LSPs for which the router is a
+                egress  node
+                ''',
+                'egress',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('ingress', REFERENCE_CLASS, 'Ingress' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress', 
                 [], [], 
                 '''                Static LSPs for which the router is an
@@ -5431,13 +5438,6 @@ _meta_table = {
                 transit node
                 ''',
                 'transit',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('egress', REFERENCE_CLASS, 'Egress' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress', 
-                [], [], 
-                '''                static LSPs for which the router is a
-                egress  node
-                ''',
-                'egress',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -5474,19 +5474,19 @@ _meta_table = {
                 ''',
                 'constrained_path',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('unconstrained-path', REFERENCE_CLASS, 'UnconstrainedPath' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath', 
-                [], [], 
-                '''                LSPs that use the IGP-determined path, i.e., non
-                traffic-engineered, or non constrained-path
-                ''',
-                'unconstrained_path',
-                'openconfig-mpls', False),
             _MetaInfoClassMember('static-lsps', REFERENCE_CLASS, 'StaticLsps' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.StaticLsps', 
                 [], [], 
                 '''                statically configured LSPs, without dynamic
                 signaling
                 ''',
                 'static_lsps',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('unconstrained-path', REFERENCE_CLASS, 'UnconstrainedPath' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath', 
+                [], [], 
+                '''                LSPs that use the IGP-determined path, i.e., non
+                traffic-engineered, or non constrained-path
+                ''',
+                'unconstrained_path',
                 'openconfig-mpls', False),
             ],
             'openconfig-mpls',
@@ -5507,6 +5507,18 @@ _meta_table = {
                 ''',
                 'global_',
                 'openconfig-mpls', False),
+            _MetaInfoClassMember('lsps', REFERENCE_CLASS, 'Lsps' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps', 
+                [], [], 
+                '''                LSP definitions and configuration
+                ''',
+                'lsps',
+                'openconfig-mpls', False),
+            _MetaInfoClassMember('signaling-protocols', REFERENCE_CLASS, 'SignalingProtocols' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols', 
+                [], [], 
+                '''                top-level signaling protocol configuration
+                ''',
+                'signaling_protocols',
+                'openconfig-mpls', False),
             _MetaInfoClassMember('te-global-attributes', REFERENCE_CLASS, 'TeGlobalAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes', 
                 [], [], 
                 '''                traffic-engineering global attributes
@@ -5520,18 +5532,6 @@ _meta_table = {
                 ''',
                 'te_interface_attributes',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('signaling-protocols', REFERENCE_CLASS, 'SignalingProtocols' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols', 
-                [], [], 
-                '''                top-level signaling protocol configuration
-                ''',
-                'signaling_protocols',
-                'openconfig-mpls', False),
-            _MetaInfoClassMember('lsps', REFERENCE_CLASS, 'Lsps' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps', 
-                [], [], 
-                '''                LSP definitions and configuration
-                ''',
-                'lsps',
-                'openconfig-mpls', False),
             ],
             'openconfig-mpls',
             'mpls',
@@ -5539,19 +5539,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'ExternallyQueried_Identity' : {
-        'meta_info' : _MetaInfoClass('ExternallyQueried_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls',
-            'externally-queried',
-            _yang_ns._namespaces['openconfig-mpls'],
-        'ydk.models.openconfig.openconfig_mpls'
-        ),
-    },
-    'LocallyComputed_Identity' : {
-        'meta_info' : _MetaInfoClass('LocallyComputed_Identity',
+    'LocallyComputedIdentity' : {
+        'meta_info' : _MetaInfoClass('LocallyComputedIdentity',
             False, 
             [
             ],
@@ -5561,13 +5550,24 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'ExplicitlyDefined_Identity' : {
-        'meta_info' : _MetaInfoClass('ExplicitlyDefined_Identity',
+    'ExplicitlyDefinedIdentity' : {
+        'meta_info' : _MetaInfoClass('ExplicitlyDefinedIdentity',
             False, 
             [
             ],
             'openconfig-mpls',
             'explicitly-defined',
+            _yang_ns._namespaces['openconfig-mpls'],
+        'ydk.models.openconfig.openconfig_mpls'
+        ),
+    },
+    'ExternallyQueriedIdentity' : {
+        'meta_info' : _MetaInfoClass('ExternallyQueriedIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls',
+            'externally-queried',
             _yang_ns._namespaces['openconfig-mpls'],
         'ydk.models.openconfig.openconfig_mpls'
         ),

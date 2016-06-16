@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -198,19 +198,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.LptsLocal',
             False, 
             [
-            _MetaInfoClassMember('ipolicer-local-tables', REFERENCE_CLASS, 'IpolicerLocalTables' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables', 
-                [], [], 
-                '''                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                ''',
-                'ipolicer_local_tables',
-                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('ipolicer-local', REFERENCE_CLASS, 'IpolicerLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal', 
                 [], [], 
                 '''                Node specific Pre IFIB (Internal Forwarding
                 Information Base) Configuration
                 ''',
                 'ipolicer_local',
+                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
+            _MetaInfoClassMember('ipolicer-local-tables', REFERENCE_CLASS, 'IpolicerLocalTables' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables', 
+                [], [], 
+                '''                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                ''',
+                'ipolicer_local_tables',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             ],
             'Cisco-IOS-XR-lpts-pre-ifib-cfg',
@@ -223,6 +223,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [(3, 40)], [], 
+                '''                Threshold, Range(3, severe)
+                ''',
+                'critical',
+                'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
                 [(5, 40)], [], 
                 '''                Threshold, Range(5, 40)
@@ -234,12 +240,6 @@ _meta_table = {
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
-                'Cisco-IOS-XR-watchd-cfg', False),
-            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
-                '''                Threshold, Range(3, severe)
-                ''',
-                'critical',
                 'Cisco-IOS-XR-watchd-cfg', False),
             ],
             'Cisco-IOS-XR-watchd-cfg',
@@ -269,6 +269,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [(3, 40)], [], 
+                '''                Threshold, Range(3, severe)
+                ''',
+                'critical',
+                'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
                 [(5, 40)], [], 
                 '''                Threshold, Range(5, 40)
@@ -280,12 +286,6 @@ _meta_table = {
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
-                'Cisco-IOS-XR-wd-cfg', False),
-            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
-                '''                Threshold, Range(3, severe)
-                ''',
-                'critical',
                 'Cisco-IOS-XR-wd-cfg', False),
             ],
             'Cisco-IOS-XR-wd-cfg',
@@ -321,12 +321,6 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-config-mda-cfg', True),
-            _MetaInfoClassMember('lpts-local', REFERENCE_CLASS, 'LptsLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.LptsLocal', 
-                [], [], 
-                '''                lpts node specific configuration commands
-                ''',
-                'lpts_local',
-                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWatchdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                watchdog node threshold
@@ -339,6 +333,12 @@ _meta_table = {
                 ''',
                 'cisco_ios_xr_wd_cfg_watchdog_node_threshold',
                 'Cisco-IOS-XR-wd-cfg', False),
+            _MetaInfoClassMember('lpts-local', REFERENCE_CLASS, 'LptsLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.LptsLocal', 
+                [], [], 
+                '''                lpts node specific configuration commands
+                ''',
+                'lpts_local',
+                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             ],
             'Cisco-IOS-XR-config-mda-cfg',
             'active-node',
@@ -547,19 +547,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.LptsLocal',
             False, 
             [
-            _MetaInfoClassMember('ipolicer-local-tables', REFERENCE_CLASS, 'IpolicerLocalTables' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables', 
-                [], [], 
-                '''                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                ''',
-                'ipolicer_local_tables',
-                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('ipolicer-local', REFERENCE_CLASS, 'IpolicerLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal', 
                 [], [], 
                 '''                Node specific Pre IFIB (Internal Forwarding
                 Information Base) Configuration
                 ''',
                 'ipolicer_local',
+                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
+            _MetaInfoClassMember('ipolicer-local-tables', REFERENCE_CLASS, 'IpolicerLocalTables' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables', 
+                [], [], 
+                '''                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                ''',
+                'ipolicer_local_tables',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             ],
             'Cisco-IOS-XR-lpts-pre-ifib-cfg',
@@ -572,6 +572,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [(3, 40)], [], 
+                '''                Threshold, Range(3, severe)
+                ''',
+                'critical',
+                'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
                 [(5, 40)], [], 
                 '''                Threshold, Range(5, 40)
@@ -583,12 +589,6 @@ _meta_table = {
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
-                'Cisco-IOS-XR-watchd-cfg', False),
-            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
-                '''                Threshold, Range(3, severe)
-                ''',
-                'critical',
                 'Cisco-IOS-XR-watchd-cfg', False),
             ],
             'Cisco-IOS-XR-watchd-cfg',
@@ -618,6 +618,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [(3, 40)], [], 
+                '''                Threshold, Range(3, severe)
+                ''',
+                'critical',
+                'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
                 [(5, 40)], [], 
                 '''                Threshold, Range(5, 40)
@@ -629,12 +635,6 @@ _meta_table = {
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
-                'Cisco-IOS-XR-wd-cfg', False),
-            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
-                '''                Threshold, Range(3, severe)
-                ''',
-                'critical',
                 'Cisco-IOS-XR-wd-cfg', False),
             ],
             'Cisco-IOS-XR-wd-cfg',
@@ -670,12 +670,6 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-config-mda-cfg', True),
-            _MetaInfoClassMember('lpts-local', REFERENCE_CLASS, 'LptsLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.LptsLocal', 
-                [], [], 
-                '''                lpts node specific configuration commands
-                ''',
-                'lpts_local',
-                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWatchdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                watchdog node threshold
@@ -688,6 +682,12 @@ _meta_table = {
                 ''',
                 'cisco_ios_xr_wd_cfg_watchdog_node_threshold',
                 'Cisco-IOS-XR-wd-cfg', False),
+            _MetaInfoClassMember('lpts-local', REFERENCE_CLASS, 'LptsLocal' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.LptsLocal', 
+                [], [], 
+                '''                lpts node specific configuration commands
+                ''',
+                'lpts_local',
+                'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             ],
             'Cisco-IOS-XR-config-mda-cfg',
             'preconfigured-node',

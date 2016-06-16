@@ -26,12 +26,12 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
 
-class InterfaceType_Identity(object):
+class InterfaceTypeIdentity(object):
     """
     Base identity from which specific interface types are
     derived.
@@ -49,7 +49,7 @@ class InterfaceType_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_interfaces as meta
-        return meta._meta_table['InterfaceType_Identity']['meta_info']
+        return meta._meta_table['InterfaceTypeIdentity']['meta_info']
 
 
 class Interfaces(object):
@@ -99,11 +99,6 @@ class Interfaces(object):
         	A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
         	**type**\: str
         
-        .. attribute:: type
-        
-        	The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-        	**type**\: :py:class:`InterfaceType_Identity <ydk.models.ietf.ietf_interfaces.InterfaceType_Identity>`
-        
         .. attribute:: enabled
         
         	This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.    Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
@@ -113,6 +108,11 @@ class Interfaces(object):
         
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
         	**type**\: :py:class:`LinkUpDownTrapEnableEnum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnableEnum>`
+        
+        .. attribute:: type
+        
+        	The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
+        	**type**\: :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
         
         
 
@@ -125,9 +125,9 @@ class Interfaces(object):
             self.parent = None
             self.name = None
             self.description = None
-            self.type = None
             self.enabled = None
             self.link_up_down_trap_enable = None
+            self.type = None
 
         class LinkUpDownTrapEnableEnum(Enum):
             """
@@ -165,7 +165,7 @@ class Interfaces(object):
         @property
         def _common_path(self):
             if self.name is None:
-                raise YPYDataValidationError('Key property name is None')
+                raise YPYModelError('Key property name is None')
 
             return '/ietf-interfaces:interfaces/ietf-interfaces:interface[ietf-interfaces:name = ' + str(self.name) + ']'
 
@@ -182,13 +182,13 @@ class Interfaces(object):
             if self.description is not None:
                 return True
 
-            if self.type is not None:
-                return True
-
             if self.enabled is not None:
                 return True
 
             if self.link_up_down_trap_enable is not None:
+                return True
+
+            if self.type is not None:
                 return True
 
             return False
@@ -258,27 +258,20 @@ class InterfacesState(object):
         	The name of the interface.  A server implementation MAY map this leaf to the ifName MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName.  The definition of such a mechanism is outside the scope of this document
         	**type**\: str
         
-        .. attribute:: type
-        
-        	The type of the interface
-        	**type**\: :py:class:`InterfaceType_Identity <ydk.models.ietf.ietf_interfaces.InterfaceType_Identity>`
-        
         .. attribute:: admin_status
         
         	The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus
         	**type**\: :py:class:`AdminStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatusEnum>`
         
-        .. attribute:: oper_status
+        .. attribute:: bandwidth
         
-        	The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-        	**type**\: :py:class:`OperStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatusEnum>`
+        	Bandwidth data for an interface
+        	**type**\: :py:class:`Bandwidth <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Bandwidth>`
         
-        .. attribute:: last_change
+        .. attribute:: higher_layer_if
         
-        	The time the interface entered its current operational state.  If the current state was entered prior to the last re\-initialization of the local network management subsystem, then this node is not present
-        	**type**\: str
-        
-        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        	A list of references to interfaces layered on top of this interface
+        	**type**\: list of str
         
         .. attribute:: if_index
         
@@ -287,6 +280,23 @@ class InterfacesState(object):
         
         	**range:** 1..2147483647
         
+        .. attribute:: last_change
+        
+        	The time the interface entered its current operational state.  If the current state was entered prior to the last re\-initialization of the local network management subsystem, then this node is not present
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        .. attribute:: lower_layer_if
+        
+        	A list of references to interfaces layered underneath this interface
+        	**type**\: list of str
+        
+        .. attribute:: oper_status
+        
+        	The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
+        	**type**\: :py:class:`OperStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatusEnum>`
+        
         .. attribute:: phys_address
         
         	The interface's address at its protocol sub\-layer.  For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address.  The interface's media\-specific modules must define the bit   and byte ordering and the format of the value of this object.  For interfaces that do not have such an address (e.g., a serial line), this node is not present
@@ -294,20 +304,10 @@ class InterfacesState(object):
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
-        .. attribute:: higher_layer_if
-        
-        	A list of references to interfaces layered on top of this interface
-        	**type**\: list of str
-        
-        .. attribute:: lower_layer_if
-        
-        	A list of references to interfaces layered underneath this interface
-        	**type**\: list of str
-        
         .. attribute:: speed
         
         	An estimate of the interface's current bandwidth in bits per second.  For interfaces that do not vary in bandwidth or for those where no accurate estimation can be made, this node should contain the nominal bandwidth. For interfaces that have no concept of bandwidth, this node is not present
-        	**type**\: int
+        	**type**\: long
         
         	**range:** 0..18446744073709551615
         
@@ -316,10 +316,10 @@ class InterfacesState(object):
         	A collection of interface\-related statistics objects
         	**type**\: :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
         
-        .. attribute:: bandwidth
+        .. attribute:: type
         
-        	Bandwidth data for an interface
-        	**type**\: :py:class:`Bandwidth <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Bandwidth>`
+        	The type of the interface
+        	**type**\: :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
         
         
 
@@ -331,23 +331,23 @@ class InterfacesState(object):
         def __init__(self):
             self.parent = None
             self.name = None
-            self.type = None
             self.admin_status = None
-            self.oper_status = None
-            self.last_change = None
-            self.if_index = None
-            self.phys_address = None
+            self.bandwidth = InterfacesState.Interface.Bandwidth()
+            self.bandwidth.parent = self
             self.higher_layer_if = YLeafList()
             self.higher_layer_if.parent = self
             self.higher_layer_if.name = 'higher_layer_if'
+            self.if_index = None
+            self.last_change = None
             self.lower_layer_if = YLeafList()
             self.lower_layer_if.parent = self
             self.lower_layer_if.name = 'lower_layer_if'
+            self.oper_status = None
+            self.phys_address = None
             self.speed = None
             self.statistics = InterfacesState.Interface.Statistics()
             self.statistics.parent = self
-            self.bandwidth = InterfacesState.Interface.Bandwidth()
-            self.bandwidth.parent = self
+            self.type = None
 
         class AdminStatusEnum(Enum):
             """
@@ -457,31 +457,10 @@ class InterfacesState(object):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
-            .. attribute:: in_octets
-            
-            	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: in_unicast_pkts
-            
-            	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
             .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: in_multicast_pkts
-            
-            	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
@@ -499,6 +478,34 @@ class InterfacesState(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: in_multicast_pkts
+            
+            	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_octets
+            
+            	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_pkts
+            
+            	total packets input
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_unicast_pkts
+            
+            	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
             .. attribute:: in_unknown_protos
             
             	For packet\-oriented interfaces, the number of packets received via the interface that were discarded because of an unknown or unsupported protocol.  For character\-oriented or fixed\-length interfaces that support protocol multiplexing, the number of transmission units received via the interface that were discarded because of an unknown or unsupported protocol. For any interface that does not support protocol multiplexing, this counter is not present.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
@@ -506,31 +513,10 @@ class InterfacesState(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: out_octets
-            
-            	The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: out_unicast_pkts
-            
-            	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
             .. attribute:: out_broadcast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: out_multicast_pkts
-            
-            	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\: int
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
@@ -548,17 +534,31 @@ class InterfacesState(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: in_pkts
+            .. attribute:: out_multicast_pkts
             
-            	total packets input
-            	**type**\: int
+            	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_octets
+            
+            	The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_pkts
             
             	total packets output
-            	**type**\: int
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_unicast_pkts
+            
+            	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
+            	**type**\: long
             
             	**range:** 0..18446744073709551615
             
@@ -572,26 +572,26 @@ class InterfacesState(object):
             def __init__(self):
                 self.parent = None
                 self.discontinuity_time = None
-                self.in_octets = None
-                self.in_unicast_pkts = None
                 self.in_broadcast_pkts = None
-                self.in_multicast_pkts = None
                 self.in_discards = None
                 self.in_errors = None
+                self.in_multicast_pkts = None
+                self.in_octets = None
+                self.in_pkts = None
+                self.in_unicast_pkts = None
                 self.in_unknown_protos = None
-                self.out_octets = None
-                self.out_unicast_pkts = None
                 self.out_broadcast_pkts = None
-                self.out_multicast_pkts = None
                 self.out_discards = None
                 self.out_errors = None
-                self.in_pkts = None
+                self.out_multicast_pkts = None
+                self.out_octets = None
                 self.out_pkts = None
+                self.out_unicast_pkts = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/ietf-interfaces:statistics'
 
@@ -605,16 +605,7 @@ class InterfacesState(object):
                 if self.discontinuity_time is not None:
                     return True
 
-                if self.in_octets is not None:
-                    return True
-
-                if self.in_unicast_pkts is not None:
-                    return True
-
                 if self.in_broadcast_pkts is not None:
-                    return True
-
-                if self.in_multicast_pkts is not None:
                     return True
 
                 if self.in_discards is not None:
@@ -623,19 +614,22 @@ class InterfacesState(object):
                 if self.in_errors is not None:
                     return True
 
+                if self.in_multicast_pkts is not None:
+                    return True
+
+                if self.in_octets is not None:
+                    return True
+
+                if self.in_pkts is not None:
+                    return True
+
+                if self.in_unicast_pkts is not None:
+                    return True
+
                 if self.in_unknown_protos is not None:
                     return True
 
-                if self.out_octets is not None:
-                    return True
-
-                if self.out_unicast_pkts is not None:
-                    return True
-
                 if self.out_broadcast_pkts is not None:
-                    return True
-
-                if self.out_multicast_pkts is not None:
                     return True
 
                 if self.out_discards is not None:
@@ -644,10 +638,16 @@ class InterfacesState(object):
                 if self.out_errors is not None:
                     return True
 
-                if self.in_pkts is not None:
+                if self.out_multicast_pkts is not None:
+                    return True
+
+                if self.out_octets is not None:
                     return True
 
                 if self.out_pkts is not None:
+                    return True
+
+                if self.out_unicast_pkts is not None:
                     return True
 
                 return False
@@ -662,17 +662,17 @@ class InterfacesState(object):
             """
             Bandwidth data for an interface.
             
-            .. attribute:: value
-            
-            	Raw value for the bandwidth
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
             .. attribute:: units
             
             	Units of the bandwidth
             	**type**\: str
+            
+            .. attribute:: value
+            
+            	Raw value for the bandwidth
+            	**type**\: long
+            
+            	**range:** 0..18446744073709551615
             
             
 
@@ -682,13 +682,13 @@ class InterfacesState(object):
 
             def __init__(self):
                 self.parent = None
-                self.value = None
                 self.units = None
+                self.value = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/ietf-interfaces-ext:bandwidth'
 
@@ -699,10 +699,10 @@ class InterfacesState(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.value is not None:
+                if self.units is not None:
                     return True
 
-                if self.units is not None:
+                if self.value is not None:
                     return True
 
                 return False
@@ -715,7 +715,7 @@ class InterfacesState(object):
         @property
         def _common_path(self):
             if self.name is None:
-                raise YPYDataValidationError('Key property name is None')
+                raise YPYModelError('Key property name is None')
 
             return '/ietf-interfaces:interfaces-state/ietf-interfaces:interface[ietf-interfaces:name = ' + str(self.name) + ']'
 
@@ -729,22 +729,10 @@ class InterfacesState(object):
             if self.name is not None:
                 return True
 
-            if self.type is not None:
-                return True
-
             if self.admin_status is not None:
                 return True
 
-            if self.oper_status is not None:
-                return True
-
-            if self.last_change is not None:
-                return True
-
-            if self.if_index is not None:
-                return True
-
-            if self.phys_address is not None:
+            if self.bandwidth is not None and self.bandwidth._has_data():
                 return True
 
             if self.higher_layer_if is not None:
@@ -752,10 +740,22 @@ class InterfacesState(object):
                     if child is not None:
                         return True
 
+            if self.if_index is not None:
+                return True
+
+            if self.last_change is not None:
+                return True
+
             if self.lower_layer_if is not None:
                 for child in self.lower_layer_if:
                     if child is not None:
                         return True
+
+            if self.oper_status is not None:
+                return True
+
+            if self.phys_address is not None:
+                return True
 
             if self.speed is not None:
                 return True
@@ -763,7 +763,7 @@ class InterfacesState(object):
             if self.statistics is not None and self.statistics._has_data():
                 return True
 
-            if self.bandwidth is not None and self.bandwidth._has_data():
+            if self.type is not None:
                 return True
 
             return False

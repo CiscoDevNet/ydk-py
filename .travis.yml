@@ -5,22 +5,19 @@ language: python
 python:
     - "2.7"
 
-before_install:
+install:
     - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
     - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
     - export REPO=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_REPO_SLUG; else echo `curl -s $PR | jq -r .head.repo.full_name`; fi)
     - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH, REPO=$REPO"
     - git clone https://github.com/$REPO.git -b $BRANCH
     - cd ydk-py
-    - pip install -r requirements.txt
     - python setup.py sdist
     - pip install dist/*.tar.gz
 
 script:
     - PYTHONPATH=`pwd`:$PYTHONPATH
+    - ls -l samples
+    - echo $PYTHONPATH
     - python ./samples/bgp_codec.py
 
-notifications:
-  email:
-    recipients:
-      - yang-dk@cisco.com

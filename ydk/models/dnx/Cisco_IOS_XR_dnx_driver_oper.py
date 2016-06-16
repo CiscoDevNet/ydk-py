@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -80,45 +80,45 @@ class Fia(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: rx_link_information
+            .. attribute:: asic_statistics
             
-            	FIA link rx information
-            	**type**\: :py:class:`RxLinkInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
-            
-            .. attribute:: driver_information
-            
-            	FIA driver information
-            	**type**\: :py:class:`DriverInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
+            	FIA asic statistics information
+            	**type**\: :py:class:`AsicStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
             
             .. attribute:: clear_statistics
             
             	Clear statistics information
             	**type**\: :py:class:`ClearStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
             
-            .. attribute:: tx_link_information
-            
-            	FIA link TX information
-            	**type**\: :py:class:`TxLinkInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
-            
-            .. attribute:: register_dump
-            
-            	FIA register dump information
-            	**type**\: :py:class:`RegisterDump <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump>`
-            
             .. attribute:: diag_shell
             
             	FIA diag shell information
             	**type**\: :py:class:`DiagShell <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            
+            .. attribute:: driver_information
+            
+            	FIA driver information
+            	**type**\: :py:class:`DriverInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
             
             .. attribute:: oir_history
             
             	FIA operational data of oir history
             	**type**\: :py:class:`OirHistory <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
             
-            .. attribute:: asic_statistics
+            .. attribute:: register_dump
             
-            	FIA asic statistics information
-            	**type**\: :py:class:`AsicStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
+            	FIA register dump information
+            	**type**\: :py:class:`RegisterDump <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump>`
+            
+            .. attribute:: rx_link_information
+            
+            	FIA link rx information
+            	**type**\: :py:class:`RxLinkInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
+            
+            .. attribute:: tx_link_information
+            
+            	FIA link TX information
+            	**type**\: :py:class:`TxLinkInformation <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
             
             
 
@@ -130,22 +130,22 @@ class Fia(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.rx_link_information = Fia.Nodes.Node.RxLinkInformation()
-                self.rx_link_information.parent = self
-                self.driver_information = Fia.Nodes.Node.DriverInformation()
-                self.driver_information.parent = self
-                self.clear_statistics = Fia.Nodes.Node.ClearStatistics()
-                self.clear_statistics.parent = self
-                self.tx_link_information = Fia.Nodes.Node.TxLinkInformation()
-                self.tx_link_information.parent = self
-                self.register_dump = Fia.Nodes.Node.RegisterDump()
-                self.register_dump.parent = self
-                self.diag_shell = Fia.Nodes.Node.DiagShell()
-                self.diag_shell.parent = self
-                self.oir_history = Fia.Nodes.Node.OirHistory()
-                self.oir_history.parent = self
                 self.asic_statistics = Fia.Nodes.Node.AsicStatistics()
                 self.asic_statistics.parent = self
+                self.clear_statistics = Fia.Nodes.Node.ClearStatistics()
+                self.clear_statistics.parent = self
+                self.diag_shell = Fia.Nodes.Node.DiagShell()
+                self.diag_shell.parent = self
+                self.driver_information = Fia.Nodes.Node.DriverInformation()
+                self.driver_information.parent = self
+                self.oir_history = Fia.Nodes.Node.OirHistory()
+                self.oir_history.parent = self
+                self.register_dump = Fia.Nodes.Node.RegisterDump()
+                self.register_dump.parent = self
+                self.rx_link_information = Fia.Nodes.Node.RxLinkInformation()
+                self.rx_link_information.parent = self
+                self.tx_link_information = Fia.Nodes.Node.TxLinkInformation()
+                self.tx_link_information.parent = self
 
 
             class RxLinkInformation(object):
@@ -303,16 +303,21 @@ class Fia(object):
                                         """
                                         Link number for rx link information
                                         
-                                        .. attribute:: start_number
+                                        .. attribute:: end_number
                                         
-                                        	Start number
+                                        	End number
                                         	**type**\: int
                                         
                                         	**range:** 0..35
                                         
-                                        .. attribute:: end_number
+                                        .. attribute:: rx_link
                                         
-                                        	End number
+                                        	Single link information
+                                        	**type**\: list of :py:class:`RxLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
+                                        
+                                        .. attribute:: start_number
+                                        
+                                        	Start number
                                         	**type**\: int
                                         
                                         	**range:** 0..35
@@ -324,11 +329,6 @@ class Fia(object):
                                         
                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
-                                        .. attribute:: rx_link
-                                        
-                                        	Single link information
-                                        	**type**\: list of :py:class:`RxLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
-                                        
                                         
 
                                         """
@@ -338,12 +338,12 @@ class Fia(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.start_number = None
                                             self.end_number = None
-                                            self.status_option = None
                                             self.rx_link = YList()
                                             self.rx_link.parent = self
                                             self.rx_link.name = 'rx_link'
+                                            self.start_number = None
+                                            self.status_option = None
 
 
                                         class RxLink(object):
@@ -357,10 +357,19 @@ class Fia(object):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: this_link
+                                            .. attribute:: admin_state
                                             
-                                            	this link
-                                            	**type**\: :py:class:`ThisLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
+                                            	admin state
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: error_state
+                                            
+                                            	error state
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..255
                                             
                                             .. attribute:: far_end_link
                                             
@@ -372,10 +381,46 @@ class Fia(object):
                                             	far end link in hw
                                             	**type**\: :py:class:`FarEndLinkInHw <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw>`
                                             
+                                            .. attribute:: flags
+                                            
+                                            	flags
+                                            	**type**\: str
+                                            
+                                            .. attribute:: flap_cnt
+                                            
+                                            	flap cnt
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
                                             .. attribute:: history
                                             
                                             	history
                                             	**type**\: :py:class:`History <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History>`
+                                            
+                                            .. attribute:: is_conf_pending
+                                            
+                                            	is conf pending
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: is_link_valid
+                                            
+                                            	is link valid
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: num_admin_shuts
+                                            
+                                            	num admin shuts
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: oper_state
+                                            
+                                            	oper state
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..255
                                             
                                             .. attribute:: speed
                                             
@@ -391,55 +436,10 @@ class Fia(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_link_valid
+                                            .. attribute:: this_link
                                             
-                                            	is link valid
-                                            	**type**\: bool
-                                            
-                                            .. attribute:: is_conf_pending
-                                            
-                                            	is conf pending
-                                            	**type**\: bool
-                                            
-                                            .. attribute:: admin_state
-                                            
-                                            	admin state
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            .. attribute:: oper_state
-                                            
-                                            	oper state
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            .. attribute:: error_state
-                                            
-                                            	error state
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..255
-                                            
-                                            .. attribute:: flags
-                                            
-                                            	flags
-                                            	**type**\: str
-                                            
-                                            .. attribute:: flap_cnt
-                                            
-                                            	flap cnt
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: num_admin_shuts
-                                            
-                                            	num admin shuts
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
+                                            	this link
+                                            	**type**\: :py:class:`ThisLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
                                             
                                             
 
@@ -451,24 +451,24 @@ class Fia(object):
                                             def __init__(self):
                                                 self.parent = None
                                                 self.link = None
-                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink()
-                                                self.this_link.parent = self
+                                                self.admin_state = None
+                                                self.error_state = None
                                                 self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink()
                                                 self.far_end_link.parent = self
                                                 self.far_end_link_in_hw = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw()
                                                 self.far_end_link_in_hw.parent = self
-                                                self.history = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History()
-                                                self.history.parent = self
-                                                self.speed = None
-                                                self.stage = None
-                                                self.is_link_valid = None
-                                                self.is_conf_pending = None
-                                                self.admin_state = None
-                                                self.oper_state = None
-                                                self.error_state = None
                                                 self.flags = None
                                                 self.flap_cnt = None
+                                                self.history = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History()
+                                                self.history.parent = self
+                                                self.is_conf_pending = None
+                                                self.is_link_valid = None
                                                 self.num_admin_shuts = None
+                                                self.oper_state = None
+                                                self.speed = None
+                                                self.stage = None
+                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink()
+                                                self.this_link.parent = self
 
 
                                             class ThisLink(object):
@@ -480,12 +480,12 @@ class Fia(object):
                                                 	asic id
                                                 	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	link type
+                                                	link num
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..255
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_stage
                                                 
@@ -494,12 +494,12 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
+                                                	link type
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                	**range:** 0..255
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -519,9 +519,9 @@ class Fia(object):
                                                     self.parent = None
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId()
                                                     self.asic_id.parent = self
-                                                    self.link_type = None
-                                                    self.link_stage = None
                                                     self.link_num = None
+                                                    self.link_stage = None
+                                                    self.link_type = None
                                                     self.phy_link_num = None
 
 
@@ -529,9 +529,9 @@ class Fia(object):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: rack_type
+                                                    .. attribute:: asic_instance
                                                     
-                                                    	rack type
+                                                    	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -550,16 +550,16 @@ class Fia(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: slot_num
+                                                    .. attribute:: rack_type
                                                     
-                                                    	slot num
+                                                    	rack type
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: slot_num
                                                     
-                                                    	asic instance
+                                                    	slot num
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -573,16 +573,16 @@ class Fia(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.rack_type = None
+                                                        self.asic_instance = None
                                                         self.asic_type = None
                                                         self.rack_num = None
+                                                        self.rack_type = None
                                                         self.slot_num = None
-                                                        self.asic_instance = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -593,7 +593,7 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.rack_type is not None:
+                                                        if self.asic_instance is not None:
                                                             return True
 
                                                         if self.asic_type is not None:
@@ -602,10 +602,10 @@ class Fia(object):
                                                         if self.rack_num is not None:
                                                             return True
 
-                                                        if self.slot_num is not None:
+                                                        if self.rack_type is not None:
                                                             return True
 
-                                                        if self.asic_instance is not None:
+                                                        if self.slot_num is not None:
                                                             return True
 
                                                         return False
@@ -618,7 +618,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:this-link'
 
@@ -632,13 +632,13 @@ class Fia(object):
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
-                                                    if self.link_type is not None:
+                                                    if self.link_num is not None:
                                                         return True
 
                                                     if self.link_stage is not None:
                                                         return True
 
-                                                    if self.link_num is not None:
+                                                    if self.link_type is not None:
                                                         return True
 
                                                     if self.phy_link_num is not None:
@@ -661,12 +661,12 @@ class Fia(object):
                                                 	asic id
                                                 	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	link type
+                                                	link num
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..255
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_stage
                                                 
@@ -675,12 +675,12 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
+                                                	link type
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                	**range:** 0..255
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -700,9 +700,9 @@ class Fia(object):
                                                     self.parent = None
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
-                                                    self.link_type = None
-                                                    self.link_stage = None
                                                     self.link_num = None
+                                                    self.link_stage = None
+                                                    self.link_type = None
                                                     self.phy_link_num = None
 
 
@@ -710,9 +710,9 @@ class Fia(object):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: rack_type
+                                                    .. attribute:: asic_instance
                                                     
-                                                    	rack type
+                                                    	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -731,16 +731,16 @@ class Fia(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: slot_num
+                                                    .. attribute:: rack_type
                                                     
-                                                    	slot num
+                                                    	rack type
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: slot_num
                                                     
-                                                    	asic instance
+                                                    	slot num
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -754,16 +754,16 @@ class Fia(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.rack_type = None
+                                                        self.asic_instance = None
                                                         self.asic_type = None
                                                         self.rack_num = None
+                                                        self.rack_type = None
                                                         self.slot_num = None
-                                                        self.asic_instance = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -774,7 +774,7 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.rack_type is not None:
+                                                        if self.asic_instance is not None:
                                                             return True
 
                                                         if self.asic_type is not None:
@@ -783,10 +783,10 @@ class Fia(object):
                                                         if self.rack_num is not None:
                                                             return True
 
-                                                        if self.slot_num is not None:
+                                                        if self.rack_type is not None:
                                                             return True
 
-                                                        if self.asic_instance is not None:
+                                                        if self.slot_num is not None:
                                                             return True
 
                                                         return False
@@ -799,7 +799,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:far-end-link'
 
@@ -813,13 +813,13 @@ class Fia(object):
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
-                                                    if self.link_type is not None:
+                                                    if self.link_num is not None:
                                                         return True
 
                                                     if self.link_stage is not None:
                                                         return True
 
-                                                    if self.link_num is not None:
+                                                    if self.link_type is not None:
                                                         return True
 
                                                     if self.phy_link_num is not None:
@@ -842,12 +842,12 @@ class Fia(object):
                                                 	asic id
                                                 	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	link type
+                                                	link num
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..255
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_stage
                                                 
@@ -856,12 +856,12 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
+                                                	link type
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                	**range:** 0..255
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -881,9 +881,9 @@ class Fia(object):
                                                     self.parent = None
                                                     self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId()
                                                     self.asic_id.parent = self
-                                                    self.link_type = None
-                                                    self.link_stage = None
                                                     self.link_num = None
+                                                    self.link_stage = None
+                                                    self.link_type = None
                                                     self.phy_link_num = None
 
 
@@ -891,9 +891,9 @@ class Fia(object):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: rack_type
+                                                    .. attribute:: asic_instance
                                                     
-                                                    	rack type
+                                                    	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -912,16 +912,16 @@ class Fia(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: slot_num
+                                                    .. attribute:: rack_type
                                                     
-                                                    	slot num
+                                                    	rack type
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: slot_num
                                                     
-                                                    	asic instance
+                                                    	slot num
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -935,16 +935,16 @@ class Fia(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.rack_type = None
+                                                        self.asic_instance = None
                                                         self.asic_type = None
                                                         self.rack_num = None
+                                                        self.rack_type = None
                                                         self.slot_num = None
-                                                        self.asic_instance = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -955,7 +955,7 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.rack_type is not None:
+                                                        if self.asic_instance is not None:
                                                             return True
 
                                                         if self.asic_type is not None:
@@ -964,10 +964,10 @@ class Fia(object):
                                                         if self.rack_num is not None:
                                                             return True
 
-                                                        if self.slot_num is not None:
+                                                        if self.rack_type is not None:
                                                             return True
 
-                                                        if self.asic_instance is not None:
+                                                        if self.slot_num is not None:
                                                             return True
 
                                                         return False
@@ -980,7 +980,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:far-end-link-in-hw'
 
@@ -994,13 +994,13 @@ class Fia(object):
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
-                                                    if self.link_type is not None:
+                                                    if self.link_num is not None:
                                                         return True
 
                                                     if self.link_stage is not None:
                                                         return True
 
-                                                    if self.link_num is not None:
+                                                    if self.link_type is not None:
                                                         return True
 
                                                     if self.phy_link_num is not None:
@@ -1018,6 +1018,11 @@ class Fia(object):
                                                 """
                                                 history
                                                 
+                                                .. attribute:: hist
+                                                
+                                                	hist
+                                                	**type**\: list of :py:class:`Hist <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
+                                                
                                                 .. attribute:: histnum
                                                 
                                                 	histnum
@@ -1032,11 +1037,6 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: hist
-                                                
-                                                	hist
-                                                	**type**\: list of :py:class:`Hist <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
-                                                
                                                 
 
                                                 """
@@ -1046,11 +1046,11 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.histnum = None
-                                                    self.start_index = None
                                                     self.hist = YList()
                                                     self.hist.parent = self
                                                     self.hist.name = 'hist'
+                                                    self.histnum = None
+                                                    self.start_index = None
 
 
                                                 class Hist(object):
@@ -1064,13 +1064,6 @@ class Fia(object):
                                                     
                                                     	**range:** \-128..127
                                                     
-                                                    .. attribute:: oper_state
-                                                    
-                                                    	oper state
-                                                    	**type**\: int
-                                                    
-                                                    	**range:** \-128..127
-                                                    
                                                     .. attribute:: error_state
                                                     
                                                     	error state
@@ -1078,17 +1071,24 @@ class Fia(object):
                                                     
                                                     	**range:** \-128..127
                                                     
-                                                    .. attribute:: timestamp
+                                                    .. attribute:: oper_state
                                                     
-                                                    	timestamp
+                                                    	oper state
                                                     	**type**\: int
                                                     
-                                                    	**range:** 0..18446744073709551615
+                                                    	**range:** \-128..127
                                                     
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
                                                     	**type**\: str
+                                                    
+                                                    .. attribute:: timestamp
+                                                    
+                                                    	timestamp
+                                                    	**type**\: long
+                                                    
+                                                    	**range:** 0..18446744073709551615
                                                     
                                                     
 
@@ -1100,15 +1100,15 @@ class Fia(object):
                                                     def __init__(self):
                                                         self.parent = None
                                                         self.admin_state = None
-                                                        self.oper_state = None
                                                         self.error_state = None
-                                                        self.timestamp = None
+                                                        self.oper_state = None
                                                         self.reasons = None
+                                                        self.timestamp = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:hist'
 
@@ -1122,16 +1122,16 @@ class Fia(object):
                                                         if self.admin_state is not None:
                                                             return True
 
-                                                        if self.oper_state is not None:
-                                                            return True
-
                                                         if self.error_state is not None:
                                                             return True
 
-                                                        if self.timestamp is not None:
+                                                        if self.oper_state is not None:
                                                             return True
 
                                                         if self.reasons is not None:
+                                                            return True
+
+                                                        if self.timestamp is not None:
                                                             return True
 
                                                         return False
@@ -1144,7 +1144,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:history'
 
@@ -1155,16 +1155,16 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
+                                                    if self.hist is not None:
+                                                        for child_ref in self.hist:
+                                                            if child_ref._has_data():
+                                                                return True
+
                                                     if self.histnum is not None:
                                                         return True
 
                                                     if self.start_index is not None:
                                                         return True
-
-                                                    if self.hist is not None:
-                                                        for child_ref in self.hist:
-                                                            if child_ref._has_data():
-                                                                return True
 
                                                     return False
 
@@ -1176,9 +1176,9 @@ class Fia(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.link is None:
-                                                    raise YPYDataValidationError('Key property link is None')
+                                                    raise YPYModelError('Key property link is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-link[Cisco-IOS-XR-dnx-driver-oper:link = ' + str(self.link) + ']'
 
@@ -1192,7 +1192,10 @@ class Fia(object):
                                                 if self.link is not None:
                                                     return True
 
-                                                if self.this_link is not None and self.this_link._has_data():
+                                                if self.admin_state is not None:
+                                                    return True
+
+                                                if self.error_state is not None:
                                                     return True
 
                                                 if self.far_end_link is not None and self.far_end_link._has_data():
@@ -1201,7 +1204,25 @@ class Fia(object):
                                                 if self.far_end_link_in_hw is not None and self.far_end_link_in_hw._has_data():
                                                     return True
 
+                                                if self.flags is not None:
+                                                    return True
+
+                                                if self.flap_cnt is not None:
+                                                    return True
+
                                                 if self.history is not None and self.history._has_data():
+                                                    return True
+
+                                                if self.is_conf_pending is not None:
+                                                    return True
+
+                                                if self.is_link_valid is not None:
+                                                    return True
+
+                                                if self.num_admin_shuts is not None:
+                                                    return True
+
+                                                if self.oper_state is not None:
                                                     return True
 
                                                 if self.speed is not None:
@@ -1210,28 +1231,7 @@ class Fia(object):
                                                 if self.stage is not None:
                                                     return True
 
-                                                if self.is_link_valid is not None:
-                                                    return True
-
-                                                if self.is_conf_pending is not None:
-                                                    return True
-
-                                                if self.admin_state is not None:
-                                                    return True
-
-                                                if self.oper_state is not None:
-                                                    return True
-
-                                                if self.error_state is not None:
-                                                    return True
-
-                                                if self.flags is not None:
-                                                    return True
-
-                                                if self.flap_cnt is not None:
-                                                    return True
-
-                                                if self.num_admin_shuts is not None:
+                                                if self.this_link is not None and self.this_link._has_data():
                                                     return True
 
                                                 return False
@@ -1244,7 +1244,7 @@ class Fia(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-link'
 
@@ -1255,19 +1255,19 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.start_number is not None:
-                                                return True
-
                                             if self.end_number is not None:
-                                                return True
-
-                                            if self.status_option is not None:
                                                 return True
 
                                             if self.rx_link is not None:
                                                 for child_ref in self.rx_link:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.start_number is not None:
+                                                return True
+
+                                            if self.status_option is not None:
+                                                return True
 
                                             return False
 
@@ -1279,7 +1279,7 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-links'
 
@@ -1305,9 +1305,9 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.instance is None:
-                                        raise YPYDataValidationError('Key property instance is None')
+                                        raise YPYModelError('Key property instance is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-asic-instance[Cisco-IOS-XR-dnx-driver-oper:instance = ' + str(self.instance) + ']'
 
@@ -1334,7 +1334,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-asic-instances'
 
@@ -1360,9 +1360,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.option is None:
-                                raise YPYDataValidationError('Key property option is None')
+                                raise YPYModelError('Key property option is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-option[Cisco-IOS-XR-dnx-driver-oper:option = ' + str(self.option) + ']'
 
@@ -1389,7 +1389,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-options'
 
@@ -1415,7 +1415,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:rx-link-information'
 
@@ -1441,12 +1441,38 @@ class Fia(object):
                 """
                 FIA driver information
                 
-                .. attribute:: drv_version
+                .. attribute:: asic_avail_mask
                 
-                	drv version
+                	asic avail mask
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
+                
+                	asic oper notify to fsdb pending bmap
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: board_rev_id
+                
+                	board rev id
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: card_avail_mask
+                
+                	card avail mask
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: card_info
+                
+                	card info
+                	**type**\: list of :py:class:`CardInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
                 
                 .. attribute:: coeff_major_rev
                 
@@ -1462,12 +1488,120 @@ class Fia(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: device_info
+                
+                	device info
+                	**type**\: list of :py:class:`DeviceInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
+                
+                .. attribute:: drv_version
+                
+                	drv version
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: drvr_startup_timestamp
+                
+                	drvr startup timestamp
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: exp_asic_avail_mask
+                
+                	exp asic avail mask
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: fc_mode
+                
+                	fc mode
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: fgid_conn_active
+                
+                	fgid conn active
+                	**type**\: bool
+                
+                .. attribute:: fgid_reg_active
+                
+                	fgid reg active
+                	**type**\: bool
+                
+                .. attribute:: fsdb_conn_active
+                
+                	fsdb conn active
+                	**type**\: bool
+                
+                .. attribute:: fsdb_reg_active
+                
+                	fsdb reg active
+                	**type**\: bool
+                
                 .. attribute:: functional_role
                 
                 	functional role
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                .. attribute:: is_cih_registered
+                
+                	is cih registered
+                	**type**\: bool
+                
+                .. attribute:: is_driver_ready
+                
+                	is driver ready
+                	**type**\: bool
+                
+                .. attribute:: is_fgid_download_completed
+                
+                	is fgid download completed
+                	**type**\: bool
+                
+                .. attribute:: is_fgid_download_in_progress
+                
+                	is fgid download in progress
+                	**type**\: bool
+                
+                .. attribute:: is_full_fgid_download_req
+                
+                	is full fgid download req
+                	**type**\: bool
+                
+                .. attribute:: is_gaspp_registered
+                
+                	is gaspp registered
+                	**type**\: bool
+                
+                .. attribute:: issu_abort_rcvd
+                
+                	issu abort rcvd
+                	**type**\: bool
+                
+                .. attribute:: issu_abort_sent
+                
+                	issu abort sent
+                	**type**\: bool
+                
+                .. attribute:: issu_mgr_conn_active
+                
+                	issu mgr conn active
+                	**type**\: bool
+                
+                .. attribute:: issu_mgr_reg_active
+                
+                	issu mgr reg active
+                	**type**\: bool
+                
+                .. attribute:: issu_ready_ntfy_pending
+                
+                	issu ready ntfy pending
+                	**type**\: bool
                 
                 .. attribute:: issu_role
                 
@@ -1476,120 +1610,9 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: rack_name
+                .. attribute:: num_cm_conn_reqs
                 
-                	rack name
-                	**type**\: str
-                
-                .. attribute:: rack_type
-                
-                	rack type
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: rack_num
-                
-                	rack num
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: is_driver_ready
-                
-                	is driver ready
-                	**type**\: bool
-                
-                .. attribute:: card_avail_mask
-                
-                	card avail mask
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: asic_avail_mask
-                
-                	asic avail mask
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: exp_asic_avail_mask
-                
-                	exp asic avail mask
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: ucmc_ratio
-                
-                	ucmc ratio
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
-                
-                	asic oper notify to fsdb pending bmap
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: is_full_fgid_download_req
-                
-                	is full fgid download req
-                	**type**\: bool
-                
-                .. attribute:: is_fgid_download_in_progress
-                
-                	is fgid download in progress
-                	**type**\: bool
-                
-                .. attribute:: is_fgid_download_completed
-                
-                	is fgid download completed
-                	**type**\: bool
-                
-                .. attribute:: fsdb_conn_active
-                
-                	fsdb conn active
-                	**type**\: bool
-                
-                .. attribute:: fgid_conn_active
-                
-                	fgid conn active
-                	**type**\: bool
-                
-                .. attribute:: issu_mgr_conn_active
-                
-                	issu mgr conn active
-                	**type**\: bool
-                
-                .. attribute:: fsdb_reg_active
-                
-                	fsdb reg active
-                	**type**\: bool
-                
-                .. attribute:: fgid_reg_active
-                
-                	fgid reg active
-                	**type**\: bool
-                
-                .. attribute:: issu_mgr_reg_active
-                
-                	issu mgr reg active
-                	**type**\: bool
-                
-                .. attribute:: num_pm_conn_reqs
-                
-                	num pm conn reqs
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: num_fsdb_conn_reqs
-                
-                	num fsdb conn reqs
+                	num cm conn reqs
                 	**type**\: int
                 
                 	**range:** 0..255
@@ -1601,6 +1624,13 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
+                .. attribute:: num_fsdb_conn_reqs
+                
+                	num fsdb conn reqs
+                	**type**\: int
+                
+                	**range:** 0..255
+                
                 .. attribute:: num_fstats_conn_reqs
                 
                 	num fstats conn reqs
@@ -1608,12 +1638,12 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: num_cm_conn_reqs
+                .. attribute:: num_intf_ports
                 
-                	num cm conn reqs
+                	num intf ports
                 	**type**\: int
                 
-                	**range:** 0..255
+                	**range:** 0..4294967295
                 
                 .. attribute:: num_issu_mgr_conn_reqs
                 
@@ -1629,43 +1659,38 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: is_gaspp_registered
+                .. attribute:: num_pm_conn_reqs
                 
-                	is gaspp registered
-                	**type**\: bool
+                	num pm conn reqs
+                	**type**\: int
                 
-                .. attribute:: is_cih_registered
-                
-                	is cih registered
-                	**type**\: bool
+                	**range:** 0..255
                 
                 .. attribute:: offset_time_nsec
                 
                 	offset time nsec
-                	**type**\: int
+                	**type**\: long
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: drvr_startup_timestamp
+                .. attribute:: rack_name
                 
-                	drvr startup timestamp
-                	**type**\: int
+                	rack name
+                	**type**\: str
                 
-                	**range:** 0..18446744073709551615
+                .. attribute:: rack_num
                 
-                .. attribute:: num_intf_ports
-                
-                	num intf ports
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: uc_weight
-                
-                	uc weight
+                	rack num
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                .. attribute:: rack_type
+                
+                	rack type
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: respawn_count
                 
@@ -1681,44 +1706,19 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: issu_ready_ntfy_pending
+                .. attribute:: uc_weight
                 
-                	issu ready ntfy pending
-                	**type**\: bool
-                
-                .. attribute:: issu_abort_sent
-                
-                	issu abort sent
-                	**type**\: bool
-                
-                .. attribute:: issu_abort_rcvd
-                
-                	issu abort rcvd
-                	**type**\: bool
-                
-                .. attribute:: fc_mode
-                
-                	fc mode
+                	uc weight
                 	**type**\: int
                 
                 	**range:** 0..255
                 
-                .. attribute:: board_rev_id
+                .. attribute:: ucmc_ratio
                 
-                	board rev id
+                	ucmc ratio
                 	**type**\: int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: device_info
-                
-                	device info
-                	**type**\: list of :py:class:`DeviceInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
-                
-                .. attribute:: card_info
-                
-                	card info
-                	**type**\: list of :py:class:`CardInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
                 
                 
 
@@ -1729,70 +1729,79 @@ class Fia(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.drv_version = None
-                    self.coeff_major_rev = None
-                    self.coeff_minor_rev = None
-                    self.functional_role = None
-                    self.issu_role = None
-                    self.rack_name = None
-                    self.rack_type = None
-                    self.rack_num = None
-                    self.is_driver_ready = None
-                    self.card_avail_mask = None
                     self.asic_avail_mask = None
-                    self.exp_asic_avail_mask = None
-                    self.ucmc_ratio = None
                     self.asic_oper_notify_to_fsdb_pending_bmap = None
-                    self.is_full_fgid_download_req = None
-                    self.is_fgid_download_in_progress = None
-                    self.is_fgid_download_completed = None
-                    self.fsdb_conn_active = None
-                    self.fgid_conn_active = None
-                    self.issu_mgr_conn_active = None
-                    self.fsdb_reg_active = None
-                    self.fgid_reg_active = None
-                    self.issu_mgr_reg_active = None
-                    self.num_pm_conn_reqs = None
-                    self.num_fsdb_conn_reqs = None
-                    self.num_fgid_conn_reqs = None
-                    self.num_fstats_conn_reqs = None
-                    self.num_cm_conn_reqs = None
-                    self.num_issu_mgr_conn_reqs = None
-                    self.num_peer_fia_conn_reqs = None
-                    self.is_gaspp_registered = None
-                    self.is_cih_registered = None
-                    self.offset_time_nsec = None
-                    self.drvr_startup_timestamp = None
-                    self.num_intf_ports = None
-                    self.uc_weight = None
-                    self.respawn_count = None
-                    self.total_asics = None
-                    self.issu_ready_ntfy_pending = None
-                    self.issu_abort_sent = None
-                    self.issu_abort_rcvd = None
-                    self.fc_mode = None
                     self.board_rev_id = None
-                    self.device_info = YList()
-                    self.device_info.parent = self
-                    self.device_info.name = 'device_info'
+                    self.card_avail_mask = None
                     self.card_info = YList()
                     self.card_info.parent = self
                     self.card_info.name = 'card_info'
+                    self.coeff_major_rev = None
+                    self.coeff_minor_rev = None
+                    self.device_info = YList()
+                    self.device_info.parent = self
+                    self.device_info.name = 'device_info'
+                    self.drv_version = None
+                    self.drvr_startup_timestamp = None
+                    self.exp_asic_avail_mask = None
+                    self.fc_mode = None
+                    self.fgid_conn_active = None
+                    self.fgid_reg_active = None
+                    self.fsdb_conn_active = None
+                    self.fsdb_reg_active = None
+                    self.functional_role = None
+                    self.is_cih_registered = None
+                    self.is_driver_ready = None
+                    self.is_fgid_download_completed = None
+                    self.is_fgid_download_in_progress = None
+                    self.is_full_fgid_download_req = None
+                    self.is_gaspp_registered = None
+                    self.issu_abort_rcvd = None
+                    self.issu_abort_sent = None
+                    self.issu_mgr_conn_active = None
+                    self.issu_mgr_reg_active = None
+                    self.issu_ready_ntfy_pending = None
+                    self.issu_role = None
+                    self.num_cm_conn_reqs = None
+                    self.num_fgid_conn_reqs = None
+                    self.num_fsdb_conn_reqs = None
+                    self.num_fstats_conn_reqs = None
+                    self.num_intf_ports = None
+                    self.num_issu_mgr_conn_reqs = None
+                    self.num_peer_fia_conn_reqs = None
+                    self.num_pm_conn_reqs = None
+                    self.offset_time_nsec = None
+                    self.rack_name = None
+                    self.rack_num = None
+                    self.rack_type = None
+                    self.respawn_count = None
+                    self.total_asics = None
+                    self.uc_weight = None
+                    self.ucmc_ratio = None
 
 
                 class DeviceInfo(object):
                     """
                     device info
                     
+                    .. attribute:: admin_state
+                    
+                    	admin state
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
                     .. attribute:: asic_id
                     
                     	asic id
                     	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
                     
-                    .. attribute:: is_valid
+                    .. attribute:: asic_state
                     
-                    	is valid
-                    	**type**\: bool
+                    	asic state
+                    	**type**\: int
+                    
+                    	**range:** 0..255
                     
                     .. attribute:: fapid
                     
@@ -1808,33 +1817,17 @@ class Fia(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: slice_state
+                    .. attribute:: is_valid
                     
-                    	slice state
-                    	**type**\: int
+                    	is valid
+                    	**type**\: bool
                     
-                    	**range:** 0..4294967295
+                    .. attribute:: last_hard_reset_timestamp
                     
-                    .. attribute:: admin_state
+                    	last hard reset timestamp
+                    	**type**\: long
                     
-                    	admin state
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: oper_state
-                    
-                    	oper state
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: asic_state
-                    
-                    	asic state
-                    	**type**\: int
-                    
-                    	**range:** 0..255
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: last_init_cause
                     
@@ -1843,9 +1836,16 @@ class Fia(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: num_pon_resets
+                    .. attribute:: last_pon_reset_timestamp
                     
-                    	num pon resets
+                    	last pon reset timestamp
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: local_switch_state
+                    
+                    	local switch state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1857,23 +1857,23 @@ class Fia(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: last_pon_reset_timestamp
+                    .. attribute:: num_pon_resets
                     
-                    	last pon reset timestamp
+                    	num pon resets
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: last_hard_reset_timestamp
+                    .. attribute:: oper_state
                     
-                    	last hard reset timestamp
+                    	oper state
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..255
                     
-                    .. attribute:: local_switch_state
+                    .. attribute:: slice_state
                     
-                    	local switch state
+                    	slice state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1887,30 +1887,30 @@ class Fia(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.admin_state = None
                         self.asic_id = Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId()
                         self.asic_id.parent = self
-                        self.is_valid = None
+                        self.asic_state = None
                         self.fapid = None
                         self.hotplug_event = None
-                        self.slice_state = None
-                        self.admin_state = None
-                        self.oper_state = None
-                        self.asic_state = None
-                        self.last_init_cause = None
-                        self.num_pon_resets = None
-                        self.num_hard_resets = None
-                        self.last_pon_reset_timestamp = None
+                        self.is_valid = None
                         self.last_hard_reset_timestamp = None
+                        self.last_init_cause = None
+                        self.last_pon_reset_timestamp = None
                         self.local_switch_state = None
+                        self.num_hard_resets = None
+                        self.num_pon_resets = None
+                        self.oper_state = None
+                        self.slice_state = None
 
 
                     class AsicId(object):
                         """
                         asic id
                         
-                        .. attribute:: rack_type
+                        .. attribute:: asic_instance
                         
-                        	rack type
+                        	asic instance
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1929,16 +1929,16 @@ class Fia(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: slot_num
+                        .. attribute:: rack_type
                         
-                        	slot num
+                        	rack type
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: asic_instance
+                        .. attribute:: slot_num
                         
-                        	asic instance
+                        	slot num
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -1952,16 +1952,16 @@ class Fia(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.rack_type = None
+                            self.asic_instance = None
                             self.asic_type = None
                             self.rack_num = None
+                            self.rack_type = None
                             self.slot_num = None
-                            self.asic_instance = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -1972,7 +1972,7 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.rack_type is not None:
+                            if self.asic_instance is not None:
                                 return True
 
                             if self.asic_type is not None:
@@ -1981,10 +1981,10 @@ class Fia(object):
                             if self.rack_num is not None:
                                 return True
 
-                            if self.slot_num is not None:
+                            if self.rack_type is not None:
                                 return True
 
-                            if self.asic_instance is not None:
+                            if self.slot_num is not None:
                                 return True
 
                             return False
@@ -1997,7 +1997,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:device-info'
 
@@ -2008,10 +2008,13 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.admin_state is not None:
+                            return True
+
                         if self.asic_id is not None and self.asic_id._has_data():
                             return True
 
-                        if self.is_valid is not None:
+                        if self.asic_state is not None:
                             return True
 
                         if self.fapid is not None:
@@ -2020,34 +2023,31 @@ class Fia(object):
                         if self.hotplug_event is not None:
                             return True
 
-                        if self.slice_state is not None:
-                            return True
-
-                        if self.admin_state is not None:
-                            return True
-
-                        if self.oper_state is not None:
-                            return True
-
-                        if self.asic_state is not None:
-                            return True
-
-                        if self.last_init_cause is not None:
-                            return True
-
-                        if self.num_pon_resets is not None:
-                            return True
-
-                        if self.num_hard_resets is not None:
-                            return True
-
-                        if self.last_pon_reset_timestamp is not None:
+                        if self.is_valid is not None:
                             return True
 
                         if self.last_hard_reset_timestamp is not None:
                             return True
 
+                        if self.last_init_cause is not None:
+                            return True
+
+                        if self.last_pon_reset_timestamp is not None:
+                            return True
+
                         if self.local_switch_state is not None:
+                            return True
+
+                        if self.num_hard_resets is not None:
+                            return True
+
+                        if self.num_pon_resets is not None:
+                            return True
+
+                        if self.oper_state is not None:
+                            return True
+
+                        if self.slice_state is not None:
                             return True
 
                         return False
@@ -2062,14 +2062,9 @@ class Fia(object):
                     """
                     card info
                     
-                    .. attribute:: oir_circular_buffer
+                    .. attribute:: card_flag
                     
-                    	oir circular buffer
-                    	**type**\: :py:class:`OirCircularBuffer <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
-                    
-                    .. attribute:: card_type
-                    
-                    	card type
+                    	card flag
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -2079,19 +2074,26 @@ class Fia(object):
                     	card name
                     	**type**\: str
                     
-                    .. attribute:: slot_no
+                    .. attribute:: card_state
                     
-                    	slot no
+                    	card state
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: card_type
+                    
+                    	card type
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: card_flag
+                    .. attribute:: cxp_avail_bitmap
                     
-                    	card flag
-                    	**type**\: int
+                    	cxp avail bitmap
+                    	**type**\: long
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: evt_flag
                     
@@ -2099,27 +2101,6 @@ class Fia(object):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: reg_flag
-                    
-                    	reg flag
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: instance
-                    
-                    	instance
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: card_state
-                    
-                    	card state
-                    	**type**\: int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: exp_num_asics
                     
@@ -2135,17 +2116,24 @@ class Fia(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: instance
+                    
+                    	instance
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     .. attribute:: is_powered
                     
                     	is powered
                     	**type**\: bool
                     
-                    .. attribute:: cxp_avail_bitmap
+                    .. attribute:: num_cos_per_port
                     
-                    	cxp avail bitmap
+                    	num cos per port
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..255
                     
                     .. attribute:: num_ilkns_per_asic
                     
@@ -2161,12 +2149,24 @@ class Fia(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_cos_per_port
+                    .. attribute:: oir_circular_buffer
                     
-                    	num cos per port
+                    	oir circular buffer
+                    	**type**\: :py:class:`OirCircularBuffer <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
+                    
+                    .. attribute:: reg_flag
+                    
+                    	reg flag
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: slot_no
+                    
+                    	slot no
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
                     
                     
 
@@ -2177,23 +2177,23 @@ class Fia(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.oir_circular_buffer = Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer()
-                        self.oir_circular_buffer.parent = self
-                        self.card_type = None
-                        self.card_name = None
-                        self.slot_no = None
                         self.card_flag = None
-                        self.evt_flag = None
-                        self.reg_flag = None
-                        self.instance = None
+                        self.card_name = None
                         self.card_state = None
+                        self.card_type = None
+                        self.cxp_avail_bitmap = None
+                        self.evt_flag = None
                         self.exp_num_asics = None
                         self.exp_num_asics_per_fsdb = None
+                        self.instance = None
                         self.is_powered = None
-                        self.cxp_avail_bitmap = None
+                        self.num_cos_per_port = None
                         self.num_ilkns_per_asic = None
                         self.num_local_ports_per_ilkn = None
-                        self.num_cos_per_port = None
+                        self.oir_circular_buffer = Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer()
+                        self.oir_circular_buffer.parent = self
+                        self.reg_flag = None
+                        self.slot_no = None
 
 
                     class OirCircularBuffer(object):
@@ -2203,13 +2203,6 @@ class Fia(object):
                         .. attribute:: count
                         
                         	count
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: start
-                        
-                        	start
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -2226,6 +2219,13 @@ class Fia(object):
                         	fia oir info
                         	**type**\: list of :py:class:`FiaOirInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
                         
+                        .. attribute:: start
+                        
+                        	start
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
                         
 
                         """
@@ -2236,11 +2236,11 @@ class Fia(object):
                         def __init__(self):
                             self.parent = None
                             self.count = None
-                            self.start = None
                             self.end = None
                             self.fia_oir_info = YList()
                             self.fia_oir_info.parent = self
                             self.fia_oir_info.name = 'fia_oir_info'
+                            self.start = None
 
 
                         class FiaOirInfo(object):
@@ -2261,9 +2261,9 @@ class Fia(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: reg_flag
+                            .. attribute:: cur_card_state
                             
-                            	reg flag
+                            	cur card state
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -2275,13 +2275,6 @@ class Fia(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: rack_num
-                            
-                            	rack num
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
                             .. attribute:: instance
                             
                             	instance
@@ -2289,9 +2282,16 @@ class Fia(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: cur_card_state
+                            .. attribute:: rack_num
                             
-                            	cur card state
+                            	rack num
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: reg_flag
+                            
+                            	reg flag
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -2307,16 +2307,16 @@ class Fia(object):
                                 self.parent = None
                                 self.card_flag = None
                                 self.card_type = None
-                                self.reg_flag = None
-                                self.evt_flag = None
-                                self.rack_num = None
-                                self.instance = None
                                 self.cur_card_state = None
+                                self.evt_flag = None
+                                self.instance = None
+                                self.rack_num = None
+                                self.reg_flag = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fia-oir-info'
 
@@ -2333,19 +2333,19 @@ class Fia(object):
                                 if self.card_type is not None:
                                     return True
 
-                                if self.reg_flag is not None:
+                                if self.cur_card_state is not None:
                                     return True
 
                                 if self.evt_flag is not None:
                                     return True
 
-                                if self.rack_num is not None:
-                                    return True
-
                                 if self.instance is not None:
                                     return True
 
-                                if self.cur_card_state is not None:
+                                if self.rack_num is not None:
+                                    return True
+
+                                if self.reg_flag is not None:
                                     return True
 
                                 return False
@@ -2358,7 +2358,7 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:oir-circular-buffer'
 
@@ -2372,9 +2372,6 @@ class Fia(object):
                             if self.count is not None:
                                 return True
 
-                            if self.start is not None:
-                                return True
-
                             if self.end is not None:
                                 return True
 
@@ -2382,6 +2379,9 @@ class Fia(object):
                                 for child_ref in self.fia_oir_info:
                                     if child_ref._has_data():
                                         return True
+
+                            if self.start is not None:
+                                return True
 
                             return False
 
@@ -2393,7 +2393,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:card-info'
 
@@ -2404,31 +2404,22 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
-                            return True
-
-                        if self.card_type is not None:
+                        if self.card_flag is not None:
                             return True
 
                         if self.card_name is not None:
                             return True
 
-                        if self.slot_no is not None:
+                        if self.card_state is not None:
                             return True
 
-                        if self.card_flag is not None:
+                        if self.card_type is not None:
+                            return True
+
+                        if self.cxp_avail_bitmap is not None:
                             return True
 
                         if self.evt_flag is not None:
-                            return True
-
-                        if self.reg_flag is not None:
-                            return True
-
-                        if self.instance is not None:
-                            return True
-
-                        if self.card_state is not None:
                             return True
 
                         if self.exp_num_asics is not None:
@@ -2437,10 +2428,13 @@ class Fia(object):
                         if self.exp_num_asics_per_fsdb is not None:
                             return True
 
+                        if self.instance is not None:
+                            return True
+
                         if self.is_powered is not None:
                             return True
 
-                        if self.cxp_avail_bitmap is not None:
+                        if self.num_cos_per_port is not None:
                             return True
 
                         if self.num_ilkns_per_asic is not None:
@@ -2449,7 +2443,13 @@ class Fia(object):
                         if self.num_local_ports_per_ilkn is not None:
                             return True
 
-                        if self.num_cos_per_port is not None:
+                        if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
+                            return True
+
+                        if self.reg_flag is not None:
+                            return True
+
+                        if self.slot_no is not None:
                             return True
 
                         return False
@@ -2462,7 +2462,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:driver-information'
 
@@ -2473,8 +2473,22 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.drv_version is not None:
+                    if self.asic_avail_mask is not None:
                         return True
+
+                    if self.asic_oper_notify_to_fsdb_pending_bmap is not None:
+                        return True
+
+                    if self.board_rev_id is not None:
+                        return True
+
+                    if self.card_avail_mask is not None:
+                        return True
+
+                    if self.card_info is not None:
+                        for child_ref in self.card_info:
+                            if child_ref._has_data():
+                                return True
 
                     if self.coeff_major_rev is not None:
                         return True
@@ -2482,79 +2496,87 @@ class Fia(object):
                     if self.coeff_minor_rev is not None:
                         return True
 
-                    if self.functional_role is not None:
+                    if self.device_info is not None:
+                        for child_ref in self.device_info:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.drv_version is not None:
                         return True
 
-                    if self.issu_role is not None:
-                        return True
-
-                    if self.rack_name is not None:
-                        return True
-
-                    if self.rack_type is not None:
-                        return True
-
-                    if self.rack_num is not None:
-                        return True
-
-                    if self.is_driver_ready is not None:
-                        return True
-
-                    if self.card_avail_mask is not None:
-                        return True
-
-                    if self.asic_avail_mask is not None:
+                    if self.drvr_startup_timestamp is not None:
                         return True
 
                     if self.exp_asic_avail_mask is not None:
                         return True
 
-                    if self.ucmc_ratio is not None:
-                        return True
-
-                    if self.asic_oper_notify_to_fsdb_pending_bmap is not None:
-                        return True
-
-                    if self.is_full_fgid_download_req is not None:
-                        return True
-
-                    if self.is_fgid_download_in_progress is not None:
-                        return True
-
-                    if self.is_fgid_download_completed is not None:
-                        return True
-
-                    if self.fsdb_conn_active is not None:
+                    if self.fc_mode is not None:
                         return True
 
                     if self.fgid_conn_active is not None:
                         return True
 
-                    if self.issu_mgr_conn_active is not None:
+                    if self.fgid_reg_active is not None:
+                        return True
+
+                    if self.fsdb_conn_active is not None:
                         return True
 
                     if self.fsdb_reg_active is not None:
                         return True
 
-                    if self.fgid_reg_active is not None:
+                    if self.functional_role is not None:
+                        return True
+
+                    if self.is_cih_registered is not None:
+                        return True
+
+                    if self.is_driver_ready is not None:
+                        return True
+
+                    if self.is_fgid_download_completed is not None:
+                        return True
+
+                    if self.is_fgid_download_in_progress is not None:
+                        return True
+
+                    if self.is_full_fgid_download_req is not None:
+                        return True
+
+                    if self.is_gaspp_registered is not None:
+                        return True
+
+                    if self.issu_abort_rcvd is not None:
+                        return True
+
+                    if self.issu_abort_sent is not None:
+                        return True
+
+                    if self.issu_mgr_conn_active is not None:
                         return True
 
                     if self.issu_mgr_reg_active is not None:
                         return True
 
-                    if self.num_pm_conn_reqs is not None:
+                    if self.issu_ready_ntfy_pending is not None:
                         return True
 
-                    if self.num_fsdb_conn_reqs is not None:
+                    if self.issu_role is not None:
+                        return True
+
+                    if self.num_cm_conn_reqs is not None:
                         return True
 
                     if self.num_fgid_conn_reqs is not None:
                         return True
 
+                    if self.num_fsdb_conn_reqs is not None:
+                        return True
+
                     if self.num_fstats_conn_reqs is not None:
                         return True
 
-                    if self.num_cm_conn_reqs is not None:
+                    if self.num_intf_ports is not None:
                         return True
 
                     if self.num_issu_mgr_conn_reqs is not None:
@@ -2563,22 +2585,19 @@ class Fia(object):
                     if self.num_peer_fia_conn_reqs is not None:
                         return True
 
-                    if self.is_gaspp_registered is not None:
-                        return True
-
-                    if self.is_cih_registered is not None:
+                    if self.num_pm_conn_reqs is not None:
                         return True
 
                     if self.offset_time_nsec is not None:
                         return True
 
-                    if self.drvr_startup_timestamp is not None:
+                    if self.rack_name is not None:
                         return True
 
-                    if self.num_intf_ports is not None:
+                    if self.rack_num is not None:
                         return True
 
-                    if self.uc_weight is not None:
+                    if self.rack_type is not None:
                         return True
 
                     if self.respawn_count is not None:
@@ -2587,30 +2606,11 @@ class Fia(object):
                     if self.total_asics is not None:
                         return True
 
-                    if self.issu_ready_ntfy_pending is not None:
+                    if self.uc_weight is not None:
                         return True
 
-                    if self.issu_abort_sent is not None:
+                    if self.ucmc_ratio is not None:
                         return True
-
-                    if self.issu_abort_rcvd is not None:
-                        return True
-
-                    if self.fc_mode is not None:
-                        return True
-
-                    if self.board_rev_id is not None:
-                        return True
-
-                    if self.device_info is not None:
-                        for child_ref in self.device_info:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.card_info is not None:
-                        for child_ref in self.card_info:
-                            if child_ref._has_data():
-                                return True
 
                     return False
 
@@ -2699,9 +2699,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.asic_instance is None:
-                                raise YPYDataValidationError('Key property asic_instance is None')
+                                raise YPYModelError('Key property asic_instance is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-instance[Cisco-IOS-XR-dnx-driver-oper:asic-instance = ' + str(self.asic_instance) + ']'
 
@@ -2728,7 +2728,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-instances'
 
@@ -2754,7 +2754,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:clear-statistics'
 
@@ -2922,16 +2922,16 @@ class Fia(object):
                                         """
                                         Link number for tx link information
                                         
-                                        .. attribute:: start_number
+                                        .. attribute:: end_number
                                         
-                                        	Start number
+                                        	End number
                                         	**type**\: int
                                         
                                         	**range:** 0..35
                                         
-                                        .. attribute:: end_number
+                                        .. attribute:: start_number
                                         
-                                        	End number
+                                        	Start number
                                         	**type**\: int
                                         
                                         	**range:** 0..35
@@ -2950,8 +2950,8 @@ class Fia(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.start_number = None
                                             self.end_number = None
+                                            self.start_number = None
                                             self.tx_link = YList()
                                             self.tx_link.parent = self
                                             self.tx_link.name = 'tx_link'
@@ -2968,54 +2968,12 @@ class Fia(object):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: this_link
+                                            .. attribute:: admin_state
                                             
-                                            	this link
-                                            	**type**\: :py:class:`ThisLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
-                                            
-                                            .. attribute:: far_end_link
-                                            
-                                            	far end link
-                                            	**type**\: :py:class:`FarEndLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
-                                            
-                                            .. attribute:: stats
-                                            
-                                            	stats
-                                            	**type**\: :py:class:`Stats <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
-                                            
-                                            .. attribute:: history
-                                            
-                                            	history
-                                            	**type**\: :py:class:`History <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
-                                            
-                                            .. attribute:: speed
-                                            
-                                            	speed
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            .. attribute:: stage
-                                            
-                                            	stage
+                                            	admin state
                                             	**type**\: int
                                             
                                             	**range:** 0..255
-                                            
-                                            .. attribute:: is_link_valid
-                                            
-                                            	is link valid
-                                            	**type**\: bool
-                                            
-                                            .. attribute:: is_conf_pending
-                                            
-                                            	is conf pending
-                                            	**type**\: bool
-                                            
-                                            .. attribute:: is_power_enabled
-                                            
-                                            	is power enabled
-                                            	**type**\: bool
                                             
                                             .. attribute:: coeff1
                                             
@@ -3031,12 +2989,44 @@ class Fia(object):
                                             
                                             	**range:** 0..4294967295
                                             
-                                            .. attribute:: admin_state
+                                            .. attribute:: error_state
                                             
-                                            	admin state
+                                            	error state
                                             	**type**\: int
                                             
                                             	**range:** 0..255
+                                            
+                                            .. attribute:: far_end_link
+                                            
+                                            	far end link
+                                            	**type**\: :py:class:`FarEndLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
+                                            
+                                            .. attribute:: history
+                                            
+                                            	history
+                                            	**type**\: :py:class:`History <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
+                                            
+                                            .. attribute:: is_conf_pending
+                                            
+                                            	is conf pending
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: is_link_valid
+                                            
+                                            	is link valid
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: is_power_enabled
+                                            
+                                            	is power enabled
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: num_admin_shuts
+                                            
+                                            	num admin shuts
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: oper_state
                                             
@@ -3045,19 +3035,29 @@ class Fia(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: error_state
+                                            .. attribute:: speed
                                             
-                                            	error state
+                                            	speed
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: stage
+                                            
+                                            	stage
                                             	**type**\: int
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: num_admin_shuts
+                                            .. attribute:: stats
                                             
-                                            	num admin shuts
-                                            	**type**\: int
+                                            	stats
+                                            	**type**\: :py:class:`Stats <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
                                             
-                                            	**range:** 0..4294967295
+                                            .. attribute:: this_link
+                                            
+                                            	this link
+                                            	**type**\: :py:class:`ThisLink <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
                                             
                                             
 
@@ -3069,25 +3069,25 @@ class Fia(object):
                                             def __init__(self):
                                                 self.parent = None
                                                 self.link = None
-                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink()
-                                                self.this_link.parent = self
-                                                self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink()
-                                                self.far_end_link.parent = self
-                                                self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats()
-                                                self.stats.parent = self
-                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History()
-                                                self.history.parent = self
-                                                self.speed = None
-                                                self.stage = None
-                                                self.is_link_valid = None
-                                                self.is_conf_pending = None
-                                                self.is_power_enabled = None
+                                                self.admin_state = None
                                                 self.coeff1 = None
                                                 self.coeff2 = None
-                                                self.admin_state = None
-                                                self.oper_state = None
                                                 self.error_state = None
+                                                self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink()
+                                                self.far_end_link.parent = self
+                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History()
+                                                self.history.parent = self
+                                                self.is_conf_pending = None
+                                                self.is_link_valid = None
+                                                self.is_power_enabled = None
                                                 self.num_admin_shuts = None
+                                                self.oper_state = None
+                                                self.speed = None
+                                                self.stage = None
+                                                self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats()
+                                                self.stats.parent = self
+                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink()
+                                                self.this_link.parent = self
 
 
                                             class ThisLink(object):
@@ -3099,12 +3099,12 @@ class Fia(object):
                                                 	asic id
                                                 	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	link type
+                                                	link num
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..255
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_stage
                                                 
@@ -3113,12 +3113,12 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
+                                                	link type
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                	**range:** 0..255
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3138,9 +3138,9 @@ class Fia(object):
                                                     self.parent = None
                                                     self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId()
                                                     self.asic_id.parent = self
-                                                    self.link_type = None
-                                                    self.link_stage = None
                                                     self.link_num = None
+                                                    self.link_stage = None
+                                                    self.link_type = None
                                                     self.phy_link_num = None
 
 
@@ -3148,9 +3148,9 @@ class Fia(object):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: rack_type
+                                                    .. attribute:: asic_instance
                                                     
-                                                    	rack type
+                                                    	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -3169,16 +3169,16 @@ class Fia(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: slot_num
+                                                    .. attribute:: rack_type
                                                     
-                                                    	slot num
+                                                    	rack type
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: slot_num
                                                     
-                                                    	asic instance
+                                                    	slot num
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -3192,16 +3192,16 @@ class Fia(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.rack_type = None
+                                                        self.asic_instance = None
                                                         self.asic_type = None
                                                         self.rack_num = None
+                                                        self.rack_type = None
                                                         self.slot_num = None
-                                                        self.asic_instance = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -3212,7 +3212,7 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.rack_type is not None:
+                                                        if self.asic_instance is not None:
                                                             return True
 
                                                         if self.asic_type is not None:
@@ -3221,10 +3221,10 @@ class Fia(object):
                                                         if self.rack_num is not None:
                                                             return True
 
-                                                        if self.slot_num is not None:
+                                                        if self.rack_type is not None:
                                                             return True
 
-                                                        if self.asic_instance is not None:
+                                                        if self.slot_num is not None:
                                                             return True
 
                                                         return False
@@ -3237,7 +3237,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:this-link'
 
@@ -3251,13 +3251,13 @@ class Fia(object):
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
-                                                    if self.link_type is not None:
+                                                    if self.link_num is not None:
                                                         return True
 
                                                     if self.link_stage is not None:
                                                         return True
 
-                                                    if self.link_num is not None:
+                                                    if self.link_type is not None:
                                                         return True
 
                                                     if self.phy_link_num is not None:
@@ -3280,12 +3280,12 @@ class Fia(object):
                                                 	asic id
                                                 	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId>`
                                                 
-                                                .. attribute:: link_type
+                                                .. attribute:: link_num
                                                 
-                                                	link type
+                                                	link num
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..255
+                                                	**range:** 0..4294967295
                                                 
                                                 .. attribute:: link_stage
                                                 
@@ -3294,12 +3294,12 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: link_num
+                                                .. attribute:: link_type
                                                 
-                                                	link num
+                                                	link type
                                                 	**type**\: int
                                                 
-                                                	**range:** 0..4294967295
+                                                	**range:** 0..255
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3319,9 +3319,9 @@ class Fia(object):
                                                     self.parent = None
                                                     self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
-                                                    self.link_type = None
-                                                    self.link_stage = None
                                                     self.link_num = None
+                                                    self.link_stage = None
+                                                    self.link_type = None
                                                     self.phy_link_num = None
 
 
@@ -3329,9 +3329,9 @@ class Fia(object):
                                                     """
                                                     asic id
                                                     
-                                                    .. attribute:: rack_type
+                                                    .. attribute:: asic_instance
                                                     
-                                                    	rack type
+                                                    	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -3350,16 +3350,16 @@ class Fia(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: slot_num
+                                                    .. attribute:: rack_type
                                                     
-                                                    	slot num
+                                                    	rack type
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: asic_instance
+                                                    .. attribute:: slot_num
                                                     
-                                                    	asic instance
+                                                    	slot num
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
@@ -3373,16 +3373,16 @@ class Fia(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.rack_type = None
+                                                        self.asic_instance = None
                                                         self.asic_type = None
                                                         self.rack_num = None
+                                                        self.rack_type = None
                                                         self.slot_num = None
-                                                        self.asic_instance = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -3393,7 +3393,7 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.rack_type is not None:
+                                                        if self.asic_instance is not None:
                                                             return True
 
                                                         if self.asic_type is not None:
@@ -3402,10 +3402,10 @@ class Fia(object):
                                                         if self.rack_num is not None:
                                                             return True
 
-                                                        if self.slot_num is not None:
+                                                        if self.rack_type is not None:
                                                             return True
 
-                                                        if self.asic_instance is not None:
+                                                        if self.slot_num is not None:
                                                             return True
 
                                                         return False
@@ -3418,7 +3418,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:far-end-link'
 
@@ -3432,13 +3432,13 @@ class Fia(object):
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
-                                                    if self.link_type is not None:
+                                                    if self.link_num is not None:
                                                         return True
 
                                                     if self.link_stage is not None:
                                                         return True
 
-                                                    if self.link_num is not None:
+                                                    if self.link_type is not None:
                                                         return True
 
                                                     if self.phy_link_num is not None:
@@ -3477,7 +3477,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:stats'
 
@@ -3503,6 +3503,11 @@ class Fia(object):
                                                 """
                                                 history
                                                 
+                                                .. attribute:: hist
+                                                
+                                                	hist
+                                                	**type**\: list of :py:class:`Hist <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
+                                                
                                                 .. attribute:: histnum
                                                 
                                                 	histnum
@@ -3517,11 +3522,6 @@ class Fia(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: hist
-                                                
-                                                	hist
-                                                	**type**\: list of :py:class:`Hist <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
-                                                
                                                 
 
                                                 """
@@ -3531,11 +3531,11 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.histnum = None
-                                                    self.start_index = None
                                                     self.hist = YList()
                                                     self.hist.parent = self
                                                     self.hist.name = 'hist'
+                                                    self.histnum = None
+                                                    self.start_index = None
 
 
                                                 class Hist(object):
@@ -3549,13 +3549,6 @@ class Fia(object):
                                                     
                                                     	**range:** \-128..127
                                                     
-                                                    .. attribute:: oper_state
-                                                    
-                                                    	oper state
-                                                    	**type**\: int
-                                                    
-                                                    	**range:** \-128..127
-                                                    
                                                     .. attribute:: error_state
                                                     
                                                     	error state
@@ -3563,17 +3556,24 @@ class Fia(object):
                                                     
                                                     	**range:** \-128..127
                                                     
-                                                    .. attribute:: timestamp
+                                                    .. attribute:: oper_state
                                                     
-                                                    	timestamp
+                                                    	oper state
                                                     	**type**\: int
                                                     
-                                                    	**range:** 0..18446744073709551615
+                                                    	**range:** \-128..127
                                                     
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
                                                     	**type**\: str
+                                                    
+                                                    .. attribute:: timestamp
+                                                    
+                                                    	timestamp
+                                                    	**type**\: long
+                                                    
+                                                    	**range:** 0..18446744073709551615
                                                     
                                                     
 
@@ -3585,15 +3585,15 @@ class Fia(object):
                                                     def __init__(self):
                                                         self.parent = None
                                                         self.admin_state = None
-                                                        self.oper_state = None
                                                         self.error_state = None
-                                                        self.timestamp = None
+                                                        self.oper_state = None
                                                         self.reasons = None
+                                                        self.timestamp = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:hist'
 
@@ -3607,16 +3607,16 @@ class Fia(object):
                                                         if self.admin_state is not None:
                                                             return True
 
-                                                        if self.oper_state is not None:
-                                                            return True
-
                                                         if self.error_state is not None:
                                                             return True
 
-                                                        if self.timestamp is not None:
+                                                        if self.oper_state is not None:
                                                             return True
 
                                                         if self.reasons is not None:
+                                                            return True
+
+                                                        if self.timestamp is not None:
                                                             return True
 
                                                         return False
@@ -3629,7 +3629,7 @@ class Fia(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:history'
 
@@ -3640,16 +3640,16 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
+                                                    if self.hist is not None:
+                                                        for child_ref in self.hist:
+                                                            if child_ref._has_data():
+                                                                return True
+
                                                     if self.histnum is not None:
                                                         return True
 
                                                     if self.start_index is not None:
                                                         return True
-
-                                                    if self.hist is not None:
-                                                        for child_ref in self.hist:
-                                                            if child_ref._has_data():
-                                                                return True
 
                                                     return False
 
@@ -3661,9 +3661,9 @@ class Fia(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.link is None:
-                                                    raise YPYDataValidationError('Key property link is None')
+                                                    raise YPYModelError('Key property link is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-link[Cisco-IOS-XR-dnx-driver-oper:link = ' + str(self.link) + ']'
 
@@ -3677,31 +3677,7 @@ class Fia(object):
                                                 if self.link is not None:
                                                     return True
 
-                                                if self.this_link is not None and self.this_link._has_data():
-                                                    return True
-
-                                                if self.far_end_link is not None and self.far_end_link._has_data():
-                                                    return True
-
-                                                if self.stats is not None and self.stats._has_data():
-                                                    return True
-
-                                                if self.history is not None and self.history._has_data():
-                                                    return True
-
-                                                if self.speed is not None:
-                                                    return True
-
-                                                if self.stage is not None:
-                                                    return True
-
-                                                if self.is_link_valid is not None:
-                                                    return True
-
-                                                if self.is_conf_pending is not None:
-                                                    return True
-
-                                                if self.is_power_enabled is not None:
+                                                if self.admin_state is not None:
                                                     return True
 
                                                 if self.coeff1 is not None:
@@ -3710,16 +3686,40 @@ class Fia(object):
                                                 if self.coeff2 is not None:
                                                     return True
 
-                                                if self.admin_state is not None:
+                                                if self.error_state is not None:
+                                                    return True
+
+                                                if self.far_end_link is not None and self.far_end_link._has_data():
+                                                    return True
+
+                                                if self.history is not None and self.history._has_data():
+                                                    return True
+
+                                                if self.is_conf_pending is not None:
+                                                    return True
+
+                                                if self.is_link_valid is not None:
+                                                    return True
+
+                                                if self.is_power_enabled is not None:
+                                                    return True
+
+                                                if self.num_admin_shuts is not None:
                                                     return True
 
                                                 if self.oper_state is not None:
                                                     return True
 
-                                                if self.error_state is not None:
+                                                if self.speed is not None:
                                                     return True
 
-                                                if self.num_admin_shuts is not None:
+                                                if self.stage is not None:
+                                                    return True
+
+                                                if self.stats is not None and self.stats._has_data():
+                                                    return True
+
+                                                if self.this_link is not None and self.this_link._has_data():
                                                     return True
 
                                                 return False
@@ -3732,7 +3732,7 @@ class Fia(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-link'
 
@@ -3743,10 +3743,10 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.start_number is not None:
+                                            if self.end_number is not None:
                                                 return True
 
-                                            if self.end_number is not None:
+                                            if self.start_number is not None:
                                                 return True
 
                                             if self.tx_link is not None:
@@ -3764,7 +3764,7 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-links'
 
@@ -3790,9 +3790,9 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.instance is None:
-                                        raise YPYDataValidationError('Key property instance is None')
+                                        raise YPYModelError('Key property instance is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-asic-instance[Cisco-IOS-XR-dnx-driver-oper:instance = ' + str(self.instance) + ']'
 
@@ -3819,7 +3819,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-asic-instances'
 
@@ -3845,7 +3845,7 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-status-option'
 
@@ -3869,7 +3869,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-status-option-table'
 
@@ -3893,7 +3893,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:tx-link-information'
 
@@ -3991,9 +3991,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.unit is None:
-                                raise YPYDataValidationError('Key property unit is None')
+                                raise YPYModelError('Key property unit is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:register-dump-unit[Cisco-IOS-XR-dnx-driver-oper:unit = ' + str(self.unit) + ']'
 
@@ -4020,7 +4020,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:register-dump-units'
 
@@ -4046,7 +4046,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:register-dump'
 
@@ -4226,9 +4226,9 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.output is None:
-                                            raise YPYDataValidationError('Key property output is None')
+                                            raise YPYModelError('Key property output is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:output[Cisco-IOS-XR-dnx-driver-oper:output = ' + str(self.output) + ']'
 
@@ -4255,9 +4255,9 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.cmd is None:
-                                        raise YPYDataValidationError('Key property cmd is None')
+                                        raise YPYModelError('Key property cmd is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:command[Cisco-IOS-XR-dnx-driver-oper:cmd = ' + str(self.cmd) + ']'
 
@@ -4286,7 +4286,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:commands'
 
@@ -4312,9 +4312,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.unit is None:
-                                raise YPYDataValidationError('Key property unit is None')
+                                raise YPYModelError('Key property unit is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:diag-shell-unit[Cisco-IOS-XR-dnx-driver-oper:unit = ' + str(self.unit) + ']'
 
@@ -4341,7 +4341,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:diag-shell-units'
 
@@ -4367,7 +4367,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:diag-shell'
 
@@ -4498,12 +4498,38 @@ class Fia(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
-                                .. attribute:: drv_version
+                                .. attribute:: asic_avail_mask
                                 
-                                	drv version
+                                	asic avail mask
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
+                                
+                                	asic oper notify to fsdb pending bmap
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: board_rev_id
+                                
+                                	board rev id
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: card_avail_mask
+                                
+                                	card avail mask
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: card_info
+                                
+                                	card info
+                                	**type**\: list of :py:class:`CardInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
                                 
                                 .. attribute:: coeff_major_rev
                                 
@@ -4519,12 +4545,120 @@ class Fia(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: device_info
+                                
+                                	device info
+                                	**type**\: list of :py:class:`DeviceInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
+                                
+                                .. attribute:: drv_version
+                                
+                                	drv version
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: drvr_startup_timestamp
+                                
+                                	drvr startup timestamp
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: exp_asic_avail_mask
+                                
+                                	exp asic avail mask
+                                	**type**\: long
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: fc_mode
+                                
+                                	fc mode
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: fgid_conn_active
+                                
+                                	fgid conn active
+                                	**type**\: bool
+                                
+                                .. attribute:: fgid_reg_active
+                                
+                                	fgid reg active
+                                	**type**\: bool
+                                
+                                .. attribute:: fsdb_conn_active
+                                
+                                	fsdb conn active
+                                	**type**\: bool
+                                
+                                .. attribute:: fsdb_reg_active
+                                
+                                	fsdb reg active
+                                	**type**\: bool
+                                
                                 .. attribute:: functional_role
                                 
                                 	functional role
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                .. attribute:: is_cih_registered
+                                
+                                	is cih registered
+                                	**type**\: bool
+                                
+                                .. attribute:: is_driver_ready
+                                
+                                	is driver ready
+                                	**type**\: bool
+                                
+                                .. attribute:: is_fgid_download_completed
+                                
+                                	is fgid download completed
+                                	**type**\: bool
+                                
+                                .. attribute:: is_fgid_download_in_progress
+                                
+                                	is fgid download in progress
+                                	**type**\: bool
+                                
+                                .. attribute:: is_full_fgid_download_req
+                                
+                                	is full fgid download req
+                                	**type**\: bool
+                                
+                                .. attribute:: is_gaspp_registered
+                                
+                                	is gaspp registered
+                                	**type**\: bool
+                                
+                                .. attribute:: issu_abort_rcvd
+                                
+                                	issu abort rcvd
+                                	**type**\: bool
+                                
+                                .. attribute:: issu_abort_sent
+                                
+                                	issu abort sent
+                                	**type**\: bool
+                                
+                                .. attribute:: issu_mgr_conn_active
+                                
+                                	issu mgr conn active
+                                	**type**\: bool
+                                
+                                .. attribute:: issu_mgr_reg_active
+                                
+                                	issu mgr reg active
+                                	**type**\: bool
+                                
+                                .. attribute:: issu_ready_ntfy_pending
+                                
+                                	issu ready ntfy pending
+                                	**type**\: bool
                                 
                                 .. attribute:: issu_role
                                 
@@ -4533,120 +4667,9 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: rack_name
+                                .. attribute:: num_cm_conn_reqs
                                 
-                                	rack name
-                                	**type**\: str
-                                
-                                .. attribute:: rack_type
-                                
-                                	rack type
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: rack_num
-                                
-                                	rack num
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: is_driver_ready
-                                
-                                	is driver ready
-                                	**type**\: bool
-                                
-                                .. attribute:: card_avail_mask
-                                
-                                	card avail mask
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: asic_avail_mask
-                                
-                                	asic avail mask
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: exp_asic_avail_mask
-                                
-                                	exp asic avail mask
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: ucmc_ratio
-                                
-                                	ucmc ratio
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
-                                
-                                	asic oper notify to fsdb pending bmap
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: is_full_fgid_download_req
-                                
-                                	is full fgid download req
-                                	**type**\: bool
-                                
-                                .. attribute:: is_fgid_download_in_progress
-                                
-                                	is fgid download in progress
-                                	**type**\: bool
-                                
-                                .. attribute:: is_fgid_download_completed
-                                
-                                	is fgid download completed
-                                	**type**\: bool
-                                
-                                .. attribute:: fsdb_conn_active
-                                
-                                	fsdb conn active
-                                	**type**\: bool
-                                
-                                .. attribute:: fgid_conn_active
-                                
-                                	fgid conn active
-                                	**type**\: bool
-                                
-                                .. attribute:: issu_mgr_conn_active
-                                
-                                	issu mgr conn active
-                                	**type**\: bool
-                                
-                                .. attribute:: fsdb_reg_active
-                                
-                                	fsdb reg active
-                                	**type**\: bool
-                                
-                                .. attribute:: fgid_reg_active
-                                
-                                	fgid reg active
-                                	**type**\: bool
-                                
-                                .. attribute:: issu_mgr_reg_active
-                                
-                                	issu mgr reg active
-                                	**type**\: bool
-                                
-                                .. attribute:: num_pm_conn_reqs
-                                
-                                	num pm conn reqs
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: num_fsdb_conn_reqs
-                                
-                                	num fsdb conn reqs
+                                	num cm conn reqs
                                 	**type**\: int
                                 
                                 	**range:** 0..255
@@ -4658,6 +4681,13 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: num_fsdb_conn_reqs
+                                
+                                	num fsdb conn reqs
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
                                 .. attribute:: num_fstats_conn_reqs
                                 
                                 	num fstats conn reqs
@@ -4665,12 +4695,12 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: num_cm_conn_reqs
+                                .. attribute:: num_intf_ports
                                 
-                                	num cm conn reqs
+                                	num intf ports
                                 	**type**\: int
                                 
-                                	**range:** 0..255
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: num_issu_mgr_conn_reqs
                                 
@@ -4686,43 +4716,38 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: is_gaspp_registered
+                                .. attribute:: num_pm_conn_reqs
                                 
-                                	is gaspp registered
-                                	**type**\: bool
+                                	num pm conn reqs
+                                	**type**\: int
                                 
-                                .. attribute:: is_cih_registered
-                                
-                                	is cih registered
-                                	**type**\: bool
+                                	**range:** 0..255
                                 
                                 .. attribute:: offset_time_nsec
                                 
                                 	offset time nsec
-                                	**type**\: int
+                                	**type**\: long
                                 
                                 	**range:** 0..18446744073709551615
                                 
-                                .. attribute:: drvr_startup_timestamp
+                                .. attribute:: rack_name
                                 
-                                	drvr startup timestamp
-                                	**type**\: int
+                                	rack name
+                                	**type**\: str
                                 
-                                	**range:** 0..18446744073709551615
+                                .. attribute:: rack_num
                                 
-                                .. attribute:: num_intf_ports
-                                
-                                	num intf ports
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: uc_weight
-                                
-                                	uc weight
+                                	rack num
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                .. attribute:: rack_type
+                                
+                                	rack type
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: respawn_count
                                 
@@ -4738,44 +4763,19 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: issu_ready_ntfy_pending
+                                .. attribute:: uc_weight
                                 
-                                	issu ready ntfy pending
-                                	**type**\: bool
-                                
-                                .. attribute:: issu_abort_sent
-                                
-                                	issu abort sent
-                                	**type**\: bool
-                                
-                                .. attribute:: issu_abort_rcvd
-                                
-                                	issu abort rcvd
-                                	**type**\: bool
-                                
-                                .. attribute:: fc_mode
-                                
-                                	fc mode
+                                	uc weight
                                 	**type**\: int
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: board_rev_id
+                                .. attribute:: ucmc_ratio
                                 
-                                	board rev id
+                                	ucmc ratio
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
-                                
-                                .. attribute:: device_info
-                                
-                                	device info
-                                	**type**\: list of :py:class:`DeviceInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
-                                
-                                .. attribute:: card_info
-                                
-                                	card info
-                                	**type**\: list of :py:class:`CardInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
                                 
                                 
 
@@ -4787,70 +4787,79 @@ class Fia(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.slot = None
-                                    self.drv_version = None
-                                    self.coeff_major_rev = None
-                                    self.coeff_minor_rev = None
-                                    self.functional_role = None
-                                    self.issu_role = None
-                                    self.rack_name = None
-                                    self.rack_type = None
-                                    self.rack_num = None
-                                    self.is_driver_ready = None
-                                    self.card_avail_mask = None
                                     self.asic_avail_mask = None
-                                    self.exp_asic_avail_mask = None
-                                    self.ucmc_ratio = None
                                     self.asic_oper_notify_to_fsdb_pending_bmap = None
-                                    self.is_full_fgid_download_req = None
-                                    self.is_fgid_download_in_progress = None
-                                    self.is_fgid_download_completed = None
-                                    self.fsdb_conn_active = None
-                                    self.fgid_conn_active = None
-                                    self.issu_mgr_conn_active = None
-                                    self.fsdb_reg_active = None
-                                    self.fgid_reg_active = None
-                                    self.issu_mgr_reg_active = None
-                                    self.num_pm_conn_reqs = None
-                                    self.num_fsdb_conn_reqs = None
-                                    self.num_fgid_conn_reqs = None
-                                    self.num_fstats_conn_reqs = None
-                                    self.num_cm_conn_reqs = None
-                                    self.num_issu_mgr_conn_reqs = None
-                                    self.num_peer_fia_conn_reqs = None
-                                    self.is_gaspp_registered = None
-                                    self.is_cih_registered = None
-                                    self.offset_time_nsec = None
-                                    self.drvr_startup_timestamp = None
-                                    self.num_intf_ports = None
-                                    self.uc_weight = None
-                                    self.respawn_count = None
-                                    self.total_asics = None
-                                    self.issu_ready_ntfy_pending = None
-                                    self.issu_abort_sent = None
-                                    self.issu_abort_rcvd = None
-                                    self.fc_mode = None
                                     self.board_rev_id = None
-                                    self.device_info = YList()
-                                    self.device_info.parent = self
-                                    self.device_info.name = 'device_info'
+                                    self.card_avail_mask = None
                                     self.card_info = YList()
                                     self.card_info.parent = self
                                     self.card_info.name = 'card_info'
+                                    self.coeff_major_rev = None
+                                    self.coeff_minor_rev = None
+                                    self.device_info = YList()
+                                    self.device_info.parent = self
+                                    self.device_info.name = 'device_info'
+                                    self.drv_version = None
+                                    self.drvr_startup_timestamp = None
+                                    self.exp_asic_avail_mask = None
+                                    self.fc_mode = None
+                                    self.fgid_conn_active = None
+                                    self.fgid_reg_active = None
+                                    self.fsdb_conn_active = None
+                                    self.fsdb_reg_active = None
+                                    self.functional_role = None
+                                    self.is_cih_registered = None
+                                    self.is_driver_ready = None
+                                    self.is_fgid_download_completed = None
+                                    self.is_fgid_download_in_progress = None
+                                    self.is_full_fgid_download_req = None
+                                    self.is_gaspp_registered = None
+                                    self.issu_abort_rcvd = None
+                                    self.issu_abort_sent = None
+                                    self.issu_mgr_conn_active = None
+                                    self.issu_mgr_reg_active = None
+                                    self.issu_ready_ntfy_pending = None
+                                    self.issu_role = None
+                                    self.num_cm_conn_reqs = None
+                                    self.num_fgid_conn_reqs = None
+                                    self.num_fsdb_conn_reqs = None
+                                    self.num_fstats_conn_reqs = None
+                                    self.num_intf_ports = None
+                                    self.num_issu_mgr_conn_reqs = None
+                                    self.num_peer_fia_conn_reqs = None
+                                    self.num_pm_conn_reqs = None
+                                    self.offset_time_nsec = None
+                                    self.rack_name = None
+                                    self.rack_num = None
+                                    self.rack_type = None
+                                    self.respawn_count = None
+                                    self.total_asics = None
+                                    self.uc_weight = None
+                                    self.ucmc_ratio = None
 
 
                                 class DeviceInfo(object):
                                     """
                                     device info
                                     
+                                    .. attribute:: admin_state
+                                    
+                                    	admin state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
+                                    
                                     .. attribute:: asic_id
                                     
                                     	asic id
                                     	**type**\: :py:class:`AsicId <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
                                     
-                                    .. attribute:: is_valid
+                                    .. attribute:: asic_state
                                     
-                                    	is valid
-                                    	**type**\: bool
+                                    	asic state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
                                     
                                     .. attribute:: fapid
                                     
@@ -4866,33 +4875,17 @@ class Fia(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: slice_state
+                                    .. attribute:: is_valid
                                     
-                                    	slice state
-                                    	**type**\: int
+                                    	is valid
+                                    	**type**\: bool
                                     
-                                    	**range:** 0..4294967295
+                                    .. attribute:: last_hard_reset_timestamp
                                     
-                                    .. attribute:: admin_state
+                                    	last hard reset timestamp
+                                    	**type**\: long
                                     
-                                    	admin state
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: oper_state
-                                    
-                                    	oper state
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: asic_state
-                                    
-                                    	asic state
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..255
+                                    	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_init_cause
                                     
@@ -4901,9 +4894,16 @@ class Fia(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: num_pon_resets
+                                    .. attribute:: last_pon_reset_timestamp
                                     
-                                    	num pon resets
+                                    	last pon reset timestamp
+                                    	**type**\: long
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: local_switch_state
+                                    
+                                    	local switch state
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -4915,23 +4915,23 @@ class Fia(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: last_pon_reset_timestamp
+                                    .. attribute:: num_pon_resets
                                     
-                                    	last pon reset timestamp
+                                    	num pon resets
                                     	**type**\: int
                                     
-                                    	**range:** 0..18446744073709551615
+                                    	**range:** 0..4294967295
                                     
-                                    .. attribute:: last_hard_reset_timestamp
+                                    .. attribute:: oper_state
                                     
-                                    	last hard reset timestamp
+                                    	oper state
                                     	**type**\: int
                                     
-                                    	**range:** 0..18446744073709551615
+                                    	**range:** 0..255
                                     
-                                    .. attribute:: local_switch_state
+                                    .. attribute:: slice_state
                                     
-                                    	local switch state
+                                    	slice state
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -4945,30 +4945,30 @@ class Fia(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.admin_state = None
                                         self.asic_id = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId()
                                         self.asic_id.parent = self
-                                        self.is_valid = None
+                                        self.asic_state = None
                                         self.fapid = None
                                         self.hotplug_event = None
-                                        self.slice_state = None
-                                        self.admin_state = None
-                                        self.oper_state = None
-                                        self.asic_state = None
-                                        self.last_init_cause = None
-                                        self.num_pon_resets = None
-                                        self.num_hard_resets = None
-                                        self.last_pon_reset_timestamp = None
+                                        self.is_valid = None
                                         self.last_hard_reset_timestamp = None
+                                        self.last_init_cause = None
+                                        self.last_pon_reset_timestamp = None
                                         self.local_switch_state = None
+                                        self.num_hard_resets = None
+                                        self.num_pon_resets = None
+                                        self.oper_state = None
+                                        self.slice_state = None
 
 
                                     class AsicId(object):
                                         """
                                         asic id
                                         
-                                        .. attribute:: rack_type
+                                        .. attribute:: asic_instance
                                         
-                                        	rack type
+                                        	asic instance
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
@@ -4987,16 +4987,16 @@ class Fia(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: slot_num
+                                        .. attribute:: rack_type
                                         
-                                        	slot num
+                                        	rack type
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: asic_instance
+                                        .. attribute:: slot_num
                                         
-                                        	asic instance
+                                        	slot num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
@@ -5010,16 +5010,16 @@ class Fia(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.rack_type = None
+                                            self.asic_instance = None
                                             self.asic_type = None
                                             self.rack_num = None
+                                            self.rack_type = None
                                             self.slot_num = None
-                                            self.asic_instance = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-id'
 
@@ -5030,7 +5030,7 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.rack_type is not None:
+                                            if self.asic_instance is not None:
                                                 return True
 
                                             if self.asic_type is not None:
@@ -5039,10 +5039,10 @@ class Fia(object):
                                             if self.rack_num is not None:
                                                 return True
 
-                                            if self.slot_num is not None:
+                                            if self.rack_type is not None:
                                                 return True
 
-                                            if self.asic_instance is not None:
+                                            if self.slot_num is not None:
                                                 return True
 
                                             return False
@@ -5055,7 +5055,7 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:device-info'
 
@@ -5066,10 +5066,13 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
+                                        if self.admin_state is not None:
+                                            return True
+
                                         if self.asic_id is not None and self.asic_id._has_data():
                                             return True
 
-                                        if self.is_valid is not None:
+                                        if self.asic_state is not None:
                                             return True
 
                                         if self.fapid is not None:
@@ -5078,34 +5081,31 @@ class Fia(object):
                                         if self.hotplug_event is not None:
                                             return True
 
-                                        if self.slice_state is not None:
-                                            return True
-
-                                        if self.admin_state is not None:
-                                            return True
-
-                                        if self.oper_state is not None:
-                                            return True
-
-                                        if self.asic_state is not None:
-                                            return True
-
-                                        if self.last_init_cause is not None:
-                                            return True
-
-                                        if self.num_pon_resets is not None:
-                                            return True
-
-                                        if self.num_hard_resets is not None:
-                                            return True
-
-                                        if self.last_pon_reset_timestamp is not None:
+                                        if self.is_valid is not None:
                                             return True
 
                                         if self.last_hard_reset_timestamp is not None:
                                             return True
 
+                                        if self.last_init_cause is not None:
+                                            return True
+
+                                        if self.last_pon_reset_timestamp is not None:
+                                            return True
+
                                         if self.local_switch_state is not None:
+                                            return True
+
+                                        if self.num_hard_resets is not None:
+                                            return True
+
+                                        if self.num_pon_resets is not None:
+                                            return True
+
+                                        if self.oper_state is not None:
+                                            return True
+
+                                        if self.slice_state is not None:
                                             return True
 
                                         return False
@@ -5120,14 +5120,9 @@ class Fia(object):
                                     """
                                     card info
                                     
-                                    .. attribute:: oir_circular_buffer
+                                    .. attribute:: card_flag
                                     
-                                    	oir circular buffer
-                                    	**type**\: :py:class:`OirCircularBuffer <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
-                                    
-                                    .. attribute:: card_type
-                                    
-                                    	card type
+                                    	card flag
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -5137,19 +5132,26 @@ class Fia(object):
                                     	card name
                                     	**type**\: str
                                     
-                                    .. attribute:: slot_no
+                                    .. attribute:: card_state
                                     
-                                    	slot no
+                                    	card state
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: card_type
+                                    
+                                    	card type
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: card_flag
+                                    .. attribute:: cxp_avail_bitmap
                                     
-                                    	card flag
-                                    	**type**\: int
+                                    	cxp avail bitmap
+                                    	**type**\: long
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: evt_flag
                                     
@@ -5157,27 +5159,6 @@ class Fia(object):
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: reg_flag
-                                    
-                                    	reg flag
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: instance
-                                    
-                                    	instance
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: card_state
-                                    
-                                    	card state
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..255
                                     
                                     .. attribute:: exp_num_asics
                                     
@@ -5193,17 +5174,24 @@ class Fia(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: instance
+                                    
+                                    	instance
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
                                     .. attribute:: is_powered
                                     
                                     	is powered
                                     	**type**\: bool
                                     
-                                    .. attribute:: cxp_avail_bitmap
+                                    .. attribute:: num_cos_per_port
                                     
-                                    	cxp avail bitmap
+                                    	num cos per port
                                     	**type**\: int
                                     
-                                    	**range:** 0..18446744073709551615
+                                    	**range:** 0..255
                                     
                                     .. attribute:: num_ilkns_per_asic
                                     
@@ -5219,12 +5207,24 @@ class Fia(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: num_cos_per_port
+                                    .. attribute:: oir_circular_buffer
                                     
-                                    	num cos per port
+                                    	oir circular buffer
+                                    	**type**\: :py:class:`OirCircularBuffer <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
+                                    
+                                    .. attribute:: reg_flag
+                                    
+                                    	reg flag
                                     	**type**\: int
                                     
-                                    	**range:** 0..255
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: slot_no
+                                    
+                                    	slot no
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     
 
@@ -5235,23 +5235,23 @@ class Fia(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.oir_circular_buffer = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer()
-                                        self.oir_circular_buffer.parent = self
-                                        self.card_type = None
-                                        self.card_name = None
-                                        self.slot_no = None
                                         self.card_flag = None
-                                        self.evt_flag = None
-                                        self.reg_flag = None
-                                        self.instance = None
+                                        self.card_name = None
                                         self.card_state = None
+                                        self.card_type = None
+                                        self.cxp_avail_bitmap = None
+                                        self.evt_flag = None
                                         self.exp_num_asics = None
                                         self.exp_num_asics_per_fsdb = None
+                                        self.instance = None
                                         self.is_powered = None
-                                        self.cxp_avail_bitmap = None
+                                        self.num_cos_per_port = None
                                         self.num_ilkns_per_asic = None
                                         self.num_local_ports_per_ilkn = None
-                                        self.num_cos_per_port = None
+                                        self.oir_circular_buffer = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer()
+                                        self.oir_circular_buffer.parent = self
+                                        self.reg_flag = None
+                                        self.slot_no = None
 
 
                                     class OirCircularBuffer(object):
@@ -5261,13 +5261,6 @@ class Fia(object):
                                         .. attribute:: count
                                         
                                         	count
-                                        	**type**\: int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        .. attribute:: start
-                                        
-                                        	start
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
@@ -5284,6 +5277,13 @@ class Fia(object):
                                         	fia oir info
                                         	**type**\: list of :py:class:`FiaOirInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
                                         
+                                        .. attribute:: start
+                                        
+                                        	start
+                                        	**type**\: int
+                                        
+                                        	**range:** \-2147483648..2147483647
+                                        
                                         
 
                                         """
@@ -5294,11 +5294,11 @@ class Fia(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.count = None
-                                            self.start = None
                                             self.end = None
                                             self.fia_oir_info = YList()
                                             self.fia_oir_info.parent = self
                                             self.fia_oir_info.name = 'fia_oir_info'
+                                            self.start = None
 
 
                                         class FiaOirInfo(object):
@@ -5319,9 +5319,9 @@ class Fia(object):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: reg_flag
+                                            .. attribute:: cur_card_state
                                             
-                                            	reg flag
+                                            	cur card state
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5333,13 +5333,6 @@ class Fia(object):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: rack_num
-                                            
-                                            	rack num
-                                            	**type**\: int
-                                            
-                                            	**range:** \-2147483648..2147483647
-                                            
                                             .. attribute:: instance
                                             
                                             	instance
@@ -5347,9 +5340,16 @@ class Fia(object):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: cur_card_state
+                                            .. attribute:: rack_num
                                             
-                                            	cur card state
+                                            	rack num
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: reg_flag
+                                            
+                                            	reg flag
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5365,16 +5365,16 @@ class Fia(object):
                                                 self.parent = None
                                                 self.card_flag = None
                                                 self.card_type = None
-                                                self.reg_flag = None
-                                                self.evt_flag = None
-                                                self.rack_num = None
-                                                self.instance = None
                                                 self.cur_card_state = None
+                                                self.evt_flag = None
+                                                self.instance = None
+                                                self.rack_num = None
+                                                self.reg_flag = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fia-oir-info'
 
@@ -5391,19 +5391,19 @@ class Fia(object):
                                                 if self.card_type is not None:
                                                     return True
 
-                                                if self.reg_flag is not None:
+                                                if self.cur_card_state is not None:
                                                     return True
 
                                                 if self.evt_flag is not None:
                                                     return True
 
-                                                if self.rack_num is not None:
-                                                    return True
-
                                                 if self.instance is not None:
                                                     return True
 
-                                                if self.cur_card_state is not None:
+                                                if self.rack_num is not None:
+                                                    return True
+
+                                                if self.reg_flag is not None:
                                                     return True
 
                                                 return False
@@ -5416,7 +5416,7 @@ class Fia(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:oir-circular-buffer'
 
@@ -5430,9 +5430,6 @@ class Fia(object):
                                             if self.count is not None:
                                                 return True
 
-                                            if self.start is not None:
-                                                return True
-
                                             if self.end is not None:
                                                 return True
 
@@ -5440,6 +5437,9 @@ class Fia(object):
                                                 for child_ref in self.fia_oir_info:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.start is not None:
+                                                return True
 
                                             return False
 
@@ -5451,7 +5451,7 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:card-info'
 
@@ -5462,31 +5462,22 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
-                                            return True
-
-                                        if self.card_type is not None:
+                                        if self.card_flag is not None:
                                             return True
 
                                         if self.card_name is not None:
                                             return True
 
-                                        if self.slot_no is not None:
+                                        if self.card_state is not None:
                                             return True
 
-                                        if self.card_flag is not None:
+                                        if self.card_type is not None:
+                                            return True
+
+                                        if self.cxp_avail_bitmap is not None:
                                             return True
 
                                         if self.evt_flag is not None:
-                                            return True
-
-                                        if self.reg_flag is not None:
-                                            return True
-
-                                        if self.instance is not None:
-                                            return True
-
-                                        if self.card_state is not None:
                                             return True
 
                                         if self.exp_num_asics is not None:
@@ -5495,10 +5486,13 @@ class Fia(object):
                                         if self.exp_num_asics_per_fsdb is not None:
                                             return True
 
+                                        if self.instance is not None:
+                                            return True
+
                                         if self.is_powered is not None:
                                             return True
 
-                                        if self.cxp_avail_bitmap is not None:
+                                        if self.num_cos_per_port is not None:
                                             return True
 
                                         if self.num_ilkns_per_asic is not None:
@@ -5507,7 +5501,13 @@ class Fia(object):
                                         if self.num_local_ports_per_ilkn is not None:
                                             return True
 
-                                        if self.num_cos_per_port is not None:
+                                        if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
+                                            return True
+
+                                        if self.reg_flag is not None:
+                                            return True
+
+                                        if self.slot_no is not None:
                                             return True
 
                                         return False
@@ -5520,9 +5520,9 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                     if self.slot is None:
-                                        raise YPYDataValidationError('Key property slot is None')
+                                        raise YPYModelError('Key property slot is None')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:slot[Cisco-IOS-XR-dnx-driver-oper:slot = ' + str(self.slot) + ']'
 
@@ -5536,8 +5536,22 @@ class Fia(object):
                                     if self.slot is not None:
                                         return True
 
-                                    if self.drv_version is not None:
+                                    if self.asic_avail_mask is not None:
                                         return True
+
+                                    if self.asic_oper_notify_to_fsdb_pending_bmap is not None:
+                                        return True
+
+                                    if self.board_rev_id is not None:
+                                        return True
+
+                                    if self.card_avail_mask is not None:
+                                        return True
+
+                                    if self.card_info is not None:
+                                        for child_ref in self.card_info:
+                                            if child_ref._has_data():
+                                                return True
 
                                     if self.coeff_major_rev is not None:
                                         return True
@@ -5545,79 +5559,87 @@ class Fia(object):
                                     if self.coeff_minor_rev is not None:
                                         return True
 
-                                    if self.functional_role is not None:
+                                    if self.device_info is not None:
+                                        for child_ref in self.device_info:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    if self.drv_version is not None:
                                         return True
 
-                                    if self.issu_role is not None:
-                                        return True
-
-                                    if self.rack_name is not None:
-                                        return True
-
-                                    if self.rack_type is not None:
-                                        return True
-
-                                    if self.rack_num is not None:
-                                        return True
-
-                                    if self.is_driver_ready is not None:
-                                        return True
-
-                                    if self.card_avail_mask is not None:
-                                        return True
-
-                                    if self.asic_avail_mask is not None:
+                                    if self.drvr_startup_timestamp is not None:
                                         return True
 
                                     if self.exp_asic_avail_mask is not None:
                                         return True
 
-                                    if self.ucmc_ratio is not None:
-                                        return True
-
-                                    if self.asic_oper_notify_to_fsdb_pending_bmap is not None:
-                                        return True
-
-                                    if self.is_full_fgid_download_req is not None:
-                                        return True
-
-                                    if self.is_fgid_download_in_progress is not None:
-                                        return True
-
-                                    if self.is_fgid_download_completed is not None:
-                                        return True
-
-                                    if self.fsdb_conn_active is not None:
+                                    if self.fc_mode is not None:
                                         return True
 
                                     if self.fgid_conn_active is not None:
                                         return True
 
-                                    if self.issu_mgr_conn_active is not None:
+                                    if self.fgid_reg_active is not None:
+                                        return True
+
+                                    if self.fsdb_conn_active is not None:
                                         return True
 
                                     if self.fsdb_reg_active is not None:
                                         return True
 
-                                    if self.fgid_reg_active is not None:
+                                    if self.functional_role is not None:
+                                        return True
+
+                                    if self.is_cih_registered is not None:
+                                        return True
+
+                                    if self.is_driver_ready is not None:
+                                        return True
+
+                                    if self.is_fgid_download_completed is not None:
+                                        return True
+
+                                    if self.is_fgid_download_in_progress is not None:
+                                        return True
+
+                                    if self.is_full_fgid_download_req is not None:
+                                        return True
+
+                                    if self.is_gaspp_registered is not None:
+                                        return True
+
+                                    if self.issu_abort_rcvd is not None:
+                                        return True
+
+                                    if self.issu_abort_sent is not None:
+                                        return True
+
+                                    if self.issu_mgr_conn_active is not None:
                                         return True
 
                                     if self.issu_mgr_reg_active is not None:
                                         return True
 
-                                    if self.num_pm_conn_reqs is not None:
+                                    if self.issu_ready_ntfy_pending is not None:
                                         return True
 
-                                    if self.num_fsdb_conn_reqs is not None:
+                                    if self.issu_role is not None:
+                                        return True
+
+                                    if self.num_cm_conn_reqs is not None:
                                         return True
 
                                     if self.num_fgid_conn_reqs is not None:
                                         return True
 
+                                    if self.num_fsdb_conn_reqs is not None:
+                                        return True
+
                                     if self.num_fstats_conn_reqs is not None:
                                         return True
 
-                                    if self.num_cm_conn_reqs is not None:
+                                    if self.num_intf_ports is not None:
                                         return True
 
                                     if self.num_issu_mgr_conn_reqs is not None:
@@ -5626,22 +5648,19 @@ class Fia(object):
                                     if self.num_peer_fia_conn_reqs is not None:
                                         return True
 
-                                    if self.is_gaspp_registered is not None:
-                                        return True
-
-                                    if self.is_cih_registered is not None:
+                                    if self.num_pm_conn_reqs is not None:
                                         return True
 
                                     if self.offset_time_nsec is not None:
                                         return True
 
-                                    if self.drvr_startup_timestamp is not None:
+                                    if self.rack_name is not None:
                                         return True
 
-                                    if self.num_intf_ports is not None:
+                                    if self.rack_num is not None:
                                         return True
 
-                                    if self.uc_weight is not None:
+                                    if self.rack_type is not None:
                                         return True
 
                                     if self.respawn_count is not None:
@@ -5650,30 +5669,11 @@ class Fia(object):
                                     if self.total_asics is not None:
                                         return True
 
-                                    if self.issu_ready_ntfy_pending is not None:
+                                    if self.uc_weight is not None:
                                         return True
 
-                                    if self.issu_abort_sent is not None:
+                                    if self.ucmc_ratio is not None:
                                         return True
-
-                                    if self.issu_abort_rcvd is not None:
-                                        return True
-
-                                    if self.fc_mode is not None:
-                                        return True
-
-                                    if self.board_rev_id is not None:
-                                        return True
-
-                                    if self.device_info is not None:
-                                        for child_ref in self.device_info:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.card_info is not None:
-                                        for child_ref in self.card_info:
-                                            if child_ref._has_data():
-                                                return True
 
                                     return False
 
@@ -5685,7 +5685,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:slots'
 
@@ -5711,9 +5711,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.flag is None:
-                                raise YPYDataValidationError('Key property flag is None')
+                                raise YPYModelError('Key property flag is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:flag[Cisco-IOS-XR-dnx-driver-oper:flag = ' + str(self.flag) + ']'
 
@@ -5740,7 +5740,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:flags'
 
@@ -5766,7 +5766,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:oir-history'
 
@@ -5844,15 +5844,15 @@ class Fia(object):
                         
                         	**range:** 0..16
                         
-                        .. attribute:: pbc_statistics
-                        
-                        	Packet Byte Counter for a Asic
-                        	**type**\: :py:class:`PbcStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
-                        
                         .. attribute:: fmac_statistics
                         
                         	Statistics of FMAC
                         	**type**\: :py:class:`FmacStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
+                        
+                        .. attribute:: pbc_statistics
+                        
+                        	Packet Byte Counter for a Asic
+                        	**type**\: :py:class:`PbcStatistics <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
                         
                         
 
@@ -5864,10 +5864,10 @@ class Fia(object):
                         def __init__(self):
                             self.parent = None
                             self.instance = None
-                            self.pbc_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics()
-                            self.pbc_statistics.parent = self
                             self.fmac_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics()
                             self.fmac_statistics.parent = self
+                            self.pbc_statistics = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics()
+                            self.pbc_statistics.parent = self
 
 
                         class PbcStatistics(object):
@@ -5896,15 +5896,19 @@ class Fia(object):
                                 """
                                 PBC stats bag
                                 
-                                .. attribute:: stats_info
+                                .. attribute:: asic_instance
                                 
-                                	stats info
-                                	**type**\: :py:class:`StatsInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
+                                	asic instance
+                                	**type**\: int
                                 
-                                .. attribute:: valid
+                                	**range:** 0..4294967295
                                 
-                                	valid
-                                	**type**\: bool
+                                .. attribute:: chip_ver
+                                
+                                	chip ver
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
                                 
                                 .. attribute:: rack_no
                                 
@@ -5920,19 +5924,15 @@ class Fia(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: asic_instance
+                                .. attribute:: stats_info
                                 
-                                	asic instance
-                                	**type**\: int
+                                	stats info
+                                	**type**\: :py:class:`StatsInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: valid
                                 
-                                .. attribute:: chip_ver
-                                
-                                	chip ver
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
+                                	valid
+                                	**type**\: bool
                                 
                                 
 
@@ -5943,18 +5943,23 @@ class Fia(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.asic_instance = None
+                                    self.chip_ver = None
+                                    self.rack_no = None
+                                    self.slot_no = None
                                     self.stats_info = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo()
                                     self.stats_info.parent = self
                                     self.valid = None
-                                    self.rack_no = None
-                                    self.slot_no = None
-                                    self.asic_instance = None
-                                    self.chip_ver = None
 
 
                                 class StatsInfo(object):
                                     """
                                     stats info
+                                    
+                                    .. attribute:: block_info
+                                    
+                                    	block info
+                                    	**type**\: list of :py:class:`BlockInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
                                     
                                     .. attribute:: num_blocks
                                     
@@ -5962,11 +5967,6 @@ class Fia(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
-                                    
-                                    .. attribute:: block_info
-                                    
-                                    	block info
-                                    	**type**\: list of :py:class:`BlockInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
                                     
                                     
 
@@ -5977,10 +5977,10 @@ class Fia(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.num_blocks = None
                                         self.block_info = YList()
                                         self.block_info.parent = self
                                         self.block_info.name = 'block_info'
+                                        self.num_blocks = None
 
 
                                     class BlockInfo(object):
@@ -5994,17 +5994,17 @@ class Fia(object):
                                         
                                         	**range:** 0..11
                                         
+                                        .. attribute:: field_info
+                                        
+                                        	field info
+                                        	**type**\: list of :py:class:`FieldInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        
                                         .. attribute:: num_fields
                                         
                                         	Num Fields
                                         	**type**\: int
                                         
                                         	**range:** 0..255
-                                        
-                                        .. attribute:: field_info
-                                        
-                                        	field info
-                                        	**type**\: list of :py:class:`FieldInfo <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
                                         
                                         
 
@@ -6016,10 +6016,10 @@ class Fia(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.block_name = None
-                                            self.num_fields = None
                                             self.field_info = YList()
                                             self.field_info.parent = self
                                             self.field_info.name = 'field_info'
+                                            self.num_fields = None
 
 
                                         class FieldInfo(object):
@@ -6036,7 +6036,7 @@ class Fia(object):
                                             .. attribute:: field_value
                                             
                                             	Field Value
-                                            	**type**\: int
+                                            	**type**\: long
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -6061,7 +6061,7 @@ class Fia(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:field-info'
 
@@ -6091,7 +6091,7 @@ class Fia(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:block-info'
 
@@ -6105,13 +6105,13 @@ class Fia(object):
                                             if self.block_name is not None:
                                                 return True
 
-                                            if self.num_fields is not None:
-                                                return True
-
                                             if self.field_info is not None:
                                                 for child_ref in self.field_info:
                                                     if child_ref._has_data():
                                                         return True
+
+                                            if self.num_fields is not None:
+                                                return True
 
                                             return False
 
@@ -6123,7 +6123,7 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:stats-info'
 
@@ -6134,13 +6134,13 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.num_blocks is not None:
-                                            return True
-
                                         if self.block_info is not None:
                                             for child_ref in self.block_info:
                                                 if child_ref._has_data():
                                                     return True
+
+                                        if self.num_blocks is not None:
+                                            return True
 
                                         return False
 
@@ -6152,7 +6152,7 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:pbc-stats'
 
@@ -6163,10 +6163,10 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.stats_info is not None and self.stats_info._has_data():
+                                    if self.asic_instance is not None:
                                         return True
 
-                                    if self.valid is not None:
+                                    if self.chip_ver is not None:
                                         return True
 
                                     if self.rack_no is not None:
@@ -6175,10 +6175,10 @@ class Fia(object):
                                     if self.slot_no is not None:
                                         return True
 
-                                    if self.asic_instance is not None:
+                                    if self.stats_info is not None and self.stats_info._has_data():
                                         return True
 
-                                    if self.chip_ver is not None:
+                                    if self.valid is not None:
                                         return True
 
                                     return False
@@ -6191,7 +6191,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:pbc-statistics'
 
@@ -6305,14 +6305,28 @@ class Fia(object):
                                         	aggr stats
                                         	**type**\: :py:class:`AggrStats <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
                                         
+                                        .. attribute:: asic_instance
+                                        
+                                        	asic instance
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
                                         .. attribute:: incr_stats
                                         
                                         	incr stats
                                         	**type**\: :py:class:`IncrStats <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
                                         
-                                        .. attribute:: valid
+                                        .. attribute:: link_no
                                         
-                                        	valid
+                                        	link no
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: link_valid
+                                        
+                                        	link valid
                                         	**type**\: bool
                                         
                                         .. attribute:: rack_no
@@ -6329,23 +6343,9 @@ class Fia(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: asic_instance
+                                        .. attribute:: valid
                                         
-                                        	asic instance
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: link_no
-                                        
-                                        	link no
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: link_valid
-                                        
-                                        	link valid
+                                        	valid
                                         	**type**\: bool
                                         
                                         
@@ -6360,29 +6360,29 @@ class Fia(object):
                                             self.asic = None
                                             self.aggr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats()
                                             self.aggr_stats.parent = self
+                                            self.asic_instance = None
                                             self.incr_stats = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats()
                                             self.incr_stats.parent = self
-                                            self.valid = None
-                                            self.rack_no = None
-                                            self.slot_no = None
-                                            self.asic_instance = None
                                             self.link_no = None
                                             self.link_valid = None
+                                            self.rack_no = None
+                                            self.slot_no = None
+                                            self.valid = None
 
 
                                         class AggrStats(object):
                                             """
                                             aggr stats
                                             
-                                            .. attribute:: link_error_status
-                                            
-                                            	link error status
-                                            	**type**\: :py:class:`LinkErrorStatus <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
-                                            
                                             .. attribute:: link_counters
                                             
                                             	link counters
                                             	**type**\: :py:class:`LinkCounters <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
+                                            
+                                            .. attribute:: link_error_status
+                                            
+                                            	link error status
+                                            	**type**\: :py:class:`LinkErrorStatus <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: ovf_status
                                             
@@ -6398,10 +6398,10 @@ class Fia(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus()
-                                                self.link_error_status.parent = self
                                                 self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters()
                                                 self.link_counters.parent = self
+                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus()
+                                                self.link_error_status.parent = self
                                                 self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus()
                                                 self.ovf_status.parent = self
 
@@ -6410,23 +6410,9 @@ class Fia(object):
                                                 """
                                                 link error status
                                                 
-                                                .. attribute:: link_crc_error
+                                                .. attribute:: error_token_count
                                                 
-                                                	link crc error
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_size_error
-                                                
-                                                	link size error
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_mis_align_error
-                                                
-                                                	link mis align error
+                                                	error token count
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -6438,9 +6424,16 @@ class Fia(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: link_no_sig_lock_error
+                                                .. attribute:: link_crc_error
                                                 
-                                                	link no sig lock error
+                                                	link crc error
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_mis_align_error
+                                                
+                                                	link mis align error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -6452,16 +6445,23 @@ class Fia(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: link_tokens_error
+                                                .. attribute:: link_no_sig_lock_error
                                                 
-                                                	link tokens error
+                                                	link no sig lock error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: error_token_count
+                                                .. attribute:: link_size_error
                                                 
-                                                	error token count
+                                                	link size error
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_tokens_error
+                                                
+                                                	link tokens error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -6475,19 +6475,19 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.link_crc_error = None
-                                                    self.link_size_error = None
-                                                    self.link_mis_align_error = None
-                                                    self.link_code_group_error = None
-                                                    self.link_no_sig_lock_error = None
-                                                    self.link_no_sig_accept_error = None
-                                                    self.link_tokens_error = None
                                                     self.error_token_count = None
+                                                    self.link_code_group_error = None
+                                                    self.link_crc_error = None
+                                                    self.link_mis_align_error = None
+                                                    self.link_no_sig_accept_error = None
+                                                    self.link_no_sig_lock_error = None
+                                                    self.link_size_error = None
+                                                    self.link_tokens_error = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-error-status'
 
@@ -6498,28 +6498,28 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.link_crc_error is not None:
-                                                        return True
-
-                                                    if self.link_size_error is not None:
-                                                        return True
-
-                                                    if self.link_mis_align_error is not None:
+                                                    if self.error_token_count is not None:
                                                         return True
 
                                                     if self.link_code_group_error is not None:
                                                         return True
 
-                                                    if self.link_no_sig_lock_error is not None:
+                                                    if self.link_crc_error is not None:
+                                                        return True
+
+                                                    if self.link_mis_align_error is not None:
                                                         return True
 
                                                     if self.link_no_sig_accept_error is not None:
                                                         return True
 
-                                                    if self.link_tokens_error is not None:
+                                                    if self.link_no_sig_lock_error is not None:
                                                         return True
 
-                                                    if self.error_token_count is not None:
+                                                    if self.link_size_error is not None:
+                                                        return True
+
+                                                    if self.link_tokens_error is not None:
                                                         return True
 
                                                     return False
@@ -6534,101 +6534,101 @@ class Fia(object):
                                                 """
                                                 link counters
                                                 
-                                                .. attribute:: tx_control_cells_counter
+                                                .. attribute:: rx_8b_10b_code_errors
                                                 
-                                                	TX Control cells counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\: int
+                                                	RX 8b 10b code errors
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\: int
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\: int
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\: int
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
-                                                .. attribute:: rx_8b_10b_code_errors
+                                                .. attribute:: tx_asyn_fifo_rate
                                                 
-                                                	RX 8b 10b code errors
-                                                	**type**\: int
+                                                	TX Asyn fifo rate
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
@@ -6641,25 +6641,25 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.tx_control_cells_counter = None
-                                                    self.tx_data_cell_counter = None
-                                                    self.tx_data_byte_counter = None
-                                                    self.rx_crc_errors_counter = None
-                                                    self.rx_lfec_fec_correctable_error = None
-                                                    self.rx_8b_10b_disparity_errors = None
-                                                    self.rx_control_cells_counter = None
-                                                    self.rx_data_cell_counter = None
-                                                    self.rx_data_byte_counter = None
-                                                    self.rx_dropped_retransmitted_control = None
-                                                    self.tx_asyn_fifo_rate = None
-                                                    self.rx_asyn_fifo_rate = None
-                                                    self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
+                                                    self.rx_8b_10b_disparity_errors = None
+                                                    self.rx_asyn_fifo_rate = None
+                                                    self.rx_control_cells_counter = None
+                                                    self.rx_crc_errors_counter = None
+                                                    self.rx_data_byte_counter = None
+                                                    self.rx_data_cell_counter = None
+                                                    self.rx_dropped_retransmitted_control = None
+                                                    self.rx_lfec_fec_correctable_error = None
+                                                    self.rx_lfec_fec_uncorrectable_errors = None
+                                                    self.tx_asyn_fifo_rate = None
+                                                    self.tx_control_cells_counter = None
+                                                    self.tx_data_byte_counter = None
+                                                    self.tx_data_cell_counter = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-counters'
 
@@ -6670,46 +6670,46 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.tx_control_cells_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_cell_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_byte_counter is not None:
-                                                        return True
-
-                                                    if self.rx_crc_errors_counter is not None:
-                                                        return True
-
-                                                    if self.rx_lfec_fec_correctable_error is not None:
+                                                    if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
                                                     if self.rx_8b_10b_disparity_errors is not None:
                                                         return True
 
+                                                    if self.rx_asyn_fifo_rate is not None:
+                                                        return True
+
                                                     if self.rx_control_cells_counter is not None:
                                                         return True
 
-                                                    if self.rx_data_cell_counter is not None:
+                                                    if self.rx_crc_errors_counter is not None:
                                                         return True
 
                                                     if self.rx_data_byte_counter is not None:
                                                         return True
 
+                                                    if self.rx_data_cell_counter is not None:
+                                                        return True
+
                                                     if self.rx_dropped_retransmitted_control is not None:
                                                         return True
 
-                                                    if self.tx_asyn_fifo_rate is not None:
-                                                        return True
-
-                                                    if self.rx_asyn_fifo_rate is not None:
+                                                    if self.rx_lfec_fec_correctable_error is not None:
                                                         return True
 
                                                     if self.rx_lfec_fec_uncorrectable_errors is not None:
                                                         return True
 
-                                                    if self.rx_8b_10b_code_errors is not None:
+                                                    if self.tx_asyn_fifo_rate is not None:
+                                                        return True
+
+                                                    if self.tx_control_cells_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_byte_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_cell_counter is not None:
                                                         return True
 
                                                     return False
@@ -6724,37 +6724,9 @@ class Fia(object):
                                                 """
                                                 ovf status
                                                 
-                                                .. attribute:: tx_control_cells_counter
+                                                .. attribute:: rx_8b_10b_code_errors
                                                 
-                                                	TX Control cells counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
+                                                	RX 8b 10b code errors
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -6766,6 +6738,13 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
@@ -6773,9 +6752,9 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: rx_data_cell_counter
+                                                .. attribute:: rx_crc_errors_counter
                                                 
-                                                	RX Data cell counter
+                                                	RX CRC errors counter
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -6787,6 +6766,13 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
@@ -6794,16 +6780,9 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: tx_asyn_fifo_rate
+                                                .. attribute:: rx_lfec_fec_correctable_error
                                                 
-                                                	TX Asyn fifo rate
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
+                                                	RX LFEC FEC correctable error
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -6815,9 +6794,30 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: rx_8b_10b_code_errors
+                                                .. attribute:: tx_asyn_fifo_rate
                                                 
-                                                	RX 8b 10b code errors
+                                                	TX Asyn fifo rate
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -6831,25 +6831,25 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.tx_control_cells_counter = None
-                                                    self.tx_data_cell_counter = None
-                                                    self.tx_data_byte_counter = None
-                                                    self.rx_crc_errors_counter = None
-                                                    self.rx_lfec_fec_correctable_error = None
-                                                    self.rx_8b_10b_disparity_errors = None
-                                                    self.rx_control_cells_counter = None
-                                                    self.rx_data_cell_counter = None
-                                                    self.rx_data_byte_counter = None
-                                                    self.rx_dropped_retransmitted_control = None
-                                                    self.tx_asyn_fifo_rate = None
-                                                    self.rx_asyn_fifo_rate = None
-                                                    self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
+                                                    self.rx_8b_10b_disparity_errors = None
+                                                    self.rx_asyn_fifo_rate = None
+                                                    self.rx_control_cells_counter = None
+                                                    self.rx_crc_errors_counter = None
+                                                    self.rx_data_byte_counter = None
+                                                    self.rx_data_cell_counter = None
+                                                    self.rx_dropped_retransmitted_control = None
+                                                    self.rx_lfec_fec_correctable_error = None
+                                                    self.rx_lfec_fec_uncorrectable_errors = None
+                                                    self.tx_asyn_fifo_rate = None
+                                                    self.tx_control_cells_counter = None
+                                                    self.tx_data_byte_counter = None
+                                                    self.tx_data_cell_counter = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:ovf-status'
 
@@ -6860,46 +6860,46 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.tx_control_cells_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_cell_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_byte_counter is not None:
-                                                        return True
-
-                                                    if self.rx_crc_errors_counter is not None:
-                                                        return True
-
-                                                    if self.rx_lfec_fec_correctable_error is not None:
+                                                    if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
                                                     if self.rx_8b_10b_disparity_errors is not None:
                                                         return True
 
+                                                    if self.rx_asyn_fifo_rate is not None:
+                                                        return True
+
                                                     if self.rx_control_cells_counter is not None:
                                                         return True
 
-                                                    if self.rx_data_cell_counter is not None:
+                                                    if self.rx_crc_errors_counter is not None:
                                                         return True
 
                                                     if self.rx_data_byte_counter is not None:
                                                         return True
 
+                                                    if self.rx_data_cell_counter is not None:
+                                                        return True
+
                                                     if self.rx_dropped_retransmitted_control is not None:
                                                         return True
 
-                                                    if self.tx_asyn_fifo_rate is not None:
-                                                        return True
-
-                                                    if self.rx_asyn_fifo_rate is not None:
+                                                    if self.rx_lfec_fec_correctable_error is not None:
                                                         return True
 
                                                     if self.rx_lfec_fec_uncorrectable_errors is not None:
                                                         return True
 
-                                                    if self.rx_8b_10b_code_errors is not None:
+                                                    if self.tx_asyn_fifo_rate is not None:
+                                                        return True
+
+                                                    if self.tx_control_cells_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_byte_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_cell_counter is not None:
                                                         return True
 
                                                     return False
@@ -6912,7 +6912,7 @@ class Fia(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:aggr-stats'
 
@@ -6923,10 +6923,10 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.link_error_status is not None and self.link_error_status._has_data():
+                                                if self.link_counters is not None and self.link_counters._has_data():
                                                     return True
 
-                                                if self.link_counters is not None and self.link_counters._has_data():
+                                                if self.link_error_status is not None and self.link_error_status._has_data():
                                                     return True
 
                                                 if self.ovf_status is not None and self.ovf_status._has_data():
@@ -6944,15 +6944,15 @@ class Fia(object):
                                             """
                                             incr stats
                                             
-                                            .. attribute:: link_error_status
-                                            
-                                            	link error status
-                                            	**type**\: :py:class:`LinkErrorStatus <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
-                                            
                                             .. attribute:: link_counters
                                             
                                             	link counters
                                             	**type**\: :py:class:`LinkCounters <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
+                                            
+                                            .. attribute:: link_error_status
+                                            
+                                            	link error status
+                                            	**type**\: :py:class:`LinkErrorStatus <ydk.models.dnx.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: ovf_status
                                             
@@ -6968,10 +6968,10 @@ class Fia(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus()
-                                                self.link_error_status.parent = self
                                                 self.link_counters = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters()
                                                 self.link_counters.parent = self
+                                                self.link_error_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus()
+                                                self.link_error_status.parent = self
                                                 self.ovf_status = Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus()
                                                 self.ovf_status.parent = self
 
@@ -6980,23 +6980,9 @@ class Fia(object):
                                                 """
                                                 link error status
                                                 
-                                                .. attribute:: link_crc_error
+                                                .. attribute:: error_token_count
                                                 
-                                                	link crc error
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_size_error
-                                                
-                                                	link size error
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..4294967295
-                                                
-                                                .. attribute:: link_mis_align_error
-                                                
-                                                	link mis align error
+                                                	error token count
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -7008,9 +6994,16 @@ class Fia(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: link_no_sig_lock_error
+                                                .. attribute:: link_crc_error
                                                 
-                                                	link no sig lock error
+                                                	link crc error
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_mis_align_error
+                                                
+                                                	link mis align error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -7022,16 +7015,23 @@ class Fia(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: link_tokens_error
+                                                .. attribute:: link_no_sig_lock_error
                                                 
-                                                	link tokens error
+                                                	link no sig lock error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: error_token_count
+                                                .. attribute:: link_size_error
                                                 
-                                                	error token count
+                                                	link size error
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: link_tokens_error
+                                                
+                                                	link tokens error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
@@ -7045,19 +7045,19 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.link_crc_error = None
-                                                    self.link_size_error = None
-                                                    self.link_mis_align_error = None
-                                                    self.link_code_group_error = None
-                                                    self.link_no_sig_lock_error = None
-                                                    self.link_no_sig_accept_error = None
-                                                    self.link_tokens_error = None
                                                     self.error_token_count = None
+                                                    self.link_code_group_error = None
+                                                    self.link_crc_error = None
+                                                    self.link_mis_align_error = None
+                                                    self.link_no_sig_accept_error = None
+                                                    self.link_no_sig_lock_error = None
+                                                    self.link_size_error = None
+                                                    self.link_tokens_error = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-error-status'
 
@@ -7068,28 +7068,28 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.link_crc_error is not None:
-                                                        return True
-
-                                                    if self.link_size_error is not None:
-                                                        return True
-
-                                                    if self.link_mis_align_error is not None:
+                                                    if self.error_token_count is not None:
                                                         return True
 
                                                     if self.link_code_group_error is not None:
                                                         return True
 
-                                                    if self.link_no_sig_lock_error is not None:
+                                                    if self.link_crc_error is not None:
+                                                        return True
+
+                                                    if self.link_mis_align_error is not None:
                                                         return True
 
                                                     if self.link_no_sig_accept_error is not None:
                                                         return True
 
-                                                    if self.link_tokens_error is not None:
+                                                    if self.link_no_sig_lock_error is not None:
                                                         return True
 
-                                                    if self.error_token_count is not None:
+                                                    if self.link_size_error is not None:
+                                                        return True
+
+                                                    if self.link_tokens_error is not None:
                                                         return True
 
                                                     return False
@@ -7104,101 +7104,101 @@ class Fia(object):
                                                 """
                                                 link counters
                                                 
-                                                .. attribute:: tx_control_cells_counter
+                                                .. attribute:: rx_8b_10b_code_errors
                                                 
-                                                	TX Control cells counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
-                                                	**type**\: int
+                                                	RX 8b 10b code errors
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_control_cells_counter
-                                                
-                                                	RX Control cells counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_cell_counter
-                                                
-                                                	RX Data cell counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_data_byte_counter
-                                                
-                                                	RX Data byte counter
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: rx_dropped_retransmitted_control
-                                                
-                                                	RX dropped retransmitted control
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                .. attribute:: tx_asyn_fifo_rate
-                                                
-                                                	TX Asyn fifo rate
-                                                	**type**\: int
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\: int
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_control_cells_counter
+                                                
+                                                	RX Control cells counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_crc_errors_counter
+                                                
+                                                	RX CRC errors counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_byte_counter
+                                                
+                                                	RX Data byte counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_dropped_retransmitted_control
+                                                
+                                                	RX dropped retransmitted control
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: rx_lfec_fec_correctable_error
+                                                
+                                                	RX LFEC FEC correctable error
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\: int
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
-                                                .. attribute:: rx_8b_10b_code_errors
+                                                .. attribute:: tx_asyn_fifo_rate
                                                 
-                                                	RX 8b 10b code errors
-                                                	**type**\: int
+                                                	TX Asyn fifo rate
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\: long
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
+                                                	**type**\: long
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
@@ -7211,25 +7211,25 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.tx_control_cells_counter = None
-                                                    self.tx_data_cell_counter = None
-                                                    self.tx_data_byte_counter = None
-                                                    self.rx_crc_errors_counter = None
-                                                    self.rx_lfec_fec_correctable_error = None
-                                                    self.rx_8b_10b_disparity_errors = None
-                                                    self.rx_control_cells_counter = None
-                                                    self.rx_data_cell_counter = None
-                                                    self.rx_data_byte_counter = None
-                                                    self.rx_dropped_retransmitted_control = None
-                                                    self.tx_asyn_fifo_rate = None
-                                                    self.rx_asyn_fifo_rate = None
-                                                    self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
+                                                    self.rx_8b_10b_disparity_errors = None
+                                                    self.rx_asyn_fifo_rate = None
+                                                    self.rx_control_cells_counter = None
+                                                    self.rx_crc_errors_counter = None
+                                                    self.rx_data_byte_counter = None
+                                                    self.rx_data_cell_counter = None
+                                                    self.rx_dropped_retransmitted_control = None
+                                                    self.rx_lfec_fec_correctable_error = None
+                                                    self.rx_lfec_fec_uncorrectable_errors = None
+                                                    self.tx_asyn_fifo_rate = None
+                                                    self.tx_control_cells_counter = None
+                                                    self.tx_data_byte_counter = None
+                                                    self.tx_data_cell_counter = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:link-counters'
 
@@ -7240,46 +7240,46 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.tx_control_cells_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_cell_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_byte_counter is not None:
-                                                        return True
-
-                                                    if self.rx_crc_errors_counter is not None:
-                                                        return True
-
-                                                    if self.rx_lfec_fec_correctable_error is not None:
+                                                    if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
                                                     if self.rx_8b_10b_disparity_errors is not None:
                                                         return True
 
+                                                    if self.rx_asyn_fifo_rate is not None:
+                                                        return True
+
                                                     if self.rx_control_cells_counter is not None:
                                                         return True
 
-                                                    if self.rx_data_cell_counter is not None:
+                                                    if self.rx_crc_errors_counter is not None:
                                                         return True
 
                                                     if self.rx_data_byte_counter is not None:
                                                         return True
 
+                                                    if self.rx_data_cell_counter is not None:
+                                                        return True
+
                                                     if self.rx_dropped_retransmitted_control is not None:
                                                         return True
 
-                                                    if self.tx_asyn_fifo_rate is not None:
-                                                        return True
-
-                                                    if self.rx_asyn_fifo_rate is not None:
+                                                    if self.rx_lfec_fec_correctable_error is not None:
                                                         return True
 
                                                     if self.rx_lfec_fec_uncorrectable_errors is not None:
                                                         return True
 
-                                                    if self.rx_8b_10b_code_errors is not None:
+                                                    if self.tx_asyn_fifo_rate is not None:
+                                                        return True
+
+                                                    if self.tx_control_cells_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_byte_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_cell_counter is not None:
                                                         return True
 
                                                     return False
@@ -7294,37 +7294,9 @@ class Fia(object):
                                                 """
                                                 ovf status
                                                 
-                                                .. attribute:: tx_control_cells_counter
+                                                .. attribute:: rx_8b_10b_code_errors
                                                 
-                                                	TX Control cells counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: tx_data_cell_counter
-                                                
-                                                	TX Data cell counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: tx_data_byte_counter
-                                                
-                                                	TX Data byte counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_crc_errors_counter
-                                                
-                                                	RX CRC errors counter
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_lfec_fec_correctable_error
-                                                
-                                                	RX LFEC FEC correctable error
+                                                	RX 8b 10b code errors
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -7336,6 +7308,13 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
+                                                .. attribute:: rx_asyn_fifo_rate
+                                                
+                                                	RX Asyn fifo rate
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
@@ -7343,9 +7322,9 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: rx_data_cell_counter
+                                                .. attribute:: rx_crc_errors_counter
                                                 
-                                                	RX Data cell counter
+                                                	RX CRC errors counter
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -7357,6 +7336,13 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
+                                                .. attribute:: rx_data_cell_counter
+                                                
+                                                	RX Data cell counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
@@ -7364,16 +7350,9 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: tx_asyn_fifo_rate
+                                                .. attribute:: rx_lfec_fec_correctable_error
                                                 
-                                                	TX Asyn fifo rate
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..6
-                                                
-                                                .. attribute:: rx_asyn_fifo_rate
-                                                
-                                                	RX Asyn fifo rate
+                                                	RX LFEC FEC correctable error
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -7385,9 +7364,30 @@ class Fia(object):
                                                 
                                                 	**range:** 0..6
                                                 
-                                                .. attribute:: rx_8b_10b_code_errors
+                                                .. attribute:: tx_asyn_fifo_rate
                                                 
-                                                	RX 8b 10b code errors
+                                                	TX Asyn fifo rate
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_control_cells_counter
+                                                
+                                                	TX Control cells counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_data_byte_counter
+                                                
+                                                	TX Data byte counter
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..6
+                                                
+                                                .. attribute:: tx_data_cell_counter
+                                                
+                                                	TX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..6
@@ -7401,25 +7401,25 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.tx_control_cells_counter = None
-                                                    self.tx_data_cell_counter = None
-                                                    self.tx_data_byte_counter = None
-                                                    self.rx_crc_errors_counter = None
-                                                    self.rx_lfec_fec_correctable_error = None
-                                                    self.rx_8b_10b_disparity_errors = None
-                                                    self.rx_control_cells_counter = None
-                                                    self.rx_data_cell_counter = None
-                                                    self.rx_data_byte_counter = None
-                                                    self.rx_dropped_retransmitted_control = None
-                                                    self.tx_asyn_fifo_rate = None
-                                                    self.rx_asyn_fifo_rate = None
-                                                    self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
+                                                    self.rx_8b_10b_disparity_errors = None
+                                                    self.rx_asyn_fifo_rate = None
+                                                    self.rx_control_cells_counter = None
+                                                    self.rx_crc_errors_counter = None
+                                                    self.rx_data_byte_counter = None
+                                                    self.rx_data_cell_counter = None
+                                                    self.rx_dropped_retransmitted_control = None
+                                                    self.rx_lfec_fec_correctable_error = None
+                                                    self.rx_lfec_fec_uncorrectable_errors = None
+                                                    self.tx_asyn_fifo_rate = None
+                                                    self.tx_control_cells_counter = None
+                                                    self.tx_data_byte_counter = None
+                                                    self.tx_data_cell_counter = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:ovf-status'
 
@@ -7430,46 +7430,46 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.tx_control_cells_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_cell_counter is not None:
-                                                        return True
-
-                                                    if self.tx_data_byte_counter is not None:
-                                                        return True
-
-                                                    if self.rx_crc_errors_counter is not None:
-                                                        return True
-
-                                                    if self.rx_lfec_fec_correctable_error is not None:
+                                                    if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
                                                     if self.rx_8b_10b_disparity_errors is not None:
                                                         return True
 
+                                                    if self.rx_asyn_fifo_rate is not None:
+                                                        return True
+
                                                     if self.rx_control_cells_counter is not None:
                                                         return True
 
-                                                    if self.rx_data_cell_counter is not None:
+                                                    if self.rx_crc_errors_counter is not None:
                                                         return True
 
                                                     if self.rx_data_byte_counter is not None:
                                                         return True
 
+                                                    if self.rx_data_cell_counter is not None:
+                                                        return True
+
                                                     if self.rx_dropped_retransmitted_control is not None:
                                                         return True
 
-                                                    if self.tx_asyn_fifo_rate is not None:
-                                                        return True
-
-                                                    if self.rx_asyn_fifo_rate is not None:
+                                                    if self.rx_lfec_fec_correctable_error is not None:
                                                         return True
 
                                                     if self.rx_lfec_fec_uncorrectable_errors is not None:
                                                         return True
 
-                                                    if self.rx_8b_10b_code_errors is not None:
+                                                    if self.tx_asyn_fifo_rate is not None:
+                                                        return True
+
+                                                    if self.tx_control_cells_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_byte_counter is not None:
+                                                        return True
+
+                                                    if self.tx_data_cell_counter is not None:
                                                         return True
 
                                                     return False
@@ -7482,7 +7482,7 @@ class Fia(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:incr-stats'
 
@@ -7493,10 +7493,10 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.link_error_status is not None and self.link_error_status._has_data():
+                                                if self.link_counters is not None and self.link_counters._has_data():
                                                     return True
 
-                                                if self.link_counters is not None and self.link_counters._has_data():
+                                                if self.link_error_status is not None and self.link_error_status._has_data():
                                                     return True
 
                                                 if self.ovf_status is not None and self.ovf_status._has_data():
@@ -7512,9 +7512,9 @@ class Fia(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                             if self.asic is None:
-                                                raise YPYDataValidationError('Key property asic is None')
+                                                raise YPYModelError('Key property asic is None')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fmac-asic[Cisco-IOS-XR-dnx-driver-oper:asic = ' + str(self.asic) + ']'
 
@@ -7531,10 +7531,16 @@ class Fia(object):
                                             if self.aggr_stats is not None and self.aggr_stats._has_data():
                                                 return True
 
+                                            if self.asic_instance is not None:
+                                                return True
+
                                             if self.incr_stats is not None and self.incr_stats._has_data():
                                                 return True
 
-                                            if self.valid is not None:
+                                            if self.link_no is not None:
+                                                return True
+
+                                            if self.link_valid is not None:
                                                 return True
 
                                             if self.rack_no is not None:
@@ -7543,13 +7549,7 @@ class Fia(object):
                                             if self.slot_no is not None:
                                                 return True
 
-                                            if self.asic_instance is not None:
-                                                return True
-
-                                            if self.link_no is not None:
-                                                return True
-
-                                            if self.link_valid is not None:
+                                            if self.valid is not None:
                                                 return True
 
                                             return False
@@ -7562,9 +7562,9 @@ class Fia(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.link is None:
-                                            raise YPYDataValidationError('Key property link is None')
+                                            raise YPYModelError('Key property link is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fmac-link[Cisco-IOS-XR-dnx-driver-oper:link = ' + str(self.link) + ']'
 
@@ -7593,7 +7593,7 @@ class Fia(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fmac-links'
 
@@ -7619,7 +7619,7 @@ class Fia(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:fmac-statistics'
 
@@ -7643,9 +7643,9 @@ class Fia(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.instance is None:
-                                raise YPYDataValidationError('Key property instance is None')
+                                raise YPYModelError('Key property instance is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:statistics-asic-instance[Cisco-IOS-XR-dnx-driver-oper:instance = ' + str(self.instance) + ']'
 
@@ -7659,10 +7659,10 @@ class Fia(object):
                             if self.instance is not None:
                                 return True
 
-                            if self.pbc_statistics is not None and self.pbc_statistics._has_data():
+                            if self.fmac_statistics is not None and self.fmac_statistics._has_data():
                                 return True
 
-                            if self.fmac_statistics is not None and self.fmac_statistics._has_data():
+                            if self.pbc_statistics is not None and self.pbc_statistics._has_data():
                                 return True
 
                             return False
@@ -7675,7 +7675,7 @@ class Fia(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:statistics-asic-instances'
 
@@ -7701,7 +7701,7 @@ class Fia(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-dnx-driver-oper:asic-statistics'
 
@@ -7725,7 +7725,7 @@ class Fia(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-dnx-driver-oper:fia/Cisco-IOS-XR-dnx-driver-oper:nodes/Cisco-IOS-XR-dnx-driver-oper:node[Cisco-IOS-XR-dnx-driver-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -7739,28 +7739,28 @@ class Fia(object):
                 if self.node_name is not None:
                     return True
 
-                if self.rx_link_information is not None and self.rx_link_information._has_data():
-                    return True
-
-                if self.driver_information is not None and self.driver_information._has_data():
+                if self.asic_statistics is not None and self.asic_statistics._has_data():
                     return True
 
                 if self.clear_statistics is not None and self.clear_statistics._has_data():
                     return True
 
-                if self.tx_link_information is not None and self.tx_link_information._has_data():
-                    return True
-
-                if self.register_dump is not None and self.register_dump._has_data():
-                    return True
-
                 if self.diag_shell is not None and self.diag_shell._has_data():
+                    return True
+
+                if self.driver_information is not None and self.driver_information._has_data():
                     return True
 
                 if self.oir_history is not None and self.oir_history._has_data():
                     return True
 
-                if self.asic_statistics is not None and self.asic_statistics._has_data():
+                if self.register_dump is not None and self.register_dump._has_data():
+                    return True
+
+                if self.rx_link_information is not None and self.rx_link_information._has_data():
+                    return True
+
+                if self.tx_link_information is not None and self.tx_link_information._has_data():
                     return True
 
                 return False

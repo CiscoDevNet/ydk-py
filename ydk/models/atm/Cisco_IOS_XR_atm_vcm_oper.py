@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -691,20 +691,10 @@ class AtmVcm(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: vcs
-            
-            	Contains all VC information for node
-            	**type**\: :py:class:`Vcs <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
-            
             .. attribute:: cell_packs
             
             	Contains all cell packing information for node
             	**type**\: :py:class:`CellPacks <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
-            
-            .. attribute:: pvps
-            
-            	Contains all L2 PVP information for node
-            	**type**\: :py:class:`Pvps <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
             
             .. attribute:: class_links
             
@@ -715,6 +705,16 @@ class AtmVcm(object):
             
             	Contains all Interface information for node
             	**type**\: :py:class:`Interfaces <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
+            
+            .. attribute:: pvps
+            
+            	Contains all L2 PVP information for node
+            	**type**\: :py:class:`Pvps <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
+            
+            .. attribute:: vcs
+            
+            	Contains all VC information for node
+            	**type**\: :py:class:`Vcs <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
             
             .. attribute:: vp_tunnels
             
@@ -731,16 +731,16 @@ class AtmVcm(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.vcs = AtmVcm.Nodes.Node.Vcs()
-                self.vcs.parent = self
                 self.cell_packs = AtmVcm.Nodes.Node.CellPacks()
                 self.cell_packs.parent = self
-                self.pvps = AtmVcm.Nodes.Node.Pvps()
-                self.pvps.parent = self
                 self.class_links = AtmVcm.Nodes.Node.ClassLinks()
                 self.class_links.parent = self
                 self.interfaces = AtmVcm.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self.pvps = AtmVcm.Nodes.Node.Pvps()
+                self.pvps.parent = self
+                self.vcs = AtmVcm.Nodes.Node.Vcs()
+                self.vcs.parent = self
                 self.vp_tunnels = AtmVcm.Nodes.Node.VpTunnels()
                 self.vp_tunnels.parent = self
 
@@ -779,88 +779,10 @@ class AtmVcm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: vpi
+                    .. attribute:: amin_status
                     
-                    	VPI
-                    	**type**\: int
-                    
-                    	**range:** 0..4095
-                    
-                    .. attribute:: vci
-                    
-                    	VCI
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: cell_packing_data
-                    
-                    	Cell packing specific data
-                    	**type**\: :py:class:`CellPackingData <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: sub_interface
-                    
-                    	Subinterface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vc_interface
-                    
-                    	VC Interfcace handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VC VPI value
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: vci_xr
-                    
-                    	VC VCI value
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: type
-                    
-                    	VC Type
-                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Encapsulation type
-                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VC traffic shaping type
-                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	TRUE value indicates that the VC is administratively UP
+                    	**type**\: bool
                     
                     .. attribute:: burst_rate
                     
@@ -869,49 +791,20 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: cell_packing_data
+                    
+                    	Cell packing specific data
+                    	**type**\: :py:class:`CellPackingData <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
+                    
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
                     	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
-                    .. attribute:: qos_inherit_level
+                    .. attribute:: encapsulation
                     
-                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
-                    
-                    .. attribute:: transmit_mtu
-                    
-                    	Transmit MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: receive_mtu
-                    
-                    	Receive MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: vc_onvp_tunnel
-                    
-                    	VC on VP\-tunnel flag
-                    	**type**\: bool
-                    
-                    .. attribute:: vc_on_p2p_sub_interface
-                    
-                    	VC on Point\-to\-point Sub\-interface
-                    	**type**\: bool
-                    
-                    .. attribute:: oper_status
-                    
-                    	TRUE value indicates that the VC is operationally UP
-                    	**type**\: bool
-                    
-                    .. attribute:: amin_status
-                    
-                    	TRUE value indicates that the VC is administratively UP
-                    	**type**\: bool
+                    	Encapsulation type
+                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
@@ -925,10 +818,117 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: oper_status
+                    
+                    	TRUE value indicates that the VC is operationally UP
+                    	**type**\: bool
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: qos_inherit_level
+                    
+                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    
+                    .. attribute:: receive_mtu
+                    
+                    	Receive MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VC traffic shaping type
+                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
+                    
+                    .. attribute:: sub_interface
+                    
+                    	Subinterface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: test_mode
                     
                     	VC test mode
                     	**type**\: :py:class:`VcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
+                    
+                    .. attribute:: transmit_mtu
+                    
+                    	Transmit MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: type
+                    
+                    	VC Type
+                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
+                    
+                    .. attribute:: vc_interface
+                    
+                    	VC Interfcace handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: vc_on_p2p_sub_interface
+                    
+                    	VC on Point\-to\-point Sub\-interface
+                    	**type**\: bool
+                    
+                    .. attribute:: vc_onvp_tunnel
+                    
+                    	VC on VP\-tunnel flag
+                    	**type**\: bool
+                    
+                    .. attribute:: vci
+                    
+                    	VCI
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: vci_xr
+                    
+                    	VC VCI value
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\: int
+                    
+                    	**range:** 0..4095
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VC VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
                     
                     
 
@@ -940,32 +940,32 @@ class AtmVcm(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.vpi = None
-                        self.vci = None
+                        self.amin_status = None
+                        self.burst_rate = None
                         self.cell_packing_data = AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData()
                         self.cell_packing_data.parent = self
-                        self.main_interface = None
-                        self.sub_interface = None
-                        self.vc_interface = None
-                        self.vpi_xr = None
-                        self.vci_xr = None
-                        self.type = None
-                        self.encapsulation = None
-                        self.shape = None
-                        self.peak_cell_rate = None
-                        self.sustained_cell_rate = None
-                        self.burst_rate = None
                         self.encaps_inherit_level = None
-                        self.qos_inherit_level = None
-                        self.transmit_mtu = None
-                        self.receive_mtu = None
-                        self.vc_onvp_tunnel = None
-                        self.vc_on_p2p_sub_interface = None
-                        self.oper_status = None
-                        self.amin_status = None
+                        self.encapsulation = None
                         self.internal_state = None
                         self.last_state_change_time = None
+                        self.main_interface = None
+                        self.oper_status = None
+                        self.peak_cell_rate = None
+                        self.qos_inherit_level = None
+                        self.receive_mtu = None
+                        self.shape = None
+                        self.sub_interface = None
+                        self.sustained_cell_rate = None
                         self.test_mode = None
+                        self.transmit_mtu = None
+                        self.type = None
+                        self.vc_interface = None
+                        self.vc_on_p2p_sub_interface = None
+                        self.vc_onvp_tunnel = None
+                        self.vci = None
+                        self.vci_xr = None
+                        self.vpi = None
+                        self.vpi_xr = None
 
 
                     class CellPackingData(object):
@@ -979,16 +979,16 @@ class AtmVcm(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        .. attribute:: max_cell_packed_timeout
                         
-                        	Negotiated value of maximum number of cells to be packed per packed
+                        	Maximum cell packing timeout inmicro seconds
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: max_cell_packed_timeout
+                        .. attribute:: negotiated_max_cells_packed_per_packet
                         
-                        	Maximum cell packing timeout inmicro seconds
+                        	Negotiated value of maximum number of cells to be packed per packed
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -1003,13 +1003,13 @@ class AtmVcm(object):
                         def __init__(self):
                             self.parent = None
                             self.local_max_cells_packed_per_packet = None
-                            self.negotiated_max_cells_packed_per_packet = None
                             self.max_cell_packed_timeout = None
+                            self.negotiated_max_cells_packed_per_packet = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-packing-data'
 
@@ -1023,10 +1023,10 @@ class AtmVcm(object):
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
-                            if self.negotiated_max_cells_packed_per_packet is not None:
+                            if self.max_cell_packed_timeout is not None:
                                 return True
 
-                            if self.max_cell_packed_timeout is not None:
+                            if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
                             return False
@@ -1039,9 +1039,9 @@ class AtmVcm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:vc[Cisco-IOS-XR-atm-vcm-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1055,70 +1055,19 @@ class AtmVcm(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.vpi is not None:
-                            return True
-
-                        if self.vci is not None:
-                            return True
-
-                        if self.cell_packing_data is not None and self.cell_packing_data._has_data():
-                            return True
-
-                        if self.main_interface is not None:
-                            return True
-
-                        if self.sub_interface is not None:
-                            return True
-
-                        if self.vc_interface is not None:
-                            return True
-
-                        if self.vpi_xr is not None:
-                            return True
-
-                        if self.vci_xr is not None:
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.shape is not None:
-                            return True
-
-                        if self.peak_cell_rate is not None:
-                            return True
-
-                        if self.sustained_cell_rate is not None:
+                        if self.amin_status is not None:
                             return True
 
                         if self.burst_rate is not None:
                             return True
 
+                        if self.cell_packing_data is not None and self.cell_packing_data._has_data():
+                            return True
+
                         if self.encaps_inherit_level is not None:
                             return True
 
-                        if self.qos_inherit_level is not None:
-                            return True
-
-                        if self.transmit_mtu is not None:
-                            return True
-
-                        if self.receive_mtu is not None:
-                            return True
-
-                        if self.vc_onvp_tunnel is not None:
-                            return True
-
-                        if self.vc_on_p2p_sub_interface is not None:
-                            return True
-
-                        if self.oper_status is not None:
-                            return True
-
-                        if self.amin_status is not None:
+                        if self.encapsulation is not None:
                             return True
 
                         if self.internal_state is not None:
@@ -1127,7 +1076,58 @@ class AtmVcm(object):
                         if self.last_state_change_time is not None:
                             return True
 
+                        if self.main_interface is not None:
+                            return True
+
+                        if self.oper_status is not None:
+                            return True
+
+                        if self.peak_cell_rate is not None:
+                            return True
+
+                        if self.qos_inherit_level is not None:
+                            return True
+
+                        if self.receive_mtu is not None:
+                            return True
+
+                        if self.shape is not None:
+                            return True
+
+                        if self.sub_interface is not None:
+                            return True
+
+                        if self.sustained_cell_rate is not None:
+                            return True
+
                         if self.test_mode is not None:
+                            return True
+
+                        if self.transmit_mtu is not None:
+                            return True
+
+                        if self.type is not None:
+                            return True
+
+                        if self.vc_interface is not None:
+                            return True
+
+                        if self.vc_on_p2p_sub_interface is not None:
+                            return True
+
+                        if self.vc_onvp_tunnel is not None:
+                            return True
+
+                        if self.vci is not None:
+                            return True
+
+                        if self.vci_xr is not None:
+                            return True
+
+                        if self.vpi is not None:
+                            return True
+
+                        if self.vpi_xr is not None:
                             return True
 
                         return False
@@ -1140,7 +1140,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:vcs'
 
@@ -1191,6 +1191,16 @@ class AtmVcm(object):
                     """
                     All cell packing information on a node
                     
+                    .. attribute:: cell_packing
+                    
+                    	Cell packing specific data
+                    	**type**\: :py:class:`CellPacking <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
+                    
+                    .. attribute:: cell_packing_mode
+                    
+                    	ATM cell packing mode
+                    	**type**\: :py:class:`VcCellPackingModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingModeEnum>`
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
@@ -1205,10 +1215,19 @@ class AtmVcm(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: cell_packing
+                    .. attribute:: received_average_cells_packets
                     
-                    	Cell packing specific data
-                    	**type**\: :py:class:`CellPacking <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
+                    	Average cells/packets received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sent_cells_packets
+                    
+                    	Average cells/packets sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: sub_interface_name
                     
@@ -1217,18 +1236,6 @@ class AtmVcm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: cell_packing_mode
-                    
-                    	ATM cell packing mode
-                    	**type**\: :py:class:`VcCellPackingModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingModeEnum>`
-                    
-                    .. attribute:: vpi
-                    
-                    	VPI
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: vci
                     
                     	VCI
@@ -1236,19 +1243,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: received_average_cells_packets
+                    .. attribute:: vpi
                     
-                    	Average cells/packets received
+                    	VPI
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sent_cells_packets
-                    
-                    	Average cells/packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..4294967295
                     
                     
 
@@ -1259,16 +1259,16 @@ class AtmVcm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.interface_name = None
-                        self.pci = None
                         self.cell_packing = AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking()
                         self.cell_packing.parent = self
-                        self.sub_interface_name = None
                         self.cell_packing_mode = None
-                        self.vpi = None
-                        self.vci = None
+                        self.interface_name = None
+                        self.pci = None
                         self.received_average_cells_packets = None
                         self.sent_cells_packets = None
+                        self.sub_interface_name = None
+                        self.vci = None
+                        self.vpi = None
 
 
                     class CellPacking(object):
@@ -1282,16 +1282,16 @@ class AtmVcm(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        .. attribute:: max_cell_packed_timeout
                         
-                        	Negotiated value of maximum number of cells to be packed per packed
+                        	Maximum cell packing timeout inmicro seconds
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: max_cell_packed_timeout
+                        .. attribute:: negotiated_max_cells_packed_per_packet
                         
-                        	Maximum cell packing timeout inmicro seconds
+                        	Negotiated value of maximum number of cells to be packed per packed
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -1306,13 +1306,13 @@ class AtmVcm(object):
                         def __init__(self):
                             self.parent = None
                             self.local_max_cells_packed_per_packet = None
-                            self.negotiated_max_cells_packed_per_packet = None
                             self.max_cell_packed_timeout = None
+                            self.negotiated_max_cells_packed_per_packet = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-packing'
 
@@ -1326,10 +1326,10 @@ class AtmVcm(object):
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
-                            if self.negotiated_max_cells_packed_per_packet is not None:
+                            if self.max_cell_packed_timeout is not None:
                                 return True
 
-                            if self.max_cell_packed_timeout is not None:
+                            if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
                             return False
@@ -1342,7 +1342,7 @@ class AtmVcm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-pack'
 
@@ -1353,31 +1353,31 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.cell_packing is not None and self.cell_packing._has_data():
+                            return True
+
+                        if self.cell_packing_mode is not None:
+                            return True
+
                         if self.interface_name is not None:
                             return True
 
                         if self.pci is not None:
                             return True
 
-                        if self.cell_packing is not None and self.cell_packing._has_data():
+                        if self.received_average_cells_packets is not None:
+                            return True
+
+                        if self.sent_cells_packets is not None:
                             return True
 
                         if self.sub_interface_name is not None:
                             return True
 
-                        if self.cell_packing_mode is not None:
-                            return True
-
-                        if self.vpi is not None:
-                            return True
-
                         if self.vci is not None:
                             return True
 
-                        if self.received_average_cells_packets is not None:
-                            return True
-
-                        if self.sent_cells_packets is not None:
+                        if self.vpi is not None:
                             return True
 
                         return False
@@ -1390,7 +1390,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-packs'
 
@@ -1448,81 +1448,10 @@ class AtmVcm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: vpi
+                    .. attribute:: amin_status
                     
-                    	VPI
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: cell_packing_data
-                    
-                    	Cell packing specific data
-                    	**type**\: :py:class:`CellPackingData <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: sub_interface
-                    
-                    	Subinterface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vc_interface
-                    
-                    	VC Interfcace handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VC VPI value
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: vci_xr
-                    
-                    	VC VCI value
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: type
-                    
-                    	VC Type
-                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Encapsulation type
-                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VC traffic shaping type
-                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	TRUE value indicates that the VC is administratively UP
+                    	**type**\: bool
                     
                     .. attribute:: burst_rate
                     
@@ -1531,49 +1460,20 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: cell_packing_data
+                    
+                    	Cell packing specific data
+                    	**type**\: :py:class:`CellPackingData <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
+                    
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
                     	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
-                    .. attribute:: qos_inherit_level
+                    .. attribute:: encapsulation
                     
-                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
-                    
-                    .. attribute:: transmit_mtu
-                    
-                    	Transmit MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: receive_mtu
-                    
-                    	Receive MTU
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: vc_onvp_tunnel
-                    
-                    	VC on VP\-tunnel flag
-                    	**type**\: bool
-                    
-                    .. attribute:: vc_on_p2p_sub_interface
-                    
-                    	VC on Point\-to\-point Sub\-interface
-                    	**type**\: bool
-                    
-                    .. attribute:: oper_status
-                    
-                    	TRUE value indicates that the VC is operationally UP
-                    	**type**\: bool
-                    
-                    .. attribute:: amin_status
-                    
-                    	TRUE value indicates that the VC is administratively UP
-                    	**type**\: bool
+                    	Encapsulation type
+                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
@@ -1587,10 +1487,110 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: oper_status
+                    
+                    	TRUE value indicates that the VC is operationally UP
+                    	**type**\: bool
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: qos_inherit_level
+                    
+                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    
+                    .. attribute:: receive_mtu
+                    
+                    	Receive MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VC traffic shaping type
+                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
+                    
+                    .. attribute:: sub_interface
+                    
+                    	Subinterface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: test_mode
                     
                     	VC test mode
                     	**type**\: :py:class:`VcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
+                    
+                    .. attribute:: transmit_mtu
+                    
+                    	Transmit MTU
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: type
+                    
+                    	VC Type
+                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
+                    
+                    .. attribute:: vc_interface
+                    
+                    	VC Interfcace handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: vc_on_p2p_sub_interface
+                    
+                    	VC on Point\-to\-point Sub\-interface
+                    	**type**\: bool
+                    
+                    .. attribute:: vc_onvp_tunnel
+                    
+                    	VC on VP\-tunnel flag
+                    	**type**\: bool
+                    
+                    .. attribute:: vci_xr
+                    
+                    	VC VCI value
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VC VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
                     
                     
 
@@ -1602,31 +1602,31 @@ class AtmVcm(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.vpi = None
+                        self.amin_status = None
+                        self.burst_rate = None
                         self.cell_packing_data = AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData()
                         self.cell_packing_data.parent = self
-                        self.main_interface = None
-                        self.sub_interface = None
-                        self.vc_interface = None
-                        self.vpi_xr = None
-                        self.vci_xr = None
-                        self.type = None
-                        self.encapsulation = None
-                        self.shape = None
-                        self.peak_cell_rate = None
-                        self.sustained_cell_rate = None
-                        self.burst_rate = None
                         self.encaps_inherit_level = None
-                        self.qos_inherit_level = None
-                        self.transmit_mtu = None
-                        self.receive_mtu = None
-                        self.vc_onvp_tunnel = None
-                        self.vc_on_p2p_sub_interface = None
-                        self.oper_status = None
-                        self.amin_status = None
+                        self.encapsulation = None
                         self.internal_state = None
                         self.last_state_change_time = None
+                        self.main_interface = None
+                        self.oper_status = None
+                        self.peak_cell_rate = None
+                        self.qos_inherit_level = None
+                        self.receive_mtu = None
+                        self.shape = None
+                        self.sub_interface = None
+                        self.sustained_cell_rate = None
                         self.test_mode = None
+                        self.transmit_mtu = None
+                        self.type = None
+                        self.vc_interface = None
+                        self.vc_on_p2p_sub_interface = None
+                        self.vc_onvp_tunnel = None
+                        self.vci_xr = None
+                        self.vpi = None
+                        self.vpi_xr = None
 
 
                     class CellPackingData(object):
@@ -1640,16 +1640,16 @@ class AtmVcm(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        .. attribute:: max_cell_packed_timeout
                         
-                        	Negotiated value of maximum number of cells to be packed per packed
+                        	Maximum cell packing timeout inmicro seconds
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: max_cell_packed_timeout
+                        .. attribute:: negotiated_max_cells_packed_per_packet
                         
-                        	Maximum cell packing timeout inmicro seconds
+                        	Negotiated value of maximum number of cells to be packed per packed
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -1664,13 +1664,13 @@ class AtmVcm(object):
                         def __init__(self):
                             self.parent = None
                             self.local_max_cells_packed_per_packet = None
-                            self.negotiated_max_cells_packed_per_packet = None
                             self.max_cell_packed_timeout = None
+                            self.negotiated_max_cells_packed_per_packet = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-packing-data'
 
@@ -1684,10 +1684,10 @@ class AtmVcm(object):
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
-                            if self.negotiated_max_cells_packed_per_packet is not None:
+                            if self.max_cell_packed_timeout is not None:
                                 return True
 
-                            if self.max_cell_packed_timeout is not None:
+                            if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
                             return False
@@ -1700,9 +1700,9 @@ class AtmVcm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:pvp[Cisco-IOS-XR-atm-vcm-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1716,67 +1716,19 @@ class AtmVcm(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.vpi is not None:
-                            return True
-
-                        if self.cell_packing_data is not None and self.cell_packing_data._has_data():
-                            return True
-
-                        if self.main_interface is not None:
-                            return True
-
-                        if self.sub_interface is not None:
-                            return True
-
-                        if self.vc_interface is not None:
-                            return True
-
-                        if self.vpi_xr is not None:
-                            return True
-
-                        if self.vci_xr is not None:
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.shape is not None:
-                            return True
-
-                        if self.peak_cell_rate is not None:
-                            return True
-
-                        if self.sustained_cell_rate is not None:
+                        if self.amin_status is not None:
                             return True
 
                         if self.burst_rate is not None:
                             return True
 
+                        if self.cell_packing_data is not None and self.cell_packing_data._has_data():
+                            return True
+
                         if self.encaps_inherit_level is not None:
                             return True
 
-                        if self.qos_inherit_level is not None:
-                            return True
-
-                        if self.transmit_mtu is not None:
-                            return True
-
-                        if self.receive_mtu is not None:
-                            return True
-
-                        if self.vc_onvp_tunnel is not None:
-                            return True
-
-                        if self.vc_on_p2p_sub_interface is not None:
-                            return True
-
-                        if self.oper_status is not None:
-                            return True
-
-                        if self.amin_status is not None:
+                        if self.encapsulation is not None:
                             return True
 
                         if self.internal_state is not None:
@@ -1785,7 +1737,55 @@ class AtmVcm(object):
                         if self.last_state_change_time is not None:
                             return True
 
+                        if self.main_interface is not None:
+                            return True
+
+                        if self.oper_status is not None:
+                            return True
+
+                        if self.peak_cell_rate is not None:
+                            return True
+
+                        if self.qos_inherit_level is not None:
+                            return True
+
+                        if self.receive_mtu is not None:
+                            return True
+
+                        if self.shape is not None:
+                            return True
+
+                        if self.sub_interface is not None:
+                            return True
+
+                        if self.sustained_cell_rate is not None:
+                            return True
+
                         if self.test_mode is not None:
+                            return True
+
+                        if self.transmit_mtu is not None:
+                            return True
+
+                        if self.type is not None:
+                            return True
+
+                        if self.vc_interface is not None:
+                            return True
+
+                        if self.vc_on_p2p_sub_interface is not None:
+                            return True
+
+                        if self.vc_onvp_tunnel is not None:
+                            return True
+
+                        if self.vci_xr is not None:
+                            return True
+
+                        if self.vpi is not None:
+                            return True
+
+                        if self.vpi_xr is not None:
                             return True
 
                         return False
@@ -1798,7 +1798,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:pvps'
 
@@ -1856,18 +1856,6 @@ class AtmVcm(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: vci
-                    
-                    	VCI
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: vc_class_not_supported
-                    
-                    	Not supported VC class
-                    	**type**\: :py:class:`VcClassNotSupported <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
-                    
                     .. attribute:: oam_config
                     
                     	Oam values for class link
@@ -1880,6 +1868,18 @@ class AtmVcm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
+                    .. attribute:: vc_class_not_supported
+                    
+                    	Not supported VC class
+                    	**type**\: :py:class:`VcClassNotSupported <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
+                    
+                    .. attribute:: vci
+                    
+                    	VCI
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     
 
                     """
@@ -1890,12 +1890,12 @@ class AtmVcm(object):
                     def __init__(self):
                         self.parent = None
                         self.vpi = None
-                        self.vci = None
-                        self.vc_class_not_supported = AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported()
-                        self.vc_class_not_supported.parent = self
                         self.oam_config = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig()
                         self.oam_config.parent = self
                         self.sub_interface_name = None
+                        self.vc_class_not_supported = AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported()
+                        self.vc_class_not_supported.parent = self
+                        self.vci = None
 
 
                     class VcClassNotSupported(object):
@@ -1927,7 +1927,7 @@ class AtmVcm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:vc-class-not-supported'
 
@@ -1956,15 +1956,20 @@ class AtmVcm(object):
                         """
                         Oam values for class link
                         
-                        .. attribute:: class_link_shaping
+                        .. attribute:: ais_rdi
                         
-                        	Traffic Shaping detail of VC class
-                        	**type**\: :py:class:`ClassLinkShaping <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
+                        	AIS RDI details of a VC class
+                        	**type**\: :py:class:`AisRdi <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
                         
                         .. attribute:: class_link_encapsulation
                         
                         	Encapsulation details of VC class
                         	**type**\: :py:class:`ClassLinkEncapsulation <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
+                        
+                        .. attribute:: class_link_shaping
+                        
+                        	Traffic Shaping detail of VC class
+                        	**type**\: :py:class:`ClassLinkShaping <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
                         
                         .. attribute:: oam_pvc
                         
@@ -1976,11 +1981,6 @@ class AtmVcm(object):
                         	OAM Retry details of VC class
                         	**type**\: :py:class:`OamRetry <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
                         
-                        .. attribute:: ais_rdi
-                        
-                        	AIS RDI details of a VC class
-                        	**type**\: :py:class:`AisRdi <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
-                        
                         
 
                         """
@@ -1990,33 +1990,21 @@ class AtmVcm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
-                            self.class_link_shaping.parent = self
+                            self.ais_rdi = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi()
+                            self.ais_rdi.parent = self
                             self.class_link_encapsulation = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation()
                             self.class_link_encapsulation.parent = self
+                            self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
+                            self.class_link_shaping.parent = self
                             self.oam_pvc = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc()
                             self.oam_pvc.parent = self
                             self.oam_retry = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry()
                             self.oam_retry.parent = self
-                            self.ais_rdi = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi()
-                            self.ais_rdi.parent = self
 
 
                         class ClassLinkShaping(object):
                             """
                             Traffic Shaping detail of VC class
-                            
-                            .. attribute:: shaping_type
-                            
-                            	ATM VC traffic shaping type
-                            	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
-                            
-                            .. attribute:: peak_output_rate
-                            
-                            	Peak output rate in Kbps
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: average_output_rate
                             
@@ -2032,10 +2020,22 @@ class AtmVcm(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: peak_output_rate
+                            
+                            	Peak output rate in Kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: shaping_inherit_level
                             
                             	Shaping inherit level
                             	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                            
+                            .. attribute:: shaping_type
+                            
+                            	ATM VC traffic shaping type
+                            	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                             
                             
 
@@ -2046,16 +2046,16 @@ class AtmVcm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.shaping_type = None
-                                self.peak_output_rate = None
                                 self.average_output_rate = None
                                 self.burst_output_rate = None
+                                self.peak_output_rate = None
                                 self.shaping_inherit_level = None
+                                self.shaping_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:class-link-shaping'
 
@@ -2066,19 +2066,19 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.shaping_type is not None:
-                                    return True
-
-                                if self.peak_output_rate is not None:
-                                    return True
-
                                 if self.average_output_rate is not None:
                                     return True
 
                                 if self.burst_output_rate is not None:
                                     return True
 
+                                if self.peak_output_rate is not None:
+                                    return True
+
                                 if self.shaping_inherit_level is not None:
+                                    return True
+
+                                if self.shaping_type is not None:
                                     return True
 
                                 return False
@@ -2093,15 +2093,15 @@ class AtmVcm(object):
                             """
                             Encapsulation details of VC class
                             
-                            .. attribute:: encapsulation_type
-                            
-                            	Encapsulation type
-                            	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
-                            
                             .. attribute:: encapsulation_inherit_level
                             
                             	Encapsulation inherit level
                             	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                            
+                            .. attribute:: encapsulation_type
+                            
+                            	Encapsulation type
+                            	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                             
                             
 
@@ -2112,13 +2112,13 @@ class AtmVcm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.encapsulation_type = None
                                 self.encapsulation_inherit_level = None
+                                self.encapsulation_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:class-link-encapsulation'
 
@@ -2129,10 +2129,10 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.encapsulation_type is not None:
+                                if self.encapsulation_inherit_level is not None:
                                     return True
 
-                                if self.encapsulation_inherit_level is not None:
+                                if self.encapsulation_type is not None:
                                     return True
 
                                 return False
@@ -2147,6 +2147,21 @@ class AtmVcm(object):
                             """
                             OAM PVC details of VC class
                             
+                            .. attribute:: ais_rdi_failure
+                            
+                            	AIS RDI failure
+                            	**type**\: bool
+                            
+                            .. attribute:: keep_vc_up
+                            
+                            	Keep vc up
+                            	**type**\: bool
+                            
+                            .. attribute:: manage_inherit_level
+                            
+                            	Manage inherit level
+                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
+                            
                             .. attribute:: manage_level
                             
                             	Manage Level
@@ -2159,21 +2174,6 @@ class AtmVcm(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: keep_vc_up
-                            
-                            	Keep vc up
-                            	**type**\: bool
-                            
-                            .. attribute:: ais_rdi_failure
-                            
-                            	AIS RDI failure
-                            	**type**\: bool
-                            
-                            .. attribute:: manage_inherit_level
-                            
-                            	Manage inherit level
-                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
-                            
                             
 
                             """
@@ -2183,16 +2183,16 @@ class AtmVcm(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.ais_rdi_failure = None
+                                self.keep_vc_up = None
+                                self.manage_inherit_level = None
                                 self.manage_level = None
                                 self.pvc_frequency = None
-                                self.keep_vc_up = None
-                                self.ais_rdi_failure = None
-                                self.manage_inherit_level = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:oam-pvc'
 
@@ -2203,19 +2203,19 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.manage_level is not None:
-                                    return True
-
-                                if self.pvc_frequency is not None:
+                                if self.ais_rdi_failure is not None:
                                     return True
 
                                 if self.keep_vc_up is not None:
                                     return True
 
-                                if self.ais_rdi_failure is not None:
+                                if self.manage_inherit_level is not None:
                                     return True
 
-                                if self.manage_inherit_level is not None:
+                                if self.manage_level is not None:
+                                    return True
+
+                                if self.pvc_frequency is not None:
                                     return True
 
                                 return False
@@ -2229,13 +2229,6 @@ class AtmVcm(object):
                         class OamRetry(object):
                             """
                             OAM Retry details of VC class
-                            
-                            .. attribute:: retry_up_count
-                            
-                            	Retry Count
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: down_count
                             
@@ -2256,6 +2249,13 @@ class AtmVcm(object):
                             	Retry inherit level
                             	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
+                            .. attribute:: retry_up_count
+                            
+                            	Retry Count
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -2265,15 +2265,15 @@ class AtmVcm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.retry_up_count = None
                                 self.down_count = None
                                 self.retry_frequency = None
                                 self.retry_inherit_level = None
+                                self.retry_up_count = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:oam-retry'
 
@@ -2284,9 +2284,6 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.retry_up_count is not None:
-                                    return True
-
                                 if self.down_count is not None:
                                     return True
 
@@ -2294,6 +2291,9 @@ class AtmVcm(object):
                                     return True
 
                                 if self.retry_inherit_level is not None:
+                                    return True
+
+                                if self.retry_up_count is not None:
                                     return True
 
                                 return False
@@ -2307,6 +2307,11 @@ class AtmVcm(object):
                         class AisRdi(object):
                             """
                             AIS RDI details of a VC class
+                            
+                            .. attribute:: ais_rdi_inherit_level
+                            
+                            	AIS RDI inherit level
+                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: ais_rdi_up_count
                             
@@ -2322,11 +2327,6 @@ class AtmVcm(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: ais_rdi_inherit_level
-                            
-                            	AIS RDI inherit level
-                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
-                            
                             
 
                             """
@@ -2336,14 +2336,14 @@ class AtmVcm(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.ais_rdi_inherit_level = None
                                 self.ais_rdi_up_count = None
                                 self.ais_rdi_up_time = None
-                                self.ais_rdi_inherit_level = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:ais-rdi'
 
@@ -2354,13 +2354,13 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.ais_rdi_inherit_level is not None:
+                                    return True
+
                                 if self.ais_rdi_up_count is not None:
                                     return True
 
                                 if self.ais_rdi_up_time is not None:
-                                    return True
-
-                                if self.ais_rdi_inherit_level is not None:
                                     return True
 
                                 return False
@@ -2373,7 +2373,7 @@ class AtmVcm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:oam-config'
 
@@ -2384,19 +2384,19 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.class_link_shaping is not None and self.class_link_shaping._has_data():
+                            if self.ais_rdi is not None and self.ais_rdi._has_data():
                                 return True
 
                             if self.class_link_encapsulation is not None and self.class_link_encapsulation._has_data():
+                                return True
+
+                            if self.class_link_shaping is not None and self.class_link_shaping._has_data():
                                 return True
 
                             if self.oam_pvc is not None and self.oam_pvc._has_data():
                                 return True
 
                             if self.oam_retry is not None and self.oam_retry._has_data():
-                                return True
-
-                            if self.ais_rdi is not None and self.ais_rdi._has_data():
                                 return True
 
                             return False
@@ -2409,9 +2409,9 @@ class AtmVcm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.vpi is None:
-                            raise YPYDataValidationError('Key property vpi is None')
+                            raise YPYModelError('Key property vpi is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:class-link[Cisco-IOS-XR-atm-vcm-oper:vpi = ' + str(self.vpi) + ']'
 
@@ -2425,16 +2425,16 @@ class AtmVcm(object):
                         if self.vpi is not None:
                             return True
 
-                        if self.vci is not None:
+                        if self.oam_config is not None and self.oam_config._has_data():
+                            return True
+
+                        if self.sub_interface_name is not None:
                             return True
 
                         if self.vc_class_not_supported is not None and self.vc_class_not_supported._has_data():
                             return True
 
-                        if self.oam_config is not None and self.oam_config._has_data():
-                            return True
-
-                        if self.sub_interface_name is not None:
+                        if self.vci is not None:
                             return True
 
                         return False
@@ -2447,7 +2447,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:class-links'
 
@@ -2510,30 +2510,30 @@ class AtmVcm(object):
                     	Cell packing specific information
                     	**type**\: :py:class:`CellPackingData <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
                     
-                    .. attribute:: ilmi_vpi
+                    .. attribute:: configured_layer2pv_cs
                     
-                    	ILMI VPI
+                    	Number of Layer 2 PVCs configured
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ilmi_vci
+                    .. attribute:: configured_layer2pv_ps
                     
-                    	ILMI VCI
+                    	Number of Layer 2 PVPs configured
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: pvc_failures
+                    .. attribute:: configured_layer3pv_cs
                     
-                    	Number of PVC Failures
+                    	Number of Layer 3 PVCs configured
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: currently_failing_layer2pv_ps
+                    .. attribute:: configured_layer3vp_tunnels
                     
-                    	Number of currently failing Layer 2 PVPs
+                    	Number of Layer 3 VP tunnels configured
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2545,9 +2545,9 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: currently_failing_layer3vp_tunnels
+                    .. attribute:: currently_failing_layer2pv_ps
                     
-                    	Number of currently failing Layer 3 VP tunnels
+                    	Number of currently failing Layer 2 PVPs
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2555,6 +2555,53 @@ class AtmVcm(object):
                     .. attribute:: currently_failing_layer3pv_cs
                     
                     	Number of currently failing Layer 3 PVCs
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: currently_failing_layer3vp_tunnels
+                    
+                    	Number of currently failing Layer 3 VP tunnels
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ilmi_vci
+                    
+                    	ILMI VCI
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ilmi_vpi
+                    
+                    	ILMI VPI
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: l2_cell_packing_count
+                    
+                    	Number of L2 attachment circuits with the cell packing feature enabled on this main interface
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: port_type
+                    
+                    	ATM interface port type
+                    	**type**\: :py:class:`VcmPortEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcmPortEnum>`
+                    
+                    .. attribute:: pvc_failures
+                    
+                    	Number of PVC Failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2571,53 +2618,6 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: configured_layer2pv_ps
-                    
-                    	Number of Layer 2 PVPs configured
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer2pv_cs
-                    
-                    	Number of Layer 2 PVCs configured
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer3vp_tunnels
-                    
-                    	Number of Layer 3 VP tunnels configured
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer3pv_cs
-                    
-                    	Number of Layer 3 PVCs configured
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: port_type
-                    
-                    	ATM interface port type
-                    	**type**\: :py:class:`VcmPortEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcmPortEnum>`
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: l2_cell_packing_count
-                    
-                    	Number of L2 attachment circuits with the cell packing feature enabled on this main interface
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
                     
 
                     """
@@ -2630,22 +2630,22 @@ class AtmVcm(object):
                         self.interface_name = None
                         self.cell_packing_data = AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData()
                         self.cell_packing_data.parent = self
-                        self.ilmi_vpi = None
-                        self.ilmi_vci = None
-                        self.pvc_failures = None
-                        self.currently_failing_layer2pv_ps = None
+                        self.configured_layer2pv_cs = None
+                        self.configured_layer2pv_ps = None
+                        self.configured_layer3pv_cs = None
+                        self.configured_layer3vp_tunnels = None
                         self.currently_failing_layer2pv_cs = None
-                        self.currently_failing_layer3vp_tunnels = None
+                        self.currently_failing_layer2pv_ps = None
                         self.currently_failing_layer3pv_cs = None
+                        self.currently_failing_layer3vp_tunnels = None
+                        self.ilmi_vci = None
+                        self.ilmi_vpi = None
+                        self.l2_cell_packing_count = None
+                        self.main_interface = None
+                        self.port_type = None
+                        self.pvc_failures = None
                         self.pvc_failures_trap_enable = None
                         self.pvc_notification_interval = None
-                        self.configured_layer2pv_ps = None
-                        self.configured_layer2pv_cs = None
-                        self.configured_layer3vp_tunnels = None
-                        self.configured_layer3pv_cs = None
-                        self.port_type = None
-                        self.main_interface = None
-                        self.l2_cell_packing_count = None
 
 
                     class CellPackingData(object):
@@ -2659,16 +2659,16 @@ class AtmVcm(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        .. attribute:: max_cell_packed_timeout
                         
-                        	Negotiated value of maximum number of cells to be packed per packed
+                        	Maximum cell packing timeout inmicro seconds
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: max_cell_packed_timeout
+                        .. attribute:: negotiated_max_cells_packed_per_packet
                         
-                        	Maximum cell packing timeout inmicro seconds
+                        	Negotiated value of maximum number of cells to be packed per packed
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -2683,13 +2683,13 @@ class AtmVcm(object):
                         def __init__(self):
                             self.parent = None
                             self.local_max_cells_packed_per_packet = None
-                            self.negotiated_max_cells_packed_per_packet = None
                             self.max_cell_packed_timeout = None
+                            self.negotiated_max_cells_packed_per_packet = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:cell-packing-data'
 
@@ -2703,10 +2703,10 @@ class AtmVcm(object):
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
-                            if self.negotiated_max_cells_packed_per_packet is not None:
+                            if self.max_cell_packed_timeout is not None:
                                 return True
 
-                            if self.max_cell_packed_timeout is not None:
+                            if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
                             return False
@@ -2719,9 +2719,9 @@ class AtmVcm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:interface[Cisco-IOS-XR-atm-vcm-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2738,52 +2738,52 @@ class AtmVcm(object):
                         if self.cell_packing_data is not None and self.cell_packing_data._has_data():
                             return True
 
-                        if self.ilmi_vpi is not None:
+                        if self.configured_layer2pv_cs is not None:
                             return True
 
-                        if self.ilmi_vci is not None:
+                        if self.configured_layer2pv_ps is not None:
                             return True
 
-                        if self.pvc_failures is not None:
+                        if self.configured_layer3pv_cs is not None:
                             return True
 
-                        if self.currently_failing_layer2pv_ps is not None:
+                        if self.configured_layer3vp_tunnels is not None:
                             return True
 
                         if self.currently_failing_layer2pv_cs is not None:
                             return True
 
-                        if self.currently_failing_layer3vp_tunnels is not None:
+                        if self.currently_failing_layer2pv_ps is not None:
                             return True
 
                         if self.currently_failing_layer3pv_cs is not None:
+                            return True
+
+                        if self.currently_failing_layer3vp_tunnels is not None:
+                            return True
+
+                        if self.ilmi_vci is not None:
+                            return True
+
+                        if self.ilmi_vpi is not None:
+                            return True
+
+                        if self.l2_cell_packing_count is not None:
+                            return True
+
+                        if self.main_interface is not None:
+                            return True
+
+                        if self.port_type is not None:
+                            return True
+
+                        if self.pvc_failures is not None:
                             return True
 
                         if self.pvc_failures_trap_enable is not None:
                             return True
 
                         if self.pvc_notification_interval is not None:
-                            return True
-
-                        if self.configured_layer2pv_ps is not None:
-                            return True
-
-                        if self.configured_layer2pv_cs is not None:
-                            return True
-
-                        if self.configured_layer3vp_tunnels is not None:
-                            return True
-
-                        if self.configured_layer3pv_cs is not None:
-                            return True
-
-                        if self.port_type is not None:
-                            return True
-
-                        if self.main_interface is not None:
-                            return True
-
-                        if self.l2_cell_packing_count is not None:
                             return True
 
                         return False
@@ -2796,7 +2796,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:interfaces'
 
@@ -2854,52 +2854,10 @@ class AtmVcm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: vpi
+                    .. attribute:: amin_status
                     
-                    	VPI
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vp_interface
-                    
-                    	VP Interfcace handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VP\-Tunnel VPI value
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VP traffic shaping type
-                    	**type**\: :py:class:`VpTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpTrafShapingEnum>`
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	TRUE value indicates that the VP is administratively UP
+                    	**type**\: bool
                     
                     .. attribute:: burst_rate
                     
@@ -2908,11 +2866,6 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: f4oam_enabled
-                    
-                    	F4OAM Enabled flag
-                    	**type**\: bool
-                    
                     .. attribute:: data_vc_count
                     
                     	Number of Data PVCs under this VP\-tunnel
@@ -2920,14 +2873,9 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: oper_status
+                    .. attribute:: f4oam_enabled
                     
-                    	TRUE value indicates that the VP is operationally UP
-                    	**type**\: bool
-                    
-                    .. attribute:: amin_status
-                    
-                    	TRUE value indicates that the VP is administratively UP
+                    	F4OAM Enabled flag
                     	**type**\: bool
                     
                     .. attribute:: internal_state
@@ -2942,6 +2890,58 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: oper_status
+                    
+                    	TRUE value indicates that the VP is operationally UP
+                    	**type**\: bool
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VP traffic shaping type
+                    	**type**\: :py:class:`VpTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpTrafShapingEnum>`
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vp_interface
+                    
+                    	VP Interfcace handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VP\-Tunnel VPI value
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     
 
                     """
@@ -2952,27 +2952,27 @@ class AtmVcm(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.vpi = None
-                        self.main_interface = None
-                        self.vp_interface = None
-                        self.vpi_xr = None
-                        self.shape = None
-                        self.peak_cell_rate = None
-                        self.sustained_cell_rate = None
-                        self.burst_rate = None
-                        self.f4oam_enabled = None
-                        self.data_vc_count = None
-                        self.oper_status = None
                         self.amin_status = None
+                        self.burst_rate = None
+                        self.data_vc_count = None
+                        self.f4oam_enabled = None
                         self.internal_state = None
                         self.last_vp_state_change_time = None
+                        self.main_interface = None
+                        self.oper_status = None
+                        self.peak_cell_rate = None
+                        self.shape = None
+                        self.sustained_cell_rate = None
+                        self.vp_interface = None
+                        self.vpi = None
+                        self.vpi_xr = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:vp-tunnel[Cisco-IOS-XR-atm-vcm-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2986,46 +2986,46 @@ class AtmVcm(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.vpi is not None:
-                            return True
-
-                        if self.main_interface is not None:
-                            return True
-
-                        if self.vp_interface is not None:
-                            return True
-
-                        if self.vpi_xr is not None:
-                            return True
-
-                        if self.shape is not None:
-                            return True
-
-                        if self.peak_cell_rate is not None:
-                            return True
-
-                        if self.sustained_cell_rate is not None:
+                        if self.amin_status is not None:
                             return True
 
                         if self.burst_rate is not None:
                             return True
 
-                        if self.f4oam_enabled is not None:
-                            return True
-
                         if self.data_vc_count is not None:
                             return True
 
-                        if self.oper_status is not None:
-                            return True
-
-                        if self.amin_status is not None:
+                        if self.f4oam_enabled is not None:
                             return True
 
                         if self.internal_state is not None:
                             return True
 
                         if self.last_vp_state_change_time is not None:
+                            return True
+
+                        if self.main_interface is not None:
+                            return True
+
+                        if self.oper_status is not None:
+                            return True
+
+                        if self.peak_cell_rate is not None:
+                            return True
+
+                        if self.shape is not None:
+                            return True
+
+                        if self.sustained_cell_rate is not None:
+                            return True
+
+                        if self.vp_interface is not None:
+                            return True
+
+                        if self.vpi is not None:
+                            return True
+
+                        if self.vpi_xr is not None:
                             return True
 
                         return False
@@ -3038,7 +3038,7 @@ class AtmVcm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-atm-vcm-oper:vp-tunnels'
 
@@ -3064,7 +3064,7 @@ class AtmVcm(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-atm-vcm-oper:atm-vcm/Cisco-IOS-XR-atm-vcm-oper:nodes/Cisco-IOS-XR-atm-vcm-oper:node[Cisco-IOS-XR-atm-vcm-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -3078,19 +3078,19 @@ class AtmVcm(object):
                 if self.node_name is not None:
                     return True
 
-                if self.vcs is not None and self.vcs._has_data():
-                    return True
-
                 if self.cell_packs is not None and self.cell_packs._has_data():
-                    return True
-
-                if self.pvps is not None and self.pvps._has_data():
                     return True
 
                 if self.class_links is not None and self.class_links._has_data():
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
+                    return True
+
+                if self.pvps is not None and self.pvps._has_data():
+                    return True
+
+                if self.vcs is not None and self.vcs._has_data():
                     return True
 
                 if self.vp_tunnels is not None and self.vp_tunnels._has_data():

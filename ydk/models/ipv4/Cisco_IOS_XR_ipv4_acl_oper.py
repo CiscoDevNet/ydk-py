@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.common.Cisco_IOS_XR_common_acl_datatypes import AclUsageAppIdEnumEnum
@@ -509,15 +509,15 @@ class Ipv4AclAndPrefixList(object):
         Access list manager containing access lists and
         prefix lists
         
-        .. attribute:: prefixes
-        
-        	Table of prefix lists
-        	**type**\: :py:class:`Prefixes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes>`
-        
         .. attribute:: accesses
         
         	Access listL class displaying Usage and Entries
         	**type**\: :py:class:`Accesses <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses>`
+        
+        .. attribute:: prefixes
+        
+        	Table of prefix lists
+        	**type**\: :py:class:`Prefixes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes>`
         
         .. attribute:: usages
         
@@ -533,10 +533,10 @@ class Ipv4AclAndPrefixList(object):
 
         def __init__(self):
             self.parent = None
-            self.prefixes = Ipv4AclAndPrefixList.AccessListManager.Prefixes()
-            self.prefixes.parent = self
             self.accesses = Ipv4AclAndPrefixList.AccessListManager.Accesses()
             self.accesses.parent = self
+            self.prefixes = Ipv4AclAndPrefixList.AccessListManager.Prefixes()
+            self.prefixes.parent = self
             self.usages = Ipv4AclAndPrefixList.AccessListManager.Usages()
             self.usages.parent = self
 
@@ -627,22 +627,46 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 1..2147483646
                         
-                        .. attribute:: item_type
+                        .. attribute:: acl_name
                         
-                        	ACE type (prefix, remark)
-                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
-                        
-                        .. attribute:: sequence
-                        
-                        	ACLE sequence number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	ACL Name
+                        	**type**\: str
                         
                         .. attribute:: grant
                         
                         	Grant value permit/deny 
                         	**type**\: :py:class:`AclActionEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
+                        
+                        .. attribute:: hits
+                        
+                        	Number of hits
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: item_type
+                        
+                        	ACE type (prefix, remark)
+                        	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
+                        
+                        .. attribute:: maximum_length
+                        
+                        	Maximum length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: minimum_length
+                        
+                        	Min length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: operator
+                        
+                        	Port Operator
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: prefix
                         
@@ -658,41 +682,17 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator
-                        
-                        	Port Operator
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
-                        
-                        .. attribute:: minimum_length
-                        
-                        	Min length
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: maximum_length
-                        
-                        	Maximum length
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: hits
-                        
-                        	Number of hits
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: remark
                         
                         	Remark String
                         	**type**\: str
                         
-                        .. attribute:: acl_name
+                        .. attribute:: sequence
                         
-                        	ACL Name
-                        	**type**\: str
+                        	ACLE sequence number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -704,24 +704,24 @@ class Ipv4AclAndPrefixList(object):
                         def __init__(self):
                             self.parent = None
                             self.sequence_number = None
-                            self.item_type = None
-                            self.sequence = None
+                            self.acl_name = None
                             self.grant = None
+                            self.hits = None
+                            self.item_type = None
+                            self.maximum_length = None
+                            self.minimum_length = None
+                            self.operator = None
                             self.prefix = None
                             self.prefix_length = None
-                            self.operator = None
-                            self.minimum_length = None
-                            self.maximum_length = None
-                            self.hits = None
                             self.remark = None
-                            self.acl_name = None
+                            self.sequence = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.sequence_number is None:
-                                raise YPYDataValidationError('Key property sequence_number is None')
+                                raise YPYModelError('Key property sequence_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:prefix-list-sequence[Cisco-IOS-XR-ipv4-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
 
@@ -735,13 +735,25 @@ class Ipv4AclAndPrefixList(object):
                             if self.sequence_number is not None:
                                 return True
 
-                            if self.item_type is not None:
-                                return True
-
-                            if self.sequence is not None:
+                            if self.acl_name is not None:
                                 return True
 
                             if self.grant is not None:
+                                return True
+
+                            if self.hits is not None:
+                                return True
+
+                            if self.item_type is not None:
+                                return True
+
+                            if self.maximum_length is not None:
+                                return True
+
+                            if self.minimum_length is not None:
+                                return True
+
+                            if self.operator is not None:
                                 return True
 
                             if self.prefix is not None:
@@ -750,22 +762,10 @@ class Ipv4AclAndPrefixList(object):
                             if self.prefix_length is not None:
                                 return True
 
-                            if self.operator is not None:
-                                return True
-
-                            if self.minimum_length is not None:
-                                return True
-
-                            if self.maximum_length is not None:
-                                return True
-
-                            if self.hits is not None:
-                                return True
-
                             if self.remark is not None:
                                 return True
 
-                            if self.acl_name is not None:
+                            if self.sequence is not None:
                                 return True
 
                             return False
@@ -778,7 +778,7 @@ class Ipv4AclAndPrefixList(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:prefix-list-sequences'
 
@@ -804,7 +804,7 @@ class Ipv4AclAndPrefixList(object):
                 @property
                 def _common_path(self):
                     if self.prefix_list_name is None:
-                        raise YPYDataValidationError('Key property prefix_list_name is None')
+                        raise YPYModelError('Key property prefix_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/Cisco-IOS-XR-ipv4-acl-oper:access-list-manager/Cisco-IOS-XR-ipv4-acl-oper:prefixes/Cisco-IOS-XR-ipv4-acl-oper:prefix[Cisco-IOS-XR-ipv4-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
 
@@ -939,15 +939,191 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 1..2147483646
                         
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        .. attribute:: capture
+                        
+                        	Capture option, TRUE if enabled
+                        	**type**\: bool
+                        
+                        .. attribute:: counter_name
+                        
+                        	Counter name
+                        	**type**\: str
+                        
+                        .. attribute:: destination_address
+                        
+                        	Destination address
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: destination_address_mask
+                        
+                        	Destination mask
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: destination_operator
+                        
+                        	Destination operator
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        
+                        .. attribute:: destination_port1
+                        
+                        	Destination port 1
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: destination_port2
+                        
+                        	Destination port 2
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: destination_port_group
+                        
+                        	Destination port object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: destination_prefix_group
+                        
+                        	Destination prefix object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: dscp
+                        
+                        	DSCP or DSCP range start
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dscp2
+                        
+                        	DSCP Range End
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dscp_operator
+                        
+                        	DSCP Operator
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dscp_present
+                        
+                        	DSCP present
+                        	**type**\: bool
+                        
+                        .. attribute:: dynamic
+                        
+                        	Is dynamic ACE
+                        	**type**\: bool
+                        
+                        .. attribute:: fragments
+                        
+                        	Fragments
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: grant
+                        
+                        	Permit/deny
+                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
+                        
+                        .. attribute:: hits
+                        
+                        	Number of hits
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         .. attribute:: hw_next_hop_info
                         
                         	HW Next hop info
                         	**type**\: :py:class:`HwNextHopInfo <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
                         
+                        .. attribute:: is_icmp_off
+                        
+                        	True if ICMP off
+                        	**type**\: bool
+                        
                         .. attribute:: item_type
                         
                         	ACE type (acl, remark)
                         	**type**\: :py:class:`AclAce1Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
+                        
+                        .. attribute:: log_option
+                        
+                        	Log option
+                        	**type**\: :py:class:`AclLogEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclLogEnum>`
+                        
+                        .. attribute:: next_hop_info
+                        
+                        	Next hop info
+                        	**type**\: list of :py:class:`NextHopInfo <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
+                        
+                        .. attribute:: next_hop_type
+                        
+                        	Next hop type
+                        	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
+                        
+                        .. attribute:: no_stats
+                        
+                        	No stats
+                        	**type**\: bool
+                        
+                        .. attribute:: port_length1
+                        
+                        	Port length 1
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: port_length2
+                        
+                        	Port length 2
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: port_length_operator
+                        
+                        	Port length operator
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        
+                        .. attribute:: precedence
+                        
+                        	Precedence
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: precedence_present
+                        
+                        	Precedence present
+                        	**type**\: bool
+                        
+                        .. attribute:: protocol
+                        
+                        	IPv4 protocol type
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: remark
+                        
+                        	Remark String
+                        	**type**\: str
                         
                         .. attribute:: sequence
                         
@@ -956,14 +1132,21 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: grant
+                        .. attribute:: sorce_operator
                         
-                        	Permit/deny
-                        	**type**\: :py:class:`AclActionEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
+                        	Deprecated by Source operator
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
-                        .. attribute:: protocol
+                        .. attribute:: sorce_port1
                         
-                        	IPv4 protocol type
+                        	Deprecated by SourcePort1
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: sorce_port2
+                        
+                        	Deprecated by SourcePort2
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -978,20 +1161,6 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: source_address_mask
                         
                         	Source mask
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: destination_address
-                        
-                        	Destination address
-                        	**type**\: str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: destination_address_mask
-                        
-                        	Destination mask
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -1015,101 +1184,15 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: sorce_operator
+                        .. attribute:: source_port_group
                         
-                        	Deprecated by Source operator
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
-                        
-                        .. attribute:: sorce_port1
-                        
-                        	Deprecated by SourcePort1
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: sorce_port2
-                        
-                        	Deprecated by SourcePort2
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: destination_operator
-                        
-                        	Destination operator
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
-                        
-                        .. attribute:: destination_port1
-                        
-                        	Destination port 1
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: destination_port2
-                        
-                        	Destination port 2
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: log_option
-                        
-                        	Log option
-                        	**type**\: :py:class:`AclLogEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclLogEnum>`
-                        
-                        .. attribute:: counter_name
-                        
-                        	Counter name
+                        	Source port object\-group
                         	**type**\: str
                         
-                        .. attribute:: capture
+                        .. attribute:: source_prefix_group
                         
-                        	Capture option, TRUE if enabled
-                        	**type**\: bool
-                        
-                        .. attribute:: dscp_present
-                        
-                        	DSCP present
-                        	**type**\: bool
-                        
-                        .. attribute:: dscp
-                        
-                        	DSCP or DSCP range start
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: dscp2
-                        
-                        	DSCP Range End
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: dscp_operator
-                        
-                        	DSCP Operator
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: precedence_present
-                        
-                        	Precedence present
-                        	**type**\: bool
-                        
-                        .. attribute:: precedence
-                        
-                        	Precedence
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: tcp_flags_operator
-                        
-                        	TCP flags operator
-                        	**type**\: :py:class:`AclTcpflagsOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclTcpflagsOperatorEnum>`
+                        	Source prefix object\-group
+                        	**type**\: str
                         
                         .. attribute:: tcp_flags
                         
@@ -1125,36 +1208,10 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: fragments
+                        .. attribute:: tcp_flags_operator
                         
-                        	Fragments
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: port_length_operator
-                        
-                        	Port length operator
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
-                        
-                        .. attribute:: port_length1
-                        
-                        	Port length 1
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: port_length2
-                        
-                        	Port length 2
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: ttl_operator
-                        
-                        	TTL operator
-                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	TCP flags operator
+                        	**type**\: :py:class:`AclTcpflagsOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclTcpflagsOperatorEnum>`
                         
                         .. attribute:: ttl1
                         
@@ -1170,67 +1227,10 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: no_stats
+                        .. attribute:: ttl_operator
                         
-                        	No stats
-                        	**type**\: bool
-                        
-                        .. attribute:: hits
-                        
-                        	Number of hits
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_icmp_off
-                        
-                        	True if ICMP off
-                        	**type**\: bool
-                        
-                        .. attribute:: next_hop_type
-                        
-                        	Next hop type
-                        	**type**\: :py:class:`BagAclNhEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
-                        
-                        .. attribute:: remark
-                        
-                        	Remark String
-                        	**type**\: str
-                        
-                        .. attribute:: dynamic
-                        
-                        	Is dynamic ACE
-                        	**type**\: bool
-                        
-                        .. attribute:: source_prefix_group
-                        
-                        	Source prefix object\-group
-                        	**type**\: str
-                        
-                        .. attribute:: destination_prefix_group
-                        
-                        	Destination prefix object\-group
-                        	**type**\: str
-                        
-                        .. attribute:: source_port_group
-                        
-                        	Source port object\-group
-                        	**type**\: str
-                        
-                        .. attribute:: destination_port_group
-                        
-                        	Destination port object\-group
-                        	**type**\: str
-                        
-                        .. attribute:: acl_name
-                        
-                        	ACL Name
-                        	**type**\: str
-                        
-                        .. attribute:: next_hop_info
-                        
-                        	Next hop info
-                        	**type**\: list of :py:class:`NextHopInfo <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
+                        	TTL operator
+                        	**type**\: :py:class:`AclPortOperatorEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         
 
@@ -1242,58 +1242,58 @@ class Ipv4AclAndPrefixList(object):
                         def __init__(self):
                             self.parent = None
                             self.sequence_number = None
-                            self.hw_next_hop_info = Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
-                            self.hw_next_hop_info.parent = self
-                            self.item_type = None
-                            self.sequence = None
-                            self.grant = None
-                            self.protocol = None
-                            self.source_address = None
-                            self.source_address_mask = None
+                            self.acl_name = None
+                            self.capture = None
+                            self.counter_name = None
                             self.destination_address = None
                             self.destination_address_mask = None
-                            self.source_operator = None
-                            self.source_port1 = None
-                            self.source_port2 = None
-                            self.sorce_operator = None
-                            self.sorce_port1 = None
-                            self.sorce_port2 = None
                             self.destination_operator = None
                             self.destination_port1 = None
                             self.destination_port2 = None
-                            self.log_option = None
-                            self.counter_name = None
-                            self.capture = None
-                            self.dscp_present = None
+                            self.destination_port_group = None
+                            self.destination_prefix_group = None
                             self.dscp = None
                             self.dscp2 = None
                             self.dscp_operator = None
-                            self.precedence_present = None
-                            self.precedence = None
-                            self.tcp_flags_operator = None
-                            self.tcp_flags = None
-                            self.tcp_flags_mask = None
-                            self.fragments = None
-                            self.port_length_operator = None
-                            self.port_length1 = None
-                            self.port_length2 = None
-                            self.ttl_operator = None
-                            self.ttl1 = None
-                            self.ttl2 = None
-                            self.no_stats = None
-                            self.hits = None
-                            self.is_icmp_off = None
-                            self.next_hop_type = None
-                            self.remark = None
+                            self.dscp_present = None
                             self.dynamic = None
-                            self.source_prefix_group = None
-                            self.destination_prefix_group = None
-                            self.source_port_group = None
-                            self.destination_port_group = None
-                            self.acl_name = None
+                            self.fragments = None
+                            self.grant = None
+                            self.hits = None
+                            self.hw_next_hop_info = Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
+                            self.hw_next_hop_info.parent = self
+                            self.is_icmp_off = None
+                            self.item_type = None
+                            self.log_option = None
                             self.next_hop_info = YList()
                             self.next_hop_info.parent = self
                             self.next_hop_info.name = 'next_hop_info'
+                            self.next_hop_type = None
+                            self.no_stats = None
+                            self.port_length1 = None
+                            self.port_length2 = None
+                            self.port_length_operator = None
+                            self.precedence = None
+                            self.precedence_present = None
+                            self.protocol = None
+                            self.remark = None
+                            self.sequence = None
+                            self.sorce_operator = None
+                            self.sorce_port1 = None
+                            self.sorce_port2 = None
+                            self.source_address = None
+                            self.source_address_mask = None
+                            self.source_operator = None
+                            self.source_port1 = None
+                            self.source_port2 = None
+                            self.source_port_group = None
+                            self.source_prefix_group = None
+                            self.tcp_flags = None
+                            self.tcp_flags_mask = None
+                            self.tcp_flags_operator = None
+                            self.ttl1 = None
+                            self.ttl2 = None
+                            self.ttl_operator = None
 
 
                         class HwNextHopInfo(object):
@@ -1335,7 +1335,7 @@ class Ipv4AclAndPrefixList(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:hw-next-hop-info'
 
@@ -1367,6 +1367,11 @@ class Ipv4AclAndPrefixList(object):
                             """
                             Next hop info
                             
+                            .. attribute:: is_acl_next_hop_exist
+                            
+                            	The nexthop exist
+                            	**type**\: bool
+                            
                             .. attribute:: next_hop
                             
                             	The next hop
@@ -1374,20 +1379,15 @@ class Ipv4AclAndPrefixList(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: track_name
-                            
-                            	Track name
-                            	**type**\: str
-                            
                             .. attribute:: status
                             
                             	The next hop status
                             	**type**\: :py:class:`BagAclNhStatusEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhStatusEnum>`
                             
-                            .. attribute:: is_acl_next_hop_exist
+                            .. attribute:: track_name
                             
-                            	The nexthop exist
-                            	**type**\: bool
+                            	Track name
+                            	**type**\: str
                             
                             
 
@@ -1398,15 +1398,15 @@ class Ipv4AclAndPrefixList(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.next_hop = None
-                                self.track_name = None
-                                self.status = None
                                 self.is_acl_next_hop_exist = None
+                                self.next_hop = None
+                                self.status = None
+                                self.track_name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:next-hop-info'
 
@@ -1417,16 +1417,16 @@ class Ipv4AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.next_hop is not None:
+                                if self.is_acl_next_hop_exist is not None:
                                     return True
 
-                                if self.track_name is not None:
+                                if self.next_hop is not None:
                                     return True
 
                                 if self.status is not None:
                                     return True
 
-                                if self.is_acl_next_hop_exist is not None:
+                                if self.track_name is not None:
                                     return True
 
                                 return False
@@ -1439,9 +1439,9 @@ class Ipv4AclAndPrefixList(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.sequence_number is None:
-                                raise YPYDataValidationError('Key property sequence_number is None')
+                                raise YPYModelError('Key property sequence_number is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:access-list-sequence[Cisco-IOS-XR-ipv4-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
 
@@ -1455,49 +1455,19 @@ class Ipv4AclAndPrefixList(object):
                             if self.sequence_number is not None:
                                 return True
 
-                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
+                            if self.acl_name is not None:
                                 return True
 
-                            if self.item_type is not None:
+                            if self.capture is not None:
                                 return True
 
-                            if self.sequence is not None:
-                                return True
-
-                            if self.grant is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            if self.source_address is not None:
-                                return True
-
-                            if self.source_address_mask is not None:
+                            if self.counter_name is not None:
                                 return True
 
                             if self.destination_address is not None:
                                 return True
 
                             if self.destination_address_mask is not None:
-                                return True
-
-                            if self.source_operator is not None:
-                                return True
-
-                            if self.source_port1 is not None:
-                                return True
-
-                            if self.source_port2 is not None:
-                                return True
-
-                            if self.sorce_operator is not None:
-                                return True
-
-                            if self.sorce_port1 is not None:
-                                return True
-
-                            if self.sorce_port2 is not None:
                                 return True
 
                             if self.destination_operator is not None:
@@ -1509,16 +1479,10 @@ class Ipv4AclAndPrefixList(object):
                             if self.destination_port2 is not None:
                                 return True
 
-                            if self.log_option is not None:
+                            if self.destination_port_group is not None:
                                 return True
 
-                            if self.counter_name is not None:
-                                return True
-
-                            if self.capture is not None:
-                                return True
-
-                            if self.dscp_present is not None:
+                            if self.destination_prefix_group is not None:
                                 return True
 
                             if self.dscp is not None:
@@ -1530,25 +1494,42 @@ class Ipv4AclAndPrefixList(object):
                             if self.dscp_operator is not None:
                                 return True
 
-                            if self.precedence_present is not None:
+                            if self.dscp_present is not None:
                                 return True
 
-                            if self.precedence is not None:
-                                return True
-
-                            if self.tcp_flags_operator is not None:
-                                return True
-
-                            if self.tcp_flags is not None:
-                                return True
-
-                            if self.tcp_flags_mask is not None:
+                            if self.dynamic is not None:
                                 return True
 
                             if self.fragments is not None:
                                 return True
 
-                            if self.port_length_operator is not None:
+                            if self.grant is not None:
+                                return True
+
+                            if self.hits is not None:
+                                return True
+
+                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
+                                return True
+
+                            if self.is_icmp_off is not None:
+                                return True
+
+                            if self.item_type is not None:
+                                return True
+
+                            if self.log_option is not None:
+                                return True
+
+                            if self.next_hop_info is not None:
+                                for child_ref in self.next_hop_info:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.next_hop_type is not None:
+                                return True
+
+                            if self.no_stats is not None:
                                 return True
 
                             if self.port_length1 is not None:
@@ -1557,7 +1538,61 @@ class Ipv4AclAndPrefixList(object):
                             if self.port_length2 is not None:
                                 return True
 
-                            if self.ttl_operator is not None:
+                            if self.port_length_operator is not None:
+                                return True
+
+                            if self.precedence is not None:
+                                return True
+
+                            if self.precedence_present is not None:
+                                return True
+
+                            if self.protocol is not None:
+                                return True
+
+                            if self.remark is not None:
+                                return True
+
+                            if self.sequence is not None:
+                                return True
+
+                            if self.sorce_operator is not None:
+                                return True
+
+                            if self.sorce_port1 is not None:
+                                return True
+
+                            if self.sorce_port2 is not None:
+                                return True
+
+                            if self.source_address is not None:
+                                return True
+
+                            if self.source_address_mask is not None:
+                                return True
+
+                            if self.source_operator is not None:
+                                return True
+
+                            if self.source_port1 is not None:
+                                return True
+
+                            if self.source_port2 is not None:
+                                return True
+
+                            if self.source_port_group is not None:
+                                return True
+
+                            if self.source_prefix_group is not None:
+                                return True
+
+                            if self.tcp_flags is not None:
+                                return True
+
+                            if self.tcp_flags_mask is not None:
+                                return True
+
+                            if self.tcp_flags_operator is not None:
                                 return True
 
                             if self.ttl1 is not None:
@@ -1566,43 +1601,8 @@ class Ipv4AclAndPrefixList(object):
                             if self.ttl2 is not None:
                                 return True
 
-                            if self.no_stats is not None:
+                            if self.ttl_operator is not None:
                                 return True
-
-                            if self.hits is not None:
-                                return True
-
-                            if self.is_icmp_off is not None:
-                                return True
-
-                            if self.next_hop_type is not None:
-                                return True
-
-                            if self.remark is not None:
-                                return True
-
-                            if self.dynamic is not None:
-                                return True
-
-                            if self.source_prefix_group is not None:
-                                return True
-
-                            if self.destination_prefix_group is not None:
-                                return True
-
-                            if self.source_port_group is not None:
-                                return True
-
-                            if self.destination_port_group is not None:
-                                return True
-
-                            if self.acl_name is not None:
-                                return True
-
-                            if self.next_hop_info is not None:
-                                for child_ref in self.next_hop_info:
-                                    if child_ref._has_data():
-                                        return True
 
                             return False
 
@@ -1614,7 +1614,7 @@ class Ipv4AclAndPrefixList(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:access-list-sequences'
 
@@ -1640,7 +1640,7 @@ class Ipv4AclAndPrefixList(object):
                 @property
                 def _common_path(self):
                     if self.access_list_name is None:
-                        raise YPYDataValidationError('Key property access_list_name is None')
+                        raise YPYModelError('Key property access_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/Cisco-IOS-XR-ipv4-acl-oper:access-list-manager/Cisco-IOS-XR-ipv4-acl-oper:accesses/Cisco-IOS-XR-ipv4-acl-oper:access[Cisco-IOS-XR-ipv4-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
 
@@ -1717,22 +1717,22 @@ class Ipv4AclAndPrefixList(object):
                 """
                 Usage statistics of an access list at a node
                 
-                .. attribute:: node_name
+                .. attribute:: access_list_name
                 
-                	Node where access list is applied
+                	Name of the access list
                 	**type**\: str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: application_id
                 
                 	Application ID
                 	**type**\: :py:class:`AclUsageAppIdEnumEnum <ydk.models.common.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
                 
-                .. attribute:: access_list_name
+                .. attribute:: node_name
                 
-                	Name of the access list
+                	Node where access list is applied
                 	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: usage_details
                 
@@ -1748,9 +1748,9 @@ class Ipv4AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.node_name = None
-                    self.application_id = None
                     self.access_list_name = None
+                    self.application_id = None
+                    self.node_name = None
                     self.usage_details = None
 
                 @property
@@ -1765,13 +1765,13 @@ class Ipv4AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.node_name is not None:
+                    if self.access_list_name is not None:
                         return True
 
                     if self.application_id is not None:
                         return True
 
-                    if self.access_list_name is not None:
+                    if self.node_name is not None:
                         return True
 
                     if self.usage_details is not None:
@@ -1820,10 +1820,10 @@ class Ipv4AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.prefixes is not None and self.prefixes._has_data():
+            if self.accesses is not None and self.accesses._has_data():
                 return True
 
-            if self.accesses is not None and self.accesses._has_data():
+            if self.prefixes is not None and self.prefixes._has_data():
                 return True
 
             if self.usages is not None and self.usages._has_data():
@@ -1842,25 +1842,25 @@ class Ipv4AclAndPrefixList(object):
         Out Of Resources, Limits to the resources
         allocatable
         
+        .. attribute:: access_list_summary
+        
+        	Resource limits pertaining to access lists only
+        	**type**\: :py:class:`AccessListSummary <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary>`
+        
         .. attribute:: details
         
         	Details of the Overall Out Of Resources Limits
         	**type**\: :py:class:`Details <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.Details>`
-        
-        .. attribute:: oor_prefixes
-        
-        	Resource occupation details for prefix lists
-        	**type**\: :py:class:`OorPrefixes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes>`
         
         .. attribute:: oor_accesses
         
         	Resource occupation details for access lists
         	**type**\: :py:class:`OorAccesses <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses>`
         
-        .. attribute:: access_list_summary
+        .. attribute:: oor_prefixes
         
-        	Resource limits pertaining to access lists only
-        	**type**\: :py:class:`AccessListSummary <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary>`
+        	Resource occupation details for prefix lists
+        	**type**\: :py:class:`OorPrefixes <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes>`
         
         .. attribute:: prefix_list_summary
         
@@ -1876,14 +1876,14 @@ class Ipv4AclAndPrefixList(object):
 
         def __init__(self):
             self.parent = None
-            self.details = Ipv4AclAndPrefixList.Oor.Details()
-            self.details.parent = self
-            self.oor_prefixes = Ipv4AclAndPrefixList.Oor.OorPrefixes()
-            self.oor_prefixes.parent = self
-            self.oor_accesses = Ipv4AclAndPrefixList.Oor.OorAccesses()
-            self.oor_accesses.parent = self
             self.access_list_summary = Ipv4AclAndPrefixList.Oor.AccessListSummary()
             self.access_list_summary.parent = self
+            self.details = Ipv4AclAndPrefixList.Oor.Details()
+            self.details.parent = self
+            self.oor_accesses = Ipv4AclAndPrefixList.Oor.OorAccesses()
+            self.oor_accesses.parent = self
+            self.oor_prefixes = Ipv4AclAndPrefixList.Oor.OorPrefixes()
+            self.oor_prefixes.parent = self
             self.prefix_list_summary = Ipv4AclAndPrefixList.Oor.PrefixListSummary()
             self.prefix_list_summary.parent = self
 
@@ -1892,16 +1892,9 @@ class Ipv4AclAndPrefixList(object):
             """
             Details of the Overall Out Of Resources Limits
             
-            .. attribute:: default_max_ac_ls
+            .. attribute:: current_configured_ac_es
             
-            	default max configurable acls
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: default_max_ac_es
-            
-            	default max configurable aces
+            	Current configured aces
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -1913,9 +1906,9 @@ class Ipv4AclAndPrefixList(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: current_configured_ac_es
+            .. attribute:: current_max_configurable_ac_es
             
-            	Current configured aces
+            	Current max configurable aces
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -1927,16 +1920,16 @@ class Ipv4AclAndPrefixList(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: current_max_configurable_ac_es
+            .. attribute:: default_max_ac_es
             
-            	Current max configurable aces
+            	default max configurable aces
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: max_configurable_ac_ls
+            .. attribute:: default_max_ac_ls
             
-            	max configurable acls
+            	default max configurable acls
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -1944,6 +1937,13 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: max_configurable_ac_es
             
             	max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: max_configurable_ac_ls
+            
+            	max configurable acls
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -1957,14 +1957,14 @@ class Ipv4AclAndPrefixList(object):
 
             def __init__(self):
                 self.parent = None
-                self.default_max_ac_ls = None
-                self.default_max_ac_es = None
-                self.current_configured_ac_ls = None
                 self.current_configured_ac_es = None
-                self.current_max_configurable_ac_ls = None
+                self.current_configured_ac_ls = None
                 self.current_max_configurable_ac_es = None
-                self.max_configurable_ac_ls = None
+                self.current_max_configurable_ac_ls = None
+                self.default_max_ac_es = None
+                self.default_max_ac_ls = None
                 self.max_configurable_ac_es = None
+                self.max_configurable_ac_ls = None
 
             @property
             def _common_path(self):
@@ -1978,28 +1978,28 @@ class Ipv4AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.default_max_ac_ls is not None:
-                    return True
-
-                if self.default_max_ac_es is not None:
+                if self.current_configured_ac_es is not None:
                     return True
 
                 if self.current_configured_ac_ls is not None:
                     return True
 
-                if self.current_configured_ac_es is not None:
+                if self.current_max_configurable_ac_es is not None:
                     return True
 
                 if self.current_max_configurable_ac_ls is not None:
                     return True
 
-                if self.current_max_configurable_ac_es is not None:
+                if self.default_max_ac_es is not None:
                     return True
 
-                if self.max_configurable_ac_ls is not None:
+                if self.default_max_ac_ls is not None:
                     return True
 
                 if self.max_configurable_ac_es is not None:
+                    return True
+
+                if self.max_configurable_ac_ls is not None:
                     return True
 
                 return False
@@ -2043,16 +2043,9 @@ class Ipv4AclAndPrefixList(object):
                 	Name of a prefix list
                 	**type**\: str
                 
-                .. attribute:: default_max_ac_ls
+                .. attribute:: current_configured_ac_es
                 
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: default_max_ac_es
-                
-                	default max configurable aces
+                	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2064,9 +2057,9 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_configured_ac_es
+                .. attribute:: current_max_configurable_ac_es
                 
-                	Current configured aces
+                	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2078,16 +2071,16 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_max_configurable_ac_es
+                .. attribute:: default_max_ac_es
                 
-                	Current max configurable aces
+                	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_configurable_ac_ls
+                .. attribute:: default_max_ac_ls
                 
-                	max configurable acls
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2095,6 +2088,13 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2109,19 +2109,19 @@ class Ipv4AclAndPrefixList(object):
                 def __init__(self):
                     self.parent = None
                     self.prefix_list_name = None
-                    self.default_max_ac_ls = None
-                    self.default_max_ac_es = None
-                    self.current_configured_ac_ls = None
                     self.current_configured_ac_es = None
-                    self.current_max_configurable_ac_ls = None
+                    self.current_configured_ac_ls = None
                     self.current_max_configurable_ac_es = None
-                    self.max_configurable_ac_ls = None
+                    self.current_max_configurable_ac_ls = None
+                    self.default_max_ac_es = None
+                    self.default_max_ac_ls = None
                     self.max_configurable_ac_es = None
+                    self.max_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
                     if self.prefix_list_name is None:
-                        raise YPYDataValidationError('Key property prefix_list_name is None')
+                        raise YPYModelError('Key property prefix_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/Cisco-IOS-XR-ipv4-acl-oper:oor/Cisco-IOS-XR-ipv4-acl-oper:oor-prefixes/Cisco-IOS-XR-ipv4-acl-oper:oor-prefix[Cisco-IOS-XR-ipv4-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
 
@@ -2135,28 +2135,28 @@ class Ipv4AclAndPrefixList(object):
                     if self.prefix_list_name is not None:
                         return True
 
-                    if self.default_max_ac_ls is not None:
-                        return True
-
-                    if self.default_max_ac_es is not None:
+                    if self.current_configured_ac_es is not None:
                         return True
 
                     if self.current_configured_ac_ls is not None:
                         return True
 
-                    if self.current_configured_ac_es is not None:
+                    if self.current_max_configurable_ac_es is not None:
                         return True
 
                     if self.current_max_configurable_ac_ls is not None:
                         return True
 
-                    if self.current_max_configurable_ac_es is not None:
+                    if self.default_max_ac_es is not None:
                         return True
 
-                    if self.max_configurable_ac_ls is not None:
+                    if self.default_max_ac_ls is not None:
                         return True
 
                     if self.max_configurable_ac_es is not None:
+                        return True
+
+                    if self.max_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2224,16 +2224,9 @@ class Ipv4AclAndPrefixList(object):
                 	Name of the Access List
                 	**type**\: str
                 
-                .. attribute:: default_max_ac_ls
+                .. attribute:: current_configured_ac_es
                 
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: default_max_ac_es
-                
-                	default max configurable aces
+                	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2245,9 +2238,9 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_configured_ac_es
+                .. attribute:: current_max_configurable_ac_es
                 
-                	Current configured aces
+                	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2259,16 +2252,16 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_max_configurable_ac_es
+                .. attribute:: default_max_ac_es
                 
-                	Current max configurable aces
+                	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_configurable_ac_ls
+                .. attribute:: default_max_ac_ls
                 
-                	max configurable acls
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2276,6 +2269,13 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2290,19 +2290,19 @@ class Ipv4AclAndPrefixList(object):
                 def __init__(self):
                     self.parent = None
                     self.access_list_name = None
-                    self.default_max_ac_ls = None
-                    self.default_max_ac_es = None
-                    self.current_configured_ac_ls = None
                     self.current_configured_ac_es = None
-                    self.current_max_configurable_ac_ls = None
+                    self.current_configured_ac_ls = None
                     self.current_max_configurable_ac_es = None
-                    self.max_configurable_ac_ls = None
+                    self.current_max_configurable_ac_ls = None
+                    self.default_max_ac_es = None
+                    self.default_max_ac_ls = None
                     self.max_configurable_ac_es = None
+                    self.max_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
                     if self.access_list_name is None:
-                        raise YPYDataValidationError('Key property access_list_name is None')
+                        raise YPYModelError('Key property access_list_name is None')
 
                     return '/Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/Cisco-IOS-XR-ipv4-acl-oper:oor/Cisco-IOS-XR-ipv4-acl-oper:oor-accesses/Cisco-IOS-XR-ipv4-acl-oper:oor-access[Cisco-IOS-XR-ipv4-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
 
@@ -2316,28 +2316,28 @@ class Ipv4AclAndPrefixList(object):
                     if self.access_list_name is not None:
                         return True
 
-                    if self.default_max_ac_ls is not None:
-                        return True
-
-                    if self.default_max_ac_es is not None:
+                    if self.current_configured_ac_es is not None:
                         return True
 
                     if self.current_configured_ac_ls is not None:
                         return True
 
-                    if self.current_configured_ac_es is not None:
+                    if self.current_max_configurable_ac_es is not None:
                         return True
 
                     if self.current_max_configurable_ac_ls is not None:
                         return True
 
-                    if self.current_max_configurable_ac_es is not None:
+                    if self.default_max_ac_es is not None:
                         return True
 
-                    if self.max_configurable_ac_ls is not None:
+                    if self.default_max_ac_ls is not None:
                         return True
 
                     if self.max_configurable_ac_es is not None:
+                        return True
+
+                    if self.max_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2399,16 +2399,9 @@ class Ipv4AclAndPrefixList(object):
                 Details containing the resource limits of the
                 access lists
                 
-                .. attribute:: default_max_ac_ls
+                .. attribute:: current_configured_ac_es
                 
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: default_max_ac_es
-                
-                	default max configurable aces
+                	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2420,9 +2413,9 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_configured_ac_es
+                .. attribute:: current_max_configurable_ac_es
                 
-                	Current configured aces
+                	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2434,16 +2427,16 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_max_configurable_ac_es
+                .. attribute:: default_max_ac_es
                 
-                	Current max configurable aces
+                	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_configurable_ac_ls
+                .. attribute:: default_max_ac_ls
                 
-                	max configurable acls
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2451,6 +2444,13 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2464,14 +2464,14 @@ class Ipv4AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.default_max_ac_ls = None
-                    self.default_max_ac_es = None
-                    self.current_configured_ac_ls = None
                     self.current_configured_ac_es = None
-                    self.current_max_configurable_ac_ls = None
+                    self.current_configured_ac_ls = None
                     self.current_max_configurable_ac_es = None
-                    self.max_configurable_ac_ls = None
+                    self.current_max_configurable_ac_ls = None
+                    self.default_max_ac_es = None
+                    self.default_max_ac_ls = None
                     self.max_configurable_ac_es = None
+                    self.max_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
@@ -2485,28 +2485,28 @@ class Ipv4AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.default_max_ac_ls is not None:
-                        return True
-
-                    if self.default_max_ac_es is not None:
+                    if self.current_configured_ac_es is not None:
                         return True
 
                     if self.current_configured_ac_ls is not None:
                         return True
 
-                    if self.current_configured_ac_es is not None:
+                    if self.current_max_configurable_ac_es is not None:
                         return True
 
                     if self.current_max_configurable_ac_ls is not None:
                         return True
 
-                    if self.current_max_configurable_ac_es is not None:
+                    if self.default_max_ac_es is not None:
                         return True
 
-                    if self.max_configurable_ac_ls is not None:
+                    if self.default_max_ac_ls is not None:
                         return True
 
                     if self.max_configurable_ac_es is not None:
+                        return True
+
+                    if self.max_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2567,16 +2567,9 @@ class Ipv4AclAndPrefixList(object):
                 Summary Detail of the prefix list Resource
                 Utilisation
                 
-                .. attribute:: default_max_ac_ls
+                .. attribute:: current_configured_ac_es
                 
-                	default max configurable acls
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: default_max_ac_es
-                
-                	default max configurable aces
+                	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2588,9 +2581,9 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_configured_ac_es
+                .. attribute:: current_max_configurable_ac_es
                 
-                	Current configured aces
+                	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2602,16 +2595,16 @@ class Ipv4AclAndPrefixList(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: current_max_configurable_ac_es
+                .. attribute:: default_max_ac_es
                 
-                	Current max configurable aces
+                	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: max_configurable_ac_ls
+                .. attribute:: default_max_ac_ls
                 
-                	max configurable acls
+                	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2619,6 +2612,13 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_configurable_ac_ls
+                
+                	max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2632,14 +2632,14 @@ class Ipv4AclAndPrefixList(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.default_max_ac_ls = None
-                    self.default_max_ac_es = None
-                    self.current_configured_ac_ls = None
                     self.current_configured_ac_es = None
-                    self.current_max_configurable_ac_ls = None
+                    self.current_configured_ac_ls = None
                     self.current_max_configurable_ac_es = None
-                    self.max_configurable_ac_ls = None
+                    self.current_max_configurable_ac_ls = None
+                    self.default_max_ac_es = None
+                    self.default_max_ac_ls = None
                     self.max_configurable_ac_es = None
+                    self.max_configurable_ac_ls = None
 
                 @property
                 def _common_path(self):
@@ -2653,28 +2653,28 @@ class Ipv4AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.default_max_ac_ls is not None:
-                        return True
-
-                    if self.default_max_ac_es is not None:
+                    if self.current_configured_ac_es is not None:
                         return True
 
                     if self.current_configured_ac_ls is not None:
                         return True
 
-                    if self.current_configured_ac_es is not None:
+                    if self.current_max_configurable_ac_es is not None:
                         return True
 
                     if self.current_max_configurable_ac_ls is not None:
                         return True
 
-                    if self.current_max_configurable_ac_es is not None:
+                    if self.default_max_ac_es is not None:
                         return True
 
-                    if self.max_configurable_ac_ls is not None:
+                    if self.default_max_ac_ls is not None:
                         return True
 
                     if self.max_configurable_ac_es is not None:
+                        return True
+
+                    if self.max_configurable_ac_ls is not None:
                         return True
 
                     return False
@@ -2718,16 +2718,16 @@ class Ipv4AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.details is not None and self.details._has_data():
+            if self.access_list_summary is not None and self.access_list_summary._has_data():
                 return True
 
-            if self.oor_prefixes is not None and self.oor_prefixes._has_data():
+            if self.details is not None and self.details._has_data():
                 return True
 
             if self.oor_accesses is not None and self.oor_accesses._has_data():
                 return True
 
-            if self.access_list_summary is not None and self.access_list_summary._has_data():
+            if self.oor_prefixes is not None and self.oor_prefixes._has_data():
                 return True
 
             if self.prefix_list_summary is not None and self.prefix_list_summary._has_data():

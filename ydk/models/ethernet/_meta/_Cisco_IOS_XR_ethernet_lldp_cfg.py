@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -103,11 +103,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp.TlvSelect',
             False, 
             [
-            _MetaInfoClassMember('system-name', REFERENCE_CLASS, 'SystemName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.SystemName', 
+            _MetaInfoClassMember('management-address', REFERENCE_CLASS, 'ManagementAddress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.ManagementAddress', 
                 [], [], 
-                '''                System Name TLV
+                '''                Management Address TLV
                 ''',
-                'system_name',
+                'management_address',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('port-description', REFERENCE_CLASS, 'PortDescription' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.PortDescription', 
                 [], [], 
@@ -115,23 +115,23 @@ _meta_table = {
                 ''',
                 'port_description',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
-            _MetaInfoClassMember('system-description', REFERENCE_CLASS, 'SystemDescription' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.SystemDescription', 
-                [], [], 
-                '''                System Description TLV
-                ''',
-                'system_description',
-                'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('system-capabilities', REFERENCE_CLASS, 'SystemCapabilities' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.SystemCapabilities', 
                 [], [], 
                 '''                System Capabilities TLV
                 ''',
                 'system_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
-            _MetaInfoClassMember('management-address', REFERENCE_CLASS, 'ManagementAddress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.ManagementAddress', 
+            _MetaInfoClassMember('system-description', REFERENCE_CLASS, 'SystemDescription' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.SystemDescription', 
                 [], [], 
-                '''                Management Address TLV
+                '''                System Description TLV
                 ''',
-                'management_address',
+                'system_description',
+                'Cisco-IOS-XR-ethernet-lldp-cfg', False),
+            _MetaInfoClassMember('system-name', REFERENCE_CLASS, 'SystemName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect.SystemName', 
+                [], [], 
+                '''                System Name TLV
+                ''',
+                'system_name',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('tlv-select-enter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -150,18 +150,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp',
             False, 
             [
-            _MetaInfoClassMember('tlv-select', REFERENCE_CLASS, 'TlvSelect' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect', 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Selection of LLDP TLVs to disable
+                '''                Enable or disable LLDP globally
                 ''',
-                'tlv_select',
-                'Cisco-IOS-XR-ethernet-lldp-cfg', False),
-            _MetaInfoClassMember('holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Length  of time  (in sec) that receiver must
-                keep this packet
-                ''',
-                'holdtime',
+                'enable',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('enable-subintf', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -170,12 +163,12 @@ _meta_table = {
                 ''',
                 'enable_subintf',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
-            _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
-                [(5, 65534)], [], 
-                '''                Specify the rate at which LLDP packets are sent
-                (in sec)
+            _MetaInfoClassMember('holdtime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Length  of time  (in sec) that receiver must
+                keep this packet
                 ''',
-                'timer',
+                'holdtime',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('reinit', ATTRIBUTE, 'int' , None, None, 
                 [(2, 5)], [], 
@@ -184,11 +177,18 @@ _meta_table = {
                 ''',
                 'reinit',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable or disable LLDP globally
+            _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
+                [(5, 65534)], [], 
+                '''                Specify the rate at which LLDP packets are sent
+                (in sec)
                 ''',
-                'enable',
+                'timer',
+                'Cisco-IOS-XR-ethernet-lldp-cfg', False),
+            _MetaInfoClassMember('tlv-select', REFERENCE_CLASS, 'TlvSelect' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg', 'Lldp.TlvSelect', 
+                [], [], 
+                '''                Selection of LLDP TLVs to disable
+                ''',
+                'tlv_select',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-lldp-cfg',

@@ -21,7 +21,7 @@
 """
 
 from decimal import Decimal, getcontext
-from errors import YPYDataValidationError
+from errors import YPYModelError
 
 
 class DELETE(object):
@@ -44,7 +44,7 @@ class Empty(object):
     """
     def __eq__(self, rhs):
         if not isinstance(rhs, Empty):
-            raise YPYDataValidationError("Empty comparision error, invalid rhs\n")
+            raise YPYModelError("Empty comparision error, invalid rhs\n")
         return True
 
     def __ne__(self, rhs):
@@ -73,22 +73,22 @@ class Decimal64(object):
 
     def __cmp__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         return cmp(self.s, rhs.s)
 
     def __eq__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         return self.__cmp__(rhs) == 0
 
     def __ne__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         return self.__cmp__(rhs) != 0
 
     def __lt__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         if self.s is None:
             return True
         
@@ -102,7 +102,7 @@ class Decimal64(object):
 
     def __le__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         
         if self.s is None:
             return True
@@ -117,7 +117,7 @@ class Decimal64(object):
 
     def __gt__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
         
         if self.s is None:
             return False
@@ -133,7 +133,7 @@ class Decimal64(object):
 
     def __ge__(self, rhs):
         if not isinstance(rhs, Decimal64):
-            raise YPYDataValidationError("Decimal64 comparision error, invalid rhs\n")
+            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
                 
         if self.s is None:
             return False
@@ -264,7 +264,7 @@ class YLeafList(YList):
 
     def append(self, item):
         if item in self:
-            raise YPYDataValidationError("{} already in list".format(item))
+            raise YPYModelError("{} already in list".format(item))
         lst_item = YListItem(item, self.parent, self.name)
         super(YLeafList, self).append(lst_item)
 
@@ -288,7 +288,7 @@ class YLeafList(YList):
 
     def insert(self, key, item):
         if item in self:
-            raise YPYDataValidationError("{} already in list".format(item))
+            raise YPYModelError("{} already in list".format(item))
         lst_item = YListItem(item, self.parent, self.name)
         super(YLeafList, self).insert(key, lst_item)
 

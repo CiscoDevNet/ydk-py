@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,24 +18,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SystemMonitoring.CpuUtilization.ProcessCpu',
             False, 
             [
-            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Process name
-                ''',
-                'process_name',
-                'Cisco-IOS-XR-ha-eem-oper', False),
-            _MetaInfoClassMember('process-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('process-cpu-fifteen-minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Process ID
-                ''',
-                'process_id',
-                'Cisco-IOS-XR-ha-eem-oper', False),
-            _MetaInfoClassMember('process-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Process CPU utilization in percent for past 1
+                '''                Process CPU utilization in percent for past 15
                 minute
                 ''',
-                'process_cpu_one_minute',
+                'process_cpu_fifteen_minute',
                 'Cisco-IOS-XR-ha-eem-oper', False),
             _MetaInfoClassMember('process-cpu-five-minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -44,12 +32,24 @@ _meta_table = {
                 ''',
                 'process_cpu_five_minute',
                 'Cisco-IOS-XR-ha-eem-oper', False),
-            _MetaInfoClassMember('process-cpu-fifteen-minute', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('process-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Process CPU utilization in percent for past 15
+                '''                Process CPU utilization in percent for past 1
                 minute
                 ''',
-                'process_cpu_fifteen_minute',
+                'process_cpu_one_minute',
+                'Cisco-IOS-XR-ha-eem-oper', False),
+            _MetaInfoClassMember('process-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Process ID
+                ''',
+                'process_id',
+                'Cisco-IOS-XR-ha-eem-oper', False),
+            _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Process name
+                ''',
+                'process_name',
                 'Cisco-IOS-XR-ha-eem-oper', False),
             ],
             'Cisco-IOS-XR-ha-eem-oper',
@@ -68,17 +68,11 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-ha-eem-oper', True),
-            _MetaInfoClassMember('total-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total CPU utilization in past 1 minute
+            _MetaInfoClassMember('process-cpu', REFERENCE_LIST, 'ProcessCpu' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_oper', 'SystemMonitoring.CpuUtilization.ProcessCpu', 
+                [], [], 
+                '''                Per process CPU utilization
                 ''',
-                'total_cpu_one_minute',
-                'Cisco-IOS-XR-ha-eem-oper', False),
-            _MetaInfoClassMember('total-cpu-five-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total CPU utilization in past 5 minute
-                ''',
-                'total_cpu_five_minute',
+                'process_cpu',
                 'Cisco-IOS-XR-ha-eem-oper', False),
             _MetaInfoClassMember('total-cpu-fifteen-minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -86,11 +80,17 @@ _meta_table = {
                 ''',
                 'total_cpu_fifteen_minute',
                 'Cisco-IOS-XR-ha-eem-oper', False),
-            _MetaInfoClassMember('process-cpu', REFERENCE_LIST, 'ProcessCpu' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_oper', 'SystemMonitoring.CpuUtilization.ProcessCpu', 
-                [], [], 
-                '''                Per process CPU utilization
+            _MetaInfoClassMember('total-cpu-five-minute', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total CPU utilization in past 5 minute
                 ''',
-                'process_cpu',
+                'total_cpu_five_minute',
+                'Cisco-IOS-XR-ha-eem-oper', False),
+            _MetaInfoClassMember('total-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total CPU utilization in past 1 minute
+                ''',
+                'total_cpu_one_minute',
                 'Cisco-IOS-XR-ha-eem-oper', False),
             ],
             'Cisco-IOS-XR-ha-eem-oper',

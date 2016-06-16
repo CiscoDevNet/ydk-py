@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -60,17 +60,17 @@ _meta_table = {
                 ''',
                 'group_name',
                 'Cisco-IOS-XR-infra-rsi-oper', True),
-            _MetaInfoClassMember('vr-fs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of VRFs in this VRF group
-                ''',
-                'vr_fs',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('forward-reference', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                VRF group not present but used
                 ''',
                 'forward_reference',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('vr-fs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of VRFs in this VRF group
+                ''',
+                'vr_fs',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'VrfGroup.Nodes.Node.Groups.Group.Vrf', 
                 [], [], 
@@ -169,17 +169,17 @@ _meta_table = {
                 ''',
                 'srlg_name',
                 'Cisco-IOS-XR-infra-rsi-oper', True),
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-name-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name_xr',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -215,17 +215,17 @@ _meta_table = {
                 ''',
                 'srlg_name',
                 'Cisco-IOS-XR-infra-rsi-oper', True),
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-name-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name_xr',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -255,12 +255,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.Groups.Group.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
@@ -272,6 +266,12 @@ _meta_table = {
                 '''                Index
                 ''',
                 'srlg_index',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -336,12 +336,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
@@ -353,6 +347,12 @@ _meta_table = {
                 '''                Index
                 ''',
                 'srlg_index',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -429,12 +429,6 @@ _meta_table = {
                 ''',
                 'interface_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
-            _MetaInfoClassMember('value-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Values
-                ''',
-                'value_count',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('registrations', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Registrations
@@ -446,6 +440,12 @@ _meta_table = {
                 '''                SRLG values
                 ''',
                 'srlg_value',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('value-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Values
+                ''',
+                'value_count',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -475,12 +475,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
@@ -504,6 +498,12 @@ _meta_table = {
                 '''                Index
                 ''',
                 'srlg_index',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -683,12 +683,6 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rsi-oper', True),
-            _MetaInfoClassMember('srlg-maps', REFERENCE_CLASS, 'SrlgMaps' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.SrlgMaps', 
-                [], [], 
-                '''                Set of SRLG name, value maps configured
-                ''',
-                'srlg_maps',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('groups', REFERENCE_CLASS, 'Groups' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.Groups', 
                 [], [], 
                 '''                Set of Groups configured for SRLG
@@ -701,29 +695,35 @@ _meta_table = {
                 ''',
                 'inherit_nodes',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.Interfaces', 
-                [], [], 
-                '''                Set of interfaces configured for SRLG
-                ''',
-                'interfaces',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('interface-details', REFERENCE_CLASS, 'InterfaceDetails' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.InterfaceDetails', 
                 [], [], 
                 '''                Set of interfaces configured for SRLG
                 ''',
                 'interface_details',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
-            _MetaInfoClassMember('srlg-values', REFERENCE_CLASS, 'SrlgValues' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.SrlgValues', 
-                [], [], 
-                '''                Set of SRLG values configured
-                ''',
-                'srlg_values',
-                'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('interface-srlg-names', REFERENCE_CLASS, 'InterfaceSrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.InterfaceSrlgNames', 
                 [], [], 
                 '''                Set of SRLG names configured
                 ''',
                 'interface_srlg_names',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.Interfaces', 
+                [], [], 
+                '''                Set of interfaces configured for SRLG
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-maps', REFERENCE_CLASS, 'SrlgMaps' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.SrlgMaps', 
+                [], [], 
+                '''                Set of SRLG name, value maps configured
+                ''',
+                'srlg_maps',
+                'Cisco-IOS-XR-infra-rsi-oper', False),
+            _MetaInfoClassMember('srlg-values', REFERENCE_CLASS, 'SrlgValues' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes.Node.SrlgValues', 
+                [], [], 
+                '''                Set of SRLG values configured
+                ''',
+                'srlg_values',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',
@@ -822,11 +822,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg',
             False, 
             [
-            _MetaInfoClassMember('srlg-maps', REFERENCE_CLASS, 'SrlgMaps' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.SrlgMaps', 
+            _MetaInfoClassMember('interface-srlg-names', REFERENCE_CLASS, 'InterfaceSrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.InterfaceSrlgNames', 
                 [], [], 
-                '''                Set of SRLG name, value maps configured
+                '''                Set of SRLG names configured
                 ''',
-                'srlg_maps',
+                'interface_srlg_names',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.Nodes', 
                 [], [], 
@@ -834,11 +834,11 @@ _meta_table = {
                 ''',
                 'nodes',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
-            _MetaInfoClassMember('interface-srlg-names', REFERENCE_CLASS, 'InterfaceSrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.InterfaceSrlgNames', 
+            _MetaInfoClassMember('srlg-maps', REFERENCE_CLASS, 'SrlgMaps' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Srlg.SrlgMaps', 
                 [], [], 
-                '''                Set of SRLG names configured
+                '''                Set of SRLG name, value maps configured
                 ''',
-                'interface_srlg_names',
+                'srlg_maps',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             ],
             'Cisco-IOS-XR-infra-rsi-oper',

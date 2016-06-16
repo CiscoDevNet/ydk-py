@@ -26,12 +26,12 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
 
-class ObjectIdentity_Identity(object):
+class ObjectIdentityIdentity(object):
     """
     Base identity for all SMIv2 OBJECT\-IDENTITYs.
     
@@ -48,6 +48,6 @@ class ObjectIdentity_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_yang_smiv2 as meta
-        return meta._meta_table['ObjectIdentity_Identity']['meta_info']
+        return meta._meta_table['ObjectIdentityIdentity']['meta_info']
 
 

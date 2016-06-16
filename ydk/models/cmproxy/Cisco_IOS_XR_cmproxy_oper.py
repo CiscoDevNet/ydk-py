@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -133,13 +133,6 @@ class SdrInventoryVm(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: valid
-                    
-                    	valid flag
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: card_type
                     
                     	card type
@@ -150,76 +143,6 @@ class SdrInventoryVm(object):
                     .. attribute:: card_type_string
                     
                     	card type string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: nodeid
-                    
-                    	node ID
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: node_name
-                    
-                    	node name string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: partner_id
-                    
-                    	partner node id
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: partner_name
-                    
-                    	partner name string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: red_state
-                    
-                    	redundancy state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: redundancy_state_string
-                    
-                    	redundancy state string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: node_sw_state
-                    
-                    	current software state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_sw_state_string
-                    
-                    	current software state string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: prev_sw_state
-                    
-                    	previous software state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: previous_sw_state_string
-                    
-                    	previous software state string
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -238,6 +161,83 @@ class SdrInventoryVm(object):
                     
                     	**range:** 0..16
                     
+                    .. attribute:: node_name
+                    
+                    	node name string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: node_sw_state
+                    
+                    	current software state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: node_sw_state_string
+                    
+                    	current software state string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: nodeid
+                    
+                    	node ID
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: partner_id
+                    
+                    	partner node id
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: partner_name
+                    
+                    	partner name string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: prev_sw_state
+                    
+                    	previous software state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: previous_sw_state_string
+                    
+                    	previous software state string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: red_state
+                    
+                    	redundancy state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: redundancy_state_string
+                    
+                    	redundancy state string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: valid
+                    
+                    	valid flag
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -248,28 +248,28 @@ class SdrInventoryVm(object):
                     def __init__(self):
                         self.parent = None
                         self.name = None
-                        self.valid = None
                         self.card_type = None
                         self.card_type_string = None
-                        self.nodeid = None
-                        self.node_name = None
-                        self.partner_id = None
-                        self.partner_name = None
-                        self.red_state = None
-                        self.redundancy_state_string = None
-                        self.node_sw_state = None
-                        self.node_sw_state_string = None
-                        self.prev_sw_state = None
-                        self.previous_sw_state_string = None
                         self.node_ip = None
                         self.node_ipv4_string = None
+                        self.node_name = None
+                        self.node_sw_state = None
+                        self.node_sw_state_string = None
+                        self.nodeid = None
+                        self.partner_id = None
+                        self.partner_name = None
+                        self.prev_sw_state = None
+                        self.previous_sw_state_string = None
+                        self.red_state = None
+                        self.redundancy_state_string = None
+                        self.valid = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-cmproxy-oper:node-entry[Cisco-IOS-XR-cmproxy-oper:name = ' + str(self.name) + ']'
 
@@ -283,31 +283,19 @@ class SdrInventoryVm(object):
                         if self.name is not None:
                             return True
 
-                        if self.valid is not None:
-                            return True
-
                         if self.card_type is not None:
                             return True
 
                         if self.card_type_string is not None:
                             return True
 
-                        if self.nodeid is not None:
+                        if self.node_ip is not None:
+                            return True
+
+                        if self.node_ipv4_string is not None:
                             return True
 
                         if self.node_name is not None:
-                            return True
-
-                        if self.partner_id is not None:
-                            return True
-
-                        if self.partner_name is not None:
-                            return True
-
-                        if self.red_state is not None:
-                            return True
-
-                        if self.redundancy_state_string is not None:
                             return True
 
                         if self.node_sw_state is not None:
@@ -316,16 +304,28 @@ class SdrInventoryVm(object):
                         if self.node_sw_state_string is not None:
                             return True
 
+                        if self.nodeid is not None:
+                            return True
+
+                        if self.partner_id is not None:
+                            return True
+
+                        if self.partner_name is not None:
+                            return True
+
                         if self.prev_sw_state is not None:
                             return True
 
                         if self.previous_sw_state_string is not None:
                             return True
 
-                        if self.node_ip is not None:
+                        if self.red_state is not None:
                             return True
 
-                        if self.node_ipv4_string is not None:
+                        if self.redundancy_state_string is not None:
+                            return True
+
+                        if self.valid is not None:
                             return True
 
                         return False
@@ -338,7 +338,7 @@ class SdrInventoryVm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-cmproxy-oper:node-entries'
 
@@ -364,7 +364,7 @@ class SdrInventoryVm(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/Cisco-IOS-XR-cmproxy-oper:nodes/Cisco-IOS-XR-cmproxy-oper:node[Cisco-IOS-XR-cmproxy-oper:name = ' + str(self.name) + ']'
 

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,17 +18,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SdrInventory.Racks.Rack.Slot.Card.Attributes',
             False, 
             [
-            _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('card-admin-state', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                Power
+                '''                Card Admin State
                 ''',
-                'power',
-                'Cisco-IOS-XR-sdr-invmgr-oper', False),
-            _MetaInfoClassMember('config-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                ConfigState
-                ''',
-                'config_state',
+                'card_admin_state',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('card-state', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -36,35 +30,17 @@ _meta_table = {
                 ''',
                 'card_state',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
-            _MetaInfoClassMember('vm-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                VM State information
-                ''',
-                'vm_state',
-                'Cisco-IOS-XR-sdr-invmgr-oper', False),
-            _MetaInfoClassMember('card-admin-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Card Admin State
-                ''',
-                'card_admin_state',
-                'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                CardType
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
-            _MetaInfoClassMember('pi-slot-number', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('config-state', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                Pi Slot Number
+                '''                ConfigState
                 ''',
-                'pi_slot_number',
-                'Cisco-IOS-XR-sdr-invmgr-oper', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Shutdown
-                ''',
-                'shutdown',
+                'config_state',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('ctype', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -77,6 +53,30 @@ _meta_table = {
                 '''                Monitor
                 ''',
                 'monitor',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('pi-slot-number', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Pi Slot Number
+                ''',
+                'pi_slot_number',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Power
+                ''',
+                'power',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Shutdown
+                ''',
+                'shutdown',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('vm-state', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                VM State information
+                ''',
+                'vm_state',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
             ],
             'Cisco-IOS-XR-sdr-invmgr-oper',

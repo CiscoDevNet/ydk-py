@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -126,6 +126,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail',
             False, 
             [
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
+                [], [], 
+                '''                Duplex setting
+                ''',
+                'duplex',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Native VLAN
+                ''',
+                'native_vlan',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses', 
                 [], [], 
                 '''                List of network addresses 
@@ -137,6 +149,12 @@ _meta_table = {
                 '''                List of protocol hello entries
                 ''',
                 'protocol_hello_list',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                SysName
+                ''',
+                'system_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -150,24 +168,6 @@ _meta_table = {
                 ''',
                 'vtp_domain',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Native VLAN
-                ''',
-                'native_vlan',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
-                [], [], 
-                '''                Duplex setting
-                ''',
-                'duplex',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                SysName
-                ''',
-                'system_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
             'detail',
@@ -179,29 +179,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor',
             False, 
             [
+            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Capabilities
+                ''',
+                'capabilities',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail', 
                 [], [], 
                 '''                Detailed neighbor info
                 ''',
                 'detail',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface the neighbor entry was received on 
-                ''',
-                'receiving_interface_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Device identifier
                 ''',
                 'device_id',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Outgoing port identifier
-                ''',
-                'port_id',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -215,17 +209,23 @@ _meta_table = {
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Capabilities
-                ''',
-                'capabilities',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('platform', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Platform type
                 ''',
                 'platform',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Outgoing port identifier
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface the neighbor entry was received on 
+                ''',
+                'receiving_interface_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -238,11 +238,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail',
             False, 
             [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                The interface name
+            _MetaInfoClassMember('cdp-neighbor', REFERENCE_LIST, 'CdpNeighbor' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor', 
+                [], [], 
+                '''                cdp neighbor
                 ''',
-                'interface_name',
+                'cdp_neighbor',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -250,11 +250,11 @@ _meta_table = {
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('cdp-neighbor', REFERENCE_LIST, 'CdpNeighbor' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor', 
-                [], [], 
-                '''                cdp neighbor
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The interface name
                 ''',
-                'cdp_neighbor',
+                'interface_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -382,6 +382,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail',
             False, 
             [
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
+                [], [], 
+                '''                Duplex setting
+                ''',
+                'duplex',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Native VLAN
+                ''',
+                'native_vlan',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses', 
                 [], [], 
                 '''                List of network addresses 
@@ -393,6 +405,12 @@ _meta_table = {
                 '''                List of protocol hello entries
                 ''',
                 'protocol_hello_list',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                SysName
+                ''',
+                'system_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -406,24 +424,6 @@ _meta_table = {
                 ''',
                 'vtp_domain',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Native VLAN
-                ''',
-                'native_vlan',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
-                [], [], 
-                '''                Duplex setting
-                ''',
-                'duplex',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                SysName
-                ''',
-                'system_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
             'detail',
@@ -435,29 +435,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor',
             False, 
             [
+            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Capabilities
+                ''',
+                'capabilities',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail', 
                 [], [], 
                 '''                Detailed neighbor info
                 ''',
                 'detail',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface the neighbor entry was received on 
-                ''',
-                'receiving_interface_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Device identifier
                 ''',
                 'device_id',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Outgoing port identifier
-                ''',
-                'port_id',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -471,17 +465,23 @@ _meta_table = {
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Capabilities
-                ''',
-                'capabilities',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('platform', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Platform type
                 ''',
                 'platform',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Outgoing port identifier
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface the neighbor entry was received on 
+                ''',
+                'receiving_interface_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -632,6 +632,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail',
             False, 
             [
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
+                [], [], 
+                '''                Duplex setting
+                ''',
+                'duplex',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Native VLAN
+                ''',
+                'native_vlan',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses', 
                 [], [], 
                 '''                List of network addresses 
@@ -643,6 +655,12 @@ _meta_table = {
                 '''                List of protocol hello entries
                 ''',
                 'protocol_hello_list',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                SysName
+                ''',
+                'system_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -656,24 +674,6 @@ _meta_table = {
                 ''',
                 'vtp_domain',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Native VLAN
-                ''',
-                'native_vlan',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
-                [], [], 
-                '''                Duplex setting
-                ''',
-                'duplex',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                SysName
-                ''',
-                'system_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
             'detail',
@@ -685,29 +685,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor',
             False, 
             [
+            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Capabilities
+                ''',
+                'capabilities',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail', 
                 [], [], 
                 '''                Detailed neighbor info
                 ''',
                 'detail',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface the neighbor entry was received on 
-                ''',
-                'receiving_interface_name',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Device identifier
                 ''',
                 'device_id',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Outgoing port identifier
-                ''',
-                'port_id',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -721,17 +715,23 @@ _meta_table = {
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('capabilities', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Capabilities
-                ''',
-                'capabilities',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('platform', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Platform type
                 ''',
                 'platform',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Outgoing port identifier
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface the neighbor entry was received on 
+                ''',
+                'receiving_interface_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -744,11 +744,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Summaries.Summary',
             False, 
             [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                The interface name
+            _MetaInfoClassMember('cdp-neighbor', REFERENCE_LIST, 'CdpNeighbor' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor', 
+                [], [], 
+                '''                cdp neighbor
                 ''',
-                'interface_name',
+                'cdp_neighbor',
                 'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -756,11 +756,11 @@ _meta_table = {
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('cdp-neighbor', REFERENCE_LIST, 'CdpNeighbor' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor', 
-                [], [], 
-                '''                cdp neighbor
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The interface name
                 ''',
-                'cdp_neighbor',
+                'interface_name',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -819,6 +819,48 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Statistics',
             False, 
             [
+            _MetaInfoClassMember('bad-packet-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Bad packet received and dropped
+                ''',
+                'bad_packet_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('checksum-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Checksum errors
+                ''',
+                'checksum_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('encapsulation-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transmission errors
+                ''',
+                'encapsulation_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('header-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Header syntax errors
+                ''',
+                'header_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('header-version-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Can't handle receive version
+                ''',
+                'header_version_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('open-file-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cannot open file
+                ''',
+                'open_file_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('out-of-memory-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Out-of-memory conditions
+                ''',
+                'out_of_memory_errors',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Received packets
@@ -855,53 +897,11 @@ _meta_table = {
                 ''',
                 'transmitted_packets_v2',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('header-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Header syntax errors
-                ''',
-                'header_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('checksum-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Checksum errors
-                ''',
-                'checksum_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('encapsulation-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transmission errors
-                ''',
-                'encapsulation_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('bad-packet-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bad packet received and dropped
-                ''',
-                'bad_packet_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('out-of-memory-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Out-of-memory conditions
-                ''',
-                'out_of_memory_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('truncated-packet-errors', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Truncated messages
                 ''',
                 'truncated_packet_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('header-version-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Can't handle receive version
-                ''',
-                'header_version_errors',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('open-file-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Cannot open file
-                ''',
-                'open_file_errors',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -920,12 +920,6 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-cdp-oper', True),
-            _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface_name_xr',
-                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('basecaps-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Interface basecaps state
@@ -943,6 +937,12 @@ _meta_table = {
                 '''                Interface encapsulation
                 ''',
                 'interface_encaps',
+                'Cisco-IOS-XR-cdp-oper', False),
+            _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface_name_xr',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',
@@ -979,6 +979,13 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-cdp-oper', True),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Interfaces', 
+                [], [], 
+                '''                The table of interfaces on which CDP is
+                running on this node
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-cdp-oper', False),
             _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors', 
                 [], [], 
                 '''                The CDP neighbor tables on this node
@@ -990,13 +997,6 @@ _meta_table = {
                 '''                The CDP traffic statistics for this node
                 ''',
                 'statistics',
-                'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Interfaces', 
-                [], [], 
-                '''                The table of interfaces on which CDP is
-                running on this node
-                ''',
-                'interfaces',
                 'Cisco-IOS-XR-cdp-oper', False),
             ],
             'Cisco-IOS-XR-cdp-oper',

@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -104,15 +104,15 @@ class PfilterMa(object):
                 """
                 Operational data for pfilter
                 
-                .. attribute:: ipv6
-                
-                	Operational data for pfilter
-                	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6>`
-                
                 .. attribute:: ipv4
                 
                 	Operational data for pfilter
                 	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4>`
+                
+                .. attribute:: ipv6
+                
+                	Operational data for pfilter
+                	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6>`
                 
                 
 
@@ -123,10 +123,10 @@ class PfilterMa(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
-                    self.ipv6.parent = self
                     self.ipv4 = PfilterMa.Nodes.Node.Process.Ipv4()
                     self.ipv4.parent = self
+                    self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
+                    self.ipv6.parent = self
 
 
                 class Ipv6(object):
@@ -205,9 +205,9 @@ class PfilterMa(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -234,7 +234,7 @@ class PfilterMa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interfaces'
 
@@ -260,7 +260,7 @@ class PfilterMa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv6'
 
@@ -358,9 +358,9 @@ class PfilterMa(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -387,7 +387,7 @@ class PfilterMa(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interfaces'
 
@@ -413,7 +413,7 @@ class PfilterMa(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv4'
 
@@ -437,7 +437,7 @@ class PfilterMa(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:process'
 
@@ -448,10 +448,10 @@ class PfilterMa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ipv6 is not None and self.ipv6._has_data():
+                    if self.ipv4 is not None and self.ipv4._has_data():
                         return True
 
-                    if self.ipv4 is not None and self.ipv4._has_data():
+                    if self.ipv6 is not None and self.ipv6._has_data():
                         return True
 
                     return False
@@ -464,7 +464,7 @@ class PfilterMa(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/Cisco-IOS-XR-ip-pfilter-oper:nodes/Cisco-IOS-XR-ip-pfilter-oper:node[Cisco-IOS-XR-ip-pfilter-oper:node-name = ' + str(self.node_name) + ']'
 

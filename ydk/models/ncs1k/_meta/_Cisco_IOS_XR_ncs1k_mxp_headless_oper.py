@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,18 +18,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics',
             False, 
             [
-            _MetaInfoClassMember('sm-bip', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SmBip
-                ''',
-                'sm_bip',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('sm-bei', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SmBei
-                ''',
-                'sm_bei',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             _MetaInfoClassMember('fec-ec', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                FecEc
@@ -41,6 +29,18 @@ _meta_table = {
                 '''                FecUc
                 ''',
                 'fec_uc',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('sm-bei', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SmBei
+                ''',
+                'sm_bei',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('sm-bip', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SmBip
+                ''',
+                'sm_bip',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-headless-oper',
@@ -59,6 +59,18 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', True),
+            _MetaInfoClassMember('headless-end-time', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Headless End Time
+                ''',
+                'headless_end_time',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('headless-start-time', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Headless Start Time
+                ''',
+                'headless_start_time',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             _MetaInfoClassMember('otn-statistics', REFERENCE_CLASS, 'OtnStatistics' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_headless_oper', 'HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics', 
                 [], [], 
                 '''                OTN statistics
@@ -70,18 +82,6 @@ _meta_table = {
                 '''                Started Stateful
                 ''',
                 'started_stateful',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('headless-start-time', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Headless Start Time
-                ''',
-                'headless_start_time',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('headless-end-time', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Headless End Time
-                ''',
-                'headless_end_time',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-headless-oper',
@@ -111,131 +111,131 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics',
             False, 
             [
-            _MetaInfoClassMember('rx-pkts-over-sized', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPktsOverSized
-                ''',
-                'rx_pkts_over_sized',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-bad-fcs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPktsBadFcs
-                ''',
-                'rx_pkts_bad_fcs',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-error-jabbers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxErrorJabbers
-                ''',
-                'rx_error_jabbers',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-multicast', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPktsMulticast
-                ''',
-                'rx_pkts_multicast',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-broadcast', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPktsBroadcast
-                ''',
-                'rx_pkts_broadcast',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-under-sized', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPktsUnderSized
-                ''',
-                'rx_pkts_under_sized',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPackets
-                ''',
-                'rx_packets',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-total-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxTotalBytes
-                ''',
-                'rx_total_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-bytes-good', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rx-bytes-good', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                RxBytesGood
                 ''',
                 'rx_bytes_good',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-good', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rx-error-jabbers', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                RxPktsGood
+                '''                RxErrorJabbers
                 ''',
-                'rx_pkts_good',
+                'rx_error_jabbers',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('tx-total-bytes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rx-packets', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                TxTotalBytes
+                '''                RxPackets
                 ''',
-                'tx_total_bytes',
+                'rx_packets',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('tx-bytes-good', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TxBytesGood
-                ''',
-                'tx_bytes_good',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('tx-pkts-good', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TxPktsGood
-                ''',
-                'tx_pkts_good',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-recv-fragments', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxRecvFragments
-                ''',
-                'rx_recv_fragments',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts64-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPkts64Bytes
-                ''',
-                'rx_pkts64_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts65-to127-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPkts65To127Bytes
-                ''',
-                'rx_pkts65_to127_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts128to255-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPkts128to255Bytes
-                ''',
-                'rx_pkts128to255_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts256-to511-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPkts256To511Bytes
-                ''',
-                'rx_pkts256_to511_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts512-to1023-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RxPkts512To1023Bytes
-                ''',
-                'rx_pkts512_to1023_bytes',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts1024-to1518-bytes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rx-pkts1024-to1518-bytes', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                RxPkts1024To1518Bytes
                 ''',
                 'rx_pkts1024_to1518_bytes',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('rx-pkts-unicast', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rx-pkts128to255-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPkts128to255Bytes
+                ''',
+                'rx_pkts128to255_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts256-to511-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPkts256To511Bytes
+                ''',
+                'rx_pkts256_to511_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts512-to1023-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPkts512To1023Bytes
+                ''',
+                'rx_pkts512_to1023_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts64-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPkts64Bytes
+                ''',
+                'rx_pkts64_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts65-to127-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPkts65To127Bytes
+                ''',
+                'rx_pkts65_to127_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-bad-fcs', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsBadFcs
+                ''',
+                'rx_pkts_bad_fcs',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-broadcast', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsBroadcast
+                ''',
+                'rx_pkts_broadcast',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-good', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsGood
+                ''',
+                'rx_pkts_good',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-multicast', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsMulticast
+                ''',
+                'rx_pkts_multicast',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-over-sized', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsOverSized
+                ''',
+                'rx_pkts_over_sized',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-under-sized', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxPktsUnderSized
+                ''',
+                'rx_pkts_under_sized',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-pkts-unicast', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                RxPktsUnicast
                 ''',
                 'rx_pkts_unicast',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-recv-fragments', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxRecvFragments
+                ''',
+                'rx_recv_fragments',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-total-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RxTotalBytes
+                ''',
+                'rx_total_bytes',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('tx-bytes-good', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TxBytesGood
+                ''',
+                'tx_bytes_good',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('tx-pkts-good', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TxPktsGood
+                ''',
+                'tx_pkts_good',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('tx-total-bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TxTotalBytes
+                ''',
+                'tx_total_bytes',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-headless-oper',
@@ -260,11 +260,11 @@ _meta_table = {
                 ''',
                 'ether_statistics',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('started-stateful', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Started Stateful
+            _MetaInfoClassMember('headless-end-time', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Headless End Time
                 ''',
-                'started_stateful',
+                'headless_end_time',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             _MetaInfoClassMember('headless-start-time', ATTRIBUTE, 'str' , None, None, 
                 [(0, 64)], [], 
@@ -272,11 +272,11 @@ _meta_table = {
                 ''',
                 'headless_start_time',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
-            _MetaInfoClassMember('headless-end-time', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Headless End Time
+            _MetaInfoClassMember('started-stateful', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Started Stateful
                 ''',
-                'headless_end_time',
+                'started_stateful',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-headless-oper',
@@ -306,19 +306,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('HeadlessFuncData',
             False, 
             [
-            _MetaInfoClassMember('otn-port-names', REFERENCE_CLASS, 'OtnPortNames' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_headless_oper', 'HeadlessFuncData.OtnPortNames', 
-                [], [], 
-                '''                OTN Statistics collected during last headless
-                operation
-                ''',
-                'otn_port_names',
-                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             _MetaInfoClassMember('ethernet-port-names', REFERENCE_CLASS, 'EthernetPortNames' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_headless_oper', 'HeadlessFuncData.EthernetPortNames', 
                 [], [], 
                 '''                Ethernet Statistics collected during last
                 headless operation
                 ''',
                 'ethernet_port_names',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('otn-port-names', REFERENCE_CLASS, 'OtnPortNames' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_headless_oper', 'HeadlessFuncData.OtnPortNames', 
+                [], [], 
+                '''                OTN Statistics collected during last headless
+                operation
+                ''',
+                'otn_port_names',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-headless-oper',

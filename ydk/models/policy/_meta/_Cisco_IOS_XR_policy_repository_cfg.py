@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -930,12 +930,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets',
             False, 
             [
-            _MetaInfoClassMember('prefix-sets', REFERENCE_CLASS, 'PrefixSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrefixSets', 
-                [], [], 
-                '''                Information about Prefix sets
-                ''',
-                'prefix_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('append-extended-community-opaque-sets', REFERENCE_CLASS, 'AppendExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendExtendedCommunityOpaqueSets', 
                 [], [], 
                 '''                Information about Opaque sets
@@ -947,96 +941,6 @@ _meta_table = {
                 '''                Information about SegNH sets
                 ''',
                 'append_extended_community_seg_nh_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('remove-extended-community-opaque-sets', REFERENCE_CLASS, 'RemoveExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets', 
-                [], [], 
-                '''                Information about Opaque sets
-                ''',
-                'remove_extended_community_opaque_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('extended-community-opaque-sets', REFERENCE_CLASS, 'ExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityOpaqueSets', 
-                [], [], 
-                '''                Information about Opaque sets
-                ''',
-                'extended_community_opaque_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('remove-extended-community-seg-nh-sets', REFERENCE_CLASS, 'RemoveExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets', 
-                [], [], 
-                '''                Information about SegNH sets
-                ''',
-                'remove_extended_community_seg_nh_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('remove-ospf-area-sets', REFERENCE_CLASS, 'RemoveOspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveOspfAreaSets', 
-                [], [], 
-                '''                Information about OSPF Area sets
-                ''',
-                'remove_ospf_area_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('ospf-area-sets', REFERENCE_CLASS, 'OspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.OspfAreaSets', 
-                [], [], 
-                '''                Information about OSPF Area sets
-                ''',
-                'ospf_area_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('extended-community-cost-sets', REFERENCE_CLASS, 'ExtendedCommunityCostSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityCostSets', 
-                [], [], 
-                '''                Information about Cost sets
-                ''',
-                'extended_community_cost_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('extended-community-soo-sets', REFERENCE_CLASS, 'ExtendedCommunitySooSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunitySooSets', 
-                [], [], 
-                '''                Information about SOO sets
-                ''',
-                'extended_community_soo_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('prepend-extended-community-opaque-sets', REFERENCE_CLASS, 'PrependExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets', 
-                [], [], 
-                '''                Information about Opaque sets
-                ''',
-                'prepend_extended_community_opaque_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('extended-community-seg-nh-sets', REFERENCE_CLASS, 'ExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunitySegNhSets', 
-                [], [], 
-                '''                Information about SegNH sets
-                ''',
-                'extended_community_seg_nh_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('rd-sets', REFERENCE_CLASS, 'RdSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RdSets', 
-                [], [], 
-                '''                Information about RD sets
-                ''',
-                'rd_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('policy-global-set-table', REFERENCE_CLASS, 'PolicyGlobalSetTable' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PolicyGlobalSetTable', 
-                [], [], 
-                '''                Information about PolicyGlobal sets
-                ''',
-                'policy_global_set_table',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('prepend-extended-community-seg-nh-sets', REFERENCE_CLASS, 'PrependExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets', 
-                [], [], 
-                '''                Information about SegNH sets
-                ''',
-                'prepend_extended_community_seg_nh_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('extended-community-bandwidth-sets', REFERENCE_CLASS, 'ExtendedCommunityBandwidthSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityBandwidthSets', 
-                [], [], 
-                '''                Information about Bandwidth sets
-                ''',
-                'extended_community_bandwidth_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('community-sets', REFERENCE_CLASS, 'CommunitySets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.CommunitySets', 
-                [], [], 
-                '''                Information about Community sets
-                ''',
-                'community_sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('prepend-ospf-area-sets', REFERENCE_CLASS, 'PrependOspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependOspfAreaSets', 
-                [], [], 
-                '''                Information about OSPF Area sets
-                ''',
-                'prepend_ospf_area_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('append-ospf-area-sets', REFERENCE_CLASS, 'AppendOspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendOspfAreaSets', 
                 [], [], 
@@ -1050,17 +954,113 @@ _meta_table = {
                 ''',
                 'as_path_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('tag-sets', REFERENCE_CLASS, 'TagSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.TagSets', 
+            _MetaInfoClassMember('community-sets', REFERENCE_CLASS, 'CommunitySets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.CommunitySets', 
                 [], [], 
-                '''                Information about Tag sets
+                '''                Information about Community sets
                 ''',
-                'tag_sets',
+                'community_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('extended-community-bandwidth-sets', REFERENCE_CLASS, 'ExtendedCommunityBandwidthSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityBandwidthSets', 
+                [], [], 
+                '''                Information about Bandwidth sets
+                ''',
+                'extended_community_bandwidth_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('extended-community-cost-sets', REFERENCE_CLASS, 'ExtendedCommunityCostSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityCostSets', 
+                [], [], 
+                '''                Information about Cost sets
+                ''',
+                'extended_community_cost_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('extended-community-opaque-sets', REFERENCE_CLASS, 'ExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityOpaqueSets', 
+                [], [], 
+                '''                Information about Opaque sets
+                ''',
+                'extended_community_opaque_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('extended-community-rt-sets', REFERENCE_CLASS, 'ExtendedCommunityRtSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityRtSets', 
                 [], [], 
                 '''                Information about RT sets
                 ''',
                 'extended_community_rt_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('extended-community-seg-nh-sets', REFERENCE_CLASS, 'ExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunitySegNhSets', 
+                [], [], 
+                '''                Information about SegNH sets
+                ''',
+                'extended_community_seg_nh_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('extended-community-soo-sets', REFERENCE_CLASS, 'ExtendedCommunitySooSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunitySooSets', 
+                [], [], 
+                '''                Information about SOO sets
+                ''',
+                'extended_community_soo_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('ospf-area-sets', REFERENCE_CLASS, 'OspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.OspfAreaSets', 
+                [], [], 
+                '''                Information about OSPF Area sets
+                ''',
+                'ospf_area_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('policy-global-set-table', REFERENCE_CLASS, 'PolicyGlobalSetTable' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PolicyGlobalSetTable', 
+                [], [], 
+                '''                Information about PolicyGlobal sets
+                ''',
+                'policy_global_set_table',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prefix-sets', REFERENCE_CLASS, 'PrefixSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrefixSets', 
+                [], [], 
+                '''                Information about Prefix sets
+                ''',
+                'prefix_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-extended-community-opaque-sets', REFERENCE_CLASS, 'PrependExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependExtendedCommunityOpaqueSets', 
+                [], [], 
+                '''                Information about Opaque sets
+                ''',
+                'prepend_extended_community_opaque_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-extended-community-seg-nh-sets', REFERENCE_CLASS, 'PrependExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependExtendedCommunitySegNhSets', 
+                [], [], 
+                '''                Information about SegNH sets
+                ''',
+                'prepend_extended_community_seg_nh_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-ospf-area-sets', REFERENCE_CLASS, 'PrependOspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependOspfAreaSets', 
+                [], [], 
+                '''                Information about OSPF Area sets
+                ''',
+                'prepend_ospf_area_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('rd-sets', REFERENCE_CLASS, 'RdSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RdSets', 
+                [], [], 
+                '''                Information about RD sets
+                ''',
+                'rd_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-extended-community-opaque-sets', REFERENCE_CLASS, 'RemoveExtendedCommunityOpaqueSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveExtendedCommunityOpaqueSets', 
+                [], [], 
+                '''                Information about Opaque sets
+                ''',
+                'remove_extended_community_opaque_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-extended-community-seg-nh-sets', REFERENCE_CLASS, 'RemoveExtendedCommunitySegNhSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveExtendedCommunitySegNhSets', 
+                [], [], 
+                '''                Information about SegNH sets
+                ''',
+                'remove_extended_community_seg_nh_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-ospf-area-sets', REFERENCE_CLASS, 'RemoveOspfAreaSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveOspfAreaSets', 
+                [], [], 
+                '''                Information about OSPF Area sets
+                ''',
+                'remove_ospf_area_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('tag-sets', REFERENCE_CLASS, 'TagSets' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.TagSets', 
+                [], [], 
+                '''                Information about Tag sets
+                ''',
+                'tag_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             ],
             'Cisco-IOS-XR-policy-repository-cfg',
@@ -1098,6 +1098,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy',
             False, 
             [
+            _MetaInfoClassMember('editor', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                'emacs' or 'vim' or 'nano'
+                ''',
+                'editor',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Limits', 
+                [], [], 
+                '''                Limits for Routing Policy
+                ''',
+                'limits',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('route-policies', REFERENCE_CLASS, 'RoutePolicies' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.RoutePolicies', 
                 [], [], 
                 '''                All configured policies
@@ -1109,18 +1121,6 @@ _meta_table = {
                 '''                All configured sets
                 ''',
                 'sets',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Limits', 
-                [], [], 
-                '''                Limits for Routing Policy
-                ''',
-                'limits',
-                'Cisco-IOS-XR-policy-repository-cfg', False),
-            _MetaInfoClassMember('editor', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                'emacs' or 'vim' or 'nano'
-                ''',
-                'editor',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             ],
             'Cisco-IOS-XR-policy-repository-cfg',

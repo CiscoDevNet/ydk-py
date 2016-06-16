@@ -26,7 +26,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -74,42 +74,15 @@ class NvSatellites(object):
         	Satellite User
         	**type**\: :py:class:`ConnectionInfo <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
         
-        .. attribute:: redundancy
-        
-        	Redundancy submode
-        	**type**\: :py:class:`Redundancy <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
-        
-        .. attribute:: vrf
-        
-        	VRF for Satellite IP Address
-        	**type**\: str
-        
-        .. attribute:: upgrade_on_connect
-        
-        	Satellite Upgrade on Connection
-        	**type**\: int
-        
-        	**range:** 0..255
-        
-        .. attribute:: device_name
-        
-        	Satellite Name
-        	**type**\: str
-        
         .. attribute:: description
         
         	Satellite Description
         	**type**\: str
         
-        .. attribute:: type
+        .. attribute:: device_name
         
-        	Satellite Type
+        	Satellite Name
         	**type**\: str
-        
-        .. attribute:: enable
-        
-        	Enable
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: disc_timeout
         
@@ -118,17 +91,10 @@ class NvSatellites(object):
         
         	**range:** 0..4294967295
         
-        .. attribute:: serial_number
+        .. attribute:: enable
         
-        	Satellite Serial Number
-        	**type**\: str
-        
-        .. attribute:: secret
-        
-        	Encrypted password for the Satellite
-        	**type**\: str
-        
-        	**pattern:** (!.+)\|([^!].+)
+        	Enable
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: ip_address
         
@@ -147,6 +113,40 @@ class NvSatellites(object):
         
         
         ----
+        .. attribute:: redundancy
+        
+        	Redundancy submode
+        	**type**\: :py:class:`Redundancy <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
+        
+        .. attribute:: secret
+        
+        	Encrypted password for the Satellite
+        	**type**\: str
+        
+        	**pattern:** (!.+)\|([^!].+)
+        
+        .. attribute:: serial_number
+        
+        	Satellite Serial Number
+        	**type**\: str
+        
+        .. attribute:: type
+        
+        	Satellite Type
+        	**type**\: str
+        
+        .. attribute:: upgrade_on_connect
+        
+        	Satellite Upgrade on Connection
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        .. attribute:: vrf
+        
+        	VRF for Satellite IP Address
+        	**type**\: str
+        
         
 
         """
@@ -161,18 +161,18 @@ class NvSatellites(object):
             self.candidate_fabric_ports.parent = self
             self.connection_info = NvSatellites.NvSatellite.ConnectionInfo()
             self.connection_info.parent = self
+            self.description = None
+            self.device_name = None
+            self.disc_timeout = None
+            self.enable = None
+            self.ip_address = None
             self.redundancy = NvSatellites.NvSatellite.Redundancy()
             self.redundancy.parent = self
-            self.vrf = None
-            self.upgrade_on_connect = None
-            self.device_name = None
-            self.description = None
-            self.type = None
-            self.enable = None
-            self.disc_timeout = None
-            self.serial_number = None
             self.secret = None
-            self.ip_address = None
+            self.serial_number = None
+            self.type = None
+            self.upgrade_on_connect = None
+            self.vrf = None
 
 
         class CandidateFabricPorts(object):
@@ -247,13 +247,13 @@ class NvSatellites(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.port_type is None:
-                        raise YPYDataValidationError('Key property port_type is None')
+                        raise YPYModelError('Key property port_type is None')
                     if self.slot is None:
-                        raise YPYDataValidationError('Key property slot is None')
+                        raise YPYModelError('Key property slot is None')
                     if self.sub_slot is None:
-                        raise YPYDataValidationError('Key property sub_slot is None')
+                        raise YPYModelError('Key property sub_slot is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:candidate-fabric-port[Cisco-IOS-XR-icpe-infra-cfg:port-type = ' + str(self.port_type) + '][Cisco-IOS-XR-icpe-infra-cfg:slot = ' + str(self.slot) + '][Cisco-IOS-XR-icpe-infra-cfg:sub-slot = ' + str(self.sub_slot) + ']'
 
@@ -286,7 +286,7 @@ class NvSatellites(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:candidate-fabric-ports'
 
@@ -314,17 +314,17 @@ class NvSatellites(object):
             """
             Satellite User
             
-            .. attribute:: username
-            
-            	Satellite Username
-            	**type**\: str
-            
             .. attribute:: password
             
             	Encrypted password for the user
             	**type**\: str
             
             	**pattern:** (!.+)\|([^!].+)
+            
+            .. attribute:: username
+            
+            	Satellite Username
+            	**type**\: str
             
             
 
@@ -335,13 +335,13 @@ class NvSatellites(object):
 
             def __init__(self):
                 self.parent = None
-                self.username = None
                 self.password = None
+                self.username = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:connection-info'
 
@@ -352,10 +352,10 @@ class NvSatellites(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.username is not None:
+                if self.password is not None:
                     return True
 
-                if self.password is not None:
+                if self.username is not None:
                     return True
 
                 return False
@@ -391,7 +391,7 @@ class NvSatellites(object):
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:redundancy'
 
@@ -415,7 +415,7 @@ class NvSatellites(object):
         @property
         def _common_path(self):
             if self.satellite_id is None:
-                raise YPYDataValidationError('Key property satellite_id is None')
+                raise YPYModelError('Key property satellite_id is None')
 
             return '/Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite[Cisco-IOS-XR-icpe-infra-cfg:satellite-id = ' + str(self.satellite_id) + ']'
 
@@ -435,37 +435,37 @@ class NvSatellites(object):
             if self.connection_info is not None and self.connection_info._has_data():
                 return True
 
-            if self.redundancy is not None and self.redundancy._has_data():
-                return True
-
-            if self.vrf is not None:
-                return True
-
-            if self.upgrade_on_connect is not None:
+            if self.description is not None:
                 return True
 
             if self.device_name is not None:
                 return True
 
-            if self.description is not None:
-                return True
-
-            if self.type is not None:
+            if self.disc_timeout is not None:
                 return True
 
             if self.enable is not None:
                 return True
 
-            if self.disc_timeout is not None:
+            if self.ip_address is not None:
                 return True
 
-            if self.serial_number is not None:
+            if self.redundancy is not None and self.redundancy._has_data():
                 return True
 
             if self.secret is not None:
                 return True
 
-            if self.ip_address is not None:
+            if self.serial_number is not None:
+                return True
+
+            if self.type is not None:
+                return True
+
+            if self.upgrade_on_connect is not None:
+                return True
+
+            if self.vrf is not None:
                 return True
 
             return False

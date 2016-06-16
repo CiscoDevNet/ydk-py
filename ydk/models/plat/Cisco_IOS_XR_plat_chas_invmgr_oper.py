@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -886,15 +886,15 @@ class Platform(object):
                     	Table of Instances
                     	**type**\: :py:class:`Instances <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
                     
-                    .. attribute:: vm
-                    
-                    	VM information
-                    	**type**\: :py:class:`Vm <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
-                    
                     .. attribute:: state
                     
                     	State information
                     	**type**\: :py:class:`State <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.State>`
+                    
+                    .. attribute:: vm
+                    
+                    	VM information
+                    	**type**\: :py:class:`Vm <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
                     
                     
 
@@ -908,10 +908,10 @@ class Platform(object):
                         self.slot_name = None
                         self.instances = Platform.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
-                        self.vm = Platform.Racks.Rack.Slots.Slot.Vm()
-                        self.vm.parent = self
                         self.state = Platform.Racks.Rack.Slots.Slot.State()
                         self.state.parent = self
+                        self.vm = Platform.Racks.Rack.Slots.Slot.Vm()
+                        self.vm.parent = self
 
 
                     class Instances(object):
@@ -969,9 +969,9 @@ class Platform(object):
                                 """
                                 State information
                                 
-                                .. attribute:: card_type
+                                .. attribute:: admin_state
                                 
-                                	Card type
+                                	Admin state
                                 	**type**\: str
                                 
                                 .. attribute:: card_redundancy_state
@@ -979,15 +979,10 @@ class Platform(object):
                                 	Redundancy state
                                 	**type**\: :py:class:`CardRedundancyStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                                 
-                                .. attribute:: plim
+                                .. attribute:: card_type
                                 
-                                	PLIM
+                                	Card type
                                 	**type**\: str
-                                
-                                .. attribute:: state
-                                
-                                	State
-                                	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                                 
                                 .. attribute:: is_monitored
                                 
@@ -1004,10 +999,15 @@ class Platform(object):
                                 	True if shutdown state is active
                                 	**type**\: bool
                                 
-                                .. attribute:: admin_state
+                                .. attribute:: plim
                                 
-                                	Admin state
+                                	PLIM
                                 	**type**\: str
+                                
+                                .. attribute:: state
+                                
+                                	State
+                                	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                                 
                                 
 
@@ -1018,19 +1018,19 @@ class Platform(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.card_type = None
+                                    self.admin_state = None
                                     self.card_redundancy_state = None
-                                    self.plim = None
-                                    self.state = None
+                                    self.card_type = None
                                     self.is_monitored = None
                                     self.is_powered = None
                                     self.is_shutdown = None
-                                    self.admin_state = None
+                                    self.plim = None
+                                    self.state = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:state'
 
@@ -1041,16 +1041,13 @@ class Platform(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.card_type is not None:
+                                    if self.admin_state is not None:
                                         return True
 
                                     if self.card_redundancy_state is not None:
                                         return True
 
-                                    if self.plim is not None:
-                                        return True
-
-                                    if self.state is not None:
+                                    if self.card_type is not None:
                                         return True
 
                                     if self.is_monitored is not None:
@@ -1062,7 +1059,10 @@ class Platform(object):
                                     if self.is_shutdown is not None:
                                         return True
 
-                                    if self.admin_state is not None:
+                                    if self.plim is not None:
+                                        return True
+
+                                    if self.state is not None:
                                         return True
 
                                     return False
@@ -1075,9 +1075,9 @@ class Platform(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.instance_name is None:
-                                    raise YPYDataValidationError('Key property instance_name is None')
+                                    raise YPYModelError('Key property instance_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:instance[Cisco-IOS-XR-plat-chas-invmgr-oper:instance-name = ' + str(self.instance_name) + ']'
 
@@ -1104,7 +1104,7 @@ class Platform(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:instances'
 
@@ -1137,9 +1137,9 @@ class Platform(object):
                         	Node Type
                         	**type**\: str
                         
-                        .. attribute:: red_role
+                        .. attribute:: node_ip
                         
-                        	Node Redundency Role
+                        	Node IP Address
                         	**type**\: str
                         
                         .. attribute:: partner_name
@@ -1147,14 +1147,14 @@ class Platform(object):
                         	Partner Name
                         	**type**\: str
                         
+                        .. attribute:: red_role
+                        
+                        	Node Redundency Role
+                        	**type**\: str
+                        
                         .. attribute:: software_status
                         
                         	SW status
-                        	**type**\: str
-                        
-                        .. attribute:: node_ip
-                        
-                        	Node IP Address
                         	**type**\: str
                         
                         
@@ -1167,15 +1167,15 @@ class Platform(object):
                         def __init__(self):
                             self.parent = None
                             self.node_descriptiton = None
-                            self.red_role = None
-                            self.partner_name = None
-                            self.software_status = None
                             self.node_ip = None
+                            self.partner_name = None
+                            self.red_role = None
+                            self.software_status = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:vm'
 
@@ -1189,16 +1189,16 @@ class Platform(object):
                             if self.node_descriptiton is not None:
                                 return True
 
-                            if self.red_role is not None:
+                            if self.node_ip is not None:
                                 return True
 
                             if self.partner_name is not None:
                                 return True
 
-                            if self.software_status is not None:
+                            if self.red_role is not None:
                                 return True
 
-                            if self.node_ip is not None:
+                            if self.software_status is not None:
                                 return True
 
                             return False
@@ -1213,9 +1213,9 @@ class Platform(object):
                         """
                         State information
                         
-                        .. attribute:: card_type
+                        .. attribute:: admin_state
                         
-                        	Card type
+                        	Admin state
                         	**type**\: str
                         
                         .. attribute:: card_redundancy_state
@@ -1223,15 +1223,10 @@ class Platform(object):
                         	Redundancy state
                         	**type**\: :py:class:`CardRedundancyStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                         
-                        .. attribute:: plim
+                        .. attribute:: card_type
                         
-                        	PLIM
+                        	Card type
                         	**type**\: str
-                        
-                        .. attribute:: state
-                        
-                        	State
-                        	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                         
                         .. attribute:: is_monitored
                         
@@ -1248,10 +1243,15 @@ class Platform(object):
                         	True if shutdown state is active
                         	**type**\: bool
                         
-                        .. attribute:: admin_state
+                        .. attribute:: plim
                         
-                        	Admin state
+                        	PLIM
                         	**type**\: str
+                        
+                        .. attribute:: state
+                        
+                        	State
+                        	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                         
                         
 
@@ -1262,19 +1262,19 @@ class Platform(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.card_type = None
+                            self.admin_state = None
                             self.card_redundancy_state = None
-                            self.plim = None
-                            self.state = None
+                            self.card_type = None
                             self.is_monitored = None
                             self.is_powered = None
                             self.is_shutdown = None
-                            self.admin_state = None
+                            self.plim = None
+                            self.state = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:state'
 
@@ -1285,16 +1285,13 @@ class Platform(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.card_type is not None:
+                            if self.admin_state is not None:
                                 return True
 
                             if self.card_redundancy_state is not None:
                                 return True
 
-                            if self.plim is not None:
-                                return True
-
-                            if self.state is not None:
+                            if self.card_type is not None:
                                 return True
 
                             if self.is_monitored is not None:
@@ -1306,7 +1303,10 @@ class Platform(object):
                             if self.is_shutdown is not None:
                                 return True
 
-                            if self.admin_state is not None:
+                            if self.plim is not None:
+                                return True
+
+                            if self.state is not None:
                                 return True
 
                             return False
@@ -1319,9 +1319,9 @@ class Platform(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.slot_name is None:
-                            raise YPYDataValidationError('Key property slot_name is None')
+                            raise YPYModelError('Key property slot_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:slot[Cisco-IOS-XR-plat-chas-invmgr-oper:slot-name = ' + str(self.slot_name) + ']'
 
@@ -1338,10 +1338,10 @@ class Platform(object):
                         if self.instances is not None and self.instances._has_data():
                             return True
 
-                        if self.vm is not None and self.vm._has_data():
+                        if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state._has_data():
+                        if self.vm is not None and self.vm._has_data():
                             return True
 
                         return False
@@ -1354,7 +1354,7 @@ class Platform(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:slots'
 
@@ -1380,7 +1380,7 @@ class Platform(object):
             @property
             def _common_path(self):
                 if self.rack_name is None:
-                    raise YPYDataValidationError('Key property rack_name is None')
+                    raise YPYModelError('Key property rack_name is None')
 
                 return '/Cisco-IOS-XR-plat-chas-invmgr-oper:platform/Cisco-IOS-XR-plat-chas-invmgr-oper:racks/Cisco-IOS-XR-plat-chas-invmgr-oper:rack[Cisco-IOS-XR-plat-chas-invmgr-oper:rack-name = ' + str(self.rack_name) + ']'
 
@@ -1506,15 +1506,15 @@ class PlatformInventory(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: slots
-            
-            	Table of slots
-            	**type**\: :py:class:`Slots <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
-            
             .. attribute:: attributes
             
             	Attributes
             	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes>`
+            
+            .. attribute:: slots
+            
+            	Table of slots
+            	**type**\: :py:class:`Slots <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
             
             
 
@@ -1526,10 +1526,10 @@ class PlatformInventory(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
-                self.slots = PlatformInventory.Racks.Rack.Slots()
-                self.slots.parent = self
                 self.attributes = PlatformInventory.Racks.Rack.Attributes()
                 self.attributes.parent = self
+                self.slots = PlatformInventory.Racks.Rack.Slots()
+                self.slots.parent = self
 
 
             class Slots(object):
@@ -1566,15 +1566,15 @@ class PlatformInventory(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: cards
-                    
-                    	Table of cards
-                    	**type**\: :py:class:`Cards <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
-                    
                     .. attribute:: attributes
                     
                     	Attributes
                     	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
+                    
+                    .. attribute:: cards
+                    
+                    	Table of cards
+                    	**type**\: :py:class:`Cards <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
                     
                     
 
@@ -1586,10 +1586,10 @@ class PlatformInventory(object):
                     def __init__(self):
                         self.parent = None
                         self.name = None
-                        self.cards = PlatformInventory.Racks.Rack.Slots.Slot.Cards()
-                        self.cards.parent = self
                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Attributes()
                         self.attributes.parent = self
+                        self.cards = PlatformInventory.Racks.Rack.Slots.Slot.Cards()
+                        self.cards.parent = self
 
 
                     class Cards(object):
@@ -1626,20 +1626,15 @@ class PlatformInventory(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: portses
+                            .. attribute:: attributes
                             
-                            	Table of spirit port slots
-                            	**type**\: :py:class:`Portses <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
+                            	Attributes
+                            	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
                             
                             .. attribute:: hardware_information
                             
                             	HardwareInformationDir
                             	**type**\: :py:class:`HardwareInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
-                            
-                            .. attribute:: sub_slots
-                            
-                            	Table of subslots
-                            	**type**\: :py:class:`SubSlots <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
                             
                             .. attribute:: hw_components
                             
@@ -1651,15 +1646,20 @@ class PlatformInventory(object):
                             	Table of port slots
                             	**type**\: :py:class:`PortSlots <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
                             
+                            .. attribute:: portses
+                            
+                            	Table of spirit port slots
+                            	**type**\: :py:class:`Portses <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
+                            
                             .. attribute:: sensors
                             
                             	Table of sensors
                             	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
                             
-                            .. attribute:: attributes
+                            .. attribute:: sub_slots
                             
-                            	Attributes
-                            	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
+                            	Table of subslots
+                            	**type**\: :py:class:`SubSlots <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
                             
                             
 
@@ -1671,20 +1671,20 @@ class PlatformInventory(object):
                             def __init__(self):
                                 self.parent = None
                                 self.name = None
-                                self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses()
-                                self.portses.parent = self
+                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes()
+                                self.attributes.parent = self
                                 self.hardware_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation()
                                 self.hardware_information.parent = self
-                                self.sub_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots()
-                                self.sub_slots.parent = self
                                 self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents()
                                 self.hw_components.parent = self
                                 self.port_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots()
                                 self.port_slots.parent = self
+                                self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses()
+                                self.portses.parent = self
                                 self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors()
                                 self.sensors.parent = self
-                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes()
-                                self.attributes.parent = self
+                                self.sub_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots()
+                                self.sub_slots.parent = self
 
 
                             class Portses(object):
@@ -1773,13 +1773,6 @@ class PlatformInventory(object):
                                             """
                                             Entity attributes
                                             
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\: str
-                                            
-                                            	**range:** 0..255
-                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
@@ -1787,9 +1780,9 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: model_name
+                                            .. attribute:: firmware_revision
                                             
-                                            	model name
+                                            	firmware revision string
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -1801,16 +1794,28 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: serial_number
+                                            .. attribute:: is_field_replaceable_unit
                                             
-                                            	serial number
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
                                             	**type**\: str
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: firmware_revision
+                                            .. attribute:: name
                                             
-                                            	firmware revision string
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -1829,11 +1834,6 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -1843,20 +1843,20 @@ class PlatformInventory(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.name = None
                                                 self.description = None
-                                                self.model_name = None
-                                                self.hardware_revision = None
-                                                self.serial_number = None
                                                 self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
                                                 self.software_revision = None
                                                 self.vendor_type = None
-                                                self.is_field_replaceable_unit = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -1867,31 +1867,31 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.name is not None:
-                                                    return True
-
                                                 if self.description is not None:
                                                     return True
 
-                                                if self.model_name is not None:
+                                                if self.firmware_revision is not None:
                                                     return True
 
                                                 if self.hardware_revision is not None:
                                                     return True
 
-                                                if self.serial_number is not None:
+                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
-                                                if self.firmware_revision is not None:
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
                                                     return True
 
                                                 if self.software_revision is not None:
                                                     return True
 
                                                 if self.vendor_type is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
                                                 return False
@@ -1911,35 +1911,35 @@ class PlatformInventory(object):
                                             	Time operational state is   last changed
                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                             
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
-                                            
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -1952,29 +1952,29 @@ class PlatformInventory(object):
                                                 self.parent = None
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_operational_state = None
-                                                self.module_monitor_state = None
-                                                self.module_reset_reason = None
 
 
                                             class LastOperationalStateChange(object):
                                                 """
                                                 Time operational state is   last changed
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -1988,13 +1988,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -2005,10 +2005,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -2023,16 +2023,16 @@ class PlatformInventory(object):
                                                 """
                                                 Module up time
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -2046,13 +2046,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -2063,10 +2063,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -2079,7 +2079,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -2093,22 +2093,22 @@ class PlatformInventory(object):
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
                                                 if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
                                                     return True
 
                                                 if self.module_monitor_state is not None:
                                                     return True
 
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
                                                 if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
                                                 return False
@@ -2121,7 +2121,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -2148,9 +2148,9 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.name is None:
-                                            raise YPYDataValidationError('Key property name is None')
+                                            raise YPYModelError('Key property name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:ports[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -2177,7 +2177,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:portses'
 
@@ -2205,16 +2205,6 @@ class PlatformInventory(object):
                                 """
                                 HardwareInformationDir
                                 
-                                .. attribute:: processor_information
-                                
-                                	ProcesorInformation
-                                	**type**\: :py:class:`ProcessorInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
-                                
-                                .. attribute:: motherboard_information
-                                
-                                	MotherboardInformation
-                                	**type**\: :py:class:`MotherboardInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
-                                
                                 .. attribute:: bootflash_information
                                 
                                 	BootflashInformation
@@ -2225,6 +2215,16 @@ class PlatformInventory(object):
                                 	DiskInformation
                                 	**type**\: :py:class:`DiskInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
                                 
+                                .. attribute:: motherboard_information
+                                
+                                	MotherboardInformation
+                                	**type**\: :py:class:`MotherboardInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
+                                
+                                .. attribute:: processor_information
+                                
+                                	ProcesorInformation
+                                	**type**\: :py:class:`ProcessorInformation <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
+                                
                                 
 
                                 """
@@ -2234,14 +2234,14 @@ class PlatformInventory(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.processor_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation()
-                                    self.processor_information.parent = self
-                                    self.motherboard_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation()
-                                    self.motherboard_information.parent = self
                                     self.bootflash_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation()
                                     self.bootflash_information.parent = self
                                     self.disk_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation()
                                     self.disk_information.parent = self
+                                    self.motherboard_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation()
+                                    self.motherboard_information.parent = self
+                                    self.processor_information = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation()
+                                    self.processor_information.parent = self
 
 
                                 class ProcessorInformation(object):
@@ -2255,16 +2255,16 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: speed
+                                    .. attribute:: revision
                                     
-                                    	Speed e.g. 1197Mhz
+                                    	Revision. e.g 1.1
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: revision
+                                    .. attribute:: speed
                                     
-                                    	Revision. e.g 1.1
+                                    	Speed e.g. 1197Mhz
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2279,13 +2279,13 @@ class PlatformInventory(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.processor_type = None
-                                        self.speed = None
                                         self.revision = None
+                                        self.speed = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:processor-information'
 
@@ -2299,10 +2299,10 @@ class PlatformInventory(object):
                                         if self.processor_type is not None:
                                             return True
 
-                                        if self.speed is not None:
+                                        if self.revision is not None:
                                             return True
 
-                                        if self.revision is not None:
+                                        if self.speed is not None:
                                             return True
 
                                         return False
@@ -2317,34 +2317,34 @@ class PlatformInventory(object):
                                     """
                                     MotherboardInformation
                                     
-                                    .. attribute:: rom
-                                    
-                                    	ROM information
-                                    	**type**\: :py:class:`Rom <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
-                                    
                                     .. attribute:: bootflash
                                     
                                     	Bootflash information
                                     	**type**\: :py:class:`Bootflash <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
                                     
-                                    .. attribute:: processor
-                                    
-                                    	Processor information
-                                    	**type**\: :py:class:`Processor <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
-                                    
                                     .. attribute:: main_memory_size
                                     
                                     	Memory size in bytes
-                                    	**type**\: int
+                                    	**type**\: long
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: nvram_size
                                     
                                     	NVRAM size in bytes
-                                    	**type**\: int
+                                    	**type**\: long
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: processor
+                                    
+                                    	Processor information
+                                    	**type**\: :py:class:`Processor <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
+                                    
+                                    .. attribute:: rom
+                                    
+                                    	ROM information
+                                    	**type**\: :py:class:`Rom <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
                                     
                                     
 
@@ -2355,14 +2355,14 @@ class PlatformInventory(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.rom = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom()
-                                        self.rom.parent = self
                                         self.bootflash = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash()
                                         self.bootflash.parent = self
-                                        self.processor = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor()
-                                        self.processor.parent = self
                                         self.main_memory_size = None
                                         self.nvram_size = None
+                                        self.processor = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor()
+                                        self.processor.parent = self
+                                        self.rom = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom()
+                                        self.rom.parent = self
 
 
                                     class Rom(object):
@@ -2383,19 +2383,19 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: minor_version
-                                        
-                                        	Minor version
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
                                         .. attribute:: micro_image_version
                                         
                                         	Micro image version
                                         	**type**\: str
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: minor_version
+                                        
+                                        	Minor version
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: platform_specific
                                         
@@ -2422,15 +2422,15 @@ class PlatformInventory(object):
                                             self.parent = None
                                             self.image_name = None
                                             self.major_version = None
-                                            self.minor_version = None
                                             self.micro_image_version = None
+                                            self.minor_version = None
                                             self.platform_specific = None
                                             self.release_type = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:rom'
 
@@ -2447,10 +2447,10 @@ class PlatformInventory(object):
                                             if self.major_version is not None:
                                                 return True
 
-                                            if self.minor_version is not None:
+                                            if self.micro_image_version is not None:
                                                 return True
 
-                                            if self.micro_image_version is not None:
+                                            if self.minor_version is not None:
                                                 return True
 
                                             if self.platform_specific is not None:
@@ -2471,16 +2471,23 @@ class PlatformInventory(object):
                                         """
                                         Bootflash information
                                         
-                                        .. attribute:: image_name
+                                        .. attribute:: bootflash_size
                                         
-                                        	Image name
+                                        	Bootflash size in kilo\-bytes
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: bootflash_type
+                                        
+                                        	Bootflash type e.g. SIMM
                                         	**type**\: str
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: platform_type
+                                        .. attribute:: image_name
                                         
-                                        	Platform Type
+                                        	Image name
                                         	**type**\: str
                                         
                                         	**range:** 0..255
@@ -2492,13 +2499,6 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: minor_version
-                                        
-                                        	Minor version
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
                                         .. attribute:: micro_image_version
                                         
                                         	Micro image version
@@ -2506,9 +2506,23 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..255
                                         
+                                        .. attribute:: minor_version
+                                        
+                                        	Minor version
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
                                         .. attribute:: platform_specific
                                         
                                         	Platform specific text
+                                        	**type**\: str
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: platform_type
+                                        
+                                        	Platform Type
                                         	**type**\: str
                                         
                                         	**range:** 0..255
@@ -2519,20 +2533,6 @@ class PlatformInventory(object):
                                         	**type**\: str
                                         
                                         	**range:** 0..255
-                                        
-                                        .. attribute:: bootflash_type
-                                        
-                                        	Bootflash type e.g. SIMM
-                                        	**type**\: str
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: bootflash_size
-                                        
-                                        	Bootflash size in kilo\-bytes
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: sector_size
                                         
@@ -2550,21 +2550,21 @@ class PlatformInventory(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.image_name = None
-                                            self.platform_type = None
-                                            self.major_version = None
-                                            self.minor_version = None
-                                            self.micro_image_version = None
-                                            self.platform_specific = None
-                                            self.release_type = None
-                                            self.bootflash_type = None
                                             self.bootflash_size = None
+                                            self.bootflash_type = None
+                                            self.image_name = None
+                                            self.major_version = None
+                                            self.micro_image_version = None
+                                            self.minor_version = None
+                                            self.platform_specific = None
+                                            self.platform_type = None
+                                            self.release_type = None
                                             self.sector_size = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:bootflash'
 
@@ -2575,31 +2575,31 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.image_name is not None:
-                                                return True
-
-                                            if self.platform_type is not None:
-                                                return True
-
-                                            if self.major_version is not None:
-                                                return True
-
-                                            if self.minor_version is not None:
-                                                return True
-
-                                            if self.micro_image_version is not None:
-                                                return True
-
-                                            if self.platform_specific is not None:
-                                                return True
-
-                                            if self.release_type is not None:
+                                            if self.bootflash_size is not None:
                                                 return True
 
                                             if self.bootflash_type is not None:
                                                 return True
 
-                                            if self.bootflash_size is not None:
+                                            if self.image_name is not None:
+                                                return True
+
+                                            if self.major_version is not None:
+                                                return True
+
+                                            if self.micro_image_version is not None:
+                                                return True
+
+                                            if self.minor_version is not None:
+                                                return True
+
+                                            if self.platform_specific is not None:
+                                                return True
+
+                                            if self.platform_type is not None:
+                                                return True
+
+                                            if self.release_type is not None:
                                                 return True
 
                                             if self.sector_size is not None:
@@ -2624,16 +2624,16 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: speed
+                                        .. attribute:: revision
                                         
-                                        	Speed e.g. 1197Mhz
+                                        	Revision. e.g 1.1
                                         	**type**\: str
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: revision
+                                        .. attribute:: speed
                                         
-                                        	Revision. e.g 1.1
+                                        	Speed e.g. 1197Mhz
                                         	**type**\: str
                                         
                                         	**range:** 0..255
@@ -2648,13 +2648,13 @@ class PlatformInventory(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.processor_type = None
-                                            self.speed = None
                                             self.revision = None
+                                            self.speed = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:processor'
 
@@ -2668,10 +2668,10 @@ class PlatformInventory(object):
                                             if self.processor_type is not None:
                                                 return True
 
-                                            if self.speed is not None:
+                                            if self.revision is not None:
                                                 return True
 
-                                            if self.revision is not None:
+                                            if self.speed is not None:
                                                 return True
 
                                             return False
@@ -2684,7 +2684,7 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:motherboard-information'
 
@@ -2695,19 +2695,19 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.rom is not None and self.rom._has_data():
-                                            return True
-
                                         if self.bootflash is not None and self.bootflash._has_data():
-                                            return True
-
-                                        if self.processor is not None and self.processor._has_data():
                                             return True
 
                                         if self.main_memory_size is not None:
                                             return True
 
                                         if self.nvram_size is not None:
+                                            return True
+
+                                        if self.processor is not None and self.processor._has_data():
+                                            return True
+
+                                        if self.rom is not None and self.rom._has_data():
                                             return True
 
                                         return False
@@ -2722,16 +2722,23 @@ class PlatformInventory(object):
                                     """
                                     BootflashInformation
                                     
-                                    .. attribute:: image_name
+                                    .. attribute:: bootflash_size
                                     
-                                    	Image name
+                                    	Bootflash size in kilo\-bytes
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: bootflash_type
+                                    
+                                    	Bootflash type e.g. SIMM
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: platform_type
+                                    .. attribute:: image_name
                                     
-                                    	Platform Type
+                                    	Image name
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2743,13 +2750,6 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: minor_version
-                                    
-                                    	Minor version
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: micro_image_version
                                     
                                     	Micro image version
@@ -2757,9 +2757,23 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..255
                                     
+                                    .. attribute:: minor_version
+                                    
+                                    	Minor version
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: platform_specific
                                     
                                     	Platform specific text
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: platform_type
+                                    
+                                    	Platform Type
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -2770,20 +2784,6 @@ class PlatformInventory(object):
                                     	**type**\: str
                                     
                                     	**range:** 0..255
-                                    
-                                    .. attribute:: bootflash_type
-                                    
-                                    	Bootflash type e.g. SIMM
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: bootflash_size
-                                    
-                                    	Bootflash size in kilo\-bytes
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: sector_size
                                     
@@ -2801,21 +2801,21 @@ class PlatformInventory(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.image_name = None
-                                        self.platform_type = None
-                                        self.major_version = None
-                                        self.minor_version = None
-                                        self.micro_image_version = None
-                                        self.platform_specific = None
-                                        self.release_type = None
-                                        self.bootflash_type = None
                                         self.bootflash_size = None
+                                        self.bootflash_type = None
+                                        self.image_name = None
+                                        self.major_version = None
+                                        self.micro_image_version = None
+                                        self.minor_version = None
+                                        self.platform_specific = None
+                                        self.platform_type = None
+                                        self.release_type = None
                                         self.sector_size = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:bootflash-information'
 
@@ -2826,31 +2826,31 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.image_name is not None:
-                                            return True
-
-                                        if self.platform_type is not None:
-                                            return True
-
-                                        if self.major_version is not None:
-                                            return True
-
-                                        if self.minor_version is not None:
-                                            return True
-
-                                        if self.micro_image_version is not None:
-                                            return True
-
-                                        if self.platform_specific is not None:
-                                            return True
-
-                                        if self.release_type is not None:
+                                        if self.bootflash_size is not None:
                                             return True
 
                                         if self.bootflash_type is not None:
                                             return True
 
-                                        if self.bootflash_size is not None:
+                                        if self.image_name is not None:
+                                            return True
+
+                                        if self.major_version is not None:
+                                            return True
+
+                                        if self.micro_image_version is not None:
+                                            return True
+
+                                        if self.minor_version is not None:
+                                            return True
+
+                                        if self.platform_specific is not None:
+                                            return True
+
+                                        if self.platform_type is not None:
+                                            return True
+
+                                        if self.release_type is not None:
                                             return True
 
                                         if self.sector_size is not None:
@@ -2882,17 +2882,17 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: disks
+                                    
+                                    	Disk attributes
+                                    	**type**\: list of :py:class:`Disks <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
+                                    
                                     .. attribute:: sector_size
                                     
                                     	(Deprecated) Disk sector size in bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
-                                    
-                                    .. attribute:: disks
-                                    
-                                    	Disk attributes
-                                    	**type**\: list of :py:class:`Disks <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
                                     
                                     
 
@@ -2905,10 +2905,10 @@ class PlatformInventory(object):
                                         self.parent = None
                                         self.disk_name = None
                                         self.disk_size = None
-                                        self.sector_size = None
                                         self.disks = YList()
                                         self.disks.parent = self
                                         self.disks.name = 'disks'
+                                        self.sector_size = None
 
 
                                     class Disks(object):
@@ -2952,7 +2952,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:disks'
 
@@ -2982,7 +2982,7 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:disk-information'
 
@@ -2999,13 +2999,13 @@ class PlatformInventory(object):
                                         if self.disk_size is not None:
                                             return True
 
-                                        if self.sector_size is not None:
-                                            return True
-
                                         if self.disks is not None:
                                             for child_ref in self.disks:
                                                 if child_ref._has_data():
                                                     return True
+
+                                        if self.sector_size is not None:
+                                            return True
 
                                         return False
 
@@ -3017,7 +3017,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hardware-information'
 
@@ -3028,16 +3028,16 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.processor_information is not None and self.processor_information._has_data():
+                                    if self.bootflash_information is not None and self.bootflash_information._has_data():
+                                        return True
+
+                                    if self.disk_information is not None and self.disk_information._has_data():
                                         return True
 
                                     if self.motherboard_information is not None and self.motherboard_information._has_data():
                                         return True
 
-                                    if self.bootflash_information is not None and self.bootflash_information._has_data():
-                                        return True
-
-                                    if self.disk_information is not None and self.disk_information._has_data():
+                                    if self.processor_information is not None and self.processor_information._has_data():
                                         return True
 
                                     return False
@@ -3082,15 +3082,15 @@ class PlatformInventory(object):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
-                                    .. attribute:: module
-                                    
-                                    	Module of a subslot
-                                    	**type**\: :py:class:`Module <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
-                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
+                                    
+                                    .. attribute:: module
+                                    
+                                    	Module of a subslot
+                                    	**type**\: :py:class:`Module <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
                                     
                                     
 
@@ -3102,15 +3102,20 @@ class PlatformInventory(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.name = None
-                                        self.module = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module()
-                                        self.module.parent = self
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes()
                                         self.attributes.parent = self
+                                        self.module = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module()
+                                        self.module.parent = self
 
 
                                     class Module(object):
                                         """
                                         Module of a subslot
+                                        
+                                        .. attribute:: attributes
+                                        
+                                        	Attributes
+                                        	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
                                         
                                         .. attribute:: port_slots
                                         
@@ -3122,11 +3127,6 @@ class PlatformInventory(object):
                                         	Table of sensors
                                         	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
                                         
-                                        .. attribute:: attributes
-                                        
-                                        	Attributes
-                                        	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
-                                        
                                         
 
                                         """
@@ -3136,12 +3136,12 @@ class PlatformInventory(object):
 
                                         def __init__(self):
                                             self.parent = None
+                                            self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes()
+                                            self.attributes.parent = self
                                             self.port_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots()
                                             self.port_slots.parent = self
                                             self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors()
                                             self.sensors.parent = self
-                                            self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes()
-                                            self.attributes.parent = self
 
 
                                         class PortSlots(object):
@@ -3178,6 +3178,11 @@ class PlatformInventory(object):
                                                 
                                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
+                                                .. attribute:: attributes
+                                                
+                                                	Attributes
+                                                	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
+                                                
                                                 .. attribute:: port
                                                 
                                                 	Port
@@ -3187,11 +3192,6 @@ class PlatformInventory(object):
                                                 
                                                 	Table of sensors
                                                 	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
-                                                
-                                                .. attribute:: attributes
-                                                
-                                                	Attributes
-                                                	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
                                                 
                                                 
 
@@ -3203,12 +3203,12 @@ class PlatformInventory(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.name = None
+                                                    self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes()
+                                                    self.attributes.parent = self
                                                     self.port = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port()
                                                     self.port.parent = self
                                                     self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors()
                                                     self.sensors.parent = self
-                                                    self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes()
-                                                    self.attributes.parent = self
 
 
                                                 class Port(object):
@@ -3266,13 +3266,6 @@ class PlatformInventory(object):
                                                             """
                                                             Entity attributes
                                                             
-                                                            .. attribute:: name
-                                                            
-                                                            	name string for the entity
-                                                            	**type**\: str
-                                                            
-                                                            	**range:** 0..255
-                                                            
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
@@ -3280,9 +3273,9 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** 0..255
                                                             
-                                                            .. attribute:: model_name
+                                                            .. attribute:: firmware_revision
                                                             
-                                                            	model name
+                                                            	firmware revision string
                                                             	**type**\: str
                                                             
                                                             	**range:** 0..255
@@ -3294,16 +3287,28 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** 0..255
                                                             
-                                                            .. attribute:: serial_number
+                                                            .. attribute:: is_field_replaceable_unit
                                                             
-                                                            	serial number
+                                                            	1 if Field Replaceable Unit 0, if not
+                                                            	**type**\: bool
+                                                            
+                                                            .. attribute:: model_name
+                                                            
+                                                            	model name
                                                             	**type**\: str
                                                             
                                                             	**range:** 0..255
                                                             
-                                                            .. attribute:: firmware_revision
+                                                            .. attribute:: name
                                                             
-                                                            	firmware revision string
+                                                            	name string for the entity
+                                                            	**type**\: str
+                                                            
+                                                            	**range:** 0..255
+                                                            
+                                                            .. attribute:: serial_number
+                                                            
+                                                            	serial number
                                                             	**type**\: str
                                                             
                                                             	**range:** 0..255
@@ -3322,11 +3327,6 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** 0..255
                                                             
-                                                            .. attribute:: is_field_replaceable_unit
-                                                            
-                                                            	1 if Field Replaceable Unit 0, if not
-                                                            	**type**\: bool
-                                                            
                                                             
 
                                                             """
@@ -3336,20 +3336,20 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.name = None
                                                                 self.description = None
-                                                                self.model_name = None
-                                                                self.hardware_revision = None
-                                                                self.serial_number = None
                                                                 self.firmware_revision = None
+                                                                self.hardware_revision = None
+                                                                self.is_field_replaceable_unit = None
+                                                                self.model_name = None
+                                                                self.name = None
+                                                                self.serial_number = None
                                                                 self.software_revision = None
                                                                 self.vendor_type = None
-                                                                self.is_field_replaceable_unit = None
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -3360,31 +3360,31 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.name is not None:
-                                                                    return True
-
                                                                 if self.description is not None:
                                                                     return True
 
-                                                                if self.model_name is not None:
+                                                                if self.firmware_revision is not None:
                                                                     return True
 
                                                                 if self.hardware_revision is not None:
                                                                     return True
 
-                                                                if self.serial_number is not None:
+                                                                if self.is_field_replaceable_unit is not None:
                                                                     return True
 
-                                                                if self.firmware_revision is not None:
+                                                                if self.model_name is not None:
+                                                                    return True
+
+                                                                if self.name is not None:
+                                                                    return True
+
+                                                                if self.serial_number is not None:
                                                                     return True
 
                                                                 if self.software_revision is not None:
                                                                     return True
 
                                                                 if self.vendor_type is not None:
-                                                                    return True
-
-                                                                if self.is_field_replaceable_unit is not None:
                                                                     return True
 
                                                                 return False
@@ -3404,35 +3404,35 @@ class PlatformInventory(object):
                                                             	Time operational state is   last changed
                                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
-                                                            .. attribute:: module_up_time
-                                                            
-                                                            	Module up time
-                                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
-                                                            
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
                                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                            
-                                                            .. attribute:: module_power_administrative_state
-                                                            
-                                                            	Power administrative state
-                                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                            
-                                                            .. attribute:: module_operational_state
-                                                            
-                                                            	Operation state
-                                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                             
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
                                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                             
+                                                            .. attribute:: module_operational_state
+                                                            
+                                                            	Operation state
+                                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                            
+                                                            .. attribute:: module_power_administrative_state
+                                                            
+                                                            	Power administrative state
+                                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                            
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
                                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                            
+                                                            .. attribute:: module_up_time
+                                                            
+                                                            	Module up time
+                                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
                                                             
                                                             
 
@@ -3445,29 +3445,29 @@ class PlatformInventory(object):
                                                                 self.parent = None
                                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange()
                                                                 self.last_operational_state_change.parent = self
+                                                                self.module_administrative_state = None
+                                                                self.module_monitor_state = None
+                                                                self.module_operational_state = None
+                                                                self.module_power_administrative_state = None
+                                                                self.module_reset_reason = None
                                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime()
                                                                 self.module_up_time.parent = self
-                                                                self.module_administrative_state = None
-                                                                self.module_power_administrative_state = None
-                                                                self.module_operational_state = None
-                                                                self.module_monitor_state = None
-                                                                self.module_reset_reason = None
 
 
                                                             class LastOperationalStateChange(object):
                                                                 """
                                                                 Time operational state is   last changed
                                                                 
-                                                                .. attribute:: time_in_seconds
+                                                                .. attribute:: time_in_nano_seconds
                                                                 
-                                                                	Time Value in Seconds
+                                                                	Time Value in Nano\-seconds
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
-                                                                .. attribute:: time_in_nano_seconds
+                                                                .. attribute:: time_in_seconds
                                                                 
-                                                                	Time Value in Nano\-seconds
+                                                                	Time Value in Seconds
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
@@ -3481,13 +3481,13 @@ class PlatformInventory(object):
 
                                                                 def __init__(self):
                                                                     self.parent = None
-                                                                    self.time_in_seconds = None
                                                                     self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
 
                                                                 @property
                                                                 def _common_path(self):
                                                                     if self.parent is None:
-                                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -3498,10 +3498,10 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.time_in_seconds is not None:
+                                                                    if self.time_in_nano_seconds is not None:
                                                                         return True
 
-                                                                    if self.time_in_nano_seconds is not None:
+                                                                    if self.time_in_seconds is not None:
                                                                         return True
 
                                                                     return False
@@ -3516,16 +3516,16 @@ class PlatformInventory(object):
                                                                 """
                                                                 Module up time
                                                                 
-                                                                .. attribute:: time_in_seconds
+                                                                .. attribute:: time_in_nano_seconds
                                                                 
-                                                                	Time Value in Seconds
+                                                                	Time Value in Nano\-seconds
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
-                                                                .. attribute:: time_in_nano_seconds
+                                                                .. attribute:: time_in_seconds
                                                                 
-                                                                	Time Value in Nano\-seconds
+                                                                	Time Value in Seconds
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
@@ -3539,13 +3539,13 @@ class PlatformInventory(object):
 
                                                                 def __init__(self):
                                                                     self.parent = None
-                                                                    self.time_in_seconds = None
                                                                     self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
 
                                                                 @property
                                                                 def _common_path(self):
                                                                     if self.parent is None:
-                                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -3556,10 +3556,10 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.time_in_seconds is not None:
+                                                                    if self.time_in_nano_seconds is not None:
                                                                         return True
 
-                                                                    if self.time_in_nano_seconds is not None:
+                                                                    if self.time_in_seconds is not None:
                                                                         return True
 
                                                                     return False
@@ -3572,7 +3572,7 @@ class PlatformInventory(object):
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -3586,22 +3586,22 @@ class PlatformInventory(object):
                                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                     return True
 
-                                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                                    return True
-
                                                                 if self.module_administrative_state is not None:
-                                                                    return True
-
-                                                                if self.module_power_administrative_state is not None:
-                                                                    return True
-
-                                                                if self.module_operational_state is not None:
                                                                     return True
 
                                                                 if self.module_monitor_state is not None:
                                                                     return True
 
+                                                                if self.module_operational_state is not None:
+                                                                    return True
+
+                                                                if self.module_power_administrative_state is not None:
+                                                                    return True
+
                                                                 if self.module_reset_reason is not None:
+                                                                    return True
+
+                                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                                     return True
 
                                                                 return False
@@ -3614,7 +3614,7 @@ class PlatformInventory(object):
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -3641,7 +3641,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port'
 
@@ -3749,13 +3749,6 @@ class PlatformInventory(object):
                                                                 """
                                                                 Entity attributes
                                                                 
-                                                                .. attribute:: name
-                                                                
-                                                                	name string for the entity
-                                                                	**type**\: str
-                                                                
-                                                                	**range:** 0..255
-                                                                
                                                                 .. attribute:: description
                                                                 
                                                                 	describes in user\-readable terms                 what the entity in question does
@@ -3763,9 +3756,9 @@ class PlatformInventory(object):
                                                                 
                                                                 	**range:** 0..255
                                                                 
-                                                                .. attribute:: model_name
+                                                                .. attribute:: firmware_revision
                                                                 
-                                                                	model name
+                                                                	firmware revision string
                                                                 	**type**\: str
                                                                 
                                                                 	**range:** 0..255
@@ -3777,16 +3770,28 @@ class PlatformInventory(object):
                                                                 
                                                                 	**range:** 0..255
                                                                 
-                                                                .. attribute:: serial_number
+                                                                .. attribute:: is_field_replaceable_unit
                                                                 
-                                                                	serial number
+                                                                	1 if Field Replaceable Unit 0, if not
+                                                                	**type**\: bool
+                                                                
+                                                                .. attribute:: model_name
+                                                                
+                                                                	model name
                                                                 	**type**\: str
                                                                 
                                                                 	**range:** 0..255
                                                                 
-                                                                .. attribute:: firmware_revision
+                                                                .. attribute:: name
                                                                 
-                                                                	firmware revision string
+                                                                	name string for the entity
+                                                                	**type**\: str
+                                                                
+                                                                	**range:** 0..255
+                                                                
+                                                                .. attribute:: serial_number
+                                                                
+                                                                	serial number
                                                                 	**type**\: str
                                                                 
                                                                 	**range:** 0..255
@@ -3805,11 +3810,6 @@ class PlatformInventory(object):
                                                                 
                                                                 	**range:** 0..255
                                                                 
-                                                                .. attribute:: is_field_replaceable_unit
-                                                                
-                                                                	1 if Field Replaceable Unit 0, if not
-                                                                	**type**\: bool
-                                                                
                                                                 
 
                                                                 """
@@ -3819,20 +3819,20 @@ class PlatformInventory(object):
 
                                                                 def __init__(self):
                                                                     self.parent = None
-                                                                    self.name = None
                                                                     self.description = None
-                                                                    self.model_name = None
-                                                                    self.hardware_revision = None
-                                                                    self.serial_number = None
                                                                     self.firmware_revision = None
+                                                                    self.hardware_revision = None
+                                                                    self.is_field_replaceable_unit = None
+                                                                    self.model_name = None
+                                                                    self.name = None
+                                                                    self.serial_number = None
                                                                     self.software_revision = None
                                                                     self.vendor_type = None
-                                                                    self.is_field_replaceable_unit = None
 
                                                                 @property
                                                                 def _common_path(self):
                                                                     if self.parent is None:
-                                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -3843,31 +3843,31 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.name is not None:
-                                                                        return True
-
                                                                     if self.description is not None:
                                                                         return True
 
-                                                                    if self.model_name is not None:
+                                                                    if self.firmware_revision is not None:
                                                                         return True
 
                                                                     if self.hardware_revision is not None:
                                                                         return True
 
-                                                                    if self.serial_number is not None:
+                                                                    if self.is_field_replaceable_unit is not None:
                                                                         return True
 
-                                                                    if self.firmware_revision is not None:
+                                                                    if self.model_name is not None:
+                                                                        return True
+
+                                                                    if self.name is not None:
+                                                                        return True
+
+                                                                    if self.serial_number is not None:
                                                                         return True
 
                                                                     if self.software_revision is not None:
                                                                         return True
 
                                                                     if self.vendor_type is not None:
-                                                                        return True
-
-                                                                    if self.is_field_replaceable_unit is not None:
                                                                         return True
 
                                                                     return False
@@ -3887,35 +3887,35 @@ class PlatformInventory(object):
                                                                 	Time operational state is   last changed
                                                                 	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
-                                                                .. attribute:: module_up_time
-                                                                
-                                                                	Module up time
-                                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                                                
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
                                                                 	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                                
-                                                                .. attribute:: module_power_administrative_state
-                                                                
-                                                                	Power administrative state
-                                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                                
-                                                                .. attribute:: module_operational_state
-                                                                
-                                                                	Operation state
-                                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                                 
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
                                                                 	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                                 
+                                                                .. attribute:: module_operational_state
+                                                                
+                                                                	Operation state
+                                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                
+                                                                .. attribute:: module_power_administrative_state
+                                                                
+                                                                	Power administrative state
+                                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
                                                                 	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                
+                                                                .. attribute:: module_up_time
+                                                                
+                                                                	Module up time
+                                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                 
                                                                 
 
@@ -3928,29 +3928,29 @@ class PlatformInventory(object):
                                                                     self.parent = None
                                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                                     self.last_operational_state_change.parent = self
+                                                                    self.module_administrative_state = None
+                                                                    self.module_monitor_state = None
+                                                                    self.module_operational_state = None
+                                                                    self.module_power_administrative_state = None
+                                                                    self.module_reset_reason = None
                                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                                     self.module_up_time.parent = self
-                                                                    self.module_administrative_state = None
-                                                                    self.module_power_administrative_state = None
-                                                                    self.module_operational_state = None
-                                                                    self.module_monitor_state = None
-                                                                    self.module_reset_reason = None
 
 
                                                                 class LastOperationalStateChange(object):
                                                                     """
                                                                     Time operational state is   last changed
                                                                     
-                                                                    .. attribute:: time_in_seconds
+                                                                    .. attribute:: time_in_nano_seconds
                                                                     
-                                                                    	Time Value in Seconds
+                                                                    	Time Value in Nano\-seconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
-                                                                    .. attribute:: time_in_nano_seconds
+                                                                    .. attribute:: time_in_seconds
                                                                     
-                                                                    	Time Value in Nano\-seconds
+                                                                    	Time Value in Seconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
@@ -3964,13 +3964,13 @@ class PlatformInventory(object):
 
                                                                     def __init__(self):
                                                                         self.parent = None
-                                                                        self.time_in_seconds = None
                                                                         self.time_in_nano_seconds = None
+                                                                        self.time_in_seconds = None
 
                                                                     @property
                                                                     def _common_path(self):
                                                                         if self.parent is None:
-                                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -3981,10 +3981,10 @@ class PlatformInventory(object):
                                                                     def _has_data(self):
                                                                         if not self.is_config():
                                                                             return False
-                                                                        if self.time_in_seconds is not None:
+                                                                        if self.time_in_nano_seconds is not None:
                                                                             return True
 
-                                                                        if self.time_in_nano_seconds is not None:
+                                                                        if self.time_in_seconds is not None:
                                                                             return True
 
                                                                         return False
@@ -3999,16 +3999,16 @@ class PlatformInventory(object):
                                                                     """
                                                                     Module up time
                                                                     
-                                                                    .. attribute:: time_in_seconds
+                                                                    .. attribute:: time_in_nano_seconds
                                                                     
-                                                                    	Time Value in Seconds
+                                                                    	Time Value in Nano\-seconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
-                                                                    .. attribute:: time_in_nano_seconds
+                                                                    .. attribute:: time_in_seconds
                                                                     
-                                                                    	Time Value in Nano\-seconds
+                                                                    	Time Value in Seconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
@@ -4022,13 +4022,13 @@ class PlatformInventory(object):
 
                                                                     def __init__(self):
                                                                         self.parent = None
-                                                                        self.time_in_seconds = None
                                                                         self.time_in_nano_seconds = None
+                                                                        self.time_in_seconds = None
 
                                                                     @property
                                                                     def _common_path(self):
                                                                         if self.parent is None:
-                                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -4039,10 +4039,10 @@ class PlatformInventory(object):
                                                                     def _has_data(self):
                                                                         if not self.is_config():
                                                                             return False
-                                                                        if self.time_in_seconds is not None:
+                                                                        if self.time_in_nano_seconds is not None:
                                                                             return True
 
-                                                                        if self.time_in_nano_seconds is not None:
+                                                                        if self.time_in_seconds is not None:
                                                                             return True
 
                                                                         return False
@@ -4055,7 +4055,7 @@ class PlatformInventory(object):
                                                                 @property
                                                                 def _common_path(self):
                                                                     if self.parent is None:
-                                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -4069,22 +4069,22 @@ class PlatformInventory(object):
                                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                         return True
 
-                                                                    if self.module_up_time is not None and self.module_up_time._has_data():
-                                                                        return True
-
                                                                     if self.module_administrative_state is not None:
-                                                                        return True
-
-                                                                    if self.module_power_administrative_state is not None:
-                                                                        return True
-
-                                                                    if self.module_operational_state is not None:
                                                                         return True
 
                                                                     if self.module_monitor_state is not None:
                                                                         return True
 
+                                                                    if self.module_operational_state is not None:
+                                                                        return True
+
+                                                                    if self.module_power_administrative_state is not None:
+                                                                        return True
+
                                                                     if self.module_reset_reason is not None:
+                                                                        return True
+
+                                                                    if self.module_up_time is not None and self.module_up_time._has_data():
                                                                         return True
 
                                                                     return False
@@ -4097,7 +4097,7 @@ class PlatformInventory(object):
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -4124,9 +4124,9 @@ class PlatformInventory(object):
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
                                                             if self.name is None:
-                                                                raise YPYDataValidationError('Key property name is None')
+                                                                raise YPYModelError('Key property name is None')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -4153,7 +4153,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
@@ -4210,13 +4210,6 @@ class PlatformInventory(object):
                                                         """
                                                         Entity attributes
                                                         
-                                                        .. attribute:: name
-                                                        
-                                                        	name string for the entity
-                                                        	**type**\: str
-                                                        
-                                                        	**range:** 0..255
-                                                        
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
@@ -4224,9 +4217,9 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: model_name
+                                                        .. attribute:: firmware_revision
                                                         
-                                                        	model name
+                                                        	firmware revision string
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
@@ -4238,16 +4231,28 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: serial_number
+                                                        .. attribute:: is_field_replaceable_unit
                                                         
-                                                        	serial number
+                                                        	1 if Field Replaceable Unit 0, if not
+                                                        	**type**\: bool
+                                                        
+                                                        .. attribute:: model_name
+                                                        
+                                                        	model name
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: firmware_revision
+                                                        .. attribute:: name
                                                         
-                                                        	firmware revision string
+                                                        	name string for the entity
+                                                        	**type**\: str
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        .. attribute:: serial_number
+                                                        
+                                                        	serial number
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
@@ -4266,11 +4271,6 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: is_field_replaceable_unit
-                                                        
-                                                        	1 if Field Replaceable Unit 0, if not
-                                                        	**type**\: bool
-                                                        
                                                         
 
                                                         """
@@ -4280,20 +4280,20 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.name = None
                                                             self.description = None
-                                                            self.model_name = None
-                                                            self.hardware_revision = None
-                                                            self.serial_number = None
                                                             self.firmware_revision = None
+                                                            self.hardware_revision = None
+                                                            self.is_field_replaceable_unit = None
+                                                            self.model_name = None
+                                                            self.name = None
+                                                            self.serial_number = None
                                                             self.software_revision = None
                                                             self.vendor_type = None
-                                                            self.is_field_replaceable_unit = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -4304,31 +4304,31 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.name is not None:
-                                                                return True
-
                                                             if self.description is not None:
                                                                 return True
 
-                                                            if self.model_name is not None:
+                                                            if self.firmware_revision is not None:
                                                                 return True
 
                                                             if self.hardware_revision is not None:
                                                                 return True
 
-                                                            if self.serial_number is not None:
+                                                            if self.is_field_replaceable_unit is not None:
                                                                 return True
 
-                                                            if self.firmware_revision is not None:
+                                                            if self.model_name is not None:
+                                                                return True
+
+                                                            if self.name is not None:
+                                                                return True
+
+                                                            if self.serial_number is not None:
                                                                 return True
 
                                                             if self.software_revision is not None:
                                                                 return True
 
                                                             if self.vendor_type is not None:
-                                                                return True
-
-                                                            if self.is_field_replaceable_unit is not None:
                                                                 return True
 
                                                             return False
@@ -4348,35 +4348,35 @@ class PlatformInventory(object):
                                                         	Time operational state is   last changed
                                                         	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
-                                                        .. attribute:: module_up_time
-                                                        
-                                                        	Module up time
-                                                        	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
-                                                        
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
                                                         	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                        
-                                                        .. attribute:: module_power_administrative_state
-                                                        
-                                                        	Power administrative state
-                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                        
-                                                        .. attribute:: module_operational_state
-                                                        
-                                                        	Operation state
-                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
                                                         	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
+                                                        .. attribute:: module_operational_state
+                                                        
+                                                        	Operation state
+                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                        
+                                                        .. attribute:: module_power_administrative_state
+                                                        
+                                                        	Power administrative state
+                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                        
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
                                                         	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                        
+                                                        .. attribute:: module_up_time
+                                                        
+                                                        	Module up time
+                                                        	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         
 
@@ -4389,29 +4389,29 @@ class PlatformInventory(object):
                                                             self.parent = None
                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                             self.last_operational_state_change.parent = self
+                                                            self.module_administrative_state = None
+                                                            self.module_monitor_state = None
+                                                            self.module_operational_state = None
+                                                            self.module_power_administrative_state = None
+                                                            self.module_reset_reason = None
                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
                                                             self.module_up_time.parent = self
-                                                            self.module_administrative_state = None
-                                                            self.module_power_administrative_state = None
-                                                            self.module_operational_state = None
-                                                            self.module_monitor_state = None
-                                                            self.module_reset_reason = None
 
 
                                                         class LastOperationalStateChange(object):
                                                             """
                                                             Time operational state is   last changed
                                                             
-                                                            .. attribute:: time_in_seconds
+                                                            .. attribute:: time_in_nano_seconds
                                                             
-                                                            	Time Value in Seconds
+                                                            	Time Value in Nano\-seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
-                                                            .. attribute:: time_in_nano_seconds
+                                                            .. attribute:: time_in_seconds
                                                             
-                                                            	Time Value in Nano\-seconds
+                                                            	Time Value in Seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -4425,13 +4425,13 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.time_in_seconds = None
                                                                 self.time_in_nano_seconds = None
+                                                                self.time_in_seconds = None
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -4442,10 +4442,10 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.time_in_seconds is not None:
+                                                                if self.time_in_nano_seconds is not None:
                                                                     return True
 
-                                                                if self.time_in_nano_seconds is not None:
+                                                                if self.time_in_seconds is not None:
                                                                     return True
 
                                                                 return False
@@ -4460,16 +4460,16 @@ class PlatformInventory(object):
                                                             """
                                                             Module up time
                                                             
-                                                            .. attribute:: time_in_seconds
+                                                            .. attribute:: time_in_nano_seconds
                                                             
-                                                            	Time Value in Seconds
+                                                            	Time Value in Nano\-seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
-                                                            .. attribute:: time_in_nano_seconds
+                                                            .. attribute:: time_in_seconds
                                                             
-                                                            	Time Value in Nano\-seconds
+                                                            	Time Value in Seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -4483,13 +4483,13 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.time_in_seconds = None
                                                                 self.time_in_nano_seconds = None
+                                                                self.time_in_seconds = None
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -4500,10 +4500,10 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.time_in_seconds is not None:
+                                                                if self.time_in_nano_seconds is not None:
                                                                     return True
 
-                                                                if self.time_in_nano_seconds is not None:
+                                                                if self.time_in_seconds is not None:
                                                                     return True
 
                                                                 return False
@@ -4516,7 +4516,7 @@ class PlatformInventory(object):
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -4530,22 +4530,22 @@ class PlatformInventory(object):
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                 return True
 
-                                                            if self.module_up_time is not None and self.module_up_time._has_data():
-                                                                return True
-
                                                             if self.module_administrative_state is not None:
-                                                                return True
-
-                                                            if self.module_power_administrative_state is not None:
-                                                                return True
-
-                                                            if self.module_operational_state is not None:
                                                                 return True
 
                                                             if self.module_monitor_state is not None:
                                                                 return True
 
+                                                            if self.module_operational_state is not None:
+                                                                return True
+
+                                                            if self.module_power_administrative_state is not None:
+                                                                return True
+
                                                             if self.module_reset_reason is not None:
+                                                                return True
+
+                                                            if self.module_up_time is not None and self.module_up_time._has_data():
                                                                 return True
 
                                                             return False
@@ -4558,7 +4558,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -4585,9 +4585,9 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.name is None:
-                                                        raise YPYDataValidationError('Key property name is None')
+                                                        raise YPYModelError('Key property name is None')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -4601,13 +4601,13 @@ class PlatformInventory(object):
                                                     if self.name is not None:
                                                         return True
 
+                                                    if self.attributes is not None and self.attributes._has_data():
+                                                        return True
+
                                                     if self.port is not None and self.port._has_data():
                                                         return True
 
                                                     if self.sensors is not None and self.sensors._has_data():
-                                                        return True
-
-                                                    if self.attributes is not None and self.attributes._has_data():
                                                         return True
 
                                                     return False
@@ -4620,7 +4620,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slots'
 
@@ -4730,13 +4730,6 @@ class PlatformInventory(object):
                                                         """
                                                         Entity attributes
                                                         
-                                                        .. attribute:: name
-                                                        
-                                                        	name string for the entity
-                                                        	**type**\: str
-                                                        
-                                                        	**range:** 0..255
-                                                        
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
@@ -4744,9 +4737,9 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: model_name
+                                                        .. attribute:: firmware_revision
                                                         
-                                                        	model name
+                                                        	firmware revision string
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
@@ -4758,16 +4751,28 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: serial_number
+                                                        .. attribute:: is_field_replaceable_unit
                                                         
-                                                        	serial number
+                                                        	1 if Field Replaceable Unit 0, if not
+                                                        	**type**\: bool
+                                                        
+                                                        .. attribute:: model_name
+                                                        
+                                                        	model name
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: firmware_revision
+                                                        .. attribute:: name
                                                         
-                                                        	firmware revision string
+                                                        	name string for the entity
+                                                        	**type**\: str
+                                                        
+                                                        	**range:** 0..255
+                                                        
+                                                        .. attribute:: serial_number
+                                                        
+                                                        	serial number
                                                         	**type**\: str
                                                         
                                                         	**range:** 0..255
@@ -4786,11 +4791,6 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** 0..255
                                                         
-                                                        .. attribute:: is_field_replaceable_unit
-                                                        
-                                                        	1 if Field Replaceable Unit 0, if not
-                                                        	**type**\: bool
-                                                        
                                                         
 
                                                         """
@@ -4800,20 +4800,20 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.name = None
                                                             self.description = None
-                                                            self.model_name = None
-                                                            self.hardware_revision = None
-                                                            self.serial_number = None
                                                             self.firmware_revision = None
+                                                            self.hardware_revision = None
+                                                            self.is_field_replaceable_unit = None
+                                                            self.model_name = None
+                                                            self.name = None
+                                                            self.serial_number = None
                                                             self.software_revision = None
                                                             self.vendor_type = None
-                                                            self.is_field_replaceable_unit = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -4824,31 +4824,31 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.name is not None:
-                                                                return True
-
                                                             if self.description is not None:
                                                                 return True
 
-                                                            if self.model_name is not None:
+                                                            if self.firmware_revision is not None:
                                                                 return True
 
                                                             if self.hardware_revision is not None:
                                                                 return True
 
-                                                            if self.serial_number is not None:
+                                                            if self.is_field_replaceable_unit is not None:
                                                                 return True
 
-                                                            if self.firmware_revision is not None:
+                                                            if self.model_name is not None:
+                                                                return True
+
+                                                            if self.name is not None:
+                                                                return True
+
+                                                            if self.serial_number is not None:
                                                                 return True
 
                                                             if self.software_revision is not None:
                                                                 return True
 
                                                             if self.vendor_type is not None:
-                                                                return True
-
-                                                            if self.is_field_replaceable_unit is not None:
                                                                 return True
 
                                                             return False
@@ -4868,35 +4868,35 @@ class PlatformInventory(object):
                                                         	Time operational state is   last changed
                                                         	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
-                                                        .. attribute:: module_up_time
-                                                        
-                                                        	Module up time
-                                                        	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                                        
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
                                                         	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                        
-                                                        .. attribute:: module_power_administrative_state
-                                                        
-                                                        	Power administrative state
-                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                        
-                                                        .. attribute:: module_operational_state
-                                                        
-                                                        	Operation state
-                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
                                                         	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
+                                                        .. attribute:: module_operational_state
+                                                        
+                                                        	Operation state
+                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                        
+                                                        .. attribute:: module_power_administrative_state
+                                                        
+                                                        	Power administrative state
+                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                        
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
                                                         	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                        
+                                                        .. attribute:: module_up_time
+                                                        
+                                                        	Module up time
+                                                        	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         
 
@@ -4909,29 +4909,29 @@ class PlatformInventory(object):
                                                             self.parent = None
                                                             self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                             self.last_operational_state_change.parent = self
+                                                            self.module_administrative_state = None
+                                                            self.module_monitor_state = None
+                                                            self.module_operational_state = None
+                                                            self.module_power_administrative_state = None
+                                                            self.module_reset_reason = None
                                                             self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                             self.module_up_time.parent = self
-                                                            self.module_administrative_state = None
-                                                            self.module_power_administrative_state = None
-                                                            self.module_operational_state = None
-                                                            self.module_monitor_state = None
-                                                            self.module_reset_reason = None
 
 
                                                         class LastOperationalStateChange(object):
                                                             """
                                                             Time operational state is   last changed
                                                             
-                                                            .. attribute:: time_in_seconds
+                                                            .. attribute:: time_in_nano_seconds
                                                             
-                                                            	Time Value in Seconds
+                                                            	Time Value in Nano\-seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
-                                                            .. attribute:: time_in_nano_seconds
+                                                            .. attribute:: time_in_seconds
                                                             
-                                                            	Time Value in Nano\-seconds
+                                                            	Time Value in Seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -4945,13 +4945,13 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.time_in_seconds = None
                                                                 self.time_in_nano_seconds = None
+                                                                self.time_in_seconds = None
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -4962,10 +4962,10 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.time_in_seconds is not None:
+                                                                if self.time_in_nano_seconds is not None:
                                                                     return True
 
-                                                                if self.time_in_nano_seconds is not None:
+                                                                if self.time_in_seconds is not None:
                                                                     return True
 
                                                                 return False
@@ -4980,16 +4980,16 @@ class PlatformInventory(object):
                                                             """
                                                             Module up time
                                                             
-                                                            .. attribute:: time_in_seconds
+                                                            .. attribute:: time_in_nano_seconds
                                                             
-                                                            	Time Value in Seconds
+                                                            	Time Value in Nano\-seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
-                                                            .. attribute:: time_in_nano_seconds
+                                                            .. attribute:: time_in_seconds
                                                             
-                                                            	Time Value in Nano\-seconds
+                                                            	Time Value in Seconds
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -5003,13 +5003,13 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.time_in_seconds = None
                                                                 self.time_in_nano_seconds = None
+                                                                self.time_in_seconds = None
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
-                                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -5020,10 +5020,10 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.time_in_seconds is not None:
+                                                                if self.time_in_nano_seconds is not None:
                                                                     return True
 
-                                                                if self.time_in_nano_seconds is not None:
+                                                                if self.time_in_seconds is not None:
                                                                     return True
 
                                                                 return False
@@ -5036,7 +5036,7 @@ class PlatformInventory(object):
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -5050,22 +5050,22 @@ class PlatformInventory(object):
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                 return True
 
-                                                            if self.module_up_time is not None and self.module_up_time._has_data():
-                                                                return True
-
                                                             if self.module_administrative_state is not None:
-                                                                return True
-
-                                                            if self.module_power_administrative_state is not None:
-                                                                return True
-
-                                                            if self.module_operational_state is not None:
                                                                 return True
 
                                                             if self.module_monitor_state is not None:
                                                                 return True
 
+                                                            if self.module_operational_state is not None:
+                                                                return True
+
+                                                            if self.module_power_administrative_state is not None:
+                                                                return True
+
                                                             if self.module_reset_reason is not None:
+                                                                return True
+
+                                                            if self.module_up_time is not None and self.module_up_time._has_data():
                                                                 return True
 
                                                             return False
@@ -5078,7 +5078,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -5105,9 +5105,9 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
                                                     if self.name is None:
-                                                        raise YPYDataValidationError('Key property name is None')
+                                                        raise YPYModelError('Key property name is None')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -5134,7 +5134,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
@@ -5191,13 +5191,6 @@ class PlatformInventory(object):
                                                 """
                                                 Entity attributes
                                                 
-                                                .. attribute:: name
-                                                
-                                                	name string for the entity
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..255
-                                                
                                                 .. attribute:: description
                                                 
                                                 	describes in user\-readable terms                 what the entity in question does
@@ -5205,9 +5198,9 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: model_name
+                                                .. attribute:: firmware_revision
                                                 
-                                                	model name
+                                                	firmware revision string
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
@@ -5219,16 +5212,28 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: serial_number
+                                                .. attribute:: is_field_replaceable_unit
                                                 
-                                                	serial number
+                                                	1 if Field Replaceable Unit 0, if not
+                                                	**type**\: bool
+                                                
+                                                .. attribute:: model_name
+                                                
+                                                	model name
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: firmware_revision
+                                                .. attribute:: name
                                                 
-                                                	firmware revision string
+                                                	name string for the entity
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..255
+                                                
+                                                .. attribute:: serial_number
+                                                
+                                                	serial number
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
@@ -5247,11 +5252,6 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: is_field_replaceable_unit
-                                                
-                                                	1 if Field Replaceable Unit 0, if not
-                                                	**type**\: bool
-                                                
                                                 
 
                                                 """
@@ -5261,20 +5261,20 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.name = None
                                                     self.description = None
-                                                    self.model_name = None
-                                                    self.hardware_revision = None
-                                                    self.serial_number = None
                                                     self.firmware_revision = None
+                                                    self.hardware_revision = None
+                                                    self.is_field_replaceable_unit = None
+                                                    self.model_name = None
+                                                    self.name = None
+                                                    self.serial_number = None
                                                     self.software_revision = None
                                                     self.vendor_type = None
-                                                    self.is_field_replaceable_unit = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -5285,31 +5285,31 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.name is not None:
-                                                        return True
-
                                                     if self.description is not None:
                                                         return True
 
-                                                    if self.model_name is not None:
+                                                    if self.firmware_revision is not None:
                                                         return True
 
                                                     if self.hardware_revision is not None:
                                                         return True
 
-                                                    if self.serial_number is not None:
+                                                    if self.is_field_replaceable_unit is not None:
                                                         return True
 
-                                                    if self.firmware_revision is not None:
+                                                    if self.model_name is not None:
+                                                        return True
+
+                                                    if self.name is not None:
+                                                        return True
+
+                                                    if self.serial_number is not None:
                                                         return True
 
                                                     if self.software_revision is not None:
                                                         return True
 
                                                     if self.vendor_type is not None:
-                                                        return True
-
-                                                    if self.is_field_replaceable_unit is not None:
                                                         return True
 
                                                     return False
@@ -5329,35 +5329,35 @@ class PlatformInventory(object):
                                                 	Time operational state is   last changed
                                                 	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
-                                                .. attribute:: module_up_time
-                                                
-                                                	Module up time
-                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
-                                                
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
                                                 	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                
-                                                .. attribute:: module_power_administrative_state
-                                                
-                                                	Power administrative state
-                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                
-                                                .. attribute:: module_operational_state
-                                                
-                                                	Operation state
-                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
                                                 	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
+                                                .. attribute:: module_operational_state
+                                                
+                                                	Operation state
+                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                
+                                                .. attribute:: module_power_administrative_state
+                                                
+                                                	Power administrative state
+                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
                                                 	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                
+                                                .. attribute:: module_up_time
+                                                
+                                                	Module up time
+                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
                                                 
                                                 
 
@@ -5370,29 +5370,29 @@ class PlatformInventory(object):
                                                     self.parent = None
                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange()
                                                     self.last_operational_state_change.parent = self
+                                                    self.module_administrative_state = None
+                                                    self.module_monitor_state = None
+                                                    self.module_operational_state = None
+                                                    self.module_power_administrative_state = None
+                                                    self.module_reset_reason = None
                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime()
                                                     self.module_up_time.parent = self
-                                                    self.module_administrative_state = None
-                                                    self.module_power_administrative_state = None
-                                                    self.module_operational_state = None
-                                                    self.module_monitor_state = None
-                                                    self.module_reset_reason = None
 
 
                                                 class LastOperationalStateChange(object):
                                                     """
                                                     Time operational state is   last changed
                                                     
-                                                    .. attribute:: time_in_seconds
+                                                    .. attribute:: time_in_nano_seconds
                                                     
-                                                    	Time Value in Seconds
+                                                    	Time Value in Nano\-seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: time_in_nano_seconds
+                                                    .. attribute:: time_in_seconds
                                                     
-                                                    	Time Value in Nano\-seconds
+                                                    	Time Value in Seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -5406,13 +5406,13 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.time_in_seconds = None
                                                         self.time_in_nano_seconds = None
+                                                        self.time_in_seconds = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -5423,10 +5423,10 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.time_in_seconds is not None:
+                                                        if self.time_in_nano_seconds is not None:
                                                             return True
 
-                                                        if self.time_in_nano_seconds is not None:
+                                                        if self.time_in_seconds is not None:
                                                             return True
 
                                                         return False
@@ -5441,16 +5441,16 @@ class PlatformInventory(object):
                                                     """
                                                     Module up time
                                                     
-                                                    .. attribute:: time_in_seconds
+                                                    .. attribute:: time_in_nano_seconds
                                                     
-                                                    	Time Value in Seconds
+                                                    	Time Value in Nano\-seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: time_in_nano_seconds
+                                                    .. attribute:: time_in_seconds
                                                     
-                                                    	Time Value in Nano\-seconds
+                                                    	Time Value in Seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -5464,13 +5464,13 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.time_in_seconds = None
                                                         self.time_in_nano_seconds = None
+                                                        self.time_in_seconds = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -5481,10 +5481,10 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.time_in_seconds is not None:
+                                                        if self.time_in_nano_seconds is not None:
                                                             return True
 
-                                                        if self.time_in_nano_seconds is not None:
+                                                        if self.time_in_seconds is not None:
                                                             return True
 
                                                         return False
@@ -5497,7 +5497,7 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -5511,22 +5511,22 @@ class PlatformInventory(object):
                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                         return True
 
-                                                    if self.module_up_time is not None and self.module_up_time._has_data():
-                                                        return True
-
                                                     if self.module_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_power_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_operational_state is not None:
                                                         return True
 
                                                     if self.module_monitor_state is not None:
                                                         return True
 
+                                                    if self.module_operational_state is not None:
+                                                        return True
+
+                                                    if self.module_power_administrative_state is not None:
+                                                        return True
+
                                                     if self.module_reset_reason is not None:
+                                                        return True
+
+                                                    if self.module_up_time is not None and self.module_up_time._has_data():
                                                         return True
 
                                                     return False
@@ -5539,7 +5539,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -5566,7 +5566,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module'
 
@@ -5577,13 +5577,13 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
+                                            if self.attributes is not None and self.attributes._has_data():
+                                                return True
+
                                             if self.port_slots is not None and self.port_slots._has_data():
                                                 return True
 
                                             if self.sensors is not None and self.sensors._has_data():
-                                                return True
-
-                                            if self.attributes is not None and self.attributes._has_data():
                                                 return True
 
                                             return False
@@ -5627,13 +5627,6 @@ class PlatformInventory(object):
                                             """
                                             Entity attributes
                                             
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\: str
-                                            
-                                            	**range:** 0..255
-                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
@@ -5641,9 +5634,9 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: model_name
+                                            .. attribute:: firmware_revision
                                             
-                                            	model name
+                                            	firmware revision string
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -5655,16 +5648,28 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: serial_number
+                                            .. attribute:: is_field_replaceable_unit
                                             
-                                            	serial number
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
                                             	**type**\: str
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: firmware_revision
+                                            .. attribute:: name
                                             
-                                            	firmware revision string
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -5683,11 +5688,6 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -5697,20 +5697,20 @@ class PlatformInventory(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.name = None
                                                 self.description = None
-                                                self.model_name = None
-                                                self.hardware_revision = None
-                                                self.serial_number = None
                                                 self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
                                                 self.software_revision = None
                                                 self.vendor_type = None
-                                                self.is_field_replaceable_unit = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -5721,31 +5721,31 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.name is not None:
-                                                    return True
-
                                                 if self.description is not None:
                                                     return True
 
-                                                if self.model_name is not None:
+                                                if self.firmware_revision is not None:
                                                     return True
 
                                                 if self.hardware_revision is not None:
                                                     return True
 
-                                                if self.serial_number is not None:
+                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
-                                                if self.firmware_revision is not None:
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
                                                     return True
 
                                                 if self.software_revision is not None:
                                                     return True
 
                                                 if self.vendor_type is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
                                                 return False
@@ -5765,35 +5765,35 @@ class PlatformInventory(object):
                                             	Time operational state is   last changed
                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
-                                            
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -5806,29 +5806,29 @@ class PlatformInventory(object):
                                                 self.parent = None
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_operational_state = None
-                                                self.module_monitor_state = None
-                                                self.module_reset_reason = None
 
 
                                             class LastOperationalStateChange(object):
                                                 """
                                                 Time operational state is   last changed
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -5842,13 +5842,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -5859,10 +5859,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -5877,16 +5877,16 @@ class PlatformInventory(object):
                                                 """
                                                 Module up time
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -5900,13 +5900,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -5917,10 +5917,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -5933,7 +5933,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -5947,22 +5947,22 @@ class PlatformInventory(object):
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
                                                 if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
                                                     return True
 
                                                 if self.module_monitor_state is not None:
                                                     return True
 
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
                                                 if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
                                                 return False
@@ -5975,7 +5975,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -6002,9 +6002,9 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.name is None:
-                                            raise YPYDataValidationError('Key property name is None')
+                                            raise YPYModelError('Key property name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sub-slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -6018,10 +6018,10 @@ class PlatformInventory(object):
                                         if self.name is not None:
                                             return True
 
-                                        if self.module is not None and self.module._has_data():
+                                        if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes._has_data():
+                                        if self.module is not None and self.module._has_data():
                                             return True
 
                                         return False
@@ -6034,7 +6034,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sub-slots'
 
@@ -6092,15 +6092,15 @@ class PlatformInventory(object):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
-                                    .. attribute:: sensors
-                                    
-                                    	Table of sensors
-                                    	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
-                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
+                                    
+                                    .. attribute:: sensors
+                                    
+                                    	Table of sensors
+                                    	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
                                     
                                     
 
@@ -6112,10 +6112,10 @@ class PlatformInventory(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.name = None
-                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors()
-                                        self.sensors.parent = self
                                         self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes()
                                         self.attributes.parent = self
+                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors()
+                                        self.sensors.parent = self
 
 
                                     class Sensors(object):
@@ -6204,13 +6204,6 @@ class PlatformInventory(object):
                                                     """
                                                     Entity attributes
                                                     
-                                                    .. attribute:: name
-                                                    
-                                                    	name string for the entity
-                                                    	**type**\: str
-                                                    
-                                                    	**range:** 0..255
-                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
@@ -6218,9 +6211,9 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: model_name
+                                                    .. attribute:: firmware_revision
                                                     
-                                                    	model name
+                                                    	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
@@ -6232,16 +6225,28 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: serial_number
+                                                    .. attribute:: is_field_replaceable_unit
                                                     
-                                                    	serial number
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\: bool
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: firmware_revision
+                                                    .. attribute:: name
                                                     
-                                                    	firmware revision string
+                                                    	name string for the entity
+                                                    	**type**\: str
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
@@ -6260,11 +6265,6 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: is_field_replaceable_unit
-                                                    
-                                                    	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\: bool
-                                                    
                                                     
 
                                                     """
@@ -6274,20 +6274,20 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.name = None
                                                         self.description = None
-                                                        self.model_name = None
-                                                        self.hardware_revision = None
-                                                        self.serial_number = None
                                                         self.firmware_revision = None
+                                                        self.hardware_revision = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self.model_name = None
+                                                        self.name = None
+                                                        self.serial_number = None
                                                         self.software_revision = None
                                                         self.vendor_type = None
-                                                        self.is_field_replaceable_unit = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -6298,31 +6298,31 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.name is not None:
-                                                            return True
-
                                                         if self.description is not None:
                                                             return True
 
-                                                        if self.model_name is not None:
+                                                        if self.firmware_revision is not None:
                                                             return True
 
                                                         if self.hardware_revision is not None:
                                                             return True
 
-                                                        if self.serial_number is not None:
+                                                        if self.is_field_replaceable_unit is not None:
                                                             return True
 
-                                                        if self.firmware_revision is not None:
+                                                        if self.model_name is not None:
+                                                            return True
+
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.serial_number is not None:
                                                             return True
 
                                                         if self.software_revision is not None:
                                                             return True
 
                                                         if self.vendor_type is not None:
-                                                            return True
-
-                                                        if self.is_field_replaceable_unit is not None:
                                                             return True
 
                                                         return False
@@ -6342,35 +6342,35 @@ class PlatformInventory(object):
                                                     	Time operational state is   last changed
                                                     	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
-                                                    .. attribute:: module_up_time
-                                                    
-                                                    	Module up time
-                                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                                    
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_power_administrative_state
-                                                    
-                                                    	Power administrative state
-                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_operational_state
-                                                    
-                                                    	Operation state
-                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     
 
@@ -6383,29 +6383,29 @@ class PlatformInventory(object):
                                                         self.parent = None
                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                         self.last_operational_state_change.parent = self
+                                                        self.module_administrative_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_reset_reason = None
                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                         self.module_up_time.parent = self
-                                                        self.module_administrative_state = None
-                                                        self.module_power_administrative_state = None
-                                                        self.module_operational_state = None
-                                                        self.module_monitor_state = None
-                                                        self.module_reset_reason = None
 
 
                                                     class LastOperationalStateChange(object):
                                                         """
                                                         Time operational state is   last changed
                                                         
-                                                        .. attribute:: time_in_seconds
+                                                        .. attribute:: time_in_nano_seconds
                                                         
-                                                        	Time Value in Seconds
+                                                        	Time Value in Nano\-seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
-                                                        .. attribute:: time_in_nano_seconds
+                                                        .. attribute:: time_in_seconds
                                                         
-                                                        	Time Value in Nano\-seconds
+                                                        	Time Value in Seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -6419,13 +6419,13 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.time_in_seconds = None
                                                             self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -6436,10 +6436,10 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.time_in_seconds is not None:
+                                                            if self.time_in_nano_seconds is not None:
                                                                 return True
 
-                                                            if self.time_in_nano_seconds is not None:
+                                                            if self.time_in_seconds is not None:
                                                                 return True
 
                                                             return False
@@ -6454,16 +6454,16 @@ class PlatformInventory(object):
                                                         """
                                                         Module up time
                                                         
-                                                        .. attribute:: time_in_seconds
+                                                        .. attribute:: time_in_nano_seconds
                                                         
-                                                        	Time Value in Seconds
+                                                        	Time Value in Nano\-seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
-                                                        .. attribute:: time_in_nano_seconds
+                                                        .. attribute:: time_in_seconds
                                                         
-                                                        	Time Value in Nano\-seconds
+                                                        	Time Value in Seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -6477,13 +6477,13 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.time_in_seconds = None
                                                             self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -6494,10 +6494,10 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.time_in_seconds is not None:
+                                                            if self.time_in_nano_seconds is not None:
                                                                 return True
 
-                                                            if self.time_in_nano_seconds is not None:
+                                                            if self.time_in_seconds is not None:
                                                                 return True
 
                                                             return False
@@ -6510,7 +6510,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -6524,22 +6524,22 @@ class PlatformInventory(object):
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                             return True
 
-                                                        if self.module_up_time is not None and self.module_up_time._has_data():
-                                                            return True
-
                                                         if self.module_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_power_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_operational_state is not None:
                                                             return True
 
                                                         if self.module_monitor_state is not None:
                                                             return True
 
+                                                        if self.module_operational_state is not None:
+                                                            return True
+
+                                                        if self.module_power_administrative_state is not None:
+                                                            return True
+
                                                         if self.module_reset_reason is not None:
+                                                            return True
+
+                                                        if self.module_up_time is not None and self.module_up_time._has_data():
                                                             return True
 
                                                         return False
@@ -6552,7 +6552,7 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -6579,9 +6579,9 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.name is None:
-                                                    raise YPYDataValidationError('Key property name is None')
+                                                    raise YPYModelError('Key property name is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -6608,7 +6608,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
@@ -6665,13 +6665,6 @@ class PlatformInventory(object):
                                             """
                                             Entity attributes
                                             
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\: str
-                                            
-                                            	**range:** 0..255
-                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
@@ -6679,9 +6672,9 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: model_name
+                                            .. attribute:: firmware_revision
                                             
-                                            	model name
+                                            	firmware revision string
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -6693,16 +6686,28 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: serial_number
+                                            .. attribute:: is_field_replaceable_unit
                                             
-                                            	serial number
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
                                             	**type**\: str
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: firmware_revision
+                                            .. attribute:: name
                                             
-                                            	firmware revision string
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -6721,11 +6726,6 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -6735,20 +6735,20 @@ class PlatformInventory(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.name = None
                                                 self.description = None
-                                                self.model_name = None
-                                                self.hardware_revision = None
-                                                self.serial_number = None
                                                 self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
                                                 self.software_revision = None
                                                 self.vendor_type = None
-                                                self.is_field_replaceable_unit = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -6759,31 +6759,31 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.name is not None:
-                                                    return True
-
                                                 if self.description is not None:
                                                     return True
 
-                                                if self.model_name is not None:
+                                                if self.firmware_revision is not None:
                                                     return True
 
                                                 if self.hardware_revision is not None:
                                                     return True
 
-                                                if self.serial_number is not None:
+                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
-                                                if self.firmware_revision is not None:
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
                                                     return True
 
                                                 if self.software_revision is not None:
                                                     return True
 
                                                 if self.vendor_type is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
                                                 return False
@@ -6803,35 +6803,35 @@ class PlatformInventory(object):
                                             	Time operational state is   last changed
                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                             
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
-                                            
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -6844,29 +6844,29 @@ class PlatformInventory(object):
                                                 self.parent = None
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_operational_state = None
-                                                self.module_monitor_state = None
-                                                self.module_reset_reason = None
 
 
                                             class LastOperationalStateChange(object):
                                                 """
                                                 Time operational state is   last changed
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6880,13 +6880,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -6897,10 +6897,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -6915,16 +6915,16 @@ class PlatformInventory(object):
                                                 """
                                                 Module up time
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6938,13 +6938,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -6955,10 +6955,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -6971,7 +6971,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -6985,22 +6985,22 @@ class PlatformInventory(object):
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
                                                 if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
                                                     return True
 
                                                 if self.module_monitor_state is not None:
                                                     return True
 
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
                                                 if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
                                                 return False
@@ -7013,7 +7013,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -7040,9 +7040,9 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.name is None:
-                                            raise YPYDataValidationError('Key property name is None')
+                                            raise YPYModelError('Key property name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-component[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -7056,10 +7056,10 @@ class PlatformInventory(object):
                                         if self.name is not None:
                                             return True
 
-                                        if self.sensors is not None and self.sensors._has_data():
+                                        if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes._has_data():
+                                        if self.sensors is not None and self.sensors._has_data():
                                             return True
 
                                         return False
@@ -7072,7 +7072,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-components'
 
@@ -7130,6 +7130,11 @@ class PlatformInventory(object):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    .. attribute:: attributes
+                                    
+                                    	Attributes
+                                    	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
+                                    
                                     .. attribute:: port
                                     
                                     	Port
@@ -7139,11 +7144,6 @@ class PlatformInventory(object):
                                     
                                     	Table of sensors
                                     	**type**\: :py:class:`Sensors <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
-                                    
-                                    .. attribute:: attributes
-                                    
-                                    	Attributes
-                                    	**type**\: :py:class:`Attributes <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
                                     
                                     
 
@@ -7155,12 +7155,12 @@ class PlatformInventory(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.name = None
+                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes()
+                                        self.attributes.parent = self
                                         self.port = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port()
                                         self.port.parent = self
                                         self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors()
                                         self.sensors.parent = self
-                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes()
-                                        self.attributes.parent = self
 
 
                                     class Port(object):
@@ -7218,13 +7218,6 @@ class PlatformInventory(object):
                                                 """
                                                 Entity attributes
                                                 
-                                                .. attribute:: name
-                                                
-                                                	name string for the entity
-                                                	**type**\: str
-                                                
-                                                	**range:** 0..255
-                                                
                                                 .. attribute:: description
                                                 
                                                 	describes in user\-readable terms                 what the entity in question does
@@ -7232,9 +7225,9 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: model_name
+                                                .. attribute:: firmware_revision
                                                 
-                                                	model name
+                                                	firmware revision string
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
@@ -7246,16 +7239,28 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: serial_number
+                                                .. attribute:: is_field_replaceable_unit
                                                 
-                                                	serial number
+                                                	1 if Field Replaceable Unit 0, if not
+                                                	**type**\: bool
+                                                
+                                                .. attribute:: model_name
+                                                
+                                                	model name
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: firmware_revision
+                                                .. attribute:: name
                                                 
-                                                	firmware revision string
+                                                	name string for the entity
+                                                	**type**\: str
+                                                
+                                                	**range:** 0..255
+                                                
+                                                .. attribute:: serial_number
+                                                
+                                                	serial number
                                                 	**type**\: str
                                                 
                                                 	**range:** 0..255
@@ -7274,11 +7279,6 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: is_field_replaceable_unit
-                                                
-                                                	1 if Field Replaceable Unit 0, if not
-                                                	**type**\: bool
-                                                
                                                 
 
                                                 """
@@ -7288,20 +7288,20 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.name = None
                                                     self.description = None
-                                                    self.model_name = None
-                                                    self.hardware_revision = None
-                                                    self.serial_number = None
                                                     self.firmware_revision = None
+                                                    self.hardware_revision = None
+                                                    self.is_field_replaceable_unit = None
+                                                    self.model_name = None
+                                                    self.name = None
+                                                    self.serial_number = None
                                                     self.software_revision = None
                                                     self.vendor_type = None
-                                                    self.is_field_replaceable_unit = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -7312,31 +7312,31 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.name is not None:
-                                                        return True
-
                                                     if self.description is not None:
                                                         return True
 
-                                                    if self.model_name is not None:
+                                                    if self.firmware_revision is not None:
                                                         return True
 
                                                     if self.hardware_revision is not None:
                                                         return True
 
-                                                    if self.serial_number is not None:
+                                                    if self.is_field_replaceable_unit is not None:
                                                         return True
 
-                                                    if self.firmware_revision is not None:
+                                                    if self.model_name is not None:
+                                                        return True
+
+                                                    if self.name is not None:
+                                                        return True
+
+                                                    if self.serial_number is not None:
                                                         return True
 
                                                     if self.software_revision is not None:
                                                         return True
 
                                                     if self.vendor_type is not None:
-                                                        return True
-
-                                                    if self.is_field_replaceable_unit is not None:
                                                         return True
 
                                                     return False
@@ -7356,35 +7356,35 @@ class PlatformInventory(object):
                                                 	Time operational state is   last changed
                                                 	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
-                                                .. attribute:: module_up_time
-                                                
-                                                	Module up time
-                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
-                                                
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
                                                 	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                
-                                                .. attribute:: module_power_administrative_state
-                                                
-                                                	Power administrative state
-                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                
-                                                .. attribute:: module_operational_state
-                                                
-                                                	Operation state
-                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
                                                 	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
+                                                .. attribute:: module_operational_state
+                                                
+                                                	Operation state
+                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                
+                                                .. attribute:: module_power_administrative_state
+                                                
+                                                	Power administrative state
+                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
                                                 	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                
+                                                .. attribute:: module_up_time
+                                                
+                                                	Module up time
+                                                	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
                                                 
                                                 
 
@@ -7397,29 +7397,29 @@ class PlatformInventory(object):
                                                     self.parent = None
                                                     self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange()
                                                     self.last_operational_state_change.parent = self
+                                                    self.module_administrative_state = None
+                                                    self.module_monitor_state = None
+                                                    self.module_operational_state = None
+                                                    self.module_power_administrative_state = None
+                                                    self.module_reset_reason = None
                                                     self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime()
                                                     self.module_up_time.parent = self
-                                                    self.module_administrative_state = None
-                                                    self.module_power_administrative_state = None
-                                                    self.module_operational_state = None
-                                                    self.module_monitor_state = None
-                                                    self.module_reset_reason = None
 
 
                                                 class LastOperationalStateChange(object):
                                                     """
                                                     Time operational state is   last changed
                                                     
-                                                    .. attribute:: time_in_seconds
+                                                    .. attribute:: time_in_nano_seconds
                                                     
-                                                    	Time Value in Seconds
+                                                    	Time Value in Nano\-seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: time_in_nano_seconds
+                                                    .. attribute:: time_in_seconds
                                                     
-                                                    	Time Value in Nano\-seconds
+                                                    	Time Value in Seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -7433,13 +7433,13 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.time_in_seconds = None
                                                         self.time_in_nano_seconds = None
+                                                        self.time_in_seconds = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -7450,10 +7450,10 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.time_in_seconds is not None:
+                                                        if self.time_in_nano_seconds is not None:
                                                             return True
 
-                                                        if self.time_in_nano_seconds is not None:
+                                                        if self.time_in_seconds is not None:
                                                             return True
 
                                                         return False
@@ -7468,16 +7468,16 @@ class PlatformInventory(object):
                                                     """
                                                     Module up time
                                                     
-                                                    .. attribute:: time_in_seconds
+                                                    .. attribute:: time_in_nano_seconds
                                                     
-                                                    	Time Value in Seconds
+                                                    	Time Value in Nano\-seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: time_in_nano_seconds
+                                                    .. attribute:: time_in_seconds
                                                     
-                                                    	Time Value in Nano\-seconds
+                                                    	Time Value in Seconds
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -7491,13 +7491,13 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.time_in_seconds = None
                                                         self.time_in_nano_seconds = None
+                                                        self.time_in_seconds = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -7508,10 +7508,10 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.time_in_seconds is not None:
+                                                        if self.time_in_nano_seconds is not None:
                                                             return True
 
-                                                        if self.time_in_nano_seconds is not None:
+                                                        if self.time_in_seconds is not None:
                                                             return True
 
                                                         return False
@@ -7524,7 +7524,7 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -7538,22 +7538,22 @@ class PlatformInventory(object):
                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                         return True
 
-                                                    if self.module_up_time is not None and self.module_up_time._has_data():
-                                                        return True
-
                                                     if self.module_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_power_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_operational_state is not None:
                                                         return True
 
                                                     if self.module_monitor_state is not None:
                                                         return True
 
+                                                    if self.module_operational_state is not None:
+                                                        return True
+
+                                                    if self.module_power_administrative_state is not None:
+                                                        return True
+
                                                     if self.module_reset_reason is not None:
+                                                        return True
+
+                                                    if self.module_up_time is not None and self.module_up_time._has_data():
                                                         return True
 
                                                     return False
@@ -7566,7 +7566,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -7593,7 +7593,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port'
 
@@ -7701,13 +7701,6 @@ class PlatformInventory(object):
                                                     """
                                                     Entity attributes
                                                     
-                                                    .. attribute:: name
-                                                    
-                                                    	name string for the entity
-                                                    	**type**\: str
-                                                    
-                                                    	**range:** 0..255
-                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
@@ -7715,9 +7708,9 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: model_name
+                                                    .. attribute:: firmware_revision
                                                     
-                                                    	model name
+                                                    	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
@@ -7729,16 +7722,28 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: serial_number
+                                                    .. attribute:: is_field_replaceable_unit
                                                     
-                                                    	serial number
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\: bool
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: firmware_revision
+                                                    .. attribute:: name
                                                     
-                                                    	firmware revision string
+                                                    	name string for the entity
+                                                    	**type**\: str
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
                                                     	**type**\: str
                                                     
                                                     	**range:** 0..255
@@ -7757,11 +7762,6 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** 0..255
                                                     
-                                                    .. attribute:: is_field_replaceable_unit
-                                                    
-                                                    	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\: bool
-                                                    
                                                     
 
                                                     """
@@ -7771,20 +7771,20 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.name = None
                                                         self.description = None
-                                                        self.model_name = None
-                                                        self.hardware_revision = None
-                                                        self.serial_number = None
                                                         self.firmware_revision = None
+                                                        self.hardware_revision = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self.model_name = None
+                                                        self.name = None
+                                                        self.serial_number = None
                                                         self.software_revision = None
                                                         self.vendor_type = None
-                                                        self.is_field_replaceable_unit = None
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -7795,31 +7795,31 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.name is not None:
-                                                            return True
-
                                                         if self.description is not None:
                                                             return True
 
-                                                        if self.model_name is not None:
+                                                        if self.firmware_revision is not None:
                                                             return True
 
                                                         if self.hardware_revision is not None:
                                                             return True
 
-                                                        if self.serial_number is not None:
+                                                        if self.is_field_replaceable_unit is not None:
                                                             return True
 
-                                                        if self.firmware_revision is not None:
+                                                        if self.model_name is not None:
+                                                            return True
+
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.serial_number is not None:
                                                             return True
 
                                                         if self.software_revision is not None:
                                                             return True
 
                                                         if self.vendor_type is not None:
-                                                            return True
-
-                                                        if self.is_field_replaceable_unit is not None:
                                                             return True
 
                                                         return False
@@ -7839,35 +7839,35 @@ class PlatformInventory(object):
                                                     	Time operational state is   last changed
                                                     	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
-                                                    .. attribute:: module_up_time
-                                                    
-                                                    	Module up time
-                                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                                    
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_power_administrative_state
-                                                    
-                                                    	Power administrative state
-                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_operational_state
-                                                    
-                                                    	Operation state
-                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     
 
@@ -7880,29 +7880,29 @@ class PlatformInventory(object):
                                                         self.parent = None
                                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                         self.last_operational_state_change.parent = self
+                                                        self.module_administrative_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_reset_reason = None
                                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                         self.module_up_time.parent = self
-                                                        self.module_administrative_state = None
-                                                        self.module_power_administrative_state = None
-                                                        self.module_operational_state = None
-                                                        self.module_monitor_state = None
-                                                        self.module_reset_reason = None
 
 
                                                     class LastOperationalStateChange(object):
                                                         """
                                                         Time operational state is   last changed
                                                         
-                                                        .. attribute:: time_in_seconds
+                                                        .. attribute:: time_in_nano_seconds
                                                         
-                                                        	Time Value in Seconds
+                                                        	Time Value in Nano\-seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
-                                                        .. attribute:: time_in_nano_seconds
+                                                        .. attribute:: time_in_seconds
                                                         
-                                                        	Time Value in Nano\-seconds
+                                                        	Time Value in Seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -7916,13 +7916,13 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.time_in_seconds = None
                                                             self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -7933,10 +7933,10 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.time_in_seconds is not None:
+                                                            if self.time_in_nano_seconds is not None:
                                                                 return True
 
-                                                            if self.time_in_nano_seconds is not None:
+                                                            if self.time_in_seconds is not None:
                                                                 return True
 
                                                             return False
@@ -7951,16 +7951,16 @@ class PlatformInventory(object):
                                                         """
                                                         Module up time
                                                         
-                                                        .. attribute:: time_in_seconds
+                                                        .. attribute:: time_in_nano_seconds
                                                         
-                                                        	Time Value in Seconds
+                                                        	Time Value in Nano\-seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
-                                                        .. attribute:: time_in_nano_seconds
+                                                        .. attribute:: time_in_seconds
                                                         
-                                                        	Time Value in Nano\-seconds
+                                                        	Time Value in Seconds
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -7974,13 +7974,13 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.time_in_seconds = None
                                                             self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
-                                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -7991,10 +7991,10 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.time_in_seconds is not None:
+                                                            if self.time_in_nano_seconds is not None:
                                                                 return True
 
-                                                            if self.time_in_nano_seconds is not None:
+                                                            if self.time_in_seconds is not None:
                                                                 return True
 
                                                             return False
@@ -8007,7 +8007,7 @@ class PlatformInventory(object):
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
-                                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -8021,22 +8021,22 @@ class PlatformInventory(object):
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                             return True
 
-                                                        if self.module_up_time is not None and self.module_up_time._has_data():
-                                                            return True
-
                                                         if self.module_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_power_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_operational_state is not None:
                                                             return True
 
                                                         if self.module_monitor_state is not None:
                                                             return True
 
+                                                        if self.module_operational_state is not None:
+                                                            return True
+
+                                                        if self.module_power_administrative_state is not None:
+                                                            return True
+
                                                         if self.module_reset_reason is not None:
+                                                            return True
+
+                                                        if self.module_up_time is not None and self.module_up_time._has_data():
                                                             return True
 
                                                         return False
@@ -8049,7 +8049,7 @@ class PlatformInventory(object):
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -8076,9 +8076,9 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                                 if self.name is None:
-                                                    raise YPYDataValidationError('Key property name is None')
+                                                    raise YPYModelError('Key property name is None')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -8105,7 +8105,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
@@ -8162,13 +8162,6 @@ class PlatformInventory(object):
                                             """
                                             Entity attributes
                                             
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\: str
-                                            
-                                            	**range:** 0..255
-                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
@@ -8176,9 +8169,9 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: model_name
+                                            .. attribute:: firmware_revision
                                             
-                                            	model name
+                                            	firmware revision string
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -8190,16 +8183,28 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: serial_number
+                                            .. attribute:: is_field_replaceable_unit
                                             
-                                            	serial number
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
                                             	**type**\: str
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: firmware_revision
+                                            .. attribute:: name
                                             
-                                            	firmware revision string
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -8218,11 +8223,6 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -8232,20 +8232,20 @@ class PlatformInventory(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.name = None
                                                 self.description = None
-                                                self.model_name = None
-                                                self.hardware_revision = None
-                                                self.serial_number = None
                                                 self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
                                                 self.software_revision = None
                                                 self.vendor_type = None
-                                                self.is_field_replaceable_unit = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -8256,31 +8256,31 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.name is not None:
-                                                    return True
-
                                                 if self.description is not None:
                                                     return True
 
-                                                if self.model_name is not None:
+                                                if self.firmware_revision is not None:
                                                     return True
 
                                                 if self.hardware_revision is not None:
                                                     return True
 
-                                                if self.serial_number is not None:
+                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
-                                                if self.firmware_revision is not None:
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
                                                     return True
 
                                                 if self.software_revision is not None:
                                                     return True
 
                                                 if self.vendor_type is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
                                                 return False
@@ -8300,35 +8300,35 @@ class PlatformInventory(object):
                                             	Time operational state is   last changed
                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
-                                            
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -8341,29 +8341,29 @@ class PlatformInventory(object):
                                                 self.parent = None
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_operational_state = None
-                                                self.module_monitor_state = None
-                                                self.module_reset_reason = None
 
 
                                             class LastOperationalStateChange(object):
                                                 """
                                                 Time operational state is   last changed
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -8377,13 +8377,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -8394,10 +8394,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -8412,16 +8412,16 @@ class PlatformInventory(object):
                                                 """
                                                 Module up time
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -8435,13 +8435,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -8452,10 +8452,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -8468,7 +8468,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -8482,22 +8482,22 @@ class PlatformInventory(object):
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
                                                 if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
                                                     return True
 
                                                 if self.module_monitor_state is not None:
                                                     return True
 
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
                                                 if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
                                                 return False
@@ -8510,7 +8510,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -8537,9 +8537,9 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.name is None:
-                                            raise YPYDataValidationError('Key property name is None')
+                                            raise YPYModelError('Key property name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -8553,13 +8553,13 @@ class PlatformInventory(object):
                                         if self.name is not None:
                                             return True
 
+                                        if self.attributes is not None and self.attributes._has_data():
+                                            return True
+
                                         if self.port is not None and self.port._has_data():
                                             return True
 
                                         if self.sensors is not None and self.sensors._has_data():
-                                            return True
-
-                                        if self.attributes is not None and self.attributes._has_data():
                                             return True
 
                                         return False
@@ -8572,7 +8572,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slots'
 
@@ -8682,13 +8682,6 @@ class PlatformInventory(object):
                                             """
                                             Entity attributes
                                             
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\: str
-                                            
-                                            	**range:** 0..255
-                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
@@ -8696,9 +8689,9 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: model_name
+                                            .. attribute:: firmware_revision
                                             
-                                            	model name
+                                            	firmware revision string
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -8710,16 +8703,28 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: serial_number
+                                            .. attribute:: is_field_replaceable_unit
                                             
-                                            	serial number
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
                                             	**type**\: str
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: firmware_revision
+                                            .. attribute:: name
                                             
-                                            	firmware revision string
+                                            	name string for the entity
+                                            	**type**\: str
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
                                             	**type**\: str
                                             
                                             	**range:** 0..255
@@ -8738,11 +8743,6 @@ class PlatformInventory(object):
                                             
                                             	**range:** 0..255
                                             
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\: bool
-                                            
                                             
 
                                             """
@@ -8752,20 +8752,20 @@ class PlatformInventory(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.name = None
                                                 self.description = None
-                                                self.model_name = None
-                                                self.hardware_revision = None
-                                                self.serial_number = None
                                                 self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
                                                 self.software_revision = None
                                                 self.vendor_type = None
-                                                self.is_field_replaceable_unit = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -8776,31 +8776,31 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.name is not None:
-                                                    return True
-
                                                 if self.description is not None:
                                                     return True
 
-                                                if self.model_name is not None:
+                                                if self.firmware_revision is not None:
                                                     return True
 
                                                 if self.hardware_revision is not None:
                                                     return True
 
-                                                if self.serial_number is not None:
+                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
-                                                if self.firmware_revision is not None:
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
                                                     return True
 
                                                 if self.software_revision is not None:
                                                     return True
 
                                                 if self.vendor_type is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
                                                     return True
 
                                                 return False
@@ -8820,35 +8820,35 @@ class PlatformInventory(object):
                                             	Time operational state is   last changed
                                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                             
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                            
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -8861,29 +8861,29 @@ class PlatformInventory(object):
                                                 self.parent = None
                                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
                                                 self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
                                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
                                                 self.module_up_time.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_operational_state = None
-                                                self.module_monitor_state = None
-                                                self.module_reset_reason = None
 
 
                                             class LastOperationalStateChange(object):
                                                 """
                                                 Time operational state is   last changed
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -8897,13 +8897,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -8914,10 +8914,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -8932,16 +8932,16 @@ class PlatformInventory(object):
                                                 """
                                                 Module up time
                                                 
-                                                .. attribute:: time_in_seconds
+                                                .. attribute:: time_in_nano_seconds
                                                 
-                                                	Time Value in Seconds
+                                                	Time Value in Nano\-seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
-                                                .. attribute:: time_in_nano_seconds
+                                                .. attribute:: time_in_seconds
                                                 
-                                                	Time Value in Nano\-seconds
+                                                	Time Value in Seconds
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -8955,13 +8955,13 @@ class PlatformInventory(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.time_in_seconds = None
                                                     self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
-                                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -8972,10 +8972,10 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.time_in_seconds is not None:
+                                                    if self.time_in_nano_seconds is not None:
                                                         return True
 
-                                                    if self.time_in_nano_seconds is not None:
+                                                    if self.time_in_seconds is not None:
                                                         return True
 
                                                     return False
@@ -8988,7 +8988,7 @@ class PlatformInventory(object):
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -9002,22 +9002,22 @@ class PlatformInventory(object):
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
                                                 if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
                                                     return True
 
                                                 if self.module_monitor_state is not None:
                                                     return True
 
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
                                                 if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
                                                 return False
@@ -9030,7 +9030,7 @@ class PlatformInventory(object):
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -9057,9 +9057,9 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
                                         if self.name is None:
-                                            raise YPYDataValidationError('Key property name is None')
+                                            raise YPYModelError('Key property name is None')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -9086,7 +9086,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
@@ -9143,13 +9143,6 @@ class PlatformInventory(object):
                                     """
                                     Entity attributes
                                     
-                                    .. attribute:: name
-                                    
-                                    	name string for the entity
-                                    	**type**\: str
-                                    
-                                    	**range:** 0..255
-                                    
                                     .. attribute:: description
                                     
                                     	describes in user\-readable terms                 what the entity in question does
@@ -9157,9 +9150,9 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: model_name
+                                    .. attribute:: firmware_revision
                                     
-                                    	model name
+                                    	firmware revision string
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -9171,16 +9164,28 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: serial_number
+                                    .. attribute:: is_field_replaceable_unit
                                     
-                                    	serial number
+                                    	1 if Field Replaceable Unit 0, if not
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: model_name
+                                    
+                                    	model name
                                     	**type**\: str
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: firmware_revision
+                                    .. attribute:: name
                                     
-                                    	firmware revision string
+                                    	name string for the entity
+                                    	**type**\: str
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: serial_number
+                                    
+                                    	serial number
                                     	**type**\: str
                                     
                                     	**range:** 0..255
@@ -9199,11 +9204,6 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: is_field_replaceable_unit
-                                    
-                                    	1 if Field Replaceable Unit 0, if not
-                                    	**type**\: bool
-                                    
                                     
 
                                     """
@@ -9213,20 +9213,20 @@ class PlatformInventory(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.name = None
                                         self.description = None
-                                        self.model_name = None
-                                        self.hardware_revision = None
-                                        self.serial_number = None
                                         self.firmware_revision = None
+                                        self.hardware_revision = None
+                                        self.is_field_replaceable_unit = None
+                                        self.model_name = None
+                                        self.name = None
+                                        self.serial_number = None
                                         self.software_revision = None
                                         self.vendor_type = None
-                                        self.is_field_replaceable_unit = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -9237,31 +9237,31 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.name is not None:
-                                            return True
-
                                         if self.description is not None:
                                             return True
 
-                                        if self.model_name is not None:
+                                        if self.firmware_revision is not None:
                                             return True
 
                                         if self.hardware_revision is not None:
                                             return True
 
-                                        if self.serial_number is not None:
+                                        if self.is_field_replaceable_unit is not None:
                                             return True
 
-                                        if self.firmware_revision is not None:
+                                        if self.model_name is not None:
+                                            return True
+
+                                        if self.name is not None:
+                                            return True
+
+                                        if self.serial_number is not None:
                                             return True
 
                                         if self.software_revision is not None:
                                             return True
 
                                         if self.vendor_type is not None:
-                                            return True
-
-                                        if self.is_field_replaceable_unit is not None:
                                             return True
 
                                         return False
@@ -9281,35 +9281,35 @@ class PlatformInventory(object):
                                     	Time operational state is   last changed
                                     	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
                                     
-                                    .. attribute:: module_up_time
-                                    
-                                    	Module up time
-                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
-                                    
                                     .. attribute:: module_administrative_state
                                     
                                     	Administrative    state
                                     	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                    
-                                    .. attribute:: module_power_administrative_state
-                                    
-                                    	Power administrative state
-                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                    
-                                    .. attribute:: module_operational_state
-                                    
-                                    	Operation state
-                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                     
                                     .. attribute:: module_monitor_state
                                     
                                     	Monitor state
                                     	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                     
+                                    .. attribute:: module_operational_state
+                                    
+                                    	Operation state
+                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                    
+                                    .. attribute:: module_power_administrative_state
+                                    
+                                    	Power administrative state
+                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                    
                                     .. attribute:: module_reset_reason
                                     
                                     	Reset reason
                                     	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                    
+                                    .. attribute:: module_up_time
+                                    
+                                    	Module up time
+                                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
                                     
                                     
 
@@ -9322,29 +9322,29 @@ class PlatformInventory(object):
                                         self.parent = None
                                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange()
                                         self.last_operational_state_change.parent = self
+                                        self.module_administrative_state = None
+                                        self.module_monitor_state = None
+                                        self.module_operational_state = None
+                                        self.module_power_administrative_state = None
+                                        self.module_reset_reason = None
                                         self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime()
                                         self.module_up_time.parent = self
-                                        self.module_administrative_state = None
-                                        self.module_power_administrative_state = None
-                                        self.module_operational_state = None
-                                        self.module_monitor_state = None
-                                        self.module_reset_reason = None
 
 
                                     class LastOperationalStateChange(object):
                                         """
                                         Time operational state is   last changed
                                         
-                                        .. attribute:: time_in_seconds
+                                        .. attribute:: time_in_nano_seconds
                                         
-                                        	Time Value in Seconds
+                                        	Time Value in Nano\-seconds
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
-                                        .. attribute:: time_in_nano_seconds
+                                        .. attribute:: time_in_seconds
                                         
-                                        	Time Value in Nano\-seconds
+                                        	Time Value in Seconds
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
@@ -9358,13 +9358,13 @@ class PlatformInventory(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.time_in_seconds = None
                                             self.time_in_nano_seconds = None
+                                            self.time_in_seconds = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -9375,10 +9375,10 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.time_in_seconds is not None:
+                                            if self.time_in_nano_seconds is not None:
                                                 return True
 
-                                            if self.time_in_nano_seconds is not None:
+                                            if self.time_in_seconds is not None:
                                                 return True
 
                                             return False
@@ -9393,16 +9393,16 @@ class PlatformInventory(object):
                                         """
                                         Module up time
                                         
-                                        .. attribute:: time_in_seconds
+                                        .. attribute:: time_in_nano_seconds
                                         
-                                        	Time Value in Seconds
+                                        	Time Value in Nano\-seconds
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
-                                        .. attribute:: time_in_nano_seconds
+                                        .. attribute:: time_in_seconds
                                         
-                                        	Time Value in Nano\-seconds
+                                        	Time Value in Seconds
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
@@ -9416,13 +9416,13 @@ class PlatformInventory(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.time_in_seconds = None
                                             self.time_in_nano_seconds = None
+                                            self.time_in_seconds = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -9433,10 +9433,10 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.time_in_seconds is not None:
+                                            if self.time_in_nano_seconds is not None:
                                                 return True
 
-                                            if self.time_in_nano_seconds is not None:
+                                            if self.time_in_seconds is not None:
                                                 return True
 
                                             return False
@@ -9449,7 +9449,7 @@ class PlatformInventory(object):
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -9463,22 +9463,22 @@ class PlatformInventory(object):
                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                             return True
 
-                                        if self.module_up_time is not None and self.module_up_time._has_data():
-                                            return True
-
                                         if self.module_administrative_state is not None:
-                                            return True
-
-                                        if self.module_power_administrative_state is not None:
-                                            return True
-
-                                        if self.module_operational_state is not None:
                                             return True
 
                                         if self.module_monitor_state is not None:
                                             return True
 
+                                        if self.module_operational_state is not None:
+                                            return True
+
+                                        if self.module_power_administrative_state is not None:
+                                            return True
+
                                         if self.module_reset_reason is not None:
+                                            return True
+
+                                        if self.module_up_time is not None and self.module_up_time._has_data():
                                             return True
 
                                         return False
@@ -9491,7 +9491,7 @@ class PlatformInventory(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -9518,9 +9518,9 @@ class PlatformInventory(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.name is None:
-                                    raise YPYDataValidationError('Key property name is None')
+                                    raise YPYModelError('Key property name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:card[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -9534,13 +9534,10 @@ class PlatformInventory(object):
                                 if self.name is not None:
                                     return True
 
-                                if self.portses is not None and self.portses._has_data():
+                                if self.attributes is not None and self.attributes._has_data():
                                     return True
 
                                 if self.hardware_information is not None and self.hardware_information._has_data():
-                                    return True
-
-                                if self.sub_slots is not None and self.sub_slots._has_data():
                                     return True
 
                                 if self.hw_components is not None and self.hw_components._has_data():
@@ -9549,10 +9546,13 @@ class PlatformInventory(object):
                                 if self.port_slots is not None and self.port_slots._has_data():
                                     return True
 
+                                if self.portses is not None and self.portses._has_data():
+                                    return True
+
                                 if self.sensors is not None and self.sensors._has_data():
                                     return True
 
-                                if self.attributes is not None and self.attributes._has_data():
+                                if self.sub_slots is not None and self.sub_slots._has_data():
                                     return True
 
                                 return False
@@ -9565,7 +9565,7 @@ class PlatformInventory(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:cards'
 
@@ -9622,13 +9622,6 @@ class PlatformInventory(object):
                             """
                             Entity attributes
                             
-                            .. attribute:: name
-                            
-                            	name string for the entity
-                            	**type**\: str
-                            
-                            	**range:** 0..255
-                            
                             .. attribute:: description
                             
                             	describes in user\-readable terms                 what the entity in question does
@@ -9636,9 +9629,9 @@ class PlatformInventory(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: model_name
+                            .. attribute:: firmware_revision
                             
-                            	model name
+                            	firmware revision string
                             	**type**\: str
                             
                             	**range:** 0..255
@@ -9650,16 +9643,28 @@ class PlatformInventory(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: serial_number
+                            .. attribute:: is_field_replaceable_unit
                             
-                            	serial number
+                            	1 if Field Replaceable Unit 0, if not
+                            	**type**\: bool
+                            
+                            .. attribute:: model_name
+                            
+                            	model name
                             	**type**\: str
                             
                             	**range:** 0..255
                             
-                            .. attribute:: firmware_revision
+                            .. attribute:: name
                             
-                            	firmware revision string
+                            	name string for the entity
+                            	**type**\: str
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: serial_number
+                            
+                            	serial number
                             	**type**\: str
                             
                             	**range:** 0..255
@@ -9678,11 +9683,6 @@ class PlatformInventory(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: is_field_replaceable_unit
-                            
-                            	1 if Field Replaceable Unit 0, if not
-                            	**type**\: bool
-                            
                             
 
                             """
@@ -9692,20 +9692,20 @@ class PlatformInventory(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.name = None
                                 self.description = None
-                                self.model_name = None
-                                self.hardware_revision = None
-                                self.serial_number = None
                                 self.firmware_revision = None
+                                self.hardware_revision = None
+                                self.is_field_replaceable_unit = None
+                                self.model_name = None
+                                self.name = None
+                                self.serial_number = None
                                 self.software_revision = None
                                 self.vendor_type = None
-                                self.is_field_replaceable_unit = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -9716,31 +9716,31 @@ class PlatformInventory(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.name is not None:
-                                    return True
-
                                 if self.description is not None:
                                     return True
 
-                                if self.model_name is not None:
+                                if self.firmware_revision is not None:
                                     return True
 
                                 if self.hardware_revision is not None:
                                     return True
 
-                                if self.serial_number is not None:
+                                if self.is_field_replaceable_unit is not None:
                                     return True
 
-                                if self.firmware_revision is not None:
+                                if self.model_name is not None:
+                                    return True
+
+                                if self.name is not None:
+                                    return True
+
+                                if self.serial_number is not None:
                                     return True
 
                                 if self.software_revision is not None:
                                     return True
 
                                 if self.vendor_type is not None:
-                                    return True
-
-                                if self.is_field_replaceable_unit is not None:
                                     return True
 
                                 return False
@@ -9760,35 +9760,35 @@ class PlatformInventory(object):
                             	Time operational state is   last changed
                             	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
                             
-                            .. attribute:: module_up_time
-                            
-                            	Module up time
-                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
-                            
                             .. attribute:: module_administrative_state
                             
                             	Administrative    state
                             	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                            
-                            .. attribute:: module_power_administrative_state
-                            
-                            	Power administrative state
-                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                            
-                            .. attribute:: module_operational_state
-                            
-                            	Operation state
-                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                             
                             .. attribute:: module_monitor_state
                             
                             	Monitor state
                             	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                             
+                            .. attribute:: module_operational_state
+                            
+                            	Operation state
+                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                            
+                            .. attribute:: module_power_administrative_state
+                            
+                            	Power administrative state
+                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                            
                             .. attribute:: module_reset_reason
                             
                             	Reset reason
                             	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                            
+                            .. attribute:: module_up_time
+                            
+                            	Module up time
+                            	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
                             
                             
 
@@ -9801,29 +9801,29 @@ class PlatformInventory(object):
                                 self.parent = None
                                 self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange()
                                 self.last_operational_state_change.parent = self
+                                self.module_administrative_state = None
+                                self.module_monitor_state = None
+                                self.module_operational_state = None
+                                self.module_power_administrative_state = None
+                                self.module_reset_reason = None
                                 self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime()
                                 self.module_up_time.parent = self
-                                self.module_administrative_state = None
-                                self.module_power_administrative_state = None
-                                self.module_operational_state = None
-                                self.module_monitor_state = None
-                                self.module_reset_reason = None
 
 
                             class LastOperationalStateChange(object):
                                 """
                                 Time operational state is   last changed
                                 
-                                .. attribute:: time_in_seconds
+                                .. attribute:: time_in_nano_seconds
                                 
-                                	Time Value in Seconds
+                                	Time Value in Nano\-seconds
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
-                                .. attribute:: time_in_nano_seconds
+                                .. attribute:: time_in_seconds
                                 
-                                	Time Value in Nano\-seconds
+                                	Time Value in Seconds
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
@@ -9837,13 +9837,13 @@ class PlatformInventory(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.time_in_seconds = None
                                     self.time_in_nano_seconds = None
+                                    self.time_in_seconds = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -9854,10 +9854,10 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.time_in_seconds is not None:
+                                    if self.time_in_nano_seconds is not None:
                                         return True
 
-                                    if self.time_in_nano_seconds is not None:
+                                    if self.time_in_seconds is not None:
                                         return True
 
                                     return False
@@ -9872,16 +9872,16 @@ class PlatformInventory(object):
                                 """
                                 Module up time
                                 
-                                .. attribute:: time_in_seconds
+                                .. attribute:: time_in_nano_seconds
                                 
-                                	Time Value in Seconds
+                                	Time Value in Nano\-seconds
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
-                                .. attribute:: time_in_nano_seconds
+                                .. attribute:: time_in_seconds
                                 
-                                	Time Value in Nano\-seconds
+                                	Time Value in Seconds
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
@@ -9895,13 +9895,13 @@ class PlatformInventory(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.time_in_seconds = None
                                     self.time_in_nano_seconds = None
+                                    self.time_in_seconds = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -9912,10 +9912,10 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.time_in_seconds is not None:
+                                    if self.time_in_nano_seconds is not None:
                                         return True
 
-                                    if self.time_in_nano_seconds is not None:
+                                    if self.time_in_seconds is not None:
                                         return True
 
                                     return False
@@ -9928,7 +9928,7 @@ class PlatformInventory(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -9942,22 +9942,22 @@ class PlatformInventory(object):
                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                     return True
 
-                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                    return True
-
                                 if self.module_administrative_state is not None:
-                                    return True
-
-                                if self.module_power_administrative_state is not None:
-                                    return True
-
-                                if self.module_operational_state is not None:
                                     return True
 
                                 if self.module_monitor_state is not None:
                                     return True
 
+                                if self.module_operational_state is not None:
+                                    return True
+
+                                if self.module_power_administrative_state is not None:
+                                    return True
+
                                 if self.module_reset_reason is not None:
+                                    return True
+
+                                if self.module_up_time is not None and self.module_up_time._has_data():
                                     return True
 
                                 return False
@@ -9970,7 +9970,7 @@ class PlatformInventory(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -9997,9 +9997,9 @@ class PlatformInventory(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.name is None:
-                            raise YPYDataValidationError('Key property name is None')
+                            raise YPYModelError('Key property name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -10013,10 +10013,10 @@ class PlatformInventory(object):
                         if self.name is not None:
                             return True
 
-                        if self.cards is not None and self.cards._has_data():
+                        if self.attributes is not None and self.attributes._has_data():
                             return True
 
-                        if self.attributes is not None and self.attributes._has_data():
+                        if self.cards is not None and self.cards._has_data():
                             return True
 
                         return False
@@ -10029,7 +10029,7 @@ class PlatformInventory(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:slots'
 
@@ -10086,13 +10086,6 @@ class PlatformInventory(object):
                     """
                     Entity attributes
                     
-                    .. attribute:: name
-                    
-                    	name string for the entity
-                    	**type**\: str
-                    
-                    	**range:** 0..255
-                    
                     .. attribute:: description
                     
                     	describes in user\-readable terms                 what the entity in question does
@@ -10100,9 +10093,9 @@ class PlatformInventory(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: model_name
+                    .. attribute:: firmware_revision
                     
-                    	model name
+                    	firmware revision string
                     	**type**\: str
                     
                     	**range:** 0..255
@@ -10114,16 +10107,28 @@ class PlatformInventory(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: serial_number
+                    .. attribute:: is_field_replaceable_unit
                     
-                    	serial number
+                    	1 if Field Replaceable Unit 0, if not
+                    	**type**\: bool
+                    
+                    .. attribute:: model_name
+                    
+                    	model name
                     	**type**\: str
                     
                     	**range:** 0..255
                     
-                    .. attribute:: firmware_revision
+                    .. attribute:: name
                     
-                    	firmware revision string
+                    	name string for the entity
+                    	**type**\: str
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: serial_number
+                    
+                    	serial number
                     	**type**\: str
                     
                     	**range:** 0..255
@@ -10142,11 +10147,6 @@ class PlatformInventory(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: is_field_replaceable_unit
-                    
-                    	1 if Field Replaceable Unit 0, if not
-                    	**type**\: bool
-                    
                     
 
                     """
@@ -10156,20 +10156,20 @@ class PlatformInventory(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.name = None
                         self.description = None
-                        self.model_name = None
-                        self.hardware_revision = None
-                        self.serial_number = None
                         self.firmware_revision = None
+                        self.hardware_revision = None
+                        self.is_field_replaceable_unit = None
+                        self.model_name = None
+                        self.name = None
+                        self.serial_number = None
                         self.software_revision = None
                         self.vendor_type = None
-                        self.is_field_replaceable_unit = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
 
@@ -10180,31 +10180,31 @@ class PlatformInventory(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.name is not None:
-                            return True
-
                         if self.description is not None:
                             return True
 
-                        if self.model_name is not None:
+                        if self.firmware_revision is not None:
                             return True
 
                         if self.hardware_revision is not None:
                             return True
 
-                        if self.serial_number is not None:
+                        if self.is_field_replaceable_unit is not None:
                             return True
 
-                        if self.firmware_revision is not None:
+                        if self.model_name is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        if self.serial_number is not None:
                             return True
 
                         if self.software_revision is not None:
                             return True
 
                         if self.vendor_type is not None:
-                            return True
-
-                        if self.is_field_replaceable_unit is not None:
                             return True
 
                         return False
@@ -10224,35 +10224,35 @@ class PlatformInventory(object):
                     	Time operational state is   last changed
                     	**type**\: :py:class:`LastOperationalStateChange <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
                     
-                    .. attribute:: module_up_time
-                    
-                    	Module up time
-                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
-                    
                     .. attribute:: module_administrative_state
                     
                     	Administrative    state
                     	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                    
-                    .. attribute:: module_power_administrative_state
-                    
-                    	Power administrative state
-                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                    
-                    .. attribute:: module_operational_state
-                    
-                    	Operation state
-                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                     
                     .. attribute:: module_monitor_state
                     
                     	Monitor state
                     	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                     
+                    .. attribute:: module_operational_state
+                    
+                    	Operation state
+                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                    
+                    .. attribute:: module_power_administrative_state
+                    
+                    	Power administrative state
+                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                    
                     .. attribute:: module_reset_reason
                     
                     	Reset reason
                     	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                    
+                    .. attribute:: module_up_time
+                    
+                    	Module up time
+                    	**type**\: :py:class:`ModuleUpTime <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
                     
                     
 
@@ -10265,29 +10265,29 @@ class PlatformInventory(object):
                         self.parent = None
                         self.last_operational_state_change = PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange()
                         self.last_operational_state_change.parent = self
+                        self.module_administrative_state = None
+                        self.module_monitor_state = None
+                        self.module_operational_state = None
+                        self.module_power_administrative_state = None
+                        self.module_reset_reason = None
                         self.module_up_time = PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime()
                         self.module_up_time.parent = self
-                        self.module_administrative_state = None
-                        self.module_power_administrative_state = None
-                        self.module_operational_state = None
-                        self.module_monitor_state = None
-                        self.module_reset_reason = None
 
 
                     class LastOperationalStateChange(object):
                         """
                         Time operational state is   last changed
                         
-                        .. attribute:: time_in_seconds
+                        .. attribute:: time_in_nano_seconds
                         
-                        	Time Value in Seconds
+                        	Time Value in Nano\-seconds
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: time_in_nano_seconds
+                        .. attribute:: time_in_seconds
                         
-                        	Time Value in Nano\-seconds
+                        	Time Value in Seconds
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -10301,13 +10301,13 @@ class PlatformInventory(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.time_in_seconds = None
                             self.time_in_nano_seconds = None
+                            self.time_in_seconds = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
 
@@ -10318,10 +10318,10 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.time_in_seconds is not None:
+                            if self.time_in_nano_seconds is not None:
                                 return True
 
-                            if self.time_in_nano_seconds is not None:
+                            if self.time_in_seconds is not None:
                                 return True
 
                             return False
@@ -10336,16 +10336,16 @@ class PlatformInventory(object):
                         """
                         Module up time
                         
-                        .. attribute:: time_in_seconds
+                        .. attribute:: time_in_nano_seconds
                         
-                        	Time Value in Seconds
+                        	Time Value in Nano\-seconds
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: time_in_nano_seconds
+                        .. attribute:: time_in_seconds
                         
-                        	Time Value in Nano\-seconds
+                        	Time Value in Seconds
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -10359,13 +10359,13 @@ class PlatformInventory(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.time_in_seconds = None
                             self.time_in_nano_seconds = None
+                            self.time_in_seconds = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
 
@@ -10376,10 +10376,10 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.time_in_seconds is not None:
+                            if self.time_in_nano_seconds is not None:
                                 return True
 
-                            if self.time_in_nano_seconds is not None:
+                            if self.time_in_seconds is not None:
                                 return True
 
                             return False
@@ -10392,7 +10392,7 @@ class PlatformInventory(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
 
@@ -10406,22 +10406,22 @@ class PlatformInventory(object):
                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                             return True
 
-                        if self.module_up_time is not None and self.module_up_time._has_data():
-                            return True
-
                         if self.module_administrative_state is not None:
-                            return True
-
-                        if self.module_power_administrative_state is not None:
-                            return True
-
-                        if self.module_operational_state is not None:
                             return True
 
                         if self.module_monitor_state is not None:
                             return True
 
+                        if self.module_operational_state is not None:
+                            return True
+
+                        if self.module_power_administrative_state is not None:
+                            return True
+
                         if self.module_reset_reason is not None:
+                            return True
+
+                        if self.module_up_time is not None and self.module_up_time._has_data():
                             return True
 
                         return False
@@ -10434,7 +10434,7 @@ class PlatformInventory(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
 
@@ -10461,7 +10461,7 @@ class PlatformInventory(object):
             @property
             def _common_path(self):
                 if self.name is None:
-                    raise YPYDataValidationError('Key property name is None')
+                    raise YPYModelError('Key property name is None')
 
                 return '/Cisco-IOS-XR-plat-chas-invmgr-oper:platform-inventory/Cisco-IOS-XR-plat-chas-invmgr-oper:racks/Cisco-IOS-XR-plat-chas-invmgr-oper:rack[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
@@ -10475,10 +10475,10 @@ class PlatformInventory(object):
                 if self.name is not None:
                     return True
 
-                if self.slots is not None and self.slots._has_data():
+                if self.attributes is not None and self.attributes._has_data():
                     return True
 
-                if self.attributes is not None and self.attributes._has_data():
+                if self.slots is not None and self.slots._has_data():
                     return True
 
                 return False

@@ -18,7 +18,7 @@
    The MetaService class. Inject i_meta to entity
    
 """
-from ydk.errors import YPYDataValidationError
+from ydk.errors import YPYModelError
 from ydk.types import YList, READ, DELETE, YListItem, YLeafList
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, \
     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
@@ -41,7 +41,7 @@ class MetaService(Service):
                 entity: An instance of YDK object
 
             Raises:
-                `YPYDataValidationError <ydk.errors.html#ydk.errors.YPYDataValidationError>`_ if try to access an unsupported feature.
+                `YPYModelError <ydk.errors.html#ydk.errors.YPYModelError>`_ if try to access an unsupported feature.
 
         """
         deviation_tables = MetaService.get_active_deviation_tables(capabilities, entity)
@@ -81,6 +81,10 @@ class MetaService(Service):
                 deviation_tables: A dictionary of existing deviation tables
 
         """
+
+        if hasattr(entity, 'parent'):
+            set_parent_imeta(entity)
+
         if isinstance(entity, YList) or isinstance(entity, YLeafList):
             entity = entity.parent
             MetaService.inject_imeta(entity, deviation_tables)
@@ -91,9 +95,14 @@ class MetaService(Service):
                 for deviation_table in deviation_tables.values():
                     inject_imeta_helper(entity, deviation_table)
 
-    # inject meta preamble
 
-
+def set_parent_imeta(entity, child_meta=None):
+    if isinstance(entity, YList) or isinstance(entity, YLeafList) or isinstance(entity, YListItem):
+        set_parent_imeta(entity.parent, child_meta)
+    elif entity:
+        entity.i_meta = entity._meta_info()
+        if hasattr(entity, 'parent'):
+            set_parent_imeta(entity.parent, entity.i_meta)
 
 def get_active_deviation_module_names(capabilities, entity):
     """ Return active deviation module names """
@@ -141,7 +150,7 @@ def modify_member_meta(full_name, deviation_table, member):
     for key, val in key_vals:
         if key == 'config':
             # ignore config change
-            raise YPYDataValidationError("Ignore config change at the moment")
+            raise YPYModelError("Ignore config change at the moment")
         if key == 'type' and deviation_typ == 'replace':
             # should only appear once per deviation
             member = val
@@ -150,14 +159,14 @@ def modify_member_meta(full_name, deviation_table, member):
             try:
                 setattr(member, '_%s' % key, val)
             except:
-                raise YPYDataValidationError(
+                raise YPYModelError(
                     "Key {} not found in {}".format(member.presentation_name))
         elif key != 'default':
             # TODO: other keyword not necessary to modify in client side
             try:
                 delattr(member, '_%s' % key)
             except:
-                raise YPYDataValidationError(
+                raise YPYModelError(
                     "Key {} not found in {}".format(member.presentation_name))
     return member
 
@@ -195,7 +204,7 @@ def inject_imeta_helper(entity, deviation_table, parent=None):
                     isinstance(value, READ) or isinstance(value, DELETE):
                     pass
                 else:
-                    raise YPYDataValidationError("Attempt to configure not supported node")
+                    raise YPYModelError("Attempt to configure not supported node")
         else:
             new_member = member
         if new_member is not None:

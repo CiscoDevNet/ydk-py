@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -95,17 +95,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData',
             False, 
             [
-            _MetaInfoClassMember('pseudowire-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Pseudowire Name
-                ''',
-                'pseudowire_name',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-is-up', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Pseudowire State
                 ''',
                 'pseudowire_is_up',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Pseudowire Name
+                ''',
+                'pseudowire_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -118,6 +118,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data',
             False, 
             [
+            _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Address is reachable
+                ''',
+                'address_is_reachable',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
@@ -130,12 +136,6 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Address is reachable
-                ''',
-                'address_is_reachable',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
             'next-hop-ipv4-data',
@@ -147,6 +147,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data',
             False, 
             [
+            _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Address is reachable
+                ''',
+                'address_is_reachable',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address
@@ -159,12 +165,6 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Address is reachable
-                ''',
-                'address_is_reachable',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
             'next-hop-ipv6-data',
@@ -176,17 +176,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData',
             False, 
             [
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
+                [], [], 
+                '''                DestinationClass
+                ''',
+                'destination_class',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface-data', REFERENCE_CLASS, 'InterfaceData' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData', 
                 [], [], 
                 '''                Interface data
                 ''',
                 'interface_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData', 
-                [], [], 
-                '''                Pseudowire data
+            _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Invalid Parameter
                 ''',
-                'pseudowire_data',
+                'invalid_value',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('next-hop-ipv4-data', REFERENCE_CLASS, 'NextHopIpv4Data' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data', 
                 [], [], 
@@ -200,17 +206,11 @@ _meta_table = {
                 ''',
                 'next_hop_ipv6_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData', 
                 [], [], 
-                '''                DestinationClass
+                '''                Pseudowire data
                 ''',
-                'destination_class',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Invalid Parameter
-                ''',
-                'invalid_value',
+                'pseudowire_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -269,18 +269,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf', 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'ipv4_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf', 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'ipv6_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
@@ -293,17 +281,29 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Pseudowire XCID
-                ''',
-                'pseudowire_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf', 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf', 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Pseudowire XCID
+                ''',
+                'pseudowire_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -328,11 +328,44 @@ _meta_table = {
                 ''',
                 'destination_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('destination-error', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last error observed for the destination 
+                ''',
+                'destination_error',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId', 
                 [], [], 
                 '''                Destination ID
                 ''',
                 'destination_id',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('destination-interface-handle', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Destination interface handle (deprecated by
+                DestinationID, invalid for pseudowires)
+                ''',
+                'destination_interface_handle',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('destination-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination interface name (deprecated by
+                DestinationData, invalid for pseudowires)
+                ''',
+                'destination_interface_name',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Numerical ID assigned to session
+                ''',
+                'id',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('interface-error', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last error observed for the destination
+                interface (deprecated by DestinationError)
+                ''',
+                'interface_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -345,39 +378,6 @@ _meta_table = {
                 '''                Session class
                 ''',
                 'session_class',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Numerical ID assigned to session
-                ''',
-                'id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Last error observed for the destination 
-                ''',
-                'destination_error',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Destination interface name (deprecated by
-                DestinationData, invalid for pseudowires)
-                ''',
-                'destination_interface_name',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Destination interface handle (deprecated by
-                DestinationID, invalid for pseudowires)
-                ''',
-                'destination_interface_handle',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('interface-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Last error observed for the destination
-                interface (deprecated by DestinationError)
-                ''',
-                'interface_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -425,18 +425,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters',
             False, 
             [
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
-                [], [], 
-                '''                Direction
-                ''',
-                'traffic_direction',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Port level mirroring
-                ''',
-                'port_level',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('is-acl-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                ACL enabled
@@ -454,6 +442,18 @@ _meta_table = {
                 '''                Interval between mirrored packets
                 ''',
                 'mirror_interval',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Port level mirroring
+                ''',
+                'port_level',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
+                [], [], 
+                '''                Direction
+                ''',
+                'traffic_direction',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -512,18 +512,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf', 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'ipv4_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf', 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'ipv6_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
@@ -536,17 +524,29 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Pseudowire XCID
-                ''',
-                'pseudowire_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf', 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf', 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Pseudowire XCID
+                ''',
+                'pseudowire_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -559,23 +559,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Attachments.Attachment',
             False, 
             [
-            _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
-                '''                Session Name
-                ''',
-                'session',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
-            _MetaInfoClassMember('traffic-parameters', REFERENCE_CLASS, 'TrafficParameters' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters', 
-                [], [], 
-                '''                Traffic mirroring parameters
+            _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
+                [(0, 79)], [], 
+                '''                Session Name
                 ''',
-                'traffic_parameters',
+                'session',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
+            _MetaInfoClassMember('dest-pw-type-not-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The destination PW type is not supported
+                ''',
+                'dest_pw_type_not_supported',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId', 
                 [], [], 
@@ -583,17 +583,18 @@ _meta_table = {
                 ''',
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Session Name
+            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Destination interface (deprecated by
+                DestinationID, invalid for pseudowires)
                 ''',
-                'name',
+                'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('local-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
+            _MetaInfoClassMember('global-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
-                '''                Local attachment class
+                '''                Global session class
                 ''',
-                'local_class',
+                'global_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -601,11 +602,23 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('global-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
+            _MetaInfoClassMember('local-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
-                '''                Global session class
+                '''                Local attachment class
                 ''',
-                'global_class',
+                'local_class',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Session Name
+                ''',
+                'name',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pfi-error', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last error returned from PFI for this interface
+                ''',
+                'pfi_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('session-is-configured', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -625,31 +638,18 @@ _meta_table = {
                 ''',
                 'source_interface_state',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pfi-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Last error returned from PFI for this interface
-                ''',
-                'pfi_error',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('dest-pw-type-not-supported', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The destination PW type is not supported
-                ''',
-                'dest_pw_type_not_supported',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Destination interface (deprecated by
-                DestinationID, invalid for pseudowires)
-                ''',
-                'destination_interface',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Traffic mirroring direction (deprecated by
                 TrafficParameters)
                 ''',
                 'traffic_direction',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('traffic-parameters', REFERENCE_CLASS, 'TrafficParameters' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters', 
+                [], [], 
+                '''                Traffic mirroring parameters
+                ''',
+                'traffic_parameters',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -727,18 +727,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf', 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'ipv4_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf', 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'ipv6_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
@@ -751,17 +739,29 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Pseudowire XCID
-                ''',
-                'pseudowire_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf', 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf', 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Pseudowire XCID
+                ''',
+                'pseudowire_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -774,23 +774,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
-                [], [], 
-                '''                Sesssion class
-                ''',
-                'session_class',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Session ID
-                ''',
-                'session_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId', 
                 [], [], 
                 '''                Destination ID
                 ''',
                 'destination_id',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Destination interface (deprecated by
+                DestinationID, invalid for pseudowires)
+                ''',
+                'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -804,25 +799,30 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('session-class-xr', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
-                [], [], 
-                '''                Session class
-                ''',
-                'session_class_xr',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Destination interface (deprecated by
-                DestinationID, invalid for pseudowires)
-                ''',
-                'destination_interface',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('platform-error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Last error observed for this session while
                 programming the hardware
                 ''',
                 'platform_error',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
+                [], [], 
+                '''                Sesssion class
+                ''',
+                'session_class',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('session-class-xr', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
+                [], [], 
+                '''                Session class
+                ''',
+                'session_class_xr',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Session ID
+                ''',
+                'session_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -899,18 +899,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf', 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'ipv4_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf', 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'ipv6_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
@@ -923,17 +911,29 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Pseudowire XCID
-                ''',
-                'pseudowire_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf', 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf', 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Pseudowire XCID
+                ''',
+                'pseudowire_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -946,18 +946,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters',
             False, 
             [
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
-                [], [], 
-                '''                Direction
-                ''',
-                'traffic_direction',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Port level mirroring
-                ''',
-                'port_level',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('is-acl-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                ACL enabled
@@ -975,6 +963,18 @@ _meta_table = {
                 '''                Interval between mirrored packets
                 ''',
                 'mirror_interval',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Port level mirroring
+                ''',
+                'port_level',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
+                [], [], 
+                '''                Direction
+                ''',
+                'traffic_direction',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -1033,18 +1033,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf', 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'ipv4_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf', 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'ipv6_address_and_vrf',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
@@ -1057,17 +1045,29 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Pseudowire XCID
-                ''',
-                'pseudowire_id',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf', 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf', 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address_and_vrf',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Pseudowire XCID
+                ''',
+                'pseudowire_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -1080,18 +1080,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters',
             False, 
             [
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
-                [], [], 
-                '''                Direction
-                ''',
-                'traffic_direction',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Port level mirroring
-                ''',
-                'port_level',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('is-acl-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                ACL enabled
@@ -1110,6 +1098,18 @@ _meta_table = {
                 ''',
                 'mirror_interval',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('port-level', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Port level mirroring
+                ''',
+                'port_level',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
+                [], [], 
+                '''                Direction
+                ''',
+                'traffic_direction',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
             'traffic-mirroring-parameters',
@@ -1121,6 +1121,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment',
             False, 
             [
+            _MetaInfoClassMember('class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
+                [], [], 
+                '''                Attachment class
+                ''',
+                'class_',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId', 
                 [], [], 
                 '''                Destination ID
@@ -1132,12 +1138,6 @@ _meta_table = {
                 '''                Traffic mirroring parameters
                 ''',
                 'traffic_mirroring_parameters',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
-                [], [], 
-                '''                Attachment class
-                ''',
-                'class_',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
@@ -1156,24 +1156,23 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
+            _MetaInfoClassMember('attachment', REFERENCE_LIST, 'Attachment' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment', 
+                [], [], 
+                '''                Attachment information
+                ''',
+                'attachment',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId', 
                 [], [], 
                 '''                Destination ID (deprecated by Attachment)
                 ''',
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-mirroring-parameters', REFERENCE_CLASS, 'TrafficMirroringParameters' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters', 
-                [], [], 
-                '''                Traffic mirroring parameters (deprecated by
-                Attachment)
-                ''',
-                'traffic_mirroring_parameters',
-                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Source interface
+                '''                Destination interface (deprecated by Attachment)
                 ''',
-                'source_interface',
+                'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('platform-error', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1182,11 +1181,11 @@ _meta_table = {
                 ''',
                 'platform_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Destination interface (deprecated by Attachment)
+                '''                Source interface
                 ''',
-                'destination_interface',
+                'source_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
@@ -1195,11 +1194,12 @@ _meta_table = {
                 ''',
                 'traffic_direction',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('attachment', REFERENCE_LIST, 'Attachment' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment', 
+            _MetaInfoClassMember('traffic-mirroring-parameters', REFERENCE_CLASS, 'TrafficMirroringParameters' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters', 
                 [], [], 
-                '''                Attachment information
+                '''                Traffic mirroring parameters (deprecated by
+                Attachment)
                 ''',
-                'attachment',
+                'traffic_mirroring_parameters',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',

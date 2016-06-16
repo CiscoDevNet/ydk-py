@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -26,18 +26,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SystemTime.Clock',
             False, 
             [
-            _MetaInfoClassMember('year', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Year [0..65535]
-                ''',
-                'year',
-                'Cisco-IOS-XR-shellutil-oper', False),
-            _MetaInfoClassMember('month', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Month [1..12]
-                ''',
-                'month',
-                'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('day', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Day [1..31]
@@ -50,11 +38,23 @@ _meta_table = {
                 ''',
                 'hour',
                 'Cisco-IOS-XR-shellutil-oper', False),
+            _MetaInfoClassMember('millisecond', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Millisecond [0..999]
+                ''',
+                'millisecond',
+                'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('minute', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Minute [0..59]
                 ''',
                 'minute',
+                'Cisco-IOS-XR-shellutil-oper', False),
+            _MetaInfoClassMember('month', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Month [1..12]
+                ''',
+                'month',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('second', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -62,17 +62,11 @@ _meta_table = {
                 ''',
                 'second',
                 'Cisco-IOS-XR-shellutil-oper', False),
-            _MetaInfoClassMember('millisecond', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Millisecond [0..999]
+            _MetaInfoClassMember('time-source', REFERENCE_ENUM_CLASS, 'TimeSourceEnum' , 'ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper', 'TimeSourceEnum', 
+                [], [], 
+                '''                Time source
                 ''',
-                'millisecond',
-                'Cisco-IOS-XR-shellutil-oper', False),
-            _MetaInfoClassMember('wday', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Week Day [0..6]
-                ''',
-                'wday',
+                'time_source',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('time-zone', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -80,11 +74,17 @@ _meta_table = {
                 ''',
                 'time_zone',
                 'Cisco-IOS-XR-shellutil-oper', False),
-            _MetaInfoClassMember('time-source', REFERENCE_ENUM_CLASS, 'TimeSourceEnum' , 'ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper', 'TimeSourceEnum', 
-                [], [], 
-                '''                Time source
+            _MetaInfoClassMember('wday', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Week Day [0..6]
                 ''',
-                'time_source',
+                'wday',
+                'Cisco-IOS-XR-shellutil-oper', False),
+            _MetaInfoClassMember('year', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Year [0..65535]
+                ''',
+                'year',
                 'Cisco-IOS-XR-shellutil-oper', False),
             ],
             'Cisco-IOS-XR-shellutil-oper',

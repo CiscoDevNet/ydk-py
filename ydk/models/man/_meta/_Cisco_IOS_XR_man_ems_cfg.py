@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,17 +18,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Grpc.Tls',
             False, 
             [
-            _MetaInfoClassMember('trustpoint', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Trustpoint Name
-                ''',
-                'trustpoint',
-                'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable TLS
                 ''',
                 'enable',
+                'Cisco-IOS-XR-man-ems-cfg', False),
+            _MetaInfoClassMember('trustpoint', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Trustpoint Name
+                ''',
+                'trustpoint',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             ],
             'Cisco-IOS-XR-man-ems-cfg',
@@ -41,17 +41,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Grpc',
             False, 
             [
-            _MetaInfoClassMember('tls', REFERENCE_CLASS, 'Tls' , 'ydk.models.man.Cisco_IOS_XR_man_ems_cfg', 'Grpc.Tls', 
+            _MetaInfoClassMember('address-family', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Transport Layer Security (TLS)
+                '''                Address family identifier type
                 ''',
-                'tls',
-                'Cisco-IOS-XR-man-ems-cfg', False),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(57344, 57999)], [], 
-                '''                Server listening port
-                ''',
-                'port',
+                'address_family',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -65,17 +59,23 @@ _meta_table = {
                 ''',
                 'max_request_per_user',
                 'Cisco-IOS-XR-man-ems-cfg', False),
-            _MetaInfoClassMember('address-family', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Address family identifier type
-                ''',
-                'address_family',
-                'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('max-request-total', ATTRIBUTE, 'int' , None, None, 
                 [(1, 256)], [], 
                 '''                Maximum concurrent requests in total
                 ''',
                 'max_request_total',
+                'Cisco-IOS-XR-man-ems-cfg', False),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [(57344, 57999)], [], 
+                '''                Server listening port
+                ''',
+                'port',
+                'Cisco-IOS-XR-man-ems-cfg', False),
+            _MetaInfoClassMember('tls', REFERENCE_CLASS, 'Tls' , 'ydk.models.man.Cisco_IOS_XR_man_ems_cfg', 'Grpc.Tls', 
+                [], [], 
+                '''                Transport Layer Security (TLS)
+                ''',
+                'tls',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             ],
             'Cisco-IOS-XR-man-ems-cfg',

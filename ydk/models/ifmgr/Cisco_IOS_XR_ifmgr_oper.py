@@ -21,7 +21,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -242,29 +242,10 @@ class InterfaceDampening(object):
                 """
                 Dampening info for the interface
                 
-                .. attribute:: interface_dampening
+                .. attribute:: capsulation
                 
-                	Interface dampening
-                	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening>`
-                
-                .. attribute:: state_transition_count
-                
-                	The number of times the state has changed
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_state_transition_time
-                
-                	The time elasped after the last state transition
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: is_dampening_enabled
-                
-                	Flag showing if dampening is enabled
-                	**type**\: bool
+                	Dampening information for capsulations
+                	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation>`
                 
                 .. attribute:: half_life
                 
@@ -273,16 +254,19 @@ class InterfaceDampening(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: reuse_threshold
+                .. attribute:: interface_dampening
                 
-                	Configured reuse threshold
-                	**type**\: int
+                	Interface dampening
+                	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening>`
                 
-                	**range:** 0..4294967295
+                .. attribute:: is_dampening_enabled
                 
-                .. attribute:: suppress_threshold
+                	Flag showing if dampening is enabled
+                	**type**\: bool
                 
-                	Value of suppress threshold
+                .. attribute:: last_state_transition_time
+                
+                	The time elasped after the last state transition
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -301,10 +285,26 @@ class InterfaceDampening(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: capsulation
+                .. attribute:: reuse_threshold
                 
-                	Dampening information for capsulations
-                	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation>`
+                	Configured reuse threshold
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: state_transition_count
+                
+                	The number of times the state has changed
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: suppress_threshold
+                
+                	Value of suppress threshold
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -315,28 +315,28 @@ class InterfaceDampening(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interface_dampening = InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening()
-                    self.interface_dampening.parent = self
-                    self.state_transition_count = None
-                    self.last_state_transition_time = None
-                    self.is_dampening_enabled = None
-                    self.half_life = None
-                    self.reuse_threshold = None
-                    self.suppress_threshold = None
-                    self.maximum_suppress_time = None
-                    self.restart_penalty = None
                     self.capsulation = YList()
                     self.capsulation.parent = self
                     self.capsulation.name = 'capsulation'
+                    self.half_life = None
+                    self.interface_dampening = InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening()
+                    self.interface_dampening.parent = self
+                    self.is_dampening_enabled = None
+                    self.last_state_transition_time = None
+                    self.maximum_suppress_time = None
+                    self.restart_penalty = None
+                    self.reuse_threshold = None
+                    self.state_transition_count = None
+                    self.suppress_threshold = None
 
 
                 class InterfaceDampening(object):
                     """
                     Interface dampening
                     
-                    .. attribute:: penalty
+                    .. attribute:: flaps
                     
-                    	Dampening penalty of the interface
+                    	Number of underlying state flaps
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -346,16 +346,16 @@ class InterfaceDampening(object):
                     	Flag showing if state is suppressed
                     	**type**\: bool
                     
-                    .. attribute:: seconds_remaining
+                    .. attribute:: penalty
                     
-                    	Remaining period of suppression in secs
+                    	Dampening penalty of the interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: flaps
+                    .. attribute:: seconds_remaining
                     
-                    	Number of underlying state flaps
+                    	Remaining period of suppression in secs
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -374,16 +374,16 @@ class InterfaceDampening(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.penalty = None
-                        self.is_suppressed_enabled = None
-                        self.seconds_remaining = None
                         self.flaps = None
+                        self.is_suppressed_enabled = None
+                        self.penalty = None
+                        self.seconds_remaining = None
                         self.state = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface-dampening'
 
@@ -394,16 +394,16 @@ class InterfaceDampening(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.penalty is not None:
+                        if self.flaps is not None:
                             return True
 
                         if self.is_suppressed_enabled is not None:
                             return True
 
-                        if self.seconds_remaining is not None:
+                        if self.penalty is not None:
                             return True
 
-                        if self.flaps is not None:
+                        if self.seconds_remaining is not None:
                             return True
 
                         if self.state is not None:
@@ -449,9 +449,9 @@ class InterfaceDampening(object):
                         """
                         Capsulation dampening
                         
-                        .. attribute:: penalty
+                        .. attribute:: flaps
                         
-                        	Dampening penalty of the interface
+                        	Number of underlying state flaps
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -461,16 +461,16 @@ class InterfaceDampening(object):
                         	Flag showing if state is suppressed
                         	**type**\: bool
                         
-                        .. attribute:: seconds_remaining
+                        .. attribute:: penalty
                         
-                        	Remaining period of suppression in secs
+                        	Dampening penalty of the interface
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: flaps
+                        .. attribute:: seconds_remaining
                         
-                        	Number of underlying state flaps
+                        	Remaining period of suppression in secs
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -489,16 +489,16 @@ class InterfaceDampening(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.penalty = None
-                            self.is_suppressed_enabled = None
-                            self.seconds_remaining = None
                             self.flaps = None
+                            self.is_suppressed_enabled = None
+                            self.penalty = None
+                            self.seconds_remaining = None
                             self.state = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation-dampening'
 
@@ -509,16 +509,16 @@ class InterfaceDampening(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.penalty is not None:
+                            if self.flaps is not None:
                                 return True
 
                             if self.is_suppressed_enabled is not None:
                                 return True
 
-                            if self.seconds_remaining is not None:
+                            if self.penalty is not None:
                                 return True
 
-                            if self.flaps is not None:
+                            if self.seconds_remaining is not None:
                                 return True
 
                             if self.state is not None:
@@ -534,7 +534,7 @@ class InterfaceDampening(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation'
 
@@ -561,7 +561,7 @@ class InterfaceDampening(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:if-dampening'
 
@@ -572,25 +572,21 @@ class InterfaceDampening(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.capsulation is not None:
+                        for child_ref in self.capsulation:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.half_life is not None:
+                        return True
+
                     if self.interface_dampening is not None and self.interface_dampening._has_data():
-                        return True
-
-                    if self.state_transition_count is not None:
-                        return True
-
-                    if self.last_state_transition_time is not None:
                         return True
 
                     if self.is_dampening_enabled is not None:
                         return True
 
-                    if self.half_life is not None:
-                        return True
-
-                    if self.reuse_threshold is not None:
-                        return True
-
-                    if self.suppress_threshold is not None:
+                    if self.last_state_transition_time is not None:
                         return True
 
                     if self.maximum_suppress_time is not None:
@@ -599,10 +595,14 @@ class InterfaceDampening(object):
                     if self.restart_penalty is not None:
                         return True
 
-                    if self.capsulation is not None:
-                        for child_ref in self.capsulation:
-                            if child_ref._has_data():
-                                return True
+                    if self.reuse_threshold is not None:
+                        return True
+
+                    if self.state_transition_count is not None:
+                        return True
+
+                    if self.suppress_threshold is not None:
+                        return True
 
                     return False
 
@@ -614,7 +614,7 @@ class InterfaceDampening(object):
             @property
             def _common_path(self):
                 if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
+                    raise YPYModelError('Key property interface_name is None')
 
                 return '/Cisco-IOS-XR-ifmgr-oper:interface-dampening/Cisco-IOS-XR-ifmgr-oper:interfaces/Cisco-IOS-XR-ifmgr-oper:interface[Cisco-IOS-XR-ifmgr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -803,29 +803,10 @@ class InterfaceDampening(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: interface_dampening
+                            .. attribute:: capsulation
                             
-                            	Interface dampening
-                            	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening>`
-                            
-                            .. attribute:: state_transition_count
-                            
-                            	The number of times the state has changed
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: last_state_transition_time
-                            
-                            	The time elasped after the last state transition
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_dampening_enabled
-                            
-                            	Flag showing if dampening is enabled
-                            	**type**\: bool
+                            	Dampening information for capsulations
+                            	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation>`
                             
                             .. attribute:: half_life
                             
@@ -834,16 +815,19 @@ class InterfaceDampening(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: reuse_threshold
+                            .. attribute:: interface_dampening
                             
-                            	Configured reuse threshold
-                            	**type**\: int
+                            	Interface dampening
+                            	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: is_dampening_enabled
                             
-                            .. attribute:: suppress_threshold
+                            	Flag showing if dampening is enabled
+                            	**type**\: bool
                             
-                            	Value of suppress threshold
+                            .. attribute:: last_state_transition_time
+                            
+                            	The time elasped after the last state transition
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -862,10 +846,26 @@ class InterfaceDampening(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: capsulation
+                            .. attribute:: reuse_threshold
                             
-                            	Dampening information for capsulations
-                            	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation>`
+                            	Configured reuse threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: state_transition_count
+                            
+                            	The number of times the state has changed
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: suppress_threshold
+                            
+                            	Value of suppress threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -877,28 +877,28 @@ class InterfaceDampening(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_handle_name = None
-                                self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening()
-                                self.interface_dampening.parent = self
-                                self.state_transition_count = None
-                                self.last_state_transition_time = None
-                                self.is_dampening_enabled = None
-                                self.half_life = None
-                                self.reuse_threshold = None
-                                self.suppress_threshold = None
-                                self.maximum_suppress_time = None
-                                self.restart_penalty = None
                                 self.capsulation = YList()
                                 self.capsulation.parent = self
                                 self.capsulation.name = 'capsulation'
+                                self.half_life = None
+                                self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening()
+                                self.interface_dampening.parent = self
+                                self.is_dampening_enabled = None
+                                self.last_state_transition_time = None
+                                self.maximum_suppress_time = None
+                                self.restart_penalty = None
+                                self.reuse_threshold = None
+                                self.state_transition_count = None
+                                self.suppress_threshold = None
 
 
                             class InterfaceDampening(object):
                                 """
                                 Interface dampening
                                 
-                                .. attribute:: penalty
+                                .. attribute:: flaps
                                 
-                                	Dampening penalty of the interface
+                                	Number of underlying state flaps
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -908,16 +908,16 @@ class InterfaceDampening(object):
                                 	Flag showing if state is suppressed
                                 	**type**\: bool
                                 
-                                .. attribute:: seconds_remaining
+                                .. attribute:: penalty
                                 
-                                	Remaining period of suppression in secs
+                                	Dampening penalty of the interface
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: flaps
+                                .. attribute:: seconds_remaining
                                 
-                                	Number of underlying state flaps
+                                	Remaining period of suppression in secs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -936,16 +936,16 @@ class InterfaceDampening(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.penalty = None
-                                    self.is_suppressed_enabled = None
-                                    self.seconds_remaining = None
                                     self.flaps = None
+                                    self.is_suppressed_enabled = None
+                                    self.penalty = None
+                                    self.seconds_remaining = None
                                     self.state = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface-dampening'
 
@@ -956,16 +956,16 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.penalty is not None:
+                                    if self.flaps is not None:
                                         return True
 
                                     if self.is_suppressed_enabled is not None:
                                         return True
 
-                                    if self.seconds_remaining is not None:
+                                    if self.penalty is not None:
                                         return True
 
-                                    if self.flaps is not None:
+                                    if self.seconds_remaining is not None:
                                         return True
 
                                     if self.state is not None:
@@ -1011,9 +1011,9 @@ class InterfaceDampening(object):
                                     """
                                     Capsulation dampening
                                     
-                                    .. attribute:: penalty
+                                    .. attribute:: flaps
                                     
-                                    	Dampening penalty of the interface
+                                    	Number of underlying state flaps
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -1023,16 +1023,16 @@ class InterfaceDampening(object):
                                     	Flag showing if state is suppressed
                                     	**type**\: bool
                                     
-                                    .. attribute:: seconds_remaining
+                                    .. attribute:: penalty
                                     
-                                    	Remaining period of suppression in secs
+                                    	Dampening penalty of the interface
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: flaps
+                                    .. attribute:: seconds_remaining
                                     
-                                    	Number of underlying state flaps
+                                    	Remaining period of suppression in secs
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -1051,16 +1051,16 @@ class InterfaceDampening(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.penalty = None
-                                        self.is_suppressed_enabled = None
-                                        self.seconds_remaining = None
                                         self.flaps = None
+                                        self.is_suppressed_enabled = None
+                                        self.penalty = None
+                                        self.seconds_remaining = None
                                         self.state = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation-dampening'
 
@@ -1071,16 +1071,16 @@ class InterfaceDampening(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.penalty is not None:
+                                        if self.flaps is not None:
                                             return True
 
                                         if self.is_suppressed_enabled is not None:
                                             return True
 
-                                        if self.seconds_remaining is not None:
+                                        if self.penalty is not None:
                                             return True
 
-                                        if self.flaps is not None:
+                                        if self.seconds_remaining is not None:
                                             return True
 
                                         if self.state is not None:
@@ -1096,7 +1096,7 @@ class InterfaceDampening(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation'
 
@@ -1123,9 +1123,9 @@ class InterfaceDampening(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_handle_name is None:
-                                    raise YPYDataValidationError('Key property interface_handle_name is None')
+                                    raise YPYModelError('Key property interface_handle_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:if-handle[Cisco-IOS-XR-ifmgr-oper:interface-handle-name = ' + str(self.interface_handle_name) + ']'
 
@@ -1139,25 +1139,21 @@ class InterfaceDampening(object):
                                 if self.interface_handle_name is not None:
                                     return True
 
+                                if self.capsulation is not None:
+                                    for child_ref in self.capsulation:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.half_life is not None:
+                                    return True
+
                                 if self.interface_dampening is not None and self.interface_dampening._has_data():
-                                    return True
-
-                                if self.state_transition_count is not None:
-                                    return True
-
-                                if self.last_state_transition_time is not None:
                                     return True
 
                                 if self.is_dampening_enabled is not None:
                                     return True
 
-                                if self.half_life is not None:
-                                    return True
-
-                                if self.reuse_threshold is not None:
-                                    return True
-
-                                if self.suppress_threshold is not None:
+                                if self.last_state_transition_time is not None:
                                     return True
 
                                 if self.maximum_suppress_time is not None:
@@ -1166,10 +1162,14 @@ class InterfaceDampening(object):
                                 if self.restart_penalty is not None:
                                     return True
 
-                                if self.capsulation is not None:
-                                    for child_ref in self.capsulation:
-                                        if child_ref._has_data():
-                                            return True
+                                if self.reuse_threshold is not None:
+                                    return True
+
+                                if self.state_transition_count is not None:
+                                    return True
+
+                                if self.suppress_threshold is not None:
+                                    return True
 
                                 return False
 
@@ -1181,7 +1181,7 @@ class InterfaceDampening(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:if-handles'
 
@@ -1240,29 +1240,10 @@ class InterfaceDampening(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: interface_dampening
+                            .. attribute:: capsulation
                             
-                            	Interface dampening
-                            	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening>`
-                            
-                            .. attribute:: state_transition_count
-                            
-                            	The number of times the state has changed
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: last_state_transition_time
-                            
-                            	The time elasped after the last state transition
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: is_dampening_enabled
-                            
-                            	Flag showing if dampening is enabled
-                            	**type**\: bool
+                            	Dampening information for capsulations
+                            	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation>`
                             
                             .. attribute:: half_life
                             
@@ -1271,16 +1252,19 @@ class InterfaceDampening(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: reuse_threshold
+                            .. attribute:: interface_dampening
                             
-                            	Configured reuse threshold
-                            	**type**\: int
+                            	Interface dampening
+                            	**type**\: :py:class:`InterfaceDampening <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: is_dampening_enabled
                             
-                            .. attribute:: suppress_threshold
+                            	Flag showing if dampening is enabled
+                            	**type**\: bool
                             
-                            	Value of suppress threshold
+                            .. attribute:: last_state_transition_time
+                            
+                            	The time elasped after the last state transition
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -1299,10 +1283,26 @@ class InterfaceDampening(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: capsulation
+                            .. attribute:: reuse_threshold
                             
-                            	Dampening information for capsulations
-                            	**type**\: list of :py:class:`Capsulation <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation>`
+                            	Configured reuse threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: state_transition_count
+                            
+                            	The number of times the state has changed
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: suppress_threshold
+                            
+                            	Value of suppress threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -1314,28 +1314,28 @@ class InterfaceDampening(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_name = None
-                                self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening()
-                                self.interface_dampening.parent = self
-                                self.state_transition_count = None
-                                self.last_state_transition_time = None
-                                self.is_dampening_enabled = None
-                                self.half_life = None
-                                self.reuse_threshold = None
-                                self.suppress_threshold = None
-                                self.maximum_suppress_time = None
-                                self.restart_penalty = None
                                 self.capsulation = YList()
                                 self.capsulation.parent = self
                                 self.capsulation.name = 'capsulation'
+                                self.half_life = None
+                                self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening()
+                                self.interface_dampening.parent = self
+                                self.is_dampening_enabled = None
+                                self.last_state_transition_time = None
+                                self.maximum_suppress_time = None
+                                self.restart_penalty = None
+                                self.reuse_threshold = None
+                                self.state_transition_count = None
+                                self.suppress_threshold = None
 
 
                             class InterfaceDampening(object):
                                 """
                                 Interface dampening
                                 
-                                .. attribute:: penalty
+                                .. attribute:: flaps
                                 
-                                	Dampening penalty of the interface
+                                	Number of underlying state flaps
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -1345,16 +1345,16 @@ class InterfaceDampening(object):
                                 	Flag showing if state is suppressed
                                 	**type**\: bool
                                 
-                                .. attribute:: seconds_remaining
+                                .. attribute:: penalty
                                 
-                                	Remaining period of suppression in secs
+                                	Dampening penalty of the interface
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: flaps
+                                .. attribute:: seconds_remaining
                                 
-                                	Number of underlying state flaps
+                                	Remaining period of suppression in secs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -1373,16 +1373,16 @@ class InterfaceDampening(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.penalty = None
-                                    self.is_suppressed_enabled = None
-                                    self.seconds_remaining = None
                                     self.flaps = None
+                                    self.is_suppressed_enabled = None
+                                    self.penalty = None
+                                    self.seconds_remaining = None
                                     self.state = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface-dampening'
 
@@ -1393,16 +1393,16 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.penalty is not None:
+                                    if self.flaps is not None:
                                         return True
 
                                     if self.is_suppressed_enabled is not None:
                                         return True
 
-                                    if self.seconds_remaining is not None:
+                                    if self.penalty is not None:
                                         return True
 
-                                    if self.flaps is not None:
+                                    if self.seconds_remaining is not None:
                                         return True
 
                                     if self.state is not None:
@@ -1448,9 +1448,9 @@ class InterfaceDampening(object):
                                     """
                                     Capsulation dampening
                                     
-                                    .. attribute:: penalty
+                                    .. attribute:: flaps
                                     
-                                    	Dampening penalty of the interface
+                                    	Number of underlying state flaps
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -1460,16 +1460,16 @@ class InterfaceDampening(object):
                                     	Flag showing if state is suppressed
                                     	**type**\: bool
                                     
-                                    .. attribute:: seconds_remaining
+                                    .. attribute:: penalty
                                     
-                                    	Remaining period of suppression in secs
+                                    	Dampening penalty of the interface
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: flaps
+                                    .. attribute:: seconds_remaining
                                     
-                                    	Number of underlying state flaps
+                                    	Remaining period of suppression in secs
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -1488,16 +1488,16 @@ class InterfaceDampening(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.penalty = None
-                                        self.is_suppressed_enabled = None
-                                        self.seconds_remaining = None
                                         self.flaps = None
+                                        self.is_suppressed_enabled = None
+                                        self.penalty = None
+                                        self.seconds_remaining = None
                                         self.state = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation-dampening'
 
@@ -1508,16 +1508,16 @@ class InterfaceDampening(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.penalty is not None:
+                                        if self.flaps is not None:
                                             return True
 
                                         if self.is_suppressed_enabled is not None:
                                             return True
 
-                                        if self.seconds_remaining is not None:
+                                        if self.penalty is not None:
                                             return True
 
-                                        if self.flaps is not None:
+                                        if self.seconds_remaining is not None:
                                             return True
 
                                         if self.state is not None:
@@ -1533,7 +1533,7 @@ class InterfaceDampening(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:capsulation'
 
@@ -1560,9 +1560,9 @@ class InterfaceDampening(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface[Cisco-IOS-XR-ifmgr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1576,25 +1576,21 @@ class InterfaceDampening(object):
                                 if self.interface_name is not None:
                                     return True
 
+                                if self.capsulation is not None:
+                                    for child_ref in self.capsulation:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.half_life is not None:
+                                    return True
+
                                 if self.interface_dampening is not None and self.interface_dampening._has_data():
-                                    return True
-
-                                if self.state_transition_count is not None:
-                                    return True
-
-                                if self.last_state_transition_time is not None:
                                     return True
 
                                 if self.is_dampening_enabled is not None:
                                     return True
 
-                                if self.half_life is not None:
-                                    return True
-
-                                if self.reuse_threshold is not None:
-                                    return True
-
-                                if self.suppress_threshold is not None:
+                                if self.last_state_transition_time is not None:
                                     return True
 
                                 if self.maximum_suppress_time is not None:
@@ -1603,10 +1599,14 @@ class InterfaceDampening(object):
                                 if self.restart_penalty is not None:
                                     return True
 
-                                if self.capsulation is not None:
-                                    for child_ref in self.capsulation:
-                                        if child_ref._has_data():
-                                            return True
+                                if self.reuse_threshold is not None:
+                                    return True
+
+                                if self.state_transition_count is not None:
+                                    return True
+
+                                if self.suppress_threshold is not None:
+                                    return True
 
                                 return False
 
@@ -1618,7 +1618,7 @@ class InterfaceDampening(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interfaces'
 
@@ -1644,7 +1644,7 @@ class InterfaceDampening(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:dampening'
 
@@ -1671,7 +1671,7 @@ class InterfaceDampening(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:show'
 
@@ -1695,7 +1695,7 @@ class InterfaceDampening(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-ifmgr-oper:interface-dampening/Cisco-IOS-XR-ifmgr-oper:nodes/Cisco-IOS-XR-ifmgr-oper:node[Cisco-IOS-XR-ifmgr-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -1949,28 +1949,9 @@ class InterfaceProperties(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: interface
+                            .. attribute:: actual_line_state
                             
-                            	Interface
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: parent_interface
-                            
-                            	Parent Interface
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: type
-                            
-                            	Interface type
-                            	**type**\: str
-                            
-                            .. attribute:: state
-                            
-                            	Operational state
+                            	Line protocol state with no translation of error disable or shutdown
                             	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: actual_state
@@ -1978,15 +1959,12 @@ class InterfaceProperties(object):
                             	Operational state with no translation of error disable or shutdown
                             	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
-                            .. attribute:: line_state
+                            .. attribute:: bandwidth
                             
-                            	Line protocol state
-                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            	Interface bandwidth (Kb/s)
+                            	**type**\: int
                             
-                            .. attribute:: actual_line_state
-                            
-                            	Line protocol state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            	**range:** 0..4294967295
                             
                             .. attribute:: encapsulation
                             
@@ -2000,12 +1978,41 @@ class InterfaceProperties(object):
                             
                             	**range:** 0..32
                             
+                            .. attribute:: interface
+                            
+                            	Interface
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: l2_transport
+                            
+                            	L2 transport
+                            	**type**\: bool
+                            
+                            .. attribute:: line_state
+                            
+                            	Line protocol state
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            
                             .. attribute:: mtu
                             
                             	MTU in bytes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: parent_interface
+                            
+                            	Parent Interface
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: state
+                            
+                            	Operational state
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: sub_interface_mtu_overhead
                             
@@ -2014,17 +2021,10 @@ class InterfaceProperties(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: l2_transport
+                            .. attribute:: type
                             
-                            	L2 transport
-                            	**type**\: bool
-                            
-                            .. attribute:: bandwidth
-                            
-                            	Interface bandwidth (Kb/s)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	Interface type
+                            	**type**\: str
                             
                             
 
@@ -2036,26 +2036,26 @@ class InterfaceProperties(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_name = None
-                                self.interface = None
-                                self.parent_interface = None
-                                self.type = None
-                                self.state = None
-                                self.actual_state = None
-                                self.line_state = None
                                 self.actual_line_state = None
+                                self.actual_state = None
+                                self.bandwidth = None
                                 self.encapsulation = None
                                 self.encapsulation_type_string = None
-                                self.mtu = None
-                                self.sub_interface_mtu_overhead = None
+                                self.interface = None
                                 self.l2_transport = None
-                                self.bandwidth = None
+                                self.line_state = None
+                                self.mtu = None
+                                self.parent_interface = None
+                                self.state = None
+                                self.sub_interface_mtu_overhead = None
+                                self.type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface[Cisco-IOS-XR-ifmgr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2069,25 +2069,13 @@ class InterfaceProperties(object):
                                 if self.interface_name is not None:
                                     return True
 
-                                if self.interface is not None:
-                                    return True
-
-                                if self.parent_interface is not None:
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                if self.state is not None:
+                                if self.actual_line_state is not None:
                                     return True
 
                                 if self.actual_state is not None:
                                     return True
 
-                                if self.line_state is not None:
-                                    return True
-
-                                if self.actual_line_state is not None:
+                                if self.bandwidth is not None:
                                     return True
 
                                 if self.encapsulation is not None:
@@ -2096,16 +2084,28 @@ class InterfaceProperties(object):
                                 if self.encapsulation_type_string is not None:
                                     return True
 
-                                if self.mtu is not None:
-                                    return True
-
-                                if self.sub_interface_mtu_overhead is not None:
+                                if self.interface is not None:
                                     return True
 
                                 if self.l2_transport is not None:
                                     return True
 
-                                if self.bandwidth is not None:
+                                if self.line_state is not None:
+                                    return True
+
+                                if self.mtu is not None:
+                                    return True
+
+                                if self.parent_interface is not None:
+                                    return True
+
+                                if self.state is not None:
+                                    return True
+
+                                if self.sub_interface_mtu_overhead is not None:
+                                    return True
+
+                                if self.type is not None:
                                     return True
 
                                 return False
@@ -2118,7 +2118,7 @@ class InterfaceProperties(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interfaces'
 
@@ -2144,9 +2144,9 @@ class InterfaceProperties(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.locationview_name is None:
-                            raise YPYDataValidationError('Key property locationview_name is None')
+                            raise YPYModelError('Key property locationview_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:locationview[Cisco-IOS-XR-ifmgr-oper:locationview-name = ' + str(self.locationview_name) + ']'
 
@@ -2173,7 +2173,7 @@ class InterfaceProperties(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:locationviews'
 
@@ -2288,28 +2288,9 @@ class InterfaceProperties(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: interface
+                            .. attribute:: actual_line_state
                             
-                            	Interface
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: parent_interface
-                            
-                            	Parent Interface
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: type
-                            
-                            	Interface type
-                            	**type**\: str
-                            
-                            .. attribute:: state
-                            
-                            	Operational state
+                            	Line protocol state with no translation of error disable or shutdown
                             	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: actual_state
@@ -2317,15 +2298,12 @@ class InterfaceProperties(object):
                             	Operational state with no translation of error disable or shutdown
                             	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
-                            .. attribute:: line_state
+                            .. attribute:: bandwidth
                             
-                            	Line protocol state
-                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            	Interface bandwidth (Kb/s)
+                            	**type**\: int
                             
-                            .. attribute:: actual_line_state
-                            
-                            	Line protocol state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            	**range:** 0..4294967295
                             
                             .. attribute:: encapsulation
                             
@@ -2339,12 +2317,41 @@ class InterfaceProperties(object):
                             
                             	**range:** 0..32
                             
+                            .. attribute:: interface
+                            
+                            	Interface
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: l2_transport
+                            
+                            	L2 transport
+                            	**type**\: bool
+                            
+                            .. attribute:: line_state
+                            
+                            	Line protocol state
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                            
                             .. attribute:: mtu
                             
                             	MTU in bytes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: parent_interface
+                            
+                            	Parent Interface
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: state
+                            
+                            	Operational state
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: sub_interface_mtu_overhead
                             
@@ -2353,17 +2360,10 @@ class InterfaceProperties(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: l2_transport
+                            .. attribute:: type
                             
-                            	L2 transport
-                            	**type**\: bool
-                            
-                            .. attribute:: bandwidth
-                            
-                            	Interface bandwidth (Kb/s)
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	Interface type
+                            	**type**\: str
                             
                             
 
@@ -2375,26 +2375,26 @@ class InterfaceProperties(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_name = None
-                                self.interface = None
-                                self.parent_interface = None
-                                self.type = None
-                                self.state = None
-                                self.actual_state = None
-                                self.line_state = None
                                 self.actual_line_state = None
+                                self.actual_state = None
+                                self.bandwidth = None
                                 self.encapsulation = None
                                 self.encapsulation_type_string = None
-                                self.mtu = None
-                                self.sub_interface_mtu_overhead = None
+                                self.interface = None
                                 self.l2_transport = None
-                                self.bandwidth = None
+                                self.line_state = None
+                                self.mtu = None
+                                self.parent_interface = None
+                                self.state = None
+                                self.sub_interface_mtu_overhead = None
+                                self.type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
+                                    raise YPYModelError('Key property interface_name is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface[Cisco-IOS-XR-ifmgr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2408,25 +2408,13 @@ class InterfaceProperties(object):
                                 if self.interface_name is not None:
                                     return True
 
-                                if self.interface is not None:
-                                    return True
-
-                                if self.parent_interface is not None:
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                if self.state is not None:
+                                if self.actual_line_state is not None:
                                     return True
 
                                 if self.actual_state is not None:
                                     return True
 
-                                if self.line_state is not None:
-                                    return True
-
-                                if self.actual_line_state is not None:
+                                if self.bandwidth is not None:
                                     return True
 
                                 if self.encapsulation is not None:
@@ -2435,16 +2423,28 @@ class InterfaceProperties(object):
                                 if self.encapsulation_type_string is not None:
                                     return True
 
-                                if self.mtu is not None:
-                                    return True
-
-                                if self.sub_interface_mtu_overhead is not None:
+                                if self.interface is not None:
                                     return True
 
                                 if self.l2_transport is not None:
                                     return True
 
-                                if self.bandwidth is not None:
+                                if self.line_state is not None:
+                                    return True
+
+                                if self.mtu is not None:
+                                    return True
+
+                                if self.parent_interface is not None:
+                                    return True
+
+                                if self.state is not None:
+                                    return True
+
+                                if self.sub_interface_mtu_overhead is not None:
+                                    return True
+
+                                if self.type is not None:
                                     return True
 
                                 return False
@@ -2457,7 +2457,7 @@ class InterfaceProperties(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interfaces'
 
@@ -2483,9 +2483,9 @@ class InterfaceProperties(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.pq_node_name is None:
-                            raise YPYDataValidationError('Key property pq_node_name is None')
+                            raise YPYModelError('Key property pq_node_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:pq-node-location[Cisco-IOS-XR-ifmgr-oper:pq-node-name = ' + str(self.pq_node_name) + ']'
 
@@ -2512,7 +2512,7 @@ class InterfaceProperties(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:pq-node-locations'
 
@@ -2594,28 +2594,9 @@ class InterfaceProperties(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: interface
+                        .. attribute:: actual_line_state
                         
-                        	Interface
-                        	**type**\: str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: parent_interface
-                        
-                        	Parent Interface
-                        	**type**\: str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: type
-                        
-                        	Interface type
-                        	**type**\: str
-                        
-                        .. attribute:: state
-                        
-                        	Operational state
+                        	Line protocol state with no translation of error disable or shutdown
                         	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: actual_state
@@ -2623,15 +2604,12 @@ class InterfaceProperties(object):
                         	Operational state with no translation of error disable or shutdown
                         	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
-                        .. attribute:: line_state
+                        .. attribute:: bandwidth
                         
-                        	Line protocol state
-                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                        	Interface bandwidth (Kb/s)
+                        	**type**\: int
                         
-                        .. attribute:: actual_line_state
-                        
-                        	Line protocol state with no translation of error disable or shutdown
-                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                        	**range:** 0..4294967295
                         
                         .. attribute:: encapsulation
                         
@@ -2645,12 +2623,41 @@ class InterfaceProperties(object):
                         
                         	**range:** 0..32
                         
+                        .. attribute:: interface
+                        
+                        	Interface
+                        	**type**\: str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: l2_transport
+                        
+                        	L2 transport
+                        	**type**\: bool
+                        
+                        .. attribute:: line_state
+                        
+                        	Line protocol state
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
+                        
                         .. attribute:: mtu
                         
                         	MTU in bytes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: parent_interface
+                        
+                        	Parent Interface
+                        	**type**\: str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: state
+                        
+                        	Operational state
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: sub_interface_mtu_overhead
                         
@@ -2659,17 +2666,10 @@ class InterfaceProperties(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: l2_transport
+                        .. attribute:: type
                         
-                        	L2 transport
-                        	**type**\: bool
-                        
-                        .. attribute:: bandwidth
-                        
-                        	Interface bandwidth (Kb/s)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	Interface type
+                        	**type**\: str
                         
                         
 
@@ -2681,26 +2681,26 @@ class InterfaceProperties(object):
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.interface = None
-                            self.parent_interface = None
-                            self.type = None
-                            self.state = None
-                            self.actual_state = None
-                            self.line_state = None
                             self.actual_line_state = None
+                            self.actual_state = None
+                            self.bandwidth = None
                             self.encapsulation = None
                             self.encapsulation_type_string = None
-                            self.mtu = None
-                            self.sub_interface_mtu_overhead = None
+                            self.interface = None
                             self.l2_transport = None
-                            self.bandwidth = None
+                            self.line_state = None
+                            self.mtu = None
+                            self.parent_interface = None
+                            self.state = None
+                            self.sub_interface_mtu_overhead = None
+                            self.type = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_name is None:
-                                raise YPYDataValidationError('Key property interface_name is None')
+                                raise YPYModelError('Key property interface_name is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interface[Cisco-IOS-XR-ifmgr-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -2714,25 +2714,13 @@ class InterfaceProperties(object):
                             if self.interface_name is not None:
                                 return True
 
-                            if self.interface is not None:
-                                return True
-
-                            if self.parent_interface is not None:
-                                return True
-
-                            if self.type is not None:
-                                return True
-
-                            if self.state is not None:
+                            if self.actual_line_state is not None:
                                 return True
 
                             if self.actual_state is not None:
                                 return True
 
-                            if self.line_state is not None:
-                                return True
-
-                            if self.actual_line_state is not None:
+                            if self.bandwidth is not None:
                                 return True
 
                             if self.encapsulation is not None:
@@ -2741,16 +2729,28 @@ class InterfaceProperties(object):
                             if self.encapsulation_type_string is not None:
                                 return True
 
-                            if self.mtu is not None:
-                                return True
-
-                            if self.sub_interface_mtu_overhead is not None:
+                            if self.interface is not None:
                                 return True
 
                             if self.l2_transport is not None:
                                 return True
 
-                            if self.bandwidth is not None:
+                            if self.line_state is not None:
+                                return True
+
+                            if self.mtu is not None:
+                                return True
+
+                            if self.parent_interface is not None:
+                                return True
+
+                            if self.state is not None:
+                                return True
+
+                            if self.sub_interface_mtu_overhead is not None:
+                                return True
+
+                            if self.type is not None:
                                 return True
 
                             return False
@@ -2763,7 +2763,7 @@ class InterfaceProperties(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:interfaces'
 
@@ -2789,7 +2789,7 @@ class InterfaceProperties(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ifmgr-oper:system-view'
 
@@ -2813,7 +2813,7 @@ class InterfaceProperties(object):
             @property
             def _common_path(self):
                 if self.data_node_name is None:
-                    raise YPYDataValidationError('Key property data_node_name is None')
+                    raise YPYModelError('Key property data_node_name is None')
 
                 return '/Cisco-IOS-XR-ifmgr-oper:interface-properties/Cisco-IOS-XR-ifmgr-oper:data-nodes/Cisco-IOS-XR-ifmgr-oper:data-node[Cisco-IOS-XR-ifmgr-oper:data-node-name = ' + str(self.data_node_name) + ']'
 

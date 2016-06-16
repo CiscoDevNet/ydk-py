@@ -20,12 +20,12 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
 
-class OpenconfigRpcResponseTypes_Identity(object):
+class OpenconfigRpcResponseTypesIdentity(object):
     """
     Base identity for RPC response codes
     
@@ -42,10 +42,10 @@ class OpenconfigRpcResponseTypes_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['OpenconfigRpcResponseTypes_Identity']['meta_info']
+        return meta._meta_table['OpenconfigRpcResponseTypesIdentity']['meta_info']
 
 
-class OpenconfigDataEncodingTypes_Identity(object):
+class OpenconfigDataEncodingTypesIdentity(object):
     """
     Base identity for supported encoding for configuration and
     operational state data
@@ -63,10 +63,10 @@ class OpenconfigDataEncodingTypes_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['OpenconfigDataEncodingTypes_Identity']['meta_info']
+        return meta._meta_table['OpenconfigDataEncodingTypesIdentity']['meta_info']
 
 
-class EditConfigCommands_Identity(object):
+class EditConfigCommandsIdentity(object):
     """
     Base identity for subcommands for the edit\-config
     service.
@@ -84,10 +84,10 @@ class EditConfigCommands_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['EditConfigCommands_Identity']['meta_info']
+        return meta._meta_table['EditConfigCommandsIdentity']['meta_info']
 
 
-class OpenconfigSchemaFormatTypes_Identity(object):
+class OpenconfigSchemaFormatTypesIdentity(object):
     """
     Base identity for supported schema formats
     
@@ -104,10 +104,10 @@ class OpenconfigSchemaFormatTypes_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['OpenconfigSchemaFormatTypes_Identity']['meta_info']
+        return meta._meta_table['OpenconfigSchemaFormatTypesIdentity']['meta_info']
 
 
-class OpenconfigSchemaModeTypes_Identity(object):
+class OpenconfigSchemaModeTypesIdentity(object):
     """
     Base identity for schema retrieval modes
     
@@ -124,7 +124,7 @@ class OpenconfigSchemaModeTypes_Identity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['OpenconfigSchemaModeTypes_Identity']['meta_info']
+        return meta._meta_table['OpenconfigSchemaModeTypesIdentity']['meta_info']
 
 
 class GetmodelsRpc(object):
@@ -161,15 +161,15 @@ class GetmodelsRpc(object):
         """
         
         
-        .. attribute:: schema_format
-        
-        	Schema format requested, e.g., JSON\-Schema, XSD, Proto, YANG
-        	**type**\: :py:class:`OpenconfigSchemaFormatTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigSchemaFormatTypes_Identity>`
-        
         .. attribute:: request_mode
         
         	Mode for delivering the schema data
-        	**type**\: :py:class:`OpenconfigSchemaModeTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigSchemaModeTypes_Identity>`
+        	**type**\: :py:class:`OpenconfigSchemaModeTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigSchemaModeTypesIdentity>`
+        
+        .. attribute:: schema_format
+        
+        	Schema format requested, e.g., JSON\-Schema, XSD, Proto, YANG
+        	**type**\: :py:class:`OpenconfigSchemaFormatTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigSchemaFormatTypesIdentity>`
         
         
 
@@ -180,8 +180,8 @@ class GetmodelsRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.schema_format = None
             self.request_mode = None
+            self.schema_format = None
 
         @property
         def _common_path(self):
@@ -197,10 +197,10 @@ class GetmodelsRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.schema_format is not None:
+            if self.request_mode is not None:
                 return True
 
-            if self.request_mode is not None:
+            if self.schema_format is not None:
                 return True
 
             return False
@@ -243,6 +243,11 @@ class GetmodelsRpc(object):
             	Name of the corresponding YANG module
             	**type**\: str
             
+            .. attribute:: model_data
+            
+            	Model data, formatted according to the requested format (e.g., JSON\-Schema, YANG, etc.) and using the requested mode (URI, file, etc.)
+            	**type**\: str
+            
             .. attribute:: model_namespace
             
             	Namespace the model belongs to, whether standard or ad\-hoc
@@ -251,11 +256,6 @@ class GetmodelsRpc(object):
             .. attribute:: model_version
             
             	Model version \-\- for YANG models this should be at least the 'revision' but could also include a more conventional version number
-            	**type**\: str
-            
-            .. attribute:: model_data
-            
-            	Model data, formatted according to the requested format (e.g., JSON\-Schema, YANG, etc.) and using the requested mode (URI, file, etc.)
             	**type**\: str
             
             
@@ -268,14 +268,14 @@ class GetmodelsRpc(object):
             def __init__(self):
                 self.parent = None
                 self.model_name = None
+                self.model_data = None
                 self.model_namespace = None
                 self.model_version = None
-                self.model_data = None
 
             @property
             def _common_path(self):
                 if self.model_name is None:
-                    raise YPYDataValidationError('Key property model_name is None')
+                    raise YPYModelError('Key property model_name is None')
 
                 return '/openconfig-rpc-api:getModels/openconfig-rpc-api:output/openconfig-rpc-api:schema[openconfig-rpc-api:model-name = ' + str(self.model_name) + ']'
 
@@ -291,13 +291,13 @@ class GetmodelsRpc(object):
                 if self.model_name is not None:
                     return True
 
+                if self.model_data is not None:
+                    return True
+
                 if self.model_namespace is not None:
                     return True
 
                 if self.model_version is not None:
-                    return True
-
-                if self.model_data is not None:
                     return True
 
                 return False
@@ -390,7 +390,7 @@ class SetdataencodingRpc(object):
         .. attribute:: encoding
         
         	Identifier for the encoding scheme
-        	**type**\: :py:class:`OpenconfigDataEncodingTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigDataEncodingTypes_Identity>`
+        	**type**\: :py:class:`OpenconfigDataEncodingTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigDataEncodingTypesIdentity>`
         
         
 
@@ -481,7 +481,7 @@ class GetdataencodingsRpc(object):
         .. attribute:: encoding
         
         	List of identifiers indicating the supported encoding schemes
-        	**type**\: list of :py:class:`OpenconfigDataEncodingTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigDataEncodingTypes_Identity>`
+        	**type**\: list of :py:class:`OpenconfigDataEncodingTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigDataEncodingTypesIdentity>`
         
         
 
@@ -590,17 +590,17 @@ class EditconfigRpc(object):
         """
         
         
-        .. attribute:: request_id
-        
-        	Identifier sent in request messages
-        	**type**\: int
-        
-        	**range:** 0..18446744073709551615
-        
         .. attribute:: config_command
         
         	List of configuration data items, each consisting of the data model path, and corresponding data encoded based on the requested format
         	**type**\: list of :py:class:`ConfigCommand <ydk.models.openconfig.openconfig_rpc_api.EditconfigRpc.Input.ConfigCommand>`
+        
+        .. attribute:: request_id
+        
+        	Identifier sent in request messages
+        	**type**\: long
+        
+        	**range:** 0..18446744073709551615
         
         
 
@@ -611,10 +611,10 @@ class EditconfigRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.request_id = None
             self.config_command = YList()
             self.config_command.parent = self
             self.config_command.name = 'config_command'
+            self.request_id = None
 
 
         class ConfigCommand(object):
@@ -628,15 +628,15 @@ class EditconfigRpc(object):
             	Data model path corresponding to the data in the message
             	**type**\: str
             
+            .. attribute:: command
+            
+            	The type of configuration modification requested for the corresponding path.  Note that some commands, such as 'delete' do not specify any associated data with the path
+            	**type**\: :py:class:`EditConfigCommandsIdentity <ydk.models.openconfig.openconfig_rpc_api.EditConfigCommandsIdentity>`
+            
             .. attribute:: values
             
             	Data encoded using the encoding specified in setDataEncoding, or the device's default encoding.  This data may be specified by the management system, e.g., when sending configuration data, or by the device when returning configuration or operational state / telemetry data
             	**type**\: str
-            
-            .. attribute:: command
-            
-            	The type of configuration modification requested for the corresponding path.  Note that some commands, such as 'delete' do not specify any associated data with the path
-            	**type**\: :py:class:`EditConfigCommands_Identity <ydk.models.openconfig.openconfig_rpc_api.EditConfigCommands_Identity>`
             
             
 
@@ -648,13 +648,13 @@ class EditconfigRpc(object):
             def __init__(self):
                 self.parent = None
                 self.path = None
-                self.values = None
                 self.command = None
+                self.values = None
 
             @property
             def _common_path(self):
                 if self.path is None:
-                    raise YPYDataValidationError('Key property path is None')
+                    raise YPYModelError('Key property path is None')
 
                 return '/openconfig-rpc-api:editConfig/openconfig-rpc-api:input/openconfig-rpc-api:config-command[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -670,10 +670,10 @@ class EditconfigRpc(object):
                 if self.path is not None:
                     return True
 
-                if self.values is not None:
+                if self.command is not None:
                     return True
 
-                if self.command is not None:
+                if self.values is not None:
                     return True
 
                 return False
@@ -697,13 +697,13 @@ class EditconfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.request_id is not None:
-                return True
-
             if self.config_command is not None:
                 for child_ref in self.config_command:
                     if child_ref._has_data():
                         return True
+
+            if self.request_id is not None:
+                return True
 
             return False
 
@@ -717,22 +717,22 @@ class EditconfigRpc(object):
         """
         
         
+        .. attribute:: message
+        
+        	Error or information text associated with the return\-code value
+        	**type**\: str
+        
         .. attribute:: request_id
         
         	The request id corresponding to the request
-        	**type**\: int
+        	**type**\: long
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: response_code
         
         	Numerical code corresponding to the returned message
-        	**type**\: :py:class:`OpenconfigRpcResponseTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypes_Identity>`
-        
-        .. attribute:: message
-        
-        	Error or information text associated with the return\-code value
-        	**type**\: str
+        	**type**\: :py:class:`OpenconfigRpcResponseTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypesIdentity>`
         
         
 
@@ -743,9 +743,9 @@ class EditconfigRpc(object):
 
         def __init__(self):
             self.parent = None
+            self.message = None
             self.request_id = None
             self.response_code = None
-            self.message = None
 
         @property
         def _common_path(self):
@@ -761,13 +761,13 @@ class EditconfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.message is not None:
+                return True
+
             if self.request_id is not None:
                 return True
 
             if self.response_code is not None:
-                return True
-
-            if self.message is not None:
                 return True
 
             return False
@@ -920,9 +920,9 @@ class TelemetrysubscribeRpc(object):
             @property
             def _common_path(self):
                 if self.address is None:
-                    raise YPYDataValidationError('Key property address is None')
+                    raise YPYModelError('Key property address is None')
                 if self.port is None:
-                    raise YPYDataValidationError('Key property port is None')
+                    raise YPYModelError('Key property port is None')
 
                 return '/openconfig-rpc-api:telemetrySubscribe/openconfig-rpc-api:input/openconfig-rpc-api:collectors[openconfig-rpc-api:address = ' + str(self.address) + '][openconfig-rpc-api:port = ' + str(self.port) + ']'
 
@@ -963,11 +963,6 @@ class TelemetrysubscribeRpc(object):
             	Regular expression to be used in filtering state leaves
             	**type**\: str
             
-            .. attribute:: suppress_unchanged
-            
-            	If this is set to true, the target device will only send updates to the collector upon a change in data value
-            	**type**\: bool
-            
             .. attribute:: max_silent_interval
             
             	Maximum time in ms the target device may go without sending a message to the collector. If this time expires with suppress\-unchanged set, the target device must send an update message regardless if the data values have changed
@@ -982,6 +977,11 @@ class TelemetrysubscribeRpc(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: suppress_unchanged
+            
+            	If this is set to true, the target device will only send updates to the collector upon a change in data value
+            	**type**\: bool
+            
             
 
             """
@@ -993,14 +993,14 @@ class TelemetrysubscribeRpc(object):
                 self.parent = None
                 self.path = None
                 self.filter = None
-                self.suppress_unchanged = None
                 self.max_silent_interval = None
                 self.sample_frequency = None
+                self.suppress_unchanged = None
 
             @property
             def _common_path(self):
                 if self.path is None:
-                    raise YPYDataValidationError('Key property path is None')
+                    raise YPYModelError('Key property path is None')
 
                 return '/openconfig-rpc-api:telemetrySubscribe/openconfig-rpc-api:input/openconfig-rpc-api:paths[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -1019,13 +1019,13 @@ class TelemetrysubscribeRpc(object):
                 if self.filter is not None:
                     return True
 
-                if self.suppress_unchanged is not None:
-                    return True
-
                 if self.max_silent_interval is not None:
                     return True
 
                 if self.sample_frequency is not None:
+                    return True
+
+                if self.suppress_unchanged is not None:
                     return True
 
                 return False
@@ -1074,13 +1074,6 @@ class TelemetrysubscribeRpc(object):
         """
         
         
-        .. attribute:: subscription_id
-        
-        	Unique id for the subscription on the device.  This is generated by the device and returned in a subscription request or when listing existing subscriptions
-        	**type**\: int
-        
-        	**range:** 0..4294967295
-        
         .. attribute:: collectors
         
         	List of optional collector endpoints to send data for this subscription, specified as an ip+port combination. If no collector destinations are specified, the collector destination is inferred from requester on the rpc channel
@@ -1098,6 +1091,13 @@ class TelemetrysubscribeRpc(object):
         	List of data model paths, keyed by path name
         	**type**\: list of :py:class:`Paths <ydk.models.openconfig.openconfig_rpc_api.TelemetrysubscribeRpc.Output.Paths>`
         
+        .. attribute:: subscription_id
+        
+        	Unique id for the subscription on the device.  This is generated by the device and returned in a subscription request or when listing existing subscriptions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
         
 
         """
@@ -1107,7 +1107,6 @@ class TelemetrysubscribeRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.subscription_id = None
             self.collectors = YList()
             self.collectors.parent = self
             self.collectors.name = 'collectors'
@@ -1115,6 +1114,7 @@ class TelemetrysubscribeRpc(object):
             self.paths = YList()
             self.paths.parent = self
             self.paths.name = 'paths'
+            self.subscription_id = None
 
 
         class Collectors(object):
@@ -1163,9 +1163,9 @@ class TelemetrysubscribeRpc(object):
             @property
             def _common_path(self):
                 if self.address is None:
-                    raise YPYDataValidationError('Key property address is None')
+                    raise YPYModelError('Key property address is None')
                 if self.port is None:
-                    raise YPYDataValidationError('Key property port is None')
+                    raise YPYModelError('Key property port is None')
 
                 return '/openconfig-rpc-api:telemetrySubscribe/openconfig-rpc-api:output/openconfig-rpc-api:collectors[openconfig-rpc-api:address = ' + str(self.address) + '][openconfig-rpc-api:port = ' + str(self.port) + ']'
 
@@ -1206,11 +1206,6 @@ class TelemetrysubscribeRpc(object):
             	Regular expression to be used in filtering state leaves
             	**type**\: str
             
-            .. attribute:: suppress_unchanged
-            
-            	If this is set to true, the target device will only send updates to the collector upon a change in data value
-            	**type**\: bool
-            
             .. attribute:: max_silent_interval
             
             	Maximum time in ms the target device may go without sending a message to the collector. If this time expires with suppress\-unchanged set, the target device must send an update message regardless if the data values have changed
@@ -1225,6 +1220,11 @@ class TelemetrysubscribeRpc(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: suppress_unchanged
+            
+            	If this is set to true, the target device will only send updates to the collector upon a change in data value
+            	**type**\: bool
+            
             
 
             """
@@ -1236,14 +1236,14 @@ class TelemetrysubscribeRpc(object):
                 self.parent = None
                 self.path = None
                 self.filter = None
-                self.suppress_unchanged = None
                 self.max_silent_interval = None
                 self.sample_frequency = None
+                self.suppress_unchanged = None
 
             @property
             def _common_path(self):
                 if self.path is None:
-                    raise YPYDataValidationError('Key property path is None')
+                    raise YPYModelError('Key property path is None')
 
                 return '/openconfig-rpc-api:telemetrySubscribe/openconfig-rpc-api:output/openconfig-rpc-api:paths[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -1262,13 +1262,13 @@ class TelemetrysubscribeRpc(object):
                 if self.filter is not None:
                     return True
 
-                if self.suppress_unchanged is not None:
-                    return True
-
                 if self.max_silent_interval is not None:
                     return True
 
                 if self.sample_frequency is not None:
+                    return True
+
+                if self.suppress_unchanged is not None:
                     return True
 
                 return False
@@ -1292,9 +1292,6 @@ class TelemetrysubscribeRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.subscription_id is not None:
-                return True
-
             if self.collectors is not None:
                 for child_ref in self.collectors:
                     if child_ref._has_data():
@@ -1307,6 +1304,9 @@ class TelemetrysubscribeRpc(object):
                 for child_ref in self.paths:
                     if child_ref._has_data():
                         return True
+
+            if self.subscription_id is not None:
+                return True
 
             return False
 
@@ -1482,11 +1482,11 @@ class GettelemetrysubscriptionsRpc(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.address is None:
-                        raise YPYDataValidationError('Key property address is None')
+                        raise YPYModelError('Key property address is None')
                     if self.port is None:
-                        raise YPYDataValidationError('Key property port is None')
+                        raise YPYModelError('Key property port is None')
 
                     return self.parent._common_path +'/openconfig-rpc-api:collectors[openconfig-rpc-api:address = ' + str(self.address) + '][openconfig-rpc-api:port = ' + str(self.port) + ']'
 
@@ -1527,11 +1527,6 @@ class GettelemetrysubscriptionsRpc(object):
                 	Regular expression to be used in filtering state leaves
                 	**type**\: str
                 
-                .. attribute:: suppress_unchanged
-                
-                	If this is set to true, the target device will only send updates to the collector upon a change in data value
-                	**type**\: bool
-                
                 .. attribute:: max_silent_interval
                 
                 	Maximum time in ms the target device may go without sending a message to the collector. If this time expires with suppress\-unchanged set, the target device must send an update message regardless if the data values have changed
@@ -1546,6 +1541,11 @@ class GettelemetrysubscriptionsRpc(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: suppress_unchanged
+                
+                	If this is set to true, the target device will only send updates to the collector upon a change in data value
+                	**type**\: bool
+                
                 
 
                 """
@@ -1557,16 +1557,16 @@ class GettelemetrysubscriptionsRpc(object):
                     self.parent = None
                     self.path = None
                     self.filter = None
-                    self.suppress_unchanged = None
                     self.max_silent_interval = None
                     self.sample_frequency = None
+                    self.suppress_unchanged = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.path is None:
-                        raise YPYDataValidationError('Key property path is None')
+                        raise YPYModelError('Key property path is None')
 
                     return self.parent._common_path +'/openconfig-rpc-api:paths[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -1585,13 +1585,13 @@ class GettelemetrysubscriptionsRpc(object):
                     if self.filter is not None:
                         return True
 
-                    if self.suppress_unchanged is not None:
-                        return True
-
                     if self.max_silent_interval is not None:
                         return True
 
                     if self.sample_frequency is not None:
+                        return True
+
+                    if self.suppress_unchanged is not None:
                         return True
 
                     return False
@@ -1604,7 +1604,7 @@ class GettelemetrysubscriptionsRpc(object):
             @property
             def _common_path(self):
                 if self.subscription_id is None:
-                    raise YPYDataValidationError('Key property subscription_id is None')
+                    raise YPYModelError('Key property subscription_id is None')
 
                 return '/openconfig-rpc-api:getTelemetrySubscriptions/openconfig-rpc-api:output/openconfig-rpc-api:subscription[openconfig-rpc-api:subscription-id = ' + str(self.subscription_id) + ']'
 
@@ -1817,17 +1817,17 @@ class GetconfigRpc(object):
         """
         
         
-        .. attribute:: request_id
-        
-        	Identifier sent in request messages
-        	**type**\: int
-        
-        	**range:** 0..18446744073709551615
-        
         .. attribute:: path
         
         	List of data model paths to retrieve
         	**type**\: list of str
+        
+        .. attribute:: request_id
+        
+        	Identifier sent in request messages
+        	**type**\: long
+        
+        	**range:** 0..18446744073709551615
         
         
 
@@ -1838,10 +1838,10 @@ class GetconfigRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.request_id = None
             self.path = YLeafList()
             self.path.parent = self
             self.path.name = 'path'
+            self.request_id = None
 
         @property
         def _common_path(self):
@@ -1857,13 +1857,13 @@ class GetconfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.request_id is not None:
-                return True
-
             if self.path is not None:
                 for child in self.path:
                     if child is not None:
                         return True
+
+            if self.request_id is not None:
+                return True
 
             return False
 
@@ -1877,27 +1877,27 @@ class GetconfigRpc(object):
         """
         
         
-        .. attribute:: request_id
+        .. attribute:: data
         
-        	The request id corresponding to the request
-        	**type**\: int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: response_code
-        
-        	Numerical code corresponding to the returned message
-        	**type**\: :py:class:`OpenconfigRpcResponseTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypes_Identity>`
+        	List of configuration data items, each consisting of the data model path, and corresponding data encoded based on the requested format
+        	**type**\: list of :py:class:`Data <ydk.models.openconfig.openconfig_rpc_api.GetconfigRpc.Output.Data>`
         
         .. attribute:: message
         
         	Error or information text associated with the return\-code value
         	**type**\: str
         
-        .. attribute:: data
+        .. attribute:: request_id
         
-        	List of configuration data items, each consisting of the data model path, and corresponding data encoded based on the requested format
-        	**type**\: list of :py:class:`Data <ydk.models.openconfig.openconfig_rpc_api.GetconfigRpc.Output.Data>`
+        	The request id corresponding to the request
+        	**type**\: long
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: response_code
+        
+        	Numerical code corresponding to the returned message
+        	**type**\: :py:class:`OpenconfigRpcResponseTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypesIdentity>`
         
         
 
@@ -1908,12 +1908,12 @@ class GetconfigRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.request_id = None
-            self.response_code = None
-            self.message = None
             self.data = YList()
             self.data.parent = self
             self.data.name = 'data'
+            self.message = None
+            self.request_id = None
+            self.response_code = None
 
 
         class Data(object):
@@ -1947,7 +1947,7 @@ class GetconfigRpc(object):
             @property
             def _common_path(self):
                 if self.path is None:
-                    raise YPYDataValidationError('Key property path is None')
+                    raise YPYModelError('Key property path is None')
 
                 return '/openconfig-rpc-api:getConfig/openconfig-rpc-api:output/openconfig-rpc-api:data[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -1987,19 +1987,19 @@ class GetconfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.data is not None:
+                for child_ref in self.data:
+                    if child_ref._has_data():
+                        return True
+
+            if self.message is not None:
+                return True
+
             if self.request_id is not None:
                 return True
 
             if self.response_code is not None:
                 return True
-
-            if self.message is not None:
-                return True
-
-            if self.data is not None:
-                for child_ref in self.data:
-                    if child_ref._has_data():
-                        return True
 
             return False
 
@@ -2073,22 +2073,22 @@ class GetoperationalRpc(object):
         """
         
         
-        .. attribute:: request_id
+        .. attribute:: oper_only
         
-        	Identifier sent in request messages
-        	**type**\: int
-        
-        	**range:** 0..18446744073709551615
+        	When this is set to true, the device should return only the operational state data that is marked as operational\: true. Otherwise, it should return all operational state date (config\: false)
+        	**type**\: bool
         
         .. attribute:: path
         
         	List of data model paths to retrieve
         	**type**\: list of str
         
-        .. attribute:: oper_only
+        .. attribute:: request_id
         
-        	When this is set to true, the device should return only the operational state data that is marked as operational\: true. Otherwise, it should return all operational state date (config\: false)
-        	**type**\: bool
+        	Identifier sent in request messages
+        	**type**\: long
+        
+        	**range:** 0..18446744073709551615
         
         
 
@@ -2099,11 +2099,11 @@ class GetoperationalRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.request_id = None
+            self.oper_only = None
             self.path = YLeafList()
             self.path.parent = self
             self.path.name = 'path'
-            self.oper_only = None
+            self.request_id = None
 
         @property
         def _common_path(self):
@@ -2119,7 +2119,7 @@ class GetoperationalRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.request_id is not None:
+            if self.oper_only is not None:
                 return True
 
             if self.path is not None:
@@ -2127,7 +2127,7 @@ class GetoperationalRpc(object):
                     if child is not None:
                         return True
 
-            if self.oper_only is not None:
+            if self.request_id is not None:
                 return True
 
             return False
@@ -2142,27 +2142,27 @@ class GetoperationalRpc(object):
         """
         
         
-        .. attribute:: request_id
+        .. attribute:: data
         
-        	The request id corresponding to the request
-        	**type**\: int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: response_code
-        
-        	Numerical code corresponding to the returned message
-        	**type**\: :py:class:`OpenconfigRpcResponseTypes_Identity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypes_Identity>`
+        	List of operational state data items, each consisting of the data model path, and corresponding data encoded based on the requested format
+        	**type**\: list of :py:class:`Data <ydk.models.openconfig.openconfig_rpc_api.GetoperationalRpc.Output.Data>`
         
         .. attribute:: message
         
         	Error or information text associated with the return\-code value
         	**type**\: str
         
-        .. attribute:: data
+        .. attribute:: request_id
         
-        	List of operational state data items, each consisting of the data model path, and corresponding data encoded based on the requested format
-        	**type**\: list of :py:class:`Data <ydk.models.openconfig.openconfig_rpc_api.GetoperationalRpc.Output.Data>`
+        	The request id corresponding to the request
+        	**type**\: long
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: response_code
+        
+        	Numerical code corresponding to the returned message
+        	**type**\: :py:class:`OpenconfigRpcResponseTypesIdentity <ydk.models.openconfig.openconfig_rpc_api.OpenconfigRpcResponseTypesIdentity>`
         
         
 
@@ -2173,12 +2173,12 @@ class GetoperationalRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.request_id = None
-            self.response_code = None
-            self.message = None
             self.data = YList()
             self.data.parent = self
             self.data.name = 'data'
+            self.message = None
+            self.request_id = None
+            self.response_code = None
 
 
         class Data(object):
@@ -2212,7 +2212,7 @@ class GetoperationalRpc(object):
             @property
             def _common_path(self):
                 if self.path is None:
-                    raise YPYDataValidationError('Key property path is None')
+                    raise YPYModelError('Key property path is None')
 
                 return '/openconfig-rpc-api:getOperational/openconfig-rpc-api:output/openconfig-rpc-api:data[openconfig-rpc-api:path = ' + str(self.path) + ']'
 
@@ -2252,19 +2252,19 @@ class GetoperationalRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.data is not None:
+                for child_ref in self.data:
+                    if child_ref._has_data():
+                        return True
+
+            if self.message is not None:
+                return True
+
             if self.request_id is not None:
                 return True
 
             if self.response_code is not None:
                 return True
-
-            if self.message is not None:
-                return True
-
-            if self.data is not None:
-                for child_ref in self.data:
-                    if child_ref._has_data():
-                        return True
 
             return False
 
@@ -2299,7 +2299,90 @@ class GetoperationalRpc(object):
         return meta._meta_table['GetoperationalRpc']['meta_info']
 
 
-class JsonSchema_Identity(OpenconfigSchemaFormatTypes_Identity):
+class ReplaceConfigIdentity(EditConfigCommandsIdentity):
+    """
+    Replaces the configuration at the target device at the
+    specified path(s). If the specified data exists, it is
+    overwritten by the contents of the message.  Configuration data
+    that is not specified is deleted by the server.
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        EditConfigCommandsIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['ReplaceConfigIdentity']['meta_info']
+
+
+class XsdSchemaIdentity(OpenconfigSchemaFormatTypesIdentity):
+    """
+    XML Schema Definition
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigSchemaFormatTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['XsdSchemaIdentity']['meta_info']
+
+
+class YangSchemaIdentity(OpenconfigSchemaFormatTypesIdentity):
+    """
+    YANG model
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigSchemaFormatTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['YangSchemaIdentity']['meta_info']
+
+
+class EncodingXmlIdentity(OpenconfigDataEncodingTypesIdentity):
+    """
+    XML encoding
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigDataEncodingTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['EncodingXmlIdentity']['meta_info']
+
+
+class JsonSchemaIdentity(OpenconfigSchemaFormatTypesIdentity):
     """
     JSON\-Schema
     
@@ -2311,15 +2394,96 @@ class JsonSchema_Identity(OpenconfigSchemaFormatTypes_Identity):
     _revision = '2015-10-30'
 
     def __init__(self):
-        OpenconfigSchemaFormatTypes_Identity.__init__(self)
+        OpenconfigSchemaFormatTypesIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['JsonSchema_Identity']['meta_info']
+        return meta._meta_table['JsonSchemaIdentity']['meta_info']
 
 
-class UpdateConfig_Identity(EditConfigCommands_Identity):
+class FileModeIdentity(OpenconfigSchemaModeTypesIdentity):
+    """
+    Schema delivered in a file
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigSchemaModeTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['FileModeIdentity']['meta_info']
+
+
+class DeleteConfigIdentity(EditConfigCommandsIdentity):
+    """
+    Deletes the configuration at the target device. If the
+    specified data does not exist, the device returns success.
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        EditConfigCommandsIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['DeleteConfigIdentity']['meta_info']
+
+
+class EncodingJsonIetfIdentity(OpenconfigDataEncodingTypesIdentity):
+    """
+    JSON encoded based on IETF draft standard
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigDataEncodingTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['EncodingJsonIetfIdentity']['meta_info']
+
+
+class EncodingProto3Identity(OpenconfigDataEncodingTypesIdentity):
+    """
+    Protocol buffers v3
+    
+    
+
+    """
+
+    _prefix = 'oc-rpc'
+    _revision = '2015-10-30'
+
+    def __init__(self):
+        OpenconfigDataEncodingTypesIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
+        return meta._meta_table['EncodingProto3Identity']['meta_info']
+
+
+class UpdateConfigIdentity(EditConfigCommandsIdentity):
     """
     Updates the configuration at the target device at the
     specified path(s). Data in the request is added to the current
@@ -2337,76 +2501,15 @@ class UpdateConfig_Identity(EditConfigCommands_Identity):
     _revision = '2015-10-30'
 
     def __init__(self):
-        EditConfigCommands_Identity.__init__(self)
+        EditConfigCommandsIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['UpdateConfig_Identity']['meta_info']
+        return meta._meta_table['UpdateConfigIdentity']['meta_info']
 
 
-class EncodingJsonIetf_Identity(OpenconfigDataEncodingTypes_Identity):
-    """
-    JSON encoded based on IETF draft standard
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigDataEncodingTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['EncodingJsonIetf_Identity']['meta_info']
-
-
-class FileMode_Identity(OpenconfigSchemaModeTypes_Identity):
-    """
-    Schema delivered in a file
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigSchemaModeTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['FileMode_Identity']['meta_info']
-
-
-class DeleteConfig_Identity(EditConfigCommands_Identity):
-    """
-    Deletes the configuration at the target device. If the
-    specified data does not exist, the device returns success.
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        EditConfigCommands_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['DeleteConfig_Identity']['meta_info']
-
-
-class UriMode_Identity(OpenconfigSchemaModeTypes_Identity):
+class UriModeIdentity(OpenconfigSchemaModeTypesIdentity):
     """
     Retrieve schema using a supplied URI
     
@@ -2418,114 +2521,11 @@ class UriMode_Identity(OpenconfigSchemaModeTypes_Identity):
     _revision = '2015-10-30'
 
     def __init__(self):
-        OpenconfigSchemaModeTypes_Identity.__init__(self)
+        OpenconfigSchemaModeTypesIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['UriMode_Identity']['meta_info']
-
-
-class XsdSchema_Identity(OpenconfigSchemaFormatTypes_Identity):
-    """
-    XML Schema Definition
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigSchemaFormatTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['XsdSchema_Identity']['meta_info']
-
-
-class YangSchema_Identity(OpenconfigSchemaFormatTypes_Identity):
-    """
-    YANG model
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigSchemaFormatTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['YangSchema_Identity']['meta_info']
-
-
-class ReplaceConfig_Identity(EditConfigCommands_Identity):
-    """
-    Replaces the configuration at the target device at the
-    specified path(s). If the specified data exists, it is
-    overwritten by the contents of the message.  Configuration data
-    that is not specified is deleted by the server.
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        EditConfigCommands_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['ReplaceConfig_Identity']['meta_info']
-
-
-class EncodingProto3_Identity(OpenconfigDataEncodingTypes_Identity):
-    """
-    Protocol buffers v3
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigDataEncodingTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['EncodingProto3_Identity']['meta_info']
-
-
-class EncodingXml_Identity(OpenconfigDataEncodingTypes_Identity):
-    """
-    XML encoding
-    
-    
-
-    """
-
-    _prefix = 'oc-rpc'
-    _revision = '2015-10-30'
-
-    def __init__(self):
-        OpenconfigDataEncodingTypes_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rpc_api as meta
-        return meta._meta_table['EncodingXml_Identity']['meta_info']
+        return meta._meta_table['UriModeIdentity']['meta_info']
 
 

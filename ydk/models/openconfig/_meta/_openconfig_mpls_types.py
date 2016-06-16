@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -28,8 +28,8 @@ _meta_table = {
             'IMPLICIT_NULL':'IMPLICIT_NULL',
             'ENTROPY_LABEL_INDICATOR':'ENTROPY_LABEL_INDICATOR',
         }, 'openconfig-mpls-types', _yang_ns._namespaces['openconfig-mpls-types']),
-    'LspRole_Identity' : {
-        'meta_info' : _MetaInfoClass('LspRole_Identity',
+    'LspRoleIdentity' : {
+        'meta_info' : _MetaInfoClass('LspRoleIdentity',
             False, 
             [
             ],
@@ -39,8 +39,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'LspOperStatus_Identity' : {
-        'meta_info' : _MetaInfoClass('LspOperStatus_Identity',
+    'LspOperStatusIdentity' : {
+        'meta_info' : _MetaInfoClass('LspOperStatusIdentity',
             False, 
             [
             ],
@@ -50,8 +50,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'ProtectionType_Identity' : {
-        'meta_info' : _MetaInfoClass('ProtectionType_Identity',
+    'ProtectionTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('ProtectionTypeIdentity',
             False, 
             [
             ],
@@ -61,8 +61,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'TunnelAdminStatus_Identity' : {
-        'meta_info' : _MetaInfoClass('TunnelAdminStatus_Identity',
+    'TunnelAdminStatusIdentity' : {
+        'meta_info' : _MetaInfoClass('TunnelAdminStatusIdentity',
             False, 
             [
             ],
@@ -72,8 +72,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'NullLabelType_Identity' : {
-        'meta_info' : _MetaInfoClass('NullLabelType_Identity',
+    'NullLabelTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('NullLabelTypeIdentity',
             False, 
             [
             ],
@@ -83,8 +83,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'TunnelType_Identity' : {
-        'meta_info' : _MetaInfoClass('TunnelType_Identity',
+    'TunnelTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('TunnelTypeIdentity',
             False, 
             [
             ],
@@ -94,8 +94,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'PathSetupProtocol_Identity' : {
-        'meta_info' : _MetaInfoClass('PathSetupProtocol_Identity',
+    'PathSetupProtocolIdentity' : {
+        'meta_info' : _MetaInfoClass('PathSetupProtocolIdentity',
             False, 
             [
             ],
@@ -105,96 +105,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'LinkNodeProtectionRequested_Identity' : {
-        'meta_info' : _MetaInfoClass('LinkNodeProtectionRequested_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'link-node-protection-requested',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'P2P_Identity' : {
-        'meta_info' : _MetaInfoClass('P2P_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'P2P',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Transit_Identity' : {
-        'meta_info' : _MetaInfoClass('Transit_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'TRANSIT',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'PathSetupRsvp_Identity' : {
-        'meta_info' : _MetaInfoClass('PathSetupRsvp_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'path-setup-rsvp',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Explicit_Identity' : {
-        'meta_info' : _MetaInfoClass('Explicit_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'EXPLICIT',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Egress_Identity' : {
-        'meta_info' : _MetaInfoClass('Egress_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'EGRESS',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Admin_Down_Identity' : {
-        'meta_info' : _MetaInfoClass('Admin_Down_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'ADMIN_DOWN',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'LinkProtectionRequested_Identity' : {
-        'meta_info' : _MetaInfoClass('LinkProtectionRequested_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'link-protection-requested',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'PathSetupSr_Identity' : {
-        'meta_info' : _MetaInfoClass('PathSetupSr_Identity',
+    'PathSetupSrIdentity' : {
+        'meta_info' : _MetaInfoClass('PathSetupSrIdentity',
             False, 
             [
             ],
@@ -204,19 +116,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'Implicit_Identity' : {
-        'meta_info' : _MetaInfoClass('Implicit_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'IMPLICIT',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Down_Identity' : {
-        'meta_info' : _MetaInfoClass('Down_Identity',
+    'DownIdentity' : {
+        'meta_info' : _MetaInfoClass('DownIdentity',
             False, 
             [
             ],
@@ -226,30 +127,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'P2Mp_Identity' : {
-        'meta_info' : _MetaInfoClass('P2Mp_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'P2MP',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Ingress_Identity' : {
-        'meta_info' : _MetaInfoClass('Ingress_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'INGRESS',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'Unprotected_Identity' : {
-        'meta_info' : _MetaInfoClass('Unprotected_Identity',
+    'UnprotectedIdentity' : {
+        'meta_info' : _MetaInfoClass('UnprotectedIdentity',
             False, 
             [
             ],
@@ -259,19 +138,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'Up_Identity' : {
-        'meta_info' : _MetaInfoClass('Up_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'UP',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'PathSetupLdp_Identity' : {
-        'meta_info' : _MetaInfoClass('PathSetupLdp_Identity',
+    'PathSetupLdpIdentity' : {
+        'meta_info' : _MetaInfoClass('PathSetupLdpIdentity',
             False, 
             [
             ],
@@ -281,13 +149,145 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'Admin_Up_Identity' : {
-        'meta_info' : _MetaInfoClass('Admin_Up_Identity',
+    'P2PIdentity' : {
+        'meta_info' : _MetaInfoClass('P2PIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'P2P',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'Admin_DownIdentity' : {
+        'meta_info' : _MetaInfoClass('Admin_DownIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'ADMIN_DOWN',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'ExplicitIdentity' : {
+        'meta_info' : _MetaInfoClass('ExplicitIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'EXPLICIT',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'Admin_UpIdentity' : {
+        'meta_info' : _MetaInfoClass('Admin_UpIdentity',
             False, 
             [
             ],
             'openconfig-mpls-types',
             'ADMIN_UP',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'P2MpIdentity' : {
+        'meta_info' : _MetaInfoClass('P2MpIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'P2MP',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'PathSetupRsvpIdentity' : {
+        'meta_info' : _MetaInfoClass('PathSetupRsvpIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'path-setup-rsvp',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'IngressIdentity' : {
+        'meta_info' : _MetaInfoClass('IngressIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'INGRESS',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'LinkProtectionRequestedIdentity' : {
+        'meta_info' : _MetaInfoClass('LinkProtectionRequestedIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'link-protection-requested',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'EgressIdentity' : {
+        'meta_info' : _MetaInfoClass('EgressIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'EGRESS',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'LinkNodeProtectionRequestedIdentity' : {
+        'meta_info' : _MetaInfoClass('LinkNodeProtectionRequestedIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'link-node-protection-requested',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'ImplicitIdentity' : {
+        'meta_info' : _MetaInfoClass('ImplicitIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'IMPLICIT',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'TransitIdentity' : {
+        'meta_info' : _MetaInfoClass('TransitIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'TRANSIT',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'UpIdentity' : {
+        'meta_info' : _MetaInfoClass('UpIdentity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'UP',
             _yang_ns._namespaces['openconfig-mpls-types'],
         'ydk.models.openconfig.openconfig_mpls_types'
         ),

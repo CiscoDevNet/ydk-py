@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -206,6 +206,30 @@ class Srms(object):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
+                .. attribute:: action
+                
+                	action
+                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
+                
+                .. attribute:: addr
+                
+                	addr
+                	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
+                
+                .. attribute:: area
+                
+                	area
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: flags
+                
+                	flags
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: ip
                 
                 	IP
@@ -220,35 +244,6 @@ class Srms(object):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: addr
-                
-                	addr
-                	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
-                
-                .. attribute:: src
-                
-                	src
-                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                
-                .. attribute:: action
-                
-                	action
-                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                
-                .. attribute:: router
-                
-                	router
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: area
-                
-                	area
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: prefix_xr
                 
                 	prefix xr
@@ -256,12 +251,12 @@ class Srms(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: sid_start
+                .. attribute:: router
                 
-                	sid start
-                	**type**\: int
+                	router
+                	**type**\: long
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: sid_count
                 
@@ -270,12 +265,17 @@ class Srms(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: flags
+                .. attribute:: sid_start
                 
-                	flags
+                	sid start
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: src
+                
+                	src
+                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -286,18 +286,18 @@ class Srms(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ip = None
-                    self.prefix = None
+                    self.action = None
                     self.addr = Srms.Mapping.MappingIpv4.MappingMi.Addr()
                     self.addr.parent = self
-                    self.src = None
-                    self.action = None
-                    self.router = None
                     self.area = None
-                    self.prefix_xr = None
-                    self.sid_start = None
-                    self.sid_count = None
                     self.flags = None
+                    self.ip = None
+                    self.prefix = None
+                    self.prefix_xr = None
+                    self.router = None
+                    self.sid_count = None
+                    self.sid_start = None
+                    self.src = None
 
 
                 class Addr(object):
@@ -376,37 +376,37 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.action is not None:
+                        return True
+
+                    if self.addr is not None and self.addr._has_data():
+                        return True
+
+                    if self.area is not None:
+                        return True
+
+                    if self.flags is not None:
+                        return True
+
                     if self.ip is not None:
                         return True
 
                     if self.prefix is not None:
                         return True
 
-                    if self.addr is not None and self.addr._has_data():
-                        return True
-
-                    if self.src is not None:
-                        return True
-
-                    if self.action is not None:
+                    if self.prefix_xr is not None:
                         return True
 
                     if self.router is not None:
                         return True
 
-                    if self.area is not None:
-                        return True
-
-                    if self.prefix_xr is not None:
+                    if self.sid_count is not None:
                         return True
 
                     if self.sid_start is not None:
                         return True
 
-                    if self.sid_count is not None:
-                        return True
-
-                    if self.flags is not None:
+                    if self.src is not None:
                         return True
 
                     return False
@@ -472,6 +472,30 @@ class Srms(object):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
+                .. attribute:: action
+                
+                	action
+                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
+                
+                .. attribute:: addr
+                
+                	addr
+                	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
+                
+                .. attribute:: area
+                
+                	area
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: flags
+                
+                	flags
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: ip
                 
                 	IP
@@ -486,35 +510,6 @@ class Srms(object):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: addr
-                
-                	addr
-                	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
-                
-                .. attribute:: src
-                
-                	src
-                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                
-                .. attribute:: action
-                
-                	action
-                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                
-                .. attribute:: router
-                
-                	router
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: area
-                
-                	area
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: prefix_xr
                 
                 	prefix xr
@@ -522,12 +517,12 @@ class Srms(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: sid_start
+                .. attribute:: router
                 
-                	sid start
-                	**type**\: int
+                	router
+                	**type**\: long
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: sid_count
                 
@@ -536,12 +531,17 @@ class Srms(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: flags
+                .. attribute:: sid_start
                 
-                	flags
+                	sid start
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: src
+                
+                	src
+                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -552,18 +552,18 @@ class Srms(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ip = None
-                    self.prefix = None
+                    self.action = None
                     self.addr = Srms.Mapping.MappingIpv6.MappingMi.Addr()
                     self.addr.parent = self
-                    self.src = None
-                    self.action = None
-                    self.router = None
                     self.area = None
-                    self.prefix_xr = None
-                    self.sid_start = None
-                    self.sid_count = None
                     self.flags = None
+                    self.ip = None
+                    self.prefix = None
+                    self.prefix_xr = None
+                    self.router = None
+                    self.sid_count = None
+                    self.sid_start = None
+                    self.src = None
 
 
                 class Addr(object):
@@ -642,37 +642,37 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.action is not None:
+                        return True
+
+                    if self.addr is not None and self.addr._has_data():
+                        return True
+
+                    if self.area is not None:
+                        return True
+
+                    if self.flags is not None:
+                        return True
+
                     if self.ip is not None:
                         return True
 
                     if self.prefix is not None:
                         return True
 
-                    if self.addr is not None and self.addr._has_data():
-                        return True
-
-                    if self.src is not None:
-                        return True
-
-                    if self.action is not None:
+                    if self.prefix_xr is not None:
                         return True
 
                     if self.router is not None:
                         return True
 
-                    if self.area is not None:
-                        return True
-
-                    if self.prefix_xr is not None:
+                    if self.sid_count is not None:
                         return True
 
                     if self.sid_start is not None:
                         return True
 
-                    if self.sid_count is not None:
-                        return True
-
-                    if self.flags is not None:
+                    if self.src is not None:
                         return True
 
                     return False
@@ -765,15 +765,15 @@ class Srms(object):
             """
             IPv4 policy operational data
             
-            .. attribute:: policy_ipv4_backup
-            
-            	IPv4 backup policy operational data
-            	**type**\: :py:class:`PolicyIpv4Backup <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
-            
             .. attribute:: policy_ipv4_active
             
             	IPv4 active policy operational data
             	**type**\: :py:class:`PolicyIpv4Active <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
+            
+            .. attribute:: policy_ipv4_backup
+            
+            	IPv4 backup policy operational data
+            	**type**\: :py:class:`PolicyIpv4Backup <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
             
             
 
@@ -784,10 +784,10 @@ class Srms(object):
 
             def __init__(self):
                 self.parent = None
-                self.policy_ipv4_backup = Srms.Policy.PolicyIpv4.PolicyIpv4Backup()
-                self.policy_ipv4_backup.parent = self
                 self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
                 self.policy_ipv4_active.parent = self
+                self.policy_ipv4_backup = Srms.Policy.PolicyIpv4.PolicyIpv4Backup()
+                self.policy_ipv4_backup.parent = self
 
 
             class PolicyIpv4Backup(object):
@@ -824,34 +824,29 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                    
                     .. attribute:: action
                     
                     	action
                     	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
-                    .. attribute:: router
+                    .. attribute:: addr
                     
-                    	router
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	addr
+                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
                     	area
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: flags
+                    
+                    	flags
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
@@ -860,12 +855,12 @@ class Srms(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: sid_start
+                    .. attribute:: router
                     
-                    	sid start
-                    	**type**\: int
+                    	router
+                    	**type**\: long
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: sid_count
                     
@@ -874,12 +869,17 @@ class Srms(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: flags
+                    .. attribute:: sid_start
                     
-                    	flags
+                    	sid start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -891,16 +891,16 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
+                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
                         self.addr.parent = self
-                        self.src = None
-                        self.action = None
-                        self.router = None
                         self.area = None
-                        self.prefix_xr = None
-                        self.sid_start = None
-                        self.sid_count = None
                         self.flags = None
+                        self.prefix_xr = None
+                        self.router = None
+                        self.sid_count = None
+                        self.sid_start = None
+                        self.src = None
 
 
                     class Addr(object):
@@ -942,7 +942,7 @@ class Srms(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-segment-routing-ms-oper:addr'
 
@@ -972,7 +972,7 @@ class Srms(object):
                     @property
                     def _common_path(self):
                         if self.mi_id is None:
-                            raise YPYDataValidationError('Key property mi_id is None')
+                            raise YPYModelError('Key property mi_id is None')
 
                         return '/Cisco-IOS-XR-segment-routing-ms-oper:srms/Cisco-IOS-XR-segment-routing-ms-oper:policy/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv4/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv4-backup/Cisco-IOS-XR-segment-routing-ms-oper:policy-mi[Cisco-IOS-XR-segment-routing-ms-oper:mi-id = ' + str(self.mi_id) + ']'
 
@@ -986,31 +986,31 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.src is not None:
-                            return True
-
                         if self.action is not None:
                             return True
 
-                        if self.router is not None:
+                        if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
+                        if self.flags is not None:
+                            return True
+
                         if self.prefix_xr is not None:
                             return True
 
-                        if self.sid_start is not None:
+                        if self.router is not None:
                             return True
 
                         if self.sid_count is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.sid_start is not None:
+                            return True
+
+                        if self.src is not None:
                             return True
 
                         return False
@@ -1079,34 +1079,29 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                    
                     .. attribute:: action
                     
                     	action
                     	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
-                    .. attribute:: router
+                    .. attribute:: addr
                     
-                    	router
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	addr
+                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
                     	area
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: flags
+                    
+                    	flags
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
@@ -1115,12 +1110,12 @@ class Srms(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: sid_start
+                    .. attribute:: router
                     
-                    	sid start
-                    	**type**\: int
+                    	router
+                    	**type**\: long
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: sid_count
                     
@@ -1129,12 +1124,17 @@ class Srms(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: flags
+                    .. attribute:: sid_start
                     
-                    	flags
+                    	sid start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1146,16 +1146,16 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
+                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
                         self.addr.parent = self
-                        self.src = None
-                        self.action = None
-                        self.router = None
                         self.area = None
-                        self.prefix_xr = None
-                        self.sid_start = None
-                        self.sid_count = None
                         self.flags = None
+                        self.prefix_xr = None
+                        self.router = None
+                        self.sid_count = None
+                        self.sid_start = None
+                        self.src = None
 
 
                     class Addr(object):
@@ -1197,7 +1197,7 @@ class Srms(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-segment-routing-ms-oper:addr'
 
@@ -1227,7 +1227,7 @@ class Srms(object):
                     @property
                     def _common_path(self):
                         if self.mi_id is None:
-                            raise YPYDataValidationError('Key property mi_id is None')
+                            raise YPYModelError('Key property mi_id is None')
 
                         return '/Cisco-IOS-XR-segment-routing-ms-oper:srms/Cisco-IOS-XR-segment-routing-ms-oper:policy/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv4/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv4-active/Cisco-IOS-XR-segment-routing-ms-oper:policy-mi[Cisco-IOS-XR-segment-routing-ms-oper:mi-id = ' + str(self.mi_id) + ']'
 
@@ -1241,31 +1241,31 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.src is not None:
-                            return True
-
                         if self.action is not None:
                             return True
 
-                        if self.router is not None:
+                        if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
+                        if self.flags is not None:
+                            return True
+
                         if self.prefix_xr is not None:
                             return True
 
-                        if self.sid_start is not None:
+                        if self.router is not None:
                             return True
 
                         if self.sid_count is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.sid_start is not None:
+                            return True
+
+                        if self.src is not None:
                             return True
 
                         return False
@@ -1311,10 +1311,10 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.policy_ipv4_backup is not None and self.policy_ipv4_backup._has_data():
+                if self.policy_ipv4_active is not None and self.policy_ipv4_active._has_data():
                     return True
 
-                if self.policy_ipv4_active is not None and self.policy_ipv4_active._has_data():
+                if self.policy_ipv4_backup is not None and self.policy_ipv4_backup._has_data():
                     return True
 
                 return False
@@ -1329,15 +1329,15 @@ class Srms(object):
             """
             IPv6 policy operational data
             
-            .. attribute:: policy_ipv6_backup
-            
-            	IPv6 backup policy operational data
-            	**type**\: :py:class:`PolicyIpv6Backup <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
-            
             .. attribute:: policy_ipv6_active
             
             	IPv6 active policy operational data
             	**type**\: :py:class:`PolicyIpv6Active <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
+            
+            .. attribute:: policy_ipv6_backup
+            
+            	IPv6 backup policy operational data
+            	**type**\: :py:class:`PolicyIpv6Backup <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
             
             
 
@@ -1348,10 +1348,10 @@ class Srms(object):
 
             def __init__(self):
                 self.parent = None
-                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
-                self.policy_ipv6_backup.parent = self
                 self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
                 self.policy_ipv6_active.parent = self
+                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
+                self.policy_ipv6_backup.parent = self
 
 
             class PolicyIpv6Backup(object):
@@ -1388,34 +1388,29 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                    
                     .. attribute:: action
                     
                     	action
                     	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
-                    .. attribute:: router
+                    .. attribute:: addr
                     
-                    	router
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	addr
+                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
                     	area
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: flags
+                    
+                    	flags
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
@@ -1424,12 +1419,12 @@ class Srms(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: sid_start
+                    .. attribute:: router
                     
-                    	sid start
-                    	**type**\: int
+                    	router
+                    	**type**\: long
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: sid_count
                     
@@ -1438,12 +1433,17 @@ class Srms(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: flags
+                    .. attribute:: sid_start
                     
-                    	flags
+                    	sid start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1455,16 +1455,16 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
+                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
                         self.addr.parent = self
-                        self.src = None
-                        self.action = None
-                        self.router = None
                         self.area = None
-                        self.prefix_xr = None
-                        self.sid_start = None
-                        self.sid_count = None
                         self.flags = None
+                        self.prefix_xr = None
+                        self.router = None
+                        self.sid_count = None
+                        self.sid_start = None
+                        self.src = None
 
 
                     class Addr(object):
@@ -1506,7 +1506,7 @@ class Srms(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-segment-routing-ms-oper:addr'
 
@@ -1536,7 +1536,7 @@ class Srms(object):
                     @property
                     def _common_path(self):
                         if self.mi_id is None:
-                            raise YPYDataValidationError('Key property mi_id is None')
+                            raise YPYModelError('Key property mi_id is None')
 
                         return '/Cisco-IOS-XR-segment-routing-ms-oper:srms/Cisco-IOS-XR-segment-routing-ms-oper:policy/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv6/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv6-backup/Cisco-IOS-XR-segment-routing-ms-oper:policy-mi[Cisco-IOS-XR-segment-routing-ms-oper:mi-id = ' + str(self.mi_id) + ']'
 
@@ -1550,31 +1550,31 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.src is not None:
-                            return True
-
                         if self.action is not None:
                             return True
 
-                        if self.router is not None:
+                        if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
+                        if self.flags is not None:
+                            return True
+
                         if self.prefix_xr is not None:
                             return True
 
-                        if self.sid_start is not None:
+                        if self.router is not None:
                             return True
 
                         if self.sid_count is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.sid_start is not None:
+                            return True
+
+                        if self.src is not None:
                             return True
 
                         return False
@@ -1643,34 +1643,29 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
-                    
                     .. attribute:: action
                     
                     	action
                     	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
-                    .. attribute:: router
+                    .. attribute:: addr
                     
-                    	router
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	addr
+                    	**type**\: :py:class:`Addr <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
                     	area
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: flags
+                    
+                    	flags
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
@@ -1679,12 +1674,12 @@ class Srms(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: sid_start
+                    .. attribute:: router
                     
-                    	sid start
-                    	**type**\: int
+                    	router
+                    	**type**\: long
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: sid_count
                     
@@ -1693,12 +1688,17 @@ class Srms(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: flags
+                    .. attribute:: sid_start
                     
-                    	flags
+                    	sid start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1710,16 +1710,16 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
+                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
                         self.addr.parent = self
-                        self.src = None
-                        self.action = None
-                        self.router = None
                         self.area = None
-                        self.prefix_xr = None
-                        self.sid_start = None
-                        self.sid_count = None
                         self.flags = None
+                        self.prefix_xr = None
+                        self.router = None
+                        self.sid_count = None
+                        self.sid_start = None
+                        self.src = None
 
 
                     class Addr(object):
@@ -1761,7 +1761,7 @@ class Srms(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-segment-routing-ms-oper:addr'
 
@@ -1791,7 +1791,7 @@ class Srms(object):
                     @property
                     def _common_path(self):
                         if self.mi_id is None:
-                            raise YPYDataValidationError('Key property mi_id is None')
+                            raise YPYModelError('Key property mi_id is None')
 
                         return '/Cisco-IOS-XR-segment-routing-ms-oper:srms/Cisco-IOS-XR-segment-routing-ms-oper:policy/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv6/Cisco-IOS-XR-segment-routing-ms-oper:policy-ipv6-active/Cisco-IOS-XR-segment-routing-ms-oper:policy-mi[Cisco-IOS-XR-segment-routing-ms-oper:mi-id = ' + str(self.mi_id) + ']'
 
@@ -1805,31 +1805,31 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.src is not None:
-                            return True
-
                         if self.action is not None:
                             return True
 
-                        if self.router is not None:
+                        if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
+                        if self.flags is not None:
+                            return True
+
                         if self.prefix_xr is not None:
                             return True
 
-                        if self.sid_start is not None:
+                        if self.router is not None:
                             return True
 
                         if self.sid_count is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.sid_start is not None:
+                            return True
+
+                        if self.src is not None:
                             return True
 
                         return False
@@ -1875,10 +1875,10 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.policy_ipv6_backup is not None and self.policy_ipv6_backup._has_data():
+                if self.policy_ipv6_active is not None and self.policy_ipv6_active._has_data():
                     return True
 
-                if self.policy_ipv6_active is not None and self.policy_ipv6_active._has_data():
+                if self.policy_ipv6_backup is not None and self.policy_ipv6_backup._has_data():
                     return True
 
                 return False

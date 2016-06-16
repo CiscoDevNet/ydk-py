@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -153,10 +153,32 @@ class Ntp(object):
     """
     NTP configuration
     
-    .. attribute:: peer_vrfs
+    .. attribute:: access_group_tables
     
-    	Configures NTP Peers or Servers
-    	**type**\: :py:class:`PeerVrfs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
+    	Control NTP access
+    	**type**\: :py:class:`AccessGroupTables <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: authentication
+    
+    	Configure NTP Authentication keys
+    	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: broadcast_delay
+    
+    	Estimated round\-trip delay
+    	**type**\: int
+    
+    	**range:** 1..999999
     
     .. attribute:: _is_presence
     
@@ -183,26 +205,6 @@ class Ntp(object):
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: sources
-    
-    	Configure  NTP source interface
-    	**type**\: :py:class:`Sources <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
-    .. attribute:: authentication
-    
-    	Configure NTP Authentication keys
-    	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
     .. attribute:: interface_tables
     
     	NTP per interface configuration
@@ -213,22 +215,10 @@ class Ntp(object):
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: access_group_tables
+    .. attribute:: log_internal_sync
     
-    	Control NTP access
-    	**type**\: :py:class:`AccessGroupTables <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
-    .. attribute:: max_associations
-    
-    	Set maximum number of associations
-    	**type**\: int
-    
-    	**range:** \-2147483648..2147483647
+    	To enable logging internal sync conflicts
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: _is_presence
     
@@ -247,22 +237,32 @@ class Ntp(object):
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: broadcast_delay
+    .. attribute:: max_associations
     
-    	Estimated round\-trip delay
+    	Set maximum number of associations
     	**type**\: int
     
-    	**range:** 1..999999
+    	**range:** \-2147483648..2147483647
     
     .. attribute:: _is_presence
     
     	Is present if this instance represents presence container else not
     	**type**\: bool
     
-    .. attribute:: log_internal_sync
+    .. attribute:: peer_vrfs
     
-    	To enable logging internal sync conflicts
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Configures NTP Peers or Servers
+    	**type**\: :py:class:`PeerVrfs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: sources
+    
+    	Configure  NTP source interface
+    	**type**\: :py:class:`Sources <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
     
     .. attribute:: _is_presence
     
@@ -289,22 +289,22 @@ class Ntp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.peer_vrfs = Ntp.PeerVrfs()
-        self.peer_vrfs.parent = self
-        self.dscp_ipv4 = None
-        self.dscp_ipv6 = None
-        self.sources = Ntp.Sources()
-        self.sources.parent = self
-        self.authentication = Ntp.Authentication()
-        self.authentication.parent = self
-        self.interface_tables = Ntp.InterfaceTables()
-        self.interface_tables.parent = self
         self.access_group_tables = Ntp.AccessGroupTables()
         self.access_group_tables.parent = self
-        self.max_associations = None
-        self.master = None
+        self.authentication = Ntp.Authentication()
+        self.authentication.parent = self
         self.broadcast_delay = None
+        self.dscp_ipv4 = None
+        self.dscp_ipv6 = None
+        self.interface_tables = Ntp.InterfaceTables()
+        self.interface_tables.parent = self
         self.log_internal_sync = None
+        self.master = None
+        self.max_associations = None
+        self.peer_vrfs = Ntp.PeerVrfs()
+        self.peer_vrfs.parent = self
+        self.sources = Ntp.Sources()
+        self.sources.parent = self
         self.update_calendar = None
 
 
@@ -433,19 +433,29 @@ class Ntp(object):
                         	Peer or Server
                         	**type**\: :py:class:`NtpPeerEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
                         
-                        .. attribute:: ntp_version
-                        
-                        	NTP version
-                        	**type**\: int
-                        
-                        	**range:** 2..4
-                        
                         .. attribute:: authentication_key
                         
                         	Authentication Key
                         	**type**\: int
                         
                         	**range:** 1..65535
+                        
+                        .. attribute:: burst
+                        
+                        	Use burst mode
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: iburst
+                        
+                        	Use iburst mode
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: max_poll
+                        
+                        	Maxinum poll interval
+                        	**type**\: int
+                        
+                        	**range:** 4..17
                         
                         .. attribute:: min_poll
                         
@@ -454,12 +464,12 @@ class Ntp(object):
                         
                         	**range:** 4..17
                         
-                        .. attribute:: max_poll
+                        .. attribute:: ntp_version
                         
-                        	Maxinum poll interval
+                        	NTP version
                         	**type**\: int
                         
-                        	**range:** 4..17
+                        	**range:** 2..4
                         
                         .. attribute:: preferred_peer
                         
@@ -473,16 +483,6 @@ class Ntp(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: burst
-                        
-                        	Use burst mode
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: iburst
-                        
-                        	Use iburst mode
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
                         
 
                         """
@@ -493,21 +493,21 @@ class Ntp(object):
                         def __init__(self):
                             self.parent = None
                             self.peer_type = None
-                            self.ntp_version = None
                             self.authentication_key = None
-                            self.min_poll = None
-                            self.max_poll = None
-                            self.preferred_peer = None
-                            self.source_interface = None
                             self.burst = None
                             self.iburst = None
+                            self.max_poll = None
+                            self.min_poll = None
+                            self.ntp_version = None
+                            self.preferred_peer = None
+                            self.source_interface = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.peer_type is None:
-                                raise YPYDataValidationError('Key property peer_type is None')
+                                raise YPYModelError('Key property peer_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-type-ipv4[Cisco-IOS-XR-ip-ntp-cfg:peer-type = ' + str(self.peer_type) + ']'
 
@@ -521,28 +521,28 @@ class Ntp(object):
                             if self.peer_type is not None:
                                 return True
 
-                            if self.ntp_version is not None:
-                                return True
-
                             if self.authentication_key is not None:
-                                return True
-
-                            if self.min_poll is not None:
-                                return True
-
-                            if self.max_poll is not None:
-                                return True
-
-                            if self.preferred_peer is not None:
-                                return True
-
-                            if self.source_interface is not None:
                                 return True
 
                             if self.burst is not None:
                                 return True
 
                             if self.iburst is not None:
+                                return True
+
+                            if self.max_poll is not None:
+                                return True
+
+                            if self.min_poll is not None:
+                                return True
+
+                            if self.ntp_version is not None:
+                                return True
+
+                            if self.preferred_peer is not None:
+                                return True
+
+                            if self.source_interface is not None:
                                 return True
 
                             return False
@@ -555,9 +555,9 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address_ipv4 is None:
-                            raise YPYDataValidationError('Key property address_ipv4 is None')
+                            raise YPYModelError('Key property address_ipv4 is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-ipv4[Cisco-IOS-XR-ip-ntp-cfg:address-ipv4 = ' + str(self.address_ipv4) + ']'
 
@@ -586,7 +586,7 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-ipv4s'
 
@@ -673,12 +673,12 @@ class Ntp(object):
                         	Peer or Server
                         	**type**\: :py:class:`NtpPeerEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
                         
-                        .. attribute:: ntp_version
+                        .. attribute:: address_ipv6
                         
-                        	NTP version
-                        	**type**\: int
+                        	IPv6 address
+                        	**type**\: str
                         
-                        	**range:** 2..4
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: authentication_key
                         
@@ -687,12 +687,15 @@ class Ntp(object):
                         
                         	**range:** 1..65535
                         
-                        .. attribute:: min_poll
+                        .. attribute:: burst
                         
-                        	Minimum poll interval
-                        	**type**\: int
+                        	Use burst mode
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        	**range:** 4..17
+                        .. attribute:: iburst
+                        
+                        	Use iburst mode
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         .. attribute:: max_poll
                         
@@ -700,6 +703,20 @@ class Ntp(object):
                         	**type**\: int
                         
                         	**range:** 4..17
+                        
+                        .. attribute:: min_poll
+                        
+                        	Minimum poll interval
+                        	**type**\: int
+                        
+                        	**range:** 4..17
+                        
+                        .. attribute:: ntp_version
+                        
+                        	NTP version
+                        	**type**\: int
+                        
+                        	**range:** 2..4
                         
                         .. attribute:: preferred_peer
                         
@@ -713,23 +730,6 @@ class Ntp(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: burst
-                        
-                        	Use burst mode
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: iburst
-                        
-                        	Use iburst mode
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: address_ipv6
-                        
-                        	IPv6 address
-                        	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         
 
                         """
@@ -740,22 +740,22 @@ class Ntp(object):
                         def __init__(self):
                             self.parent = None
                             self.peer_type = None
-                            self.ntp_version = None
+                            self.address_ipv6 = None
                             self.authentication_key = None
-                            self.min_poll = None
-                            self.max_poll = None
-                            self.preferred_peer = None
-                            self.source_interface = None
                             self.burst = None
                             self.iburst = None
-                            self.address_ipv6 = None
+                            self.max_poll = None
+                            self.min_poll = None
+                            self.ntp_version = None
+                            self.preferred_peer = None
+                            self.source_interface = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.peer_type is None:
-                                raise YPYDataValidationError('Key property peer_type is None')
+                                raise YPYModelError('Key property peer_type is None')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-type-ipv6[Cisco-IOS-XR-ip-ntp-cfg:peer-type = ' + str(self.peer_type) + ']'
 
@@ -769,22 +769,10 @@ class Ntp(object):
                             if self.peer_type is not None:
                                 return True
 
-                            if self.ntp_version is not None:
+                            if self.address_ipv6 is not None:
                                 return True
 
                             if self.authentication_key is not None:
-                                return True
-
-                            if self.min_poll is not None:
-                                return True
-
-                            if self.max_poll is not None:
-                                return True
-
-                            if self.preferred_peer is not None:
-                                return True
-
-                            if self.source_interface is not None:
                                 return True
 
                             if self.burst is not None:
@@ -793,7 +781,19 @@ class Ntp(object):
                             if self.iburst is not None:
                                 return True
 
-                            if self.address_ipv6 is not None:
+                            if self.max_poll is not None:
+                                return True
+
+                            if self.min_poll is not None:
+                                return True
+
+                            if self.ntp_version is not None:
+                                return True
+
+                            if self.preferred_peer is not None:
+                                return True
+
+                            if self.source_interface is not None:
                                 return True
 
                             return False
@@ -806,9 +806,9 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.address_ipv6 is None:
-                            raise YPYDataValidationError('Key property address_ipv6 is None')
+                            raise YPYModelError('Key property address_ipv6 is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-ipv6[Cisco-IOS-XR-ip-ntp-cfg:address-ipv6 = ' + str(self.address_ipv6) + ']'
 
@@ -837,7 +837,7 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:peer-ipv6s'
 
@@ -863,7 +863,7 @@ class Ntp(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:peer-vrfs/Cisco-IOS-XR-ip-ntp-cfg:peer-vrf[Cisco-IOS-XR-ip-ntp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -919,22 +919,22 @@ class Ntp(object):
         """
          Set IP DSCP value for outgoing NTP IPV4 packets
         
-        .. attribute:: mode
-        
-        	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
-        	**type**\: :py:class:`NtpdscpEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: dscp_or_precedence_value
         
         	If Mode is set to 'NTPPRECEDENCE(0)' specify Precedence value , if Mode is set to 'NTPDSCP(1)' specify DSCP
         	**type**\: int
         
         	**range:** 0..63
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: mode
+        
+        	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
+        	**type**\: :py:class:`NtpdscpEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
         
         .. attribute:: _is_presence
         
@@ -952,8 +952,8 @@ class Ntp(object):
 
         def __init__(self):
             self.parent = None
-            self.mode = None
             self.dscp_or_precedence_value = None
+            self.mode = None
 
         @property
         def _common_path(self):
@@ -967,10 +967,10 @@ class Ntp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.mode is not None:
+            if self.dscp_or_precedence_value is not None:
                 return True
 
-            if self.dscp_or_precedence_value is not None:
+            if self.mode is not None:
                 return True
 
             return False
@@ -985,22 +985,22 @@ class Ntp(object):
         """
          Set IP DSCP value for outgoing NTP IPV6 packets
         
-        .. attribute:: mode
-        
-        	NTPPRECEDENCE(0) to specify Precedence value NTPDSCP(1) to specify DSCP value
-        	**type**\: :py:class:`NtpdscpEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: dscp_or_precedence_value
         
         	If Mode is set to 'NTPPRECEDENCE(0)' specify Precedence value , if Mode is set to 'NTPDSCP(1)' specify DSCP
         	**type**\: int
         
         	**range:** 0..63
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: mode
+        
+        	NTPPRECEDENCE(0) to specify Precedence value NTPDSCP(1) to specify DSCP value
+        	**type**\: :py:class:`NtpdscpEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
         
         .. attribute:: _is_presence
         
@@ -1018,8 +1018,8 @@ class Ntp(object):
 
         def __init__(self):
             self.parent = None
-            self.mode = None
             self.dscp_or_precedence_value = None
+            self.mode = None
 
         @property
         def _common_path(self):
@@ -1033,10 +1033,10 @@ class Ntp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.mode is not None:
+            if self.dscp_or_precedence_value is not None:
                 return True
 
-            if self.dscp_or_precedence_value is not None:
+            if self.mode is not None:
                 return True
 
             return False
@@ -1103,7 +1103,7 @@ class Ntp(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:sources/Cisco-IOS-XR-ip-ntp-cfg:source[Cisco-IOS-XR-ip-ntp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -1156,6 +1156,11 @@ class Ntp(object):
         """
         Configure NTP Authentication keys
         
+        .. attribute:: enable
+        
+        	Enable NTP authentication keys
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
         .. attribute:: keies
         
         	Authentication Key Table
@@ -1166,11 +1171,6 @@ class Ntp(object):
         	Key numbers for trusted time sources
         	**type**\: :py:class:`TrustedKeies <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
         
-        .. attribute:: enable
-        
-        	Enable NTP authentication keys
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
         
 
         """
@@ -1180,11 +1180,11 @@ class Ntp(object):
 
         def __init__(self):
             self.parent = None
+            self.enable = None
             self.keies = Ntp.Authentication.Keies()
             self.keies.parent = self
             self.trusted_keies = Ntp.Authentication.TrustedKeies()
             self.trusted_keies.parent = self
-            self.enable = None
 
 
         class Keies(object):
@@ -1241,7 +1241,7 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.key_number is None:
-                        raise YPYDataValidationError('Key property key_number is None')
+                        raise YPYModelError('Key property key_number is None')
 
                     return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:authentication/Cisco-IOS-XR-ip-ntp-cfg:keies/Cisco-IOS-XR-ip-ntp-cfg:key[Cisco-IOS-XR-ip-ntp-cfg:key-number = ' + str(self.key_number) + ']'
 
@@ -1338,7 +1338,7 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.key_number is None:
-                        raise YPYDataValidationError('Key property key_number is None')
+                        raise YPYModelError('Key property key_number is None')
 
                     return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:authentication/Cisco-IOS-XR-ip-ntp-cfg:trusted-keies/Cisco-IOS-XR-ip-ntp-cfg:trusted-key[Cisco-IOS-XR-ip-ntp-cfg:key-number = ' + str(self.key_number) + ']'
 
@@ -1395,13 +1395,13 @@ class Ntp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.enable is not None:
+                return True
+
             if self.keies is not None and self.keies._has_data():
                 return True
 
             if self.trusted_keies is not None and self.trusted_keies._has_data():
-                return True
-
-            if self.enable is not None:
                 return True
 
             return False
@@ -1477,20 +1477,20 @@ class Ntp(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: interface_multicast
+                .. attribute:: disable
                 
-                	Configure NTP multicast service
-                	**type**\: :py:class:`InterfaceMulticast <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
+                	Disable NTP
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: interface_broadcast
                 
                 	Configure NTP broadcast service
                 	**type**\: :py:class:`InterfaceBroadcast <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast>`
                 
-                .. attribute:: disable
+                .. attribute:: interface_multicast
                 
-                	Disable NTP
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                	Configure NTP multicast service
+                	**type**\: :py:class:`InterfaceMulticast <ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
                 
                 
 
@@ -1502,11 +1502,11 @@ class Ntp(object):
                 def __init__(self):
                     self.parent = None
                     self.interface = None
-                    self.interface_multicast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast()
-                    self.interface_multicast.parent = self
+                    self.disable = None
                     self.interface_broadcast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast()
                     self.interface_broadcast.parent = self
-                    self.disable = None
+                    self.interface_multicast = Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast()
+                    self.interface_multicast.parent = self
 
 
                 class InterfaceMulticast(object):
@@ -1596,9 +1596,9 @@ class Ntp(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ip_address is None:
-                                    raise YPYDataValidationError('Key property ip_address is None')
+                                    raise YPYModelError('Key property ip_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:multicast-client[Cisco-IOS-XR-ip-ntp-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -1622,7 +1622,7 @@ class Ntp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:multicast-clients'
 
@@ -1697,19 +1697,19 @@ class Ntp(object):
                             
                             	**range:** 1..65535
                             
-                            .. attribute:: version
-                            
-                            	NTP version
-                            	**type**\: int
-                            
-                            	**range:** 2..4
-                            
                             .. attribute:: ttl
                             
                             	TTL
                             	**type**\: int
                             
                             	**range:** 1..255
+                            
+                            .. attribute:: version
+                            
+                            	NTP version
+                            	**type**\: int
+                            
+                            	**range:** 2..4
                             
                             
 
@@ -1722,15 +1722,15 @@ class Ntp(object):
                                 self.parent = None
                                 self.ip_address = None
                                 self.authentication_key = None
-                                self.version = None
                                 self.ttl = None
+                                self.version = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
                                 if self.ip_address is None:
-                                    raise YPYDataValidationError('Key property ip_address is None')
+                                    raise YPYModelError('Key property ip_address is None')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:multicast-server[Cisco-IOS-XR-ip-ntp-cfg:ip-address = ' + str(self.ip_address) + ']'
 
@@ -1747,10 +1747,10 @@ class Ntp(object):
                                 if self.authentication_key is not None:
                                     return True
 
-                                if self.version is not None:
+                                if self.ttl is not None:
                                     return True
 
-                                if self.ttl is not None:
+                                if self.version is not None:
                                     return True
 
                                 return False
@@ -1763,7 +1763,7 @@ class Ntp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:multicast-servers'
 
@@ -1789,7 +1789,7 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:interface-multicast'
 
@@ -1883,7 +1883,7 @@ class Ntp(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:broadcast'
 
@@ -1913,7 +1913,7 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:interface-broadcast'
 
@@ -1940,9 +1940,9 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:interface[Cisco-IOS-XR-ip-ntp-cfg:interface = ' + str(self.interface) + ']'
 
@@ -1956,13 +1956,13 @@ class Ntp(object):
                     if self.interface is not None:
                         return True
 
-                    if self.interface_multicast is not None and self.interface_multicast._has_data():
+                    if self.disable is not None:
                         return True
 
                     if self.interface_broadcast is not None and self.interface_broadcast._has_data():
                         return True
 
-                    if self.disable is not None:
+                    if self.interface_multicast is not None and self.interface_multicast._has_data():
                         return True
 
                     return False
@@ -1975,7 +1975,7 @@ class Ntp(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:interface-tables/Cisco-IOS-XR-ip-ntp-cfg:interface-table[Cisco-IOS-XR-ip-ntp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -2138,9 +2138,9 @@ class Ntp(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.access_group_type is None:
-                            raise YPYDataValidationError('Key property access_group_type is None')
+                            raise YPYModelError('Key property access_group_type is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:access-group[Cisco-IOS-XR-ip-ntp-cfg:access-group-type = ' + str(self.access_group_type) + ']'
 
@@ -2167,9 +2167,9 @@ class Ntp(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
                     if self.af is None:
-                        raise YPYDataValidationError('Key property af is None')
+                        raise YPYModelError('Key property af is None')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-cfg:access-group-af-table[Cisco-IOS-XR-ip-ntp-cfg:af = ' + str(self.af) + ']'
 
@@ -2198,7 +2198,7 @@ class Ntp(object):
             @property
             def _common_path(self):
                 if self.vrf_name is None:
-                    raise YPYDataValidationError('Key property vrf_name is None')
+                    raise YPYModelError('Key property vrf_name is None')
 
                 return '/Cisco-IOS-XR-ip-ntp-cfg:ntp/Cisco-IOS-XR-ip-ntp-cfg:access-group-tables/Cisco-IOS-XR-ip-ntp-cfg:access-group-table[Cisco-IOS-XR-ip-ntp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
 
@@ -2260,7 +2260,13 @@ class Ntp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.peer_vrfs is not None and self.peer_vrfs._has_data():
+        if self.access_group_tables is not None and self.access_group_tables._has_data():
+            return True
+
+        if self.authentication is not None and self.authentication._has_data():
+            return True
+
+        if self.broadcast_delay is not None:
             return True
 
         if self.dscp_ipv4 is not None and self.dscp_ipv4._has_data():
@@ -2269,28 +2275,22 @@ class Ntp(object):
         if self.dscp_ipv6 is not None and self.dscp_ipv6._has_data():
             return True
 
-        if self.sources is not None and self.sources._has_data():
-            return True
-
-        if self.authentication is not None and self.authentication._has_data():
-            return True
-
         if self.interface_tables is not None and self.interface_tables._has_data():
             return True
 
-        if self.access_group_tables is not None and self.access_group_tables._has_data():
-            return True
-
-        if self.max_associations is not None:
+        if self.log_internal_sync is not None:
             return True
 
         if self.master is not None:
             return True
 
-        if self.broadcast_delay is not None:
+        if self.max_associations is not None:
             return True
 
-        if self.log_internal_sync is not None:
+        if self.peer_vrfs is not None and self.peer_vrfs._has_data():
+            return True
+
+        if self.sources is not None and self.sources._has_data():
             return True
 
         if self.update_calendar is not None:

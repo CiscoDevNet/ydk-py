@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -100,29 +100,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.State',
             False, 
             [
-            _MetaInfoClassMember('is-ingress-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                MAC accounting on on ingress
-                ''',
-                'is_ingress_enabled',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('is-egress-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                MAC accounting on on egress
                 ''',
                 'is_egress_enabled',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('number-available-ingress', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                MAC accounting entries available on ingress
+            _MetaInfoClassMember('is-ingress-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                MAC accounting on on ingress
                 ''',
-                'number_available_ingress',
+                'is_ingress_enabled',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('number-available-egress', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MAC accounting entries available on egress
                 ''',
                 'number_available_egress',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('number-available-ingress', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                MAC accounting entries available on ingress
+                ''',
+                'number_available_ingress',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('number-available-on-node', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -141,23 +141,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.IngressStatistic',
             False, 
             [
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of bytes counted
+                ''',
+                'bytes',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                48bit MAC address
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of packets counted
                 ''',
                 'packets',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of bytes counted
-                ''',
-                'bytes',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -170,23 +170,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.EgressStatistic',
             False, 
             [
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of bytes counted
+                ''',
+                'bytes',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                48bit MAC address
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of packets counted
                 ''',
                 'packets',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of bytes counted
-                ''',
-                'bytes',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -205,11 +205,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-l2-eth-infra-oper', True),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'MacAccounting.Interfaces.Interface.State', 
+            _MetaInfoClassMember('egress-statistic', REFERENCE_LIST, 'EgressStatistic' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'MacAccounting.Interfaces.Interface.EgressStatistic', 
                 [], [], 
-                '''                MAC accounting state for the interface
+                '''                Egress MAC accounting statistics
                 ''',
-                'state',
+                'egress_statistic',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('ingress-statistic', REFERENCE_LIST, 'IngressStatistic' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'MacAccounting.Interfaces.Interface.IngressStatistic', 
                 [], [], 
@@ -217,11 +217,11 @@ _meta_table = {
                 ''',
                 'ingress_statistic',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('egress-statistic', REFERENCE_LIST, 'EgressStatistic' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'MacAccounting.Interfaces.Interface.EgressStatistic', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'MacAccounting.Interfaces.Interface.State', 
                 [], [], 
-                '''                Egress MAC accounting statistics
+                '''                MAC accounting state for the interface
                 ''',
-                'egress_statistic',
+                'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -271,11 +271,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters',
             False, 
             [
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of subinterfaces which are up
+                '''                Number of subinterfaces which are
+                administrativelyshutdown
                 ''',
-                'up',
+                'admin_down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -283,12 +284,11 @@ _meta_table = {
                 ''',
                 'down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of subinterfaces which are
-                administrativelyshutdown
+                '''                Number of subinterfaces which are up
                 ''',
-                'admin_down',
+                'up',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -301,6 +301,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces',
             False, 
             [
+            _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of single tagged subinterfaces
+                ''',
+                'dot1q_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('qin-any-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of double tagged subinterfaces with
+                wildcarded inner tag
+                ''',
+                'qin_any_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of double tagged subinterfaces with
+                explicit inner tag
+                ''',
+                'qin_q_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('state-counters', REFERENCE_CLASS, 'StateCounters' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters', 
                 [], [], 
                 '''                Numbers of subinterfaces up, down or
@@ -313,26 +333,6 @@ _meta_table = {
                 '''                Total number of Layer 2 subinterfaces configured
                 ''',
                 'total_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of single tagged subinterfaces
-                ''',
-                'dot1q_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of double tagged subinterfaces with
-                explicit inner tag
-                ''',
-                'qin_q_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('qin-any-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of double tagged subinterfaces with
-                wildcarded inner tag
-                ''',
-                'qin_any_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -352,11 +352,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters',
             False, 
             [
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of subinterfaces which are up
+                '''                Number of subinterfaces which are
+                administrativelyshutdown
                 ''',
-                'up',
+                'admin_down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -364,12 +365,11 @@ _meta_table = {
                 ''',
                 'down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of subinterfaces which are
-                administrativelyshutdown
+                '''                Number of subinterfaces which are up
                 ''',
-                'admin_down',
+                'up',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -382,6 +382,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces',
             False, 
             [
+            _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of single tagged subinterfaces
+                ''',
+                'dot1q_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Native VLAN ID configured on trunk
+                ''',
+                'native_vlan',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of double tagged subinterfaces
+                ''',
+                'qin_q_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('state-counters', REFERENCE_CLASS, 'StateCounters' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters', 
                 [], [], 
                 '''                Numbers of subinterfaces up, down or
@@ -395,30 +413,12 @@ _meta_table = {
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of single tagged subinterfaces
-                ''',
-                'dot1q_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of double tagged subinterfaces
-                ''',
-                'qin_q_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of subinterfaces without VLAN tag
                 configuration
                 ''',
                 'untagged_count',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Native VLAN ID configured on trunk
-                ''',
-                'native_vlan',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -437,6 +437,18 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', True),
+            _MetaInfoClassMember('dot1ad-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of subinterfaces with 802.1ad outer tag
+                ''',
+                'dot1ad_count',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_xr',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('layer2-sub-interfaces', REFERENCE_CLASS, 'Layer2SubInterfaces' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces', 
                 [], [], 
                 '''                Layer 2 Transport Subinterfaces
@@ -449,17 +461,12 @@ _meta_table = {
                 ''',
                 'layer3_sub_interfaces',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'interface_xr',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnumEnum', 
+            _MetaInfoClassMember('mac-filtering', REFERENCE_ENUM_CLASS, 'EthFilteringEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthFilteringEnum', 
                 [], [], 
-                '''                Interface state
+                '''                IEEE 802.1Q/802.1ad multicast MAC address
+                filtering
                 ''',
-                'state',
+                'mac_filtering',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -473,24 +480,17 @@ _meta_table = {
                 ''',
                 'qinq_outer_ether_type',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('dot1ad-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of subinterfaces with 802.1ad outer tag
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Interface state
                 ''',
-                'dot1ad_count',
+                'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface/Sub-interface handling untagged frames
                 ''',
                 'untagged_interface',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('mac-filtering', REFERENCE_ENUM_CLASS, 'EthFilteringEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthFilteringEnum', 
-                [], [], 
-                '''                IEEE 802.1Q/802.1ad multicast MAC address
-                filtering
-                ''',
-                'mac_filtering',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -584,17 +584,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange',
             False, 
             [
-            _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VLAN ID Low
-                ''',
-                'vlan_id_low',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                VLAN ID High
                 ''',
                 'vlan_id_high',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VLAN ID Low
+                ''',
+                'vlan_id_low',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -659,6 +659,33 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails',
             False, 
             [
+            _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                The destination MAC address to match on ingress
+                ''',
+                'destination_mac_match',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-exact-match', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the packet must match the encapsulation
+                exactly, with no further inner tags
+                ''',
+                'is_exact_match',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-native-preserving', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the native VLAN is customer-tag
+                preserving
+                ''',
+                'is_native_preserving',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-native-vlan', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether this represents the native VLAN on the
+                port
+                ''',
+                'is_native_vlan',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('local-traffic-stack', REFERENCE_CLASS, 'LocalTrafficStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack', 
                 [], [], 
                 '''                VLAN tags for locally-sourced traffic
@@ -671,32 +698,11 @@ _meta_table = {
                 ''',
                 'payload_ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Number of tags popped on ingress
-                ''',
-                'tags_popped',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-exact-match', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
                 [], [], 
-                '''                Whether the packet must match the encapsulation
-                exactly, with no further inner tags
+                '''                VLAN tags pushed on egress
                 ''',
-                'is_exact_match',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-native-vlan', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether this represents the native VLAN on the
-                port
-                ''',
-                'is_native_vlan',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-native-preserving', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the native VLAN is customer-tag
-                preserving
-                ''',
-                'is_native_preserving',
+                'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('source-mac-match', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -704,23 +710,17 @@ _meta_table = {
                 ''',
                 'source_mac_match',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                The destination MAC address to match on ingress
+            _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Number of tags popped on ingress
                 ''',
-                'destination_mac_match',
+                'tags_popped',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tags-to-match', REFERENCE_LIST, 'TagsToMatch' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch', 
                 [], [], 
                 '''                Tags to match on ingress packets
                 ''',
                 'tags_to_match',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
-                [], [], 
-                '''                VLAN tags pushed on egress
-                ''',
-                'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -756,53 +756,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails',
             False, 
             [
-            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack', 
-                [], [], 
-                '''                Stack value
-                ''',
-                'stack',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails', 
-                [], [], 
-                '''                Service Instance encapsulation
-                ''',
-                'service_instance_details',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1AdDot1QStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack', 
                 [], [], 
                 '''                802.1ad 802.1Q stack value
                 ''',
                 'dot1ad_dot1q_stack',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
-                [], [], 
-                '''                VLANEncapsulation
-                ''',
-                'vlan_encapsulation',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Tag value
-                ''',
-                'tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Outer tag value
-                ''',
-                'outer_tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Native tag value
-                ''',
-                'native_tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                802.1ad tag value
-                ''',
-                'dot1ad_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-native-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -815,6 +773,48 @@ _meta_table = {
                 '''                802.1ad Outer tag value
                 ''',
                 'dot1ad_outer_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                802.1ad tag value
+                ''',
+                'dot1ad_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Native tag value
+                ''',
+                'native_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Outer tag value
+                ''',
+                'outer_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails', 
+                [], [], 
+                '''                Service Instance encapsulation
+                ''',
+                'service_instance_details',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack', 
+                [], [], 
+                '''                Stack value
+                ''',
+                'stack',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Tag value
+                ''',
+                'tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
+                [], [], 
+                '''                VLANEncapsulation
+                ''',
+                'vlan_encapsulation',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -845,6 +845,12 @@ _meta_table = {
                 ''',
                 'interface_xr',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                L2 MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
@@ -862,12 +868,6 @@ _meta_table = {
                 '''                Interface state
                 ''',
                 'state',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                L2 MTU
-                ''',
-                'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('switched-mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -967,17 +967,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange',
             False, 
             [
-            _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VLAN ID Low
-                ''',
-                'vlan_id_low',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                VLAN ID High
                 ''',
                 'vlan_id_high',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VLAN ID Low
+                ''',
+                'vlan_id_low',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -1042,6 +1042,33 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails',
             False, 
             [
+            _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                The destination MAC address to match on ingress
+                ''',
+                'destination_mac_match',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-exact-match', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the packet must match the encapsulation
+                exactly, with no further inner tags
+                ''',
+                'is_exact_match',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-native-preserving', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the native VLAN is customer-tag
+                preserving
+                ''',
+                'is_native_preserving',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('is-native-vlan', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether this represents the native VLAN on the
+                port
+                ''',
+                'is_native_vlan',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('local-traffic-stack', REFERENCE_CLASS, 'LocalTrafficStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack', 
                 [], [], 
                 '''                VLAN tags for locally-sourced traffic
@@ -1054,32 +1081,11 @@ _meta_table = {
                 ''',
                 'payload_ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Number of tags popped on ingress
-                ''',
-                'tags_popped',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-exact-match', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
                 [], [], 
-                '''                Whether the packet must match the encapsulation
-                exactly, with no further inner tags
+                '''                VLAN tags pushed on egress
                 ''',
-                'is_exact_match',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-native-vlan', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether this represents the native VLAN on the
-                port
-                ''',
-                'is_native_vlan',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('is-native-preserving', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Whether the native VLAN is customer-tag
-                preserving
-                ''',
-                'is_native_preserving',
+                'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('source-mac-match', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -1087,23 +1093,17 @@ _meta_table = {
                 ''',
                 'source_mac_match',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                The destination MAC address to match on ingress
+            _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Number of tags popped on ingress
                 ''',
-                'destination_mac_match',
+                'tags_popped',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tags-to-match', REFERENCE_LIST, 'TagsToMatch' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch', 
                 [], [], 
                 '''                Tags to match on ingress packets
                 ''',
                 'tags_to_match',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
-                [], [], 
-                '''                VLAN tags pushed on egress
-                ''',
-                'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
@@ -1139,53 +1139,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails',
             False, 
             [
-            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack', 
-                [], [], 
-                '''                Stack value
-                ''',
-                'stack',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails', 
-                [], [], 
-                '''                Service Instance encapsulation
-                ''',
-                'service_instance_details',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1AdDot1QStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack', 
                 [], [], 
                 '''                802.1ad 802.1Q stack value
                 ''',
                 'dot1ad_dot1q_stack',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
-                [], [], 
-                '''                VLANEncapsulation
-                ''',
-                'vlan_encapsulation',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Tag value
-                ''',
-                'tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Outer tag value
-                ''',
-                'outer_tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Native tag value
-                ''',
-                'native_tag',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                802.1ad tag value
-                ''',
-                'dot1ad_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-native-tag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1199,6 +1157,48 @@ _meta_table = {
                 ''',
                 'dot1ad_outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                802.1ad tag value
+                ''',
+                'dot1ad_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Native tag value
+                ''',
+                'native_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Outer tag value
+                ''',
+                'outer_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails', 
+                [], [], 
+                '''                Service Instance encapsulation
+                ''',
+                'service_instance_details',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack', 
+                [], [], 
+                '''                Stack value
+                ''',
+                'stack',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Tag value
+                ''',
+                'tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
+                [], [], 
+                '''                VLANEncapsulation
+                ''',
+                'vlan_encapsulation',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',
             'encapsulation-details',
@@ -1210,17 +1210,41 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation',
             False, 
             [
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                The interface name
+            _MetaInfoClassMember('encapsulation-details', REFERENCE_CLASS, 'EncapsulationDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails', 
+                [], [], 
+                '''                Encapsulation type and tag stack
                 ''',
-                'interface',
+                'encapsulation_details',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('first-tag', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4094)], [], 
                 '''                The first (outermost) tag
                 ''',
                 'first_tag',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The interface name
+                ''',
+                'interface',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface_xr',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                L2 MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Parent interface
+                ''',
+                'parent_interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('second-tag', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -1241,24 +1265,6 @@ _meta_table = {
                         'second_tag',
                         'Cisco-IOS-XR-l2-eth-infra-oper', False),
                 ]),
-            _MetaInfoClassMember('encapsulation-details', REFERENCE_CLASS, 'EncapsulationDetails' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails', 
-                [], [], 
-                '''                Encapsulation type and tag stack
-                ''',
-                'encapsulation_details',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface_xr',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Parent interface
-                ''',
-                'parent_interface',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('service', REFERENCE_ENUM_CLASS, 'VlanServiceEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanServiceEnum', 
                 [], [], 
                 '''                Service type
@@ -1270,12 +1276,6 @@ _meta_table = {
                 '''                Interface state
                 ''',
                 'state',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                L2 MTU
-                ''',
-                'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('switched-mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1318,12 +1318,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-l2-eth-infra-oper', True),
-            _MetaInfoClassMember('trunks', REFERENCE_CLASS, 'Trunks' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Trunks', 
-                [], [], 
-                '''                VLAN trunk table (specific to this node)
-                ''',
-                'trunks',
-                'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces', 
                 [], [], 
                 '''                VLAN interface table (specific to this node)
@@ -1336,6 +1330,12 @@ _meta_table = {
                 node)
                 ''',
                 'tag_allocations',
+                'Cisco-IOS-XR-l2-eth-infra-oper', False),
+            _MetaInfoClassMember('trunks', REFERENCE_CLASS, 'Trunks' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Trunks', 
+                [], [], 
+                '''                VLAN trunk table (specific to this node)
+                ''',
+                'trunks',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             ],
             'Cisco-IOS-XR-l2-eth-infra-oper',

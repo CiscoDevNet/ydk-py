@@ -25,7 +25,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 from ydk.models.ietf.ietf_netconf_with_defaults import WithDefaultsModeEnum
@@ -376,15 +376,15 @@ class GetConfigRpc(object):
         """
         
         
-        .. attribute:: source
-        
-        	Particular configuration to retrieve
-        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
-        
         .. attribute:: filter
         
         	Subtree or XPath filter to use
         	**type**\: anyxml
+        
+        .. attribute:: source
+        
+        	Particular configuration to retrieve
+        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
         
         .. attribute:: with_defaults
         
@@ -400,9 +400,9 @@ class GetConfigRpc(object):
 
         def __init__(self):
             self.parent = None
+            self.filter = None
             self.source = GetConfigRpc.Input.Source()
             self.source.parent = self
-            self.filter = None
             self.with_defaults = None
 
 
@@ -482,10 +482,10 @@ class GetConfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.source is not None and self.source._has_data():
+            if self.filter is not None:
                 return True
 
-            if self.filter is not None:
+            if self.source is not None and self.source._has_data():
                 return True
 
             if self.with_defaults is not None:
@@ -597,30 +597,30 @@ class EditConfigRpc(object):
         """
         
         
-        .. attribute:: target
+        .. attribute:: config
         
-        	Particular configuration to edit
-        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
+        	Inline Config content
+        	**type**\: anyxml
         
         .. attribute:: default_operation
         
         	The default operation to use
         	**type**\: :py:class:`DefaultOperationEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.DefaultOperationEnum>`
         
-        .. attribute:: test_option
-        
-        	The test option to use
-        	**type**\: :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
-        
         .. attribute:: error_option
         
         	The error option to use
         	**type**\: :py:class:`ErrorOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.ErrorOptionEnum>`
         
-        .. attribute:: config
+        .. attribute:: target
         
-        	Inline Config content
-        	**type**\: anyxml
+        	Particular configuration to edit
+        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
+        
+        .. attribute:: test_option
+        
+        	The test option to use
+        	**type**\: :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
         
         .. attribute:: url
         
@@ -636,12 +636,12 @@ class EditConfigRpc(object):
 
         def __init__(self):
             self.parent = None
+            self.config = None
+            self.default_operation = None
+            self.error_option = None
             self.target = EditConfigRpc.Input.Target()
             self.target.parent = self
-            self.default_operation = None
             self.test_option = None
-            self.error_option = None
-            self.config = None
             self.url = None
 
         class DefaultOperationEnum(Enum):
@@ -817,19 +817,19 @@ class EditConfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.target is not None and self.target._has_data():
+            if self.config is not None:
                 return True
 
             if self.default_operation is not None:
                 return True
 
-            if self.test_option is not None:
-                return True
-
             if self.error_option is not None:
                 return True
 
-            if self.config is not None:
+            if self.target is not None and self.target._has_data():
+                return True
+
+            if self.test_option is not None:
                 return True
 
             if self.url is not None:
@@ -893,15 +893,15 @@ class CopyConfigRpc(object):
         """
         
         
-        .. attribute:: target
-        
-        	Particular configuration to copy to
-        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Target>`
-        
         .. attribute:: source
         
         	Particular configuration to copy from
         	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Source>`
+        
+        .. attribute:: target
+        
+        	Particular configuration to copy to
+        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Target>`
         
         .. attribute:: with_defaults
         
@@ -917,10 +917,10 @@ class CopyConfigRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.target = CopyConfigRpc.Input.Target()
-            self.target.parent = self
             self.source = CopyConfigRpc.Input.Source()
             self.source.parent = self
+            self.target = CopyConfigRpc.Input.Target()
+            self.target.parent = self
             self.with_defaults = None
 
 
@@ -1005,6 +1005,11 @@ class CopyConfigRpc(object):
             	The candidate configuration is the config source
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\: anyxml
+            
             .. attribute:: running
             
             	The running configuration is the config source
@@ -1020,11 +1025,6 @@ class CopyConfigRpc(object):
             	The URL\-based configuration is the config source
             	**type**\: str
             
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\: anyxml
-            
             
 
             """
@@ -1035,10 +1035,10 @@ class CopyConfigRpc(object):
             def __init__(self):
                 self.parent = None
                 self.candidate = None
+                self.config = None
                 self.running = None
                 self.startup = None
                 self.url = None
-                self.config = None
 
             @property
             def _common_path(self):
@@ -1057,6 +1057,9 @@ class CopyConfigRpc(object):
                 if self.candidate is not None:
                     return True
 
+                if self.config is not None:
+                    return True
+
                 if self.running is not None:
                     return True
 
@@ -1064,9 +1067,6 @@ class CopyConfigRpc(object):
                     return True
 
                 if self.url is not None:
-                    return True
-
-                if self.config is not None:
                     return True
 
                 return False
@@ -1090,10 +1090,10 @@ class CopyConfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.target is not None and self.target._has_data():
+            if self.source is not None and self.source._has_data():
                 return True
 
-            if self.source is not None and self.source._has_data():
+            if self.target is not None and self.target._has_data():
                 return True
 
             if self.with_defaults is not None:
@@ -1893,17 +1893,17 @@ class CommitRpc(object):
         """
         
         
-        .. attribute:: confirmed
-        
-        	Requests a confirmed commit
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
         .. attribute:: confirm_timeout
         
         	The timeout interval for a confirmed commit
         	**type**\: int
         
         	**range:** 1..4294967295
+        
+        .. attribute:: confirmed
+        
+        	Requests a confirmed commit
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: persist
         
@@ -1924,8 +1924,8 @@ class CommitRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.confirmed = None
             self.confirm_timeout = None
+            self.confirmed = None
             self.persist = None
             self.persist_id = None
 
@@ -1943,10 +1943,10 @@ class CommitRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.confirmed is not None:
+            if self.confirm_timeout is not None:
                 return True
 
-            if self.confirm_timeout is not None:
+            if self.confirmed is not None:
                 return True
 
             if self.persist is not None:
@@ -2168,6 +2168,11 @@ class ValidateRpc(object):
             	The candidate configuration is the config source
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\: anyxml
+            
             .. attribute:: running
             
             	The running configuration is the config source
@@ -2183,11 +2188,6 @@ class ValidateRpc(object):
             	The URL\-based configuration is the config source
             	**type**\: str
             
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\: anyxml
-            
             
 
             """
@@ -2198,10 +2198,10 @@ class ValidateRpc(object):
             def __init__(self):
                 self.parent = None
                 self.candidate = None
+                self.config = None
                 self.running = None
                 self.startup = None
                 self.url = None
-                self.config = None
 
             @property
             def _common_path(self):
@@ -2220,6 +2220,9 @@ class ValidateRpc(object):
                 if self.candidate is not None:
                     return True
 
+                if self.config is not None:
+                    return True
+
                 if self.running is not None:
                     return True
 
@@ -2227,9 +2230,6 @@ class ValidateRpc(object):
                     return True
 
                 if self.url is not None:
-                    return True
-
-                if self.config is not None:
                     return True
 
                 return False

@@ -22,7 +22,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -243,17 +243,17 @@ class VrfGroup(object):
                     
                     	**range:** 0..32
                     
+                    .. attribute:: forward_reference
+                    
+                    	VRF group not present but used
+                    	**type**\: bool
+                    
                     .. attribute:: vr_fs
                     
                     	Number of VRFs in this VRF group
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: forward_reference
-                    
-                    	VRF group not present but used
-                    	**type**\: bool
                     
                     .. attribute:: vrf
                     
@@ -270,8 +270,8 @@ class VrfGroup(object):
                     def __init__(self):
                         self.parent = None
                         self.group_name = None
-                        self.vr_fs = None
                         self.forward_reference = None
+                        self.vr_fs = None
                         self.vrf = YList()
                         self.vrf.parent = self
                         self.vrf.name = 'vrf'
@@ -300,7 +300,7 @@ class VrfGroup(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:vrf'
 
@@ -324,9 +324,9 @@ class VrfGroup(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.group_name is None:
-                            raise YPYDataValidationError('Key property group_name is None')
+                            raise YPYModelError('Key property group_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:group[Cisco-IOS-XR-infra-rsi-oper:group-name = ' + str(self.group_name) + ']'
 
@@ -340,10 +340,10 @@ class VrfGroup(object):
                         if self.group_name is not None:
                             return True
 
-                        if self.vr_fs is not None:
+                        if self.forward_reference is not None:
                             return True
 
-                        if self.forward_reference is not None:
+                        if self.vr_fs is not None:
                             return True
 
                         if self.vrf is not None:
@@ -361,7 +361,7 @@ class VrfGroup(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:groups'
 
@@ -387,7 +387,7 @@ class VrfGroup(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-oper:vrf-group/Cisco-IOS-XR-infra-rsi-oper:nodes/Cisco-IOS-XR-infra-rsi-oper:node[Cisco-IOS-XR-infra-rsi-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -462,20 +462,20 @@ class Srlg(object):
     """
     srlg
     
-    .. attribute:: srlg_maps
+    .. attribute:: interface_srlg_names
     
-    	Set of SRLG name, value maps configured
-    	**type**\: :py:class:`SrlgMaps <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps>`
+    	Set of SRLG names configured
+    	**type**\: :py:class:`InterfaceSrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames>`
     
     .. attribute:: nodes
     
     	RSI SRLG operational data
     	**type**\: :py:class:`Nodes <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes>`
     
-    .. attribute:: interface_srlg_names
+    .. attribute:: srlg_maps
     
-    	Set of SRLG names configured
-    	**type**\: :py:class:`InterfaceSrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames>`
+    	Set of SRLG name, value maps configured
+    	**type**\: :py:class:`SrlgMaps <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps>`
     
     
 
@@ -485,12 +485,12 @@ class Srlg(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        self.srlg_maps = Srlg.SrlgMaps()
-        self.srlg_maps.parent = self
-        self.nodes = Srlg.Nodes()
-        self.nodes.parent = self
         self.interface_srlg_names = Srlg.InterfaceSrlgNames()
         self.interface_srlg_names.parent = self
+        self.nodes = Srlg.Nodes()
+        self.nodes.parent = self
+        self.srlg_maps = Srlg.SrlgMaps()
+        self.srlg_maps.parent = self
 
 
     class SrlgMaps(object):
@@ -527,17 +527,17 @@ class Srlg(object):
             
             	**range:** 0..64
             
+            .. attribute:: srlg_name_xr
+            
+            	SRLG name
+            	**type**\: str
+            
             .. attribute:: srlg_value
             
             	SRLG value
             	**type**\: int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: srlg_name_xr
-            
-            	SRLG name
-            	**type**\: str
             
             
 
@@ -549,13 +549,13 @@ class Srlg(object):
             def __init__(self):
                 self.parent = None
                 self.srlg_name = None
-                self.srlg_value = None
                 self.srlg_name_xr = None
+                self.srlg_value = None
 
             @property
             def _common_path(self):
                 if self.srlg_name is None:
-                    raise YPYDataValidationError('Key property srlg_name is None')
+                    raise YPYModelError('Key property srlg_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:srlg-maps/Cisco-IOS-XR-infra-rsi-oper:srlg-map[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -569,10 +569,10 @@ class Srlg(object):
                 if self.srlg_name is not None:
                     return True
 
-                if self.srlg_value is not None:
+                if self.srlg_name_xr is not None:
                     return True
 
-                if self.srlg_name_xr is not None:
+                if self.srlg_value is not None:
                     return True
 
                 return False
@@ -641,11 +641,6 @@ class Srlg(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: srlg_maps
-            
-            	Set of SRLG name, value maps configured
-            	**type**\: :py:class:`SrlgMaps <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps>`
-            
             .. attribute:: groups
             
             	Set of Groups configured for SRLG
@@ -656,25 +651,30 @@ class Srlg(object):
             	Set of inherit locations configured for SRLG
             	**type**\: :py:class:`InheritNodes <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes>`
             
-            .. attribute:: interfaces
-            
-            	Set of interfaces configured for SRLG
-            	**type**\: :py:class:`Interfaces <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces>`
-            
             .. attribute:: interface_details
             
             	Set of interfaces configured for SRLG
             	**type**\: :py:class:`InterfaceDetails <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails>`
             
-            .. attribute:: srlg_values
-            
-            	Set of SRLG values configured
-            	**type**\: :py:class:`SrlgValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues>`
-            
             .. attribute:: interface_srlg_names
             
             	Set of SRLG names configured
             	**type**\: :py:class:`InterfaceSrlgNames <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames>`
+            
+            .. attribute:: interfaces
+            
+            	Set of interfaces configured for SRLG
+            	**type**\: :py:class:`Interfaces <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces>`
+            
+            .. attribute:: srlg_maps
+            
+            	Set of SRLG name, value maps configured
+            	**type**\: :py:class:`SrlgMaps <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps>`
+            
+            .. attribute:: srlg_values
+            
+            	Set of SRLG values configured
+            	**type**\: :py:class:`SrlgValues <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues>`
             
             
 
@@ -686,20 +686,20 @@ class Srlg(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.srlg_maps = Srlg.Nodes.Node.SrlgMaps()
-                self.srlg_maps.parent = self
                 self.groups = Srlg.Nodes.Node.Groups()
                 self.groups.parent = self
                 self.inherit_nodes = Srlg.Nodes.Node.InheritNodes()
                 self.inherit_nodes.parent = self
-                self.interfaces = Srlg.Nodes.Node.Interfaces()
-                self.interfaces.parent = self
                 self.interface_details = Srlg.Nodes.Node.InterfaceDetails()
                 self.interface_details.parent = self
-                self.srlg_values = Srlg.Nodes.Node.SrlgValues()
-                self.srlg_values.parent = self
                 self.interface_srlg_names = Srlg.Nodes.Node.InterfaceSrlgNames()
                 self.interface_srlg_names.parent = self
+                self.interfaces = Srlg.Nodes.Node.Interfaces()
+                self.interfaces.parent = self
+                self.srlg_maps = Srlg.Nodes.Node.SrlgMaps()
+                self.srlg_maps.parent = self
+                self.srlg_values = Srlg.Nodes.Node.SrlgValues()
+                self.srlg_values.parent = self
 
 
             class SrlgMaps(object):
@@ -736,17 +736,17 @@ class Srlg(object):
                     
                     	**range:** 0..64
                     
+                    .. attribute:: srlg_name_xr
+                    
+                    	SRLG name
+                    	**type**\: str
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: srlg_name_xr
-                    
-                    	SRLG name
-                    	**type**\: str
                     
                     
 
@@ -758,15 +758,15 @@ class Srlg(object):
                     def __init__(self):
                         self.parent = None
                         self.srlg_name = None
-                        self.srlg_value = None
                         self.srlg_name_xr = None
+                        self.srlg_value = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_name is None:
-                            raise YPYDataValidationError('Key property srlg_name is None')
+                            raise YPYModelError('Key property srlg_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-map[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -780,10 +780,10 @@ class Srlg(object):
                         if self.srlg_name is not None:
                             return True
 
-                        if self.srlg_value is not None:
+                        if self.srlg_name_xr is not None:
                             return True
 
-                        if self.srlg_name_xr is not None:
+                        if self.srlg_value is not None:
                             return True
 
                         return False
@@ -796,7 +796,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-maps'
 
@@ -892,13 +892,6 @@ class Srlg(object):
                         """
                         SRLG attribute
                         
-                        .. attribute:: srlg_value
-                        
-                        	SRLG value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: priority
                         
                         	Priority
@@ -911,6 +904,13 @@ class Srlg(object):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: srlg_value
+                        
+                        	SRLG value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -920,14 +920,14 @@ class Srlg(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.srlg_value = None
                             self.priority = None
                             self.srlg_index = None
+                            self.srlg_value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
 
@@ -938,13 +938,13 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.srlg_value is not None:
-                                return True
-
                             if self.priority is not None:
                                 return True
 
                             if self.srlg_index is not None:
+                                return True
+
+                            if self.srlg_value is not None:
                                 return True
 
                             return False
@@ -957,9 +957,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.group_name is None:
-                            raise YPYDataValidationError('Key property group_name is None')
+                            raise YPYModelError('Key property group_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:group[Cisco-IOS-XR-infra-rsi-oper:group-name = ' + str(self.group_name) + ']'
 
@@ -994,7 +994,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:groups'
 
@@ -1090,13 +1090,6 @@ class Srlg(object):
                         """
                         SRLG attribute
                         
-                        .. attribute:: srlg_value
-                        
-                        	SRLG value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: priority
                         
                         	Priority
@@ -1109,6 +1102,13 @@ class Srlg(object):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: srlg_value
+                        
+                        	SRLG value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -1118,14 +1118,14 @@ class Srlg(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.srlg_value = None
                             self.priority = None
                             self.srlg_index = None
+                            self.srlg_value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
 
@@ -1136,13 +1136,13 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.srlg_value is not None:
-                                return True
-
                             if self.priority is not None:
                                 return True
 
                             if self.srlg_index is not None:
+                                return True
+
+                            if self.srlg_value is not None:
                                 return True
 
                             return False
@@ -1155,9 +1155,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.inherit_node_name is None:
-                            raise YPYDataValidationError('Key property inherit_node_name is None')
+                            raise YPYModelError('Key property inherit_node_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:inherit-node[Cisco-IOS-XR-infra-rsi-oper:inherit-node-name = ' + str(self.inherit_node_name) + ']'
 
@@ -1192,7 +1192,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:inherit-nodes'
 
@@ -1255,13 +1255,6 @@ class Srlg(object):
                     	Interface name
                     	**type**\: str
                     
-                    .. attribute:: value_count
-                    
-                    	Values
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: registrations
                     
                     	Registrations
@@ -1276,6 +1269,13 @@ class Srlg(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: value_count
+                    
+                    	Values
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -1287,18 +1287,18 @@ class Srlg(object):
                         self.parent = None
                         self.interface_name = None
                         self.interface_name_xr = None
-                        self.value_count = None
                         self.registrations = None
                         self.srlg_value = YLeafList()
                         self.srlg_value.parent = self
                         self.srlg_value.name = 'srlg_value'
+                        self.value_count = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface[Cisco-IOS-XR-infra-rsi-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1315,9 +1315,6 @@ class Srlg(object):
                         if self.interface_name_xr is not None:
                             return True
 
-                        if self.value_count is not None:
-                            return True
-
                         if self.registrations is not None:
                             return True
 
@@ -1325,6 +1322,9 @@ class Srlg(object):
                             for child in self.srlg_value:
                                 if child is not None:
                                     return True
+
+                        if self.value_count is not None:
+                            return True
 
                         return False
 
@@ -1336,7 +1336,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
 
@@ -1434,13 +1434,6 @@ class Srlg(object):
                         """
                         SRLG attributes
                         
-                        .. attribute:: srlg_value
-                        
-                        	SRLG value
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: priority
                         
                         	Priority
@@ -1463,6 +1456,13 @@ class Srlg(object):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: srlg_value
+                        
+                        	SRLG value
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -1472,16 +1472,16 @@ class Srlg(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.srlg_value = None
                             self.priority = None
                             self.source = None
                             self.source_name = None
                             self.srlg_index = None
+                            self.srlg_value = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
 
@@ -1492,9 +1492,6 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.srlg_value is not None:
-                                return True
-
                             if self.priority is not None:
                                 return True
 
@@ -1507,6 +1504,9 @@ class Srlg(object):
                             if self.srlg_index is not None:
                                 return True
 
+                            if self.srlg_value is not None:
+                                return True
+
                             return False
 
                         @staticmethod
@@ -1517,9 +1517,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('Key property interface_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-detail[Cisco-IOS-XR-infra-rsi-oper:interface-name = ' + str(self.interface_name) + ']'
 
@@ -1554,7 +1554,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-details'
 
@@ -1634,9 +1634,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.value is None:
-                            raise YPYDataValidationError('Key property value is None')
+                            raise YPYModelError('Key property value is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-value[Cisco-IOS-XR-infra-rsi-oper:value = ' + str(self.value) + ']'
 
@@ -1665,7 +1665,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-values'
 
@@ -1781,7 +1781,7 @@ class Srlg(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
 
@@ -1807,9 +1807,9 @@ class Srlg(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.srlg_name is None:
-                            raise YPYDataValidationError('Key property srlg_name is None')
+                            raise YPYModelError('Key property srlg_name is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-name[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -1842,7 +1842,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-names'
 
@@ -1868,7 +1868,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
+                    raise YPYModelError('Key property node_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:nodes/Cisco-IOS-XR-infra-rsi-oper:node[Cisco-IOS-XR-infra-rsi-oper:node-name = ' + str(self.node_name) + ']'
 
@@ -1882,25 +1882,25 @@ class Srlg(object):
                 if self.node_name is not None:
                     return True
 
-                if self.srlg_maps is not None and self.srlg_maps._has_data():
-                    return True
-
                 if self.groups is not None and self.groups._has_data():
                     return True
 
                 if self.inherit_nodes is not None and self.inherit_nodes._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
                 if self.interface_details is not None and self.interface_details._has_data():
                     return True
 
-                if self.srlg_values is not None and self.srlg_values._has_data():
+                if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
                     return True
 
-                if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
+                if self.interfaces is not None and self.interfaces._has_data():
+                    return True
+
+                if self.srlg_maps is not None and self.srlg_maps._has_data():
+                    return True
+
+                if self.srlg_values is not None and self.srlg_values._has_data():
                     return True
 
                 return False
@@ -2027,7 +2027,7 @@ class Srlg(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
 
@@ -2053,7 +2053,7 @@ class Srlg(object):
             @property
             def _common_path(self):
                 if self.srlg_name is None:
-                    raise YPYDataValidationError('Key property srlg_name is None')
+                    raise YPYModelError('Key property srlg_name is None')
 
                 return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-names/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-name[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
 
@@ -2119,13 +2119,13 @@ class Srlg(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.srlg_maps is not None and self.srlg_maps._has_data():
+        if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
+        if self.srlg_maps is not None and self.srlg_maps._has_data():
             return True
 
         return False

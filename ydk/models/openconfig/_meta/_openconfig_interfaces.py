@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,74 +18,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Config',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
-                [], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The type of the interface.
-                
-                When an interface entry is created, a server MAY
-                initialize the type leaf with a valid value, e.g., if it
-                is possible to derive the type from the name of the
-                interface.
-                
-                If a client tries to set the type of an interface to a
-                value that can never be used by the system, e.g., if the
-                type is not supported or if the type does not match the
-                name of the interface, the server MUST reject the request.
-                A NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
-                ''',
-                'type',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set the max transmission unit size in octets
-                for the physical interface.  If this is not set, the mtu is
-                set to the operational default -- e.g., 1514 bytes on an
-                Ethernet interface.
-                ''',
-                'mtu',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The name of the interface.
-                
-                A device MAY restrict the allowed values for this leaf,
-                possibly depending on the type of the interface.
-                For system-controlled interfaces, this leaf is the
-                device-specific name of the interface.  The 'config false'
-                list interfaces/interface[name]/state contains the currently
-                existing interfaces on the device.
-                
-                If a client tries to create configuration for a
-                system-controlled interface that is not present in the
-                corresponding state list, the server MAY reject
-                the request if the implementation does not support
-                pre-provisioning of interfaces or if the name refers to
-                an interface that can never exist in the system.  A
-                NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
-                
-                The IETF model in RFC 7223 provides YANG features for the
-                following (i.e., pre-provisioning and arbitrary-names),
-                however they are omitted here:
-                
-                 If the device supports pre-provisioning of interface
-                 configuration, the 'pre-provisioning' feature is
-                 advertised.
-                
-                 If the device allows arbitrarily named user-controlled
-                 interfaces, the 'arbitrary-names' feature is advertised.
-                
-                When a configured user-controlled interface is created by
-                the system, it is instantiated with the same name in the
-                /interfaces/interface[name]/state list.
-                ''',
-                'name',
-                'openconfig-interfaces', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
@@ -137,6 +69,74 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-interfaces', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set the max transmission unit size in octets
+                for the physical interface.  If this is not set, the mtu is
+                set to the operational default -- e.g., 1514 bytes on an
+                Ethernet interface.
+                ''',
+                'mtu',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The name of the interface.
+                
+                A device MAY restrict the allowed values for this leaf,
+                possibly depending on the type of the interface.
+                For system-controlled interfaces, this leaf is the
+                device-specific name of the interface.  The 'config false'
+                list interfaces/interface[name]/state contains the currently
+                existing interfaces on the device.
+                
+                If a client tries to create configuration for a
+                system-controlled interface that is not present in the
+                corresponding state list, the server MAY reject
+                the request if the implementation does not support
+                pre-provisioning of interfaces or if the name refers to
+                an interface that can never exist in the system.  A
+                NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
+                
+                The IETF model in RFC 7223 provides YANG features for the
+                following (i.e., pre-provisioning and arbitrary-names),
+                however they are omitted here:
+                
+                 If the device supports pre-provisioning of interface
+                 configuration, the 'pre-provisioning' feature is
+                 advertised.
+                
+                 If the device allows arbitrarily named user-controlled
+                 interfaces, the 'arbitrary-names' feature is advertised.
+                
+                When a configured user-controlled interface is created by
+                the system, it is instantiated with the same name in the
+                /interfaces/interface[name]/state list.
+                ''',
+                'name',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceTypeIdentity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceTypeIdentity', 
+                [], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The type of the interface.
+                
+                When an interface entry is created, a server MAY
+                initialize the type leaf with a valid value, e.g., if it
+                is possible to derive the type from the name of the
+                interface.
+                
+                If a client tries to set the type of an interface to a
+                value that can never be used by the system, e.g., if the
+                type is not supported or if the type does not match the
+                name of the interface, the server MUST reject the request.
+                A NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
+                ''',
+                'type',
+                'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
             'config',
@@ -148,36 +148,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The total number of octets received on the interface,
-                including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_octets',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were not addressed to a
-                multicast or broadcast address at this sub-layer.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_unicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
@@ -192,24 +163,7 @@ _meta_table = {
                 ''',
                 'in_broadcast_pkts',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                
-                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were addressed to a multicast
-                address at this sub-layer.  For a MAC-layer protocol,
-                this includes both Group and Functional addresses.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_multicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-discards', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-discards', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 Changed the counter type to counter64.
@@ -227,7 +181,7 @@ _meta_table = {
                 ''',
                 'in_discards',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 Changed the counter type to counter64.
@@ -246,6 +200,52 @@ _meta_table = {
                 'discontinuity-time'.
                 ''',
                 'in_errors',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                
+                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were addressed to a multicast
+                address at this sub-layer.  For a MAC-layer protocol,
+                this includes both Group and Functional addresses.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_multicast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The total number of octets received on the interface,
+                including framing characters.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_octets',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were not addressed to a
+                multicast or broadcast address at this sub-layer.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_unicast_pkts',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('in-unknown-protos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -269,38 +269,14 @@ _meta_table = {
                 ''',
                 'in_unknown_protos',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                The total number of octets transmitted out of the
-                interface, including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
+            _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                Indicates the last time the interface counters were
+                cleared.
                 ''',
-                'out_octets',
+                'last_clear',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The total number of packets that higher-level protocols
-                requested be transmitted, and that were not addressed
-                to a multicast or broadcast address at this sub-layer,
-                including those that were discarded or not sent.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_unicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
@@ -316,7 +292,43 @@ _meta_table = {
                 ''',
                 'out_broadcast_pkts',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-discards', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                The number of outbound packets that were chosen to be
+                discarded even though no errors had been detected to
+                prevent their being transmitted.  One possible reason
+                for discarding such a packet could be to free up buffer
+                space.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_discards',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-errors', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                For packet-oriented interfaces, the number of outbound
+                packets that could not be transmitted because of errors.
+                For character-oriented or fixed-length interfaces, the
+                number of outbound transmission units that could not be
+                transmitted because of errors.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_errors',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 Changed the counter type to counter64.
@@ -335,48 +347,36 @@ _meta_table = {
                 ''',
                 'out_multicast_pkts',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-discards', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 Changed the counter type to counter64.
                 
-                The number of outbound packets that were chosen to be
-                discarded even though no errors had been detected to
-                prevent their being transmitted.  One possible reason
-                for discarding such a packet could be to free up buffer
-                space.
+                The total number of octets transmitted out of the
+                interface, including framing characters.
                 
                 Discontinuities in the value of this counter can occur
                 at re-initialization of the management system, and at
                 other times as indicated by the value of
                 'discontinuity-time'.
                 ''',
-                'out_discards',
+                'out_octets',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
                 
-                For packet-oriented interfaces, the number of outbound
-                packets that could not be transmitted because of errors.
-                For character-oriented or fixed-length interfaces, the
-                number of outbound transmission units that could not be
-                transmitted because of errors.
+                The total number of packets that higher-level protocols
+                requested be transmitted, and that were not addressed
+                to a multicast or broadcast address at this sub-layer,
+                including those that were discarded or not sent.
                 
                 Discontinuities in the value of this counter can occur
                 at re-initialization of the management system, and at
                 other times as indicated by the value of
                 'discontinuity-time'.
                 ''',
-                'out_errors',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                Indicates the last time the interface counters were
-                cleared.
-                ''',
-                'last_clear',
+                'out_unicast_pkts',
                 'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
@@ -405,73 +405,22 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.State',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
+            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.AdminStatusEnum', 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
-                The type of the interface.
-                
-                When an interface entry is created, a server MAY
-                initialize the type leaf with a valid value, e.g., if it
-                is possible to derive the type from the name of the
-                interface.
-                
-                If a client tries to set the type of an interface to a
-                value that can never be used by the system, e.g., if the
-                type is not supported or if the type does not match the
-                name of the interface, the server MUST reject the request.
-                A NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
+                The desired state of the interface.  In RFC 7223 this leaf
+                has the same read semantics as ifAdminStatus.  Here, it
+                reflects the administrative state as set by enabling or
+                disabling the interface.
                 ''',
-                'type',
+                'admin_status',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set the max transmission unit size in octets
-                for the physical interface.  If this is not set, the mtu is
-                set to the operational default -- e.g., 1514 bytes on an
-                Ethernet interface.
-                ''',
-                'mtu',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.Counters', 
                 [], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The name of the interface.
-                
-                A device MAY restrict the allowed values for this leaf,
-                possibly depending on the type of the interface.
-                For system-controlled interfaces, this leaf is the
-                device-specific name of the interface.  The 'config false'
-                list interfaces/interface[name]/state contains the currently
-                existing interfaces on the device.
-                
-                If a client tries to create configuration for a
-                system-controlled interface that is not present in the
-                corresponding state list, the server MAY reject
-                the request if the implementation does not support
-                pre-provisioning of interfaces or if the name refers to
-                an interface that can never exist in the system.  A
-                NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
-                
-                The IETF model in RFC 7223 provides YANG features for the
-                following (i.e., pre-provisioning and arbitrary-names),
-                however they are omitted here:
-                
-                 If the device supports pre-provisioning of interface
-                 configuration, the 'pre-provisioning' feature is
-                 advertised.
-                
-                 If the device allows arbitrarily named user-controlled
-                 interfaces, the 'arbitrary-names' feature is advertised.
-                
-                When a configured user-controlled interface is created by
-                the system, it is instantiated with the same name in the
-                /interfaces/interface[name]/state list.
+                '''                A collection of interface-related statistics objects.
                 ''',
-                'name',
+                'counters',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -524,6 +473,12 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-interfaces', False),
+            _MetaInfoClassMember('hardware-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References the hardware port in the device inventory
+                ''',
+                'hardware_port',
+                'openconfig-inventory', False),
             _MetaInfoClassMember('ifindex', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                System assigned number for each interface.  Corresponds to
@@ -531,16 +486,61 @@ _meta_table = {
                 ''',
                 'ifindex',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.AdminStatusEnum', 
+            _MetaInfoClassMember('last-change', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Date and time of the last state change of the interface
+                (e.g., up-to-down transition).   This corresponds to the
+                ifLastChange object in the standard interface MIB.
+                ''',
+                'last_change',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set the max transmission unit size in octets
+                for the physical interface.  If this is not set, the mtu is
+                set to the operational default -- e.g., 1514 bytes on an
+                Ethernet interface.
+                ''',
+                'mtu',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
-                The desired state of the interface.  In RFC 7223 this leaf
-                has the same read semantics as ifAdminStatus.  Here, it
-                reflects the administrative state as set by enabling or
-                disabling the interface.
+                The name of the interface.
+                
+                A device MAY restrict the allowed values for this leaf,
+                possibly depending on the type of the interface.
+                For system-controlled interfaces, this leaf is the
+                device-specific name of the interface.  The 'config false'
+                list interfaces/interface[name]/state contains the currently
+                existing interfaces on the device.
+                
+                If a client tries to create configuration for a
+                system-controlled interface that is not present in the
+                corresponding state list, the server MAY reject
+                the request if the implementation does not support
+                pre-provisioning of interfaces or if the name refers to
+                an interface that can never exist in the system.  A
+                NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
+                
+                The IETF model in RFC 7223 provides YANG features for the
+                following (i.e., pre-provisioning and arbitrary-names),
+                however they are omitted here:
+                
+                 If the device supports pre-provisioning of interface
+                 configuration, the 'pre-provisioning' feature is
+                 advertised.
+                
+                 If the device allows arbitrarily named user-controlled
+                 interfaces, the 'arbitrary-names' feature is advertised.
+                
+                When a configured user-controlled interface is created by
+                the system, it is instantiated with the same name in the
+                /interfaces/interface[name]/state list.
                 ''',
-                'admin_status',
+                'name',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.OperStatusEnum', 
                 [], [], 
@@ -552,26 +552,26 @@ _meta_table = {
                 ''',
                 'oper_status',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('last-change', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Date and time of the last state change of the interface
-                (e.g., up-to-down transition).   This corresponds to the
-                ifLastChange object in the standard interface MIB.
-                ''',
-                'last_change',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.Counters', 
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceTypeIdentity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceTypeIdentity', 
                 [], [], 
-                '''                A collection of interface-related statistics objects.
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The type of the interface.
+                
+                When an interface entry is created, a server MAY
+                initialize the type leaf with a valid value, e.g., if it
+                is possible to derive the type from the name of the
+                interface.
+                
+                If a client tries to set the type of an interface to a
+                value that can never be used by the system, e.g., if the
+                type is not supported or if the type does not match the
+                name of the interface, the server MUST reject the request.
+                A NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
                 ''',
-                'counters',
+                'type',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('hardware-port', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                References the hardware port in the device inventory
-                ''',
-                'hardware_port',
-                'openconfig-inventory', False),
             ],
             'openconfig-interfaces',
             'state',
@@ -583,14 +583,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.HoldTime.Config',
             False, 
             [
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dampens advertisement when the interface
-                transitions from down to up.  A zero value means dampening
-                is turned off, i.e., immediate notification.
-                ''',
-                'up',
-                'openconfig-interfaces', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Dampens advertisement when the interface transitions from
@@ -598,6 +590,14 @@ _meta_table = {
                 i.e., immediate notification.
                 ''',
                 'down',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dampens advertisement when the interface
+                transitions from down to up.  A zero value means dampening
+                is turned off, i.e., immediate notification.
+                ''',
+                'up',
                 'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
@@ -610,14 +610,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.HoldTime.State',
             False, 
             [
-            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dampens advertisement when the interface
-                transitions from down to up.  A zero value means dampening
-                is turned off, i.e., immediate notification.
-                ''',
-                'up',
-                'openconfig-interfaces', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Dampens advertisement when the interface transitions from
@@ -625,6 +617,14 @@ _meta_table = {
                 i.e., immediate notification.
                 ''',
                 'down',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Dampens advertisement when the interface
+                transitions from down to up.  A zero value means dampening
+                is turned off, i.e., immediate notification.
+                ''',
+                'up',
                 'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
@@ -660,63 +660,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Config',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The index of the subinterface, or logical interface number.
-                On systems with no support for subinterfaces, or not using
-                subinterfaces, this value should default to 0, i.e., the
-                default subinterface.
-                ''',
-                'index',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Indicates that the subinterface is unnumbered, and provides
-                a reference to the subinterface that provides the IP
-                address information (v4, v6 or both) for the current
-                subinterface.
-                ''',
-                'unnumbered',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The name of the interface.
-                
-                A device MAY restrict the allowed values for this leaf,
-                possibly depending on the type of the interface.
-                For system-controlled interfaces, this leaf is the
-                device-specific name of the interface.  The 'config false'
-                list interfaces/interface[name]/state contains the currently
-                existing interfaces on the device.
-                
-                If a client tries to create configuration for a
-                system-controlled interface that is not present in the
-                corresponding state list, the server MAY reject
-                the request if the implementation does not support
-                pre-provisioning of interfaces or if the name refers to
-                an interface that can never exist in the system.  A
-                NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
-                
-                The IETF model in RFC 7223 provides YANG features for the
-                following (i.e., pre-provisioning and arbitrary-names),
-                however they are omitted here:
-                
-                 If the device supports pre-provisioning of interface
-                 configuration, the 'pre-provisioning' feature is
-                 advertised.
-                
-                 If the device allows arbitrarily named user-controlled
-                 interfaces, the 'arbitrary-names' feature is advertised.
-                
-                When a configured user-controlled interface is created by
-                the system, it is instantiated with the same name in the
-                /interfaces/interface[name]/state list.
-                ''',
-                'name',
-                'openconfig-interfaces', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
@@ -768,274 +711,6 @@ _meta_table = {
                 ''',
                 'enabled',
                 'openconfig-interfaces', False),
-            ],
-            'openconfig-interfaces',
-            'config',
-            _yang_ns._namespaces['openconfig-interfaces'],
-        'ydk.models.openconfig.openconfig_interfaces'
-        ),
-    },
-    'Interfaces.Interface.Subinterfaces.Subinterface.State.Counters' : {
-        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.State.Counters',
-            False, 
-            [
-            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The total number of octets received on the interface,
-                including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_octets',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were not addressed to a
-                multicast or broadcast address at this sub-layer.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_unicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were addressed to a broadcast
-                address at this sub-layer.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_broadcast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                
-                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were addressed to a multicast
-                address at this sub-layer.  For a MAC-layer protocol,
-                this includes both Group and Functional addresses.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_multicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-discards', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                The number of inbound packets that were chosen to be
-                discarded even though no errors had been detected to
-                prevent their being deliverable to a higher-layer
-                protocol.  One possible reason for discarding such a
-                packet could be to free up buffer space.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_discards',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                For packet-oriented interfaces, the number of inbound
-                packets that contained errors preventing them from being
-                deliverable to a higher-layer protocol.  For character-
-                oriented or fixed-length interfaces, the number of
-                inbound transmission units that contained errors
-                preventing them from being deliverable to a higher-layer
-                protocol.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_errors',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('in-unknown-protos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                For packet-oriented interfaces, the number of packets
-                received via the interface that were discarded because
-                of an unknown or unsupported protocol.  For
-                character-oriented or fixed-length interfaces that
-                support protocol multiplexing, the number of
-                transmission units received via the interface that were
-                discarded because of an unknown or unsupported protocol.
-                For any interface that does not support protocol
-                multiplexing, this counter is not present.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_unknown_protos',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                The total number of octets transmitted out of the
-                interface, including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_octets',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The total number of packets that higher-level protocols
-                requested be transmitted, and that were not addressed
-                to a multicast or broadcast address at this sub-layer,
-                including those that were discarded or not sent.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_unicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                
-                The total number of packets that higher-level protocols
-                requested be transmitted, and that were addressed to a
-                broadcast address at this sub-layer, including those
-                that were discarded or not sent.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_broadcast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                The total number of packets that higher-level protocols
-                requested be transmitted, and that were addressed to a
-                multicast address at this sub-layer, including those
-                that were discarded or not sent.  For a MAC-layer
-                protocol, this includes both Group and Functional
-                addresses.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_multicast_pkts',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-discards', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                The number of outbound packets that were chosen to be
-                discarded even though no errors had been detected to
-                prevent their being transmitted.  One possible reason
-                for discarding such a packet could be to free up buffer
-                space.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_discards',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('out-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                [adapted from IETF interfaces model (RFC 7223)]
-                Changed the counter type to counter64.
-                
-                For packet-oriented interfaces, the number of outbound
-                packets that could not be transmitted because of errors.
-                For character-oriented or fixed-length interfaces, the
-                number of outbound transmission units that could not be
-                transmitted because of errors.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_errors',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                Indicates the last time the interface counters were
-                cleared.
-                ''',
-                'last_clear',
-                'openconfig-interfaces', False),
-            ],
-            'openconfig-interfaces',
-            'counters',
-            _yang_ns._namespaces['openconfig-interfaces'],
-        'ydk.models.openconfig.openconfig_interfaces'
-        ),
-    },
-    'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum' : _MetaInfoEnum('AdminStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
-        {
-            'UP':'UP',
-            'DOWN':'DOWN',
-            'TESTING':'TESTING',
-        }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
-    'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum' : _MetaInfoEnum('OperStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
-        {
-            'UP':'UP',
-            'DOWN':'DOWN',
-            'TESTING':'TESTING',
-            'UNKNOWN':'UNKNOWN',
-            'DORMANT':'DORMANT',
-            'NOT-PRESENT':'NOT_PRESENT',
-            'LOWER-LAYER-DOWN':'LOWER_LAYER_DOWN',
-        }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
-    'Interfaces.Interface.Subinterfaces.Subinterface.State' : {
-        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.State',
-            False, 
-            [
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                The index of the subinterface, or logical interface number.
@@ -1044,15 +719,6 @@ _meta_table = {
                 default subinterface.
                 ''',
                 'index',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Indicates that the subinterface is unnumbered, and provides
-                a reference to the subinterface that provides the IP
-                address information (v4, v6 or both) for the current
-                subinterface.
-                ''',
-                'unnumbered',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1092,6 +758,300 @@ _meta_table = {
                 /interfaces/interface[name]/state list.
                 ''',
                 'name',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Indicates that the subinterface is unnumbered, and provides
+                a reference to the subinterface that provides the IP
+                address information (v4, v6 or both) for the current
+                subinterface.
+                ''',
+                'unnumbered',
+                'openconfig-interfaces', False),
+            ],
+            'openconfig-interfaces',
+            'config',
+            _yang_ns._namespaces['openconfig-interfaces'],
+        'ydk.models.openconfig.openconfig_interfaces'
+        ),
+    },
+    'Interfaces.Interface.Subinterfaces.Subinterface.State.Counters' : {
+        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.State.Counters',
+            False, 
+            [
+            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were addressed to a broadcast
+                address at this sub-layer.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_broadcast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-discards', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                The number of inbound packets that were chosen to be
+                discarded even though no errors had been detected to
+                prevent their being deliverable to a higher-layer
+                protocol.  One possible reason for discarding such a
+                packet could be to free up buffer space.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_discards',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-errors', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                For packet-oriented interfaces, the number of inbound
+                packets that contained errors preventing them from being
+                deliverable to a higher-layer protocol.  For character-
+                oriented or fixed-length interfaces, the number of
+                inbound transmission units that contained errors
+                preventing them from being deliverable to a higher-layer
+                protocol.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_errors',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                
+                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were addressed to a multicast
+                address at this sub-layer.  For a MAC-layer protocol,
+                this includes both Group and Functional addresses.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_multicast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The total number of octets received on the interface,
+                including framing characters.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_octets',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were not addressed to a
+                multicast or broadcast address at this sub-layer.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_unicast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('in-unknown-protos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                For packet-oriented interfaces, the number of packets
+                received via the interface that were discarded because
+                of an unknown or unsupported protocol.  For
+                character-oriented or fixed-length interfaces that
+                support protocol multiplexing, the number of
+                transmission units received via the interface that were
+                discarded because of an unknown or unsupported protocol.
+                For any interface that does not support protocol
+                multiplexing, this counter is not present.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_unknown_protos',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                Indicates the last time the interface counters were
+                cleared.
+                ''',
+                'last_clear',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The total number of packets that higher-level protocols
+                requested be transmitted, and that were addressed to a
+                broadcast address at this sub-layer, including those
+                that were discarded or not sent.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_broadcast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-discards', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                The number of outbound packets that were chosen to be
+                discarded even though no errors had been detected to
+                prevent their being transmitted.  One possible reason
+                for discarding such a packet could be to free up buffer
+                space.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_discards',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-errors', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                For packet-oriented interfaces, the number of outbound
+                packets that could not be transmitted because of errors.
+                For character-oriented or fixed-length interfaces, the
+                number of outbound transmission units that could not be
+                transmitted because of errors.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_errors',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                The total number of packets that higher-level protocols
+                requested be transmitted, and that were addressed to a
+                multicast address at this sub-layer, including those
+                that were discarded or not sent.  For a MAC-layer
+                protocol, this includes both Group and Functional
+                addresses.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_multicast_pkts',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                Changed the counter type to counter64.
+                
+                The total number of octets transmitted out of the
+                interface, including framing characters.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_octets',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The total number of packets that higher-level protocols
+                requested be transmitted, and that were not addressed
+                to a multicast or broadcast address at this sub-layer,
+                including those that were discarded or not sent.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_unicast_pkts',
+                'openconfig-interfaces', False),
+            ],
+            'openconfig-interfaces',
+            'counters',
+            _yang_ns._namespaces['openconfig-interfaces'],
+        'ydk.models.openconfig.openconfig_interfaces'
+        ),
+    },
+    'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum' : _MetaInfoEnum('AdminStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
+        {
+            'UP':'UP',
+            'DOWN':'DOWN',
+            'TESTING':'TESTING',
+        }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
+    'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum' : _MetaInfoEnum('OperStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
+        {
+            'UP':'UP',
+            'DOWN':'DOWN',
+            'TESTING':'TESTING',
+            'UNKNOWN':'UNKNOWN',
+            'DORMANT':'DORMANT',
+            'NOT-PRESENT':'NOT_PRESENT',
+            'LOWER-LAYER-DOWN':'LOWER_LAYER_DOWN',
+        }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
+    'Interfaces.Interface.Subinterfaces.Subinterface.State' : {
+        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.State',
+            False, 
+            [
+            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum', 
+                [], [], 
+                '''                [adapted from IETF interfaces model (RFC 7223)]
+                
+                The desired state of the interface.  In RFC 7223 this leaf
+                has the same read semantics as ifAdminStatus.  Here, it
+                reflects the administrative state as set by enabling or
+                disabling the interface.
+                ''',
+                'admin_status',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.Counters', 
+                [], [], 
+                '''                A collection of interface-related statistics objects.
+                ''',
+                'counters',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1151,16 +1111,61 @@ _meta_table = {
                 ''',
                 'ifindex',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum', 
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The index of the subinterface, or logical interface number.
+                On systems with no support for subinterfaces, or not using
+                subinterfaces, this value should default to 0, i.e., the
+                default subinterface.
+                ''',
+                'index',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('last-change', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Date and time of the last state change of the interface
+                (e.g., up-to-down transition).   This corresponds to the
+                ifLastChange object in the standard interface MIB.
+                ''',
+                'last_change',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
-                The desired state of the interface.  In RFC 7223 this leaf
-                has the same read semantics as ifAdminStatus.  Here, it
-                reflects the administrative state as set by enabling or
-                disabling the interface.
+                The name of the interface.
+                
+                A device MAY restrict the allowed values for this leaf,
+                possibly depending on the type of the interface.
+                For system-controlled interfaces, this leaf is the
+                device-specific name of the interface.  The 'config false'
+                list interfaces/interface[name]/state contains the currently
+                existing interfaces on the device.
+                
+                If a client tries to create configuration for a
+                system-controlled interface that is not present in the
+                corresponding state list, the server MAY reject
+                the request if the implementation does not support
+                pre-provisioning of interfaces or if the name refers to
+                an interface that can never exist in the system.  A
+                NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
+                
+                The IETF model in RFC 7223 provides YANG features for the
+                following (i.e., pre-provisioning and arbitrary-names),
+                however they are omitted here:
+                
+                 If the device supports pre-provisioning of interface
+                 configuration, the 'pre-provisioning' feature is
+                 advertised.
+                
+                 If the device allows arbitrarily named user-controlled
+                 interfaces, the 'arbitrary-names' feature is advertised.
+                
+                When a configured user-controlled interface is created by
+                the system, it is instantiated with the same name in the
+                /interfaces/interface[name]/state list.
                 ''',
-                'admin_status',
+                'name',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum', 
                 [], [], 
@@ -1172,19 +1177,14 @@ _meta_table = {
                 ''',
                 'oper_status',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('last-change', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Date and time of the last state change of the interface
-                (e.g., up-to-down transition).   This corresponds to the
-                ifLastChange object in the standard interface MIB.
+                '''                Indicates that the subinterface is unnumbered, and provides
+                a reference to the subinterface that provides the IP
+                address information (v4, v6 or both) for the current
+                subinterface.
                 ''',
-                'last_change',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.Counters', 
-                [], [], 
-                '''                A collection of interface-related statistics objects.
-                ''',
-                'counters',
+                'unnumbered',
                 'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
@@ -1365,6 +1365,13 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
+                [], [], 
+                '''                The origin of this address, e.g., statically configured,
+                assigned by DHCP, etc..
+                ''',
+                'origin',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 32)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -1372,13 +1379,6 @@ _meta_table = {
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
-                [], [], 
-                '''                The origin of this address, e.g., statically configured,
-                assigned by DHCP, etc..
-                ''',
-                'origin',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -1391,58 +1391,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
-                ''',
-                'virtual_router_id',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Configure one or more virtual addresses for the
-                VRRP group
-                ''',
-                'virtual_address',
-                'openconfig-if-ip', False, [
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -1461,24 +1409,27 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'openconfig-if-ip', False),
-            ],
-            'openconfig-if-ip',
-            'config',
-            _yang_ns._namespaces['openconfig-if-ip'],
-        'ydk.models.openconfig.openconfig_interfaces'
-        ),
-    },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State' : {
-        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State',
-            False, 
-            [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
                 ''',
-                'virtual_router_id',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -1502,28 +1453,25 @@ _meta_table = {
                         'virtual_address',
                         'openconfig-if-ip', False),
                 ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
                 ''',
-                'priority',
+                'virtual_router_id',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
+            ],
+            'openconfig-if-ip',
+            'config',
+            _yang_ns._namespaces['openconfig-if-ip'],
+        'ydk.models.openconfig.openconfig_interfaces'
+        ),
+    },
+    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State' : {
+        'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State',
+            False, 
+            [
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -1549,6 +1497,58 @@ _meta_table = {
                 ''',
                 'current_priority',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Configure one or more virtual addresses for the
+                VRRP group
+                ''',
+                'virtual_address',
+                'openconfig-if-ip', False, [
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'state',
@@ -1560,6 +1560,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -1569,13 +1576,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -1588,6 +1588,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -1597,13 +1604,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -1652,17 +1652,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State', 
-                [], [], 
-                '''                Operational state data for the VRRP group
-                ''',
-                'state',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('interface-tracking', REFERENCE_CLASS, 'InterfaceTracking' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking', 
                 [], [], 
                 '''                Top-level container for VRRP interface tracking
                 ''',
                 'interface_tracking',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State', 
+                [], [], 
+                '''                Operational state data for the VRRP group
+                ''',
+                'state',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -1885,6 +1885,12 @@ _meta_table = {
                 ''',
                 'address',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config', 
+                [], [], 
+                '''                Top-level IPv4 configuration data for the interface
+                ''',
+                'config',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor', 
                 [], [], 
                 '''                A list of mappings from IPv4 addresses to
@@ -1894,12 +1900,6 @@ _meta_table = {
                 ARP Cache.
                 ''',
                 'neighbor',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config', 
-                [], [], 
-                '''                Top-level IPv4 configuration data for the interface
-                ''',
-                'config',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State', 
                 [], [], 
@@ -1964,14 +1964,6 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The length of the subnet prefix.
-                ''',
-                'prefix_length',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -1979,6 +1971,14 @@ _meta_table = {
                 The origin of this address, e.g., static, dhcp, etc.
                 ''',
                 'origin',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The length of the subnet prefix.
+                ''',
+                'prefix_length',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum', 
                 [], [], 
@@ -2001,13 +2001,45 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
+            _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure whether packets destined for
+                virtual addresses are accepted even when the virtual
+                address is not owned by the router interface
                 ''',
-                'virtual_router_id',
+                'accept_mode',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('advertisement-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Sets the interval between successive VRRP
+                advertisements -- RFC 5798 defines this as a 12-bit
+                value expressed as 0.1 seconds, with default 100, i.e.,
+                1 second.  Several implementation express this in units of
+                seconds
+                ''',
+                'advertisement_interval',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -2031,46 +2063,6 @@ _meta_table = {
                         'virtual_address',
                         'openconfig-if-ip', False),
                 ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure whether packets destined for
-                virtual addresses are accepted even when the virtual
-                address is not owned by the router interface
-                ''',
-                'accept_mode',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('advertisement-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Sets the interval between successive VRRP
-                advertisements -- RFC 5798 defines this as a 12-bit
-                value expressed as 0.1 seconds, with default 100, i.e.,
-                1 second.  Several implementation express this in units of
-                seconds
-                ''',
-                'advertisement_interval',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-link-local', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                For VRRP on IPv6 interfaces, sets the virtual link local
@@ -2093,6 +2085,14 @@ _meta_table = {
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                 ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'config',
@@ -2104,58 +2104,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
-                ''',
-                'virtual_router_id',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Configure one or more virtual addresses for the
-                VRRP group
-                ''',
-                'virtual_address',
-                'openconfig-if-ip', False, [
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -2181,6 +2129,50 @@ _meta_table = {
                 ''',
                 'current_priority',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Configure one or more virtual addresses for the
+                VRRP group
+                ''',
+                'virtual_address',
+                'openconfig-if-ip', False, [
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                ]),
             _MetaInfoClassMember('virtual-link-local', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                For VRRP on IPv6 interfaces, sets the virtual link local
@@ -2203,6 +2195,14 @@ _meta_table = {
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                 ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'state',
@@ -2214,6 +2214,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -2223,13 +2230,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2242,6 +2242,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -2251,13 +2258,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2306,17 +2306,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State', 
-                [], [], 
-                '''                Operational state data for the VRRP group
-                ''',
-                'state',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('interface-tracking', REFERENCE_CLASS, 'InterfaceTracking' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking', 
                 [], [], 
                 '''                Top-level container for VRRP interface tracking
                 ''',
                 'interface_tracking',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State', 
+                [], [], 
+                '''                Operational state data for the VRRP group
+                ''',
+                'state',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2427,22 +2427,6 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The link-layer address of the neighbor node.
-                ''',
-                'link_layer_address',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
-                [], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The origin of this neighbor entry.
-                ''',
-                'origin',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('is-router', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -2450,6 +2434,14 @@ _meta_table = {
                 Indicates that the neighbor node acts as a router.
                 ''',
                 'is_router',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The link-layer address of the neighbor node.
+                ''',
+                'link_layer_address',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
@@ -2459,6 +2451,14 @@ _meta_table = {
                 entry.
                 ''',
                 'neighbor_state',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
+                [], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The origin of this neighbor entry.
+                ''',
+                'origin',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2502,6 +2502,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config',
             False, 
             [
+            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The number of consecutive Neighbor Solicitation messages
+                sent while performing Duplicate Address Detection on a
+                tentative address.  A value of zero indicates that
+                Duplicate Address Detection is not performed on
+                tentative addresses.  A value of one indicates a single
+                transmission with no follow-up retransmissions.
+                ''',
+                'dup_addr_detect_transmits',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -2527,19 +2540,6 @@ _meta_table = {
                 depends on the interface's type.
                 ''',
                 'mtu',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The number of consecutive Neighbor Solicitation messages
-                sent while performing Duplicate Address Detection on a
-                tentative address.  A value of zero indicates that
-                Duplicate Address Detection is not performed on
-                tentative addresses.  A value of one indicates a single
-                transmission with no follow-up retransmissions.
-                ''',
-                'dup_addr_detect_transmits',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2552,6 +2552,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State',
             False, 
             [
+            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The number of consecutive Neighbor Solicitation messages
+                sent while performing Duplicate Address Detection on a
+                tentative address.  A value of zero indicates that
+                Duplicate Address Detection is not performed on
+                tentative addresses.  A value of one indicates a single
+                transmission with no follow-up retransmissions.
+                ''',
+                'dup_addr_detect_transmits',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -2577,19 +2590,6 @@ _meta_table = {
                 depends on the interface's type.
                 ''',
                 'mtu',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The number of consecutive Neighbor Solicitation messages
-                sent while performing Duplicate Address Detection on a
-                tentative address.  A value of zero indicates that
-                Duplicate Address Detection is not performed on
-                tentative addresses.  A value of one indicates a single
-                transmission with no follow-up retransmissions.
-                ''',
-                'dup_addr_detect_transmits',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2620,15 +2620,6 @@ _meta_table = {
                 ''',
                 'create_temporary_addresses',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The time period during which the temporary address
-                is valid.
-                ''',
-                'temporary_valid_lifetime',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -2637,6 +2628,15 @@ _meta_table = {
                 preferred.
                 ''',
                 'temporary_preferred_lifetime',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The time period during which the temporary address
+                is valid.
+                ''',
+                'temporary_valid_lifetime',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2667,15 +2667,6 @@ _meta_table = {
                 ''',
                 'create_temporary_addresses',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The time period during which the temporary address
-                is valid.
-                ''',
-                'temporary_valid_lifetime',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -2684,6 +2675,15 @@ _meta_table = {
                 preferred.
                 ''',
                 'temporary_preferred_lifetime',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The time period during which the temporary address
+                is valid.
+                ''',
+                'temporary_valid_lifetime',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2728,6 +2728,18 @@ _meta_table = {
                 ''',
                 'address',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('autoconf', REFERENCE_CLASS, 'Autoconf' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf', 
+                [], [], 
+                '''                Top-level container for IPv6 autoconf
+                ''',
+                'autoconf',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config', 
+                [], [], 
+                '''                Top-level config data for the IPv6 interface
+                ''',
+                'config',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor', 
                 [], [], 
                 '''                A list of mappings from IPv6 addresses to
@@ -2738,23 +2750,11 @@ _meta_table = {
                 ''',
                 'neighbor',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config', 
-                [], [], 
-                '''                Top-level config data for the IPv6 interface
-                ''',
-                'config',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State', 
                 [], [], 
                 '''                Top-level operational state data for the IPv6 interface
                 ''',
                 'state',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('autoconf', REFERENCE_CLASS, 'Autoconf' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf', 
-                [], [], 
-                '''                Top-level container for IPv6 autoconf
-                ''',
-                'autoconf',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -2780,6 +2780,18 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-interfaces', False),
+            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4', 
+                [], [], 
+                '''                Parameters for the IPv4 address family.
+                ''',
+                'ipv4',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6', 
+                [], [], 
+                '''                Parameters for the IPv6 address family.
+                ''',
+                'ipv6',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State', 
                 [], [], 
                 '''                Operational state data for logical interfaces
@@ -2793,18 +2805,6 @@ _meta_table = {
                 ''',
                 'vlan',
                 'openconfig-vlan', False),
-            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4', 
-                [], [], 
-                '''                Parameters for the IPv4 address family.
-                ''',
-                'ipv4',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6', 
-                [], [], 
-                '''                Parameters for the IPv6 address family.
-                ''',
-                'ipv6',
-                'openconfig-if-ip', False),
             ],
             'openconfig-interfaces',
             'subinterface',
@@ -2839,14 +2839,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Ethernet.Config',
             False, 
             [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Assigns a MAC address to the Ethernet interface.  If not
-                specified, the corresponding operational state leaf is
-                expected to show the system-assigned MAC address.
+            _MetaInfoClassMember('aggregate-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Specify the logical aggregate interface to which
+                this interface belongs
                 ''',
-                'mac_address',
-                'openconfig-if-ethernet', False),
+                'aggregate_id',
+                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('auto-negotiate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Set to TRUE to request the interface to auto-negotiate
@@ -2866,18 +2865,6 @@ _meta_table = {
                 ''',
                 'duplex_mode',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('port-speed', REFERENCE_IDENTITY_CLASS, 'EthernetSpeed_Identity' , 'ydk.models.openconfig.openconfig_if_ethernet', 'EthernetSpeed_Identity', 
-                [], [], 
-                '''                When auto-negotiate is TRUE, this optionally sets the
-                port-speed mode that will be advertised to the peer for
-                negotiation.  If unspecified, it is expected that the
-                interface will select the highest speed available based on
-                negotiation.  When auto-negotiate is set to FALSE, sets the
-                link speed to a fixed value -- supported values are defined
-                by ethernet-speed identities
-                ''',
-                'port_speed',
-                'openconfig-if-ethernet', False),
             _MetaInfoClassMember('enable-flow-control', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable or disable flow control for this interface.
@@ -2891,13 +2878,26 @@ _meta_table = {
                 ''',
                 'enable_flow_control',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('aggregate-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Specify the logical aggregate interface to which
-                this interface belongs
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Assigns a MAC address to the Ethernet interface.  If not
+                specified, the corresponding operational state leaf is
+                expected to show the system-assigned MAC address.
                 ''',
-                'aggregate_id',
-                'openconfig-if-aggregate', False),
+                'mac_address',
+                'openconfig-if-ethernet', False),
+            _MetaInfoClassMember('port-speed', REFERENCE_IDENTITY_CLASS, 'EthernetSpeedIdentity' , 'ydk.models.openconfig.openconfig_if_ethernet', 'EthernetSpeedIdentity', 
+                [], [], 
+                '''                When auto-negotiate is TRUE, this optionally sets the
+                port-speed mode that will be advertised to the peer for
+                negotiation.  If unspecified, it is expected that the
+                interface will select the highest speed available based on
+                negotiation.  When auto-negotiate is set to FALSE, sets the
+                link speed to a fixed value -- supported values are defined
+                by ethernet-speed identities
+                ''',
+                'port_speed',
+                'openconfig-if-ethernet', False),
             ],
             'openconfig-if-ethernet',
             'config',
@@ -2909,25 +2909,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Ethernet.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('in-mac-control-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-8021q-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                MAC layer control frames received on the interface
+                '''                Number of 802.1q tagged frames received on the interface
                 ''',
-                'in_mac_control_frames',
+                'in_8021q_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-mac-pause-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-crc-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                MAC layer PAUSE frames received on the interface
+                '''                Number of receive error events due to FCS/CRC check
+                failure
                 ''',
-                'in_mac_pause_frames',
+                'in_crc_errors',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-oversize-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-fragment-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of oversize frames received on the interface
+                '''                Number of fragment frames received on the interface.
                 ''',
-                'in_oversize_frames',
+                'in_fragment_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-jabber-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-jabber-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of jabber frames received on the
                 interface.  Jabber frames are typically defined as oversize
@@ -2937,42 +2938,41 @@ _meta_table = {
                 ''',
                 'in_jabber_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-fragment-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-mac-control-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of fragment frames received on the interface.
+                '''                MAC layer control frames received on the interface
                 ''',
-                'in_fragment_frames',
+                'in_mac_control_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-8021q-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-mac-pause-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of 802.1q tagged frames received on the interface
+                '''                MAC layer PAUSE frames received on the interface
                 ''',
-                'in_8021q_frames',
+                'in_mac_pause_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('in-crc-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-oversize-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of receive error events due to FCS/CRC check
-                failure
+                '''                Number of oversize frames received on the interface
                 ''',
-                'in_crc_errors',
+                'in_oversize_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('out-mac-control-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-8021q-frames', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of 802.1q tagged frames sent on the interface
+                ''',
+                'out_8021q_frames',
+                'openconfig-if-ethernet', False),
+            _MetaInfoClassMember('out-mac-control-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                MAC layer control frames sent on the interface
                 ''',
                 'out_mac_control_frames',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('out-mac-pause-frames', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('out-mac-pause-frames', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                MAC layer PAUSE frames sent on the interface
                 ''',
                 'out_mac_pause_frames',
-                'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('out-8021q-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of 802.1q tagged frames sent on the interface
-                ''',
-                'out_8021q_frames',
                 'openconfig-if-ethernet', False),
             ],
             'openconfig-if-ethernet',
@@ -2990,14 +2990,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Ethernet.State',
             False, 
             [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Assigns a MAC address to the Ethernet interface.  If not
-                specified, the corresponding operational state leaf is
-                expected to show the system-assigned MAC address.
+            _MetaInfoClassMember('aggregate-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Specify the logical aggregate interface to which
+                this interface belongs
                 ''',
-                'mac_address',
-                'openconfig-if-ethernet', False),
+                'aggregate_id',
+                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('auto-negotiate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Set to TRUE to request the interface to auto-negotiate
@@ -3006,6 +3005,12 @@ _meta_table = {
                 manually.
                 ''',
                 'auto_negotiate',
+                'openconfig-if-ethernet', False),
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.State.Counters', 
+                [], [], 
+                '''                Ethernet interface counters
+                ''',
+                'counters',
                 'openconfig-if-ethernet', False),
             _MetaInfoClassMember('duplex-mode', REFERENCE_ENUM_CLASS, 'DuplexModeEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.State.DuplexModeEnum', 
                 [], [], 
@@ -3016,18 +3021,6 @@ _meta_table = {
                 FALSE, this sets the duplex mode on the interface directly.
                 ''',
                 'duplex_mode',
-                'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('port-speed', REFERENCE_IDENTITY_CLASS, 'EthernetSpeed_Identity' , 'ydk.models.openconfig.openconfig_if_ethernet', 'EthernetSpeed_Identity', 
-                [], [], 
-                '''                When auto-negotiate is TRUE, this optionally sets the
-                port-speed mode that will be advertised to the peer for
-                negotiation.  If unspecified, it is expected that the
-                interface will select the highest speed available based on
-                negotiation.  When auto-negotiate is set to FALSE, sets the
-                link speed to a fixed value -- supported values are defined
-                by ethernet-speed identities
-                ''',
-                'port_speed',
                 'openconfig-if-ethernet', False),
             _MetaInfoClassMember('enable-flow-control', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3049,19 +3042,26 @@ _meta_table = {
                 ''',
                 'hw_mac_address',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.State.Counters', 
-                [], [], 
-                '''                Ethernet interface counters
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Assigns a MAC address to the Ethernet interface.  If not
+                specified, the corresponding operational state leaf is
+                expected to show the system-assigned MAC address.
                 ''',
-                'counters',
+                'mac_address',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('aggregate-id', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('port-speed', REFERENCE_IDENTITY_CLASS, 'EthernetSpeedIdentity' , 'ydk.models.openconfig.openconfig_if_ethernet', 'EthernetSpeedIdentity', 
                 [], [], 
-                '''                Specify the logical aggregate interface to which
-                this interface belongs
+                '''                When auto-negotiate is TRUE, this optionally sets the
+                port-speed mode that will be advertised to the peer for
+                negotiation.  If unspecified, it is expected that the
+                interface will select the highest speed available based on
+                negotiation.  When auto-negotiate is set to FALSE, sets the
+                link speed to a fixed value -- supported values are defined
+                by ethernet-speed identities
                 ''',
-                'aggregate_id',
-                'openconfig-if-aggregate', False),
+                'port_speed',
+                'openconfig-if-ethernet', False),
             ],
             'openconfig-if-ethernet',
             'state',
@@ -3073,6 +3073,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Ethernet.Vlan.Config',
             False, 
             [
+            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Assign the access vlan to the access port.
+                ''',
+                'access_vlan',
+                'openconfig-vlan', False, [
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
+                        [(1, 4094)], [], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                ]),
             _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
@@ -3103,25 +3122,6 @@ _meta_table = {
                         a trunk interface.
                         ''',
                         'native_vlan',
-                        'openconfig-vlan', False),
-                ]),
-            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Assign the access vlan to the access port.
-                ''',
-                'access_vlan',
-                'openconfig-vlan', False, [
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4094)], [], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
-                        'openconfig-vlan', False),
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
                         'openconfig-vlan', False),
                 ]),
             _MetaInfoClassMember('trunk-vlans', REFERENCE_UNION, 'str' , None, None, 
@@ -3207,6 +3207,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Ethernet.Vlan.State',
             False, 
             [
+            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Assign the access vlan to the access port.
+                ''',
+                'access_vlan',
+                'openconfig-vlan', False, [
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
+                        [(1, 4094)], [], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                ]),
             _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
@@ -3237,25 +3256,6 @@ _meta_table = {
                         a trunk interface.
                         ''',
                         'native_vlan',
-                        'openconfig-vlan', False),
-                ]),
-            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Assign the access vlan to the access port.
-                ''',
-                'access_vlan',
-                'openconfig-vlan', False, [
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4094)], [], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
-                        'openconfig-vlan', False),
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
                         'openconfig-vlan', False),
                 ]),
             _MetaInfoClassMember('trunk-vlans', REFERENCE_UNION, 'str' , None, None, 
@@ -3427,6 +3427,13 @@ _meta_table = {
                 ''',
                 'lag_type',
                 'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('members', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                List of current member interfaces for the aggregate,
+                expressed as references to existing interfaces
+                ''',
+                'members',
+                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('min-links', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Specifies the mininum number of member
@@ -3434,13 +3441,6 @@ _meta_table = {
                 to be available
                 ''',
                 'min_links',
-                'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('members', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                List of current member interfaces for the aggregate,
-                expressed as references to existing interfaces
-                ''',
-                'members',
                 'openconfig-if-aggregate', False),
             ],
             'openconfig-if-aggregate',
@@ -3537,41 +3537,41 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('lacp-in-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lacp-errors', ATTRIBUTE, 'long' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LACPDU illegal packet errors
+                ''',
+                'lacp_errors',
+                'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('lacp-in-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of LACPDUs received
                 ''',
                 'lacp_in_pkts',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-out-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lacp-out-pkts', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of LACPDUs transmitted
                 ''',
                 'lacp_out_pkts',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-rx-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lacp-rx-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of LACPDU receive packet errors
                 ''',
                 'lacp_rx_errors',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-tx-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lacp-tx-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of LACPDU transmit packet errors
                 ''',
                 'lacp_tx_errors',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-unknown-errors', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lacp-unknown-errors', ATTRIBUTE, 'long' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of LACPDU unknown packet errors
                 ''',
                 'lacp_unknown_errors',
-                'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LACPDU illegal packet errors
-                ''',
-                'lacp_errors',
                 'openconfig-if-aggregate', False),
             ],
             'openconfig-if-aggregate',
@@ -3584,31 +3584,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Lacp.Members.Member.State',
             False, 
             [
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Interface member of the LACP aggregate
-                ''',
-                'interface',
-                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('activity', REFERENCE_ENUM_CLASS, 'LacpActivityTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityTypeEnum', 
                 [], [], 
                 '''                Indicates participant is active or passive
                 ''',
                 'activity',
-                'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('timeout', REFERENCE_ENUM_CLASS, 'LacpTimeoutTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpTimeoutTypeEnum', 
-                [], [], 
-                '''                The timeout type (short or long) used by the
-                participant
-                ''',
-                'timeout',
-                'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('synchronization', REFERENCE_ENUM_CLASS, 'LacpSynchronizationTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpSynchronizationTypeEnum', 
-                [], [], 
-                '''                Indicates whether the participant is in-sync or
-                out-of-sync
-                ''',
-                'synchronization',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('aggregatable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3626,6 +3606,12 @@ _meta_table = {
                 ''',
                 'collecting',
                 'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters', 
+                [], [], 
+                '''                LACP protocol counters
+                ''',
+                'counters',
+                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('distributing', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                When true, the participant is distributing outgoing
@@ -3633,12 +3619,11 @@ _meta_table = {
                 ''',
                 'distributing',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('system-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address that defines the local system ID for the
-                aggregate interface
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface member of the LACP aggregate
                 ''',
-                'system_id',
+                'interface',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('oper-key', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -3660,11 +3645,26 @@ _meta_table = {
                 ''',
                 'partner_key',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters', 
+            _MetaInfoClassMember('synchronization', REFERENCE_ENUM_CLASS, 'LacpSynchronizationTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpSynchronizationTypeEnum', 
                 [], [], 
-                '''                LACP protocol counters
+                '''                Indicates whether the participant is in-sync or
+                out-of-sync
                 ''',
-                'counters',
+                'synchronization',
+                'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('system-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address that defines the local system ID for the
+                aggregate interface
+                ''',
+                'system_id',
+                'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('timeout', REFERENCE_ENUM_CLASS, 'LacpTimeoutTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpTimeoutTypeEnum', 
+                [], [], 
+                '''                The timeout type (short or long) used by the
+                participant
+                ''',
+                'timeout',
                 'openconfig-if-aggregate', False),
             ],
             'openconfig-if-aggregate',
@@ -3726,12 +3726,6 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp.State', 
-                [], [], 
-                '''                Operational state data for LACP
-                ''',
-                'state',
-                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp.Members', 
                 [], [], 
                 '''                Enclosing container for the list of members interfaces of
@@ -3739,6 +3733,12 @@ _meta_table = {
                 only so is labeled config false and has no config container
                 ''',
                 'members',
+                'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp.State', 
+                [], [], 
+                '''                Operational state data for LACP
+                ''',
+                'state',
                 'openconfig-if-aggregate', False),
             ],
             'openconfig-if-aggregate',
@@ -3751,6 +3751,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Vlan.Config',
             False, 
             [
+            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Assign the access vlan to the access port.
+                ''',
+                'access_vlan',
+                'openconfig-vlan', False, [
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
+                        [(1, 4094)], [], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                ]),
             _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
@@ -3781,25 +3800,6 @@ _meta_table = {
                         a trunk interface.
                         ''',
                         'native_vlan',
-                        'openconfig-vlan', False),
-                ]),
-            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Assign the access vlan to the access port.
-                ''',
-                'access_vlan',
-                'openconfig-vlan', False, [
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4094)], [], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
-                        'openconfig-vlan', False),
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
                         'openconfig-vlan', False),
                 ]),
             _MetaInfoClassMember('trunk-vlans', REFERENCE_UNION, 'str' , None, None, 
@@ -3885,6 +3885,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Vlan.State',
             False, 
             [
+            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Assign the access vlan to the access port.
+                ''',
+                'access_vlan',
+                'openconfig-vlan', False, [
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
+                        [(1, 4094)], [], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        '''                        Assign the access vlan to the access port.
+                        ''',
+                        'access_vlan',
+                        'openconfig-vlan', False),
+                ]),
             _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
@@ -3915,25 +3934,6 @@ _meta_table = {
                         a trunk interface.
                         ''',
                         'native_vlan',
-                        'openconfig-vlan', False),
-                ]),
-            _MetaInfoClassMember('access-vlan', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Assign the access vlan to the access port.
-                ''',
-                'access_vlan',
-                'openconfig-vlan', False, [
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4094)], [], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
-                        'openconfig-vlan', False),
-                    _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
-                        '''                        Assign the access vlan to the access port.
-                        ''',
-                        'access_vlan',
                         'openconfig-vlan', False),
                 ]),
             _MetaInfoClassMember('trunk-vlans', REFERENCE_UNION, 'str' , None, None, 
@@ -4049,19 +4049,19 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.State', 
-                [], [], 
-                '''                Operational state variables for logical
-                aggregate / LAG interfaces
-                ''',
-                'state',
-                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('lacp', REFERENCE_CLASS, 'Lacp' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Lacp', 
                 [], [], 
                 '''                Configuration for LACP protocol operation on the
                 aggregate interface
                 ''',
                 'lacp',
+                'openconfig-if-aggregate', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.State', 
+                [], [], 
+                '''                Operational state variables for logical
+                aggregate / LAG interfaces
+                ''',
+                'state',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('vlan', REFERENCE_CLASS, 'Vlan' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation.Vlan', 
                 [], [], 
@@ -4194,6 +4194,13 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
+                [], [], 
+                '''                The origin of this address, e.g., statically configured,
+                assigned by DHCP, etc..
+                ''',
+                'origin',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 32)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -4201,13 +4208,6 @@ _meta_table = {
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
-                [], [], 
-                '''                The origin of this address, e.g., statically configured,
-                assigned by DHCP, etc..
-                ''',
-                'origin',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -4220,58 +4220,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
-                ''',
-                'virtual_router_id',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Configure one or more virtual addresses for the
-                VRRP group
-                ''',
-                'virtual_address',
-                'openconfig-if-ip', False, [
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -4290,24 +4238,27 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'openconfig-if-ip', False),
-            ],
-            'openconfig-if-ip',
-            'config',
-            _yang_ns._namespaces['openconfig-if-ip'],
-        'ydk.models.openconfig.openconfig_interfaces'
-        ),
-    },
-    'Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State' : {
-        'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State',
-            False, 
-            [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
                 ''',
-                'virtual_router_id',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -4331,28 +4282,25 @@ _meta_table = {
                         'virtual_address',
                         'openconfig-if-ip', False),
                 ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
                 ''',
-                'priority',
+                'virtual_router_id',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
+            ],
+            'openconfig-if-ip',
+            'config',
+            _yang_ns._namespaces['openconfig-if-ip'],
+        'ydk.models.openconfig.openconfig_interfaces'
+        ),
+    },
+    'Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State' : {
+        'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State',
+            False, 
+            [
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -4378,6 +4326,58 @@ _meta_table = {
                 ''',
                 'current_priority',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Configure one or more virtual addresses for the
+                VRRP group
+                ''',
+                'virtual_address',
+                'openconfig-if-ip', False, [
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'state',
@@ -4389,6 +4389,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -4398,13 +4405,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -4417,6 +4417,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -4426,13 +4433,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -4481,17 +4481,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State', 
-                [], [], 
-                '''                Operational state data for the VRRP group
-                ''',
-                'state',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('interface-tracking', REFERENCE_CLASS, 'InterfaceTracking' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking', 
                 [], [], 
                 '''                Top-level container for VRRP interface tracking
                 ''',
                 'interface_tracking',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State', 
+                [], [], 
+                '''                Operational state data for the VRRP group
+                ''',
+                'state',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -4714,6 +4714,12 @@ _meta_table = {
                 ''',
                 'address',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Config', 
+                [], [], 
+                '''                Top-level IPv4 configuration data for the interface
+                ''',
+                'config',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Neighbor', 
                 [], [], 
                 '''                A list of mappings from IPv4 addresses to
@@ -4723,12 +4729,6 @@ _meta_table = {
                 ARP Cache.
                 ''',
                 'neighbor',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.Config', 
-                [], [], 
-                '''                Top-level IPv4 configuration data for the interface
-                ''',
-                'config',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4.State', 
                 [], [], 
@@ -4793,14 +4793,6 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The length of the subnet prefix.
-                ''',
-                'prefix_length',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -4808,6 +4800,14 @@ _meta_table = {
                 The origin of this address, e.g., static, dhcp, etc.
                 ''',
                 'origin',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The length of the subnet prefix.
+                ''',
+                'prefix_length',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum', 
                 [], [], 
@@ -4830,13 +4830,45 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
+            _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure whether packets destined for
+                virtual addresses are accepted even when the virtual
+                address is not owned by the router interface
                 ''',
-                'virtual_router_id',
+                'accept_mode',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('advertisement-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Sets the interval between successive VRRP
+                advertisements -- RFC 5798 defines this as a 12-bit
+                value expressed as 0.1 seconds, with default 100, i.e.,
+                1 second.  Several implementation express this in units of
+                seconds
+                ''',
+                'advertisement_interval',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -4860,46 +4892,6 @@ _meta_table = {
                         'virtual_address',
                         'openconfig-if-ip', False),
                 ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configure whether packets destined for
-                virtual addresses are accepted even when the virtual
-                address is not owned by the router interface
-                ''',
-                'accept_mode',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('advertisement-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Sets the interval between successive VRRP
-                advertisements -- RFC 5798 defines this as a 12-bit
-                value expressed as 0.1 seconds, with default 100, i.e.,
-                1 second.  Several implementation express this in units of
-                seconds
-                ''',
-                'advertisement_interval',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('virtual-link-local', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                For VRRP on IPv6 interfaces, sets the virtual link local
@@ -4922,6 +4914,14 @@ _meta_table = {
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                 ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'config',
@@ -4933,58 +4933,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State',
             False, 
             [
-            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Set the virtual router id for use by the VRRP group.  This
-                usually also determines the virtual MAC address that is
-                generated for the VRRP group
-                ''',
-                'virtual_router_id',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Configure one or more virtual addresses for the
-                VRRP group
-                ''',
-                'virtual_address',
-                'openconfig-if-ip', False, [
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Configure one or more virtual addresses for the
-                        VRRP group
-                        ''',
-                        'virtual_address',
-                        'openconfig-if-ip', False),
-                ]),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 254)], [], 
-                '''                Specifies the sending VRRP interface's priority
-                for the virtual router.  Higher values equal higher
-                priority
-                ''',
-                'priority',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When set to true, enables preemption by a higher
-                priority backup router of a lower priority master router
-                ''',
-                'preempt',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Set the delay the higher priority router waits
-                before preempting
-                ''',
-                'preempt_delay',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('accept-mode', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Configure whether packets destined for
@@ -5010,6 +4958,50 @@ _meta_table = {
                 ''',
                 'current_priority',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When set to true, enables preemption by a higher
+                priority backup router of a lower priority master router
+                ''',
+                'preempt',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('preempt-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Set the delay the higher priority router waits
+                before preempting
+                ''',
+                'preempt_delay',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(1, 254)], [], 
+                '''                Specifies the sending VRRP interface's priority
+                for the virtual router.  Higher values equal higher
+                priority
+                ''',
+                'priority',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('virtual-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Configure one or more virtual addresses for the
+                VRRP group
+                ''',
+                'virtual_address',
+                'openconfig-if-ip', False, [
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                    _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Configure one or more virtual addresses for the
+                        VRRP group
+                        ''',
+                        'virtual_address',
+                        'openconfig-if-ip', False),
+                ]),
             _MetaInfoClassMember('virtual-link-local', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                For VRRP on IPv6 interfaces, sets the virtual link local
@@ -5032,6 +5024,14 @@ _meta_table = {
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                 ]),
+            _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Set the virtual router id for use by the VRRP group.  This
+                usually also determines the virtual MAC address that is
+                generated for the VRRP group
+                ''',
+                'virtual_router_id',
+                'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
             'state',
@@ -5043,6 +5043,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -5052,13 +5059,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5071,6 +5071,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State',
             False, 
             [
+            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
+                [(0, 254)], [], 
+                '''                Set the value to subtract from priority when
+                the tracked interface goes down
+                ''',
+                'priority_decrement',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('track-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Sets an interface that should be
@@ -5080,13 +5087,6 @@ _meta_table = {
                 down lowers the priority sufficiently
                 ''',
                 'track_interface',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('priority-decrement', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
-                '''                Set the value to subtract from priority when
-                the tracked interface goes down
-                ''',
-                'priority_decrement',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5135,17 +5135,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State', 
-                [], [], 
-                '''                Operational state data for the VRRP group
-                ''',
-                'state',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('interface-tracking', REFERENCE_CLASS, 'InterfaceTracking' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking', 
                 [], [], 
                 '''                Top-level container for VRRP interface tracking
                 ''',
                 'interface_tracking',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State', 
+                [], [], 
+                '''                Operational state data for the VRRP group
+                ''',
+                'state',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5256,22 +5256,6 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The link-layer address of the neighbor node.
-                ''',
-                'link_layer_address',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
-                [], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The origin of this neighbor entry.
-                ''',
-                'origin',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('is-router', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -5279,6 +5263,14 @@ _meta_table = {
                 Indicates that the neighbor node acts as a router.
                 ''',
                 'is_router',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The link-layer address of the neighbor node.
+                ''',
+                'link_layer_address',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
@@ -5288,6 +5280,14 @@ _meta_table = {
                 entry.
                 ''',
                 'neighbor_state',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
+                [], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The origin of this neighbor entry.
+                ''',
+                'origin',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5331,6 +5331,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.Config',
             False, 
             [
+            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The number of consecutive Neighbor Solicitation messages
+                sent while performing Duplicate Address Detection on a
+                tentative address.  A value of zero indicates that
+                Duplicate Address Detection is not performed on
+                tentative addresses.  A value of one indicates a single
+                transmission with no follow-up retransmissions.
+                ''',
+                'dup_addr_detect_transmits',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -5356,19 +5369,6 @@ _meta_table = {
                 depends on the interface's type.
                 ''',
                 'mtu',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The number of consecutive Neighbor Solicitation messages
-                sent while performing Duplicate Address Detection on a
-                tentative address.  A value of zero indicates that
-                Duplicate Address Detection is not performed on
-                tentative addresses.  A value of one indicates a single
-                transmission with no follow-up retransmissions.
-                ''',
-                'dup_addr_detect_transmits',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5381,6 +5381,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.RoutedVlan.Ipv6.State',
             False, 
             [
+            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The number of consecutive Neighbor Solicitation messages
+                sent while performing Duplicate Address Detection on a
+                tentative address.  A value of zero indicates that
+                Duplicate Address Detection is not performed on
+                tentative addresses.  A value of one indicates a single
+                transmission with no follow-up retransmissions.
+                ''',
+                'dup_addr_detect_transmits',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -5406,19 +5419,6 @@ _meta_table = {
                 depends on the interface's type.
                 ''',
                 'mtu',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The number of consecutive Neighbor Solicitation messages
-                sent while performing Duplicate Address Detection on a
-                tentative address.  A value of zero indicates that
-                Duplicate Address Detection is not performed on
-                tentative addresses.  A value of one indicates a single
-                transmission with no follow-up retransmissions.
-                ''',
-                'dup_addr_detect_transmits',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5449,15 +5449,6 @@ _meta_table = {
                 ''',
                 'create_temporary_addresses',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The time period during which the temporary address
-                is valid.
-                ''',
-                'temporary_valid_lifetime',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -5466,6 +5457,15 @@ _meta_table = {
                 preferred.
                 ''',
                 'temporary_preferred_lifetime',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The time period during which the temporary address
+                is valid.
+                ''',
+                'temporary_valid_lifetime',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5496,15 +5496,6 @@ _meta_table = {
                 ''',
                 'create_temporary_addresses',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                [adapted from IETF IP model RFC 7277]
-                
-                The time period during which the temporary address
-                is valid.
-                ''',
-                'temporary_valid_lifetime',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                [adapted from IETF IP model RFC 7277]
@@ -5513,6 +5504,15 @@ _meta_table = {
                 preferred.
                 ''',
                 'temporary_preferred_lifetime',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                [adapted from IETF IP model RFC 7277]
+                
+                The time period during which the temporary address
+                is valid.
+                ''',
+                'temporary_valid_lifetime',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5557,6 +5557,18 @@ _meta_table = {
                 ''',
                 'address',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('autoconf', REFERENCE_CLASS, 'Autoconf' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Autoconf', 
+                [], [], 
+                '''                Top-level container for IPv6 autoconf
+                ''',
+                'autoconf',
+                'openconfig-if-ip', False),
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Config', 
+                [], [], 
+                '''                Top-level config data for the IPv6 interface
+                ''',
+                'config',
+                'openconfig-if-ip', False),
             _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor', 
                 [], [], 
                 '''                A list of mappings from IPv6 addresses to
@@ -5567,23 +5579,11 @@ _meta_table = {
                 ''',
                 'neighbor',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Config', 
-                [], [], 
-                '''                Top-level config data for the IPv6 interface
-                ''',
-                'config',
-                'openconfig-if-ip', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.State', 
                 [], [], 
                 '''                Top-level operational state data for the IPv6 interface
                 ''',
                 'state',
-                'openconfig-if-ip', False),
-            _MetaInfoClassMember('autoconf', REFERENCE_CLASS, 'Autoconf' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Autoconf', 
-                [], [], 
-                '''                Top-level container for IPv6 autoconf
-                ''',
-                'autoconf',
                 'openconfig-if-ip', False),
             ],
             'openconfig-if-ip',
@@ -5602,12 +5602,6 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-vlan', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.State', 
-                [], [], 
-                '''                Operational state data 
-                ''',
-                'state',
-                'openconfig-vlan', False),
             _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv4', 
                 [], [], 
                 '''                Parameters for the IPv4 address family.
@@ -5620,6 +5614,12 @@ _meta_table = {
                 ''',
                 'ipv6',
                 'openconfig-if-ip', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.State', 
+                [], [], 
+                '''                Operational state data 
+                ''',
+                'state',
+                'openconfig-vlan', False),
             ],
             'openconfig-vlan',
             'routed-vlan',
@@ -5637,32 +5637,19 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-interfaces', True),
+            _MetaInfoClassMember('aggregation', REFERENCE_CLASS, 'Aggregation' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation', 
+                [], [], 
+                '''                Options for logical interfaces representing
+                aggregates
+                ''',
+                'aggregation',
+                'openconfig-if-aggregate', False),
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Config', 
                 [], [], 
                 '''                Configurable items at the global, physical interface
                 level
                 ''',
                 'config',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State', 
-                [], [], 
-                '''                Operational state data at the global interface level
-                ''',
-                'state',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('hold-time', REFERENCE_CLASS, 'HoldTime' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.HoldTime', 
-                [], [], 
-                '''                Top-level container for hold-time settings to enable
-                dampening advertisements of interface transitions.
-                ''',
-                'hold_time',
-                'openconfig-interfaces', False),
-            _MetaInfoClassMember('subinterfaces', REFERENCE_CLASS, 'Subinterfaces' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces', 
-                [], [], 
-                '''                Enclosing container for the list of subinterfaces associated
-                with a physical interface
-                ''',
-                'subinterfaces',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('ethernet', REFERENCE_CLASS, 'Ethernet' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet', 
                 [], [], 
@@ -5671,13 +5658,13 @@ _meta_table = {
                 ''',
                 'ethernet',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('aggregation', REFERENCE_CLASS, 'Aggregation' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Aggregation', 
+            _MetaInfoClassMember('hold-time', REFERENCE_CLASS, 'HoldTime' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.HoldTime', 
                 [], [], 
-                '''                Options for logical interfaces representing
-                aggregates
+                '''                Top-level container for hold-time settings to enable
+                dampening advertisements of interface transitions.
                 ''',
-                'aggregation',
-                'openconfig-if-aggregate', False),
+                'hold_time',
+                'openconfig-interfaces', False),
             _MetaInfoClassMember('routed-vlan', REFERENCE_CLASS, 'RoutedVlan' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan', 
                 [], [], 
                 '''                Top-level container for routed vlan interfaces.  These
@@ -5687,6 +5674,19 @@ _meta_table = {
                 ''',
                 'routed_vlan',
                 'openconfig-vlan', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State', 
+                [], [], 
+                '''                Operational state data at the global interface level
+                ''',
+                'state',
+                'openconfig-interfaces', False),
+            _MetaInfoClassMember('subinterfaces', REFERENCE_CLASS, 'Subinterfaces' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces', 
+                [], [], 
+                '''                Enclosing container for the list of subinterfaces associated
+                with a physical interface
+                ''',
+                'subinterfaces',
+                'openconfig-interfaces', False),
             ],
             'openconfig-interfaces',
             'interface',

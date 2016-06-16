@@ -26,7 +26,7 @@ import logging
 class ExecutorService(Service):
     """ Executor Service class for executing RPCs containing entities """
     def __init__(self):
-        self.executor_logger = logging.getLogger('ydk.services.ExecutorService')
+        self.service_logger = logging.getLogger('ydk.services.NetconfService')
 
     def execute_rpc(self, provider, rpc):
         """ Execute the RPC
@@ -39,18 +39,17 @@ class ExecutorService(Service):
                  None
         
            Raises:
-              `YPYDataValidationError <ydk.errors.html#ydk.errors.YPYDataValidationError>`_ if validation.
-              `YPYError <ydk.errors.html#ydk.errors.YPYError>`_ if other error has occurred. Possible errors could be 
+              `YPYModelError <ydk.errors.html#ydk.errors.YPYModelError>`_ if validation.
+              `YPYServiceError <ydk.errors.html#ydk.errors.YPYServiceError>`_ if other error has occurred. Possible errors could be 
                   - a server side error
                   - if there isn't enough information in the entity to prepare the message (missing keys for example)
         """
         try:
             rpc = MetaService.normalize_meta(provider._get_capabilities(), rpc)
-            return self.execute_payload(
-                                        provider,
-                                        '',
-                                        provider.sp_instance.encode_rpc(rpc)
-                                        )
+            return provider.execute(
+                                    provider.sp_instance.encode_rpc(rpc),
+                                    ''
+                                    )
         finally:
-            self.executor_logger.info('Netconf operation completed')
+            self.service_logger.info('Netconf operation completed')
 

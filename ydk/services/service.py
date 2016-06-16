@@ -20,15 +20,19 @@
      
 """
 
+
 class Service(object):
     """ Base service class which can be extended for different ways of communicating to remote server """
-
-    def execute_payload(self, provider, operation, payload):
-        # print payload
-        reply = provider.sp_instance.execute_operation(
-                                            provider.sp_instance._nc_manager,
-                                            operation,
-                                            payload)
-
-        # print reply
+    def operate_on_object_or_dictionary(self, entity, function, args):
+        result=None
+        if isinstance(entity, dict):
+            result = {}
+            for module, child in entity.iteritems():
+                result[module] = function(child, *args)
+        else:
+            result = function(entity, *args)
+        return result
+    
+    def execute_payload(self, provider, payload, operation):
+        reply = provider.execute(payload, operation)
         return reply

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -46,41 +46,11 @@ _meta_table = {
                 ''',
                 'peer_type',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
-                '''                NTP version
-                ''',
-                'ntp_version',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Authentication Key
                 ''',
                 'authentication_key',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
-                '''                Minimum poll interval
-                ''',
-                'min_poll',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
-                '''                Maxinum poll interval
-                ''',
-                'max_poll',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('preferred-peer', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Preferred peer
-                ''',
-                'preferred_peer',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Source interface of this peer
-                ''',
-                'source_interface',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('burst', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -93,6 +63,36 @@ _meta_table = {
                 '''                Use iburst mode
                 ''',
                 'iburst',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
+                [(4, 17)], [], 
+                '''                Maxinum poll interval
+                ''',
+                'max_poll',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
+                [(4, 17)], [], 
+                '''                Minimum poll interval
+                ''',
+                'min_poll',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
+                [(2, 4)], [], 
+                '''                NTP version
+                ''',
+                'ntp_version',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('preferred-peer', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Preferred peer
+                ''',
+                'preferred_peer',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Source interface of this peer
+                ''',
+                'source_interface',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -151,41 +151,17 @@ _meta_table = {
                 ''',
                 'peer_type',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
-                '''                NTP version
+            _MetaInfoClassMember('address-ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address
                 ''',
-                'ntp_version',
+                'address_ipv6',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Authentication Key
                 ''',
                 'authentication_key',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
-                '''                Minimum poll interval
-                ''',
-                'min_poll',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
-                '''                Maxinum poll interval
-                ''',
-                'max_poll',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('preferred-peer', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Preferred peer
-                ''',
-                'preferred_peer',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Source interface of this peer
-                ''',
-                'source_interface',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('burst', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -199,11 +175,35 @@ _meta_table = {
                 ''',
                 'iburst',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('address-ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv6 address
+            _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
+                [(4, 17)], [], 
+                '''                Maxinum poll interval
                 ''',
-                'address_ipv6',
+                'max_poll',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
+                [(4, 17)], [], 
+                '''                Minimum poll interval
+                ''',
+                'min_poll',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
+                [(2, 4)], [], 
+                '''                NTP version
+                ''',
+                'ntp_version',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('preferred-peer', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Preferred peer
+                ''',
+                'preferred_peer',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Source interface of this peer
+                ''',
+                'source_interface',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -304,13 +304,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp.DscpIpv4',
             False, 
             [
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
-                [], [], 
-                '''                NTPPRECEDENCE (0) to specify Precedence value 
-                NTPDSCP (1) to specify DSCP value
-                ''',
-                'mode',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('dscp-or-precedence-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 63)], [], 
                 '''                If Mode is set to 'NTPPRECEDENCE(0)' specify
@@ -318,6 +311,13 @@ _meta_table = {
                 'NTPDSCP(1)' specify DSCP
                 ''',
                 'dscp_or_precedence_value',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
+                [], [], 
+                '''                NTPPRECEDENCE (0) to specify Precedence value 
+                NTPDSCP (1) to specify DSCP value
+                ''',
+                'mode',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -330,13 +330,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp.DscpIpv6',
             False, 
             [
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
-                [], [], 
-                '''                NTPPRECEDENCE(0) to specify Precedence value
-                NTPDSCP(1) to specify DSCP value
-                ''',
-                'mode',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('dscp-or-precedence-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 63)], [], 
                 '''                If Mode is set to 'NTPPRECEDENCE(0)' specify
@@ -344,6 +337,13 @@ _meta_table = {
                 'NTPDSCP(1)' specify DSCP
                 ''',
                 'dscp_or_precedence_value',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
+                [], [], 
+                '''                NTPPRECEDENCE(0) to specify Precedence value
+                NTPDSCP(1) to specify DSCP value
+                ''',
+                'mode',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -470,6 +470,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp.Authentication',
             False, 
             [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable NTP authentication keys
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('keies', REFERENCE_CLASS, 'Keies' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Authentication.Keies', 
                 [], [], 
                 '''                Authentication Key Table
@@ -481,12 +487,6 @@ _meta_table = {
                 '''                Key numbers for trusted time sources
                 ''',
                 'trusted_keies',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable NTP authentication keys
-                ''',
-                'enable',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -571,17 +571,17 @@ _meta_table = {
                 ''',
                 'authentication_key',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
-                '''                NTP version
-                ''',
-                'version',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
                 '''                TTL
                 ''',
                 'ttl',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [(2, 4)], [], 
+                '''                NTP version
+                ''',
+                'version',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -692,11 +692,11 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('interface-multicast', REFERENCE_CLASS, 'InterfaceMulticast' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast', 
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Configure NTP multicast service
+                '''                Disable NTP
                 ''',
-                'interface_multicast',
+                'disable',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('interface-broadcast', REFERENCE_CLASS, 'InterfaceBroadcast' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast', 
                 [], [], 
@@ -704,11 +704,11 @@ _meta_table = {
                 ''',
                 'interface_broadcast',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('interface-multicast', REFERENCE_CLASS, 'InterfaceMulticast' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast', 
                 [], [], 
-                '''                Disable NTP
+                '''                Configure NTP multicast service
                 ''',
-                'disable',
+                'interface_multicast',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
@@ -847,11 +847,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp',
             False, 
             [
-            _MetaInfoClassMember('peer-vrfs', REFERENCE_CLASS, 'PeerVrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs', 
+            _MetaInfoClassMember('access-group-tables', REFERENCE_CLASS, 'AccessGroupTables' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.AccessGroupTables', 
                 [], [], 
-                '''                Configures NTP Peers or Servers
+                '''                Control NTP access
                 ''',
-                'peer_vrfs',
+                'access_group_tables',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Authentication', 
+                [], [], 
+                '''                Configure NTP Authentication keys
+                ''',
+                'authentication',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('broadcast-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 999999)], [], 
+                '''                Estimated round-trip delay
+                ''',
+                'broadcast_delay',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('dscp-ipv4', REFERENCE_CLASS, 'DscpIpv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.DscpIpv4', 
                 [], [], 
@@ -865,35 +877,17 @@ _meta_table = {
                 ''',
                 'dscp_ipv6',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('sources', REFERENCE_CLASS, 'Sources' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Sources', 
-                [], [], 
-                '''                Configure  NTP source interface
-                ''',
-                'sources',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Authentication', 
-                [], [], 
-                '''                Configure NTP Authentication keys
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('interface-tables', REFERENCE_CLASS, 'InterfaceTables' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.InterfaceTables', 
                 [], [], 
                 '''                NTP per interface configuration
                 ''',
                 'interface_tables',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('access-group-tables', REFERENCE_CLASS, 'AccessGroupTables' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.AccessGroupTables', 
+            _MetaInfoClassMember('log-internal-sync', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Control NTP access
+                '''                To enable logging internal sync conflicts
                 ''',
-                'access_group_tables',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('max-associations', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set maximum number of associations
-                ''',
-                'max_associations',
+                'log_internal_sync',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('master', ATTRIBUTE, 'int' , None, None, 
                 [(1, 15)], [], 
@@ -901,17 +895,23 @@ _meta_table = {
                 ''',
                 'master',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('broadcast-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 999999)], [], 
-                '''                Estimated round-trip delay
+            _MetaInfoClassMember('max-associations', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set maximum number of associations
                 ''',
-                'broadcast_delay',
+                'max_associations',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('log-internal-sync', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('peer-vrfs', REFERENCE_CLASS, 'PeerVrfs' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs', 
                 [], [], 
-                '''                To enable logging internal sync conflicts
+                '''                Configures NTP Peers or Servers
                 ''',
-                'log_internal_sync',
+                'peer_vrfs',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('sources', REFERENCE_CLASS, 'Sources' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Sources', 
+                [], [], 
+                '''                Configure  NTP source interface
+                ''',
+                'sources',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('update-calendar', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 

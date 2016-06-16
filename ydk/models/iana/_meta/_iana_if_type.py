@@ -10,12 +10,12 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IanaInterfaceType_Identity' : {
-        'meta_info' : _MetaInfoClass('IanaInterfaceType_Identity',
+    'IanaInterfaceTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('IanaInterfaceTypeIdentity',
             False, 
             [
             ],
@@ -25,1174 +25,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Otnodu_Identity' : {
-        'meta_info' : _MetaInfoClass('Otnodu_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'otnOdu',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ipoverclaw_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipoverclaw_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ipOverClaw',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Capwapdot11Bss_Identity' : {
-        'meta_info' : _MetaInfoClass('Capwapdot11Bss_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'capwapDot11Bss',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmsubinterface_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmsubinterface_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmSubInterface',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Coffee_Identity' : {
-        'meta_info' : _MetaInfoClass('Coffee_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'coffee',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Framerelayservice_Identity' : {
-        'meta_info' : _MetaInfoClass('Framerelayservice_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frameRelayService',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'V36_Identity' : {
-        'meta_info' : _MetaInfoClass('V36_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'v36',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Radsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Radsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'radsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'G703At64K_Identity' : {
-        'meta_info' : _MetaInfoClass('G703At64K_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'g703at64k',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Lmp_Identity' : {
-        'meta_info' : _MetaInfoClass('Lmp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'lmp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Vdsl2_Identity' : {
-        'meta_info' : _MetaInfoClass('Vdsl2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'vdsl2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Rs232_Identity' : {
-        'meta_info' : _MetaInfoClass('Rs232_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'rs232',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mediamailoverip_Identity' : {
-        'meta_info' : _MetaInfoClass('Mediamailoverip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mediaMailOverIp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Localtalk_Identity' : {
-        'meta_info' : _MetaInfoClass('Localtalk_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'localTalk',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'E1_Identity' : {
-        'meta_info' : _MetaInfoClass('E1_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'e1',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88025Fiber_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88025Fiber_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88025Fiber',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Reachdsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Reachdsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'reachDSL',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Softwareloopback_Identity' : {
-        'meta_info' : _MetaInfoClass('Softwareloopback_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'softwareLoopback',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pon155_Identity' : {
-        'meta_info' : _MetaInfoClass('Pon155_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pon155',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceovercable_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceovercable_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceOverCable',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbrccdownstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbrccdownstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbRccDownstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aflane8023_Identity' : {
-        'meta_info' : _MetaInfoClass('Aflane8023_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aflane8023',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ieee80216Wman_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee80216Wman_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ieee80216WMAN',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Opticaltransport_Identity' : {
-        'meta_info' : _MetaInfoClass('Opticaltransport_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'opticalTransport',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Tr008_Identity' : {
-        'meta_info' : _MetaInfoClass('Tr008_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'tr008',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'A12Mppswitch_Identity' : {
-        'meta_info' : _MetaInfoClass('A12Mppswitch_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'a12MppSwitch',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Smdsicip_Identity' : {
-        'meta_info' : _MetaInfoClass('Smdsicip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'smdsIcip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceoverip_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceoverip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceOverIp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Modem_Identity' : {
-        'meta_info' : _MetaInfoClass('Modem_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'modem',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Lapf_Identity' : {
-        'meta_info' : _MetaInfoClass('Lapf_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'lapf',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atm_Identity' : {
-        'meta_info' : _MetaInfoClass('Atm_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atm',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ces_Identity' : {
-        'meta_info' : _MetaInfoClass('Ces_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ces',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Otnotu_Identity' : {
-        'meta_info' : _MetaInfoClass('Otnotu_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'otnOtu',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ds3_Identity' : {
-        'meta_info' : _MetaInfoClass('Ds3_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ds3',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ilan_Identity' : {
-        'meta_info' : _MetaInfoClass('Ilan_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ilan',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmradio_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmradio_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmRadio',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ds0_Identity' : {
-        'meta_info' : _MetaInfoClass('Ds0_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ds0',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'X25Huntgroup_Identity' : {
-        'meta_info' : _MetaInfoClass('X25Huntgroup_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'x25huntGroup',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ds1_Identity' : {
-        'meta_info' : _MetaInfoClass('Ds1_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ds1',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Alueponlogicallink_Identity' : {
-        'meta_info' : _MetaInfoClass('Alueponlogicallink_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluEponLogicalLink',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Srp_Identity' : {
-        'meta_info' : _MetaInfoClass('Srp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'srp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sip_Identity' : {
-        'meta_info' : _MetaInfoClass('Sip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscabledownstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscabledownstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableDownstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbrcstdma_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbrcstdma_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbRcsTdma',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Framerelayinterconnect_Identity' : {
-        'meta_info' : _MetaInfoClass('Framerelayinterconnect_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frameRelayInterconnect',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Fibrechannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Fibrechannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'fibreChannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'G9983_Identity' : {
-        'meta_info' : _MetaInfoClass('G9983_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'g9983',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Plc_Identity' : {
-        'meta_info' : _MetaInfoClass('Plc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'plc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Nsip_Identity' : {
-        'meta_info' : _MetaInfoClass('Nsip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'nsip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sdlc_Identity' : {
-        'meta_info' : _MetaInfoClass('Sdlc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sdlc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Framerelaympi_Identity' : {
-        'meta_info' : _MetaInfoClass('Framerelaympi_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frameRelayMPI',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sdsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Sdsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sdsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hyperchannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Hyperchannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hyperchannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Digitalpowerline_Identity' : {
-        'meta_info' : _MetaInfoClass('Digitalpowerline_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'digitalPowerline',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hdh1822_Identity' : {
-        'meta_info' : _MetaInfoClass('Hdh1822_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hdh1822',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mvl_Identity' : {
-        'meta_info' : _MetaInfoClass('Mvl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mvl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mocaversion1_Identity' : {
-        'meta_info' : _MetaInfoClass('Mocaversion1_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mocaVersion1',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ethernetcsmacd_Identity' : {
-        'meta_info' : _MetaInfoClass('Ethernetcsmacd_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ethernetCsmacd',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propmultiplexor_Identity' : {
-        'meta_info' : _MetaInfoClass('Propmultiplexor_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propMultiplexor',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Arcnetplus_Identity' : {
-        'meta_info' : _MetaInfoClass('Arcnetplus_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'arcnetPlus',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pppmultilinkbundle_Identity' : {
-        'meta_info' : _MetaInfoClass('Pppmultilinkbundle_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pppMultilinkBundle',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Capwapdot11Profile_Identity' : {
-        'meta_info' : _MetaInfoClass('Capwapdot11Profile_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'capwapDot11Profile',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voicedid_Identity' : {
-        'meta_info' : _MetaInfoClass('Voicedid_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceDID',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Shdsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Shdsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'shdsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceem_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceem_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceEM',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Compositelink_Identity' : {
-        'meta_info' : _MetaInfoClass('Compositelink_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'compositeLink',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propatm_Identity' : {
-        'meta_info' : _MetaInfoClass('Propatm_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propAtm',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Rsrb_Identity' : {
-        'meta_info' : _MetaInfoClass('Rsrb_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'rsrb',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88025Crfpint_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88025Crfpint_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88025CRFPInt',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Proteon10Mbit_Identity' : {
-        'meta_info' : _MetaInfoClass('Proteon10Mbit_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'proteon10Mbit',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Econet_Identity' : {
-        'meta_info' : _MetaInfoClass('Econet_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'econet',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ifvfitype_Identity' : {
-        'meta_info' : _MetaInfoClass('Ifvfitype_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ifVfiType',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Interleave_Identity' : {
-        'meta_info' : _MetaInfoClass('Interleave_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'interleave',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmbond_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmbond_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmbond',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'V35_Identity' : {
-        'meta_info' : _MetaInfoClass('V35_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'v35',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Frf16Mfrbundle_Identity' : {
-        'meta_info' : _MetaInfoClass('Frf16Mfrbundle_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frf16MfrBundle',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'X86Laps_Identity' : {
-        'meta_info' : _MetaInfoClass('X86Laps_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'x86Laps',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Other_Identity' : {
-        'meta_info' : _MetaInfoClass('Other_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'other',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Cctemul_Identity' : {
-        'meta_info' : _MetaInfoClass('Cctemul_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'cctEmul',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'IfGsn_Identity' : {
-        'meta_info' : _MetaInfoClass('IfGsn_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'if-gsn',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mplstunnel_Identity' : {
-        'meta_info' : _MetaInfoClass('Mplstunnel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mplsTunnel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voicefgdeana_Identity' : {
-        'meta_info' : _MetaInfoClass('Voicefgdeana_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceFGDEANA',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Gpon_Identity' : {
-        'meta_info' : _MetaInfoClass('Gpon_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gpon',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Isup_Identity' : {
-        'meta_info' : _MetaInfoClass('Isup_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'isup',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Vdsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Vdsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'vdsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pos_Identity' : {
-        'meta_info' : _MetaInfoClass('Pos_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pos',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'G9982_Identity' : {
-        'meta_info' : _MetaInfoClass('G9982_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'g9982',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ieee8023Adlag_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee8023Adlag_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ieee8023adLag',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Bridge_Identity' : {
-        'meta_info' : _MetaInfoClass('Bridge_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'bridge',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Gtp_Identity' : {
-        'meta_info' : _MetaInfoClass('Gtp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gtp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscablemaclayer_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscablemaclayer_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableMaclayer',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Opticalchannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Opticalchannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'opticalChannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Isdnu_Identity' : {
-        'meta_info' : _MetaInfoClass('Isdnu_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'isdnu',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aflane8025_Identity' : {
-        'meta_info' : _MetaInfoClass('Aflane8025_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aflane8025',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscablemcmtsdownstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscablemcmtsdownstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableMCmtsDownstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pdnetherloop1_Identity' : {
-        'meta_info' : _MetaInfoClass('Pdnetherloop1_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pdnEtherLoop1',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aviciopticalether_Identity' : {
-        'meta_info' : _MetaInfoClass('Aviciopticalether_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aviciOpticalEther',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Framerelay_Identity' : {
-        'meta_info' : _MetaInfoClass('Framerelay_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frameRelay',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88022Llc_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88022Llc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88022llc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ppp_Identity' : {
-        'meta_info' : _MetaInfoClass('Ppp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ppp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Cabledownstreamrfport_Identity' : {
-        'meta_info' : _MetaInfoClass('Cabledownstreamrfport_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'cableDownstreamRfPort',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Eplrs_Identity' : {
-        'meta_info' : _MetaInfoClass('Eplrs_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'eplrs',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pip_Identity' : {
-        'meta_info' : _MetaInfoClass('Pip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Vmwarenicteam_Identity' : {
-        'meta_info' : _MetaInfoClass('Vmwarenicteam_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'vmwareNicTeam',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Lapd_Identity' : {
-        'meta_info' : _MetaInfoClass('Lapd_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'lapd',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Lapb_Identity' : {
-        'meta_info' : _MetaInfoClass('Lapb_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'lapb',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voicefxo_Identity' : {
-        'meta_info' : _MetaInfoClass('Voicefxo_Identity',
+    'VoicefxoIdentity' : {
+        'meta_info' : _MetaInfoClass('VoicefxoIdentity',
             False, 
             [
             ],
@@ -1202,206 +36,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Channel_Identity' : {
-        'meta_info' : _MetaInfoClass('Channel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'channel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Frforward_Identity' : {
-        'meta_info' : _MetaInfoClass('Frforward_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frForward',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ieee80211_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee80211_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ieee80211',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Transphdlc_Identity' : {
-        'meta_info' : _MetaInfoClass('Transphdlc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'transpHdlc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'X213_Identity' : {
-        'meta_info' : _MetaInfoClass('X213_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'x213',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Macsecuncontrolledif_Identity' : {
-        'meta_info' : _MetaInfoClass('Macsecuncontrolledif_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'macSecUncontrolledIF',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Virtualipaddress_Identity' : {
-        'meta_info' : _MetaInfoClass('Virtualipaddress_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'virtualIpAddress',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88023Csmacd_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88023Csmacd_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88023Csmacd',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aluepon_Identity' : {
-        'meta_info' : _MetaInfoClass('Aluepon_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluEpon',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Usb_Identity' : {
-        'meta_info' : _MetaInfoClass('Usb_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'usb',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmfuni_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmfuni_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmFuni',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Gr303Rdt_Identity' : {
-        'meta_info' : _MetaInfoClass('Gr303Rdt_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gr303RDT',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88026Man_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88026Man_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88026Man',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Telink_Identity' : {
-        'meta_info' : _MetaInfoClass('Telink_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'teLink',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pon622_Identity' : {
-        'meta_info' : _MetaInfoClass('Pon622_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pon622',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88024Tokenbus_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88024Tokenbus_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88024TokenBus',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbasiin_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbasiin_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbAsiIn',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Pdnetherloop2_Identity' : {
-        'meta_info' : _MetaInfoClass('Pdnetherloop2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'pdnEtherLoop2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmvciendpt_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmvciendpt_Identity',
+    'AtmvciendptIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmvciendptIdentity',
             False, 
             [
             ],
@@ -1411,52 +47,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Alueponphysicaluni_Identity' : {
-        'meta_info' : _MetaInfoClass('Alueponphysicaluni_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluEponPhysicalUni',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Tdlc_Identity' : {
-        'meta_info' : _MetaInfoClass('Tdlc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'tdlc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Imt_Identity' : {
-        'meta_info' : _MetaInfoClass('Imt_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'imt',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ds0Bundle_Identity' : {
-        'meta_info' : _MetaInfoClass('Ds0Bundle_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ds0Bundle',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propbwap2Mp_Identity' : {
-        'meta_info' : _MetaInfoClass('Propbwap2Mp_Identity',
+    'Propbwap2MpIdentity' : {
+        'meta_info' : _MetaInfoClass('Propbwap2MpIdentity',
             False, 
             [
             ],
@@ -1466,63 +58,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Propdocswirelessmaclayer_Identity' : {
-        'meta_info' : _MetaInfoClass('Propdocswirelessmaclayer_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propDocsWirelessMaclayer',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propvirtual_Identity' : {
-        'meta_info' : _MetaInfoClass('Propvirtual_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propVirtual',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ieee1394_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee1394_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ieee1394',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mpls_Identity' : {
-        'meta_info' : _MetaInfoClass('Mpls_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mpls',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'V37_Identity' : {
-        'meta_info' : _MetaInfoClass('V37_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'v37',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propdocswirelessdownstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Propdocswirelessdownstream_Identity',
+    'PropdocswirelessdownstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('PropdocswirelessdownstreamIdentity',
             False, 
             [
             ],
@@ -1532,63 +69,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Bgppolicyaccounting_Identity' : {
-        'meta_info' : _MetaInfoClass('Bgppolicyaccounting_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'bgppolicyaccounting',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Primaryisdn_Identity' : {
-        'meta_info' : _MetaInfoClass('Primaryisdn_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'primaryISDN',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Adsl2_Identity' : {
-        'meta_info' : _MetaInfoClass('Adsl2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'adsl2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ip_Identity' : {
-        'meta_info' : _MetaInfoClass('Ip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hssi_Identity' : {
-        'meta_info' : _MetaInfoClass('Hssi_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hssi',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'V11_Identity' : {
-        'meta_info' : _MetaInfoClass('V11_Identity',
+    'V11Identity' : {
+        'meta_info' : _MetaInfoClass('V11Identity',
             False, 
             [
             ],
@@ -1598,30 +80,19 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Propwirelessp2P_Identity' : {
-        'meta_info' : _MetaInfoClass('Propwirelessp2P_Identity',
+    'SoftwareloopbackIdentity' : {
+        'meta_info' : _MetaInfoClass('SoftwareloopbackIdentity',
             False, 
             [
             ],
             'iana-if-type',
-            'propWirelessP2P',
+            'softwareLoopback',
             _yang_ns._namespaces['iana-if-type'],
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Radiomac_Identity' : {
-        'meta_info' : _MetaInfoClass('Radiomac_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'radioMAC',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hdlc_Identity' : {
-        'meta_info' : _MetaInfoClass('Hdlc_Identity',
+    'HdlcIdentity' : {
+        'meta_info' : _MetaInfoClass('HdlcIdentity',
             False, 
             [
             ],
@@ -1631,19 +102,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Siptg_Identity' : {
-        'meta_info' : _MetaInfoClass('Siptg_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sipTg',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voicefgdos_Identity' : {
-        'meta_info' : _MetaInfoClass('Voicefgdos_Identity',
+    'VoicefgdosIdentity' : {
+        'meta_info' : _MetaInfoClass('VoicefgdosIdentity',
             False, 
             [
             ],
@@ -1653,30 +113,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Dtm_Identity' : {
-        'meta_info' : _MetaInfoClass('Dtm_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dtm',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aluepononu_Identity' : {
-        'meta_info' : _MetaInfoClass('Aluepononu_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluEponOnu',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Fastetherfx_Identity' : {
-        'meta_info' : _MetaInfoClass('Fastetherfx_Identity',
+    'FastetherfxIdentity' : {
+        'meta_info' : _MetaInfoClass('FastetherfxIdentity',
             False, 
             [
             ],
@@ -1686,41 +124,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Atmlogical_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmlogical_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmLogical',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Regular1822_Identity' : {
-        'meta_info' : _MetaInfoClass('Regular1822_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'regular1822',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Msdsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Msdsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'msdsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbtdm_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbtdm_Identity',
+    'DvbtdmIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbtdmIdentity',
             False, 
             [
             ],
@@ -1730,19 +135,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Voiceemfgd_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceemfgd_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceEMFGD',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Nfas_Identity' : {
-        'meta_info' : _MetaInfoClass('Nfas_Identity',
+    'NfasIdentity' : {
+        'meta_info' : _MetaInfoClass('NfasIdentity',
             False, 
             [
             ],
@@ -1752,19 +146,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Async_Identity' : {
-        'meta_info' : _MetaInfoClass('Async_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'async',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ifpwtype_Identity' : {
-        'meta_info' : _MetaInfoClass('Ifpwtype_Identity',
+    'IfpwtypeIdentity' : {
+        'meta_info' : _MetaInfoClass('IfpwtypeIdentity',
             False, 
             [
             ],
@@ -1774,19 +157,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Atmima_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmima_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmIma',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'L2Vlan_Identity' : {
-        'meta_info' : _MetaInfoClass('L2Vlan_Identity',
+    'L2VlanIdentity' : {
+        'meta_info' : _MetaInfoClass('L2VlanIdentity',
             False, 
             [
             ],
@@ -1796,30 +168,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Sonet_Identity' : {
-        'meta_info' : _MetaInfoClass('Sonet_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sonet',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Wwanpp_Identity' : {
-        'meta_info' : _MetaInfoClass('Wwanpp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'wwanPP',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Adsl2Plus_Identity' : {
-        'meta_info' : _MetaInfoClass('Adsl2Plus_Identity',
+    'Adsl2PlusIdentity' : {
+        'meta_info' : _MetaInfoClass('Adsl2PlusIdentity',
             False, 
             [
             ],
@@ -1829,74 +179,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'G703At2Mb_Identity' : {
-        'meta_info' : _MetaInfoClass('G703At2Mb_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'g703at2mb',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Opticalchannelgroup_Identity' : {
-        'meta_info' : _MetaInfoClass('Opticalchannelgroup_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'opticalChannelGroup',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbrccmaclayer_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbrccmaclayer_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbRccMacLayer',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voicefxs_Identity' : {
-        'meta_info' : _MetaInfoClass('Voicefxs_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceFXS',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscableupstreamchannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscableupstreamchannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableUpstreamChannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propdocswirelessupstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Propdocswirelessupstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propDocsWirelessUpstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ieee802154_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee802154_Identity',
+    'Ieee802154Identity' : {
+        'meta_info' : _MetaInfoClass('Ieee802154Identity',
             False, 
             [
             ],
@@ -1906,261 +190,19 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Fddi_Identity' : {
-        'meta_info' : _MetaInfoClass('Fddi_Identity',
+    'VoicefxsIdentity' : {
+        'meta_info' : _MetaInfoClass('VoicefxsIdentity',
             False, 
             [
             ],
             'iana-if-type',
-            'fddi',
+            'voiceFXS',
             _yang_ns._namespaces['iana-if-type'],
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Hdsl2_Identity' : {
-        'meta_info' : _MetaInfoClass('Hdsl2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hdsl2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Q2931_Identity' : {
-        'meta_info' : _MetaInfoClass('Q2931_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'q2931',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Termpad_Identity' : {
-        'meta_info' : _MetaInfoClass('Termpad_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'termPad',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dcn_Identity' : {
-        'meta_info' : _MetaInfoClass('Dcn_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dcn',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Infiniband_Identity' : {
-        'meta_info' : _MetaInfoClass('Infiniband_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'infiniband',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ddnx25_Identity' : {
-        'meta_info' : _MetaInfoClass('Ddnx25_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ddnX25',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Proteon80Mbit_Identity' : {
-        'meta_info' : _MetaInfoClass('Proteon80Mbit_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'proteon80Mbit',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Wwanpp2_Identity' : {
-        'meta_info' : _MetaInfoClass('Wwanpp2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'wwanPP2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscableupstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscableupstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableUpstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sixtofour_Identity' : {
-        'meta_info' : _MetaInfoClass('Sixtofour_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sixToFour',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Eon_Identity' : {
-        'meta_info' : _MetaInfoClass('Eon_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'eon',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ciscoislvlan_Identity' : {
-        'meta_info' : _MetaInfoClass('Ciscoislvlan_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ciscoISLvlan',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ethernet3Mbit_Identity' : {
-        'meta_info' : _MetaInfoClass('Ethernet3Mbit_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ethernet3Mbit',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Gr303Idt_Identity' : {
-        'meta_info' : _MetaInfoClass('Gr303Idt_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gr303IDT',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmdxi_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmdxi_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmDxi',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Docscableupstreamrfport_Identity' : {
-        'meta_info' : _MetaInfoClass('Docscableupstreamrfport_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'docsCableUpstreamRfPort',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Frdlciendpt_Identity' : {
-        'meta_info' : _MetaInfoClass('Frdlciendpt_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'frDlciEndPt',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbrccupstream_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbrccupstream_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbRccUpstream',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Cnr_Identity' : {
-        'meta_info' : _MetaInfoClass('Cnr_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'cnr',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aal5_Identity' : {
-        'meta_info' : _MetaInfoClass('Aal5_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aal5',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'H323Proxy_Identity' : {
-        'meta_info' : _MetaInfoClass('H323Proxy_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'h323Proxy',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Slip_Identity' : {
-        'meta_info' : _MetaInfoClass('Slip_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'slip',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dvbrcsmaclayer_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbrcsmaclayer_Identity',
+    'DvbrcsmaclayerIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbrcsmaclayerIdentity',
             False, 
             [
             ],
@@ -2170,283 +212,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Hippiinterface_Identity' : {
-        'meta_info' : _MetaInfoClass('Hippiinterface_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hippiInterface',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ipoveratm_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipoveratm_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ipOverAtm',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceoverframerelay_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceoverframerelay_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceOverFrameRelay',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'L3Ipvlan_Identity' : {
-        'meta_info' : _MetaInfoClass('L3Ipvlan_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'l3ipvlan',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Alugponphysicaluni_Identity' : {
-        'meta_info' : _MetaInfoClass('Alugponphysicaluni_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluGponPhysicalUni',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Miox25_Identity' : {
-        'meta_info' : _MetaInfoClass('Miox25_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'miox25',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Para_Identity' : {
-        'meta_info' : _MetaInfoClass('Para_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'para',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sipsig_Identity' : {
-        'meta_info' : _MetaInfoClass('Sipsig_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sipSig',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ipswitch_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipswitch_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ipSwitch',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88025Tokenring_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88025Tokenring_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'iso88025TokenRing',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Atmvirtual_Identity' : {
-        'meta_info' : _MetaInfoClass('Atmvirtual_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'atmVirtual',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hiperlan2_Identity' : {
-        'meta_info' : _MetaInfoClass('Hiperlan2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'hiperlan2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Qam_Identity' : {
-        'meta_info' : _MetaInfoClass('Qam_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'qam',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Alugpononu_Identity' : {
-        'meta_info' : _MetaInfoClass('Alugpononu_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aluGponOnu',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Tunnel_Identity' : {
-        'meta_info' : _MetaInfoClass('Tunnel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'tunnel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Rfc1483_Identity' : {
-        'meta_info' : _MetaInfoClass('Rfc1483_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'rfc1483',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Isdn_Identity' : {
-        'meta_info' : _MetaInfoClass('Isdn_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'isdn',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Gfp_Identity' : {
-        'meta_info' : _MetaInfoClass('Gfp_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gfp',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Smdsdxi_Identity' : {
-        'meta_info' : _MetaInfoClass('Smdsdxi_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'smdsDxi',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Proppointtopointserial_Identity' : {
-        'meta_info' : _MetaInfoClass('Proppointtopointserial_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propPointToPointSerial',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceoveratm_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceoveratm_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceOverAtm',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'L3Ipxvlan_Identity' : {
-        'meta_info' : _MetaInfoClass('L3Ipxvlan_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'l3ipxvlan',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Voiceebs_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceebs_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'voiceEBS',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Myrinet_Identity' : {
-        'meta_info' : _MetaInfoClass('Myrinet_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'myrinet',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Arap_Identity' : {
-        'meta_info' : _MetaInfoClass('Arap_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'arap',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Idsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Idsl_Identity',
+    'IdslIdentity' : {
+        'meta_info' : _MetaInfoClass('IdslIdentity',
             False, 
             [
             ],
@@ -2456,8 +223,195 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Fastether_Identity' : {
-        'meta_info' : _MetaInfoClass('Fastether_Identity',
+    'InfinibandIdentity' : {
+        'meta_info' : _MetaInfoClass('InfinibandIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'infiniband',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ddnx25Identity' : {
+        'meta_info' : _MetaInfoClass('Ddnx25Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ddnX25',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Wwanpp2Identity' : {
+        'meta_info' : _MetaInfoClass('Wwanpp2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'wwanPP2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscableupstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscableupstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableUpstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ethernet3MbitIdentity' : {
+        'meta_info' : _MetaInfoClass('Ethernet3MbitIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ethernet3Mbit',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DigitalpowerlineIdentity' : {
+        'meta_info' : _MetaInfoClass('DigitalpowerlineIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'digitalPowerline',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'H323ProxyIdentity' : {
+        'meta_info' : _MetaInfoClass('H323ProxyIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'h323Proxy',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'GtpIdentity' : {
+        'meta_info' : _MetaInfoClass('GtpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gtp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IpoveratmIdentity' : {
+        'meta_info' : _MetaInfoClass('IpoveratmIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ipOverAtm',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AlueponIdentity' : {
+        'meta_info' : _MetaInfoClass('AlueponIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluEpon',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ImtIdentity' : {
+        'meta_info' : _MetaInfoClass('ImtIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'imt',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IpswitchIdentity' : {
+        'meta_info' : _MetaInfoClass('IpswitchIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ipSwitch',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MsdslIdentity' : {
+        'meta_info' : _MetaInfoClass('MsdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'msdsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbrccmaclayerIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbrccmaclayerIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbRccMacLayer',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SmdsdxiIdentity' : {
+        'meta_info' : _MetaInfoClass('SmdsdxiIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'smdsDxi',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceoveratmIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceoveratmIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceOverAtm',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ArapIdentity' : {
+        'meta_info' : _MetaInfoClass('ArapIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'arap',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FastetherIdentity' : {
+        'meta_info' : _MetaInfoClass('FastetherIdentity',
             False, 
             [
             ],
@@ -2467,8 +421,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Mpc_Identity' : {
-        'meta_info' : _MetaInfoClass('Mpc_Identity',
+    'MpcIdentity' : {
+        'meta_info' : _MetaInfoClass('MpcIdentity',
             False, 
             [
             ],
@@ -2478,19 +432,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Sonetoverheadchannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Sonetoverheadchannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sonetOverheadChannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Linegroup_Identity' : {
-        'meta_info' : _MetaInfoClass('Linegroup_Identity',
+    'LinegroupIdentity' : {
+        'meta_info' : _MetaInfoClass('LinegroupIdentity',
             False, 
             [
             ],
@@ -2500,30 +443,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Homepna_Identity' : {
-        'meta_info' : _MetaInfoClass('Homepna_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'homepna',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ultra_Identity' : {
-        'meta_info' : _MetaInfoClass('Ultra_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ultra',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hippi_Identity' : {
-        'meta_info' : _MetaInfoClass('Hippi_Identity',
+    'HippiIdentity' : {
+        'meta_info' : _MetaInfoClass('HippiIdentity',
             False, 
             [
             ],
@@ -2533,41 +454,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Adsl_Identity' : {
-        'meta_info' : _MetaInfoClass('Adsl_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'adsl',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Dlsw_Identity' : {
-        'meta_info' : _MetaInfoClass('Dlsw_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dlsw',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'H323Gatekeeper_Identity' : {
-        'meta_info' : _MetaInfoClass('H323Gatekeeper_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'h323Gatekeeper',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Rpr_Identity' : {
-        'meta_info' : _MetaInfoClass('Rpr_Identity',
+    'RprIdentity' : {
+        'meta_info' : _MetaInfoClass('RprIdentity',
             False, 
             [
             ],
@@ -2577,8 +465,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Ds1Fdl_Identity' : {
-        'meta_info' : _MetaInfoClass('Ds1Fdl_Identity',
+    'Ds1FdlIdentity' : {
+        'meta_info' : _MetaInfoClass('Ds1FdlIdentity',
             False, 
             [
             ],
@@ -2588,30 +476,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Basicisdn_Identity' : {
-        'meta_info' : _MetaInfoClass('Basicisdn_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'basicISDN',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Propcnls_Identity' : {
-        'meta_info' : _MetaInfoClass('Propcnls_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'propCnls',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sonetvt_Identity' : {
-        'meta_info' : _MetaInfoClass('Sonetvt_Identity',
+    'SonetvtIdentity' : {
+        'meta_info' : _MetaInfoClass('SonetvtIdentity',
             False, 
             [
             ],
@@ -2621,8 +487,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Voiceencap_Identity' : {
-        'meta_info' : _MetaInfoClass('Voiceencap_Identity',
+    'VoiceencapIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceencapIdentity',
             False, 
             [
             ],
@@ -2632,30 +498,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Ipovercdlc_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipovercdlc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ipOverCdlc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Fast_Identity' : {
-        'meta_info' : _MetaInfoClass('Fast_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'fast',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ss7Siglink_Identity' : {
-        'meta_info' : _MetaInfoClass('Ss7Siglink_Identity',
+    'Ss7SiglinkIdentity' : {
+        'meta_info' : _MetaInfoClass('Ss7SiglinkIdentity',
             False, 
             [
             ],
@@ -2665,19 +509,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Bsc_Identity' : {
-        'meta_info' : _MetaInfoClass('Bsc_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'bsc',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Arcnet_Identity' : {
-        'meta_info' : _MetaInfoClass('Arcnet_Identity',
+    'ArcnetIdentity' : {
+        'meta_info' : _MetaInfoClass('ArcnetIdentity',
             False, 
             [
             ],
@@ -2687,19 +520,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Gigabitethernet_Identity' : {
-        'meta_info' : _MetaInfoClass('Gigabitethernet_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'gigabitEthernet',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Actelismetaloop_Identity' : {
-        'meta_info' : _MetaInfoClass('Actelismetaloop_Identity',
+    'ActelismetaloopIdentity' : {
+        'meta_info' : _MetaInfoClass('ActelismetaloopIdentity',
             False, 
             [
             ],
@@ -2709,52 +531,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Escon_Identity' : {
-        'meta_info' : _MetaInfoClass('Escon_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'escon',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Capwapwtpvirtualradio_Identity' : {
-        'meta_info' : _MetaInfoClass('Capwapwtpvirtualradio_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'capwapWtpVirtualRadio',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Aal2_Identity' : {
-        'meta_info' : _MetaInfoClass('Aal2_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'aal2',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Digitalwrapperoverheadchannel_Identity' : {
-        'meta_info' : _MetaInfoClass('Digitalwrapperoverheadchannel_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'digitalWrapperOverheadChannel',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Qllc_Identity' : {
-        'meta_info' : _MetaInfoClass('Qllc_Identity',
+    'QllcIdentity' : {
+        'meta_info' : _MetaInfoClass('QllcIdentity',
             False, 
             [
             ],
@@ -2764,19 +542,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Bits_Identity' : {
-        'meta_info' : _MetaInfoClass('Bits_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'bits',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Rfc877X25_Identity' : {
-        'meta_info' : _MetaInfoClass('Rfc877X25_Identity',
+    'Rfc877X25Identity' : {
+        'meta_info' : _MetaInfoClass('Rfc877X25Identity',
             False, 
             [
             ],
@@ -2786,19 +553,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Vmwarevirtualnic_Identity' : {
-        'meta_info' : _MetaInfoClass('Vmwarevirtualnic_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'vmwareVirtualNic',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mpegtransport_Identity' : {
-        'meta_info' : _MetaInfoClass('Mpegtransport_Identity',
+    'MpegtransportIdentity' : {
+        'meta_info' : _MetaInfoClass('MpegtransportIdentity',
             False, 
             [
             ],
@@ -2808,52 +564,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Stacktostack_Identity' : {
-        'meta_info' : _MetaInfoClass('Stacktostack_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'stackToStack',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Isdns_Identity' : {
-        'meta_info' : _MetaInfoClass('Isdns_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'isdns',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Mfsiglink_Identity' : {
-        'meta_info' : _MetaInfoClass('Mfsiglink_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'mfSigLink',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Sonetpath_Identity' : {
-        'meta_info' : _MetaInfoClass('Sonetpath_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'sonetPath',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'X25Mlp_Identity' : {
-        'meta_info' : _MetaInfoClass('X25Mlp_Identity',
+    'X25MlpIdentity' : {
+        'meta_info' : _MetaInfoClass('X25MlpIdentity',
             False, 
             [
             ],
@@ -2863,8 +575,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Virtualtg_Identity' : {
-        'meta_info' : _MetaInfoClass('Virtualtg_Identity',
+    'VirtualtgIdentity' : {
+        'meta_info' : _MetaInfoClass('VirtualtgIdentity',
             False, 
             [
             ],
@@ -2874,19 +586,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Dvbasiout_Identity' : {
-        'meta_info' : _MetaInfoClass('Dvbasiout_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'dvbAsiOut',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Hostpad_Identity' : {
-        'meta_info' : _MetaInfoClass('Hostpad_Identity',
+    'HostpadIdentity' : {
+        'meta_info' : _MetaInfoClass('HostpadIdentity',
             False, 
             [
             ],
@@ -2896,19 +597,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Ieee80212_Identity' : {
-        'meta_info' : _MetaInfoClass('Ieee80212_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ieee80212',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Starlan_Identity' : {
-        'meta_info' : _MetaInfoClass('Starlan_Identity',
+    'StarlanIdentity' : {
+        'meta_info' : _MetaInfoClass('StarlanIdentity',
             False, 
             [
             ],
@@ -2918,30 +608,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Cblvectastar_Identity' : {
-        'meta_info' : _MetaInfoClass('Cblvectastar_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'cblVectaStar',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ipforward_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipforward_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'ipForward',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Iso88025Dtr_Identity' : {
-        'meta_info' : _MetaInfoClass('Iso88025Dtr_Identity',
+    'Iso88025DtrIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88025DtrIdentity',
             False, 
             [
             ],
@@ -2951,41 +619,8 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Macseccontrolledif_Identity' : {
-        'meta_info' : _MetaInfoClass('Macseccontrolledif_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'macSecControlledIF',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'X25Ple_Identity' : {
-        'meta_info' : _MetaInfoClass('X25Ple_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'x25ple',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'G9981_Identity' : {
-        'meta_info' : _MetaInfoClass('G9981_Identity',
-            False, 
-            [
-            ],
-            'iana-if-type',
-            'g9981',
-            _yang_ns._namespaces['iana-if-type'],
-        'ydk.models.iana.iana_if_type'
-        ),
-    },
-    'Ibm370Parchan_Identity' : {
-        'meta_info' : _MetaInfoClass('Ibm370Parchan_Identity',
+    'Ibm370ParchanIdentity' : {
+        'meta_info' : _MetaInfoClass('Ibm370ParchanIdentity',
             False, 
             [
             ],
@@ -2995,8 +630,591 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Fciplink_Identity' : {
-        'meta_info' : _MetaInfoClass('Fciplink_Identity',
+    'Adsl2Identity' : {
+        'meta_info' : _MetaInfoClass('Adsl2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'adsl2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OtnotuIdentity' : {
+        'meta_info' : _MetaInfoClass('OtnotuIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'otnOtu',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Propwirelessp2PIdentity' : {
+        'meta_info' : _MetaInfoClass('Propwirelessp2PIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propWirelessP2P',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'InterleaveIdentity' : {
+        'meta_info' : _MetaInfoClass('InterleaveIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'interleave',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IsupIdentity' : {
+        'meta_info' : _MetaInfoClass('IsupIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'isup',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Regular1822Identity' : {
+        'meta_info' : _MetaInfoClass('Regular1822Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'regular1822',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Gr303RdtIdentity' : {
+        'meta_info' : _MetaInfoClass('Gr303RdtIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gr303RDT',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropdocswirelessmaclayerIdentity' : {
+        'meta_info' : _MetaInfoClass('PropdocswirelessmaclayerIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propDocsWirelessMaclayer',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AsyncIdentity' : {
+        'meta_info' : _MetaInfoClass('AsyncIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'async',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'RadiomacIdentity' : {
+        'meta_info' : _MetaInfoClass('RadiomacIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'radioMAC',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OpticalchannelgroupIdentity' : {
+        'meta_info' : _MetaInfoClass('OpticalchannelgroupIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'opticalChannelGroup',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SixtofourIdentity' : {
+        'meta_info' : _MetaInfoClass('SixtofourIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sixToFour',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropdocswirelessupstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('PropdocswirelessupstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propDocsWirelessUpstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Q2931Identity' : {
+        'meta_info' : _MetaInfoClass('Q2931Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'q2931',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FddiIdentity' : {
+        'meta_info' : _MetaInfoClass('FddiIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'fddi',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropcnlsIdentity' : {
+        'meta_info' : _MetaInfoClass('PropcnlsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propCnls',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Aal2Identity' : {
+        'meta_info' : _MetaInfoClass('Aal2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aal2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbasioutIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbasioutIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbAsiOut',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AluelpIdentity' : {
+        'meta_info' : _MetaInfoClass('AluelpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluELP',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CiscoislvlanIdentity' : {
+        'meta_info' : _MetaInfoClass('CiscoislvlanIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ciscoISLvlan',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscableupstreamrfportIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscableupstreamrfportIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableUpstreamRfPort',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Aal5Identity' : {
+        'meta_info' : _MetaInfoClass('Aal5Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aal5',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FrdlciendptIdentity' : {
+        'meta_info' : _MetaInfoClass('FrdlciendptIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frDlciEndPt',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'HippiinterfaceIdentity' : {
+        'meta_info' : _MetaInfoClass('HippiinterfaceIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hippiInterface',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'L3IpvlanIdentity' : {
+        'meta_info' : _MetaInfoClass('L3IpvlanIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'l3ipvlan',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Miox25Identity' : {
+        'meta_info' : _MetaInfoClass('Miox25Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'miox25',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'HssiIdentity' : {
+        'meta_info' : _MetaInfoClass('HssiIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hssi',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmvirtualIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmvirtualIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmVirtual',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AlugpononuIdentity' : {
+        'meta_info' : _MetaInfoClass('AlugpononuIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluGponOnu',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Rfc1483Identity' : {
+        'meta_info' : _MetaInfoClass('Rfc1483Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'rfc1483',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CnrIdentity' : {
+        'meta_info' : _MetaInfoClass('CnrIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'cnr',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SipsigIdentity' : {
+        'meta_info' : _MetaInfoClass('SipsigIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sipSig',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MyrinetIdentity' : {
+        'meta_info' : _MetaInfoClass('MyrinetIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'myrinet',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DlswIdentity' : {
+        'meta_info' : _MetaInfoClass('DlswIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dlsw',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'GigabitethernetIdentity' : {
+        'meta_info' : _MetaInfoClass('GigabitethernetIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gigabitEthernet',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'X25PleIdentity' : {
+        'meta_info' : _MetaInfoClass('X25PleIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'x25ple',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'LmpIdentity' : {
+        'meta_info' : _MetaInfoClass('LmpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'lmp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OpticaltransportIdentity' : {
+        'meta_info' : _MetaInfoClass('OpticaltransportIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'opticalTransport',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SdlcIdentity' : {
+        'meta_info' : _MetaInfoClass('SdlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sdlc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceemIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceemIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceEM',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'X86LapsIdentity' : {
+        'meta_info' : _MetaInfoClass('X86LapsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'x86Laps',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'G9982Identity' : {
+        'meta_info' : _MetaInfoClass('G9982Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'g9982',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88022LlcIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88022LlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88022llc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbasiinIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbasiinIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbAsiIn',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'BgppolicyaccountingIdentity' : {
+        'meta_info' : _MetaInfoClass('BgppolicyaccountingIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'bgppolicyaccounting',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AluepononuIdentity' : {
+        'meta_info' : _MetaInfoClass('AluepononuIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluEponOnu',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MfsiglinkIdentity' : {
+        'meta_info' : _MetaInfoClass('MfsiglinkIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mfSigLink',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DcnIdentity' : {
+        'meta_info' : _MetaInfoClass('DcnIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dcn',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmdxiIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmdxiIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmDxi',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceoverframerelayIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceoverframerelayIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceOverFrameRelay',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'GfpIdentity' : {
+        'meta_info' : _MetaInfoClass('GfpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gfp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SonetoverheadchannelIdentity' : {
+        'meta_info' : _MetaInfoClass('SonetoverheadchannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sonetOverheadChannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VmwarevirtualnicIdentity' : {
+        'meta_info' : _MetaInfoClass('VmwarevirtualnicIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'vmwareVirtualNic',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FciplinkIdentity' : {
+        'meta_info' : _MetaInfoClass('FciplinkIdentity',
             False, 
             [
             ],
@@ -3006,13 +1224,1795 @@ _meta_table = {
         'ydk.models.iana.iana_if_type'
         ),
     },
-    'Aluelp_Identity' : {
-        'meta_info' : _MetaInfoClass('Aluelp_Identity',
+    'IpoverclawIdentity' : {
+        'meta_info' : _MetaInfoClass('IpoverclawIdentity',
             False, 
             [
             ],
             'iana-if-type',
-            'aluELP',
+            'ipOverClaw',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CoffeeIdentity' : {
+        'meta_info' : _MetaInfoClass('CoffeeIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'coffee',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'RadslIdentity' : {
+        'meta_info' : _MetaInfoClass('RadslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'radsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Vdsl2Identity' : {
+        'meta_info' : _MetaInfoClass('Vdsl2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'vdsl2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Rs232Identity' : {
+        'meta_info' : _MetaInfoClass('Rs232Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'rs232',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'E1Identity' : {
+        'meta_info' : _MetaInfoClass('E1Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'e1',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ReachdslIdentity' : {
+        'meta_info' : _MetaInfoClass('ReachdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'reachDSL',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceovercableIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceovercableIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceOverCable',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Tr008Identity' : {
+        'meta_info' : _MetaInfoClass('Tr008Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'tr008',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceoveripIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceoveripIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceOverIp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atm',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ds3Identity' : {
+        'meta_info' : _MetaInfoClass('Ds3Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ds3',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ds0Identity' : {
+        'meta_info' : _MetaInfoClass('Ds0Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ds0',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ds1Identity' : {
+        'meta_info' : _MetaInfoClass('Ds1Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ds1',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SrpIdentity' : {
+        'meta_info' : _MetaInfoClass('SrpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'srp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscabledownstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscabledownstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableDownstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbrcstdmaIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbrcstdmaIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbRcsTdma',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'G9983Identity' : {
+        'meta_info' : _MetaInfoClass('G9983Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'g9983',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PlcIdentity' : {
+        'meta_info' : _MetaInfoClass('PlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'plc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FramerelaympiIdentity' : {
+        'meta_info' : _MetaInfoClass('FramerelaympiIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frameRelayMPI',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MvlIdentity' : {
+        'meta_info' : _MetaInfoClass('MvlIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mvl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropmultiplexorIdentity' : {
+        'meta_info' : _MetaInfoClass('PropmultiplexorIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propMultiplexor',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoicedidIdentity' : {
+        'meta_info' : _MetaInfoClass('VoicedidIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceDID',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CompositelinkIdentity' : {
+        'meta_info' : _MetaInfoClass('CompositelinkIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'compositeLink',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Proteon10MbitIdentity' : {
+        'meta_info' : _MetaInfoClass('Proteon10MbitIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'proteon10Mbit',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmbondIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmbondIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmbond',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Frf16MfrbundleIdentity' : {
+        'meta_info' : _MetaInfoClass('Frf16MfrbundleIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frf16MfrBundle',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CctemulIdentity' : {
+        'meta_info' : _MetaInfoClass('CctemulIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'cctEmul',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MplstunnelIdentity' : {
+        'meta_info' : _MetaInfoClass('MplstunnelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mplsTunnel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'GponIdentity' : {
+        'meta_info' : _MetaInfoClass('GponIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gpon',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VdslIdentity' : {
+        'meta_info' : _MetaInfoClass('VdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'vdsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PosIdentity' : {
+        'meta_info' : _MetaInfoClass('PosIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pos',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ieee8023AdlagIdentity' : {
+        'meta_info' : _MetaInfoClass('Ieee8023AdlagIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ieee8023adLag',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscablemaclayerIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscablemaclayerIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableMaclayer',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscablemcmtsdownstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscablemcmtsdownstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableMCmtsDownstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PppIdentity' : {
+        'meta_info' : _MetaInfoClass('PppIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ppp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FramerelayIdentity' : {
+        'meta_info' : _MetaInfoClass('FramerelayIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frameRelay',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'EplrsIdentity' : {
+        'meta_info' : _MetaInfoClass('EplrsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'eplrs',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VmwarenicteamIdentity' : {
+        'meta_info' : _MetaInfoClass('VmwarenicteamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'vmwareNicTeam',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CabledownstreamrfportIdentity' : {
+        'meta_info' : _MetaInfoClass('CabledownstreamrfportIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'cableDownstreamRfPort',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MacsecuncontrolledifIdentity' : {
+        'meta_info' : _MetaInfoClass('MacsecuncontrolledifIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'macSecUncontrolledIF',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88023CsmacdIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88023CsmacdIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88023Csmacd',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'UsbIdentity' : {
+        'meta_info' : _MetaInfoClass('UsbIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'usb',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmfuniIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmfuniIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmFuni',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'TelinkIdentity' : {
+        'meta_info' : _MetaInfoClass('TelinkIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'teLink',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Pon622Identity' : {
+        'meta_info' : _MetaInfoClass('Pon622Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pon622',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'EconetIdentity' : {
+        'meta_info' : _MetaInfoClass('EconetIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'econet',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'TdlcIdentity' : {
+        'meta_info' : _MetaInfoClass('TdlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'tdlc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ds0BundleIdentity' : {
+        'meta_info' : _MetaInfoClass('Ds0BundleIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ds0Bundle',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FastIdentity' : {
+        'meta_info' : _MetaInfoClass('FastIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'fast',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ieee1394Identity' : {
+        'meta_info' : _MetaInfoClass('Ieee1394Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ieee1394',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CblvectastarIdentity' : {
+        'meta_info' : _MetaInfoClass('CblvectastarIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'cblVectaStar',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'RsrbIdentity' : {
+        'meta_info' : _MetaInfoClass('RsrbIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'rsrb',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FramerelayinterconnectIdentity' : {
+        'meta_info' : _MetaInfoClass('FramerelayinterconnectIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frameRelayInterconnect',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IsdnsIdentity' : {
+        'meta_info' : _MetaInfoClass('IsdnsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'isdns',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PppmultilinkbundleIdentity' : {
+        'meta_info' : _MetaInfoClass('PppmultilinkbundleIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pppMultilinkBundle',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Aflane8025Identity' : {
+        'meta_info' : _MetaInfoClass('Aflane8025Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aflane8025',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'LapbIdentity' : {
+        'meta_info' : _MetaInfoClass('LapbIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'lapb',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Aflane8023Identity' : {
+        'meta_info' : _MetaInfoClass('Aflane8023Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aflane8023',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'LapdIdentity' : {
+        'meta_info' : _MetaInfoClass('LapdIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'lapd',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IsdnuIdentity' : {
+        'meta_info' : _MetaInfoClass('IsdnuIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'isdnu',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'LapfIdentity' : {
+        'meta_info' : _MetaInfoClass('LapfIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'lapf',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CapwapwtpvirtualradioIdentity' : {
+        'meta_info' : _MetaInfoClass('CapwapwtpvirtualradioIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'capwapWtpVirtualRadio',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IfvfitypeIdentity' : {
+        'meta_info' : _MetaInfoClass('IfvfitypeIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ifVfiType',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'X25HuntgroupIdentity' : {
+        'meta_info' : _MetaInfoClass('X25HuntgroupIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'x25huntGroup',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ParaIdentity' : {
+        'meta_info' : _MetaInfoClass('ParaIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'para',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MacseccontrolledifIdentity' : {
+        'meta_info' : _MetaInfoClass('MacseccontrolledifIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'macSecControlledIF',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88024TokenbusIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88024TokenbusIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88024TokenBus',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'LocaltalkIdentity' : {
+        'meta_info' : _MetaInfoClass('LocaltalkIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'localTalk',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'HyperchannelIdentity' : {
+        'meta_info' : _MetaInfoClass('HyperchannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hyperchannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MediamailoveripIdentity' : {
+        'meta_info' : _MetaInfoClass('MediamailoveripIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mediaMailOverIp',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IfGsnIdentity' : {
+        'meta_info' : _MetaInfoClass('IfGsnIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'if-gsn',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Capwapdot11ProfileIdentity' : {
+        'meta_info' : _MetaInfoClass('Capwapdot11ProfileIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'capwapDot11Profile',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'L3IpxvlanIdentity' : {
+        'meta_info' : _MetaInfoClass('L3IpxvlanIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'l3ipxvlan',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmsubinterfaceIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmsubinterfaceIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmSubInterface',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PrimaryisdnIdentity' : {
+        'meta_info' : _MetaInfoClass('PrimaryisdnIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'primaryISDN',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Proteon80MbitIdentity' : {
+        'meta_info' : _MetaInfoClass('Proteon80MbitIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'proteon80Mbit',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88026ManIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88026ManIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88026Man',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DigitalwrapperoverheadchannelIdentity' : {
+        'meta_info' : _MetaInfoClass('DigitalwrapperoverheadchannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'digitalWrapperOverheadChannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DocscableupstreamchannelIdentity' : {
+        'meta_info' : _MetaInfoClass('DocscableupstreamchannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'docsCableUpstreamChannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OpticalchannelIdentity' : {
+        'meta_info' : _MetaInfoClass('OpticalchannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'opticalChannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'EthernetcsmacdIdentity' : {
+        'meta_info' : _MetaInfoClass('EthernetcsmacdIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ethernetCsmacd',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'BitsIdentity' : {
+        'meta_info' : _MetaInfoClass('BitsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'bits',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'TunnelIdentity' : {
+        'meta_info' : _MetaInfoClass('TunnelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'tunnel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Hdsl2Identity' : {
+        'meta_info' : _MetaInfoClass('Hdsl2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hdsl2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FramerelayserviceIdentity' : {
+        'meta_info' : _MetaInfoClass('FramerelayserviceIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frameRelayService',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'MplsIdentity' : {
+        'meta_info' : _MetaInfoClass('MplsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mpls',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ieee80211Identity' : {
+        'meta_info' : _MetaInfoClass('Ieee80211Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ieee80211',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ieee80212Identity' : {
+        'meta_info' : _MetaInfoClass('Ieee80212Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ieee80212',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Mocaversion1Identity' : {
+        'meta_info' : _MetaInfoClass('Mocaversion1Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'mocaVersion1',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SonetIdentity' : {
+        'meta_info' : _MetaInfoClass('SonetIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sonet',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'EsconIdentity' : {
+        'meta_info' : _MetaInfoClass('EsconIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'escon',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AlueponlogicallinkIdentity' : {
+        'meta_info' : _MetaInfoClass('AlueponlogicallinkIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluEponLogicalLink',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'G703At2MbIdentity' : {
+        'meta_info' : _MetaInfoClass('G703At2MbIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'g703at2mb',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'UltraIdentity' : {
+        'meta_info' : _MetaInfoClass('UltraIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ultra',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbrccdownstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbrccdownstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbRccDownstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SiptgIdentity' : {
+        'meta_info' : _MetaInfoClass('SiptgIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sipTg',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SmdsicipIdentity' : {
+        'meta_info' : _MetaInfoClass('SmdsicipIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'smdsIcip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'BridgeIdentity' : {
+        'meta_info' : _MetaInfoClass('BridgeIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'bridge',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmlogicalIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmlogicalIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmLogical',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ProppointtopointserialIdentity' : {
+        'meta_info' : _MetaInfoClass('ProppointtopointserialIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propPointToPointSerial',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'V35Identity' : {
+        'meta_info' : _MetaInfoClass('V35Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'v35',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'V36Identity' : {
+        'meta_info' : _MetaInfoClass('V36Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'v36',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'V37Identity' : {
+        'meta_info' : _MetaInfoClass('V37Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'v37',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IpIdentity' : {
+        'meta_info' : _MetaInfoClass('IpIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Gr303IdtIdentity' : {
+        'meta_info' : _MetaInfoClass('Gr303IdtIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'gr303IDT',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'BasicisdnIdentity' : {
+        'meta_info' : _MetaInfoClass('BasicisdnIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'basicISDN',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'G703At64KIdentity' : {
+        'meta_info' : _MetaInfoClass('G703At64KIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'g703at64k',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ArcnetplusIdentity' : {
+        'meta_info' : _MetaInfoClass('ArcnetplusIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'arcnetPlus',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PipIdentity' : {
+        'meta_info' : _MetaInfoClass('PipIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DtmIdentity' : {
+        'meta_info' : _MetaInfoClass('DtmIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dtm',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SlipIdentity' : {
+        'meta_info' : _MetaInfoClass('SlipIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'slip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Hiperlan2Identity' : {
+        'meta_info' : _MetaInfoClass('Hiperlan2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hiperlan2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AdslIdentity' : {
+        'meta_info' : _MetaInfoClass('AdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'adsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Ieee80216WmanIdentity' : {
+        'meta_info' : _MetaInfoClass('Ieee80216WmanIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ieee80216WMAN',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmimaIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmimaIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmIma',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IsdnIdentity' : {
+        'meta_info' : _MetaInfoClass('IsdnIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'isdn',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Capwapdot11BssIdentity' : {
+        'meta_info' : _MetaInfoClass('Capwapdot11BssIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'capwapDot11Bss',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SipIdentity' : {
+        'meta_info' : _MetaInfoClass('SipIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Pdnetherloop2Identity' : {
+        'meta_info' : _MetaInfoClass('Pdnetherloop2Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pdnEtherLoop2',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceebsIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceebsIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceEBS',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IpforwardIdentity' : {
+        'meta_info' : _MetaInfoClass('IpforwardIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ipForward',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88025CrfpintIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88025CrfpintIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88025CRFPInt',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropvirtualIdentity' : {
+        'meta_info' : _MetaInfoClass('PropvirtualIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propVirtual',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'WwanppIdentity' : {
+        'meta_info' : _MetaInfoClass('WwanppIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'wwanPP',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OtherIdentity' : {
+        'meta_info' : _MetaInfoClass('OtherIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'other',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Pon155Identity' : {
+        'meta_info' : _MetaInfoClass('Pon155Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pon155',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'QamIdentity' : {
+        'meta_info' : _MetaInfoClass('QamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'qam',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'OtnoduIdentity' : {
+        'meta_info' : _MetaInfoClass('OtnoduIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'otnOdu',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88025FiberIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88025FiberIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88025Fiber',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ChannelIdentity' : {
+        'meta_info' : _MetaInfoClass('ChannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'channel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoiceemfgdIdentity' : {
+        'meta_info' : _MetaInfoClass('VoiceemfgdIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceEMFGD',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AlugponphysicaluniIdentity' : {
+        'meta_info' : _MetaInfoClass('AlugponphysicaluniIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluGponPhysicalUni',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'A12MppswitchIdentity' : {
+        'meta_info' : _MetaInfoClass('A12MppswitchIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'a12MppSwitch',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IlanIdentity' : {
+        'meta_info' : _MetaInfoClass('IlanIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ilan',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Pdnetherloop1Identity' : {
+        'meta_info' : _MetaInfoClass('Pdnetherloop1Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'pdnEtherLoop1',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'X213Identity' : {
+        'meta_info' : _MetaInfoClass('X213Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'x213',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SonetpathIdentity' : {
+        'meta_info' : _MetaInfoClass('SonetpathIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sonetPath',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VoicefgdeanaIdentity' : {
+        'meta_info' : _MetaInfoClass('VoicefgdeanaIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'voiceFGDEANA',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Iso88025TokenringIdentity' : {
+        'meta_info' : _MetaInfoClass('Iso88025TokenringIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'iso88025TokenRing',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'PropatmIdentity' : {
+        'meta_info' : _MetaInfoClass('PropatmIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'propAtm',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AlueponphysicaluniIdentity' : {
+        'meta_info' : _MetaInfoClass('AlueponphysicaluniIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aluEponPhysicalUni',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'StacktostackIdentity' : {
+        'meta_info' : _MetaInfoClass('StacktostackIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'stackToStack',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FrforwardIdentity' : {
+        'meta_info' : _MetaInfoClass('FrforwardIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'frForward',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'HomepnaIdentity' : {
+        'meta_info' : _MetaInfoClass('HomepnaIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'homepna',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'SdslIdentity' : {
+        'meta_info' : _MetaInfoClass('SdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'sdsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'VirtualipaddressIdentity' : {
+        'meta_info' : _MetaInfoClass('VirtualipaddressIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'virtualIpAddress',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'BscIdentity' : {
+        'meta_info' : _MetaInfoClass('BscIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'bsc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AtmradioIdentity' : {
+        'meta_info' : _MetaInfoClass('AtmradioIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'atmRadio',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'AviciopticaletherIdentity' : {
+        'meta_info' : _MetaInfoClass('AviciopticaletherIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'aviciOpticalEther',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'G9981Identity' : {
+        'meta_info' : _MetaInfoClass('G9981Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'g9981',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'FibrechannelIdentity' : {
+        'meta_info' : _MetaInfoClass('FibrechannelIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'fibreChannel',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ShdslIdentity' : {
+        'meta_info' : _MetaInfoClass('ShdslIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'shdsl',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'EonIdentity' : {
+        'meta_info' : _MetaInfoClass('EonIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'eon',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'H323GatekeeperIdentity' : {
+        'meta_info' : _MetaInfoClass('H323GatekeeperIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'h323Gatekeeper',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'Hdh1822Identity' : {
+        'meta_info' : _MetaInfoClass('Hdh1822Identity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'hdh1822',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'DvbrccupstreamIdentity' : {
+        'meta_info' : _MetaInfoClass('DvbrccupstreamIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'dvbRccUpstream',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'NsipIdentity' : {
+        'meta_info' : _MetaInfoClass('NsipIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'nsip',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'TransphdlcIdentity' : {
+        'meta_info' : _MetaInfoClass('TransphdlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'transpHdlc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'TermpadIdentity' : {
+        'meta_info' : _MetaInfoClass('TermpadIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'termPad',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'IpovercdlcIdentity' : {
+        'meta_info' : _MetaInfoClass('IpovercdlcIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ipOverCdlc',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'CesIdentity' : {
+        'meta_info' : _MetaInfoClass('CesIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'ces',
+            _yang_ns._namespaces['iana-if-type'],
+        'ydk.models.iana.iana_if_type'
+        ),
+    },
+    'ModemIdentity' : {
+        'meta_info' : _MetaInfoClass('ModemIdentity',
+            False, 
+            [
+            ],
+            'iana-if-type',
+            'modem',
             _yang_ns._namespaces['iana-if-type'],
         'ydk.models.iana.iana_if_type'
         ),

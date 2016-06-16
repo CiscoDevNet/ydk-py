@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -175,15 +175,15 @@ class ExplicitPaths(object):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: status
-            
-            	Status of the path
-            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
-            
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
             	**type**\: list of :py:class:`Address <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier.Address>`
+            
+            .. attribute:: status
+            
+            	Status of the path
+            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -195,10 +195,10 @@ class ExplicitPaths(object):
             def __init__(self):
                 self.parent = None
                 self.identifier_id = None
-                self.status = None
                 self.address = YList()
                 self.address.parent = self
                 self.address.name = 'address'
+                self.status = None
 
 
             class Address(object):
@@ -206,19 +206,12 @@ class ExplicitPaths(object):
                 List of IP addresses configured in the explicit
                 path
                 
-                .. attribute:: index
+                .. attribute:: address
                 
-                	Index number at which the path entry is inserted or modified
-                	**type**\: int
+                	IPv4 unicast address
+                	**type**\: str
                 
-                	**range:** 0..4294967295
-                
-                .. attribute:: if_index
-                
-                	Interface Index of the path
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: address_type
                 
@@ -230,12 +223,19 @@ class ExplicitPaths(object):
                 	Specifies the next unicast address in the path as a strict or loose hop
                 	**type**\: :py:class:`IepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
-                .. attribute:: address
+                .. attribute:: if_index
                 
-                	IPv4 unicast address
-                	**type**\: str
+                	Interface Index of the path
+                	**type**\: int
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	**range:** 0..4294967295
+                
+                .. attribute:: index
+                
+                	Index number at which the path entry is inserted or modified
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -246,16 +246,16 @@ class ExplicitPaths(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.index = None
-                    self.if_index = None
+                    self.address = None
                     self.address_type = None
                     self.hop_type = None
-                    self.address = None
+                    self.if_index = None
+                    self.index = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-oper:address'
 
@@ -266,10 +266,7 @@ class ExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.index is not None:
-                        return True
-
-                    if self.if_index is not None:
+                    if self.address is not None:
                         return True
 
                     if self.address_type is not None:
@@ -278,7 +275,10 @@ class ExplicitPaths(object):
                     if self.hop_type is not None:
                         return True
 
-                    if self.address is not None:
+                    if self.if_index is not None:
+                        return True
+
+                    if self.index is not None:
                         return True
 
                     return False
@@ -291,7 +291,7 @@ class ExplicitPaths(object):
             @property
             def _common_path(self):
                 if self.identifier_id is None:
-                    raise YPYDataValidationError('Key property identifier_id is None')
+                    raise YPYModelError('Key property identifier_id is None')
 
                 return '/Cisco-IOS-XR-ip-iep-oper:explicit-paths/Cisco-IOS-XR-ip-iep-oper:identifiers/Cisco-IOS-XR-ip-iep-oper:identifier[Cisco-IOS-XR-ip-iep-oper:identifier-id = ' + str(self.identifier_id) + ']'
 
@@ -305,13 +305,13 @@ class ExplicitPaths(object):
                 if self.identifier_id is not None:
                     return True
 
-                if self.status is not None:
-                    return True
-
                 if self.address is not None:
                     for child_ref in self.address:
                         if child_ref._has_data():
                             return True
+
+                if self.status is not None:
+                    return True
 
                 return False
 
@@ -380,15 +380,15 @@ class ExplicitPaths(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: status
-            
-            	Status of the path
-            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
-            
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
             	**type**\: list of :py:class:`Address <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name.Address>`
+            
+            .. attribute:: status
+            
+            	Status of the path
+            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -400,10 +400,10 @@ class ExplicitPaths(object):
             def __init__(self):
                 self.parent = None
                 self.path_name = None
-                self.status = None
                 self.address = YList()
                 self.address.parent = self
                 self.address.name = 'address'
+                self.status = None
 
 
             class Address(object):
@@ -411,19 +411,12 @@ class ExplicitPaths(object):
                 List of IP addresses configured in the explicit
                 path
                 
-                .. attribute:: index
+                .. attribute:: address
                 
-                	Index number at which the path entry is inserted or modified
-                	**type**\: int
+                	IPv4 unicast address
+                	**type**\: str
                 
-                	**range:** 0..4294967295
-                
-                .. attribute:: if_index
-                
-                	Interface Index of the path
-                	**type**\: int
-                
-                	**range:** 0..4294967295
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: address_type
                 
@@ -435,12 +428,19 @@ class ExplicitPaths(object):
                 	Specifies the next unicast address in the path as a strict or loose hop
                 	**type**\: :py:class:`IepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
-                .. attribute:: address
+                .. attribute:: if_index
                 
-                	IPv4 unicast address
-                	**type**\: str
+                	Interface Index of the path
+                	**type**\: int
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	**range:** 0..4294967295
+                
+                .. attribute:: index
+                
+                	Index number at which the path entry is inserted or modified
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -451,16 +451,16 @@ class ExplicitPaths(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.index = None
-                    self.if_index = None
+                    self.address = None
                     self.address_type = None
                     self.hop_type = None
-                    self.address = None
+                    self.if_index = None
+                    self.index = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-oper:address'
 
@@ -471,10 +471,7 @@ class ExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.index is not None:
-                        return True
-
-                    if self.if_index is not None:
+                    if self.address is not None:
                         return True
 
                     if self.address_type is not None:
@@ -483,7 +480,10 @@ class ExplicitPaths(object):
                     if self.hop_type is not None:
                         return True
 
-                    if self.address is not None:
+                    if self.if_index is not None:
+                        return True
+
+                    if self.index is not None:
                         return True
 
                     return False
@@ -496,7 +496,7 @@ class ExplicitPaths(object):
             @property
             def _common_path(self):
                 if self.path_name is None:
-                    raise YPYDataValidationError('Key property path_name is None')
+                    raise YPYModelError('Key property path_name is None')
 
                 return '/Cisco-IOS-XR-ip-iep-oper:explicit-paths/Cisco-IOS-XR-ip-iep-oper:names/Cisco-IOS-XR-ip-iep-oper:name[Cisco-IOS-XR-ip-iep-oper:path-name = ' + str(self.path_name) + ']'
 
@@ -510,13 +510,13 @@ class ExplicitPaths(object):
                 if self.path_name is not None:
                     return True
 
-                if self.status is not None:
-                    return True
-
                 if self.address is not None:
                     for child_ref in self.address:
                         if child_ref._has_data():
                             return True
+
+                if self.status is not None:
+                    return True
 
                 return False
 

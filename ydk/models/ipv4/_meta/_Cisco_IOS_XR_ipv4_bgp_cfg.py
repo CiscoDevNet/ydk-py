@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -104,17 +104,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpRouteDistinguisherEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRouteDistinguisherEnum', 
-                [], [], 
-                '''                Type of RD
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address
                 ''',
-                'type',
+                'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
+            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                IP address index
                 ''',
-                'as_xx',
+                'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -128,17 +128,17 @@ _meta_table = {
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP address
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
                 ''',
-                'address',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                IP address index
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpRouteDistinguisherEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRouteDistinguisherEnum', 
+                [], [], 
+                '''                Type of RD
                 ''',
-                'address_index',
+                'type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -222,13 +222,6 @@ _meta_table = {
                 ''',
                 'aggregate_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('generate-set-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to generate AS set path information,
-                FALSE otherwise
-                ''',
-                'generate_set_info',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('generate-confederation-set-info', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to generate AS confederation set path
@@ -236,12 +229,12 @@ _meta_table = {
                 ''',
                 'generate_confederation_set_info',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('summary-only', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('generate-set-info', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE to filter more specific routes from
-                updates, FALSEotherwise
+                '''                TRUE to generate AS set path information,
+                FALSE otherwise
                 ''',
-                'summary_only',
+                'generate_set_info',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -249,6 +242,13 @@ _meta_table = {
                 advertisement, suppression, and attributes
                 ''',
                 'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('summary-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to filter more specific routes from
+                updates, FALSEotherwise
+                ''',
+                'summary_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -290,6 +290,14 @@ _meta_table = {
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy to specify criteria for dampening.
+                This cannot be specified if any other
+                parameters are specified.
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(1, 20000)], [], 
                 '''                Value to start suppressing a route.
@@ -302,14 +310,6 @@ _meta_table = {
                 (seconds).
                 ''',
                 'suppress_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy to specify criteria for dampening.
-                This cannot be specified if any other
-                parameters are specified.
-                ''',
-                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -328,17 +328,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -380,17 +380,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -470,12 +470,6 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
@@ -483,6 +477,12 @@ _meta_table = {
                 permitted.
                 ''',
                 'redist_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -583,17 +583,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -630,17 +630,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection',
             False, 
             [
-            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Enable/disable selection 
-                ''',
-                'selection',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Route policy for selection
                 ''',
                 'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
+                [], [], 
+                '''                Enable/disable selection 
+                ''',
+                'selection',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -653,17 +653,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -671,11 +671,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                UNUSED
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -688,17 +688,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -706,11 +706,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                UNUSED
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -735,12 +735,6 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
@@ -752,6 +746,12 @@ _meta_table = {
                 combinations permitted.
                 ''',
                 'redist_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -781,17 +781,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths to have different IGP metrics
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -799,11 +799,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                Allow multipaths to have different IGP metrics
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -822,17 +822,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -851,17 +851,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -880,17 +880,35 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('mvpn', REFERENCE_CLASS, 'Mvpn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn', 
+            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                MVPN configurations
+                '''                Advertise additional paths Receive capability
                 ''',
-                'mvpn',
+                'additional_paths_receive',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rt-download', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection', 
                 [], [], 
-                '''                Route-Target download configuration
+                '''                Configure additional paths selection
                 ''',
-                'rt_download',
+                'additional_paths_selection',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
+                [], [], 
+                '''                Advertise additional paths Send capability
+                ''',
+                'additional_paths_send',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses', 
+                [], [], 
+                '''                Configure BGP aggregate entries
+                ''',
+                'aggregate_addresses',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel', 
+                [], [], 
+                '''                Label allocation policy
+                ''',
+                'allocate_label',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('allow-vpn-default-originate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -900,82 +918,11 @@ _meta_table = {
                 ''',
                 'allow_vpn_default_originate',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses', 
-                [], [], 
-                '''                Configure BGP aggregate entries
-                ''',
-                'aggregate_addresses',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dynamic-med-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10)], [], 
-                '''                Update generation delay (in minutes) after a MED
-                change
-                ''',
-                'dynamic_med_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening', 
-                [], [], 
-                '''                Enable route-flap dampening
-                ''',
-                'dampening',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable the address family. Deletion of this
-                object causes deletion of all the objects under
-                GlobalAF/VRFGlobalAF associated with this object
-                .
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes', 
-                [], [], 
-                '''                Redistribute RIP routes
-                ''',
-                'rip_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes', 
-                [], [], 
-                '''                Redistribute lisp routes
-                ''',
-                'lisp_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes', 
-                [], [], 
-                '''                Redistribute static routes
-                ''',
-                'static_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance', 
-                [], [], 
-                '''                Define an administrative distance
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configure policy for installation of routes to
-                RIB
-                ''',
-                'table_policy',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('attribute-download', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Attribute download configuration
                 ''',
                 'attribute_download',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode', 
-                [], [], 
-                '''                BGP 6PE/MPLS-VPN label allocation mode
-                ''',
-                'label_mode',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes', 
-                [], [], 
-                '''                Redistribute information for EIGRP routes.
-                ''',
-                'eigrp_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('best-external', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -984,54 +931,36 @@ _meta_table = {
                 ''',
                 'best_external',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks', 
-                [], [], 
-                '''                Specify a network to announce via BGP
-                ''',
-                'sourced_networks',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('connected-routes', REFERENCE_CLASS, 'ConnectedRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes', 
                 [], [], 
                 '''                Redistribute connected routes
                 ''',
                 'connected_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening', 
                 [], [], 
-                '''                Advertise additional paths Receive capability
+                '''                Enable route-flap dampening
                 ''',
-                'additional_paths_receive',
+                'dampening',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('permanent-network', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('disable-as-path-loop-check', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Route policy for permanent networks
+                '''                Disable outbound AS Path loop check
                 ''',
-                'permanent_network',
+                'disable_as_path_loop_check',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel', 
+            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance', 
                 [], [], 
-                '''                Label allocation policy
+                '''                Define an administrative distance
                 ''',
-                'allocate_label',
+                'distance',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection', 
-                [], [], 
-                '''                Configure additional paths selection
+            _MetaInfoClassMember('dynamic-med-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10)], [], 
+                '''                Update generation delay (in minutes) after a MED
+                change
                 ''',
-                'additional_paths_selection',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-resolution-prefix-length-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                Minimum prefix-length for nexthop resolution
-                ''',
-                'next_hop_resolution_prefix_length_minimum',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reset-weight-on-import', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to reset weight on import. FALSE to not
-                reset and to prevent inheritance from a parent
-                ''',
-                'reset_weight_on_import',
+                'dynamic_med_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp', 
                 [], [], 
@@ -1045,11 +974,20 @@ _meta_table = {
                 ''',
                 'eibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes', 
+            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes', 
                 [], [], 
-                '''                Redistribute information for OSPF routes.
+                '''                Redistribute information for EIGRP routes.
                 ''',
-                'ospf_routes',
+                'eigrp_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable the address family. Deletion of this
+                object causes deletion of all the objects under
+                GlobalAF/VRFGlobalAF associated with this object
+                .
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp', 
                 [], [], 
@@ -1057,11 +995,17 @@ _meta_table = {
                 ''',
                 'ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode', 
                 [], [], 
-                '''                Advertise additional paths Send capability
+                '''                BGP 6PE/MPLS-VPN label allocation mode
                 ''',
-                'additional_paths_send',
+                'label_mode',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes', 
+                [], [], 
+                '''                Redistribute lisp routes
+                ''',
+                'lisp_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('mobile-routes', REFERENCE_CLASS, 'MobileRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes', 
                 [], [], 
@@ -1069,17 +1013,73 @@ _meta_table = {
                 ''',
                 'mobile_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-as-path-loop-check', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('mvpn', REFERENCE_CLASS, 'Mvpn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn', 
                 [], [], 
-                '''                Disable outbound AS Path loop check
+                '''                MVPN configurations
                 ''',
-                'disable_as_path_loop_check',
+                'mvpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('next-hop-resolution-prefix-length-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                Minimum prefix-length for nexthop resolution
+                ''',
+                'next_hop_resolution_prefix_length_minimum',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes', 
+                [], [], 
+                '''                Redistribute information for OSPF routes.
+                ''',
+                'ospf_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('permanent-network', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy for permanent networks
+                ''',
+                'permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('reset-weight-on-import', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to reset weight on import. FALSE to not
+                reset and to prevent inheritance from a parent
+                ''',
+                'reset_weight_on_import',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes', 
+                [], [], 
+                '''                Redistribute RIP routes
+                ''',
+                'rip_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rt-download', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Route-Target download configuration
+                ''',
+                'rt_download',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks', 
+                [], [], 
+                '''                Specify a network to announce via BGP
+                ''',
+                'sourced_networks',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes', 
+                [], [], 
+                '''                Redistribute static routes
+                ''',
+                'static_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('subscriber-routes', REFERENCE_CLASS, 'SubscriberRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes', 
                 [], [], 
                 '''                Redistribute subscriber routes
                 ''',
                 'subscriber_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configure policy for installation of routes to
+                RIB
+                ''',
+                'table_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1143,18 +1143,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers',
             False, 
             [
-            _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval (seconds)
-                ''',
-                'keepalive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time (seconds).  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval (seconds)
+                ''',
+                'keepalive',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -1198,17 +1198,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP Write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1221,17 +1221,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP Read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1244,51 +1244,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal',
             False, 
             [
-            _MetaInfoClassMember('route-distinguisher', REFERENCE_CLASS, 'RouteDistinguisher' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher', 
-                [], [], 
-                '''                Route distinguisher
-                ''',
-                'route_distinguisher',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode', 
-                [], [], 
-                '''                MPLS/VPN label allocation mode
-                ''',
-                'label_mode',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('vrf-global-afs', REFERENCE_CLASS, 'VrfGlobalAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs', 
-                [], [], 
-                '''                Global VRF-specific configuration
-                ''',
-                'vrf_global_afs',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('exists', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Create this VRF. Deletion of this object
-                causes deletion of all the objects under
-                VRF associated with this object.
-                ''',
-                'exists',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Configure Router-id
-                ''',
-                'router_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-enforce-first-as', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable enforce the first AS for EBGP routes
-                ''',
-                'disable_enforce_first_as',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-cost-community', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria to
-                ignore cost community comparison
-                ''',
-                'best_path_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('best-path-aigp-ignore', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Change default route selection criteria to
@@ -1296,54 +1251,6 @@ _meta_table = {
                 have AIGP attribute
                 ''',
                 'best_path_aigp_ignore',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-as-path-length', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria to
-                ignore AS path length
-                ''',
-                'best_path_as_path_length',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('igp-redist-internal', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow redistribution of iBGP into IGPs
-                (dangerous)
-                ''',
-                'igp_redist_internal',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multi-path-as-path-ignore-onwards', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default multi-route selection criteria to
-                ignore everything onwards as-path check
-                ''',
-                'multi_path_as_path_ignore_onwards',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-fast-external-fallover', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable immediate reset session if a link to a
-                directly connected external peer goes down
-                ''',
-                'disable_fast_external_fallover',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Default redistributed metric
-                ''',
-                'default_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Control distribution of default information
-                ''',
-                'default_info_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-confederation-paths', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria and
-                allow the comparing of MED among confederation
-                paths
-                ''',
-                'best_path_confederation_paths',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('best-path-as-multipath-relax', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1353,49 +1260,27 @@ _meta_table = {
                 ''',
                 'best_path_as_multipath_relax',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces', 
+            _MetaInfoClassMember('best-path-as-path-length', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Configure list of MPLS activated interfaces
+                '''                Change default route selection criteria to
+                ignore AS path length
                 ''',
-                'mpls_activated_interfaces',
+                'best_path_as_path_length',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-auto-soft-reset', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('best-path-confederation-paths', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Disable automatic soft peer reset on policy
-                reconfiguration
+                '''                Change default route selection criteria and
+                allow the comparing of MED among confederation
+                paths
                 ''',
-                'disable_auto_soft_reset',
+                'best_path_confederation_paths',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-msg-log', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('best-path-cost-community', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Disable inbound and outbound messagelogging for
-                all neighbors under the vrf
+                '''                Change default route selection criteria to
+                ignore cost community comparison
                 ''',
-                'disable_msg_log',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers', 
-                [], [], 
-                '''                Adjust routing timers.
-                ''',
-                'global_timers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd', 
-                [], [], 
-                '''                BFD configuration
-                ''',
-                'bfd',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-neighbor-logging', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable neighbor change logging
-                ''',
-                'disable_neighbor_logging',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes', 
-                [], [], 
-                '''                set socket parameters
-                ''',
-                'send_socket_buffer_sizes',
+                'best_path_cost_community',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('best-path-med-always', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1404,11 +1289,11 @@ _meta_table = {
                 ''',
                 'best_path_med_always',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes', 
+            _MetaInfoClassMember('best-path-med-missing', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Set socket and BGP receive buffer sizes
+                '''                Treat missing MED as the least preferred one
                 ''',
-                'receive_socket_buffer_sizes',
+                'best_path_med_missing',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('best-path-router-id', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1417,17 +1302,132 @@ _meta_table = {
                 ''',
                 'best_path_router_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-med-missing', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd', 
                 [], [], 
-                '''                Treat missing MED as the least preferred one
+                '''                BFD configuration
                 ''',
-                'best_path_med_missing',
+                'bfd',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Control distribution of default information
+                ''',
+                'default_info_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Default redistributed metric
+                ''',
+                'default_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-auto-soft-reset', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable automatic soft peer reset on policy
+                reconfiguration
+                ''',
+                'disable_auto_soft_reset',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-enforce-first-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable enforce the first AS for EBGP routes
+                ''',
+                'disable_enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-fast-external-fallover', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable immediate reset session if a link to a
+                directly connected external peer goes down
+                ''',
+                'disable_fast_external_fallover',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-msg-log', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable inbound and outbound messagelogging for
+                all neighbors under the vrf
+                ''',
+                'disable_msg_log',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-neighbor-logging', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable neighbor change logging
+                ''',
+                'disable_neighbor_logging',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('exists', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Create this VRF. Deletion of this object
+                causes deletion of all the objects under
+                VRF associated with this object.
+                ''',
+                'exists',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers', 
+                [], [], 
+                '''                Adjust routing timers.
+                ''',
+                'global_timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('igp-redist-internal', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow redistribution of iBGP into IGPs
+                (dangerous)
+                ''',
+                'igp_redist_internal',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode', 
+                [], [], 
+                '''                MPLS/VPN label allocation mode
+                ''',
+                'label_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('local-preference', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Configure default local preference
                 ''',
                 'local_preference',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces', 
+                [], [], 
+                '''                Configure list of MPLS activated interfaces
+                ''',
+                'mpls_activated_interfaces',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multi-path-as-path-ignore-onwards', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default multi-route selection criteria to
+                ignore everything onwards as-path check
+                ''',
+                'multi_path_as_path_ignore_onwards',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes', 
+                [], [], 
+                '''                Set socket and BGP receive buffer sizes
+                ''',
+                'receive_socket_buffer_sizes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-distinguisher', REFERENCE_CLASS, 'RouteDistinguisher' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher', 
+                [], [], 
+                '''                Route distinguisher
+                ''',
+                'route_distinguisher',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Configure Router-id
+                ''',
+                'router_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes', 
+                [], [], 
+                '''                set socket parameters
+                ''',
+                'send_socket_buffer_sizes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('vrf-global-afs', REFERENCE_CLASS, 'VrfGlobalAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs', 
+                [], [], 
+                '''                Global VRF-specific configuration
+                ''',
+                'vrf_global_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1440,6 +1440,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity',
             False, 
             [
+            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Cost Community ID
+                ''',
+                'cost_community_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
+                [], [], 
+                '''                Cost Community POI
+                ''',
+                'cost_community_poi_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to enable sending cost community, FALSE
@@ -1447,24 +1459,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Cost Community ID
-                ''',
-                'cost_community_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('transitive', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                True to send transitive cost community FALSE
                 otherwise
                 ''',
                 'transitive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
-                [], [], 
-                '''                Cost Community POI
-                ''',
-                'cost_community_poi_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1500,18 +1500,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes',
             False, 
             [
+            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Discard extra paths when limit is exceeded
+                ''',
+                'discard_extra_paths',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum prefixes limit
                 ''',
                 'prefix_limit',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Threshold value (%) at which to generate a
-                warning message.
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Restart interval
                 ''',
-                'warning_percentage',
+                'restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('warning-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1521,17 +1526,12 @@ _meta_table = {
                 ''',
                 'warning_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Restart interval
+            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
+                [(1, 100)], [], 
+                '''                Threshold value (%) at which to generate a
+                warning message.
                 ''',
-                'restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Discard extra paths when limit is exceeded
-                ''',
-                'discard_extra_paths',
+                'warning_percentage',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1571,17 +1571,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime',
             False, 
             [
-            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
-                '''                Max time (seconds)
-                ''',
-                'stale_time_send',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('stale-time-accept', ATTRIBUTE, 'int' , None, None, 
                 [(0, 16777215)], [], 
                 '''                Max time (seconds)
                 ''',
                 'stale_time_accept',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
+                [(0, 16777215)], [], 
+                '''                Max time (seconds)
+                ''',
+                'stale_time_send',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1594,17 +1594,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
-                [], [], 
-                '''                Type of Extended community
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address
                 ''',
-                'type',
+                'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
+            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                IP address Index
                 ''',
-                'as_xx',
+                'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1618,17 +1618,17 @@ _meta_table = {
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP address
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
                 ''',
-                'address',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                IP address Index
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
+                [], [], 
+                '''                Type of Extended community
                 ''',
-                'address_index',
+                'type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1687,13 +1687,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import',
             False, 
             [
-            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to Import with Stitching RTs, FALSE to
-                Import with normal RTs
-                ''',
-                'import_stitching',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to Reoriginate imported routes, FALSE to
@@ -1708,6 +1701,13 @@ _meta_table = {
                 routes with normal RTs
                 ''',
                 'import_reoriginate_stitching',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to Import with Stitching RTs, FALSE to
+                Import with normal RTs
+                ''',
+                'import_stitching',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -1849,22 +1849,13 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE to treat neighbor as Long-lived
-                Graceful-restart capable. FALSE to rely on
-                capability negotiation.
+                '''                Handle self-originated routes with Accept-Own
+                community. Valid for following neighbor
+                address-families: VPNv4Unicast, VPNv6Unicast.
                 ''',
-                'neighbor_af_long_lived_graceful_restart_capable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send extended communities to the
-                external neighbor/neighbor-group/af-group. 
-                FALSE not to send and to prevent inheritance
-                from a parent
-                ''',
-                'send_ext_community_ebgp',
+                'accept_own',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('accept-route-legacy-rt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1873,76 +1864,6 @@ _meta_table = {
                 being inherited.
                 ''',
                 'accept_route_legacy_rt',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity', 
-                [], [], 
-                '''                Send AIGP value in Cost Community. 
-                ''',
-                'aigp_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable', 
-                [], [], 
-                '''                Disable Advertise Of Routes to the peer
-                ''',
-                'advertise_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes', 
-                [], [], 
-                '''                Maximum number of prefixes to accept from this
-                peer
-                ''',
-                'maximum_prefixes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound', 
-                [], [], 
-                '''                Remove private AS number from inbound updates
-                ''',
-                'remove_private_as_entire_as_path_inbound',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable overwriting of next hop before
-                advertising to eBGP peers. FALSE to prevent
-                next-hop-unchanged from being inherited.
-                ''',
-                'next_hop_unchanged',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
-                [], [], 
-                '''                Config Flowspec validation for this neighbor
-                ''',
-                'flowspec_validation',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to override matching AS-number while
-                sending update. FALSE to prevent as-override
-                from being inherited from the parent
-                ''',
-                'as_override',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow paths from this neighbor to be eligible
-                for selective multipath
-                ''',
-                'multipath',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp_graceful_shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('activate', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1954,49 +1875,25 @@ _meta_table = {
                 ''',
                 'activate',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable', 
                 [], [], 
-                '''                Prefix ORF policy name for incoming updates
+                '''                Disable Advertise Of Routes to the peer
                 ''',
-                'prefix_orf_policy',
+                'advertise_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4', 
                 [], [], 
-                '''                Maximum time to wait before purging long lived
-                routes
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'neighbor_af_long_lived_graceful_restart_stale_time',
+                'advertise_local_v4',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('site-of-origin', REFERENCE_CLASS, 'SiteOfOrigin' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin', 
+            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6', 
                 [], [], 
-                '''                Site-of-Origin extended community associated
-                with the neighbor
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'site_of_origin',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable Accumulated IGP Metric for this neighbor.
-                ''',
-                'aigp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable/Disable sending AIGP in MED 
-                ''',
-                'aigp_send_med',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Allow as-path with my AS present in it
-                ''',
-                'allow_as_in',
+                'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
@@ -2004,13 +1901,117 @@ _meta_table = {
                 ''',
                 'advertise_orf',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                TRUE to configure as a route-reflector-client. 
-                FALSE to prevent route-reflector-client from
-                being inherited.
+                '''                Advertise Permanent Networks to the peer
                 ''',
-                'route_reflector_client',
+                'advertise_permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v4',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v6',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inherit configuration for this address-family
+                from an AF-group
+                ''',
+                'af_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable Accumulated IGP Metric for this neighbor.
+                ''',
+                'aigp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity', 
+                [], [], 
+                '''                Send AIGP value in Cost Community. 
+                ''',
+                'aigp_cost_community',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable/Disable sending AIGP in MED 
+                ''',
+                'aigp_send_med',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Allow as-path with my AS present in it
+                ''',
+                'allow_as_in',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to override matching AS-number while
+                sending update. FALSE to prevent as-override
+                from being inherited from the parent
+                ''',
+                'as_override',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate', 
+                [], [], 
+                '''                Originate default route to this neighbor
+                ''',
+                'default_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set default weight for routes from this
+                neighbor/neighbor-group/af-group
+                ''',
+                'default_weight',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
+                [], [], 
+                '''                Config Flowspec validation for this neighbor
+                ''',
+                'flowspec_validation',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import', 
+                [], [], 
+                '''                Import Reorigination options for Routes from the
+                peer
+                ''',
+                'import_',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes', 
+                [], [], 
+                '''                Maximum number of prefixes to accept from this
+                peer
+                ''',
+                'maximum_prefixes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow paths from this neighbor to be eligible
+                for selective multipath
+                ''',
+                'multipath',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to treat neighbor as Long-lived
+                Graceful-restart capable. FALSE to rely on
+                capability negotiation.
+                ''',
+                'neighbor_af_long_lived_graceful_restart_capable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+                [], [], 
+                '''                Maximum time to wait before purging long lived
+                routes
+                ''',
+                'neighbor_af_long_lived_graceful_restart_stale_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-self', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2020,58 +2021,13 @@ _meta_table = {
                 ''',
                 'next_hop_self',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6', 
+            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to disable overwriting of next hop before
+                advertising to eBGP peers. FALSE to prevent
+                next-hop-unchanged from being inherited.
                 ''',
-                'advertise_local_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name to apply to inbound routes
-                ''',
-                'route_policy_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import', 
-                [], [], 
-                '''                Import Reorigination options for Routes from the
-                peer
-                ''',
-                'import_',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate', 
-                [], [], 
-                '''                Originate default route to this neighbor
-                ''',
-                'default_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration', 
-                [], [], 
-                '''                Enable/disable inbound soft reconfiguration for
-                this neighbor/neighbor-group/af-group
-                ''',
-                'soft_reconfiguration',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set default weight for routes from this
-                neighbor/neighbor-group/af-group
-                ''',
-                'default_weight',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit configuration for this address-family
-                from an AF-group
-                ''',
-                'af_group',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v4',
+                'next_hop_unchanged',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-unchanged-multipath', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2081,13 +2037,29 @@ _meta_table = {
                 ''',
                 'next_hop_unchanged_multipath',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Handle self-originated routes with Accept-Own
-                community. Valid for following neighbor
-                address-families: VPNv4Unicast, VPNv6Unicast.
+                '''                Prefix ORF policy name for incoming updates
                 ''',
-                'accept_own',
+                'prefix_orf_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath', 
+                [], [], 
+                '''                Remove private AS number from outbound updates
+                ''',
+                'remove_private_as_entire_as_path',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound', 
+                [], [], 
+                '''                Remove private AS number from inbound updates
+                ''',
+                'remove_private_as_entire_as_path_inbound',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name to apply to inbound routes
+                ''',
+                'route_policy_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2095,24 +2067,52 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4', 
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to configure as a route-reflector-client. 
+                FALSE to prevent route-reflector-client from
+                being inherited.
                 ''',
-                'advertise_local_v4',
+                'route_reflector_client',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Permanent Networks to the peer
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
                 ''',
-                'advertise_permanent_network',
+                'send_community_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath', 
+            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Remove private AS number from outbound updates
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
                 ''',
-                'remove_private_as_entire_as_path',
+                'send_community_ebgp_graceful_shutdown',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send extended communities to the
+                external neighbor/neighbor-group/af-group. 
+                FALSE not to send and to prevent inheritance
+                from a parent
+                ''',
+                'send_ext_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('site-of-origin', REFERENCE_CLASS, 'SiteOfOrigin' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin', 
+                [], [], 
+                '''                Site-of-Origin extended community associated
+                with the neighbor
+                ''',
+                'site_of_origin',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration', 
+                [], [], 
+                '''                Enable/disable inbound soft reconfiguration for
+                this neighbor/neighbor-group/af-group
+                ''',
+                'soft_reconfiguration',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2272,13 +2272,6 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Do not prepend Local AS to announcements from
-                this neighbor
-                ''',
-                'no_prepend',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable Local AS and prevent it from being
@@ -2286,18 +2279,25 @@ _meta_table = {
                 ''',
                 'disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Dual-AS mode
+                ''',
+                'dual_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Do not prepend Local AS to announcements from
+                this neighbor
+                ''',
+                'no_prepend',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('replace-as', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Prepend only Local AS to announcements from
                 this neighbor
                 ''',
                 'replace_as',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Dual-AS mode
-                ''',
-                'dual_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2310,6 +2310,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password',
             False, 
             [
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                The neighbor password.  Leave unspecified when
+                disabling the password.
+                ''',
+                'password',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('password-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to prevent this entity from having a
@@ -2317,13 +2324,6 @@ _meta_table = {
                 specify a password
                 ''',
                 'password_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                The neighbor password.  Leave unspecified when
-                disabling the password.
-                ''',
-                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2359,18 +2359,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId',
             False, 
             [
-            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Route-Reflector Cluster ID as 32 bit quantity
-                ''',
-                'cluster_id_number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
                 'cluster_id_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Route-Reflector Cluster ID as 32 bit quantity
+                ''',
+                'cluster_id_number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2383,18 +2383,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss',
             False, 
             [
+            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
+                [(68, 10000)], [], 
+                '''                Maximum Segment Size
+                ''',
+                'mss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('tcpmss-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance ofTCP MSS
                 valuefrom its parents.FALSE, otherwise
                 ''',
                 'tcpmss_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
-                [(68, 10000)], [], 
-                '''                Maximum Segment Size
-                ''',
-                'mss',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2443,17 +2443,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers',
             False, 
             [
-            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 25)], [], 
-                '''                Number of message buffers
-                ''',
-                'number_of_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('non-circular-buffer', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to configure non-circular buffer
                 ''',
                 'non_circular_buffer',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
+                [(0, 25)], [], 
+                '''                Number of message buffers
+                ''',
+                'number_of_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2466,12 +2466,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering',
             False, 
             [
-            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
-                [], [], 
-                '''                Message buffers to store filtered updates
-                ''',
-                'update_in_filtering_message_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Configure inbound update filtering
@@ -2484,6 +2478,12 @@ _meta_table = {
                 filtering
                 ''',
                 'update_in_filtering_attribute_filter_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
+                [], [], 
+                '''                Message buffers to store filtered updates
+                ''',
+                'update_in_filtering_message_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-in-filtering-syslog-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -2533,17 +2533,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2586,17 +2586,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2609,18 +2609,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers',
             False, 
             [
-            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval
-                ''',
-                'keepalive_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time.  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval
+                ''',
+                'keepalive_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -2689,18 +2689,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends',
             False, 
             [
+            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
+                [(0, 6)], [], 
+                '''                number of times AS prepends
+                ''',
+                'as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('gshut-prepends-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance of AS Prepends
                 value from its parents.FALSE, otherwise
                 ''',
                 'gshut_prepends_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
-                [(0, 6)], [], 
-                '''                number of times AS prepends
-                ''',
-                'as_prepends',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2713,19 +2713,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance',
             False, 
             [
-            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
-                [], [], 
-                '''                Set Local Preference to advertise routes with
-                ''',
-                'graceful_maintenance_local_preference',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
-                [], [], 
-                '''                Number of times to prepend local AS number to
-                the AS path
-                ''',
-                'graceful_maintenance_as_prepends',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enter Graceful Maintenance mode to configure
@@ -2738,6 +2725,19 @@ _meta_table = {
                 '''                Initiate the graceful shutdown procedure
                 ''',
                 'graceful_maintenance_activate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
+                [], [], 
+                '''                Number of times to prepend local AS number to
+                the AS path
+                ''',
+                'graceful_maintenance_as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
+                [], [], 
+                '''                Set Local Preference to advertise routes with
+                ''',
+                'graceful_maintenance_local_preference',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -2769,24 +2769,44 @@ _meta_table = {
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('vrf-neighbor-afs', REFERENCE_CLASS, 'VrfNeighborAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                Address family type of a VRF neighbor
+                '''                Advertise additional paths Receive capability
                 ''',
-                'vrf_neighbor_afs',
+                'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                TRUE to preserve the CE path attributes.FALSE to
-                override CE path attributes.
+                '''                Advertise additional paths Send capability
                 ''',
-                'internal_vpn_client_ibgpce',
+                'additional_paths_send_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress', 
+            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval', 
                 [], [], 
-                '''                Local ip address
+                '''                Minimum interval between sending BGP routing
+                updates
                 ''',
-                'local_address',
+                'advertisement_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+                [], [], 
+                '''                Strict mode, Default mode or Disable to prevent
+                inheritance from a parent
+                ''',
+                'bfd_enable_modes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by BGP
+                ''',
+                'bfd_minimum_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(2, 16)], [], 
+                '''                Detection multiplier for BFD sessions created by
+                BGP
+                ''',
+                'bfd_multiplier',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bmp-activates', REFERENCE_CLASS, 'BmpActivates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates', 
                 [], [], 
@@ -2794,19 +2814,18 @@ _meta_table = {
                 ''',
                 'bmp_activates',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Up to 80 characters describing this neighbor
+                ''',
+                'description',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop', 
                 [], [], 
                 '''                Allow EBGP neighbors not on directly connected
                 networks
                 ''',
                 'ebgp_multihop',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit address-family independent config from a
-                session-group
-                ''',
-                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('egress-peer-engineering', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2816,11 +2835,45 @@ _meta_table = {
                 ''',
                 'egress_peer_engineering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs', 
+            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Set remote AS
+                '''                TRUE to enforce first AS; FALSE to not enforce
+                first AS.
                 ''',
-                'remote_as',
+                'enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance', 
+                [], [], 
+                '''                Graceful Maintenance mode
+                ''',
+                'graceful_maintenance',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable the connected nexthop check for
+                this peer.FALSE to enable the connected nexthop
+                check for this peer.
+                ''',
+                'ignore_connected_check_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to preserve the CE path attributes.FALSE to
+                override CE path attributes.
+                ''',
+                'internal_vpn_client_ibgpce',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain', 
+                [], [], 
+                '''                Set or disable keychain based authentication
+                ''',
+                'keychain',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress', 
+                [], [], 
+                '''                Local ip address
+                ''',
+                'local_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('local-as', REFERENCE_CLASS, 'LocalAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs', 
                 [], [], 
@@ -2828,45 +2881,17 @@ _meta_table = {
                 ''',
                 'local_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Maximum time to wait for restart of GR capable
-                peer
-                ''',
-                'neighbor_graceful_restart_stalepath_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn', 
                 [], [], 
-                '''                TRUE to shutdown this entity, FALSE to prevent
-                this entity from being shutdown even if the
-                parent is.
+                '''                Message log inbound
                 ''',
-                'shutdown',
+                'msg_log_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut', 
                 [], [], 
-                '''                Up to 80 characters describing this neighbor
+                '''                Message log outbound
                 ''',
-                'description',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit configuration from a neighbor-group
-                ''',
-                'neighbor_group_add_member',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password', 
-                [], [], 
-                '''                Set or disable a password
-                ''',
-                'password',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval', 
-                [], [], 
-                '''                Minimum interval between sending BGP routing
-                updates
-                ''',
-                'advertisement_interval',
+                'msg_log_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-cluster-id', REFERENCE_CLASS, 'NeighborClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId', 
                 [], [], 
@@ -2882,61 +2907,30 @@ _meta_table = {
                 ''',
                 'neighbor_graceful_restart',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enforce first AS; FALSE to not enforce
-                first AS.
+            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Maximum time to wait for restart of GR capable
+                peer
                 ''',
-                'enforce_first_as',
+                'neighbor_graceful_restart_stalepath_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss', 
-                [], [], 
-                '''                TCP Maximum segment size
+            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Restart time advertised to neighbor
                 ''',
-                'tcpmss',
+                'neighbor_graceful_restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
+            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TCP mode to be used to establish BGP session
+                '''                Inherit configuration from a neighbor-group
                 ''',
-                'session_open_mode',
+                'neighbor_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos', 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password', 
                 [], [], 
-                '''                TOS (Type Of Service)
+                '''                Set or disable a password
                 ''',
-                'tos',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering', 
-                [], [], 
-                '''                Inbound update filtering
-                ''',
-                'update_in_filtering',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut', 
-                [], [], 
-                '''                Message log outbound
-                ''',
-                'msg_log_out',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize', 
-                [], [], 
-                '''                Set socket receive buffer size and BGP read
-                buffer size
-                ''',
-                'receive_buffer_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn', 
-                [], [], 
-                '''                Message log inbound
-                ''',
-                'msg_log_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Send capability
-                ''',
-                'additional_paths_send_capability',
+                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('propagate-dmz-link-bandwidth', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2946,12 +2940,18 @@ _meta_table = {
                 ''',
                 'propagate_dmz_link_bandwidth',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize', 
                 [], [], 
-                '''                Strict mode, Default mode or Disable to prevent
-                inheritance from a parent
+                '''                Set socket receive buffer size and BGP read
+                buffer size
                 ''',
-                'bfd_enable_modes',
+                'receive_buffer_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs', 
+                [], [], 
+                '''                Set remote AS
+                ''',
+                'remote_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-buffer-size', REFERENCE_CLASS, 'SendBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize', 
                 [], [], 
@@ -2960,58 +2960,26 @@ _meta_table = {
                 ''',
                 'send_buffer_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE to enable BGP TTL Security.  FALSE to not
-                enable it and to prevent inheritance from a
-                parent
+                '''                Inherit address-family independent config from a
+                session-group
                 ''',
-                'ttl_security',
+                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Restart time advertised to neighbor
-                ''',
-                'neighbor_graceful_restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
-                '''                BGP per neighbor timers.
+                '''                TCP mode to be used to establish BGP session
                 ''',
-                'timers',
+                'session_open_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 16)], [], 
-                '''                Detection multiplier for BFD sessions created by
-                BGP
-                ''',
-                'bfd_multiplier',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by BGP
-                ''',
-                'bfd_minimum_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise additional paths Receive capability
+                '''                TRUE to shutdown this entity, FALSE to prevent
+                this entity from being shutdown even if the
+                parent is.
                 ''',
-                'additional_paths_receive_capability',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain', 
-                [], [], 
-                '''                Set or disable keychain based authentication
-                ''',
-                'keychain',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable the connected nexthop check for
-                this peer.FALSE to enable the connected nexthop
-                check for this peer.
-                ''',
-                'ignore_connected_check_ebgp',
+                'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-four-byte-as-capability', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3021,17 +2989,49 @@ _meta_table = {
                 ''',
                 'suppress_four_byte_as_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss', 
+                [], [], 
+                '''                TCP Maximum segment size
+                ''',
+                'tcpmss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers', 
+                [], [], 
+                '''                BGP per neighbor timers.
+                ''',
+                'timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos', 
+                [], [], 
+                '''                TOS (Type Of Service)
+                ''',
+                'tos',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable BGP TTL Security.  FALSE to not
+                enable it and to prevent inheritance from a
+                parent
+                ''',
+                'ttl_security',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering', 
+                [], [], 
+                '''                Inbound update filtering
+                ''',
+                'update_in_filtering',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance', 
+            _MetaInfoClassMember('vrf-neighbor-afs', REFERENCE_CLASS, 'VrfNeighborAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs', 
                 [], [], 
-                '''                Graceful Maintenance mode
+                '''                Address family type of a VRF neighbor
                 ''',
-                'graceful_maintenance',
+                'vrf_neighbor_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3107,6 +3107,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity',
             False, 
             [
+            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Cost Community ID
+                ''',
+                'cost_community_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
+                [], [], 
+                '''                Cost Community POI
+                ''',
+                'cost_community_poi_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to enable sending cost community, FALSE
@@ -3114,24 +3126,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Cost Community ID
-                ''',
-                'cost_community_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('transitive', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                True to send transitive cost community FALSE
                 otherwise
                 ''',
                 'transitive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
-                [], [], 
-                '''                Cost Community POI
-                ''',
-                'cost_community_poi_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3167,18 +3167,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes',
             False, 
             [
+            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Discard extra paths when limit is exceeded
+                ''',
+                'discard_extra_paths',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum prefixes limit
                 ''',
                 'prefix_limit',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Threshold value (%) at which to generate a
-                warning message.
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Restart interval
                 ''',
-                'warning_percentage',
+                'restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('warning-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3188,17 +3193,12 @@ _meta_table = {
                 ''',
                 'warning_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Restart interval
+            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
+                [(1, 100)], [], 
+                '''                Threshold value (%) at which to generate a
+                warning message.
                 ''',
-                'restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Discard extra paths when limit is exceeded
-                ''',
-                'discard_extra_paths',
+                'warning_percentage',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3238,17 +3238,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime',
             False, 
             [
-            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
-                '''                Max time (seconds)
-                ''',
-                'stale_time_send',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('stale-time-accept', ATTRIBUTE, 'int' , None, None, 
                 [(0, 16777215)], [], 
                 '''                Max time (seconds)
                 ''',
                 'stale_time_accept',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
+                [(0, 16777215)], [], 
+                '''                Max time (seconds)
+                ''',
+                'stale_time_send',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3307,13 +3307,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import',
             False, 
             [
-            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to Import with Stitching RTs, FALSE to
-                Import with normal RTs
-                ''',
-                'import_stitching',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to Reoriginate imported routes, FALSE to
@@ -3328,6 +3321,13 @@ _meta_table = {
                 routes with normal RTs
                 ''',
                 'import_reoriginate_stitching',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to Import with Stitching RTs, FALSE to
+                Import with normal RTs
+                ''',
+                'import_stitching',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3469,28 +3469,13 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE to treat neighbor as Long-lived
-                Graceful-restart capable. FALSE to rely on
-                capability negotiation.
+                '''                Handle self-originated routes with Accept-Own
+                community. Valid for following neighbor
+                address-families: VPNv4Unicast, VPNv6Unicast.
                 ''',
-                'neighbor_af_long_lived_graceful_restart_capable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
-                [], [], 
-                '''                Disable signalling type on the peer
-                ''',
-                'l2vpn_signalling',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send extended communities to the
-                external neighbor/neighbor-group/af-group. 
-                FALSE not to send and to prevent inheritance
-                from a parent
-                ''',
-                'send_ext_community_ebgp',
+                'accept_own',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('accept-route-legacy-rt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3499,95 +3484,6 @@ _meta_table = {
                 being inherited.
                 ''',
                 'accept_route_legacy_rt',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity', 
-                [], [], 
-                '''                Send AIGP value in Cost Community. 
-                ''',
-                'aigp_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable', 
-                [], [], 
-                '''                Disable Advertise Of Routes to the peer
-                ''',
-                'advertise_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
-                [], [], 
-                '''                Config send multicast attribute for this
-                neighbor
-                ''',
-                'send_multicast_attr',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes', 
-                [], [], 
-                '''                Maximum number of prefixes to accept from this
-                peer
-                ''',
-                'maximum_prefixes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound', 
-                [], [], 
-                '''                Remove private AS number from inbound updates
-                ''',
-                'remove_private_as_entire_as_path_inbound',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable overwriting of next hop before
-                advertising to eBGP peers. FALSE to prevent
-                next-hop-unchanged from being inherited.
-                ''',
-                'next_hop_unchanged',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI origin-AS validation disable
-                ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
-                [], [], 
-                '''                Config Flowspec validation for this neighbor
-                ''',
-                'flowspec_validation',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to override matching AS-number while
-                sending update. FALSE to prevent as-override
-                from being inherited from the parent
-                ''',
-                'as_override',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow paths from this neighbor to be eligible
-                for selective multipath
-                ''',
-                'multipath',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp_graceful_shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('activate', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -3599,42 +3495,25 @@ _meta_table = {
                 ''',
                 'activate',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable', 
                 [], [], 
-                '''                Prefix ORF policy name for incoming updates
+                '''                Disable Advertise Of Routes to the peer
                 ''',
-                'prefix_orf_policy',
+                'advertise_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4', 
                 [], [], 
-                '''                Maximum time to wait before purging long lived
-                routes
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'neighbor_af_long_lived_graceful_restart_stale_time',
+                'advertise_local_v4',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6', 
                 [], [], 
-                '''                Enable Accumulated IGP Metric for this neighbor.
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'aigp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable/Disable sending AIGP in MED 
-                ''',
-                'aigp_send_med',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Allow as-path with my AS present in it
-                ''',
-                'allow_as_in',
+                'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
@@ -3642,13 +3521,123 @@ _meta_table = {
                 ''',
                 'advertise_orf',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                TRUE to configure as a route-reflector-client. 
-                FALSE to prevent route-reflector-client from
-                being inherited.
+                '''                Advertise Permanent Networks to the peer
                 ''',
-                'route_reflector_client',
+                'advertise_permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v4',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v6',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inherit configuration for this address-family
+                from an AF-group
+                ''',
+                'af_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable Accumulated IGP Metric for this neighbor.
+                ''',
+                'aigp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity', 
+                [], [], 
+                '''                Send AIGP value in Cost Community. 
+                ''',
+                'aigp_cost_community',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable/Disable sending AIGP in MED 
+                ''',
+                'aigp_send_med',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Allow as-path with my AS present in it
+                ''',
+                'allow_as_in',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to override matching AS-number while
+                sending update. FALSE to prevent as-override
+                from being inherited from the parent
+                ''',
+                'as_override',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate', 
+                [], [], 
+                '''                Originate default route to this neighbor
+                ''',
+                'default_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set default weight for routes from this
+                neighbor/neighbor-group/af-group
+                ''',
+                'default_weight',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
+                [], [], 
+                '''                Config Flowspec validation for this neighbor
+                ''',
+                'flowspec_validation',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import', 
+                [], [], 
+                '''                Import Reorigination options for Routes from the
+                peer
+                ''',
+                'import_',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
+                [], [], 
+                '''                Disable signalling type on the peer
+                ''',
+                'l2vpn_signalling',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes', 
+                [], [], 
+                '''                Maximum number of prefixes to accept from this
+                peer
+                ''',
+                'maximum_prefixes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow paths from this neighbor to be eligible
+                for selective multipath
+                ''',
+                'multipath',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to treat neighbor as Long-lived
+                Graceful-restart capable. FALSE to rely on
+                capability negotiation.
+                ''',
+                'neighbor_af_long_lived_graceful_restart_capable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+                [], [], 
+                '''                Maximum time to wait before purging long lived
+                routes
+                ''',
+                'neighbor_af_long_lived_graceful_restart_stale_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-self', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3658,58 +3647,13 @@ _meta_table = {
                 ''',
                 'next_hop_self',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6', 
+            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to disable overwriting of next hop before
+                advertising to eBGP peers. FALSE to prevent
+                next-hop-unchanged from being inherited.
                 ''',
-                'advertise_local_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name to apply to inbound routes
-                ''',
-                'route_policy_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import', 
-                [], [], 
-                '''                Import Reorigination options for Routes from the
-                peer
-                ''',
-                'import_',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate', 
-                [], [], 
-                '''                Originate default route to this neighbor
-                ''',
-                'default_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration', 
-                [], [], 
-                '''                Enable/disable inbound soft reconfiguration for
-                this neighbor/neighbor-group/af-group
-                ''',
-                'soft_reconfiguration',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set default weight for routes from this
-                neighbor/neighbor-group/af-group
-                ''',
-                'default_weight',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit configuration for this address-family
-                from an AF-group
-                ''',
-                'af_group',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v4',
+                'next_hop_unchanged',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-unchanged-multipath', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3719,13 +3663,29 @@ _meta_table = {
                 ''',
                 'next_hop_unchanged_multipath',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Handle self-originated routes with Accept-Own
-                community. Valid for following neighbor
-                address-families: VPNv4Unicast, VPNv6Unicast.
+                '''                Prefix ORF policy name for incoming updates
                 ''',
-                'accept_own',
+                'prefix_orf_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath', 
+                [], [], 
+                '''                Remove private AS number from outbound updates
+                ''',
+                'remove_private_as_entire_as_path',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound', 
+                [], [], 
+                '''                Remove private AS number from inbound updates
+                ''',
+                'remove_private_as_entire_as_path_inbound',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name to apply to inbound routes
+                ''',
+                'route_policy_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -3733,24 +3693,64 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4', 
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to configure as a route-reflector-client. 
+                FALSE to prevent route-reflector-client from
+                being inherited.
                 ''',
-                'advertise_local_v4',
+                'route_reflector_client',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Advertise Permanent Networks to the peer
+                '''                RPKI bestpath origin-AS allow invalid
                 ''',
-                'advertise_permanent_network',
+                'rpki_bestpath_origin_as_allow_invalid',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath', 
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Remove private AS number from outbound updates
+                '''                RPKI origin-AS validation disable
                 ''',
-                'remove_private_as_entire_as_path',
+                'rpki_origin_as_validation_disable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp_graceful_shutdown',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send extended communities to the
+                external neighbor/neighbor-group/af-group. 
+                FALSE not to send and to prevent inheritance
+                from a parent
+                ''',
+                'send_ext_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
+                [], [], 
+                '''                Config send multicast attribute for this
+                neighbor
+                ''',
+                'send_multicast_attr',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration', 
+                [], [], 
+                '''                Enable/disable inbound soft reconfiguration for
+                this neighbor/neighbor-group/af-group
+                ''',
+                'soft_reconfiguration',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3910,13 +3910,6 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Do not prepend Local AS to announcements from
-                this neighbor
-                ''',
-                'no_prepend',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable Local AS and prevent it from being
@@ -3924,18 +3917,25 @@ _meta_table = {
                 ''',
                 'disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Dual-AS mode
+                ''',
+                'dual_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Do not prepend Local AS to announcements from
+                this neighbor
+                ''',
+                'no_prepend',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('replace-as', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Prepend only Local AS to announcements from
                 this neighbor
                 ''',
                 'replace_as',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Dual-AS mode
-                ''',
-                'dual_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3948,6 +3948,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password',
             False, 
             [
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                The neighbor password.  Leave unspecified when
+                disabling the password.
+                ''',
+                'password',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('password-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to prevent this entity from having a
@@ -3955,13 +3962,6 @@ _meta_table = {
                 specify a password
                 ''',
                 'password_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                The neighbor password.  Leave unspecified when
-                disabling the password.
-                ''',
-                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -3997,18 +3997,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId',
             False, 
             [
-            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Route-Reflector Cluster ID as 32 bit quantity
-                ''',
-                'cluster_id_number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
                 'cluster_id_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Route-Reflector Cluster ID as 32 bit quantity
+                ''',
+                'cluster_id_number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4021,18 +4021,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss',
             False, 
             [
+            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
+                [(68, 10000)], [], 
+                '''                Maximum Segment Size
+                ''',
+                'mss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('tcpmss-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance ofTCP MSS
                 valuefrom its parents.FALSE, otherwise
                 ''',
                 'tcpmss_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
-                [(68, 10000)], [], 
-                '''                Maximum Segment Size
-                ''',
-                'mss',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4081,17 +4081,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers',
             False, 
             [
-            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 25)], [], 
-                '''                Number of message buffers
-                ''',
-                'number_of_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('non-circular-buffer', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to configure non-circular buffer
                 ''',
                 'non_circular_buffer',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
+                [(0, 25)], [], 
+                '''                Number of message buffers
+                ''',
+                'number_of_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4104,12 +4104,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering',
             False, 
             [
-            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
-                [], [], 
-                '''                Message buffers to store filtered updates
-                ''',
-                'update_in_filtering_message_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Configure inbound update filtering
@@ -4122,6 +4116,12 @@ _meta_table = {
                 filtering
                 ''',
                 'update_in_filtering_attribute_filter_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
+                [], [], 
+                '''                Message buffers to store filtered updates
+                ''',
+                'update_in_filtering_message_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-in-filtering-syslog-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -4171,17 +4171,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4224,17 +4224,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4247,18 +4247,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers',
             False, 
             [
-            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval
-                ''',
-                'keepalive_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time.  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval
+                ''',
+                'keepalive_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -4327,18 +4327,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends',
             False, 
             [
+            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
+                [(0, 6)], [], 
+                '''                number of times AS prepends
+                ''',
+                'as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('gshut-prepends-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance of AS Prepends
                 value from its parents.FALSE, otherwise
                 ''',
                 'gshut_prepends_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
-                [(0, 6)], [], 
-                '''                number of times AS prepends
-                ''',
-                'as_prepends',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4351,19 +4351,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance',
             False, 
             [
-            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
-                [], [], 
-                '''                Set Local Preference to advertise routes with
-                ''',
-                'graceful_maintenance_local_preference',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
-                [], [], 
-                '''                Number of times to prepend local AS number to
-                the AS path
-                ''',
-                'graceful_maintenance_as_prepends',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enter Graceful Maintenance mode to configure
@@ -4376,6 +4363,19 @@ _meta_table = {
                 '''                Initiate the graceful shutdown procedure
                 ''',
                 'graceful_maintenance_activate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
+                [], [], 
+                '''                Number of times to prepend local AS number to
+                the AS path
+                ''',
+                'graceful_maintenance_as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
+                [], [], 
+                '''                Set Local Preference to advertise routes with
+                ''',
+                'graceful_maintenance_local_preference',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4407,24 +4407,44 @@ _meta_table = {
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('neighbor-afs', REFERENCE_CLASS, 'NeighborAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                BGP neighbor AF configuration table
+                '''                Advertise additional paths Receive capability
                 ''',
-                'neighbor_afs',
+                'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                TRUE to preserve the CE path attributes.FALSE to
-                override CE path attributes.
+                '''                Advertise additional paths Send capability
                 ''',
-                'internal_vpn_client_ibgpce',
+                'additional_paths_send_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress', 
+            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval', 
                 [], [], 
-                '''                Local ip address
+                '''                Minimum interval between sending BGP routing
+                updates
                 ''',
-                'local_address',
+                'advertisement_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+                [], [], 
+                '''                Strict mode, Default mode or Disable to prevent
+                inheritance from a parent
+                ''',
+                'bfd_enable_modes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by BGP
+                ''',
+                'bfd_minimum_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(2, 16)], [], 
+                '''                Detection multiplier for BFD sessions created by
+                BGP
+                ''',
+                'bfd_multiplier',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bmp-activates', REFERENCE_CLASS, 'BmpActivates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates', 
                 [], [], 
@@ -4432,19 +4452,18 @@ _meta_table = {
                 ''',
                 'bmp_activates',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Up to 80 characters describing this neighbor
+                ''',
+                'description',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop', 
                 [], [], 
                 '''                Allow EBGP neighbors not on directly connected
                 networks
                 ''',
                 'ebgp_multihop',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit address-family independent config from a
-                session-group
-                ''',
-                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('egress-peer-engineering', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4454,11 +4473,45 @@ _meta_table = {
                 ''',
                 'egress_peer_engineering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs', 
+            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Set remote AS
+                '''                TRUE to enforce first AS; FALSE to not enforce
+                first AS.
                 ''',
-                'remote_as',
+                'enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance', 
+                [], [], 
+                '''                Graceful Maintenance mode
+                ''',
+                'graceful_maintenance',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable the connected nexthop check for
+                this peer.FALSE to enable the connected nexthop
+                check for this peer.
+                ''',
+                'ignore_connected_check_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to preserve the CE path attributes.FALSE to
+                override CE path attributes.
+                ''',
+                'internal_vpn_client_ibgpce',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain', 
+                [], [], 
+                '''                Set or disable keychain based authentication
+                ''',
+                'keychain',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress', 
+                [], [], 
+                '''                Local ip address
+                ''',
+                'local_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('local-as', REFERENCE_CLASS, 'LocalAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs', 
                 [], [], 
@@ -4466,45 +4519,23 @@ _meta_table = {
                 ''',
                 'local_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Maximum time to wait for restart of GR capable
-                peer
-                ''',
-                'neighbor_graceful_restart_stalepath_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn', 
                 [], [], 
-                '''                TRUE to shutdown this entity, FALSE to prevent
-                this entity from being shutdown even if the
-                parent is.
+                '''                Message log inbound
                 ''',
-                'shutdown',
+                'msg_log_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut', 
                 [], [], 
-                '''                Up to 80 characters describing this neighbor
+                '''                Message log outbound
                 ''',
-                'description',
+                'msg_log_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('neighbor-afs', REFERENCE_CLASS, 'NeighborAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs', 
                 [], [], 
-                '''                Inherit configuration from a neighbor-group
+                '''                BGP neighbor AF configuration table
                 ''',
-                'neighbor_group_add_member',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password', 
-                [], [], 
-                '''                Set or disable a password
-                ''',
-                'password',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval', 
-                [], [], 
-                '''                Minimum interval between sending BGP routing
-                updates
-                ''',
-                'advertisement_interval',
+                'neighbor_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-cluster-id', REFERENCE_CLASS, 'NeighborClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId', 
                 [], [], 
@@ -4520,73 +4551,30 @@ _meta_table = {
                 ''',
                 'neighbor_graceful_restart',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enforce first AS; FALSE to not enforce
-                first AS.
+            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Maximum time to wait for restart of GR capable
+                peer
                 ''',
-                'enforce_first_as',
+                'neighbor_graceful_restart_stalepath_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss', 
-                [], [], 
-                '''                TCP Maximum segment size
+            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Restart time advertised to neighbor
                 ''',
-                'tcpmss',
+                'neighbor_graceful_restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
+            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TCP mode to be used to establish BGP session
+                '''                Inherit configuration from a neighbor-group
                 ''',
-                'session_open_mode',
+                'neighbor_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password', 
                 [], [], 
-                '''                RPKI origin-AS validation disable
+                '''                Set or disable a password
                 ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos', 
-                [], [], 
-                '''                TOS (Type Of Service)
-                ''',
-                'tos',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering', 
-                [], [], 
-                '''                Inbound update filtering
-                ''',
-                'update_in_filtering',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut', 
-                [], [], 
-                '''                Message log outbound
-                ''',
-                'msg_log_out',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize', 
-                [], [], 
-                '''                Set socket receive buffer size and BGP read
-                buffer size
-                ''',
-                'receive_buffer_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn', 
-                [], [], 
-                '''                Message log inbound
-                ''',
-                'msg_log_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Send capability
-                ''',
-                'additional_paths_send_capability',
+                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('propagate-dmz-link-bandwidth', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4596,12 +4584,30 @@ _meta_table = {
                 ''',
                 'propagate_dmz_link_bandwidth',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize', 
                 [], [], 
-                '''                Strict mode, Default mode or Disable to prevent
-                inheritance from a parent
+                '''                Set socket receive buffer size and BGP read
+                buffer size
                 ''',
-                'bfd_enable_modes',
+                'receive_buffer_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs', 
+                [], [], 
+                '''                Set remote AS
+                ''',
+                'remote_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath origin-AS allow invalid
+                ''',
+                'rpki_bestpath_origin_as_allow_invalid',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI origin-AS validation disable
+                ''',
+                'rpki_origin_as_validation_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-buffer-size', REFERENCE_CLASS, 'SendBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize', 
                 [], [], 
@@ -4610,58 +4616,26 @@ _meta_table = {
                 ''',
                 'send_buffer_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE to enable BGP TTL Security.  FALSE to not
-                enable it and to prevent inheritance from a
-                parent
+                '''                Inherit address-family independent config from a
+                session-group
                 ''',
-                'ttl_security',
+                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Restart time advertised to neighbor
-                ''',
-                'neighbor_graceful_restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
-                '''                BGP per neighbor timers.
+                '''                TCP mode to be used to establish BGP session
                 ''',
-                'timers',
+                'session_open_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 16)], [], 
-                '''                Detection multiplier for BFD sessions created by
-                BGP
-                ''',
-                'bfd_multiplier',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by BGP
-                ''',
-                'bfd_minimum_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise additional paths Receive capability
+                '''                TRUE to shutdown this entity, FALSE to prevent
+                this entity from being shutdown even if the
+                parent is.
                 ''',
-                'additional_paths_receive_capability',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain', 
-                [], [], 
-                '''                Set or disable keychain based authentication
-                ''',
-                'keychain',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable the connected nexthop check for
-                this peer.FALSE to enable the connected nexthop
-                check for this peer.
-                ''',
-                'ignore_connected_check_ebgp',
+                'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-four-byte-as-capability', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4671,17 +4645,43 @@ _meta_table = {
                 ''',
                 'suppress_four_byte_as_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss', 
+                [], [], 
+                '''                TCP Maximum segment size
+                ''',
+                'tcpmss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers', 
+                [], [], 
+                '''                BGP per neighbor timers.
+                ''',
+                'timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos', 
+                [], [], 
+                '''                TOS (Type Of Service)
+                ''',
+                'tos',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable BGP TTL Security.  FALSE to not
+                enable it and to prevent inheritance from a
+                parent
+                ''',
+                'ttl_security',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering', 
+                [], [], 
+                '''                Inbound update filtering
+                ''',
+                'update_in_filtering',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance', 
-                [], [], 
-                '''                Graceful Maintenance mode
-                ''',
-                'graceful_maintenance',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4711,6 +4711,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity',
             False, 
             [
+            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Cost Community ID
+                ''',
+                'cost_community_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
+                [], [], 
+                '''                Cost Community POI
+                ''',
+                'cost_community_poi_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to enable sending cost community, FALSE
@@ -4718,24 +4730,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Cost Community ID
-                ''',
-                'cost_community_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('transitive', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                True to send transitive cost community FALSE
                 otherwise
                 ''',
                 'transitive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
-                [], [], 
-                '''                Cost Community POI
-                ''',
-                'cost_community_poi_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4771,18 +4771,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes',
             False, 
             [
+            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Discard extra paths when limit is exceeded
+                ''',
+                'discard_extra_paths',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum prefixes limit
                 ''',
                 'prefix_limit',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Threshold value (%) at which to generate a
-                warning message.
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Restart interval
                 ''',
-                'warning_percentage',
+                'restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('warning-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4792,17 +4797,12 @@ _meta_table = {
                 ''',
                 'warning_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Restart interval
+            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
+                [(1, 100)], [], 
+                '''                Threshold value (%) at which to generate a
+                warning message.
                 ''',
-                'restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Discard extra paths when limit is exceeded
-                ''',
-                'discard_extra_paths',
+                'warning_percentage',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4842,17 +4842,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime',
             False, 
             [
-            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
-                '''                Max time (seconds)
-                ''',
-                'stale_time_send',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('stale-time-accept', ATTRIBUTE, 'int' , None, None, 
                 [(0, 16777215)], [], 
                 '''                Max time (seconds)
                 ''',
                 'stale_time_accept',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
+                [(0, 16777215)], [], 
+                '''                Max time (seconds)
+                ''',
+                'stale_time_send',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4865,17 +4865,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
-                [], [], 
-                '''                Type of Extended community
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address
                 ''',
-                'type',
+                'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
+            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                IP address Index
                 ''',
-                'as_xx',
+                'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4889,17 +4889,17 @@ _meta_table = {
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP address
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
                 ''',
-                'address',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                IP address Index
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
+                [], [], 
+                '''                Type of Extended community
                 ''',
-                'address_index',
+                'type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -4958,13 +4958,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import',
             False, 
             [
-            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to Import with Stitching RTs, FALSE to
-                Import with normal RTs
-                ''',
-                'import_stitching',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to Reoriginate imported routes, FALSE to
@@ -4979,6 +4972,13 @@ _meta_table = {
                 routes with normal RTs
                 ''',
                 'import_reoriginate_stitching',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to Import with Stitching RTs, FALSE to
+                Import with normal RTs
+                ''',
+                'import_stitching',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5120,28 +5120,13 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE to treat neighbor as Long-lived
-                Graceful-restart capable. FALSE to rely on
-                capability negotiation.
+                '''                Handle self-originated routes with Accept-Own
+                community. Valid for following neighbor
+                address-families: VPNv4Unicast, VPNv6Unicast.
                 ''',
-                'neighbor_af_long_lived_graceful_restart_capable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
-                [], [], 
-                '''                Disable signalling type on the peer
-                ''',
-                'l2vpn_signalling',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send extended communities to the
-                external neighbor/neighbor-group/af-group. 
-                FALSE not to send and to prevent inheritance
-                from a parent
-                ''',
-                'send_ext_community_ebgp',
+                'accept_own',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('accept-route-legacy-rt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5150,95 +5135,6 @@ _meta_table = {
                 being inherited.
                 ''',
                 'accept_route_legacy_rt',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity', 
-                [], [], 
-                '''                Send AIGP value in Cost Community. 
-                ''',
-                'aigp_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable', 
-                [], [], 
-                '''                Disable Advertise Of Routes to the peer
-                ''',
-                'advertise_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
-                [], [], 
-                '''                Config send multicast attribute for this
-                neighbor
-                ''',
-                'send_multicast_attr',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes', 
-                [], [], 
-                '''                Maximum number of prefixes to accept from this
-                peer
-                ''',
-                'maximum_prefixes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound', 
-                [], [], 
-                '''                Remove private AS number from inbound updates
-                ''',
-                'remove_private_as_entire_as_path_inbound',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable overwriting of next hop before
-                advertising to eBGP peers. FALSE to prevent
-                next-hop-unchanged from being inherited.
-                ''',
-                'next_hop_unchanged',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI origin-AS validation disable
-                ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
-                [], [], 
-                '''                Config Flowspec validation for this neighbor
-                ''',
-                'flowspec_validation',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to override matching AS-number while
-                sending update. FALSE to prevent as-override
-                from being inherited from the parent
-                ''',
-                'as_override',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow paths from this neighbor to be eligible
-                for selective multipath
-                ''',
-                'multipath',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp_graceful_shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('activate', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -5250,49 +5146,25 @@ _meta_table = {
                 ''',
                 'activate',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable', 
                 [], [], 
-                '''                Prefix ORF policy name for incoming updates
+                '''                Disable Advertise Of Routes to the peer
                 ''',
-                'prefix_orf_policy',
+                'advertise_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4', 
                 [], [], 
-                '''                Maximum time to wait before purging long lived
-                routes
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'neighbor_af_long_lived_graceful_restart_stale_time',
+                'advertise_local_v4',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('site-of-origin', REFERENCE_CLASS, 'SiteOfOrigin' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin', 
+            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6', 
                 [], [], 
-                '''                Site-of-Origin extended community associated
-                with the neighbor
+                '''                Advertise Of Local Routes to the peer with
+                different RT
                 ''',
-                'site_of_origin',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable Accumulated IGP Metric for this neighbor.
-                ''',
-                'aigp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable/Disable sending AIGP in MED 
-                ''',
-                'aigp_send_med',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Allow as-path with my AS present in it
-                ''',
-                'allow_as_in',
+                'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
@@ -5300,13 +5172,123 @@ _meta_table = {
                 ''',
                 'advertise_orf',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                TRUE to configure as a route-reflector-client. 
-                FALSE to prevent route-reflector-client from
-                being inherited.
+                '''                Advertise Permanent Networks to the peer
                 ''',
-                'route_reflector_client',
+                'advertise_permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v4',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v6',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Inherit configuration for this address-family
+                from an AF-group
+                ''',
+                'af_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable Accumulated IGP Metric for this neighbor.
+                ''',
+                'aigp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity', 
+                [], [], 
+                '''                Send AIGP value in Cost Community. 
+                ''',
+                'aigp_cost_community',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable/Disable sending AIGP in MED 
+                ''',
+                'aigp_send_med',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Allow as-path with my AS present in it
+                ''',
+                'allow_as_in',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to override matching AS-number while
+                sending update. FALSE to prevent as-override
+                from being inherited from the parent
+                ''',
+                'as_override',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate', 
+                [], [], 
+                '''                Originate default route to this neighbor
+                ''',
+                'default_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set default weight for routes from this
+                neighbor/neighbor-group/af-group
+                ''',
+                'default_weight',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
+                [], [], 
+                '''                Config Flowspec validation for this neighbor
+                ''',
+                'flowspec_validation',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import', 
+                [], [], 
+                '''                Import Reorigination options for Routes from the
+                peer
+                ''',
+                'import_',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
+                [], [], 
+                '''                Disable signalling type on the peer
+                ''',
+                'l2vpn_signalling',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes', 
+                [], [], 
+                '''                Maximum number of prefixes to accept from this
+                peer
+                ''',
+                'maximum_prefixes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow paths from this neighbor to be eligible
+                for selective multipath
+                ''',
+                'multipath',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to treat neighbor as Long-lived
+                Graceful-restart capable. FALSE to rely on
+                capability negotiation.
+                ''',
+                'neighbor_af_long_lived_graceful_restart_capable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime', 
+                [], [], 
+                '''                Maximum time to wait before purging long lived
+                routes
+                ''',
+                'neighbor_af_long_lived_graceful_restart_stale_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-self', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5316,58 +5298,13 @@ _meta_table = {
                 ''',
                 'next_hop_self',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6', 
+            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to disable overwriting of next hop before
+                advertising to eBGP peers. FALSE to prevent
+                next-hop-unchanged from being inherited.
                 ''',
-                'advertise_local_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name to apply to inbound routes
-                ''',
-                'route_policy_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import', 
-                [], [], 
-                '''                Import Reorigination options for Routes from the
-                peer
-                ''',
-                'import_',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate', 
-                [], [], 
-                '''                Originate default route to this neighbor
-                ''',
-                'default_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration', 
-                [], [], 
-                '''                Enable/disable inbound soft reconfiguration for
-                this neighbor/neighbor-group/af-group
-                ''',
-                'soft_reconfiguration',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set default weight for routes from this
-                neighbor/neighbor-group/af-group
-                ''',
-                'default_weight',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit configuration for this address-family
-                from an AF-group
-                ''',
-                'af_group',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v4',
+                'next_hop_unchanged',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-unchanged-multipath', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5377,13 +5314,29 @@ _meta_table = {
                 ''',
                 'next_hop_unchanged_multipath',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Handle self-originated routes with Accept-Own
-                community. Valid for following neighbor
-                address-families: VPNv4Unicast, VPNv6Unicast.
+                '''                Prefix ORF policy name for incoming updates
                 ''',
-                'accept_own',
+                'prefix_orf_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath', 
+                [], [], 
+                '''                Remove private AS number from outbound updates
+                ''',
+                'remove_private_as_entire_as_path',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound', 
+                [], [], 
+                '''                Remove private AS number from inbound updates
+                ''',
+                'remove_private_as_entire_as_path_inbound',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name to apply to inbound routes
+                ''',
+                'route_policy_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -5391,24 +5344,71 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4', 
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
+                '''                TRUE to configure as a route-reflector-client. 
+                FALSE to prevent route-reflector-client from
+                being inherited.
                 ''',
-                'advertise_local_v4',
+                'route_reflector_client',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Advertise Permanent Networks to the peer
+                '''                RPKI bestpath origin-AS allow invalid
                 ''',
-                'advertise_permanent_network',
+                'rpki_bestpath_origin_as_allow_invalid',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath', 
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Remove private AS number from outbound updates
+                '''                RPKI origin-AS validation disable
                 ''',
-                'remove_private_as_entire_as_path',
+                'rpki_origin_as_validation_disable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp_graceful_shutdown',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send extended communities to the
+                external neighbor/neighbor-group/af-group. 
+                FALSE not to send and to prevent inheritance
+                from a parent
+                ''',
+                'send_ext_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
+                [], [], 
+                '''                Config send multicast attribute for this
+                neighbor
+                ''',
+                'send_multicast_attr',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('site-of-origin', REFERENCE_CLASS, 'SiteOfOrigin' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin', 
+                [], [], 
+                '''                Site-of-Origin extended community associated
+                with the neighbor
+                ''',
+                'site_of_origin',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration', 
+                [], [], 
+                '''                Enable/disable inbound soft reconfiguration for
+                this neighbor/neighbor-group/af-group
+                ''',
+                'soft_reconfiguration',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5568,13 +5568,6 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Do not prepend Local AS to announcements from
-                this neighbor
-                ''',
-                'no_prepend',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable Local AS and prevent it from being
@@ -5582,18 +5575,25 @@ _meta_table = {
                 ''',
                 'disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Dual-AS mode
+                ''',
+                'dual_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Do not prepend Local AS to announcements from
+                this neighbor
+                ''',
+                'no_prepend',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('replace-as', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Prepend only Local AS to announcements from
                 this neighbor
                 ''',
                 'replace_as',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Dual-AS mode
-                ''',
-                'dual_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5606,6 +5606,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password',
             False, 
             [
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                The neighbor password.  Leave unspecified when
+                disabling the password.
+                ''',
+                'password',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('password-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to prevent this entity from having a
@@ -5613,13 +5620,6 @@ _meta_table = {
                 specify a password
                 ''',
                 'password_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                The neighbor password.  Leave unspecified when
-                disabling the password.
-                ''',
-                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5655,18 +5655,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId',
             False, 
             [
-            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Route-Reflector Cluster ID as 32 bit quantity
-                ''',
-                'cluster_id_number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
                 'cluster_id_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Route-Reflector Cluster ID as 32 bit quantity
+                ''',
+                'cluster_id_number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5679,18 +5679,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss',
             False, 
             [
+            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
+                [(68, 10000)], [], 
+                '''                Maximum Segment Size
+                ''',
+                'mss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('tcpmss-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance ofTCP MSS
                 valuefrom its parents.FALSE, otherwise
                 ''',
                 'tcpmss_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
-                [(68, 10000)], [], 
-                '''                Maximum Segment Size
-                ''',
-                'mss',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5739,17 +5739,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers',
             False, 
             [
-            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 25)], [], 
-                '''                Number of message buffers
-                ''',
-                'number_of_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('non-circular-buffer', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to configure non-circular buffer
                 ''',
                 'non_circular_buffer',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
+                [(0, 25)], [], 
+                '''                Number of message buffers
+                ''',
+                'number_of_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5762,12 +5762,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering',
             False, 
             [
-            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
-                [], [], 
-                '''                Message buffers to store filtered updates
-                ''',
-                'update_in_filtering_message_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Configure inbound update filtering
@@ -5780,6 +5774,12 @@ _meta_table = {
                 filtering
                 ''',
                 'update_in_filtering_attribute_filter_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
+                [], [], 
+                '''                Message buffers to store filtered updates
+                ''',
+                'update_in_filtering_message_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-in-filtering-syslog-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -5829,17 +5829,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5882,17 +5882,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -5905,18 +5905,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers',
             False, 
             [
-            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval
-                ''',
-                'keepalive_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time.  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval
+                ''',
+                'keepalive_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -5985,18 +5985,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends',
             False, 
             [
+            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
+                [(0, 6)], [], 
+                '''                number of times AS prepends
+                ''',
+                'as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('gshut-prepends-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance of AS Prepends
                 value from its parents.FALSE, otherwise
                 ''',
                 'gshut_prepends_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
-                [(0, 6)], [], 
-                '''                number of times AS prepends
-                ''',
-                'as_prepends',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6009,19 +6009,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance',
             False, 
             [
-            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
-                [], [], 
-                '''                Set Local Preference to advertise routes with
-                ''',
-                'graceful_maintenance_local_preference',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
-                [], [], 
-                '''                Number of times to prepend local AS number to
-                the AS path
-                ''',
-                'graceful_maintenance_as_prepends',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enter Graceful Maintenance mode to configure
@@ -6034,6 +6021,19 @@ _meta_table = {
                 '''                Initiate the graceful shutdown procedure
                 ''',
                 'graceful_maintenance_activate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
+                [], [], 
+                '''                Number of times to prepend local AS number to
+                the AS path
+                ''',
+                'graceful_maintenance_as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
+                [], [], 
+                '''                Set Local Preference to advertise routes with
+                ''',
+                'graceful_maintenance_local_preference',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6052,31 +6052,44 @@ _meta_table = {
                 ''',
                 'neighbor_group_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('neighbor-group-afs', REFERENCE_CLASS, 'NeighborGroupAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                BGP neighbor-group AF configuration table
+                '''                Advertise additional paths Receive capability
                 ''',
-                'neighbor_group_afs',
+                'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                Inherit configuration from a
-                neighbor-group
+                '''                Advertise additional paths Send capability
                 ''',
-                'neighbor_group_add_member',
+                'additional_paths_send_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval', 
                 [], [], 
-                '''                TRUE to preserve the CE path attributes.FALSE to
-                override CE path attributes.
+                '''                Minimum interval between sending BGP routing
+                updates
                 ''',
-                'internal_vpn_client_ibgpce',
+                'advertisement_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress', 
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
                 [], [], 
-                '''                Local ip address
+                '''                Strict mode, Default mode or Disable to prevent
+                inheritance from a parent
                 ''',
-                'local_address',
+                'bfd_enable_modes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by BGP
+                ''',
+                'bfd_minimum_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(2, 16)], [], 
+                '''                Detection multiplier for BFD sessions created by
+                BGP
+                ''',
+                'bfd_multiplier',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bmp-activates', REFERENCE_CLASS, 'BmpActivates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates', 
                 [], [], 
@@ -6084,19 +6097,27 @@ _meta_table = {
                 ''',
                 'bmp_activates',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Create this group. Deletion of this object
+                causes deletion of all the objects under
+                NeighborGroup/SessionGroup associated with this
+                object.
+                ''',
+                'create',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Up to 80 characters describing this neighbor
+                ''',
+                'description',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop', 
                 [], [], 
                 '''                Allow EBGP neighbors not on directly connected
                 networks
                 ''',
                 'ebgp_multihop',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Inherit address-family independent config from a
-                session-group
-                ''',
-                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('egress-peer-engineering', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6106,11 +6127,45 @@ _meta_table = {
                 ''',
                 'egress_peer_engineering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs', 
+            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Set remote AS
+                '''                TRUE to enforce first AS; FALSE to not enforce
+                first AS.
                 ''',
-                'remote_as',
+                'enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance', 
+                [], [], 
+                '''                Graceful Maintenance mode
+                ''',
+                'graceful_maintenance',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable the connected nexthop check for
+                this peer.FALSE to enable the connected nexthop
+                check for this peer.
+                ''',
+                'ignore_connected_check_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to preserve the CE path attributes.FALSE to
+                override CE path attributes.
+                ''',
+                'internal_vpn_client_ibgpce',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain', 
+                [], [], 
+                '''                Set or disable keychain based authentication
+                ''',
+                'keychain',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress', 
+                [], [], 
+                '''                Local ip address
+                ''',
+                'local_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('local-as', REFERENCE_CLASS, 'LocalAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs', 
                 [], [], 
@@ -6118,39 +6173,17 @@ _meta_table = {
                 ''',
                 'local_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Maximum time to wait for restart of GR capable
-                peer
-                ''',
-                'neighbor_graceful_restart_stalepath_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn', 
                 [], [], 
-                '''                TRUE to shutdown this entity, FALSE to prevent
-                this entity from being shutdown even if the
-                parent is.
+                '''                Message log inbound
                 ''',
-                'shutdown',
+                'msg_log_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut', 
                 [], [], 
-                '''                Up to 80 characters describing this neighbor
+                '''                Message log outbound
                 ''',
-                'description',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password', 
-                [], [], 
-                '''                Set or disable a password
-                ''',
-                'password',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval', 
-                [], [], 
-                '''                Minimum interval between sending BGP routing
-                updates
-                ''',
-                'advertisement_interval',
+                'msg_log_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-cluster-id', REFERENCE_CLASS, 'NeighborClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId', 
                 [], [], 
@@ -6166,73 +6199,37 @@ _meta_table = {
                 ''',
                 'neighbor_graceful_restart',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enforce first AS; FALSE to not enforce
-                first AS.
+            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Maximum time to wait for restart of GR capable
+                peer
                 ''',
-                'enforce_first_as',
+                'neighbor_graceful_restart_stalepath_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss', 
-                [], [], 
-                '''                TCP Maximum segment size
+            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Restart time advertised to neighbor
                 ''',
-                'tcpmss',
+                'neighbor_graceful_restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
+            _MetaInfoClassMember('neighbor-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TCP mode to be used to establish BGP session
+                '''                Inherit configuration from a
+                neighbor-group
                 ''',
-                'session_open_mode',
+                'neighbor_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('neighbor-group-afs', REFERENCE_CLASS, 'NeighborGroupAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs', 
                 [], [], 
-                '''                RPKI origin-AS validation disable
+                '''                BGP neighbor-group AF configuration table
                 ''',
-                'rpki_origin_as_validation_disable',
+                'neighbor_group_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos', 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password', 
                 [], [], 
-                '''                TOS (Type Of Service)
+                '''                Set or disable a password
                 ''',
-                'tos',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering', 
-                [], [], 
-                '''                Inbound update filtering
-                ''',
-                'update_in_filtering',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut', 
-                [], [], 
-                '''                Message log outbound
-                ''',
-                'msg_log_out',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize', 
-                [], [], 
-                '''                Set socket receive buffer size and BGP read
-                buffer size
-                ''',
-                'receive_buffer_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn', 
-                [], [], 
-                '''                Message log inbound
-                ''',
-                'msg_log_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Send capability
-                ''',
-                'additional_paths_send_capability',
+                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('propagate-dmz-link-bandwidth', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6242,12 +6239,30 @@ _meta_table = {
                 ''',
                 'propagate_dmz_link_bandwidth',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize', 
                 [], [], 
-                '''                Strict mode, Default mode or Disable to prevent
-                inheritance from a parent
+                '''                Set socket receive buffer size and BGP read
+                buffer size
                 ''',
-                'bfd_enable_modes',
+                'receive_buffer_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs', 
+                [], [], 
+                '''                Set remote AS
+                ''',
+                'remote_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath origin-AS allow invalid
+                ''',
+                'rpki_bestpath_origin_as_allow_invalid',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI origin-AS validation disable
+                ''',
+                'rpki_origin_as_validation_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-buffer-size', REFERENCE_CLASS, 'SendBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize', 
                 [], [], 
@@ -6256,58 +6271,26 @@ _meta_table = {
                 ''',
                 'send_buffer_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE to enable BGP TTL Security.  FALSE to not
-                enable it and to prevent inheritance from a
-                parent
+                '''                Inherit address-family independent config from a
+                session-group
                 ''',
-                'ttl_security',
+                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Restart time advertised to neighbor
-                ''',
-                'neighbor_graceful_restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
-                '''                BGP per neighbor timers.
+                '''                TCP mode to be used to establish BGP session
                 ''',
-                'timers',
+                'session_open_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 16)], [], 
-                '''                Detection multiplier for BFD sessions created by
-                BGP
-                ''',
-                'bfd_multiplier',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by BGP
-                ''',
-                'bfd_minimum_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise additional paths Receive capability
+                '''                TRUE to shutdown this entity, FALSE to prevent
+                this entity from being shutdown even if the
+                parent is.
                 ''',
-                'additional_paths_receive_capability',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain', 
-                [], [], 
-                '''                Set or disable keychain based authentication
-                ''',
-                'keychain',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable the connected nexthop check for
-                this peer.FALSE to enable the connected nexthop
-                check for this peer.
-                ''',
-                'ignore_connected_check_ebgp',
+                'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-four-byte-as-capability', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6317,26 +6300,43 @@ _meta_table = {
                 ''',
                 'suppress_four_byte_as_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss', 
+                [], [], 
+                '''                TCP Maximum segment size
+                ''',
+                'tcpmss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers', 
+                [], [], 
+                '''                BGP per neighbor timers.
+                ''',
+                'timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos', 
+                [], [], 
+                '''                TOS (Type Of Service)
+                ''',
+                'tos',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable BGP TTL Security.  FALSE to not
+                enable it and to prevent inheritance from a
+                parent
+                ''',
+                'ttl_security',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering', 
+                [], [], 
+                '''                Inbound update filtering
+                ''',
+                'update_in_filtering',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Create this group. Deletion of this object
-                causes deletion of all the objects under
-                NeighborGroup/SessionGroup associated with this
-                object.
-                ''',
-                'create',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance', 
-                [], [], 
-                '''                Graceful Maintenance mode
-                ''',
-                'graceful_maintenance',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6366,6 +6366,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity',
             False, 
             [
+            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Cost Community ID
+                ''',
+                'cost_community_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
+                [], [], 
+                '''                Cost Community POI
+                ''',
+                'cost_community_poi_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to enable sending cost community, FALSE
@@ -6373,24 +6385,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Cost Community ID
-                ''',
-                'cost_community_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('transitive', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                True to send transitive cost community FALSE
                 otherwise
                 ''',
                 'transitive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
-                [], [], 
-                '''                Cost Community POI
-                ''',
-                'cost_community_poi_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6426,18 +6426,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes',
             False, 
             [
+            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Discard extra paths when limit is exceeded
+                ''',
+                'discard_extra_paths',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum prefixes limit
                 ''',
                 'prefix_limit',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Threshold value (%) at which to generate a
-                warning message.
+            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Restart interval
                 ''',
-                'warning_percentage',
+                'restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('warning-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6447,17 +6452,12 @@ _meta_table = {
                 ''',
                 'warning_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Restart interval
+            _MetaInfoClassMember('warning-percentage', ATTRIBUTE, 'int' , None, None, 
+                [(1, 100)], [], 
+                '''                Threshold value (%) at which to generate a
+                warning message.
                 ''',
-                'restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('discard-extra-paths', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Discard extra paths when limit is exceeded
-                ''',
-                'discard_extra_paths',
+                'warning_percentage',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6497,17 +6497,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime',
             False, 
             [
-            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
-                '''                Max time (seconds)
-                ''',
-                'stale_time_send',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('stale-time-accept', ATTRIBUTE, 'int' , None, None, 
                 [(0, 16777215)], [], 
                 '''                Max time (seconds)
                 ''',
                 'stale_time_accept',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('stale-time-send', ATTRIBUTE, 'int' , None, None, 
+                [(0, 16777215)], [], 
+                '''                Max time (seconds)
+                ''',
+                'stale_time_send',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6520,17 +6520,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
-                [], [], 
-                '''                Type of Extended community
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address
                 ''',
-                'type',
+                'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
+            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                IP address Index
                 ''',
-                'as_xx',
+                'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -6544,17 +6544,17 @@ _meta_table = {
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP address
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
                 ''',
-                'address',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                IP address Index
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
+                [], [], 
+                '''                Type of Extended community
                 ''',
-                'address_index',
+                'type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6613,13 +6613,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import',
             False, 
             [
-            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to Import with Stitching RTs, FALSE to
-                Import with normal RTs
-                ''',
-                'import_stitching',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to Reoriginate imported routes, FALSE to
@@ -6634,6 +6627,13 @@ _meta_table = {
                 routes with normal RTs
                 ''',
                 'import_reoriginate_stitching',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-stitching', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to Import with Stitching RTs, FALSE to
+                Import with normal RTs
+                ''',
+                'import_stitching',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -6775,12 +6775,104 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
+            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Handle self-originated routes with Accept-Own
+                community. Valid for following neighbor
+                address-families: VPNv4Unicast, VPNv6Unicast.
+                ''',
+                'accept_own',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('accept-route-legacy-rt', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to configure as a accept-route-legacy-RT. 
+                FALSE to prevent accept-route-legacy-RT from
+                being inherited.
+                ''',
+                'accept_route_legacy_rt',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable', 
+                [], [], 
+                '''                Disable Advertise Of Routes to the peer
+                ''',
+                'advertise_disable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4', 
+                [], [], 
+                '''                Advertise Of Local Routes to the peer with
+                different RT
+                ''',
+                'advertise_local_v4',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6', 
+                [], [], 
+                '''                Advertise Of Local Routes to the peer with
+                different RT
+                ''',
+                'advertise_local_v6',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
+                [], [], 
+                '''                Advertise ORF capability to the peer
+                ''',
+                'advertise_orf',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Advertise Permanent Networks to the peer
+                ''',
+                'advertise_permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v4',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6', 
+                [], [], 
+                '''                Advertise Translated Routes to the peer
+                ''',
+                'advertise_v6',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('af-group', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Inherit configuration for this
                 address-family from an AF-group
                 ''',
                 'af_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable Accumulated IGP Metric for this neighbor.
+                ''',
+                'aigp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity', 
+                [], [], 
+                '''                Send AIGP value in Cost Community. 
+                ''',
+                'aigp_cost_community',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
+                [], [], 
+                '''                Enable/Disable sending AIGP in MED 
+                ''',
+                'aigp_send_med',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10)], [], 
+                '''                Allow as-path with my AS present in it
+                ''',
+                'allow_as_in',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to override matching AS-number while
+                sending update. FALSE to prevent as-override
+                from being inherited from the parent
+                ''',
+                'as_override',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -6791,6 +6883,52 @@ _meta_table = {
                 ''',
                 'create',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate', 
+                [], [], 
+                '''                Originate default route to this neighbor
+                ''',
+                'default_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Set default weight for routes from this
+                neighbor/neighbor-group/af-group
+                ''',
+                'default_weight',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
+                [], [], 
+                '''                Config Flowspec validation for this neighbor
+                ''',
+                'flowspec_validation',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import', 
+                [], [], 
+                '''                Import Reorigination options for Routes from the
+                peer
+                ''',
+                'import_',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
+                [], [], 
+                '''                Disable signalling type on the peer
+                ''',
+                'l2vpn_signalling',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes', 
+                [], [], 
+                '''                Maximum number of prefixes to accept from this
+                peer
+                ''',
+                'maximum_prefixes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow paths from this neighbor to be eligible
+                for selective multipath
+                ''',
+                'multipath',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-capable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to treat neighbor as Long-lived
@@ -6799,11 +6937,102 @@ _meta_table = {
                 ''',
                 'neighbor_af_long_lived_graceful_restart_capable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
+            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime', 
                 [], [], 
-                '''                Disable signalling type on the peer
+                '''                Maximum time to wait before purging long lived
+                routes
                 ''',
-                'l2vpn_signalling',
+                'neighbor_af_long_lived_graceful_restart_stale_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('next-hop-self', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Disable the next hop calculation and  insert
+                your own address in the nexthop field of
+                advertised routes you learned from the neighbor.
+                ''',
+                'next_hop_self',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable overwriting of next hop before
+                advertising to eBGP peers. FALSE to prevent
+                next-hop-unchanged from being inherited.
+                ''',
+                'next_hop_unchanged',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('next-hop-unchanged-multipath', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable overwriting of next hop for
+                multipaths. FALSE to prevent next-hop-unchanged
+                for multipaths.
+                ''',
+                'next_hop_unchanged_multipath',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Prefix ORF policy name for incoming updates
+                ''',
+                'prefix_orf_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath', 
+                [], [], 
+                '''                Remove private AS number from outbound updates
+                ''',
+                'remove_private_as_entire_as_path',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound', 
+                [], [], 
+                '''                Remove private AS number from inbound updates
+                ''',
+                'remove_private_as_entire_as_path_inbound',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name to apply to inbound routes
+                ''',
+                'route_policy_in',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name to apply to outbound routes
+                ''',
+                'route_policy_out',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to configure as a route-reflector-client. 
+                FALSE to prevent route-reflector-client from
+                being inherited.
+                ''',
+                'route_reflector_client',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath origin-AS allow invalid
+                ''',
+                'rpki_bestpath_origin_as_allow_invalid',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI origin-AS validation disable
+                ''',
+                'rpki_origin_as_validation_disable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to send communities to the external
+                neighbor/neighbor-group/af-group.  FALSE not to
+                send and to prevent inheritance from a parent
+                ''',
+                'send_community_ebgp_graceful_shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-ext-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6814,115 +7043,12 @@ _meta_table = {
                 ''',
                 'send_ext_community_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('accept-route-legacy-rt', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to configure as a accept-route-legacy-RT. 
-                FALSE to prevent accept-route-legacy-RT from
-                being inherited.
-                ''',
-                'accept_route_legacy_rt',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-cost-community', REFERENCE_CLASS, 'AigpCostCommunity' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity', 
-                [], [], 
-                '''                Send AIGP value in Cost Community. 
-                ''',
-                'aigp_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-disable', REFERENCE_CLASS, 'AdvertiseDisable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable', 
-                [], [], 
-                '''                Disable Advertise Of Routes to the peer
-                ''',
-                'advertise_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
                 [], [], 
                 '''                Config send multicast attribute for this
                 neighbor
                 ''',
                 'send_multicast_attr',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('maximum-prefixes', REFERENCE_CLASS, 'MaximumPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes', 
-                [], [], 
-                '''                Maximum number of prefixes to accept from this
-                peer
-                ''',
-                'maximum_prefixes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path-inbound', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPathInbound' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound', 
-                [], [], 
-                '''                Remove private AS number from inbound updates
-                ''',
-                'remove_private_as_entire_as_path_inbound',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable overwriting of next hop before
-                advertising to eBGP peers. FALSE to prevent
-                next-hop-unchanged from being inherited.
-                ''',
-                'next_hop_unchanged',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI origin-AS validation disable
-                ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
-                [], [], 
-                '''                Config Flowspec validation for this neighbor
-                ''',
-                'flowspec_validation',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-override', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to override matching AS-number while
-                sending update. FALSE to prevent as-override
-                from being inherited from the parent
-                ''',
-                'as_override',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multipath', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow paths from this neighbor to be eligible
-                for selective multipath
-                ''',
-                'multipath',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-community-ebgp-graceful-shutdown', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to send communities to the external
-                neighbor/neighbor-group/af-group.  FALSE not to
-                send and to prevent inheritance from a parent
-                ''',
-                'send_community_ebgp_graceful_shutdown',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('prefix-orf-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Prefix ORF policy name for incoming updates
-                ''',
-                'prefix_orf_policy',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-af-long-lived-graceful-restart-stale-time', REFERENCE_CLASS, 'NeighborAfLongLivedGracefulRestartStaleTime' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime', 
-                [], [], 
-                '''                Maximum time to wait before purging long lived
-                routes
-                ''',
-                'neighbor_af_long_lived_graceful_restart_stale_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('site-of-origin', REFERENCE_CLASS, 'SiteOfOrigin' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin', 
                 [], [], 
@@ -6931,138 +7057,12 @@ _meta_table = {
                 ''',
                 'site_of_origin',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable Accumulated IGP Metric for this neighbor.
-                ''',
-                'aigp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
-                [], [], 
-                '''                Enable/Disable sending AIGP in MED 
-                ''',
-                'aigp_send_med',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v6', REFERENCE_CLASS, 'AdvertiseV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allow-as-in', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Allow as-path with my AS present in it
-                ''',
-                'allow_as_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
-                [], [], 
-                '''                Advertise ORF capability to the peer
-                ''',
-                'advertise_orf',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-reflector-client', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to configure as a route-reflector-client. 
-                FALSE to prevent route-reflector-client from
-                being inherited.
-                ''',
-                'route_reflector_client',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-self', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Disable the next hop calculation and  insert
-                your own address in the nexthop field of
-                advertised routes you learned from the neighbor.
-                ''',
-                'next_hop_self',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v6', REFERENCE_CLASS, 'AdvertiseLocalV6' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6', 
-                [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
-                ''',
-                'advertise_local_v6',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-in', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name to apply to inbound routes
-                ''',
-                'route_policy_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import', 
-                [], [], 
-                '''                Import Reorigination options for Routes from the
-                peer
-                ''',
-                'import_',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-originate', REFERENCE_CLASS, 'DefaultOriginate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate', 
-                [], [], 
-                '''                Originate default route to this neighbor
-                ''',
-                'default_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('soft-reconfiguration', REFERENCE_CLASS, 'SoftReconfiguration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration', 
                 [], [], 
                 '''                Enable/disable inbound soft reconfiguration for
                 this neighbor/neighbor-group/af-group
                 ''',
                 'soft_reconfiguration',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Set default weight for routes from this
-                neighbor/neighbor-group/af-group
-                ''',
-                'default_weight',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-v4', REFERENCE_CLASS, 'AdvertiseV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4', 
-                [], [], 
-                '''                Advertise Translated Routes to the peer
-                ''',
-                'advertise_v4',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-unchanged-multipath', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable overwriting of next hop for
-                multipaths. FALSE to prevent next-hop-unchanged
-                for multipaths.
-                ''',
-                'next_hop_unchanged_multipath',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('accept-own', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Handle self-originated routes with Accept-Own
-                community. Valid for following neighbor
-                address-families: VPNv4Unicast, VPNv6Unicast.
-                ''',
-                'accept_own',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name to apply to outbound routes
-                ''',
-                'route_policy_out',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-local-v4', REFERENCE_CLASS, 'AdvertiseLocalV4' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4', 
-                [], [], 
-                '''                Advertise Of Local Routes to the peer with
-                different RT
-                ''',
-                'advertise_local_v4',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-permanent-network', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Advertise Permanent Networks to the peer
-                ''',
-                'advertise_permanent_network',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remove-private-as-entire-as-path', REFERENCE_CLASS, 'RemovePrivateAsEntireAsPath' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath', 
-                [], [], 
-                '''                Remove private AS number from outbound updates
-                ''',
-                'remove_private_as_entire_as_path',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7262,13 +7262,6 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Do not prepend Local AS to announcements from
-                this neighbor
-                ''',
-                'no_prepend',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable Local AS and prevent it from being
@@ -7276,18 +7269,25 @@ _meta_table = {
                 ''',
                 'disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Dual-AS mode
+                ''',
+                'dual_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('no-prepend', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Do not prepend Local AS to announcements from
+                this neighbor
+                ''',
+                'no_prepend',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('replace-as', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Prepend only Local AS to announcements from
                 this neighbor
                 ''',
                 'replace_as',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dual-as', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Dual-AS mode
-                ''',
-                'dual_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7300,6 +7300,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password',
             False, 
             [
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                The neighbor password.  Leave unspecified when
+                disabling the password.
+                ''',
+                'password',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('password-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to prevent this entity from having a
@@ -7307,13 +7314,6 @@ _meta_table = {
                 specify a password
                 ''',
                 'password_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                The neighbor password.  Leave unspecified when
-                disabling the password.
-                ''',
-                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7349,18 +7349,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId',
             False, 
             [
-            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Route-Reflector Cluster ID as 32 bit quantity
-                ''',
-                'cluster_id_number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
                 'cluster_id_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Route-Reflector Cluster ID as 32 bit quantity
+                ''',
+                'cluster_id_number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7373,18 +7373,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss',
             False, 
             [
+            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
+                [(68, 10000)], [], 
+                '''                Maximum Segment Size
+                ''',
+                'mss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('tcpmss-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance ofTCP MSS
                 valuefrom its parents.FALSE, otherwise
                 ''',
                 'tcpmss_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mss', ATTRIBUTE, 'int' , None, None, 
-                [(68, 10000)], [], 
-                '''                Maximum Segment Size
-                ''',
-                'mss',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7433,17 +7433,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers',
             False, 
             [
-            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 25)], [], 
-                '''                Number of message buffers
-                ''',
-                'number_of_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('non-circular-buffer', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to configure non-circular buffer
                 ''',
                 'non_circular_buffer',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('number-of-buffers', ATTRIBUTE, 'int' , None, None, 
+                [(0, 25)], [], 
+                '''                Number of message buffers
+                ''',
+                'number_of_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7456,12 +7456,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering',
             False, 
             [
-            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
-                [], [], 
-                '''                Message buffers to store filtered updates
-                ''',
-                'update_in_filtering_message_buffers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Configure inbound update filtering
@@ -7474,6 +7468,12 @@ _meta_table = {
                 filtering
                 ''',
                 'update_in_filtering_attribute_filter_group',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering-message-buffers', REFERENCE_CLASS, 'UpdateInFilteringMessageBuffers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers', 
+                [], [], 
+                '''                Message buffers to store filtered updates
+                ''',
+                'update_in_filtering_message_buffers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-in-filtering-syslog-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -7523,17 +7523,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7576,17 +7576,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7599,18 +7599,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers',
             False, 
             [
-            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval
-                ''',
-                'keepalive_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time.  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval
+                ''',
+                'keepalive_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -7679,18 +7679,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends',
             False, 
             [
+            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
+                [(0, 6)], [], 
+                '''                number of times AS prepends
+                ''',
+                'as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('gshut-prepends-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE, to prevent inheritance of AS Prepends
                 value from its parents.FALSE, otherwise
                 ''',
                 'gshut_prepends_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('as-prepends', ATTRIBUTE, 'int' , None, None, 
-                [(0, 6)], [], 
-                '''                number of times AS prepends
-                ''',
-                'as_prepends',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7703,19 +7703,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance',
             False, 
             [
-            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
-                [], [], 
-                '''                Set Local Preference to advertise routes with
-                ''',
-                'graceful_maintenance_local_preference',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
-                [], [], 
-                '''                Number of times to prepend local AS number to
-                the AS path
-                ''',
-                'graceful_maintenance_as_prepends',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enter Graceful Maintenance mode to configure
@@ -7728,6 +7715,19 @@ _meta_table = {
                 '''                Initiate the graceful shutdown procedure
                 ''',
                 'graceful_maintenance_activate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-as-prepends', REFERENCE_CLASS, 'GracefulMaintenanceAsPrepends' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends', 
+                [], [], 
+                '''                Number of times to prepend local AS number to
+                the AS path
+                ''',
+                'graceful_maintenance_as_prepends',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance-local-preference', REFERENCE_CLASS, 'GracefulMaintenanceLocalPreference' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference', 
+                [], [], 
+                '''                Set Local Preference to advertise routes with
+                ''',
+                'graceful_maintenance_local_preference',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -7746,31 +7746,65 @@ _meta_table = {
                 ''',
                 'session_group_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                Inherit address-family independent config
-                from a session-group
+                '''                Advertise additional paths Receive capability
                 ''',
-                'session_group_add_member',
+                'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                TRUE to preserve the CE path attributes.FALSE to
-                override CE path attributes.
+                '''                Advertise additional paths Send capability
                 ''',
-                'internal_vpn_client_ibgpce',
+                'additional_paths_send_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress', 
+            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval', 
                 [], [], 
-                '''                Local ip address
+                '''                Minimum interval between sending BGP routing
+                updates
                 ''',
-                'local_address',
+                'advertisement_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+                [], [], 
+                '''                Strict mode, Default mode or Disable to prevent
+                inheritance from a parent
+                ''',
+                'bfd_enable_modes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by BGP
+                ''',
+                'bfd_minimum_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [(2, 16)], [], 
+                '''                Detection multiplier for BFD sessions created by
+                BGP
+                ''',
+                'bfd_multiplier',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bmp-activates', REFERENCE_CLASS, 'BmpActivates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates', 
                 [], [], 
                 '''                Enable BMP logging for this neighbor
                 ''',
                 'bmp_activates',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Create this group. Deletion of this object
+                causes deletion of all the objects under
+                NeighborGroup/SessionGroup associated with this
+                object.
+                ''',
+                'create',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Up to 80 characters describing this neighbor
+                ''',
+                'description',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ebgp-multihop', REFERENCE_CLASS, 'EbgpMultihop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop', 
                 [], [], 
@@ -7787,11 +7821,45 @@ _meta_table = {
                 ''',
                 'egress_peer_engineering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs', 
+            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Set remote AS
+                '''                TRUE to enforce first AS; FALSE to not enforce
+                first AS.
                 ''',
-                'remote_as',
+                'enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance', 
+                [], [], 
+                '''                Graceful Maintenance mode
+                ''',
+                'graceful_maintenance',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to disable the connected nexthop check for
+                this peer.FALSE to enable the connected nexthop
+                check for this peer.
+                ''',
+                'ignore_connected_check_ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('internal-vpn-client-ibgpce', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to preserve the CE path attributes.FALSE to
+                override CE path attributes.
+                ''',
+                'internal_vpn_client_ibgpce',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain', 
+                [], [], 
+                '''                Set or disable keychain based authentication
+                ''',
+                'keychain',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('local-address', REFERENCE_CLASS, 'LocalAddress' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress', 
+                [], [], 
+                '''                Local ip address
+                ''',
+                'local_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('local-as', REFERENCE_CLASS, 'LocalAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs', 
                 [], [], 
@@ -7799,39 +7867,17 @@ _meta_table = {
                 ''',
                 'local_as',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Maximum time to wait for restart of GR capable
-                peer
-                ''',
-                'neighbor_graceful_restart_stalepath_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn', 
                 [], [], 
-                '''                TRUE to shutdown this entity, FALSE to prevent
-                this entity from being shutdown even if the
-                parent is.
+                '''                Message log inbound
                 ''',
-                'shutdown',
+                'msg_log_in',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut', 
                 [], [], 
-                '''                Up to 80 characters describing this neighbor
+                '''                Message log outbound
                 ''',
-                'description',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password', 
-                [], [], 
-                '''                Set or disable a password
-                ''',
-                'password',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertisement-interval', REFERENCE_CLASS, 'AdvertisementInterval' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval', 
-                [], [], 
-                '''                Minimum interval between sending BGP routing
-                updates
-                ''',
-                'advertisement_interval',
+                'msg_log_out',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-cluster-id', REFERENCE_CLASS, 'NeighborClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId', 
                 [], [], 
@@ -7847,73 +7893,24 @@ _meta_table = {
                 ''',
                 'neighbor_graceful_restart',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enforce-first-as', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enforce first AS; FALSE to not enforce
-                first AS.
+            _MetaInfoClassMember('neighbor-graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Maximum time to wait for restart of GR capable
+                peer
                 ''',
-                'enforce_first_as',
+                'neighbor_graceful_restart_stalepath_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss', 
-                [], [], 
-                '''                TCP Maximum segment size
+            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Restart time advertised to neighbor
                 ''',
-                'tcpmss',
+                'neighbor_graceful_restart_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password', 
                 [], [], 
-                '''                TCP mode to be used to establish BGP session
+                '''                Set or disable a password
                 ''',
-                'session_open_mode',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI origin-AS validation disable
-                ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos', 
-                [], [], 
-                '''                TOS (Type Of Service)
-                ''',
-                'tos',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering', 
-                [], [], 
-                '''                Inbound update filtering
-                ''',
-                'update_in_filtering',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-out', REFERENCE_CLASS, 'MsgLogOut' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut', 
-                [], [], 
-                '''                Message log outbound
-                ''',
-                'msg_log_out',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
-                ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize', 
-                [], [], 
-                '''                Set socket receive buffer size and BGP read
-                buffer size
-                ''',
-                'receive_buffer_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('msg-log-in', REFERENCE_CLASS, 'MsgLogIn' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn', 
-                [], [], 
-                '''                Message log inbound
-                ''',
-                'msg_log_in',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Send capability
-                ''',
-                'additional_paths_send_capability',
+                'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('propagate-dmz-link-bandwidth', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7923,12 +7920,30 @@ _meta_table = {
                 ''',
                 'propagate_dmz_link_bandwidth',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
+            _MetaInfoClassMember('receive-buffer-size', REFERENCE_CLASS, 'ReceiveBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize', 
                 [], [], 
-                '''                Strict mode, Default mode or Disable to prevent
-                inheritance from a parent
+                '''                Set socket receive buffer size and BGP read
+                buffer size
                 ''',
-                'bfd_enable_modes',
+                'receive_buffer_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('remote-as', REFERENCE_CLASS, 'RemoteAs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs', 
+                [], [], 
+                '''                Set remote AS
+                ''',
+                'remote_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath origin-AS allow invalid
+                ''',
+                'rpki_bestpath_origin_as_allow_invalid',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI origin-AS validation disable
+                ''',
+                'rpki_origin_as_validation_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('send-buffer-size', REFERENCE_CLASS, 'SendBufferSize' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize', 
                 [], [], 
@@ -7937,58 +7952,26 @@ _meta_table = {
                 ''',
                 'send_buffer_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('session-group-add-member', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE to enable BGP TTL Security.  FALSE to not
-                enable it and to prevent inheritance from a
-                parent
+                '''                Inherit address-family independent config
+                from a session-group
                 ''',
-                'ttl_security',
+                'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Restart time advertised to neighbor
-                ''',
-                'neighbor_graceful_restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
-                '''                BGP per neighbor timers.
+                '''                TCP mode to be used to establish BGP session
                 ''',
-                'timers',
+                'session_open_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 16)], [], 
-                '''                Detection multiplier for BFD sessions created by
-                BGP
-                ''',
-                'bfd_multiplier',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by BGP
-                ''',
-                'bfd_minimum_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Advertise additional paths Receive capability
+                '''                TRUE to shutdown this entity, FALSE to prevent
+                this entity from being shutdown even if the
+                parent is.
                 ''',
-                'additional_paths_receive_capability',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('keychain', REFERENCE_CLASS, 'Keychain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain', 
-                [], [], 
-                '''                Set or disable keychain based authentication
-                ''',
-                'keychain',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ignore-connected-check-ebgp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to disable the connected nexthop check for
-                this peer.FALSE to enable the connected nexthop
-                check for this peer.
-                ''',
-                'ignore_connected_check_ebgp',
+                'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-four-byte-as-capability', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7998,26 +7981,43 @@ _meta_table = {
                 ''',
                 'suppress_four_byte_as_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tcpmss', REFERENCE_CLASS, 'Tcpmss' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss', 
+                [], [], 
+                '''                TCP Maximum segment size
+                ''',
+                'tcpmss',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers', 
+                [], [], 
+                '''                BGP per neighbor timers.
+                ''',
+                'timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos', 
+                [], [], 
+                '''                TOS (Type Of Service)
+                ''',
+                'tos',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ttl-security', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable BGP TTL Security.  FALSE to not
+                enable it and to prevent inheritance from a
+                parent
+                ''',
+                'ttl_security',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('update-in-filtering', REFERENCE_CLASS, 'UpdateInFiltering' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering', 
+                [], [], 
+                '''                Inbound update filtering
+                ''',
+                'update_in_filtering',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Create this group. Deletion of this object
-                causes deletion of all the objects under
-                NeighborGroup/SessionGroup associated with this
-                object.
-                ''',
-                'create',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-maintenance', REFERENCE_CLASS, 'GracefulMaintenance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance', 
-                [], [], 
-                '''                Graceful Maintenance mode
-                ''',
-                'graceful_maintenance',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8047,11 +8047,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity',
             False, 
             [
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors', 
+            _MetaInfoClassMember('af-groups', REFERENCE_CLASS, 'AfGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups', 
                 [], [], 
-                '''                Neighbor configuration
+                '''                AF-group configuration
                 ''',
-                'neighbors',
+                'af_groups',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('neighbor-groups', REFERENCE_CLASS, 'NeighborGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups', 
                 [], [], 
@@ -8059,11 +8059,11 @@ _meta_table = {
                 ''',
                 'neighbor_groups',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('af-groups', REFERENCE_CLASS, 'AfGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups', 
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors', 
                 [], [], 
-                '''                AF-group configuration
+                '''                Neighbor configuration
                 ''',
-                'af_groups',
+                'neighbors',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('session-groups', REFERENCE_CLASS, 'SessionGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups', 
                 [], [], 
@@ -8082,19 +8082,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId',
             False, 
             [
-            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Route-Reflector Cluster ID as 32 bit
-                quantity
-                ''',
-                'cluster_id_number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
                 'cluster_id_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Route-Reflector Cluster ID as 32 bit
+                quantity
+                ''',
+                'cluster_id_number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8107,12 +8107,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit',
             False, 
             [
-            _MetaInfoClassMember('formatted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(500, 100000000)], [], 
-                '''                Number of messages to be formatted per
-                update group
+            _MetaInfoClassMember('desynchronize', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable desynchronization, FALSE
+                otherwise.
                 ''',
-                'formatted_messages',
+                'desynchronize',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enqueued-messages', ATTRIBUTE, 'int' , None, None, 
                 [(500, 100000000)], [], 
@@ -8121,12 +8121,12 @@ _meta_table = {
                 ''',
                 'enqueued_messages',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('desynchronize', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enable desynchronization, FALSE
-                otherwise.
+            _MetaInfoClassMember('formatted-messages', ATTRIBUTE, 'int' , None, None, 
+                [(500, 100000000)], [], 
+                '''                Number of messages to be formatted per
+                update group
                 ''',
-                'desynchronize',
+                'formatted_messages',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8139,18 +8139,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay',
             False, 
             [
-            _MetaInfoClassMember('delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
-                '''                Delay value (seconds)
-                ''',
-                'delay',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('always', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Set to TRUE to disable keepalive trigger
                 bestpath and delay is enforced.
                 ''',
                 'always',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 3600)], [], 
+                '''                Delay value (seconds)
+                ''',
+                'delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8203,17 +8203,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague',
             False, 
             [
-            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers', 
-                [], [], 
-                '''                AS League Peers
-                ''',
-                'peers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                AS League creation
                 ''',
                 'enable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers', 
+                [], [], 
+                '''                AS League Peers
+                ''',
+                'peers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8226,17 +8226,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport',
             False, 
             [
-            _MetaInfoClassMember('transport', REFERENCE_ENUM_CLASS, 'BgpRpkiTransportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRpkiTransportEnum', 
-                [], [], 
-                '''                RPKI server transport
-                ''',
-                'transport',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                port
                 ''',
                 'port',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('transport', REFERENCE_ENUM_CLASS, 'BgpRpkiTransportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRpkiTransportEnum', 
+                [], [], 
+                '''                RPKI server transport
+                ''',
+                'transport',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8255,23 +8255,11 @@ _meta_table = {
                 ''',
                 'server',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('transport', REFERENCE_CLASS, 'Transport' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport', 
-                [], [], 
-                '''                RPKI server transport
-                ''',
-                'transport',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                RPKI server configuration
                 ''',
                 'enable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI server shutdown
-                ''',
-                'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8279,17 +8267,11 @@ _meta_table = {
                 ''',
                 'password',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('response-time', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('purge-time', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                RPKI server response-time (seconds)
+                '''                RPKI server purge-time (seconds)
                 ''',
-                'response_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                RPKI server username
-                ''',
-                'username',
+                'purge_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('refresh-time', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -8297,11 +8279,29 @@ _meta_table = {
                 ''',
                 'refresh_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('purge-time', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('response-time', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                RPKI server purge-time (seconds)
+                '''                RPKI server response-time (seconds)
                 ''',
-                'purge_time',
+                'response_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI server shutdown
+                ''',
+                'shutdown',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('transport', REFERENCE_CLASS, 'Transport' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport', 
+                [], [], 
+                '''                RPKI server transport
+                ''',
+                'transport',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RPKI server username
+                ''',
+                'username',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8412,17 +8412,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter',
             False, 
             [
-            _MetaInfoClassMember('attribute-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 256)], [], 
-                '''                Start of attribute range
-                ''',
-                'attribute_start',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('attribute-end', ATTRIBUTE, 'int' , None, None, 
                 [(0, 256)], [], 
                 '''                End of attribute range
                 ''',
                 'attribute_end',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
+            _MetaInfoClassMember('attribute-start', ATTRIBUTE, 'int' , None, None, 
+                [(0, 256)], [], 
+                '''                Start of attribute range
+                ''',
+                'attribute_start',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('filter-action', REFERENCE_ENUM_CLASS, 'BgpUpdateFilterActionEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpUpdateFilterActionEnum', 
                 [], [], 
@@ -8540,12 +8540,6 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for level 1
@@ -8554,6 +8548,12 @@ _meta_table = {
                 combinations permitted.
                 ''',
                 'redist_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8631,24 +8631,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll',
             False, 
             [
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode', 
-                [], [], 
-                '''                MPLS-VPN label allocation mode
-                ''',
-                'label_mode',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable vrf all configuration submode
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode', 
                 [], [], 
-                '''                Configure policy for installation of
-                routes to RIB
+                '''                MPLS-VPN label allocation mode
                 ''',
-                'table_policy',
+                'label_mode',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('source-rt-import-policy', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -8656,6 +8649,13 @@ _meta_table = {
                 from import-policy
                 ''',
                 'source_rt_import_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configure policy for installation of
+                routes to RIB
+                ''',
+                'table_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8680,17 +8680,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8776,17 +8776,17 @@ _meta_table = {
                 ''',
                 'cluster_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('number', REFERENCE_LIST, 'Number' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number', 
-                [], [], 
-                '''                number
-                ''',
-                'number',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('ipv4-address', REFERENCE_LIST, 'Ipv4Address' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address', 
                 [], [], 
                 '''                ipv4 address
                 ''',
                 'ipv4_address',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('number', REFERENCE_LIST, 'Number' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number', 
+                [], [], 
+                '''                number
+                ''',
+                'number',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8817,17 +8817,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay',
             False, 
             [
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10)], [], 
-                '''                Delay, seconds part
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('milliseconds', ATTRIBUTE, 'int' , None, None, 
                 [(0, 999)], [], 
                 '''                Delay, milliseconds part
                 ''',
                 'milliseconds',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10)], [], 
+                '''                Delay, seconds part
+                ''',
+                'seconds',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8864,17 +8864,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay',
             False, 
             [
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10)], [], 
-                '''                Delay, seconds part
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('milliseconds', ATTRIBUTE, 'int' , None, None, 
                 [(0, 999)], [], 
                 '''                Delay, milliseconds part
                 ''',
                 'milliseconds',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10)], [], 
+                '''                Delay, seconds part
+                ''',
+                'seconds',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8916,13 +8916,6 @@ _meta_table = {
                 ''',
                 'aggregate_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('generate-set-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to generate AS set path information,
-                FALSE otherwise
-                ''',
-                'generate_set_info',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('generate-confederation-set-info', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE to generate AS confederation set path
@@ -8930,12 +8923,12 @@ _meta_table = {
                 ''',
                 'generate_confederation_set_info',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('summary-only', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('generate-set-info', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE to filter more specific routes from
-                updates, FALSEotherwise
+                '''                TRUE to generate AS set path information,
+                FALSE otherwise
                 ''',
-                'summary_only',
+                'generate_set_info',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8943,6 +8936,13 @@ _meta_table = {
                 advertisement, suppression, and attributes
                 ''',
                 'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('summary-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to filter more specific routes from
+                updates, FALSEotherwise
+                ''',
+                'summary_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -8984,6 +8984,14 @@ _meta_table = {
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy to specify criteria for dampening.
+                This cannot be specified if any other
+                parameters are specified.
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(1, 20000)], [], 
                 '''                Value to start suppressing a route.
@@ -8996,14 +9004,6 @@ _meta_table = {
                 (seconds).
                 ''',
                 'suppress_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy to specify criteria for dampening.
-                This cannot be specified if any other
-                parameters are specified.
-                ''',
-                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9022,17 +9022,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9074,17 +9074,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9164,12 +9164,6 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
@@ -9177,6 +9171,12 @@ _meta_table = {
                 permitted.
                 ''',
                 'redist_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9277,17 +9277,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9324,17 +9324,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection',
             False, 
             [
-            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Enable/disable selection 
-                ''',
-                'selection',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Route policy for selection
                 ''',
                 'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
+                [], [], 
+                '''                Enable/disable selection 
+                ''',
+                'selection',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9347,17 +9347,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9365,11 +9365,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                UNUSED
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9382,17 +9382,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9400,11 +9400,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                UNUSED
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9429,12 +9429,6 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
@@ -9446,6 +9440,12 @@ _meta_table = {
                 combinations permitted.
                 ''',
                 'redist_type',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9475,17 +9475,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp',
             False, 
             [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
                 [(2, 64)], [], 
                 '''                Number of paths
                 ''',
                 'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths to have different IGP metrics
-                ''',
-                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9493,11 +9493,11 @@ _meta_table = {
                 ''',
                 'selective',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Order candidate multipaths by IGP metric
+                '''                Allow multipaths to have different IGP metrics
                 ''',
-                'order_by_igp_metric',
+                'unequal_cost',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9516,17 +9516,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9545,17 +9545,17 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('not-used', ATTRIBUTE, 'int' , None, None, 
                 [(0, 127)], [], 
                 '''                Not used
                 ''',
                 'not_used',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy name
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9574,26 +9574,35 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('isis-routes', REFERENCE_CLASS, 'IsisRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes', 
+            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                Redistribute information for IS-IS routes
-                .
+                '''                Advertise additional paths Receive capability
                 ''',
-                'isis_routes',
+                'additional_paths_receive',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('domain-distinguisher', REFERENCE_CLASS, 'DomainDistinguisher' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher', 
+            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection', 
                 [], [], 
-                '''                <ASN, router-id> tuple to use to identify
-                the link-state domain
+                '''                Configure additional paths selection
                 ''',
-                'domain_distinguisher',
+                'additional_paths_selection',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('vrf-all', REFERENCE_CLASS, 'VrfAll' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll', 
+            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
-                '''                Configurations to be inherited to all
-                vrfs
+                '''                Advertise additional paths Send capability
                 ''',
-                'vrf_all',
+                'additional_paths_send',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses', 
+                [], [], 
+                '''                Configure BGP aggregate entries
+                ''',
+                'aggregate_addresses',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel', 
+                [], [], 
+                '''                Label allocation policy
+                ''',
+                'allocate_label',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('application-routes', REFERENCE_CLASS, 'ApplicationRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes', 
                 [], [], 
@@ -9602,6 +9611,43 @@ _meta_table = {
                 ''',
                 'application_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('attribute-download', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Attribute download configuration
+                ''',
+                'attribute_download',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-external', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to enable BE FALSE to disable BE
+                inheritance from a parent
+                ''',
+                'best_external',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('connected-routes', REFERENCE_CLASS, 'ConnectedRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes', 
+                [], [], 
+                '''                Redistribute connected routes
+                ''',
+                'connected_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening', 
+                [], [], 
+                '''                Enable route-flap dampening
+                ''',
+                'dampening',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-as-path-loop-check', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable outbound AS Path loop check
+                ''',
+                'disable_as_path_loop_check',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-client-to-client-rr', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable client-to-client reflection
+                ''',
+                'disable_client_to_client_rr',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('disable-cluster-client-to-client-rrs', REFERENCE_CLASS, 'DisableClusterClientToClientRrs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs', 
                 [], [], 
                 '''                Disable client-to-client reflection for a
@@ -9609,18 +9655,70 @@ _meta_table = {
                 ''',
                 'disable_cluster_client_to_client_rrs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-delay', REFERENCE_CLASS, 'LabelDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay', 
+            _MetaInfoClassMember('disable-default-martian-check', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Delay timer to batch label processing.
+                '''                Disable default Martian Check
                 ''',
-                'label_delay',
+                'disable_default_martian_check',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('retain-rt', REFERENCE_CLASS, 'RetainRt' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt', 
+            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance', 
                 [], [], 
-                '''                Accept received updates with the
-                specified attributes
+                '''                Define an administrative distance
                 ''',
-                'retain_rt',
+                'distance',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('domain-distinguisher', REFERENCE_CLASS, 'DomainDistinguisher' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher', 
+                [], [], 
+                '''                <ASN, router-id> tuple to use to identify
+                the link-state domain
+                ''',
+                'domain_distinguisher',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('dynamic-med-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10)], [], 
+                '''                Update generation delay (in minutes) after a MED
+                change
+                ''',
+                'dynamic_med_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp', 
+                [], [], 
+                '''                Use eBGP multipaths
+                ''',
+                'ebgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('eibgp', REFERENCE_CLASS, 'Eibgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp', 
+                [], [], 
+                '''                Use eiBGP multipaths
+                ''',
+                'eibgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes', 
+                [], [], 
+                '''                Redistribute information for EIGRP routes.
+                ''',
+                'eigrp_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable the address family. Deletion of this
+                object causes deletion of all the objects under
+                GlobalAF/VRFGlobalAF associated with this object
+                .
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('global-table-mcast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable global table multicast
+                ''',
+                'global_table_mcast',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp', 
+                [], [], 
+                '''                Use iBGP multipaths
+                ''',
+                'ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-delay', REFERENCE_CLASS, 'ImportDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay', 
                 [], [], 
@@ -9635,17 +9733,49 @@ _meta_table = {
                 ''',
                 'inter_as_install',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('segmented-mcast', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('isis-routes', REFERENCE_CLASS, 'IsisRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes', 
                 [], [], 
-                '''                Enable segmented multicast
+                '''                Redistribute information for IS-IS routes
+                .
                 ''',
-                'segmented_mcast',
+                'isis_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-default-martian-check', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('label-delay', REFERENCE_CLASS, 'LabelDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay', 
                 [], [], 
-                '''                Disable default Martian Check
+                '''                Delay timer to batch label processing.
                 ''',
-                'disable_default_martian_check',
+                'label_delay',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode', 
+                [], [], 
+                '''                BGP 6PE/MPLS-VPN label allocation mode
+                ''',
+                'label_mode',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('label-retain', ATTRIBUTE, 'int' , None, None, 
+                [(3, 60)], [], 
+                '''                Label retention time in minutes
+                ''',
+                'label_retain',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('label-security-rpf', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Calculate label-security RPF lists and
+                install to RIB/LSD
+                ''',
+                'label_security_rpf',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes', 
+                [], [], 
+                '''                Redistribute lisp routes
+                ''',
+                'lisp_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('mobile-routes', REFERENCE_CLASS, 'MobileRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes', 
+                [], [], 
+                '''                Redistribute mobile routes
+                ''',
+                'mobile_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-critical-trigger-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -9659,25 +9789,62 @@ _meta_table = {
                 ''',
                 'next_hop_non_critical_trigger_delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-security-rpf', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('next-hop-resolution-prefix-length-minimum', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                Minimum prefix-length for nexthop resolution
+                ''',
+                'next_hop_resolution_prefix_length_minimum',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('next-hop-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Calculate label-security RPF lists and
-                install to RIB/LSD
+                '''                Next hop policy to filter out nexthop
+                notification
                 ''',
-                'label_security_rpf',
+                'next_hop_route_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-retain', ATTRIBUTE, 'int' , None, None, 
-                [(3, 60)], [], 
-                '''                Label retention time in minutes
+            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes', 
+                [], [], 
+                '''                Redistribute information for OSPF routes.
                 ''',
-                'label_retain',
+                'ospf_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('scan-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 3600)], [], 
-                '''                Configure background scanner interval for
-                this address family
+            _MetaInfoClassMember('permanent-network', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Route policy for permanent networks
                 ''',
-                'scan_time',
+                'permanent_network',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('reset-weight-on-import', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE to reset weight on import. FALSE to not
+                reset and to prevent inheritance from a parent
+                ''',
+                'reset_weight_on_import',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('retain-rt', REFERENCE_CLASS, 'RetainRt' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt', 
+                [], [], 
+                '''                Accept received updates with the
+                specified attributes
+                ''',
+                'retain_rt',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes', 
+                [], [], 
+                '''                Redistribute RIP routes
+                ''',
+                'rip_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath origin-AS allow invalid
+                ''',
+                'rpki_bestpath_origin_as_allow_invalid',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-use-origin-as-validity', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI bestpath use origin-AS validity
+                ''',
+                'rpki_bestpath_use_origin_as_validity',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -9691,13 +9858,43 @@ _meta_table = {
                 ''',
                 'rpki_origin_as_validity_signal_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-limit-sub-group-ebgp', ATTRIBUTE, 'int' , None, None, 
-                [(1, 512)], [], 
-                '''                Upper bound on update generation
-                transient memory usage for every EBGP
-                Sub-group
+            _MetaInfoClassMember('scan-time', ATTRIBUTE, 'int' , None, None, 
+                [(5, 3600)], [], 
+                '''                Configure background scanner interval for
+                this address family
                 ''',
-                'update_limit_sub_group_ebgp',
+                'scan_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('segmented-mcast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable segmented multicast
+                ''',
+                'segmented_mcast',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks', 
+                [], [], 
+                '''                Specify a network to announce via BGP
+                ''',
+                'sourced_networks',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes', 
+                [], [], 
+                '''                Redistribute static routes
+                ''',
+                'static_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('subscriber-routes', REFERENCE_CLASS, 'SubscriberRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes', 
+                [], [], 
+                '''                Redistribute subscriber routes
+                ''',
+                'subscriber_routes',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configure policy for installation of routes to
+                RIB
+                ''',
+                'table_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-limit-address-family', ATTRIBUTE, 'int' , None, None, 
                 [(4, 2048)], [], 
@@ -9707,11 +9904,13 @@ _meta_table = {
                 ''',
                 'update_limit_address_family',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-use-origin-as-validity', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI bestpath use origin-AS validity
+            _MetaInfoClassMember('update-limit-sub-group-ebgp', ATTRIBUTE, 'int' , None, None, 
+                [(1, 512)], [], 
+                '''                Upper bound on update generation
+                transient memory usage for every EBGP
+                Sub-group
                 ''',
-                'rpki_bestpath_use_origin_as_validity',
+                'update_limit_sub_group_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-limit-sub-group-ibgp', ATTRIBUTE, 'int' , None, None, 
                 [(1, 512)], [], 
@@ -9721,30 +9920,12 @@ _meta_table = {
                 ''',
                 'update_limit_sub_group_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('vrf-all', REFERENCE_CLASS, 'VrfAll' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll', 
                 [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
+                '''                Configurations to be inherited to all
+                vrfs
                 ''',
-                'rpki_bestpath_origin_as_allow_invalid',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-client-to-client-rr', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable client-to-client reflection
-                ''',
-                'disable_client_to_client_rr',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-route-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Next hop policy to filter out nexthop
-                notification
-                ''',
-                'next_hop_route_policy',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-table-mcast', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable global table multicast
-                ''',
-                'global_table_mcast',
+                'vrf_all',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('wait-rib-install', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -9752,187 +9933,6 @@ _meta_table = {
                 updates to neighbors
                 ''',
                 'wait_rib_install',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses', 
-                [], [], 
-                '''                Configure BGP aggregate entries
-                ''',
-                'aggregate_addresses',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dynamic-med-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10)], [], 
-                '''                Update generation delay (in minutes) after a MED
-                change
-                ''',
-                'dynamic_med_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening', 
-                [], [], 
-                '''                Enable route-flap dampening
-                ''',
-                'dampening',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable the address family. Deletion of this
-                object causes deletion of all the objects under
-                GlobalAF/VRFGlobalAF associated with this object
-                .
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes', 
-                [], [], 
-                '''                Redistribute RIP routes
-                ''',
-                'rip_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes', 
-                [], [], 
-                '''                Redistribute lisp routes
-                ''',
-                'lisp_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes', 
-                [], [], 
-                '''                Redistribute static routes
-                ''',
-                'static_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance', 
-                [], [], 
-                '''                Define an administrative distance
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('table-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Configure policy for installation of routes to
-                RIB
-                ''',
-                'table_policy',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('attribute-download', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Attribute download configuration
-                ''',
-                'attribute_download',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode', 
-                [], [], 
-                '''                BGP 6PE/MPLS-VPN label allocation mode
-                ''',
-                'label_mode',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes', 
-                [], [], 
-                '''                Redistribute information for EIGRP routes.
-                ''',
-                'eigrp_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-external', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to enable BE FALSE to disable BE
-                inheritance from a parent
-                ''',
-                'best_external',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks', 
-                [], [], 
-                '''                Specify a network to announce via BGP
-                ''',
-                'sourced_networks',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('connected-routes', REFERENCE_CLASS, 'ConnectedRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes', 
-                [], [], 
-                '''                Redistribute connected routes
-                ''',
-                'connected_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Receive capability
-                ''',
-                'additional_paths_receive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('permanent-network', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy for permanent networks
-                ''',
-                'permanent_network',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel', 
-                [], [], 
-                '''                Label allocation policy
-                ''',
-                'allocate_label',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection', 
-                [], [], 
-                '''                Configure additional paths selection
-                ''',
-                'additional_paths_selection',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('next-hop-resolution-prefix-length-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                Minimum prefix-length for nexthop resolution
-                ''',
-                'next_hop_resolution_prefix_length_minimum',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reset-weight-on-import', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE to reset weight on import. FALSE to not
-                reset and to prevent inheritance from a parent
-                ''',
-                'reset_weight_on_import',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp', 
-                [], [], 
-                '''                Use eBGP multipaths
-                ''',
-                'ebgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('eibgp', REFERENCE_CLASS, 'Eibgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp', 
-                [], [], 
-                '''                Use eiBGP multipaths
-                ''',
-                'eibgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes', 
-                [], [], 
-                '''                Redistribute information for OSPF routes.
-                ''',
-                'ospf_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp', 
-                [], [], 
-                '''                Use iBGP multipaths
-                ''',
-                'ibgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
-                [], [], 
-                '''                Advertise additional paths Send capability
-                ''',
-                'additional_paths_send',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mobile-routes', REFERENCE_CLASS, 'MobileRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes', 
-                [], [], 
-                '''                Redistribute mobile routes
-                ''',
-                'mobile_routes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-as-path-loop-check', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable outbound AS Path loop check
-                ''',
-                'disable_as_path_loop_check',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('subscriber-routes', REFERENCE_CLASS, 'SubscriberRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes', 
-                [], [], 
-                '''                Redistribute subscriber routes
-                ''',
-                'subscriber_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -9981,11 +9981,11 @@ _meta_table = {
                         'addrress',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                Minimum Prefix Length
+                '''                AS Number
                 ''',
-                'minimum',
+                'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -9993,11 +9993,11 @@ _meta_table = {
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                AS Number
+                '''                Minimum Prefix Length
                 ''',
-                'as_',
+                'minimum',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -10061,18 +10061,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers',
             False, 
             [
-            _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Keepalive interval (seconds)
-                ''',
-                'keepalive',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Hold time (seconds).  Specify 0 to disable
                 keepalives/hold time
                 ''',
                 'hold_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Keepalive interval (seconds)
+                ''',
+                'keepalive',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('min-accept-hold-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -10116,17 +10116,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes',
             False, 
             [
-            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 131072)], [], 
-                '''                Send socket buffer size in bytes
-                ''',
-                'socket_send_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
                 [(4096, 131072)], [], 
                 '''                BGP Write buffer size in bytes
                 ''',
                 'bgp_send_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-send-size', ATTRIBUTE, 'int' , None, None, 
+                [(4096, 131072)], [], 
+                '''                Send socket buffer size in bytes
+                ''',
+                'socket_send_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -10139,17 +10139,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes',
             False, 
             [
-            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 131072)], [], 
-                '''                Receive socket buffer size in bytes
-                ''',
-                'socket_receive_size',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
                 [(512, 131072)], [], 
                 '''                BGP Read buffer size in bytes
                 ''',
                 'bgp_receive_size',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('socket-receive-size', ATTRIBUTE, 'int' , None, None, 
+                [(512, 131072)], [], 
+                '''                Receive socket buffer size in bytes
+                ''',
+                'socket_receive_size',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -10162,42 +10162,87 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global',
             False, 
             [
-            _MetaInfoClassMember('cluster-id', REFERENCE_CLASS, 'ClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId', 
-                [], [], 
-                '''                Configure Route-Reflector Cluster-id
-                ''',
-                'cluster_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('write-limit', REFERENCE_CLASS, 'WriteLimit' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit', 
-                [], [], 
-                '''                Set write-queue limit for each update group
-                ''',
-                'write_limit',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-delay', REFERENCE_CLASS, 'UpdateDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay', 
-                [], [], 
-                '''                Set the max initial delay for sending
-                updates
-                ''',
-                'update_delay',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('as-league', REFERENCE_CLASS, 'AsLeague' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague', 
                 [], [], 
                 '''                AS League
                 ''',
                 'as_league',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-servers', REFERENCE_CLASS, 'RpkiServers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers', 
+            _MetaInfoClassMember('attribute-filter-groups', REFERENCE_CLASS, 'AttributeFilterGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups', 
                 [], [], 
-                '''                RPKI server configuration
+                '''                Attribute-filter groups list
                 ''',
-                'rpki_servers',
+                'attribute_filter_groups',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits', 
+            _MetaInfoClassMember('best-path-aigp-ignore', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Maximum number that can be configured
+                '''                Change default route selection criteria to
+                ignore AIGP unless both paths whichare compared
+                have AIGP attribute
                 ''',
-                'limits',
+                'best_path_aigp_ignore',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-as-multipath-relax', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default multi-route selection criteria to
+                relax as-path checking - only require same
+                aspath length
+                ''',
+                'best_path_as_multipath_relax',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-as-path-length', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default route selection criteria to
+                ignore AS path length
+                ''',
+                'best_path_as_path_length',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-confederation-paths', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default route selection criteria and
+                allow the comparing of MED among confederation
+                paths
+                ''',
+                'best_path_confederation_paths',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-cost-community', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default route selection criteria to
+                ignore cost community comparison
+                ''',
+                'best_path_cost_community',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-med-always', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default route selection criteria and
+                allow comparing of MED from different neighbors
+                ''',
+                'best_path_med_always',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-med-missing', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Treat missing MED as the least preferred one
+                ''',
+                'best_path_med_missing',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('best-path-router-id', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default route selection criteria and
+                compare router-id for identical EBGP paths
+                ''',
+                'best_path_router_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd', 
+                [], [], 
+                '''                BFD configuration
+                ''',
+                'bfd',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cluster-id', REFERENCE_CLASS, 'ClusterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId', 
+                [], [], 
+                '''                Configure Route-Reflector Cluster-id
+                ''',
+                'cluster_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('confederation-domain', REFERENCE_CLASS, 'ConfederationDomain' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain', 
                 [], [], 
@@ -10211,11 +10256,63 @@ _meta_table = {
                 ''',
                 'confederation_peer_ases',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('attribute-filter-groups', REFERENCE_CLASS, 'AttributeFilterGroups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups', 
+            _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Attribute-filter groups list
+                '''                Control distribution of default information
                 ''',
-                'attribute_filter_groups',
+                'default_info_originate',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Default redistributed metric
+                ''',
+                'default_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-auto-soft-reset', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable automatic soft peer reset on policy
+                reconfiguration
+                ''',
+                'disable_auto_soft_reset',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-enforce-first-as', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable enforce the first AS for EBGP routes
+                ''',
+                'disable_enforce_first_as',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-fast-external-fallover', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable immediate reset session if a link to a
+                directly connected external peer goes down
+                ''',
+                'disable_fast_external_fallover',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-msg-log', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable inbound and outbound messagelogging for
+                all neighbors under the vrf
+                ''',
+                'disable_msg_log',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('disable-neighbor-logging', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable neighbor change logging
+                ''',
+                'disable_neighbor_logging',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('enforce-ibgp-out-policy', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow all attributes to be modified by
+                outbound policy for iBGP peers
+                ''',
+                'enforce_ibgp_out_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('global-afs', REFERENCE_CLASS, 'GlobalAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs', 
+                [], [], 
+                '''                Global AF-specific configuration
+                ''',
+                'global_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('global-graceful-maintenance-activate', REFERENCE_CLASS, 'GlobalGracefulMaintenanceActivate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate', 
                 [], [], 
@@ -10224,17 +10321,25 @@ _meta_table = {
                 ''',
                 'global_graceful_maintenance_activate',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-afs', REFERENCE_CLASS, 'GlobalAfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs', 
-                [], [], 
-                '''                Global AF-specific configuration
+            _MetaInfoClassMember('global-scan-time', ATTRIBUTE, 'int' , None, None, 
+                [(5, 3600)], [], 
+                '''                Configure background scanner interval for
+                generic scanner
                 ''',
-                'global_afs',
+                'global_scan_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-static-routes', REFERENCE_CLASS, 'RpkiStaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes', 
+            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers', 
                 [], [], 
-                '''                RPKI static route configuration
+                '''                Adjust routing timers.
                 ''',
-                'rpki_static_routes',
+                'global_timers',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-reset', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Reset gracefully if configuration change
+                forces a peer reset
+                ''',
+                'graceful_reset',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('graceful-restart', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -10242,17 +10347,81 @@ _meta_table = {
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-out-logging', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enables logging of update generation events
+            _MetaInfoClassMember('graceful-restart-purge-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 6000)], [], 
+                '''                Time before stale routes are purged.
                 ''',
-                'update_out_logging',
+                'graceful_restart_purge_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Maximum time to wait for restart of GR
+                capable peers
+                ''',
+                'graceful_restart_stalepath_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Restart time advertised to neighbors
+                ''',
+                'graceful_restart_time',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('igp-loop-check', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable AS-path loop checking for iBGP peers
+                ''',
+                'igp_loop_check',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('igp-redist-internal', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow redistribution of iBGP into IGPs
+                (dangerous)
+                ''',
+                'igp_redist_internal',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('install-diversion', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Install diversion path to RIB/CEF
                 ''',
                 'install_diversion',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits', 
+                [], [], 
+                '''                Maximum number that can be configured
+                ''',
+                'limits',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('local-preference', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configure default local preference
+                ''',
+                'local_preference',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces', 
+                [], [], 
+                '''                Configure list of MPLS activated interfaces
+                ''',
+                'mpls_activated_interfaces',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('multi-path-as-path-ignore-onwards', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Change default multi-route selection criteria to
+                ignore everything onwards as-path check
+                ''',
+                'multi_path_as_path_ignore_onwards',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('mvpn', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Connect to PIM/PIM6
+                ''',
+                'mvpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('neighbor-logging-detail', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Include extra detail in neighbor change
+                messages
+                ''',
+                'neighbor_logging_detail',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('next-hop-trigger-delay', ATTRIBUTE, 'int' , None, None, 
                 [(0, 300)], [], 
@@ -10269,43 +10438,42 @@ _meta_table = {
                 ''',
                 'nsr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('neighbor-logging-detail', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('read-only', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Include extra detail in neighbor change
-                messages
+                '''                Allow duplicate table config and disable
+                update generation
                 ''',
-                'neighbor_logging_detail',
+                'read_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mvpn', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes', 
                 [], [], 
-                '''                Connect to PIM/PIM6
+                '''                Set socket and BGP receive buffer sizes
                 ''',
-                'mvpn',
+                'receive_socket_buffer_sizes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Configure Router-id
+                ''',
+                'router_id',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                RPKI origin-AS validation disable
+                '''                RPKI bestpath origin-AS allow invalid
                 ''',
-                'rpki_origin_as_validation_disable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-origin-as-validity-signal-ibgp', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                RPKI origin-AS validity signal ibgp
-                ''',
-                'rpki_origin_as_validity_signal_ibgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-scan-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 3600)], [], 
-                '''                Configure background scanner interval for
-                generic scanner
-                ''',
-                'global_scan_time',
+                'rpki_bestpath_origin_as_allow_invalid',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('rpki-bestpath-use-origin-as-validity', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                RPKI bestpath use origin-AS validity
                 ''',
                 'rpki_bestpath_use_origin_as_validity',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('rpki-origin-as-validation-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                RPKI origin-AS validation disable
+                ''',
+                'rpki_origin_as_validation_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('rpki-origin-as-validation-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 60)], [], 
@@ -10314,65 +10482,36 @@ _meta_table = {
                 ''',
                 'rpki_origin_as_validation_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-bestpath-origin-as-allow-invalid', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rpki-origin-as-validity-signal-ibgp', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                RPKI bestpath origin-AS allow invalid
+                '''                RPKI origin-AS validity signal ibgp
                 ''',
-                'rpki_bestpath_origin_as_allow_invalid',
+                'rpki_origin_as_validity_signal_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-restart-purge-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6000)], [], 
-                '''                Time before stale routes are purged.
-                ''',
-                'graceful_restart_purge_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('enforce-ibgp-out-policy', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rpki-servers', REFERENCE_CLASS, 'RpkiServers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers', 
                 [], [], 
-                '''                Allow all attributes to be modified by
-                outbound policy for iBGP peers
+                '''                RPKI server configuration
                 ''',
-                'enforce_ibgp_out_policy',
+                'rpki_servers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-limit-process', ATTRIBUTE, 'int' , None, None, 
-                [(16, 2048)], [], 
-                '''                Upper bound on update generation transient
-                memory usage for the process
-                ''',
-                'update_limit_process',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Restart time advertised to neighbors
-                ''',
-                'graceful_restart_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-error-handling-basic-ibgp-disable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rpki-static-routes', REFERENCE_CLASS, 'RpkiStaticRoutes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes', 
                 [], [], 
-                '''                Inbound update basic error-handling for
-                IBGP neighbors
+                '''                RPKI static route configuration
                 ''',
-                'update_error_handling_basic_ibgp_disable',
+                'rpki_static_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('read-only', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes', 
                 [], [], 
-                '''                Allow duplicate table config and disable
-                update generation
+                '''                set socket parameters
                 ''',
-                'read_only',
+                'send_socket_buffer_sizes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-restart-stalepath-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Maximum time to wait for restart of GR
-                capable peers
-                ''',
-                'graceful_restart_stalepath_time',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-error-handling-extended-ebgp', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('update-delay', REFERENCE_CLASS, 'UpdateDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay', 
                 [], [], 
-                '''                Inbound update extended error-handling for
-                EBGP neighbors
+                '''                Set the max initial delay for sending
+                updates
                 ''',
-                'update_error_handling_extended_ebgp',
+                'update_delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-error-handling-basic-ebgp-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -10381,18 +10520,19 @@ _meta_table = {
                 ''',
                 'update_error_handling_basic_ebgp_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('graceful-reset', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('update-error-handling-basic-ibgp-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Reset gracefully if configuration change
-                forces a peer reset
+                '''                Inbound update basic error-handling for
+                IBGP neighbors
                 ''',
-                'graceful_reset',
+                'update_error_handling_basic_ibgp_disable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('igp-loop-check', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('update-error-handling-extended-ebgp', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable AS-path loop checking for iBGP peers
+                '''                Inbound update extended error-handling for
+                EBGP neighbors
                 ''',
-                'igp_loop_check',
+                'update_error_handling_extended_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-error-handling-extended-ibgp', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -10401,164 +10541,24 @@ _meta_table = {
                 ''',
                 'update_error_handling_extended_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Configure Router-id
+            _MetaInfoClassMember('update-limit-process', ATTRIBUTE, 'int' , None, None, 
+                [(16, 2048)], [], 
+                '''                Upper bound on update generation transient
+                memory usage for the process
                 ''',
-                'router_id',
+                'update_limit_process',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-enforce-first-as', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('update-out-logging', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Disable enforce the first AS for EBGP routes
+                '''                Enables logging of update generation events
                 ''',
-                'disable_enforce_first_as',
+                'update_out_logging',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-cost-community', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('write-limit', REFERENCE_CLASS, 'WriteLimit' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit', 
                 [], [], 
-                '''                Change default route selection criteria to
-                ignore cost community comparison
+                '''                Set write-queue limit for each update group
                 ''',
-                'best_path_cost_community',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-aigp-ignore', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria to
-                ignore AIGP unless both paths whichare compared
-                have AIGP attribute
-                ''',
-                'best_path_aigp_ignore',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-as-path-length', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria to
-                ignore AS path length
-                ''',
-                'best_path_as_path_length',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('igp-redist-internal', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Allow redistribution of iBGP into IGPs
-                (dangerous)
-                ''',
-                'igp_redist_internal',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('multi-path-as-path-ignore-onwards', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default multi-route selection criteria to
-                ignore everything onwards as-path check
-                ''',
-                'multi_path_as_path_ignore_onwards',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-fast-external-fallover', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable immediate reset session if a link to a
-                directly connected external peer goes down
-                ''',
-                'disable_fast_external_fallover',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Default redistributed metric
-                ''',
-                'default_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Control distribution of default information
-                ''',
-                'default_info_originate',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-confederation-paths', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria and
-                allow the comparing of MED among confederation
-                paths
-                ''',
-                'best_path_confederation_paths',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-as-multipath-relax', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default multi-route selection criteria to
-                relax as-path checking - only require same
-                aspath length
-                ''',
-                'best_path_as_multipath_relax',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces', 
-                [], [], 
-                '''                Configure list of MPLS activated interfaces
-                ''',
-                'mpls_activated_interfaces',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-auto-soft-reset', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable automatic soft peer reset on policy
-                reconfiguration
-                ''',
-                'disable_auto_soft_reset',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-msg-log', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable inbound and outbound messagelogging for
-                all neighbors under the vrf
-                ''',
-                'disable_msg_log',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers', 
-                [], [], 
-                '''                Adjust routing timers.
-                ''',
-                'global_timers',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd', 
-                [], [], 
-                '''                BFD configuration
-                ''',
-                'bfd',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-neighbor-logging', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable neighbor change logging
-                ''',
-                'disable_neighbor_logging',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes', 
-                [], [], 
-                '''                set socket parameters
-                ''',
-                'send_socket_buffer_sizes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-med-always', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria and
-                allow comparing of MED from different neighbors
-                ''',
-                'best_path_med_always',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes', 
-                [], [], 
-                '''                Set socket and BGP receive buffer sizes
-                ''',
-                'receive_socket_buffer_sizes',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-router-id', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Change default route selection criteria and
-                compare router-id for identical EBGP paths
-                ''',
-                'best_path_router_id',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('best-path-med-missing', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Treat missing MED as the least preferred one
-                ''',
-                'best_path_med_missing',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('local-preference', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configure default local preference
-                ''',
-                'local_preference',
+                'write_limit',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -10601,18 +10601,6 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs', 
-                [], [], 
-                '''                VRF config
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf', 
-                [], [], 
-                '''                Global default config
-                ''',
-                'default_vrf',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('bgp-running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable BGP. Deletion of this object causes
@@ -10620,6 +10608,18 @@ _meta_table = {
                 associated with this object.
                 ''',
                 'bgp_running',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf', 
+                [], [], 
+                '''                Global default config
+                ''',
+                'default_vrf',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs', 
+                [], [], 
+                '''                VRF config
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -10788,11 +10788,17 @@ _meta_table = {
                 ''',
                 'server_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('initial-refresh-delay', REFERENCE_CLASS, 'InitialRefreshDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BmpServers.BmpServer.InitialRefreshDelay', 
+            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Initial refresh to generate BGP updates
+                '''                BMP Server Creation
                 ''',
-                'initial_refresh_delay',
+                'create',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                String to describe the BMP server
+                ''',
+                'description',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('host-port', REFERENCE_CLASS, 'HostPort' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BmpServers.BmpServer.HostPort', 
                 [], [], 
@@ -10801,18 +10807,6 @@ _meta_table = {
                 ''',
                 'host_port',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BmpServers.BmpServer.Tos', 
-                [], [], 
-                '''                TOS (Type Of Service)
-                ''',
-                'tos',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                BMP Server Creation
-                ''',
-                'create',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 3600)], [], 
                 '''                Initial connect delay in seconds in sending
@@ -10820,23 +10814,11 @@ _meta_table = {
                 ''',
                 'initial_delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('status-report-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600)], [], 
-                '''                Stats reporting period for BMP server
-                ''',
-                'status_report_interval',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('initial-refresh-delay', REFERENCE_CLASS, 'InitialRefreshDelay' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BmpServers.BmpServer.InitialRefreshDelay', 
                 [], [], 
-                '''                String to describe the BMP server
+                '''                Initial refresh to generate BGP updates
                 ''',
-                'description',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF for BMP Server
-                ''',
-                'vrf',
+                'initial_refresh_delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('shutdown', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -10845,11 +10827,29 @@ _meta_table = {
                 ''',
                 'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('status-report-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 3600)], [], 
+                '''                Stats reporting period for BMP server
+                ''',
+                'status_report_interval',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('tos', REFERENCE_CLASS, 'Tos' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BmpServers.BmpServer.Tos', 
+                [], [], 
+                '''                TOS (Type Of Service)
+                ''',
+                'tos',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF for BMP Server
+                ''',
+                'vrf',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',

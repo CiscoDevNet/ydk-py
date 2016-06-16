@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -21,8 +21,8 @@ _meta_table = {
             'rlogin':'RLOGIN',
             'ssh':'SSH',
         }, 'Cisco-IOS-XR-tty-management-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-oper']),
-    'HostAfIdBase_Identity' : {
-        'meta_info' : _MetaInfoClass('HostAfIdBase_Identity',
+    'HostAfIdBaseIdentity' : {
+        'meta_info' : _MetaInfoClass('HostAfIdBaseIdentity',
             False, 
             [
             ],
@@ -32,24 +32,24 @@ _meta_table = {
         'ydk.models.tty.Cisco_IOS_XR_tty_management_oper'
         ),
     },
-    'Ipv6_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv6_Identity',
-            False, 
-            [
-            ],
-            'Cisco-IOS-XR-tty-management-oper',
-            'ipv6',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-oper'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_management_oper'
-        ),
-    },
-    'Ipv4_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv4_Identity',
+    'Ipv4Identity' : {
+        'meta_info' : _MetaInfoClass('Ipv4Identity',
             False, 
             [
             ],
             'Cisco-IOS-XR-tty-management-oper',
             'ipv4',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-oper'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_management_oper'
+        ),
+    },
+    'Ipv6Identity' : {
+        'meta_info' : _MetaInfoClass('Ipv6Identity',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-tty-management-oper',
+            'ipv6',
             _yang_ns._namespaces['Cisco-IOS-XR-tty-management-oper'],
         'ydk.models.tty.Cisco_IOS_XR_tty_management_oper'
         ),

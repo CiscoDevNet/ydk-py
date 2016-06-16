@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -32,13 +32,6 @@ from ydk.errors import YPYError, YPYDataValidationError
 class Cdp(object):
     """
     Global CDP configuration data
-    
-    .. attribute:: timer
-    
-    	Specify the rate at which CDP packets are sent
-    	**type**\: int
-    
-    	**range:** 5..255
     
     .. attribute:: advertise_v1_only
     
@@ -62,6 +55,13 @@ class Cdp(object):
     	Enable logging of adjacency changes
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
+    .. attribute:: timer
+    
+    	Specify the rate at which CDP packets are sent
+    	**type**\: int
+    
+    	**range:** 5..255
+    
     
 
     """
@@ -70,11 +70,11 @@ class Cdp(object):
     _revision = '2015-07-30'
 
     def __init__(self):
-        self.timer = None
         self.advertise_v1_only = None
         self.enable = None
         self.hold_time = None
         self.log_adjacency = None
+        self.timer = None
 
     @property
     def _common_path(self):
@@ -88,9 +88,6 @@ class Cdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.timer is not None:
-            return True
-
         if self.advertise_v1_only is not None:
             return True
 
@@ -101,6 +98,9 @@ class Cdp(object):
             return True
 
         if self.log_adjacency is not None:
+            return True
+
+        if self.timer is not None:
             return True
 
         return False

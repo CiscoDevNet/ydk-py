@@ -10,12 +10,12 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'OpenconfigSoftwareComponent_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigSoftwareComponent_Identity',
+    'OpenconfigSoftwareComponentIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigSoftwareComponentIdentity',
             False, 
             [
             ],
@@ -25,8 +25,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_inventory_types'
         ),
     },
-    'OpenconfigHardwareComponent_Identity' : {
-        'meta_info' : _MetaInfoClass('OpenconfigHardwareComponent_Identity',
+    'OpenconfigHardwareComponentIdentity' : {
+        'meta_info' : _MetaInfoClass('OpenconfigHardwareComponentIdentity',
             False, 
             [
             ],
@@ -36,96 +36,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_inventory_types'
         ),
     },
-    'Cpu_Identity' : {
-        'meta_info' : _MetaInfoClass('Cpu_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'CPU',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Module_Identity' : {
-        'meta_info' : _MetaInfoClass('Module_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'MODULE',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Port_Identity' : {
-        'meta_info' : _MetaInfoClass('Port_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'PORT',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Linecard_Identity' : {
-        'meta_info' : _MetaInfoClass('Linecard_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'LINECARD',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Backplane_Identity' : {
-        'meta_info' : _MetaInfoClass('Backplane_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'BACKPLANE',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Chassis_Identity' : {
-        'meta_info' : _MetaInfoClass('Chassis_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'CHASSIS',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Fan_Identity' : {
-        'meta_info' : _MetaInfoClass('Fan_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'FAN',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'OperatingSystem_Identity' : {
-        'meta_info' : _MetaInfoClass('OperatingSystem_Identity',
-            False, 
-            [
-            ],
-            'openconfig-inventory-types',
-            'OPERATING-SYSTEM',
-            _yang_ns._namespaces['openconfig-inventory-types'],
-        'ydk.models.openconfig.openconfig_inventory_types'
-        ),
-    },
-    'Transceiver_Identity' : {
-        'meta_info' : _MetaInfoClass('Transceiver_Identity',
+    'TransceiverIdentity' : {
+        'meta_info' : _MetaInfoClass('TransceiverIdentity',
             False, 
             [
             ],
@@ -135,8 +47,19 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_inventory_types'
         ),
     },
-    'PowerSupply_Identity' : {
-        'meta_info' : _MetaInfoClass('PowerSupply_Identity',
+    'LinecardIdentity' : {
+        'meta_info' : _MetaInfoClass('LinecardIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'LINECARD',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'PowerSupplyIdentity' : {
+        'meta_info' : _MetaInfoClass('PowerSupplyIdentity',
             False, 
             [
             ],
@@ -146,13 +69,90 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_inventory_types'
         ),
     },
-    'Sensor_Identity' : {
-        'meta_info' : _MetaInfoClass('Sensor_Identity',
+    'CpuIdentity' : {
+        'meta_info' : _MetaInfoClass('CpuIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'CPU',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'ModuleIdentity' : {
+        'meta_info' : _MetaInfoClass('ModuleIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'MODULE',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'BackplaneIdentity' : {
+        'meta_info' : _MetaInfoClass('BackplaneIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'BACKPLANE',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'ChassisIdentity' : {
+        'meta_info' : _MetaInfoClass('ChassisIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'CHASSIS',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'FanIdentity' : {
+        'meta_info' : _MetaInfoClass('FanIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'FAN',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'OperatingSystemIdentity' : {
+        'meta_info' : _MetaInfoClass('OperatingSystemIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'OPERATING-SYSTEM',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'SensorIdentity' : {
+        'meta_info' : _MetaInfoClass('SensorIdentity',
             False, 
             [
             ],
             'openconfig-inventory-types',
             'SENSOR',
+            _yang_ns._namespaces['openconfig-inventory-types'],
+        'ydk.models.openconfig.openconfig_inventory_types'
+        ),
+    },
+    'PortIdentity' : {
+        'meta_info' : _MetaInfoClass('PortIdentity',
+            False, 
+            [
+            ],
+            'openconfig-inventory-types',
+            'PORT',
             _yang_ns._namespaces['openconfig-inventory-types'],
         'ydk.models.openconfig.openconfig_inventory_types'
         ),

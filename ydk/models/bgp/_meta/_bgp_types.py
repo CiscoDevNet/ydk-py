@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -42,8 +42,8 @@ _meta_table = {
             'EGP':'EGP',
             'INCOMPLETE':'INCOMPLETE',
         }, 'bgp-types', _yang_ns._namespaces['bgp-types']),
-    'AfiSafiType_Identity' : {
-        'meta_info' : _MetaInfoClass('AfiSafiType_Identity',
+    'AfiSafiTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('AfiSafiTypeIdentity',
             False, 
             [
             ],
@@ -53,8 +53,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'BgpCapability_Identity' : {
-        'meta_info' : _MetaInfoClass('BgpCapability_Identity',
+    'BgpCapabilityIdentity' : {
+        'meta_info' : _MetaInfoClass('BgpCapabilityIdentity',
             False, 
             [
             ],
@@ -64,8 +64,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'BgpWellKnownStdCommunity_Identity' : {
-        'meta_info' : _MetaInfoClass('BgpWellKnownStdCommunity_Identity',
+    'BgpWellKnownStdCommunityIdentity' : {
+        'meta_info' : _MetaInfoClass('BgpWellKnownStdCommunityIdentity',
             False, 
             [
             ],
@@ -75,74 +75,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L2VpnVpls_Identity' : {
-        'meta_info' : _MetaInfoClass('L2VpnVpls_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'l2vpn-vpls',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'L3VpnIpv6Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv6Unicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'l3vpn-ipv6-unicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Internet_Identity' : {
-        'meta_info' : _MetaInfoClass('Internet_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'INTERNET',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'AddPaths_Identity' : {
-        'meta_info' : _MetaInfoClass('AddPaths_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'ADD-PATHS',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'GracefulRestart_Identity' : {
-        'meta_info' : _MetaInfoClass('GracefulRestart_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'GRACEFUL-RESTART',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Ipv6LabelledUnicast_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv6LabelledUnicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'ipv6-labelled-unicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'RouteRefresh_Identity' : {
-        'meta_info' : _MetaInfoClass('RouteRefresh_Identity',
+    'RouteRefreshIdentity' : {
+        'meta_info' : _MetaInfoClass('RouteRefreshIdentity',
             False, 
             [
             ],
@@ -152,8 +86,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'No_Export_Subconfed_Identity' : {
-        'meta_info' : _MetaInfoClass('No_Export_Subconfed_Identity',
+    'No_Export_SubconfedIdentity' : {
+        'meta_info' : _MetaInfoClass('No_Export_SubconfedIdentity',
             False, 
             [
             ],
@@ -163,41 +97,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3VpnIpv4Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv4Unicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'l3vpn-ipv4-unicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'L3VpnIpv6Multicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv6Multicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'l3vpn-ipv6-multicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'No_Export_Identity' : {
-        'meta_info' : _MetaInfoClass('No_Export_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'NO_EXPORT',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'No_Advertise_Identity' : {
-        'meta_info' : _MetaInfoClass('No_Advertise_Identity',
+    'No_AdvertiseIdentity' : {
+        'meta_info' : _MetaInfoClass('No_AdvertiseIdentity',
             False, 
             [
             ],
@@ -207,30 +108,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3VpnIpv4Multicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv4Multicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'l3vpn-ipv4-multicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Asn32_Identity' : {
-        'meta_info' : _MetaInfoClass('Asn32_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'ASN32',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Mpbgp_Identity' : {
-        'meta_info' : _MetaInfoClass('Mpbgp_Identity',
+    'MpbgpIdentity' : {
+        'meta_info' : _MetaInfoClass('MpbgpIdentity',
             False, 
             [
             ],
@@ -240,30 +119,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'Ipv6Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv6Unicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'ipv6-unicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Ipv4LabelledUnicast_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv4LabelledUnicast_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'ipv4-labelled-unicast',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'Ipv4Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('Ipv4Unicast_Identity',
+    'Ipv4UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv4UnicastIdentity',
             False, 
             [
             ],
@@ -273,8 +130,151 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'Nopeer_Identity' : {
-        'meta_info' : _MetaInfoClass('Nopeer_Identity',
+    'AddPathsIdentity' : {
+        'meta_info' : _MetaInfoClass('AddPathsIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'ADD-PATHS',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L3VpnIpv4MulticastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv4MulticastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l3vpn-ipv4-multicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'No_ExportIdentity' : {
+        'meta_info' : _MetaInfoClass('No_ExportIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'NO_EXPORT',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L2VpnEvpnIdentity' : {
+        'meta_info' : _MetaInfoClass('L2VpnEvpnIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l2vpn-evpn',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'Ipv4LabelledUnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv4LabelledUnicastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'ipv4-labelled-unicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L3VpnIpv6UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6UnicastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l3vpn-ipv6-unicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'Ipv6LabelledUnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv6LabelledUnicastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'ipv6-labelled-unicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L3VpnIpv6MulticastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6MulticastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l3vpn-ipv6-multicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'GracefulRestartIdentity' : {
+        'meta_info' : _MetaInfoClass('GracefulRestartIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'GRACEFUL-RESTART',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'Ipv6UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv6UnicastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'ipv6-unicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L2VpnVplsIdentity' : {
+        'meta_info' : _MetaInfoClass('L2VpnVplsIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l2vpn-vpls',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'Asn32Identity' : {
+        'meta_info' : _MetaInfoClass('Asn32Identity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'ASN32',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'L3VpnIpv4UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv4UnicastIdentity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'l3vpn-ipv4-unicast',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'NopeerIdentity' : {
+        'meta_info' : _MetaInfoClass('NopeerIdentity',
             False, 
             [
             ],
@@ -284,13 +284,13 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L2VpnEvpn_Identity' : {
-        'meta_info' : _MetaInfoClass('L2VpnEvpn_Identity',
+    'InternetIdentity' : {
+        'meta_info' : _MetaInfoClass('InternetIdentity',
             False, 
             [
             ],
             'bgp-types',
-            'l2vpn-evpn',
+            'INTERNET',
             _yang_ns._namespaces['bgp-types'],
         'ydk.models.bgp.bgp_types'
         ),

@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -33,15 +33,15 @@ class IpUdp(object):
     """
     Global IP UDP configuration
     
-    .. attribute:: num_thread
-    
-    	UDP InQueue and OutQueue threads
-    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
-    
     .. attribute:: directory
     
     	UDP directory details
     	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
+    
+    .. attribute:: num_thread
+    
+    	UDP InQueue and OutQueue threads
+    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
     
     .. attribute:: receive_q
     
@@ -58,8 +58,8 @@ class IpUdp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.num_thread = None
         self.directory = None
+        self.num_thread = None
         self.receive_q = None
 
 
@@ -145,24 +145,24 @@ class IpUdp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: max_udp_debug_files
-        
-        	Set number of Debug files
-        	**type**\: int
-        
-        	**range:** 1..5000
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: max_file_size_files
         
         	Set size of debug files in bytes
         	**type**\: int
         
         	**range:** 1024..4294967295
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: max_udp_debug_files
+        
+        	Set number of Debug files
+        	**type**\: int
+        
+        	**range:** 1..5000
         
         .. attribute:: _is_presence
         
@@ -181,8 +181,8 @@ class IpUdp(object):
         def __init__(self):
             self.parent = None
             self.directoryname = None
-            self.max_udp_debug_files = None
             self.max_file_size_files = None
+            self.max_udp_debug_files = None
 
         @property
         def _common_path(self):
@@ -199,10 +199,10 @@ class IpUdp(object):
             if self.directoryname is not None:
                 return True
 
-            if self.max_udp_debug_files is not None:
+            if self.max_file_size_files is not None:
                 return True
 
-            if self.max_file_size_files is not None:
+            if self.max_udp_debug_files is not None:
                 return True
 
             return False
@@ -224,10 +224,10 @@ class IpUdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.num_thread is not None and self.num_thread._has_data():
+        if self.directory is not None and self.directory._has_data():
             return True
 
-        if self.directory is not None and self.directory._has_data():
+        if self.num_thread is not None and self.num_thread._has_data():
             return True
 
         if self.receive_q is not None:

@@ -20,35 +20,34 @@
    
 """
 from ._value_encoder import ValueEncoder
-from ydk.errors import YPYDataValidationError, YPYError
+from ydk.errors import YPYModelError, YPYErrorCode
 from ydk.types import READ, DELETE, Decimal64, Empty, YList, YLeafList, YListItem
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_LIST, \
             REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 import logging
-import re
 
 
 def validate_entity(entity, optype):
-    i_errors = []
-    validate_entity_delegate(entity, optype, i_errors)
-    if len(i_errors) > 0:
-        _i_errors = map((lambda t: ': '.join(t)), i_errors)
-        errmsg = '\n'.join(_i_errors)
-        raise YPYDataValidationError(errmsg)
+    errors = []
+    validate_entity_delegate(entity, optype, errors)
+    if len(errors) > 0:
+        _errors = map((lambda t: '%s: (%s, %s)' % t), errors)
+        _errors.insert(0, '')
+        errmsg = '\n  '.join(_errors)
+        raise YPYModelError(errmsg)
 
 
-def validate_entity_delegate(entity, optype, i_errors):
+def validate_entity_delegate(entity, optype, errors):
     """ Validates the given entity.
     
         This function validates the given entity and it's children. If an entity class
-        has any errors , the errors will available in the injected member i_errors ,
+        has any errors , the errors will available in the injected member errors ,
         which is a list of tuples of form (<name of the class member>, <error messsage>)
         
-        Note this method will raise ydk.errors.YPYDataValidationError if validation fails
+        Note this method will raise ydk.errors.YPYModelError if validation fails
     """
     for member in entity.i_meta.meta_info_class_members:
-        # print member.mtype, member.name
         value = eval('entity.%s' % member.presentation_name)
         if isinstance(value, READ) or isinstance(value, DELETE):
             continue
@@ -60,14 +59,11 @@ def validate_entity_delegate(entity, optype, i_errors):
         if hasattr(value, '_has_data') and not value._has_data():
             continue
 
-        # if value is not None:
         if  member.mtype in (ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST):
-        # if  member.mtype==ATTRIBUTE:
-            _dm_validate_value(member, value, entity, optype, i_errors)
+            _dm_validate_value(member, value, entity, optype, errors)
 
 
-def _dm_validate_value(meta, value, parent, optype, i_errors):
-    # return value#pass
+def _dm_validate_value(meta, value, parent, optype, errors):
     if value is None:
         return value
     elif isinstance(value, YListItem):
@@ -77,13 +73,19 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
         exec 'from ydk.types import Empty'
     elif meta._ptype == 'Decimal64':
         exec 'from ydk.types import Decimal64'
+    elif 'Enum' in meta._ptype:
+        exec_import = 'from %s import %s' \
+            % (meta.pmodule_name, meta.clazz_name.split('.')[0])
+        exec exec_import
+
+    isNumber = False
+    path = '%s.%s' % (parent.i_meta.name, meta.presentation_name)
 
     if meta.mtype in (REFERENCE_IDENTITY_CLASS,
         REFERENCE_BITS, REFERENCE_ENUM_CLASS, REFERENCE_LIST):
         exec_import = 'from %s import %s' \
             % (meta.pmodule_name, meta.clazz_name.split('.')[0])
         exec exec_import
-
 
     if isinstance(value, YList) and meta.mtype == REFERENCE_LIST:
         if optype == 'READ' or meta.max_elements is None:
@@ -93,10 +95,10 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
 
         if len(value) <= max_elements:
             for v in value:
-                _dm_validate_value(meta, v, parent, optype, i_errors)
+                _dm_validate_value(meta, v, parent, optype, errors)
         else:
             errmsg = "Invalid list length, length = %d" % len(value)
-            _handle_error(meta, parent, errmsg, i_errors)
+            _handle_error(meta, parent, errors, errmsg)
         return value
 
     elif meta.mtype == REFERENCE_ENUM_CLASS:
@@ -114,35 +116,19 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
                 enum_found = True
                 break
         if not enum_found:
-            errmsg = "Invalid enum, type = %s" % value
-            _handle_error(meta, parent, errmsg, i_errors)
+            errmsg = "Invalid type: '%s'. Expected type: Enum" % (type(value).__name__)
+            _handle_error(meta, parent, errors, errmsg)
         return value
 
     elif meta.mtype == REFERENCE_LIST:
         if not isinstance(value, eval(meta.clazz_name)):
             errmsg = "Invalid list element type, type = %s" % value
-            _handle_error(meta, parent, errmsg, i_errors)
+            _handle_error(meta, parent, errors, errmsg)
         return value
 
     elif isinstance(value, eval(meta._ptype)):
-        if isinstance(value, int):
-            if len(meta._range) > 0:
-                valid = False
-                for prange in meta._range:
-                    if type(prange) == tuple:
-                        pmin, pmax = prange
-                        if value >= pmin and value <= pmax:
-                            valid = True
-                            break
-                    else:
-                        if value == prange:
-                            valid = True
-                            break
-                if not valid:
-                    errmsg = "Invalid data or data range, value = %d" % value
-                    _handle_error(meta, parent, errmsg, i_errors)
-
-            return value
+        if isinstance(value, (int, long)):
+            return _validate_number(meta, value, parent, errors)
         elif isinstance(value, str):
             if len(meta._range) > 0:
                 valid = False
@@ -158,7 +144,7 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
                             break
                 if not valid:
                     errmsg = "Invalid data or data range, value = %d" % value
-                    _handle_error(meta, parent, errmsg, i_errors)
+                    _handle_error(meta, parent, errors, errmsg)
 
             '''TODO
                 if len(meta._pattern) > 0:
@@ -170,15 +156,15 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
                         break
                 if not pat_valid:
                     errmsg = "Invalid data or data range, value = %s" % value
-                    _handle_error(meta, parent, errmsg, i_errors)'''
+                    _handle_error(meta, parent, errors, errmsg)'''
 
             return value
         else:
             # enum, etc.
             return value
-    # check for type(Empty.SET), type(Empty.UNSET). Needs to be refined
-    elif meta._ptype is 'int':
-        return value
+
+    elif isinstance(value, (int, long)) and eval(meta._ptype) in (int,long):
+        return _validate_number(meta, value, parent, errors)
 
     elif isinstance(value, YLeafList) and meta.mtype == REFERENCE_LEAFLIST:
         # A leaf list.
@@ -189,10 +175,10 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
 
         if min_elements <= value_len <= max_elements and value_len == len(value):
             for v in value:
-                _dm_validate_value(meta, v, parent, optype, i_errors)
+                _dm_validate_value(meta, v, parent, optype, errors)
         else:
             errmsg = "Invalid leaflist length, length = %d" % value_len
-            _handle_error(meta, parent, errmsg, i_errors)
+            _handle_error(meta, parent, errors, errmsg)
         return value
 
     elif meta.mtype == REFERENCE_UNION:
@@ -203,21 +189,42 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
                 encoded = True
                 break
         if not encoded:
-            errmsg = "Cannot translate union value"
-            _handle_error(meta, parent, errmsg, i_errors)
+            _handle_error(meta, parent, errors, errcode=YPYErrorCode.INVALID_UNION_VALUE)
 
     else:
         if '' == ValueEncoder().encode(meta, {}, value):
-            errmsg = "Cannot encode value"
-            _handle_error(meta, parent, errmsg, i_errors)
+            errmsg = "Invalid type: '%s'. Expected type: '%s'" % (type(value).__name__, meta._ptype)
+            _handle_error(meta, parent, errors, errmsg)
 
+def _validate_number(meta, value, parent, errors):
+    if len(meta._range) > 0:
+        valid = False
+        for prange in meta._range:
+            if type(prange) == tuple:
+                pmin, pmax = prange
+                if value >= pmin and value <= pmax:
+                    valid = True
+                    break
+            else:
+                if value == prange:
+                    valid = True
+                    break
+        if not valid:
+            errcode = YPYErrorCode.INVALID_VALUE
+            _range = str(meta._range) if len(meta._range) > 1 else str(meta._range[0])
+            errmsg = '{}: {} not in {}'.format(errcode.value, value, _range)
+            _handle_error(meta, parent, errors, errmsg, errcode)
+    return value
 
-def _handle_error(meta, parent, errmsg, i_errors):
-    services_logger = logging.getLogger('ydk.services')
-    entry = (meta.presentation_name, errmsg)
-    services_logger.error('Validation error for property %s . Error message %s.' % entry)
-    i_errors.append(entry)
+def _handle_error(meta, parent, errors, errmsg=None, errcode=None):
+    services_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+    path = '%s.%s' % (parent.i_meta.name, meta.presentation_name)
 
-    if not hasattr(parent, 'i_errors'):
-        parent.i_errors = []
-    parent.i_errors.append(entry)
+    if errcode is None:
+        errcode = YPYErrorCode.INVALID_TYPE
+    if errmsg is None:
+        errmsg = errcode.value
+    entry = (path, errcode.name, errmsg)
+
+    services_logger.error('Validation error for property %s . Error message (%s, %s).' % entry)
+    errors.append(entry)

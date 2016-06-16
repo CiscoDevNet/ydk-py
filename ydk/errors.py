@@ -27,6 +27,7 @@ class YPYErrorCode(Enum):
     ''' Exception Enum for YDK errors '''
     INVALID_UNION_VALUE = 'Cannot translate union value'
     INVALID_ENCODE_VALUE = 'Cannot encode value'
+
     INVALID_HIERARCHY_PARENT = 'Parent is not set. \
                     Parent Hierarchy cannot be determined'
     INVALID_HIERARCHY_KEY = 'Key value is not set. \
@@ -36,6 +37,8 @@ class YPYErrorCode(Enum):
     SERVER_REJ = 'Server rejected request.'
     SERVER_COMMIT_ERR = 'Server reported an error while committing change.'
 
+    INVALID_TYPE = 'Cannot encode value'
+    INVALID_VALUE = 'Value is out of range'
 
 class YPYError(Exception):
     ''' Base Exception for YDK Errors '''
@@ -49,17 +52,20 @@ class YPYError(Exception):
             ret = self.errmsg
             return ret
         else:
+            ret = self.errcode.value
             if self.errmsg is not None:
+                ret = [ret]
                 parser = etree.XMLParser(remove_blank_text=True)
                 root = etree.XML(self.errmsg.xml, parser)
                 for r in root.iter():
                     tag = r.tag[r.tag.rfind('}') + 1 :]
                     if r.text is not None:
                         ret.append('\t{}: {}'.format(tag, r.text.strip()))
-            return '\n'.join(ret)
+                ret = '\n'.join(ret)
+            return ret
 
 
-class YPYDataValidationError(YPYError):
+class YPYModelError(YPYError):
     '''
     Exception for Client Side Data Validation
 
@@ -75,5 +81,21 @@ class YPYDataValidationError(YPYError):
 
     '''
     def __init__(self, errmsg):
-        super(YPYDataValidationError, self).__init__(error_msg=errmsg)
+        super(YPYModelError, self).__init__(error_msg=errmsg)
+
+class YPYServiceError(YPYError):
+    '''
+    Exception for Service Side Validation
+    '''
+    def __init__(self, errcode=None, errmsg=None):
+        super(YPYServiceError, self).__init__(error_code=errcode, error_msg=errmsg)
+
+class YPYServiceProviderError(YPYError):
+    '''
+    Exception for Provider Side Validation
+    '''
+    def __init__(self, errcode=None, errmsg=None):
+        super(YPYServiceProviderError, self).__init__(error_code=errcode, error_msg=errmsg)
+
+
 

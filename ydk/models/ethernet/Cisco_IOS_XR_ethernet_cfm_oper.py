@@ -24,7 +24,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -2380,15 +2380,15 @@ class Cfm(object):
     """
     CFM operational data
     
-    .. attribute:: nodes
-    
-    	Node table for node\-specific operational data
-    	**type**\: :py:class:`Nodes <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
-    
     .. attribute:: global_
     
     	Global operational data
     	**type**\: :py:class:`Global <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global>`
+    
+    .. attribute:: nodes
+    
+    	Node table for node\-specific operational data
+    	**type**\: :py:class:`Nodes <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
     
     
 
@@ -2398,10 +2398,10 @@ class Cfm(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.nodes = Cfm.Nodes()
-        self.nodes.parent = self
         self.global_ = Cfm.Global()
         self.global_.parent = self
+        self.nodes = Cfm.Nodes()
+        self.nodes.parent = self
 
 
     class Nodes(object):
@@ -2438,6 +2438,11 @@ class Cfm(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            .. attribute:: ccm_learning_databases
+            
+            	CCMLearningDatabase table
+            	**type**\: :py:class:`CcmLearningDatabases <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
+            
             .. attribute:: interface_aises
             
             	Interface AIS table
@@ -2453,11 +2458,6 @@ class Cfm(object):
             	Summary
             	**type**\: :py:class:`Summary <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
             
-            .. attribute:: ccm_learning_databases
-            
-            	CCMLearningDatabase table
-            	**type**\: :py:class:`CcmLearningDatabases <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
-            
             
 
             """
@@ -2468,14 +2468,14 @@ class Cfm(object):
             def __init__(self):
                 self.parent = None
                 self.node = None
+                self.ccm_learning_databases = Cfm.Nodes.Node.CcmLearningDatabases()
+                self.ccm_learning_databases.parent = self
                 self.interface_aises = Cfm.Nodes.Node.InterfaceAises()
                 self.interface_aises.parent = self
                 self.interface_statistics = Cfm.Nodes.Node.InterfaceStatistics()
                 self.interface_statistics.parent = self
                 self.summary = Cfm.Nodes.Node.Summary()
                 self.summary.parent = self
-                self.ccm_learning_databases = Cfm.Nodes.Node.CcmLearningDatabases()
-                self.ccm_learning_databases.parent = self
 
 
             class InterfaceAises(object):
@@ -2505,22 +2505,17 @@ class Cfm(object):
                     """
                     AIS statistics for a particular interface
                     
+                    .. attribute:: direction  <key>
+                    
+                    	AIS Direction
+                    	**type**\: :py:class:`CfmAisDirEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
+                    
                     .. attribute:: interface_name  <key>
                     
                     	Interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: direction  <key>
-                    
-                    	AIS Direction
-                    	**type**\: :py:class:`CfmAisDirEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
-                    
-                    .. attribute:: statistics
-                    
-                    	AIS statistics
-                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
                     
                     .. attribute:: interface
                     
@@ -2539,6 +2534,11 @@ class Cfm(object):
                     	Interface interworking state
                     	**type**\: :py:class:`CfmBagIwStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
                     
+                    .. attribute:: statistics
+                    
+                    	AIS statistics
+                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
+                    
                     .. attribute:: stp_state
                     
                     	STP state
@@ -2553,13 +2553,13 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.interface_name = None
                         self.direction = None
-                        self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
-                        self.statistics.parent = self
+                        self.interface_name = None
                         self.interface = None
                         self.interface_state = None
                         self.interworking_state = None
+                        self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
+                        self.statistics.parent = self
                         self.stp_state = None
 
 
@@ -2572,30 +2572,20 @@ class Cfm(object):
                         	Defects detected
                         	**type**\: :py:class:`Defects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
                         
-                        .. attribute:: last_started
-                        
-                        	Time elapsed since sending last started
-                        	**type**\: :py:class:`LastStarted <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
-                        
                         .. attribute:: direction
                         
                         	Direction of AIS packets
                         	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                         
+                        .. attribute:: last_started
+                        
+                        	Time elapsed since sending last started
+                        	**type**\: :py:class:`LastStarted <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
+                        
                         .. attribute:: lowest_level
                         
                         	Level of the lowest MEP transmitting AIS
                         	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                        
-                        .. attribute:: transmission_level
-                        
-                        	Level that AIS packets are transmitted on
-                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                        
-                        .. attribute:: transmission_interval
-                        
-                        	Interval at which AIS packets are transmitted
-                        	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                         
                         .. attribute:: sent_packets
                         
@@ -2603,6 +2593,16 @@ class Cfm(object):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: transmission_interval
+                        
+                        	Interval at which AIS packets are transmitted
+                        	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
+                        
+                        .. attribute:: transmission_level
+                        
+                        	Level that AIS packets are transmitted on
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: via_level
                         
@@ -2620,13 +2620,13 @@ class Cfm(object):
                             self.parent = None
                             self.defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects()
                             self.defects.parent = self
+                            self.direction = None
                             self.last_started = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted()
                             self.last_started.parent = self
-                            self.direction = None
                             self.lowest_level = None
-                            self.transmission_level = None
-                            self.transmission_interval = None
                             self.sent_packets = None
+                            self.transmission_interval = None
+                            self.transmission_level = None
                             self.via_level = YLeafList()
                             self.via_level.parent = self
                             self.via_level.name = 'via_level'
@@ -2636,40 +2636,14 @@ class Cfm(object):
                             """
                             Defects detected
                             
-                            .. attribute:: remote_meps_defects
-                            
-                            	Defects detected from remote MEPs
-                            	**type**\: :py:class:`RemoteMepsDefects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
-                            
                             .. attribute:: ais_received
                             
                             	AIS or LCK received
                             	**type**\: bool
                             
-                            .. attribute:: peer_meps_that_timed_out
-                            
-                            	Number of peer MEPs that have timed out
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: missing
-                            
-                            	Number of missing peer MEPs
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: auto_missing
                             
                             	Number of missing auto cross\-check MEPs
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: unexpected
-                            
-                            	Number of unexpected peer MEPs
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2679,10 +2653,36 @@ class Cfm(object):
                             	The local port or interface is down
                             	**type**\: bool
                             
+                            .. attribute:: missing
+                            
+                            	Number of missing peer MEPs
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: peer_meps_that_timed_out
+                            
+                            	Number of peer MEPs that have timed out
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: peer_port_status
                             
                             	A peer port or interface is down
                             	**type**\: bool
+                            
+                            .. attribute:: remote_meps_defects
+                            
+                            	Defects detected from remote MEPs
+                            	**type**\: :py:class:`RemoteMepsDefects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
+                            
+                            .. attribute:: unexpected
+                            
+                            	Number of unexpected peer MEPs
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
                             
                             
 
@@ -2693,24 +2693,24 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.ais_received = None
+                                self.auto_missing = None
+                                self.local_port_status = None
+                                self.missing = None
+                                self.peer_meps_that_timed_out = None
+                                self.peer_port_status = None
                                 self.remote_meps_defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects()
                                 self.remote_meps_defects.parent = self
-                                self.ais_received = None
-                                self.peer_meps_that_timed_out = None
-                                self.missing = None
-                                self.auto_missing = None
                                 self.unexpected = None
-                                self.local_port_status = None
-                                self.peer_port_status = None
 
 
                             class RemoteMepsDefects(object):
                                 """
                                 Defects detected from remote MEPs
                                 
-                                .. attribute:: loss_threshold_exceeded
+                                .. attribute:: invalid_ccm_interval
                                 
-                                	Timed out (loss threshold exceeded)
+                                	Invalid CCM interval
                                 	**type**\: bool
                                 
                                 .. attribute:: invalid_level
@@ -2723,9 +2723,9 @@ class Cfm(object):
                                 	Invalid MAID
                                 	**type**\: bool
                                 
-                                .. attribute:: invalid_ccm_interval
+                                .. attribute:: loss_threshold_exceeded
                                 
-                                	Invalid CCM interval
+                                	Timed out (loss threshold exceeded)
                                 	**type**\: bool
                                 
                                 .. attribute:: received_our_mac
@@ -2752,10 +2752,10 @@ class Cfm(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.loss_threshold_exceeded = None
+                                    self.invalid_ccm_interval = None
                                     self.invalid_level = None
                                     self.invalid_maid = None
-                                    self.invalid_ccm_interval = None
+                                    self.loss_threshold_exceeded = None
                                     self.received_our_mac = None
                                     self.received_our_mep_id = None
                                     self.received_rdi = None
@@ -2763,7 +2763,7 @@ class Cfm(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:remote-meps-defects'
 
@@ -2774,7 +2774,7 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.loss_threshold_exceeded is not None:
+                                    if self.invalid_ccm_interval is not None:
                                         return True
 
                                     if self.invalid_level is not None:
@@ -2783,7 +2783,7 @@ class Cfm(object):
                                     if self.invalid_maid is not None:
                                         return True
 
-                                    if self.invalid_ccm_interval is not None:
+                                    if self.loss_threshold_exceeded is not None:
                                         return True
 
                                     if self.received_our_mac is not None:
@@ -2805,7 +2805,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:defects'
 
@@ -2816,28 +2816,28 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
-                                    return True
-
                                 if self.ais_received is not None:
-                                    return True
-
-                                if self.peer_meps_that_timed_out is not None:
-                                    return True
-
-                                if self.missing is not None:
                                     return True
 
                                 if self.auto_missing is not None:
                                     return True
 
-                                if self.unexpected is not None:
-                                    return True
-
                                 if self.local_port_status is not None:
                                     return True
 
+                                if self.missing is not None:
+                                    return True
+
+                                if self.peer_meps_that_timed_out is not None:
+                                    return True
+
                                 if self.peer_port_status is not None:
+                                    return True
+
+                                if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
+                                    return True
+
+                                if self.unexpected is not None:
                                     return True
 
                                 return False
@@ -2852,16 +2852,16 @@ class Cfm(object):
                             """
                             Time elapsed since sending last started
                             
-                            .. attribute:: seconds
+                            .. attribute:: nanoseconds
                             
-                            	Seconds
+                            	Nanoseconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: nanoseconds
+                            .. attribute:: seconds
                             
-                            	Nanoseconds
+                            	Seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -2875,13 +2875,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.seconds = None
                                 self.nanoseconds = None
+                                self.seconds = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-started'
 
@@ -2892,10 +2892,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.seconds is not None:
+                                if self.nanoseconds is not None:
                                     return True
 
-                                if self.nanoseconds is not None:
+                                if self.seconds is not None:
                                     return True
 
                                 return False
@@ -2908,7 +2908,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
 
@@ -2922,22 +2922,22 @@ class Cfm(object):
                             if self.defects is not None and self.defects._has_data():
                                 return True
 
-                            if self.last_started is not None and self.last_started._has_data():
+                            if self.direction is not None:
                                 return True
 
-                            if self.direction is not None:
+                            if self.last_started is not None and self.last_started._has_data():
                                 return True
 
                             if self.lowest_level is not None:
                                 return True
 
-                            if self.transmission_level is not None:
+                            if self.sent_packets is not None:
                                 return True
 
                             if self.transmission_interval is not None:
                                 return True
 
-                            if self.sent_packets is not None:
+                            if self.transmission_level is not None:
                                 return True
 
                             if self.via_level is not None:
@@ -2955,13 +2955,13 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.direction is None:
-                            raise YPYDataValidationError('Key property direction is None')
+                            raise YPYModelError('Key property direction is None')
+                        if self.interface_name is None:
+                            raise YPYModelError('Key property interface_name is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-ais[Cisco-IOS-XR-ethernet-cfm-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ethernet-cfm-oper:direction = ' + str(self.direction) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-ais[Cisco-IOS-XR-ethernet-cfm-oper:direction = ' + str(self.direction) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface-name = ' + str(self.interface_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -2970,13 +2970,10 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.interface_name is not None:
-                            return True
-
                         if self.direction is not None:
                             return True
 
-                        if self.statistics is not None and self.statistics._has_data():
+                        if self.interface_name is not None:
                             return True
 
                         if self.interface is not None:
@@ -2986,6 +2983,9 @@ class Cfm(object):
                             return True
 
                         if self.interworking_state is not None:
+                            return True
+
+                        if self.statistics is not None and self.statistics._has_data():
                             return True
 
                         if self.stp_state is not None:
@@ -3001,7 +3001,7 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-aises'
 
@@ -3059,17 +3059,17 @@ class Cfm(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: statistics
-                    
-                    	EFP statistics
-                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
-                    
                     .. attribute:: interface_xr
                     
                     	Interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: statistics
+                    
+                    	EFP statistics
+                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
                     
                     
 
@@ -3081,26 +3081,19 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.interface = None
+                        self.interface_xr = None
                         self.statistics = Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics()
                         self.statistics.parent = self
-                        self.interface_xr = None
 
 
                     class Statistics(object):
                         """
                         EFP statistics
                         
-                        .. attribute:: malformed_packets
-                        
-                        	Number of malformed packets received at this EFP
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: dropped_packets
                         
                         	Number of packets dropped at this EFP
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3114,6 +3107,13 @@ class Cfm(object):
                         	Reason last malformed packet was malformed
                         	**type**\: :py:class:`CfmPmPktActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktActionEnum>`
                         
+                        .. attribute:: malformed_packets
+                        
+                        	Number of malformed packets received at this EFP
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         
 
                         """
@@ -3123,15 +3123,15 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.malformed_packets = None
                             self.dropped_packets = None
                             self.last_malformed_opcode = None
                             self.last_malformed_reason = None
+                            self.malformed_packets = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
 
@@ -3142,9 +3142,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.malformed_packets is not None:
-                                return True
-
                             if self.dropped_packets is not None:
                                 return True
 
@@ -3152,6 +3149,9 @@ class Cfm(object):
                                 return True
 
                             if self.last_malformed_reason is not None:
+                                return True
+
+                            if self.malformed_packets is not None:
                                 return True
 
                             return False
@@ -3164,9 +3164,9 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.interface is None:
-                            raise YPYDataValidationError('Key property interface is None')
+                            raise YPYModelError('Key property interface is None')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-statistic[Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
 
@@ -3180,10 +3180,10 @@ class Cfm(object):
                         if self.interface is not None:
                             return True
 
-                        if self.statistics is not None and self.statistics._has_data():
+                        if self.interface_xr is not None:
                             return True
 
-                        if self.interface_xr is not None:
+                        if self.statistics is not None and self.statistics._has_data():
                             return True
 
                         return False
@@ -3196,7 +3196,7 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-statistics'
 
@@ -3224,16 +3224,23 @@ class Cfm(object):
                 """
                 Summary
                 
-                .. attribute:: domains
+                .. attribute:: bnm_enabled_links
                 
-                	The number of domains in the CFM database
+                	Number of BNM Enabled Links
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: services
+                .. attribute:: bridge_domains_and_xconnects
                 
-                	The number of services in the CFM database
+                	Number or bridge domains and crossconnects
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ccm_learning_db_entries
+                
+                	Number of entries in the CCM learning database
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3245,65 +3252,9 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: local_meps
-                
-                	The number of local MEPs in the CFM database
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational_local_meps
-                
-                	The number of operational local MEPs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_meps
-                
-                	The number of down\-MEPs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_meps
-                
-                	The number of up\-MEPs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded
-                
-                	The number of MEPs for which CCM processing has been offloaded
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded_at3_3ms
-                
-                	The number of MEPs offloaded with CCMs at 3.3ms intervals
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: offloaded_at10ms
-                
-                	The number of MEPs offloaded with CCMs at 10ms intervals
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: disabled_misconfigured
                 
                 	The number of local MEPs disabled due to configuration errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: disabled_out_of_resources
-                
-                	The number of local MEPs disabled due to lack of resources
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3315,9 +3266,77 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: peer_meps
+                .. attribute:: disabled_out_of_resources
                 
-                	The number of peer MEPs
+                	The number of local MEPs disabled due to lack of resources
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: domains
+                
+                	The number of domains in the CFM database
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_meps
+                
+                	The number of down\-MEPs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: interfaces
+                
+                	The number of interfaces running CFM
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: issu_role
+                
+                	ISSU Role of CFM\-D, if any
+                	**type**\: :py:class:`CfmBagIssuRoleEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRoleEnum>`
+                
+                .. attribute:: local_meps
+                
+                	The number of local MEPs in the CFM database
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: mips
+                
+                	The number of MIPs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded
+                
+                	The number of MEPs for which CCM processing has been offloaded
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded_at10ms
+                
+                	The number of MEPs offloaded with CCMs at 10ms intervals
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: offloaded_at3_3ms
+                
+                	The number of MEPs offloaded with CCMs at 3.3ms intervals
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: operational_local_meps
+                
+                	The number of operational local MEPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3325,6 +3344,20 @@ class Cfm(object):
                 .. attribute:: operational_peer_meps
                 
                 	The number of operational peer MEPs recorded in the CFM database
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps
+                
+                	The number of peer MEPs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_meps_timed_out
+                
+                	The number of peer MEPs that have timed out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3343,30 +3376,9 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: peer_meps_timed_out
+                .. attribute:: services
                 
-                	The number of peer MEPs that have timed out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mips
-                
-                	The number of MIPs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interfaces
-                
-                	The number of interfaces running CFM
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bridge_domains_and_xconnects
-                
-                	Number or bridge domains and crossconnects
+                	The number of services in the CFM database
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3385,21 +3397,9 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: ccm_learning_db_entries
+                .. attribute:: up_meps
                 
-                	Number of entries in the CCM learning database
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: issu_role
-                
-                	ISSU Role of CFM\-D, if any
-                	**type**\: :py:class:`CfmBagIssuRoleEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRoleEnum>`
-                
-                .. attribute:: bnm_enabled_links
-                
-                	Number of BNM Enabled Links
+                	The number of up\-MEPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3413,37 +3413,37 @@ class Cfm(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.domains = None
-                    self.services = None
+                    self.bnm_enabled_links = None
+                    self.bridge_domains_and_xconnects = None
+                    self.ccm_learning_db_entries = None
                     self.ccm_rate = None
-                    self.local_meps = None
-                    self.operational_local_meps = None
-                    self.down_meps = None
-                    self.up_meps = None
-                    self.offloaded = None
-                    self.offloaded_at3_3ms = None
-                    self.offloaded_at10ms = None
                     self.disabled_misconfigured = None
-                    self.disabled_out_of_resources = None
                     self.disabled_operational_error = None
-                    self.peer_meps = None
+                    self.disabled_out_of_resources = None
+                    self.domains = None
+                    self.down_meps = None
+                    self.interfaces = None
+                    self.issu_role = None
+                    self.local_meps = None
+                    self.mips = None
+                    self.offloaded = None
+                    self.offloaded_at10ms = None
+                    self.offloaded_at3_3ms = None
+                    self.operational_local_meps = None
                     self.operational_peer_meps = None
+                    self.peer_meps = None
+                    self.peer_meps_timed_out = None
                     self.peer_meps_with_defects = None
                     self.peer_meps_without_defects = None
-                    self.peer_meps_timed_out = None
-                    self.mips = None
-                    self.interfaces = None
-                    self.bridge_domains_and_xconnects = None
+                    self.services = None
                     self.traceroute_cache_entries = None
                     self.traceroute_cache_replies = None
-                    self.ccm_learning_db_entries = None
-                    self.issu_role = None
-                    self.bnm_enabled_links = None
+                    self.up_meps = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:summary'
 
@@ -3454,49 +3454,64 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.domains is not None:
+                    if self.bnm_enabled_links is not None:
                         return True
 
-                    if self.services is not None:
+                    if self.bridge_domains_and_xconnects is not None:
+                        return True
+
+                    if self.ccm_learning_db_entries is not None:
                         return True
 
                     if self.ccm_rate is not None:
                         return True
 
-                    if self.local_meps is not None:
-                        return True
-
-                    if self.operational_local_meps is not None:
-                        return True
-
-                    if self.down_meps is not None:
-                        return True
-
-                    if self.up_meps is not None:
-                        return True
-
-                    if self.offloaded is not None:
-                        return True
-
-                    if self.offloaded_at3_3ms is not None:
-                        return True
-
-                    if self.offloaded_at10ms is not None:
-                        return True
-
                     if self.disabled_misconfigured is not None:
-                        return True
-
-                    if self.disabled_out_of_resources is not None:
                         return True
 
                     if self.disabled_operational_error is not None:
                         return True
 
-                    if self.peer_meps is not None:
+                    if self.disabled_out_of_resources is not None:
+                        return True
+
+                    if self.domains is not None:
+                        return True
+
+                    if self.down_meps is not None:
+                        return True
+
+                    if self.interfaces is not None:
+                        return True
+
+                    if self.issu_role is not None:
+                        return True
+
+                    if self.local_meps is not None:
+                        return True
+
+                    if self.mips is not None:
+                        return True
+
+                    if self.offloaded is not None:
+                        return True
+
+                    if self.offloaded_at10ms is not None:
+                        return True
+
+                    if self.offloaded_at3_3ms is not None:
+                        return True
+
+                    if self.operational_local_meps is not None:
                         return True
 
                     if self.operational_peer_meps is not None:
+                        return True
+
+                    if self.peer_meps is not None:
+                        return True
+
+                    if self.peer_meps_timed_out is not None:
                         return True
 
                     if self.peer_meps_with_defects is not None:
@@ -3505,16 +3520,7 @@ class Cfm(object):
                     if self.peer_meps_without_defects is not None:
                         return True
 
-                    if self.peer_meps_timed_out is not None:
-                        return True
-
-                    if self.mips is not None:
-                        return True
-
-                    if self.interfaces is not None:
-                        return True
-
-                    if self.bridge_domains_and_xconnects is not None:
+                    if self.services is not None:
                         return True
 
                     if self.traceroute_cache_entries is not None:
@@ -3523,13 +3529,7 @@ class Cfm(object):
                     if self.traceroute_cache_replies is not None:
                         return True
 
-                    if self.ccm_learning_db_entries is not None:
-                        return True
-
-                    if self.issu_role is not None:
-                        return True
-
-                    if self.bnm_enabled_links is not None:
+                    if self.up_meps is not None:
                         return True
 
                     return False
@@ -3572,11 +3572,6 @@ class Cfm(object):
                     	Maintenance Domain
                     	**type**\: str
                     
-                    .. attribute:: service  <key>
-                    
-                    	Service (Maintenance Association)
-                    	**type**\: str
-                    
                     .. attribute:: mac_address  <key>
                     
                     	MAC Address
@@ -3584,9 +3579,26 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: service  <key>
+                    
+                    	Service (Maintenance Association)
+                    	**type**\: str
+                    
                     .. attribute:: domain_xr
                     
                     	Maintenance domain name
+                    	**type**\: str
+                    
+                    .. attribute:: ingress_interface
+                    
+                    	The XID of the ingress interface for the CCM
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ingress_interface_string
+                    
+                    	String representation of the Bridge Domain or Cross\-Connect associated with the ingress XID
                     	**type**\: str
                     
                     .. attribute:: level
@@ -3606,22 +3618,10 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
-                    .. attribute:: ingress_interface
-                    
-                    	The XID of the ingress interface for the CCM
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: stale
                     
                     	The XID is stale and may have been reused for a different interface
                     	**type**\: bool
-                    
-                    .. attribute:: ingress_interface_string
-                    
-                    	String representation of the Bridge Domain or Cross\-Connect associated with the ingress XID
-                    	**type**\: str
                     
                     
 
@@ -3633,28 +3633,28 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.domain = None
-                        self.service = None
                         self.mac_address = None
+                        self.service = None
                         self.domain_xr = None
+                        self.ingress_interface = None
+                        self.ingress_interface_string = None
                         self.level = None
                         self.service_xr = None
                         self.source_mac_address = None
-                        self.ingress_interface = None
                         self.stale = None
-                        self.ingress_interface_string = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.domain is None:
-                            raise YPYDataValidationError('Key property domain is None')
-                        if self.service is None:
-                            raise YPYDataValidationError('Key property service is None')
+                            raise YPYModelError('Key property domain is None')
                         if self.mac_address is None:
-                            raise YPYDataValidationError('Key property mac_address is None')
+                            raise YPYModelError('Key property mac_address is None')
+                        if self.service is None:
+                            raise YPYModelError('Key property service is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ccm-learning-database[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mac-address = ' + str(self.mac_address) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ccm-learning-database[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:mac-address = ' + str(self.mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -3666,13 +3666,19 @@ class Cfm(object):
                         if self.domain is not None:
                             return True
 
-                        if self.service is not None:
-                            return True
-
                         if self.mac_address is not None:
                             return True
 
+                        if self.service is not None:
+                            return True
+
                         if self.domain_xr is not None:
+                            return True
+
+                        if self.ingress_interface is not None:
+                            return True
+
+                        if self.ingress_interface_string is not None:
                             return True
 
                         if self.level is not None:
@@ -3684,13 +3690,7 @@ class Cfm(object):
                         if self.source_mac_address is not None:
                             return True
 
-                        if self.ingress_interface is not None:
-                            return True
-
                         if self.stale is not None:
-                            return True
-
-                        if self.ingress_interface_string is not None:
                             return True
 
                         return False
@@ -3703,7 +3703,7 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ccm-learning-databases'
 
@@ -3729,7 +3729,7 @@ class Cfm(object):
             @property
             def _common_path(self):
                 if self.node is None:
-                    raise YPYDataValidationError('Key property node is None')
+                    raise YPYModelError('Key property node is None')
 
                 return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:nodes/Cisco-IOS-XR-ethernet-cfm-oper:node[Cisco-IOS-XR-ethernet-cfm-oper:node = ' + str(self.node) + ']'
 
@@ -3743,6 +3743,9 @@ class Cfm(object):
                 if self.node is not None:
                     return True
 
+                if self.ccm_learning_databases is not None and self.ccm_learning_databases._has_data():
+                    return True
+
                 if self.interface_aises is not None and self.interface_aises._has_data():
                     return True
 
@@ -3750,9 +3753,6 @@ class Cfm(object):
                     return True
 
                 if self.summary is not None and self.summary._has_data():
-                    return True
-
-                if self.ccm_learning_databases is not None and self.ccm_learning_databases._has_data():
                     return True
 
                 return False
@@ -3791,40 +3791,40 @@ class Cfm(object):
         """
         Global operational data
         
+        .. attribute:: global_configuration_errors
+        
+        	Global configuration errors table
+        	**type**\: :py:class:`GlobalConfigurationErrors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors>`
+        
         .. attribute:: incomplete_traceroutes
         
         	Incomplete Traceroute table
         	**type**\: :py:class:`IncompleteTraceroutes <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes>`
+        
+        .. attribute:: local_meps
+        
+        	Local MEPs table
+        	**type**\: :py:class:`LocalMeps <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps>`
         
         .. attribute:: maintenance_points
         
         	Maintenance Points table
         	**type**\: :py:class:`MaintenancePoints <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints>`
         
-        .. attribute:: peer_meps
-        
-        	Peer MEPs table
-        	**type**\: :py:class:`PeerMeps <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps>`
-        
-        .. attribute:: global_configuration_errors
-        
-        	Global configuration errors table
-        	**type**\: :py:class:`GlobalConfigurationErrors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors>`
-        
         .. attribute:: mep_configuration_errors
         
         	MEP configuration errors table
         	**type**\: :py:class:`MepConfigurationErrors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors>`
         
+        .. attribute:: peer_meps
+        
+        	Peer MEPs table
+        	**type**\: :py:class:`PeerMeps <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps>`
+        
         .. attribute:: traceroute_caches
         
         	Traceroute Cache table
         	**type**\: :py:class:`TracerouteCaches <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches>`
-        
-        .. attribute:: local_meps
-        
-        	Local MEPs table
-        	**type**\: :py:class:`LocalMeps <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps>`
         
         
 
@@ -3835,20 +3835,20 @@ class Cfm(object):
 
         def __init__(self):
             self.parent = None
-            self.incomplete_traceroutes = Cfm.Global.IncompleteTraceroutes()
-            self.incomplete_traceroutes.parent = self
-            self.maintenance_points = Cfm.Global.MaintenancePoints()
-            self.maintenance_points.parent = self
-            self.peer_meps = Cfm.Global.PeerMeps()
-            self.peer_meps.parent = self
             self.global_configuration_errors = Cfm.Global.GlobalConfigurationErrors()
             self.global_configuration_errors.parent = self
-            self.mep_configuration_errors = Cfm.Global.MepConfigurationErrors()
-            self.mep_configuration_errors.parent = self
-            self.traceroute_caches = Cfm.Global.TracerouteCaches()
-            self.traceroute_caches.parent = self
+            self.incomplete_traceroutes = Cfm.Global.IncompleteTraceroutes()
+            self.incomplete_traceroutes.parent = self
             self.local_meps = Cfm.Global.LocalMeps()
             self.local_meps.parent = self
+            self.maintenance_points = Cfm.Global.MaintenancePoints()
+            self.maintenance_points.parent = self
+            self.mep_configuration_errors = Cfm.Global.MepConfigurationErrors()
+            self.mep_configuration_errors.parent = self
+            self.peer_meps = Cfm.Global.PeerMeps()
+            self.peer_meps.parent = self
+            self.traceroute_caches = Cfm.Global.TracerouteCaches()
+            self.traceroute_caches.parent = self
 
 
         class IncompleteTraceroutes(object):
@@ -3884,10 +3884,12 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\: str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -3896,12 +3898,10 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\: str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -3910,17 +3910,17 @@ class Cfm(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: time_left
+                
+                	Time (in seconds) before the traceroute completes
+                	**type**\: long
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: traceroute_information
                 
                 	Information about the traceroute operation
                 	**type**\: :py:class:`TracerouteInformation <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
-                
-                .. attribute:: time_left
-                
-                	Time (in seconds) before the traceroute completes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
                 
                 
 
@@ -3932,32 +3932,29 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
-                    self.mep_id = None
                     self.interface = None
+                    self.mep_id = None
+                    self.service = None
                     self.transaction_id = None
+                    self.time_left = None
                     self.traceroute_information = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation()
                     self.traceroute_information.parent = self
-                    self.time_left = None
 
 
                 class TracerouteInformation(object):
                     """
                     Information about the traceroute operation
                     
-                    .. attribute:: options
+                    .. attribute:: directed_mac_address
                     
-                    	Options affecting traceroute behavior
-                    	**type**\: :py:class:`Options <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
+                    	Directed MAC address
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: domain
                     
                     	Maintenance domain name
-                    	**type**\: str
-                    
-                    .. attribute:: service
-                    
-                    	Service name
                     	**type**\: str
                     
                     .. attribute:: level
@@ -3965,12 +3962,15 @@ class Cfm(object):
                     	Maintenance level
                     	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
-                    .. attribute:: source_mep_id
+                    .. attribute:: options
                     
-                    	Source MEP ID
-                    	**type**\: int
+                    	Options affecting traceroute behavior
+                    	**type**\: :py:class:`Options <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
                     
-                    	**range:** 0..65535
+                    .. attribute:: service
+                    
+                    	Service name
+                    	**type**\: str
                     
                     .. attribute:: source_interface
                     
@@ -3986,16 +3986,16 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: source_mep_id
+                    
+                    	Source MEP ID
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
-                    	**type**\: str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: directed_mac_address
-                    
-                    	Directed MAC address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -4010,16 +4010,9 @@ class Cfm(object):
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ttl
-                    
-                    	Time to live
-                    	**type**\: int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: transaction_id
                     
@@ -4027,6 +4020,13 @@ class Cfm(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: ttl
+                    
+                    	Time to live
+                    	**type**\: int
+                    
+                    	**range:** 0..255
                     
                     
 
@@ -4037,20 +4037,20 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.directed_mac_address = None
+                        self.domain = None
+                        self.level = None
                         self.options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options()
                         self.options.parent = self
-                        self.domain = None
                         self.service = None
-                        self.level = None
-                        self.source_mep_id = None
                         self.source_interface = None
                         self.source_mac_address = None
+                        self.source_mep_id = None
                         self.target_mac_address = None
-                        self.directed_mac_address = None
                         self.target_mep_id = None
                         self.timestamp = None
-                        self.ttl = None
                         self.transaction_id = None
+                        self.ttl = None
 
 
                     class Options(object):
@@ -4092,14 +4092,14 @@ class Cfm(object):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
-                            .. attribute:: is_auto
-                            
-                            	Traceroute was initiated automatically
-                            	**type**\: bool
-                            
                             .. attribute:: fdb_only
                             
                             	Only use the Filtering Database for forwarding lookups
+                            	**type**\: bool
+                            
+                            .. attribute:: is_auto
+                            
+                            	Traceroute was initiated automatically
                             	**type**\: bool
                             
                             
@@ -4111,13 +4111,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.is_auto = None
                                 self.fdb_only = None
+                                self.is_auto = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:basic-options'
 
@@ -4128,10 +4128,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_auto is not None:
+                                if self.fdb_only is not None:
                                     return True
 
-                                if self.fdb_only is not None:
+                                if self.is_auto is not None:
                                     return True
 
                                 return False
@@ -4146,17 +4146,17 @@ class Cfm(object):
                             """
                             Options for an Exploratory Linktrace
                             
-                            .. attribute:: delay_model
-                            
-                            	Delay model for delay calculations
-                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
-                            
                             .. attribute:: delay_constant_factor
                             
                             	Constant Factor for delay calculations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: delay_model
+                            
+                            	Delay model for delay calculations
+                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
@@ -4172,14 +4172,14 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.delay_model = None
                                 self.delay_constant_factor = None
+                                self.delay_model = None
                                 self.reply_filter = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:exploratory-options'
 
@@ -4190,10 +4190,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.delay_model is not None:
+                                if self.delay_constant_factor is not None:
                                     return True
 
-                                if self.delay_constant_factor is not None:
+                                if self.delay_model is not None:
                                     return True
 
                                 if self.reply_filter is not None:
@@ -4209,7 +4209,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:options'
 
@@ -4239,7 +4239,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-information'
 
@@ -4250,19 +4250,19 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.options is not None and self.options._has_data():
+                        if self.directed_mac_address is not None:
                             return True
 
                         if self.domain is not None:
                             return True
 
-                        if self.service is not None:
-                            return True
-
                         if self.level is not None:
                             return True
 
-                        if self.source_mep_id is not None:
+                        if self.options is not None and self.options._has_data():
+                            return True
+
+                        if self.service is not None:
                             return True
 
                         if self.source_interface is not None:
@@ -4271,10 +4271,10 @@ class Cfm(object):
                         if self.source_mac_address is not None:
                             return True
 
-                        if self.target_mac_address is not None:
+                        if self.source_mep_id is not None:
                             return True
 
-                        if self.directed_mac_address is not None:
+                        if self.target_mac_address is not None:
                             return True
 
                         if self.target_mep_id is not None:
@@ -4283,10 +4283,10 @@ class Cfm(object):
                         if self.timestamp is not None:
                             return True
 
-                        if self.ttl is not None:
+                        if self.transaction_id is not None:
                             return True
 
-                        if self.transaction_id is not None:
+                        if self.ttl is not None:
                             return True
 
                         return False
@@ -4299,17 +4299,17 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
-                    if self.mep_id is None:
-                        raise YPYDataValidationError('Key property mep_id is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
                     if self.transaction_id is None:
-                        raise YPYDataValidationError('Key property transaction_id is None')
+                        raise YPYModelError('Key property transaction_id is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroutes/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroute[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroutes/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroute[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -4321,22 +4321,22 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.transaction_id is not None:
                         return True
 
-                    if self.traceroute_information is not None and self.traceroute_information._has_data():
+                    if self.time_left is not None:
                         return True
 
-                    if self.time_left is not None:
+                    if self.traceroute_information is not None and self.traceroute_information._has_data():
                         return True
 
                     return False
@@ -4404,17 +4404,24 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\: str
-                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\: str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\: str
+                
+                .. attribute:: mac_address
+                
+                	MAC Address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: maintenance_point
                 
@@ -4426,13 +4433,6 @@ class Cfm(object):
                 	MEP error flag
                 	**type**\: bool
                 
-                .. attribute:: mac_address
-                
-                	MAC Address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
                 
 
                 """
@@ -4443,12 +4443,12 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
                     self.interface = None
+                    self.service = None
+                    self.mac_address = None
                     self.maintenance_point = Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint()
                     self.maintenance_point.parent = self
                     self.mep_has_error = None
-                    self.mac_address = None
 
 
                 class MaintenancePoint(object):
@@ -4460,22 +4460,17 @@ class Cfm(object):
                     	Domain name
                     	**type**\: str
                     
-                    .. attribute:: level
-                    
-                    	Domain level
-                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                    
-                    .. attribute:: service_name
-                    
-                    	Service name
-                    	**type**\: str
-                    
                     .. attribute:: interface
                     
                     	Interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: level
+                    
+                    	Domain level
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
@@ -4489,6 +4484,11 @@ class Cfm(object):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: service_name
+                    
+                    	Service name
+                    	**type**\: str
+                    
                     
 
                     """
@@ -4499,16 +4499,16 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.domain_name = None
-                        self.level = None
-                        self.service_name = None
                         self.interface = None
+                        self.level = None
                         self.maintenance_point_type = None
                         self.mep_id = None
+                        self.service_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-point'
 
@@ -4522,19 +4522,19 @@ class Cfm(object):
                         if self.domain_name is not None:
                             return True
 
-                        if self.level is not None:
-                            return True
-
-                        if self.service_name is not None:
-                            return True
-
                         if self.interface is not None:
+                            return True
+
+                        if self.level is not None:
                             return True
 
                         if self.maintenance_point_type is not None:
                             return True
 
                         if self.mep_id is not None:
+                            return True
+
+                        if self.service_name is not None:
                             return True
 
                         return False
@@ -4547,13 +4547,13 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-points/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-point[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-points/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-point[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -4565,19 +4565,19 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
+                    if self.interface is not None:
+                        return True
+
                     if self.service is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.mac_address is not None:
                         return True
 
                     if self.maintenance_point is not None and self.maintenance_point._has_data():
                         return True
 
                     if self.mep_has_error is not None:
-                        return True
-
-                    if self.mac_address is not None:
                         return True
 
                     return False
@@ -4645,18 +4645,6 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\: str
-                
-                .. attribute:: local_mep_id  <key>
-                
-                	MEP ID of Local MEP
-                	**type**\: int
-                
-                	**range:** 1..8191
-                
                 .. attribute:: interface  <key>
                 
                 	Interface
@@ -4664,9 +4652,9 @@ class Cfm(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: peer_mep_id  <key>
+                .. attribute:: local_mep_id  <key>
                 
-                	MEP ID of Peer MEP
+                	MEP ID of Local MEP
                 	**type**\: int
                 
                 	**range:** 1..8191
@@ -4678,32 +4666,22 @@ class Cfm(object):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
-                .. attribute:: peer_mep
+                .. attribute:: peer_mep_id  <key>
                 
-                	Peer MEP
-                	**type**\: :py:class:`PeerMep <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep>`
+                	MEP ID of Peer MEP
+                	**type**\: int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\: str
                 
                 .. attribute:: domain_xr
                 
                 	Maintenance domain name
                 	**type**\: str
-                
-                .. attribute:: service_xr
-                
-                	Service name
-                	**type**\: str
-                
-                .. attribute:: level
-                
-                	Maintenance level
-                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                
-                .. attribute:: mep_id
-                
-                	MEP ID
-                	**type**\: int
-                
-                	**range:** 0..65535
                 
                 .. attribute:: interface_xr
                 
@@ -4712,10 +4690,32 @@ class Cfm(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
+                .. attribute:: level
+                
+                	Maintenance level
+                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
                 	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                
+                .. attribute:: mep_id
+                
+                	MEP ID
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: peer_mep
+                
+                	Peer MEP
+                	**type**\: :py:class:`PeerMep <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep>`
+                
+                .. attribute:: service_xr
+                
+                	Service name
+                	**type**\: str
                 
                 .. attribute:: standby
                 
@@ -4732,19 +4732,19 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
-                    self.local_mep_id = None
                     self.interface = None
-                    self.peer_mep_id = None
+                    self.local_mep_id = None
                     self.peer_mac_address = None
+                    self.peer_mep_id = None
+                    self.service = None
+                    self.domain_xr = None
+                    self.interface_xr = None
+                    self.level = None
+                    self.mep_direction = None
+                    self.mep_id = None
                     self.peer_mep = Cfm.Global.PeerMeps.PeerMep.PeerMep()
                     self.peer_mep.parent = self
-                    self.domain_xr = None
                     self.service_xr = None
-                    self.level = None
-                    self.mep_id = None
-                    self.interface_xr = None
-                    self.mep_direction = None
                     self.standby = None
 
 
@@ -4752,32 +4752,30 @@ class Cfm(object):
                     """
                     Peer MEP
                     
+                    .. attribute:: ccm_offload
+                    
+                    	Offload status of received CCM handling
+                    	**type**\: :py:class:`CfmBagCcmOffloadEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
+                    
+                    .. attribute:: cross_check_state
+                    
+                    	Cross\-check state
+                    	**type**\: :py:class:`CfmPmRmepXcStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
+                    
                     .. attribute:: error_state
                     
                     	Error state
                     	**type**\: :py:class:`ErrorState <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState>`
-                    
-                    .. attribute:: last_up_down_time
-                    
-                    	Elapsed time since peer MEP became active or timed out
-                    	**type**\: :py:class:`LastUpDownTime <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime>`
                     
                     .. attribute:: last_ccm_received
                     
                     	Last CCM received from the peer MEP
                     	**type**\: :py:class:`LastCcmReceived <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived>`
                     
-                    .. attribute:: statistics
+                    .. attribute:: last_up_down_time
                     
-                    	Peer MEP statistics
-                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics>`
-                    
-                    .. attribute:: mep_id
-                    
-                    	MEP ID
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
+                    	Elapsed time since peer MEP became active or timed out
+                    	**type**\: :py:class:`LastUpDownTime <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime>`
                     
                     .. attribute:: mac_address
                     
@@ -4786,20 +4784,22 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
-                    .. attribute:: cross_check_state
+                    .. attribute:: mep_id
                     
-                    	Cross\-check state
-                    	**type**\: :py:class:`CfmPmRmepXcStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
+                    	MEP ID
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
                     
                     .. attribute:: peer_mep_state
                     
                     	State of the peer MEP state machine
                     	**type**\: :py:class:`CfmPmRmepStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
                     
-                    .. attribute:: ccm_offload
+                    .. attribute:: statistics
                     
-                    	Offload status of received CCM handling
-                    	**type**\: :py:class:`CfmBagCcmOffloadEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
+                    	Peer MEP statistics
+                    	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics>`
                     
                     
 
@@ -4810,28 +4810,28 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.ccm_offload = None
+                        self.cross_check_state = None
                         self.error_state = Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState()
                         self.error_state.parent = self
-                        self.last_up_down_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime()
-                        self.last_up_down_time.parent = self
                         self.last_ccm_received = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived()
                         self.last_ccm_received.parent = self
+                        self.last_up_down_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime()
+                        self.last_up_down_time.parent = self
+                        self.mac_address = None
+                        self.mep_id = None
+                        self.peer_mep_state = None
                         self.statistics = Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics()
                         self.statistics.parent = self
-                        self.mep_id = None
-                        self.mac_address = None
-                        self.cross_check_state = None
-                        self.peer_mep_state = None
-                        self.ccm_offload = None
 
 
                     class ErrorState(object):
                         """
                         Error state
                         
-                        .. attribute:: loss_threshold_exceeded
+                        .. attribute:: invalid_ccm_interval
                         
-                        	Timed out (loss threshold exceeded)
+                        	Invalid CCM interval
                         	**type**\: bool
                         
                         .. attribute:: invalid_level
@@ -4844,9 +4844,9 @@ class Cfm(object):
                         	Invalid MAID
                         	**type**\: bool
                         
-                        .. attribute:: invalid_ccm_interval
+                        .. attribute:: loss_threshold_exceeded
                         
-                        	Invalid CCM interval
+                        	Timed out (loss threshold exceeded)
                         	**type**\: bool
                         
                         .. attribute:: received_our_mac
@@ -4873,10 +4873,10 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.loss_threshold_exceeded = None
+                            self.invalid_ccm_interval = None
                             self.invalid_level = None
                             self.invalid_maid = None
-                            self.invalid_ccm_interval = None
+                            self.loss_threshold_exceeded = None
                             self.received_our_mac = None
                             self.received_our_mep_id = None
                             self.received_rdi = None
@@ -4884,7 +4884,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:error-state'
 
@@ -4895,7 +4895,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.loss_threshold_exceeded is not None:
+                            if self.invalid_ccm_interval is not None:
                                 return True
 
                             if self.invalid_level is not None:
@@ -4904,7 +4904,7 @@ class Cfm(object):
                             if self.invalid_maid is not None:
                                 return True
 
-                            if self.invalid_ccm_interval is not None:
+                            if self.loss_threshold_exceeded is not None:
                                 return True
 
                             if self.received_our_mac is not None:
@@ -4929,16 +4929,16 @@ class Cfm(object):
                         Elapsed time since peer MEP became active or
                         timed out
                         
-                        .. attribute:: seconds
+                        .. attribute:: nanoseconds
                         
-                        	Seconds
+                        	Nanoseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: nanoseconds
+                        .. attribute:: seconds
                         
-                        	Nanoseconds
+                        	Seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4952,13 +4952,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.seconds = None
                             self.nanoseconds = None
+                            self.seconds = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-up-down-time'
 
@@ -4969,10 +4969,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.seconds is not None:
+                            if self.nanoseconds is not None:
                                 return True
 
-                            if self.nanoseconds is not None:
+                            if self.seconds is not None:
                                 return True
 
                             return False
@@ -4987,35 +4987,35 @@ class Cfm(object):
                         """
                         Last CCM received from the peer MEP
                         
+                        .. attribute:: additional_interface_status
+                        
+                        	Additional interface status
+                        	**type**\: :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
+                        
                         .. attribute:: header
                         
                         	Frame header
                         	**type**\: :py:class:`Header <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header>`
-                        
-                        .. attribute:: sender_id
-                        
-                        	Sender ID TLV
-                        	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId>`
-                        
-                        .. attribute:: mep_name
-                        
-                        	MEP name
-                        	**type**\: :py:class:`MepName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName>`
-                        
-                        .. attribute:: port_status
-                        
-                        	Port status
-                        	**type**\: :py:class:`CfmPmPortStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
                         
                         .. attribute:: interface_status
                         
                         	Interface status
                         	**type**\: :py:class:`CfmPmIntfStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
                         
-                        .. attribute:: additional_interface_status
+                        .. attribute:: mep_name
                         
-                        	Additional interface status
-                        	**type**\: :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
+                        	MEP name
+                        	**type**\: :py:class:`MepName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName>`
+                        
+                        .. attribute:: organization_specific_tlv
+                        
+                        	Organizational\-specific TLVs
+                        	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        
+                        .. attribute:: port_status
+                        
+                        	Port status
+                        	**type**\: :py:class:`CfmPmPortStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
                         
                         .. attribute:: raw_data
                         
@@ -5024,10 +5024,10 @@ class Cfm(object):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
-                        .. attribute:: organization_specific_tlv
+                        .. attribute:: sender_id
                         
-                        	Organizational\-specific TLVs
-                        	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        	Sender ID TLV
+                        	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId>`
                         
                         .. attribute:: unknown_tlv
                         
@@ -5043,19 +5043,19 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.additional_interface_status = None
                             self.header = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header()
                             self.header.parent = self
-                            self.sender_id = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId()
-                            self.sender_id.parent = self
+                            self.interface_status = None
                             self.mep_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName()
                             self.mep_name.parent = self
-                            self.port_status = None
-                            self.interface_status = None
-                            self.additional_interface_status = None
-                            self.raw_data = None
                             self.organization_specific_tlv = YList()
                             self.organization_specific_tlv.parent = self
                             self.organization_specific_tlv.name = 'organization_specific_tlv'
+                            self.port_status = None
+                            self.raw_data = None
+                            self.sender_id = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId()
+                            self.sender_id.parent = self
                             self.unknown_tlv = YList()
                             self.unknown_tlv.parent = self
                             self.unknown_tlv.name = 'unknown_tlv'
@@ -5065,32 +5065,32 @@ class Cfm(object):
                             """
                             Frame header
                             
-                            .. attribute:: mdid
+                            .. attribute:: interval
                             
-                            	MDID
-                            	**type**\: :py:class:`Mdid <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid>`
-                            
-                            .. attribute:: short_ma_name
-                            
-                            	Short MA Name
-                            	**type**\: :py:class:`ShortMaName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName>`
+                            	CCM interval
+                            	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                             
                             .. attribute:: level
                             
                             	MD level
                             	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                             
-                            .. attribute:: version
+                            .. attribute:: mdid
                             
-                            	Version
+                            	MDID
+                            	**type**\: :py:class:`Mdid <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid>`
+                            
+                            .. attribute:: mdid_format
+                            
+                            	MDID Format
+                            	**type**\: :py:class:`CfmBagMdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
+                            
+                            .. attribute:: mep_id
+                            
+                            	MEP ID
                             	**type**\: int
                             
-                            	**range:** 0..255
-                            
-                            .. attribute:: interval
-                            
-                            	CCM interval
-                            	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                            	**range:** 0..65535
                             
                             .. attribute:: rdi
                             
@@ -5104,22 +5104,22 @@ class Cfm(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: mep_id
+                            .. attribute:: short_ma_name
                             
-                            	MEP ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: mdid_format
-                            
-                            	MDID Format
-                            	**type**\: :py:class:`CfmBagMdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
+                            	Short MA Name
+                            	**type**\: :py:class:`ShortMaName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName>`
                             
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name format
                             	**type**\: :py:class:`CfmBagSmanFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
+                            
+                            .. attribute:: version
+                            
+                            	Version
+                            	**type**\: int
+                            
+                            	**range:** 0..255
                             
                             
 
@@ -5130,28 +5130,40 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.interval = None
+                                self.level = None
                                 self.mdid = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid()
                                 self.mdid.parent = self
-                                self.short_ma_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName()
-                                self.short_ma_name.parent = self
-                                self.level = None
-                                self.version = None
-                                self.interval = None
+                                self.mdid_format = None
+                                self.mep_id = None
                                 self.rdi = None
                                 self.sequence_number = None
-                                self.mep_id = None
-                                self.mdid_format = None
+                                self.short_ma_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName()
+                                self.short_ma_name.parent = self
                                 self.short_ma_name_format = None
+                                self.version = None
 
 
                             class Mdid(object):
                                 """
                                 MDID
                                 
+                                .. attribute:: dns_like_name
+                                
+                                	DNS\-like name
+                                	**type**\: str
+                                
                                 .. attribute:: mac_name
                                 
                                 	MAC address name
                                 	**type**\: :py:class:`MacName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
+                                
+                                .. attribute:: mdid_data
+                                
+                                	Hex data
+                                	**type**\: str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
                                 .. attribute:: mdid_format_value
                                 
@@ -5160,22 +5172,10 @@ class Cfm(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: dns_like_name
-                                
-                                	DNS\-like name
-                                	**type**\: str
-                                
                                 .. attribute:: string_name
                                 
                                 	String name
                                 	**type**\: str
-                                
-                                .. attribute:: mdid_data
-                                
-                                	Hex data
-                                	**type**\: str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
                                 
 
@@ -5186,24 +5186,17 @@ class Cfm(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.dns_like_name = None
                                     self.mac_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName()
                                     self.mac_name.parent = self
-                                    self.mdid_format_value = None
-                                    self.dns_like_name = None
-                                    self.string_name = None
                                     self.mdid_data = None
+                                    self.mdid_format_value = None
+                                    self.string_name = None
 
 
                                 class MacName(object):
                                     """
                                     MAC address name
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	MAC address
-                                    	**type**\: str
-                                    
-                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
                                     .. attribute:: integer
                                     
@@ -5211,6 +5204,13 @@ class Cfm(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	MAC address
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
                                     
 
@@ -5221,13 +5221,13 @@ class Cfm(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.mac_address = None
                                         self.integer = None
+                                        self.mac_address = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mac-name'
 
@@ -5238,10 +5238,10 @@ class Cfm(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.mac_address is not None:
+                                        if self.integer is not None:
                                             return True
 
-                                        if self.integer is not None:
+                                        if self.mac_address is not None:
                                             return True
 
                                         return False
@@ -5254,7 +5254,7 @@ class Cfm(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mdid'
 
@@ -5265,19 +5265,19 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.dns_like_name is not None:
+                                        return True
+
                                     if self.mac_name is not None and self.mac_name._has_data():
+                                        return True
+
+                                    if self.mdid_data is not None:
                                         return True
 
                                     if self.mdid_format_value is not None:
                                         return True
 
-                                    if self.dns_like_name is not None:
-                                        return True
-
                                     if self.string_name is not None:
-                                        return True
-
-                                    if self.mdid_data is not None:
                                         return True
 
                                     return False
@@ -5292,28 +5292,9 @@ class Cfm(object):
                                 """
                                 Short MA Name
                                 
-                                .. attribute:: vpn_id_name
+                                .. attribute:: icc_based
                                 
-                                	VPN ID name
-                                	**type**\: :py:class:`VpnIdName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
-                                
-                                .. attribute:: short_ma_name_format_value
-                                
-                                	ShortMANameFormatValue
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: vlan_id_name
-                                
-                                	VLAN ID name
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: string_name
-                                
-                                	String name
+                                	ICC\-based format
                                 	**type**\: str
                                 
                                 .. attribute:: integer_name
@@ -5323,17 +5304,36 @@ class Cfm(object):
                                 
                                 	**range:** 0..65535
                                 
-                                .. attribute:: icc_based
-                                
-                                	ICC\-based format
-                                	**type**\: str
-                                
                                 .. attribute:: short_ma_name_data
                                 
                                 	Hex data
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                .. attribute:: short_ma_name_format_value
+                                
+                                	ShortMANameFormatValue
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: string_name
+                                
+                                	String name
+                                	**type**\: str
+                                
+                                .. attribute:: vlan_id_name
+                                
+                                	VLAN ID name
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: vpn_id_name
+                                
+                                	VPN ID name
+                                	**type**\: :py:class:`VpnIdName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
                                 
                                 
 
@@ -5344,30 +5344,30 @@ class Cfm(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.icc_based = None
+                                    self.integer_name = None
+                                    self.short_ma_name_data = None
+                                    self.short_ma_name_format_value = None
+                                    self.string_name = None
+                                    self.vlan_id_name = None
                                     self.vpn_id_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
                                     self.vpn_id_name.parent = self
-                                    self.short_ma_name_format_value = None
-                                    self.vlan_id_name = None
-                                    self.string_name = None
-                                    self.integer_name = None
-                                    self.icc_based = None
-                                    self.short_ma_name_data = None
 
 
                                 class VpnIdName(object):
                                     """
                                     VPN ID name
                                     
-                                    .. attribute:: oui
+                                    .. attribute:: index
                                     
-                                    	VPN authority organizationally\-unique ID
+                                    	VPN index
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: index
+                                    .. attribute:: oui
                                     
-                                    	VPN index
+                                    	VPN authority organizationally\-unique ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -5381,13 +5381,13 @@ class Cfm(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.oui = None
                                         self.index = None
+                                        self.oui = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:vpn-id-name'
 
@@ -5398,10 +5398,10 @@ class Cfm(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.oui is not None:
+                                        if self.index is not None:
                                             return True
 
-                                        if self.index is not None:
+                                        if self.oui is not None:
                                             return True
 
                                         return False
@@ -5414,7 +5414,7 @@ class Cfm(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:short-ma-name'
 
@@ -5425,25 +5425,25 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.vpn_id_name is not None and self.vpn_id_name._has_data():
-                                        return True
-
-                                    if self.short_ma_name_format_value is not None:
-                                        return True
-
-                                    if self.vlan_id_name is not None:
-                                        return True
-
-                                    if self.string_name is not None:
+                                    if self.icc_based is not None:
                                         return True
 
                                     if self.integer_name is not None:
                                         return True
 
-                                    if self.icc_based is not None:
+                                    if self.short_ma_name_data is not None:
                                         return True
 
-                                    if self.short_ma_name_data is not None:
+                                    if self.short_ma_name_format_value is not None:
+                                        return True
+
+                                    if self.string_name is not None:
+                                        return True
+
+                                    if self.vlan_id_name is not None:
+                                        return True
+
+                                    if self.vpn_id_name is not None and self.vpn_id_name._has_data():
                                         return True
 
                                     return False
@@ -5456,7 +5456,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:header'
 
@@ -5467,19 +5467,19 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.mdid is not None and self.mdid._has_data():
-                                    return True
-
-                                if self.short_ma_name is not None and self.short_ma_name._has_data():
+                                if self.interval is not None:
                                     return True
 
                                 if self.level is not None:
                                     return True
 
-                                if self.version is not None:
+                                if self.mdid is not None and self.mdid._has_data():
                                     return True
 
-                                if self.interval is not None:
+                                if self.mdid_format is not None:
+                                    return True
+
+                                if self.mep_id is not None:
                                     return True
 
                                 if self.rdi is not None:
@@ -5488,13 +5488,13 @@ class Cfm(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                if self.mep_id is not None:
-                                    return True
-
-                                if self.mdid_format is not None:
+                                if self.short_ma_name is not None and self.short_ma_name._has_data():
                                     return True
 
                                 if self.short_ma_name_format is not None:
+                                    return True
+
+                                if self.version is not None:
                                     return True
 
                                 return False
@@ -5514,16 +5514,16 @@ class Cfm(object):
                             	Chassis ID
                             	**type**\: :py:class:`ChassisId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId>`
                             
-                            .. attribute:: management_address_domain
+                            .. attribute:: management_address
                             
-                            	Management address domain
+                            	Management address
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
-                            .. attribute:: management_address
+                            .. attribute:: management_address_domain
                             
-                            	Management address
+                            	Management address domain
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -5539,18 +5539,20 @@ class Cfm(object):
                                 self.parent = None
                                 self.chassis_id = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId()
                                 self.chassis_id.parent = self
-                                self.management_address_domain = None
                                 self.management_address = None
+                                self.management_address_domain = None
 
 
                             class ChassisId(object):
                                 """
                                 Chassis ID
                                 
-                                .. attribute:: chassis_id_value
+                                .. attribute:: chassis_id
                                 
-                                	Chassis ID (Current)
-                                	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
+                                	Chassis ID (Deprecated)
+                                	**type**\: str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
                                 .. attribute:: chassis_id_type
                                 
@@ -5564,12 +5566,10 @@ class Cfm(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: chassis_id
+                                .. attribute:: chassis_id_value
                                 
-                                	Chassis ID (Deprecated)
-                                	**type**\: str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	Chassis ID (Current)
+                                	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
                                 
                                 
 
@@ -5580,11 +5580,11 @@ class Cfm(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.chassis_id_value = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
-                                    self.chassis_id_value.parent = self
+                                    self.chassis_id = None
                                     self.chassis_id_type = None
                                     self.chassis_id_type_value = None
-                                    self.chassis_id = None
+                                    self.chassis_id_value = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
+                                    self.chassis_id_value.parent = self
 
 
                                 class ChassisIdValue(object):
@@ -5595,11 +5595,6 @@ class Cfm(object):
                                     
                                     	ChassisIDFormat
                                     	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                    
-                                    .. attribute:: chassis_id_string
-                                    
-                                    	Chassis ID String
-                                    	**type**\: str
                                     
                                     .. attribute:: chassis_id_mac
                                     
@@ -5615,6 +5610,11 @@ class Cfm(object):
                                     
                                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                     
+                                    .. attribute:: chassis_id_string
+                                    
+                                    	Chassis ID String
+                                    	**type**\: str
+                                    
                                     
 
                                     """
@@ -5625,14 +5625,14 @@ class Cfm(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.chassis_id_format = None
-                                        self.chassis_id_string = None
                                         self.chassis_id_mac = None
                                         self.chassis_id_raw = None
+                                        self.chassis_id_string = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id-value'
 
@@ -5646,13 +5646,13 @@ class Cfm(object):
                                         if self.chassis_id_format is not None:
                                             return True
 
-                                        if self.chassis_id_string is not None:
-                                            return True
-
                                         if self.chassis_id_mac is not None:
                                             return True
 
                                         if self.chassis_id_raw is not None:
+                                            return True
+
+                                        if self.chassis_id_string is not None:
                                             return True
 
                                         return False
@@ -5665,7 +5665,7 @@ class Cfm(object):
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id'
 
@@ -5676,7 +5676,7 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.chassis_id_value is not None and self.chassis_id_value._has_data():
+                                    if self.chassis_id is not None:
                                         return True
 
                                     if self.chassis_id_type is not None:
@@ -5685,7 +5685,7 @@ class Cfm(object):
                                     if self.chassis_id_type_value is not None:
                                         return True
 
-                                    if self.chassis_id is not None:
+                                    if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                         return True
 
                                     return False
@@ -5698,7 +5698,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sender-id'
 
@@ -5712,10 +5712,10 @@ class Cfm(object):
                                 if self.chassis_id is not None and self.chassis_id._has_data():
                                     return True
 
-                                if self.management_address_domain is not None:
+                                if self.management_address is not None:
                                     return True
 
-                                if self.management_address is not None:
+                                if self.management_address_domain is not None:
                                     return True
 
                                 return False
@@ -5749,7 +5749,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mep-name'
 
@@ -5812,7 +5812,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:organization-specific-tlv'
 
@@ -5873,7 +5873,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:unknown-tlv'
 
@@ -5900,7 +5900,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received'
 
@@ -5911,31 +5911,31 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.additional_interface_status is not None:
+                                return True
+
                             if self.header is not None and self.header._has_data():
-                                return True
-
-                            if self.sender_id is not None and self.sender_id._has_data():
-                                return True
-
-                            if self.mep_name is not None and self.mep_name._has_data():
-                                return True
-
-                            if self.port_status is not None:
                                 return True
 
                             if self.interface_status is not None:
                                 return True
 
-                            if self.additional_interface_status is not None:
-                                return True
-
-                            if self.raw_data is not None:
+                            if self.mep_name is not None and self.mep_name._has_data():
                                 return True
 
                             if self.organization_specific_tlv is not None:
                                 for child_ref in self.organization_specific_tlv:
                                     if child_ref._has_data():
                                         return True
+
+                            if self.port_status is not None:
+                                return True
+
+                            if self.raw_data is not None:
+                                return True
+
+                            if self.sender_id is not None and self.sender_id._has_data():
+                                return True
 
                             if self.unknown_tlv is not None:
                                 for child_ref in self.unknown_tlv:
@@ -5954,66 +5954,66 @@ class Cfm(object):
                         """
                         Peer MEP statistics
                         
-                        .. attribute:: last_ccm_received_time
+                        .. attribute:: ccms_invalid_interval
                         
-                        	Elapsed time since last CCM received
-                        	**type**\: :py:class:`LastCcmReceivedTime <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime>`
-                        
-                        .. attribute:: ccms_received
-                        
-                        	Number of CCMs received
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_wrong_level
-                        
-                        	Number of CCMs received with an invalid level
-                        	**type**\: int
+                        	Number of CCMs received with an invalid interval
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ccms_invalid_maid
                         
                         	Number of CCMs received with an invalid MAID
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_invalid_interval
-                        
-                        	Number of CCMs received with an invalid interval
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ccms_invalid_source_mac_address
                         
                         	Number of CCMs received with an invalid source MAC address
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ccms_our_mep_id
                         
                         	Number of CCMs received with our MEP ID
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_rdi
-                        
-                        	Number of CCMs received with the Remote Defect Indication bit set
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ccms_out_of_sequence
                         
                         	Number of CCMs received out\-of\-sequence
-                        	**type**\: int
+                        	**type**\: long
                         
                         	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_rdi
+                        
+                        	Number of CCMs received with the Remote Defect Indication bit set
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_received
+                        
+                        	Number of CCMs received
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_wrong_level
+                        
+                        	Number of CCMs received with an invalid level
+                        	**type**\: long
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: last_ccm_received_time
+                        
+                        	Elapsed time since last CCM received
+                        	**type**\: :py:class:`LastCcmReceivedTime <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime>`
                         
                         .. attribute:: last_ccm_sequence_number
                         
@@ -6031,16 +6031,16 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.last_ccm_received_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime()
-                            self.last_ccm_received_time.parent = self
-                            self.ccms_received = None
-                            self.ccms_wrong_level = None
-                            self.ccms_invalid_maid = None
                             self.ccms_invalid_interval = None
+                            self.ccms_invalid_maid = None
                             self.ccms_invalid_source_mac_address = None
                             self.ccms_our_mep_id = None
-                            self.ccms_rdi = None
                             self.ccms_out_of_sequence = None
+                            self.ccms_rdi = None
+                            self.ccms_received = None
+                            self.ccms_wrong_level = None
+                            self.last_ccm_received_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime()
+                            self.last_ccm_received_time.parent = self
                             self.last_ccm_sequence_number = None
 
 
@@ -6048,16 +6048,16 @@ class Cfm(object):
                             """
                             Elapsed time since last CCM received
                             
-                            .. attribute:: seconds
+                            .. attribute:: nanoseconds
                             
-                            	Seconds
+                            	Nanoseconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: nanoseconds
+                            .. attribute:: seconds
                             
-                            	Nanoseconds
+                            	Seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -6071,13 +6071,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.seconds = None
                                 self.nanoseconds = None
+                                self.seconds = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received-time'
 
@@ -6088,10 +6088,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.seconds is not None:
+                                if self.nanoseconds is not None:
                                     return True
 
-                                if self.nanoseconds is not None:
+                                if self.seconds is not None:
                                     return True
 
                                 return False
@@ -6104,7 +6104,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
 
@@ -6115,19 +6115,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.last_ccm_received_time is not None and self.last_ccm_received_time._has_data():
-                                return True
-
-                            if self.ccms_received is not None:
-                                return True
-
-                            if self.ccms_wrong_level is not None:
+                            if self.ccms_invalid_interval is not None:
                                 return True
 
                             if self.ccms_invalid_maid is not None:
-                                return True
-
-                            if self.ccms_invalid_interval is not None:
                                 return True
 
                             if self.ccms_invalid_source_mac_address is not None:
@@ -6136,10 +6127,19 @@ class Cfm(object):
                             if self.ccms_our_mep_id is not None:
                                 return True
 
+                            if self.ccms_out_of_sequence is not None:
+                                return True
+
                             if self.ccms_rdi is not None:
                                 return True
 
-                            if self.ccms_out_of_sequence is not None:
+                            if self.ccms_received is not None:
+                                return True
+
+                            if self.ccms_wrong_level is not None:
+                                return True
+
+                            if self.last_ccm_received_time is not None and self.last_ccm_received_time._has_data():
                                 return True
 
                             if self.last_ccm_sequence_number is not None:
@@ -6155,7 +6155,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep'
 
@@ -6166,31 +6166,31 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.error_state is not None and self.error_state._has_data():
-                            return True
-
-                        if self.last_up_down_time is not None and self.last_up_down_time._has_data():
-                            return True
-
-                        if self.last_ccm_received is not None and self.last_ccm_received._has_data():
-                            return True
-
-                        if self.statistics is not None and self.statistics._has_data():
-                            return True
-
-                        if self.mep_id is not None:
-                            return True
-
-                        if self.mac_address is not None:
+                        if self.ccm_offload is not None:
                             return True
 
                         if self.cross_check_state is not None:
                             return True
 
+                        if self.error_state is not None and self.error_state._has_data():
+                            return True
+
+                        if self.last_ccm_received is not None and self.last_ccm_received._has_data():
+                            return True
+
+                        if self.last_up_down_time is not None and self.last_up_down_time._has_data():
+                            return True
+
+                        if self.mac_address is not None:
+                            return True
+
+                        if self.mep_id is not None:
+                            return True
+
                         if self.peer_mep_state is not None:
                             return True
 
-                        if self.ccm_offload is not None:
+                        if self.statistics is not None and self.statistics._has_data():
                             return True
 
                         return False
@@ -6203,19 +6203,19 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
-                    if self.local_mep_id is None:
-                        raise YPYDataValidationError('Key property local_mep_id is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
-                    if self.peer_mep_id is None:
-                        raise YPYDataValidationError('Key property peer_mep_id is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.local_mep_id is None:
+                        raise YPYModelError('Key property local_mep_id is None')
                     if self.peer_mac_address is None:
-                        raise YPYDataValidationError('Key property peer_mac_address is None')
+                        raise YPYModelError('Key property peer_mac_address is None')
+                    if self.peer_mep_id is None:
+                        raise YPYModelError('Key property peer_mep_id is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-meps/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-meps/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -6227,40 +6227,40 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.local_mep_id is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.peer_mac_address is not None:
                         return True
 
                     if self.peer_mep_id is not None:
                         return True
 
-                    if self.peer_mac_address is not None:
-                        return True
-
-                    if self.peer_mep is not None and self.peer_mep._has_data():
+                    if self.service is not None:
                         return True
 
                     if self.domain_xr is not None:
                         return True
 
-                    if self.service_xr is not None:
+                    if self.interface_xr is not None:
                         return True
 
                     if self.level is not None:
                         return True
 
+                    if self.mep_direction is not None:
+                        return True
+
                     if self.mep_id is not None:
                         return True
 
-                    if self.interface_xr is not None:
+                    if self.peer_mep is not None and self.peer_mep._has_data():
                         return True
 
-                    if self.mep_direction is not None:
+                    if self.service_xr is not None:
                         return True
 
                     if self.standby is not None:
@@ -6341,10 +6341,20 @@ class Cfm(object):
                 	BD/XC ID, or Service name if the Service is 'down\-only'
                 	**type**\: :py:class:`BridgeDomainId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
                 
+                .. attribute:: bridge_domain_is_configured
+                
+                	The BD/XC is configured globally
+                	**type**\: bool
+                
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\: str
+                
+                .. attribute:: l2_fib_download_error
+                
+                	The BD/XC could not be downloaded to L2FIB
+                	**type**\: bool
                 
                 .. attribute:: level
                 
@@ -6355,16 +6365,6 @@ class Cfm(object):
                 
                 	Service name
                 	**type**\: str
-                
-                .. attribute:: bridge_domain_is_configured
-                
-                	The BD/XC is configured globally
-                	**type**\: bool
-                
-                .. attribute:: l2_fib_download_error
-                
-                	The BD/XC could not be downloaded to L2FIB
-                	**type**\: bool
                 
                 
 
@@ -6379,11 +6379,11 @@ class Cfm(object):
                     self.service = None
                     self.bridge_domain_id = Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
                     self.bridge_domain_id.parent = self
+                    self.bridge_domain_is_configured = None
                     self.domain_name = None
+                    self.l2_fib_download_error = None
                     self.level = None
                     self.service_name = None
-                    self.bridge_domain_is_configured = None
-                    self.l2_fib_download_error = None
 
 
                 class BridgeDomainId(object):
@@ -6396,6 +6396,13 @@ class Cfm(object):
                     	Bridge domain identifier format
                     	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
@@ -6405,13 +6412,6 @@ class Cfm(object):
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
-                    
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: remote_ce_id
                     
@@ -6430,15 +6430,15 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.bridge_domain_id_format = None
+                        self.ce_id = None
                         self.group = None
                         self.name = None
-                        self.ce_id = None
                         self.remote_ce_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:bridge-domain-id'
 
@@ -6452,13 +6452,13 @@ class Cfm(object):
                         if self.bridge_domain_id_format is not None:
                             return True
 
+                        if self.ce_id is not None:
+                            return True
+
                         if self.group is not None:
                             return True
 
                         if self.name is not None:
-                            return True
-
-                        if self.ce_id is not None:
                             return True
 
                         if self.remote_ce_id is not None:
@@ -6474,9 +6474,9 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
+                        raise YPYModelError('Key property service is None')
 
                     return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:global-configuration-errors/Cisco-IOS-XR-ethernet-cfm-oper:global-configuration-error[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
@@ -6496,19 +6496,19 @@ class Cfm(object):
                     if self.bridge_domain_id is not None and self.bridge_domain_id._has_data():
                         return True
 
+                    if self.bridge_domain_is_configured is not None:
+                        return True
+
                     if self.domain_name is not None:
+                        return True
+
+                    if self.l2_fib_download_error is not None:
                         return True
 
                     if self.level is not None:
                         return True
 
                     if self.service_name is not None:
-                        return True
-
-                    if self.bridge_domain_is_configured is not None:
-                        return True
-
-                    if self.l2_fib_download_error is not None:
                         return True
 
                     return False
@@ -6576,11 +6576,6 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\: str
-                
                 .. attribute:: interface  <key>
                 
                 	Interface
@@ -6588,39 +6583,14 @@ class Cfm(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: mep
+                .. attribute:: service  <key>
                 
-                	The MEP that has errors
-                	**type**\: :py:class:`Mep <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep>`
+                	Service (Maintenance Association)
+                	**type**\: str
                 
-                .. attribute:: service_bridge_domain
+                .. attribute:: ais_configured
                 
-                	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
-                	**type**\: :py:class:`ServiceBridgeDomain <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
-                
-                .. attribute:: interface_bridge_domain
-                
-                	ID of the BD/XC that the MEP's EFP is in, if any
-                	**type**\: :py:class:`InterfaceBridgeDomain <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
-                
-                .. attribute:: satellite_capabilities
-                
-                	Satellite Capabilities
-                	**type**\: :py:class:`SatelliteCapabilities <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
-                
-                .. attribute:: ccm_interval
-                
-                	Interval between CCMs sent on this MEP
-                	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
-                
-                .. attribute:: no_domain
-                
-                	The MEP's Domain is not configured
-                	**type**\: bool
-                
-                .. attribute:: no_service
-                
-                	The MEP's Service is not configured
+                	AIS is configured on the same interface as the down MEP
                 	**type**\: bool
                 
                 .. attribute:: bridge_domain_mismatch
@@ -6628,44 +6598,9 @@ class Cfm(object):
                 	The MEP's EFP is not in the Service's Bridge Domain
                 	**type**\: bool
                 
-                .. attribute:: level_conflict
+                .. attribute:: bridge_domain_not_in_bd_infra
                 
-                	Another MEP facing in the same direction is at the same Maintenance Level
-                	**type**\: bool
-                
-                .. attribute:: ccm_interval_not_supported
-                
-                	CCM Interval is less than minimum interval supported by hardware
-                	**type**\: bool
-                
-                .. attribute:: offload_out_of_resources
-                
-                	Offload resource limits have been exceeded
-                	**type**\: bool
-                
-                .. attribute:: offload_multiple_local_mep
-                
-                	Multiple offloaded MEPs on the same interface are not supported
-                	**type**\: bool
-                
-                .. attribute:: offload_no_cross_check
-                
-                	The MEP should be offloaded but crosscheck has not been configured
-                	**type**\: bool
-                
-                .. attribute:: offload_multiple_peer_meps
-                
-                	The MEP should be offloaded but multiple crosscheck MEPs have been configured, and this is not supported
-                	**type**\: bool
-                
-                .. attribute:: offload_mep_direction_not_supported
-                
-                	The MEP direction does not support offload
-                	**type**\: bool
-                
-                .. attribute:: ais_configured
-                
-                	AIS is configured on the same interface as the down MEP
+                	A BD/XC specified in the MEG config, but it does not exist globally
                 	**type**\: bool
                 
                 .. attribute:: bundle_level0
@@ -6673,34 +6608,34 @@ class Cfm(object):
                 	The MEP is configured in a domain at level 0, on a bundle interface or sub\-interface.  This is not supported
                 	**type**\: bool
                 
-                .. attribute:: bridge_domain_not_in_bd_infra
+                .. attribute:: ccm_interval
                 
-                	A BD/XC specified in the MEG config, but it does not exist globally
+                	Interval between CCMs sent on this MEP
+                	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                
+                .. attribute:: ccm_interval_not_supported
+                
+                	CCM Interval is less than minimum interval supported by hardware
                 	**type**\: bool
                 
-                .. attribute:: satellite_limitation
+                .. attribute:: interface_bridge_domain
                 
-                	A satellite limitation is preventing MEP being offloaded to satellite
+                	ID of the BD/XC that the MEP's EFP is in, if any
+                	**type**\: :py:class:`InterfaceBridgeDomain <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
+                
+                .. attribute:: level_conflict
+                
+                	Another MEP facing in the same direction is at the same Maintenance Level
                 	**type**\: bool
                 
-                .. attribute:: sla_loopback_operations_disabled
+                .. attribute:: mep
                 
-                	In\-progress Ethernet SLA loopback operations are disabled due to satellite having loopback responder\-only capabilities
-                	**type**\: bool
+                	The MEP that has errors
+                	**type**\: :py:class:`Mep <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep>`
                 
-                .. attribute:: sla_synthetic_loss_operations_disabled
+                .. attribute:: no_domain
                 
-                	In\-progress Ethernet SLA synthetic loss measurement operations are disabled due to satellite having synthetic loss measurement responder\-only capabilities
-                	**type**\: bool
-                
-                .. attribute:: sla_delay_measurement_operations_disabled
-                
-                	In\-progress Ethernet SLA delay measurement operations are disabled due to satellite having delay measurement responder\-only capabilities
-                	**type**\: bool
-                
-                .. attribute:: no_valid_mac_address
-                
-                	The EFP doesn't have a valid MAC address yet. This will also get set if the MAC address we have is a multicast address
+                	The MEP's Domain is not configured
                 	**type**\: bool
                 
                 .. attribute:: no_interface_type
@@ -6708,15 +6643,55 @@ class Cfm(object):
                 	We haven't yet been able to look up the interface type to find whether the interface is a bundle
                 	**type**\: bool
                 
+                .. attribute:: no_mlacp
+                
+                	The EFP is a bundle and the mLACP mode is not yet known
+                	**type**\: bool
+                
+                .. attribute:: no_service
+                
+                	The MEP's Service is not configured
+                	**type**\: bool
+                
+                .. attribute:: no_valid_mac_address
+                
+                	The EFP doesn't have a valid MAC address yet. This will also get set if the MAC address we have is a multicast address
+                	**type**\: bool
+                
                 .. attribute:: not_in_im
                 
                 	The EFP has been deleted from IM
                 	**type**\: bool
                 
-                .. attribute:: no_mlacp
+                .. attribute:: offload_mep_direction_not_supported
                 
-                	The EFP is a bundle and the mLACP mode is not yet known
+                	The MEP direction does not support offload
                 	**type**\: bool
+                
+                .. attribute:: offload_multiple_local_mep
+                
+                	Multiple offloaded MEPs on the same interface are not supported
+                	**type**\: bool
+                
+                .. attribute:: offload_multiple_peer_meps
+                
+                	The MEP should be offloaded but multiple crosscheck MEPs have been configured, and this is not supported
+                	**type**\: bool
+                
+                .. attribute:: offload_no_cross_check
+                
+                	The MEP should be offloaded but crosscheck has not been configured
+                	**type**\: bool
+                
+                .. attribute:: offload_out_of_resources
+                
+                	Offload resource limits have been exceeded
+                	**type**\: bool
+                
+                .. attribute:: satellite_capabilities
+                
+                	Satellite Capabilities
+                	**type**\: :py:class:`SatelliteCapabilities <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
                 
                 .. attribute:: satellite_error_string
                 
@@ -6730,6 +6705,31 @@ class Cfm(object):
                 
                 	**range:** 0..65535
                 
+                .. attribute:: satellite_limitation
+                
+                	A satellite limitation is preventing MEP being offloaded to satellite
+                	**type**\: bool
+                
+                .. attribute:: service_bridge_domain
+                
+                	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
+                	**type**\: :py:class:`ServiceBridgeDomain <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
+                
+                .. attribute:: sla_delay_measurement_operations_disabled
+                
+                	In\-progress Ethernet SLA delay measurement operations are disabled due to satellite having delay measurement responder\-only capabilities
+                	**type**\: bool
+                
+                .. attribute:: sla_loopback_operations_disabled
+                
+                	In\-progress Ethernet SLA loopback operations are disabled due to satellite having loopback responder\-only capabilities
+                	**type**\: bool
+                
+                .. attribute:: sla_synthetic_loss_operations_disabled
+                
+                	In\-progress Ethernet SLA synthetic loss measurement operations are disabled due to satellite having synthetic loss measurement responder\-only capabilities
+                	**type**\: bool
+                
                 
 
                 """
@@ -6740,40 +6740,40 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
                     self.interface = None
-                    self.mep = Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep()
-                    self.mep.parent = self
-                    self.service_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
-                    self.service_bridge_domain.parent = self
+                    self.service = None
+                    self.ais_configured = None
+                    self.bridge_domain_mismatch = None
+                    self.bridge_domain_not_in_bd_infra = None
+                    self.bundle_level0 = None
+                    self.ccm_interval = None
+                    self.ccm_interval_not_supported = None
                     self.interface_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
                     self.interface_bridge_domain.parent = self
+                    self.level_conflict = None
+                    self.mep = Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep()
+                    self.mep.parent = self
+                    self.no_domain = None
+                    self.no_interface_type = None
+                    self.no_mlacp = None
+                    self.no_service = None
+                    self.no_valid_mac_address = None
+                    self.not_in_im = None
+                    self.offload_mep_direction_not_supported = None
+                    self.offload_multiple_local_mep = None
+                    self.offload_multiple_peer_meps = None
+                    self.offload_no_cross_check = None
+                    self.offload_out_of_resources = None
                     self.satellite_capabilities = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
                     self.satellite_capabilities.parent = self
-                    self.ccm_interval = None
-                    self.no_domain = None
-                    self.no_service = None
-                    self.bridge_domain_mismatch = None
-                    self.level_conflict = None
-                    self.ccm_interval_not_supported = None
-                    self.offload_out_of_resources = None
-                    self.offload_multiple_local_mep = None
-                    self.offload_no_cross_check = None
-                    self.offload_multiple_peer_meps = None
-                    self.offload_mep_direction_not_supported = None
-                    self.ais_configured = None
-                    self.bundle_level0 = None
-                    self.bridge_domain_not_in_bd_infra = None
-                    self.satellite_limitation = None
-                    self.sla_loopback_operations_disabled = None
-                    self.sla_synthetic_loss_operations_disabled = None
-                    self.sla_delay_measurement_operations_disabled = None
-                    self.no_valid_mac_address = None
-                    self.no_interface_type = None
-                    self.not_in_im = None
-                    self.no_mlacp = None
                     self.satellite_error_string = None
                     self.satellite_id = None
+                    self.satellite_limitation = None
+                    self.service_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
+                    self.service_bridge_domain.parent = self
+                    self.sla_delay_measurement_operations_disabled = None
+                    self.sla_loopback_operations_disabled = None
+                    self.sla_synthetic_loss_operations_disabled = None
 
 
                 class Mep(object):
@@ -6785,22 +6785,17 @@ class Cfm(object):
                     	Domain name
                     	**type**\: str
                     
-                    .. attribute:: level
-                    
-                    	Domain level
-                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                    
-                    .. attribute:: service_name
-                    
-                    	Service name
-                    	**type**\: str
-                    
                     .. attribute:: interface
                     
                     	Interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: level
+                    
+                    	Domain level
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
@@ -6814,6 +6809,11 @@ class Cfm(object):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: service_name
+                    
+                    	Service name
+                    	**type**\: str
+                    
                     
 
                     """
@@ -6824,16 +6824,16 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.domain_name = None
-                        self.level = None
-                        self.service_name = None
                         self.interface = None
+                        self.level = None
                         self.maintenance_point_type = None
                         self.mep_id = None
+                        self.service_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mep'
 
@@ -6847,19 +6847,19 @@ class Cfm(object):
                         if self.domain_name is not None:
                             return True
 
-                        if self.level is not None:
-                            return True
-
-                        if self.service_name is not None:
-                            return True
-
                         if self.interface is not None:
+                            return True
+
+                        if self.level is not None:
                             return True
 
                         if self.maintenance_point_type is not None:
                             return True
 
                         if self.mep_id is not None:
+                            return True
+
+                        if self.service_name is not None:
                             return True
 
                         return False
@@ -6880,6 +6880,13 @@ class Cfm(object):
                     	Bridge domain identifier format
                     	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
@@ -6889,13 +6896,6 @@ class Cfm(object):
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
-                    
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: remote_ce_id
                     
@@ -6914,15 +6914,15 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.bridge_domain_id_format = None
+                        self.ce_id = None
                         self.group = None
                         self.name = None
-                        self.ce_id = None
                         self.remote_ce_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:service-bridge-domain'
 
@@ -6936,13 +6936,13 @@ class Cfm(object):
                         if self.bridge_domain_id_format is not None:
                             return True
 
+                        if self.ce_id is not None:
+                            return True
+
                         if self.group is not None:
                             return True
 
                         if self.name is not None:
-                            return True
-
-                        if self.ce_id is not None:
                             return True
 
                         if self.remote_ce_id is not None:
@@ -6965,6 +6965,13 @@ class Cfm(object):
                     	Bridge domain identifier format
                     	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
+                    .. attribute:: ce_id
+                    
+                    	Local Customer Edge Identifier (CE\-ID)
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
@@ -6974,13 +6981,6 @@ class Cfm(object):
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
-                    
-                    .. attribute:: ce_id
-                    
-                    	Local Customer Edge Identifier (CE\-ID)
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
                     
                     .. attribute:: remote_ce_id
                     
@@ -6999,15 +6999,15 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.bridge_domain_id_format = None
+                        self.ce_id = None
                         self.group = None
                         self.name = None
-                        self.ce_id = None
                         self.remote_ce_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-bridge-domain'
 
@@ -7021,13 +7021,13 @@ class Cfm(object):
                         if self.bridge_domain_id_format is not None:
                             return True
 
+                        if self.ce_id is not None:
+                            return True
+
                         if self.group is not None:
                             return True
 
                         if self.name is not None:
-                            return True
-
-                        if self.ce_id is not None:
                             return True
 
                         if self.remote_ce_id is not None:
@@ -7045,15 +7045,15 @@ class Cfm(object):
                     """
                     Satellite Capabilities
                     
-                    .. attribute:: loopback
-                    
-                    	Loopback
-                    	**type**\: :py:class:`Loopback <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
-                    
                     .. attribute:: delay_measurement
                     
                     	Delay Measurement
                     	**type**\: :py:class:`DelayMeasurement <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
+                    
+                    .. attribute:: loopback
+                    
+                    	Loopback
+                    	**type**\: :py:class:`Loopback <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
                     
                     .. attribute:: synthetic_loss_measurement
                     
@@ -7069,10 +7069,10 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.loopback = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
-                        self.loopback.parent = self
                         self.delay_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
                         self.delay_measurement.parent = self
+                        self.loopback = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
+                        self.loopback.parent = self
                         self.synthetic_loss_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
                         self.synthetic_loss_measurement.parent = self
 
@@ -7081,14 +7081,14 @@ class Cfm(object):
                         """
                         Loopback
                         
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\: bool
-                        
                         .. attribute:: controller
                         
                         	Controller
+                        	**type**\: bool
+                        
+                        .. attribute:: responder
+                        
+                        	Responder
                         	**type**\: bool
                         
                         
@@ -7100,13 +7100,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.responder = None
                             self.controller = None
+                            self.responder = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:loopback'
 
@@ -7117,10 +7117,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.responder is not None:
+                            if self.controller is not None:
                                 return True
 
-                            if self.controller is not None:
+                            if self.responder is not None:
                                 return True
 
                             return False
@@ -7135,14 +7135,14 @@ class Cfm(object):
                         """
                         Delay Measurement
                         
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\: bool
-                        
                         .. attribute:: controller
                         
                         	Controller
+                        	**type**\: bool
+                        
+                        .. attribute:: responder
+                        
+                        	Responder
                         	**type**\: bool
                         
                         
@@ -7154,13 +7154,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.responder = None
                             self.controller = None
+                            self.responder = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:delay-measurement'
 
@@ -7171,10 +7171,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.responder is not None:
+                            if self.controller is not None:
                                 return True
 
-                            if self.controller is not None:
+                            if self.responder is not None:
                                 return True
 
                             return False
@@ -7189,14 +7189,14 @@ class Cfm(object):
                         """
                         Synthetic Loss Measurement
                         
-                        .. attribute:: responder
-                        
-                        	Responder
-                        	**type**\: bool
-                        
                         .. attribute:: controller
                         
                         	Controller
+                        	**type**\: bool
+                        
+                        .. attribute:: responder
+                        
+                        	Responder
                         	**type**\: bool
                         
                         
@@ -7208,13 +7208,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.responder = None
                             self.controller = None
+                            self.responder = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:synthetic-loss-measurement'
 
@@ -7225,10 +7225,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.responder is not None:
+                            if self.controller is not None:
                                 return True
 
-                            if self.controller is not None:
+                            if self.responder is not None:
                                 return True
 
                             return False
@@ -7241,7 +7241,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:satellite-capabilities'
 
@@ -7252,10 +7252,10 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.loopback is not None and self.loopback._has_data():
+                        if self.delay_measurement is not None and self.delay_measurement._has_data():
                             return True
 
-                        if self.delay_measurement is not None and self.delay_measurement._has_data():
+                        if self.loopback is not None and self.loopback._has_data():
                             return True
 
                         if self.synthetic_loss_measurement is not None and self.synthetic_loss_measurement._has_data():
@@ -7271,13 +7271,13 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-errors/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-error[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-errors/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-error[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -7289,94 +7289,94 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
-                    if self.service is not None:
-                        return True
-
                     if self.interface is not None:
                         return True
 
-                    if self.mep is not None and self.mep._has_data():
-                        return True
-
-                    if self.service_bridge_domain is not None and self.service_bridge_domain._has_data():
-                        return True
-
-                    if self.interface_bridge_domain is not None and self.interface_bridge_domain._has_data():
-                        return True
-
-                    if self.satellite_capabilities is not None and self.satellite_capabilities._has_data():
-                        return True
-
-                    if self.ccm_interval is not None:
-                        return True
-
-                    if self.no_domain is not None:
-                        return True
-
-                    if self.no_service is not None:
-                        return True
-
-                    if self.bridge_domain_mismatch is not None:
-                        return True
-
-                    if self.level_conflict is not None:
-                        return True
-
-                    if self.ccm_interval_not_supported is not None:
-                        return True
-
-                    if self.offload_out_of_resources is not None:
-                        return True
-
-                    if self.offload_multiple_local_mep is not None:
-                        return True
-
-                    if self.offload_no_cross_check is not None:
-                        return True
-
-                    if self.offload_multiple_peer_meps is not None:
-                        return True
-
-                    if self.offload_mep_direction_not_supported is not None:
+                    if self.service is not None:
                         return True
 
                     if self.ais_configured is not None:
                         return True
 
-                    if self.bundle_level0 is not None:
+                    if self.bridge_domain_mismatch is not None:
                         return True
 
                     if self.bridge_domain_not_in_bd_infra is not None:
                         return True
 
-                    if self.satellite_limitation is not None:
+                    if self.bundle_level0 is not None:
                         return True
 
-                    if self.sla_loopback_operations_disabled is not None:
+                    if self.ccm_interval is not None:
                         return True
 
-                    if self.sla_synthetic_loss_operations_disabled is not None:
+                    if self.ccm_interval_not_supported is not None:
                         return True
 
-                    if self.sla_delay_measurement_operations_disabled is not None:
+                    if self.interface_bridge_domain is not None and self.interface_bridge_domain._has_data():
                         return True
 
-                    if self.no_valid_mac_address is not None:
+                    if self.level_conflict is not None:
+                        return True
+
+                    if self.mep is not None and self.mep._has_data():
+                        return True
+
+                    if self.no_domain is not None:
                         return True
 
                     if self.no_interface_type is not None:
                         return True
 
+                    if self.no_mlacp is not None:
+                        return True
+
+                    if self.no_service is not None:
+                        return True
+
+                    if self.no_valid_mac_address is not None:
+                        return True
+
                     if self.not_in_im is not None:
                         return True
 
-                    if self.no_mlacp is not None:
+                    if self.offload_mep_direction_not_supported is not None:
+                        return True
+
+                    if self.offload_multiple_local_mep is not None:
+                        return True
+
+                    if self.offload_multiple_peer_meps is not None:
+                        return True
+
+                    if self.offload_no_cross_check is not None:
+                        return True
+
+                    if self.offload_out_of_resources is not None:
+                        return True
+
+                    if self.satellite_capabilities is not None and self.satellite_capabilities._has_data():
                         return True
 
                     if self.satellite_error_string is not None:
                         return True
 
                     if self.satellite_id is not None:
+                        return True
+
+                    if self.satellite_limitation is not None:
+                        return True
+
+                    if self.service_bridge_domain is not None and self.service_bridge_domain._has_data():
+                        return True
+
+                    if self.sla_delay_measurement_operations_disabled is not None:
+                        return True
+
+                    if self.sla_loopback_operations_disabled is not None:
+                        return True
+
+                    if self.sla_synthetic_loss_operations_disabled is not None:
                         return True
 
                     return False
@@ -7444,10 +7444,12 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\: str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -7456,12 +7458,10 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\: str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -7470,10 +7470,15 @@ class Cfm(object):
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: traceroute_information
+                .. attribute:: exploratory_linktrace_reply
                 
-                	Information about the traceroute operation
-                	**type**\: :py:class:`TracerouteInformation <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation>`
+                	Received exploratory linktrace replies
+                	**type**\: list of :py:class:`ExploratoryLinktraceReply <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
+                
+                .. attribute:: linktrace_reply
+                
+                	Received linktrace replies
+                	**type**\: list of :py:class:`LinktraceReply <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply>`
                 
                 .. attribute:: replies_dropped
                 
@@ -7482,15 +7487,10 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: linktrace_reply
+                .. attribute:: traceroute_information
                 
-                	Received linktrace replies
-                	**type**\: list of :py:class:`LinktraceReply <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply>`
-                
-                .. attribute:: exploratory_linktrace_reply
-                
-                	Received exploratory linktrace replies
-                	**type**\: list of :py:class:`ExploratoryLinktraceReply <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
+                	Information about the traceroute operation
+                	**type**\: :py:class:`TracerouteInformation <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation>`
                 
                 
 
@@ -7502,38 +7502,35 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
-                    self.mep_id = None
                     self.interface = None
+                    self.mep_id = None
+                    self.service = None
                     self.transaction_id = None
-                    self.traceroute_information = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation()
-                    self.traceroute_information.parent = self
-                    self.replies_dropped = None
-                    self.linktrace_reply = YList()
-                    self.linktrace_reply.parent = self
-                    self.linktrace_reply.name = 'linktrace_reply'
                     self.exploratory_linktrace_reply = YList()
                     self.exploratory_linktrace_reply.parent = self
                     self.exploratory_linktrace_reply.name = 'exploratory_linktrace_reply'
+                    self.linktrace_reply = YList()
+                    self.linktrace_reply.parent = self
+                    self.linktrace_reply.name = 'linktrace_reply'
+                    self.replies_dropped = None
+                    self.traceroute_information = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation()
+                    self.traceroute_information.parent = self
 
 
                 class TracerouteInformation(object):
                     """
                     Information about the traceroute operation
                     
-                    .. attribute:: options
+                    .. attribute:: directed_mac_address
                     
-                    	Options affecting traceroute behavior
-                    	**type**\: :py:class:`Options <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
+                    	Directed MAC address
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: domain
                     
                     	Maintenance domain name
-                    	**type**\: str
-                    
-                    .. attribute:: service
-                    
-                    	Service name
                     	**type**\: str
                     
                     .. attribute:: level
@@ -7541,12 +7538,15 @@ class Cfm(object):
                     	Maintenance level
                     	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
-                    .. attribute:: source_mep_id
+                    .. attribute:: options
                     
-                    	Source MEP ID
-                    	**type**\: int
+                    	Options affecting traceroute behavior
+                    	**type**\: :py:class:`Options <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
                     
-                    	**range:** 0..65535
+                    .. attribute:: service
+                    
+                    	Service name
+                    	**type**\: str
                     
                     .. attribute:: source_interface
                     
@@ -7562,16 +7562,16 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: source_mep_id
+                    
+                    	Source MEP ID
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
-                    	**type**\: str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: directed_mac_address
-                    
-                    	Directed MAC address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
@@ -7586,16 +7586,9 @@ class Cfm(object):
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ttl
-                    
-                    	Time to live
-                    	**type**\: int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: transaction_id
                     
@@ -7603,6 +7596,13 @@ class Cfm(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: ttl
+                    
+                    	Time to live
+                    	**type**\: int
+                    
+                    	**range:** 0..255
                     
                     
 
@@ -7613,20 +7613,20 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.directed_mac_address = None
+                        self.domain = None
+                        self.level = None
                         self.options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options()
                         self.options.parent = self
-                        self.domain = None
                         self.service = None
-                        self.level = None
-                        self.source_mep_id = None
                         self.source_interface = None
                         self.source_mac_address = None
+                        self.source_mep_id = None
                         self.target_mac_address = None
-                        self.directed_mac_address = None
                         self.target_mep_id = None
                         self.timestamp = None
-                        self.ttl = None
                         self.transaction_id = None
+                        self.ttl = None
 
 
                     class Options(object):
@@ -7668,14 +7668,14 @@ class Cfm(object):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
-                            .. attribute:: is_auto
-                            
-                            	Traceroute was initiated automatically
-                            	**type**\: bool
-                            
                             .. attribute:: fdb_only
                             
                             	Only use the Filtering Database for forwarding lookups
+                            	**type**\: bool
+                            
+                            .. attribute:: is_auto
+                            
+                            	Traceroute was initiated automatically
                             	**type**\: bool
                             
                             
@@ -7687,13 +7687,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.is_auto = None
                                 self.fdb_only = None
+                                self.is_auto = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:basic-options'
 
@@ -7704,10 +7704,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_auto is not None:
+                                if self.fdb_only is not None:
                                     return True
 
-                                if self.fdb_only is not None:
+                                if self.is_auto is not None:
                                     return True
 
                                 return False
@@ -7722,17 +7722,17 @@ class Cfm(object):
                             """
                             Options for an Exploratory Linktrace
                             
-                            .. attribute:: delay_model
-                            
-                            	Delay model for delay calculations
-                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
-                            
                             .. attribute:: delay_constant_factor
                             
                             	Constant Factor for delay calculations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: delay_model
+                            
+                            	Delay model for delay calculations
+                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
@@ -7748,14 +7748,14 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.delay_model = None
                                 self.delay_constant_factor = None
+                                self.delay_model = None
                                 self.reply_filter = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:exploratory-options'
 
@@ -7766,10 +7766,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.delay_model is not None:
+                                if self.delay_constant_factor is not None:
                                     return True
 
-                                if self.delay_constant_factor is not None:
+                                if self.delay_model is not None:
                                     return True
 
                                 if self.reply_filter is not None:
@@ -7785,7 +7785,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:options'
 
@@ -7815,7 +7815,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-information'
 
@@ -7826,19 +7826,19 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.options is not None and self.options._has_data():
+                        if self.directed_mac_address is not None:
                             return True
 
                         if self.domain is not None:
                             return True
 
-                        if self.service is not None:
-                            return True
-
                         if self.level is not None:
                             return True
 
-                        if self.source_mep_id is not None:
+                        if self.options is not None and self.options._has_data():
+                            return True
+
+                        if self.service is not None:
                             return True
 
                         if self.source_interface is not None:
@@ -7847,10 +7847,10 @@ class Cfm(object):
                         if self.source_mac_address is not None:
                             return True
 
-                        if self.target_mac_address is not None:
+                        if self.source_mep_id is not None:
                             return True
 
-                        if self.directed_mac_address is not None:
+                        if self.target_mac_address is not None:
                             return True
 
                         if self.target_mep_id is not None:
@@ -7859,10 +7859,10 @@ class Cfm(object):
                         if self.timestamp is not None:
                             return True
 
-                        if self.ttl is not None:
+                        if self.transaction_id is not None:
                             return True
 
-                        if self.transaction_id is not None:
+                        if self.ttl is not None:
                             return True
 
                         return False
@@ -7877,35 +7877,25 @@ class Cfm(object):
                     """
                     Received linktrace replies
                     
-                    .. attribute:: header
-                    
-                    	Frame header
-                    	**type**\: :py:class:`Header <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
-                    
-                    .. attribute:: sender_id
-                    
-                    	Sender ID TLV
-                    	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
-                    
                     .. attribute:: egress_id
                     
                     	Egress ID TLV
                     	**type**\: :py:class:`EgressId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
                     
-                    .. attribute:: reply_ingress
+                    .. attribute:: header
                     
-                    	Reply ingress TLV
-                    	**type**\: :py:class:`ReplyIngress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
-                    
-                    .. attribute:: reply_egress
-                    
-                    	Reply egress TLV
-                    	**type**\: :py:class:`ReplyEgress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
+                    	Frame header
+                    	**type**\: :py:class:`Header <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
                     
                     .. attribute:: last_hop
                     
                     	Last hop ID
                     	**type**\: :py:class:`LastHop <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
+                    
+                    .. attribute:: organization_specific_tlv
+                    
+                    	Organizational\-specific TLVs
+                    	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
                     
                     .. attribute:: raw_data
                     
@@ -7914,10 +7904,20 @@ class Cfm(object):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
-                    .. attribute:: organization_specific_tlv
+                    .. attribute:: reply_egress
                     
-                    	Organizational\-specific TLVs
-                    	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
+                    	Reply egress TLV
+                    	**type**\: :py:class:`ReplyEgress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
+                    
+                    .. attribute:: reply_ingress
+                    
+                    	Reply ingress TLV
+                    	**type**\: :py:class:`ReplyIngress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
+                    
+                    .. attribute:: sender_id
+                    
+                    	Sender ID TLV
+                    	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
                     
                     .. attribute:: unknown_tlv
                     
@@ -7933,22 +7933,22 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.header = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
-                        self.header.parent = self
-                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
-                        self.sender_id.parent = self
                         self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
                         self.egress_id.parent = self
-                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
-                        self.reply_ingress.parent = self
-                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
-                        self.reply_egress.parent = self
+                        self.header = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
+                        self.header.parent = self
                         self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
                         self.last_hop.parent = self
-                        self.raw_data = None
                         self.organization_specific_tlv = YList()
                         self.organization_specific_tlv.parent = self
                         self.organization_specific_tlv.name = 'organization_specific_tlv'
+                        self.raw_data = None
+                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
+                        self.reply_egress.parent = self
+                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
+                        self.reply_ingress.parent = self
+                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
+                        self.sender_id.parent = self
                         self.unknown_tlv = YList()
                         self.unknown_tlv.parent = self
                         self.unknown_tlv.name = 'unknown_tlv'
@@ -7958,27 +7958,20 @@ class Cfm(object):
                         """
                         Frame header
                         
+                        .. attribute:: forwarded
+                        
+                        	LTR was forwarded
+                        	**type**\: bool
+                        
                         .. attribute:: level
                         
                         	MD level
                         	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
-                        .. attribute:: version
+                        .. attribute:: relay_action
                         
-                        	Version
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: use_fdb_only
-                        
-                        	Use filtering DB only
-                        	**type**\: bool
-                        
-                        .. attribute:: forwarded
-                        
-                        	LTR was forwarded
-                        	**type**\: bool
+                        	Relay action
+                        	**type**\: :py:class:`CfmPmRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayActionEnum>`
                         
                         .. attribute:: terminal_mep
                         
@@ -7999,10 +7992,17 @@ class Cfm(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: relay_action
+                        .. attribute:: use_fdb_only
                         
-                        	Relay action
-                        	**type**\: :py:class:`CfmPmRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayActionEnum>`
+                        	Use filtering DB only
+                        	**type**\: bool
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\: int
+                        
+                        	**range:** 0..255
                         
                         
 
@@ -8013,19 +8013,19 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.level = None
-                            self.version = None
-                            self.use_fdb_only = None
                             self.forwarded = None
+                            self.level = None
+                            self.relay_action = None
                             self.terminal_mep = None
                             self.transaction_id = None
                             self.ttl = None
-                            self.relay_action = None
+                            self.use_fdb_only = None
+                            self.version = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:header'
 
@@ -8036,16 +8036,13 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.forwarded is not None:
+                                return True
+
                             if self.level is not None:
                                 return True
 
-                            if self.version is not None:
-                                return True
-
-                            if self.use_fdb_only is not None:
-                                return True
-
-                            if self.forwarded is not None:
+                            if self.relay_action is not None:
                                 return True
 
                             if self.terminal_mep is not None:
@@ -8057,7 +8054,10 @@ class Cfm(object):
                             if self.ttl is not None:
                                 return True
 
-                            if self.relay_action is not None:
+                            if self.use_fdb_only is not None:
+                                return True
+
+                            if self.version is not None:
                                 return True
 
                             return False
@@ -8077,16 +8077,16 @@ class Cfm(object):
                         	Chassis ID
                         	**type**\: :py:class:`ChassisId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
                         
-                        .. attribute:: management_address_domain
+                        .. attribute:: management_address
                         
-                        	Management address domain
+                        	Management address
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
-                        .. attribute:: management_address
+                        .. attribute:: management_address_domain
                         
-                        	Management address
+                        	Management address domain
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -8102,18 +8102,20 @@ class Cfm(object):
                             self.parent = None
                             self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
-                            self.management_address_domain = None
                             self.management_address = None
+                            self.management_address_domain = None
 
 
                         class ChassisId(object):
                             """
                             Chassis ID
                             
-                            .. attribute:: chassis_id_value
+                            .. attribute:: chassis_id
                             
-                            	Chassis ID (Current)
-                            	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            	Chassis ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: chassis_id_type
                             
@@ -8127,12 +8129,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: chassis_id
+                            .. attribute:: chassis_id_value
                             
-                            	Chassis ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Chassis ID (Current)
+                            	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
                             
 
@@ -8143,11 +8143,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
-                                self.chassis_id_value.parent = self
+                                self.chassis_id = None
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
-                                self.chassis_id = None
+                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value.parent = self
 
 
                             class ChassisIdValue(object):
@@ -8158,11 +8158,6 @@ class Cfm(object):
                                 
                                 	ChassisIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: chassis_id_string
-                                
-                                	Chassis ID String
-                                	**type**\: str
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -8178,6 +8173,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: chassis_id_string
+                                
+                                	Chassis ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -8188,14 +8188,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.chassis_id_format = None
-                                    self.chassis_id_string = None
                                     self.chassis_id_mac = None
                                     self.chassis_id_raw = None
+                                    self.chassis_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id-value'
 
@@ -8209,13 +8209,13 @@ class Cfm(object):
                                     if self.chassis_id_format is not None:
                                         return True
 
-                                    if self.chassis_id_string is not None:
-                                        return True
-
                                     if self.chassis_id_mac is not None:
                                         return True
 
                                     if self.chassis_id_raw is not None:
+                                        return True
+
+                                    if self.chassis_id_string is not None:
                                         return True
 
                                     return False
@@ -8228,7 +8228,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id'
 
@@ -8239,7 +8239,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.chassis_id_value is not None and self.chassis_id_value._has_data():
+                                if self.chassis_id is not None:
                                     return True
 
                                 if self.chassis_id_type is not None:
@@ -8248,7 +8248,7 @@ class Cfm(object):
                                 if self.chassis_id_type_value is not None:
                                     return True
 
-                                if self.chassis_id is not None:
+                                if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                     return True
 
                                 return False
@@ -8261,7 +8261,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sender-id'
 
@@ -8275,10 +8275,10 @@ class Cfm(object):
                             if self.chassis_id is not None and self.chassis_id._has_data():
                                 return True
 
-                            if self.management_address_domain is not None:
+                            if self.management_address is not None:
                                 return True
 
-                            if self.management_address is not None:
+                            if self.management_address_domain is not None:
                                 return True
 
                             return False
@@ -8322,19 +8322,19 @@ class Cfm(object):
                             """
                             Last egress ID
                             
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -8345,13 +8345,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-egress-id'
 
@@ -8362,10 +8362,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -8380,19 +8380,19 @@ class Cfm(object):
                             """
                             Next egress ID
                             
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -8403,13 +8403,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:next-egress-id'
 
@@ -8420,10 +8420,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -8436,7 +8436,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:egress-id'
 
@@ -8465,11 +8465,6 @@ class Cfm(object):
                         """
                         Reply ingress TLV
                         
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
-                        
                         .. attribute:: action
                         
                         	Reply ingress action
@@ -8482,6 +8477,11 @@ class Cfm(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
+                        
                         
 
                         """
@@ -8491,20 +8491,22 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
-                            self.port_id.parent = self
                             self.action = None
                             self.mac_address = None
+                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
+                            self.port_id.parent = self
 
 
                         class PortId(object):
                             """
                             Port ID
                             
-                            .. attribute:: port_id_value
+                            .. attribute:: port_id
                             
-                            	Port ID (Current)
-                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            	Port ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: port_id_type
                             
@@ -8518,12 +8520,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: port_id
+                            .. attribute:: port_id_value
                             
-                            	Port ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Port ID (Current)
+                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
                             
 
@@ -8534,11 +8534,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
+                                self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id = None
+                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
 
 
                             class PortIdValue(object):
@@ -8549,11 +8549,6 @@ class Cfm(object):
                                 
                                 	PortIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\: str
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -8569,6 +8564,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -8579,14 +8579,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.port_id_format = None
-                                    self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
+                                    self.port_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id-value'
 
@@ -8600,13 +8600,13 @@ class Cfm(object):
                                     if self.port_id_format is not None:
                                         return True
 
-                                    if self.port_id_string is not None:
-                                        return True
-
                                     if self.port_id_mac is not None:
                                         return True
 
                                     if self.port_id_raw is not None:
+                                        return True
+
+                                    if self.port_id_string is not None:
                                         return True
 
                                     return False
@@ -8619,7 +8619,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id'
 
@@ -8630,7 +8630,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.port_id_value is not None and self.port_id_value._has_data():
+                                if self.port_id is not None:
                                     return True
 
                                 if self.port_id_type is not None:
@@ -8639,7 +8639,7 @@ class Cfm(object):
                                 if self.port_id_type_value is not None:
                                     return True
 
-                                if self.port_id is not None:
+                                if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
                                 return False
@@ -8652,7 +8652,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:reply-ingress'
 
@@ -8663,13 +8663,13 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.port_id is not None and self.port_id._has_data():
-                                return True
-
                             if self.action is not None:
                                 return True
 
                             if self.mac_address is not None:
+                                return True
+
+                            if self.port_id is not None and self.port_id._has_data():
                                 return True
 
                             return False
@@ -8684,11 +8684,6 @@ class Cfm(object):
                         """
                         Reply egress TLV
                         
-                        .. attribute:: port_id
-                        
-                        	Port ID
-                        	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
-                        
                         .. attribute:: action
                         
                         	Reply egress action
@@ -8701,6 +8696,11 @@ class Cfm(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        .. attribute:: port_id
+                        
+                        	Port ID
+                        	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
+                        
                         
 
                         """
@@ -8710,20 +8710,22 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
-                            self.port_id.parent = self
                             self.action = None
                             self.mac_address = None
+                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
+                            self.port_id.parent = self
 
 
                         class PortId(object):
                             """
                             Port ID
                             
-                            .. attribute:: port_id_value
+                            .. attribute:: port_id
                             
-                            	Port ID (Current)
-                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            	Port ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: port_id_type
                             
@@ -8737,12 +8739,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: port_id
+                            .. attribute:: port_id_value
                             
-                            	Port ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Port ID (Current)
+                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
                             
 
@@ -8753,11 +8753,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
+                                self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id = None
+                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
 
 
                             class PortIdValue(object):
@@ -8768,11 +8768,6 @@ class Cfm(object):
                                 
                                 	PortIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\: str
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -8788,6 +8783,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -8798,14 +8798,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.port_id_format = None
-                                    self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
+                                    self.port_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id-value'
 
@@ -8819,13 +8819,13 @@ class Cfm(object):
                                     if self.port_id_format is not None:
                                         return True
 
-                                    if self.port_id_string is not None:
-                                        return True
-
                                     if self.port_id_mac is not None:
                                         return True
 
                                     if self.port_id_raw is not None:
+                                        return True
+
+                                    if self.port_id_string is not None:
                                         return True
 
                                     return False
@@ -8838,7 +8838,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id'
 
@@ -8849,7 +8849,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.port_id_value is not None and self.port_id_value._has_data():
+                                if self.port_id is not None:
                                     return True
 
                                 if self.port_id_type is not None:
@@ -8858,7 +8858,7 @@ class Cfm(object):
                                 if self.port_id_type_value is not None:
                                     return True
 
-                                if self.port_id is not None:
+                                if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
                                 return False
@@ -8871,7 +8871,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:reply-egress'
 
@@ -8882,13 +8882,13 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.port_id is not None and self.port_id._has_data():
-                                return True
-
                             if self.action is not None:
                                 return True
 
                             if self.mac_address is not None:
+                                return True
+
+                            if self.port_id is not None and self.port_id._has_data():
                                 return True
 
                             return False
@@ -8908,15 +8908,15 @@ class Cfm(object):
                         	Egress ID
                         	**type**\: :py:class:`EgressId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
                         
-                        .. attribute:: last_hop_format
-                        
-                        	LastHopFormat
-                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
-                        
                         .. attribute:: host_name
                         
                         	Hostname
                         	**type**\: str
+                        
+                        .. attribute:: last_hop_format
+                        
+                        	LastHopFormat
+                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -8929,20 +8929,13 @@ class Cfm(object):
                             self.parent = None
                             self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
-                            self.last_hop_format = None
                             self.host_name = None
+                            self.last_hop_format = None
 
 
                         class EgressId(object):
                             """
                             Egress ID
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
                             
                             .. attribute:: mac_address
                             
@@ -8950,6 +8943,13 @@ class Cfm(object):
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -8960,13 +8960,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:egress-id'
 
@@ -8977,10 +8977,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -8993,7 +8993,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-hop'
 
@@ -9007,10 +9007,10 @@ class Cfm(object):
                             if self.egress_id is not None and self.egress_id._has_data():
                                 return True
 
-                            if self.last_hop_format is not None:
+                            if self.host_name is not None:
                                 return True
 
-                            if self.host_name is not None:
+                            if self.last_hop_format is not None:
                                 return True
 
                             return False
@@ -9062,7 +9062,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:organization-specific-tlv'
 
@@ -9123,7 +9123,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:unknown-tlv'
 
@@ -9150,7 +9150,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:linktrace-reply'
 
@@ -9161,31 +9161,31 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.header is not None and self.header._has_data():
-                            return True
-
-                        if self.sender_id is not None and self.sender_id._has_data():
-                            return True
-
                         if self.egress_id is not None and self.egress_id._has_data():
                             return True
 
-                        if self.reply_ingress is not None and self.reply_ingress._has_data():
-                            return True
-
-                        if self.reply_egress is not None and self.reply_egress._has_data():
+                        if self.header is not None and self.header._has_data():
                             return True
 
                         if self.last_hop is not None and self.last_hop._has_data():
-                            return True
-
-                        if self.raw_data is not None:
                             return True
 
                         if self.organization_specific_tlv is not None:
                             for child_ref in self.organization_specific_tlv:
                                 if child_ref._has_data():
                                     return True
+
+                        if self.raw_data is not None:
+                            return True
+
+                        if self.reply_egress is not None and self.reply_egress._has_data():
+                            return True
+
+                        if self.reply_ingress is not None and self.reply_ingress._has_data():
+                            return True
+
+                        if self.sender_id is not None and self.sender_id._has_data():
+                            return True
 
                         if self.unknown_tlv is not None:
                             for child_ref in self.unknown_tlv:
@@ -9209,25 +9209,15 @@ class Cfm(object):
                     	Frame header
                     	**type**\: :py:class:`Header <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
                     
-                    .. attribute:: sender_id
-                    
-                    	Sender ID TLV
-                    	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
-                    
-                    .. attribute:: reply_ingress
-                    
-                    	Reply ingress TLV
-                    	**type**\: :py:class:`ReplyIngress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
-                    
-                    .. attribute:: reply_egress
-                    
-                    	Reply egress TLV
-                    	**type**\: :py:class:`ReplyEgress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
-                    
                     .. attribute:: last_hop
                     
                     	Last hop ID
                     	**type**\: :py:class:`LastHop <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
+                    
+                    .. attribute:: organization_specific_tlv
+                    
+                    	Organizational\-specific TLVs
+                    	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
                     
                     .. attribute:: raw_data
                     
@@ -9236,10 +9226,20 @@ class Cfm(object):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
-                    .. attribute:: organization_specific_tlv
+                    .. attribute:: reply_egress
                     
-                    	Organizational\-specific TLVs
-                    	**type**\: list of :py:class:`OrganizationSpecificTlv <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
+                    	Reply egress TLV
+                    	**type**\: :py:class:`ReplyEgress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
+                    
+                    .. attribute:: reply_ingress
+                    
+                    	Reply ingress TLV
+                    	**type**\: :py:class:`ReplyIngress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
+                    
+                    .. attribute:: sender_id
+                    
+                    	Sender ID TLV
+                    	**type**\: :py:class:`SenderId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
                     
                     .. attribute:: unknown_tlv
                     
@@ -9257,18 +9257,18 @@ class Cfm(object):
                         self.parent = None
                         self.header = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
                         self.header.parent = self
-                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
-                        self.sender_id.parent = self
-                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
-                        self.reply_ingress.parent = self
-                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
-                        self.reply_egress.parent = self
                         self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
                         self.last_hop.parent = self
-                        self.raw_data = None
                         self.organization_specific_tlv = YList()
                         self.organization_specific_tlv.parent = self
                         self.organization_specific_tlv.name = 'organization_specific_tlv'
+                        self.raw_data = None
+                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
+                        self.reply_egress.parent = self
+                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
+                        self.reply_ingress.parent = self
+                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
+                        self.sender_id.parent = self
                         self.unknown_tlv = YList()
                         self.unknown_tlv.parent = self
                         self.unknown_tlv.name = 'unknown_tlv'
@@ -9278,31 +9278,41 @@ class Cfm(object):
                         """
                         Frame header
                         
-                        .. attribute:: level
+                        .. attribute:: delay_model
                         
-                        	MD level
-                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\: int
-                        
-                        	**range:** 0..255
+                        	Delay Model
+                        	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                         
                         .. attribute:: forwarded
                         
                         	ELR was forwarded
                         	**type**\: bool
                         
-                        .. attribute:: terminal_mep
+                        .. attribute:: level
                         
-                        	Terminal MEP reached
-                        	**type**\: bool
+                        	MD level
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        
+                        .. attribute:: next_hop_timeout
+                        
+                        	Next Hop Timeout, in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: relay_action
+                        
+                        	Relay action
+                        	**type**\: :py:class:`CfmPmElrRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayActionEnum>`
                         
                         .. attribute:: reply_filter_unknown
                         
                         	Reply Filter unrecognized
+                        	**type**\: bool
+                        
+                        .. attribute:: terminal_mep
+                        
+                        	Terminal MEP reached
                         	**type**\: bool
                         
                         .. attribute:: transaction_id
@@ -9319,22 +9329,12 @@ class Cfm(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: relay_action
+                        .. attribute:: version
                         
-                        	Relay action
-                        	**type**\: :py:class:`CfmPmElrRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayActionEnum>`
-                        
-                        .. attribute:: next_hop_timeout
-                        
-                        	Next Hop Timeout, in seconds
+                        	Version
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: delay_model
-                        
-                        	Delay Model
-                        	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
+                        	**range:** 0..255
                         
                         
 
@@ -9345,21 +9345,21 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.level = None
-                            self.version = None
+                            self.delay_model = None
                             self.forwarded = None
-                            self.terminal_mep = None
+                            self.level = None
+                            self.next_hop_timeout = None
+                            self.relay_action = None
                             self.reply_filter_unknown = None
+                            self.terminal_mep = None
                             self.transaction_id = None
                             self.ttl = None
-                            self.relay_action = None
-                            self.next_hop_timeout = None
-                            self.delay_model = None
+                            self.version = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:header'
 
@@ -9370,19 +9370,25 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.level is not None:
-                                return True
-
-                            if self.version is not None:
+                            if self.delay_model is not None:
                                 return True
 
                             if self.forwarded is not None:
                                 return True
 
-                            if self.terminal_mep is not None:
+                            if self.level is not None:
+                                return True
+
+                            if self.next_hop_timeout is not None:
+                                return True
+
+                            if self.relay_action is not None:
                                 return True
 
                             if self.reply_filter_unknown is not None:
+                                return True
+
+                            if self.terminal_mep is not None:
                                 return True
 
                             if self.transaction_id is not None:
@@ -9391,13 +9397,7 @@ class Cfm(object):
                             if self.ttl is not None:
                                 return True
 
-                            if self.relay_action is not None:
-                                return True
-
-                            if self.next_hop_timeout is not None:
-                                return True
-
-                            if self.delay_model is not None:
+                            if self.version is not None:
                                 return True
 
                             return False
@@ -9417,16 +9417,16 @@ class Cfm(object):
                         	Chassis ID
                         	**type**\: :py:class:`ChassisId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
                         
-                        .. attribute:: management_address_domain
+                        .. attribute:: management_address
                         
-                        	Management address domain
+                        	Management address
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
-                        .. attribute:: management_address
+                        .. attribute:: management_address_domain
                         
-                        	Management address
+                        	Management address domain
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -9442,18 +9442,20 @@ class Cfm(object):
                             self.parent = None
                             self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
-                            self.management_address_domain = None
                             self.management_address = None
+                            self.management_address_domain = None
 
 
                         class ChassisId(object):
                             """
                             Chassis ID
                             
-                            .. attribute:: chassis_id_value
+                            .. attribute:: chassis_id
                             
-                            	Chassis ID (Current)
-                            	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            	Chassis ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: chassis_id_type
                             
@@ -9467,12 +9469,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: chassis_id
+                            .. attribute:: chassis_id_value
                             
-                            	Chassis ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Chassis ID (Current)
+                            	**type**\: :py:class:`ChassisIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
                             
 
@@ -9483,11 +9483,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
-                                self.chassis_id_value.parent = self
+                                self.chassis_id = None
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
-                                self.chassis_id = None
+                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value.parent = self
 
 
                             class ChassisIdValue(object):
@@ -9498,11 +9498,6 @@ class Cfm(object):
                                 
                                 	ChassisIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: chassis_id_string
-                                
-                                	Chassis ID String
-                                	**type**\: str
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -9518,6 +9513,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: chassis_id_string
+                                
+                                	Chassis ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -9528,14 +9528,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.chassis_id_format = None
-                                    self.chassis_id_string = None
                                     self.chassis_id_mac = None
                                     self.chassis_id_raw = None
+                                    self.chassis_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id-value'
 
@@ -9549,13 +9549,13 @@ class Cfm(object):
                                     if self.chassis_id_format is not None:
                                         return True
 
-                                    if self.chassis_id_string is not None:
-                                        return True
-
                                     if self.chassis_id_mac is not None:
                                         return True
 
                                     if self.chassis_id_raw is not None:
+                                        return True
+
+                                    if self.chassis_id_string is not None:
                                         return True
 
                                     return False
@@ -9568,7 +9568,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id'
 
@@ -9579,7 +9579,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.chassis_id_value is not None and self.chassis_id_value._has_data():
+                                if self.chassis_id is not None:
                                     return True
 
                                 if self.chassis_id_type is not None:
@@ -9588,7 +9588,7 @@ class Cfm(object):
                                 if self.chassis_id_type_value is not None:
                                     return True
 
-                                if self.chassis_id is not None:
+                                if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                     return True
 
                                 return False
@@ -9601,7 +9601,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sender-id'
 
@@ -9615,10 +9615,10 @@ class Cfm(object):
                             if self.chassis_id is not None and self.chassis_id._has_data():
                                 return True
 
-                            if self.management_address_domain is not None:
+                            if self.management_address is not None:
                                 return True
 
-                            if self.management_address is not None:
+                            if self.management_address_domain is not None:
                                 return True
 
                             return False
@@ -9633,10 +9633,22 @@ class Cfm(object):
                         """
                         Reply ingress TLV
                         
+                        .. attribute:: action
+                        
+                        	ELR Reply ingress action
+                        	**type**\: :py:class:`CfmPmElrIngressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressActionEnum>`
+                        
                         .. attribute:: last_egress_id
                         
                         	Last egress ID
                         	**type**\: :py:class:`LastEgressId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: next_egress_id
                         
@@ -9648,18 +9660,6 @@ class Cfm(object):
                         	Port ID
                         	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
                         
-                        .. attribute:: action
-                        
-                        	ELR Reply ingress action
-                        	**type**\: :py:class:`CfmPmElrIngressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressActionEnum>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address
-                        	**type**\: str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
                         
 
                         """
@@ -9669,26 +9669,19 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.action = None
                             self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
                             self.last_egress_id.parent = self
+                            self.mac_address = None
                             self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
                             self.next_egress_id.parent = self
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
                             self.port_id.parent = self
-                            self.action = None
-                            self.mac_address = None
 
 
                         class LastEgressId(object):
                             """
                             Last egress ID
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
                             
                             .. attribute:: mac_address
                             
@@ -9696,6 +9689,13 @@ class Cfm(object):
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -9706,13 +9706,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-egress-id'
 
@@ -9723,10 +9723,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -9741,19 +9741,19 @@ class Cfm(object):
                             """
                             Next egress ID
                             
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -9764,13 +9764,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:next-egress-id'
 
@@ -9781,10 +9781,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -9799,10 +9799,12 @@ class Cfm(object):
                             """
                             Port ID
                             
-                            .. attribute:: port_id_value
+                            .. attribute:: port_id
                             
-                            	Port ID (Current)
-                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            	Port ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: port_id_type
                             
@@ -9816,12 +9818,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: port_id
+                            .. attribute:: port_id_value
                             
-                            	Port ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Port ID (Current)
+                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
                             
 
@@ -9832,11 +9832,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
+                                self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id = None
+                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
 
 
                             class PortIdValue(object):
@@ -9847,11 +9847,6 @@ class Cfm(object):
                                 
                                 	PortIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\: str
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -9867,6 +9862,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -9877,14 +9877,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.port_id_format = None
-                                    self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
+                                    self.port_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id-value'
 
@@ -9898,13 +9898,13 @@ class Cfm(object):
                                     if self.port_id_format is not None:
                                         return True
 
-                                    if self.port_id_string is not None:
-                                        return True
-
                                     if self.port_id_mac is not None:
                                         return True
 
                                     if self.port_id_raw is not None:
+                                        return True
+
+                                    if self.port_id_string is not None:
                                         return True
 
                                     return False
@@ -9917,7 +9917,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id'
 
@@ -9928,7 +9928,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.port_id_value is not None and self.port_id_value._has_data():
+                                if self.port_id is not None:
                                     return True
 
                                 if self.port_id_type is not None:
@@ -9937,7 +9937,7 @@ class Cfm(object):
                                 if self.port_id_type_value is not None:
                                     return True
 
-                                if self.port_id is not None:
+                                if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
                                 return False
@@ -9950,7 +9950,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:reply-ingress'
 
@@ -9961,19 +9961,19 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.action is not None:
+                                return True
+
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
+                                return True
+
+                            if self.mac_address is not None:
                                 return True
 
                             if self.next_egress_id is not None and self.next_egress_id._has_data():
                                 return True
 
                             if self.port_id is not None and self.port_id._has_data():
-                                return True
-
-                            if self.action is not None:
-                                return True
-
-                            if self.mac_address is not None:
                                 return True
 
                             return False
@@ -9988,10 +9988,22 @@ class Cfm(object):
                         """
                         Reply egress TLV
                         
+                        .. attribute:: action
+                        
+                        	Reply egress action
+                        	**type**\: :py:class:`CfmPmElrEgressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressActionEnum>`
+                        
                         .. attribute:: last_egress_id
                         
                         	Last Egress ID
                         	**type**\: :py:class:`LastEgressId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address of egress interface
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: next_egress_id
                         
@@ -10003,18 +10015,6 @@ class Cfm(object):
                         	Port ID
                         	**type**\: :py:class:`PortId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
                         
-                        .. attribute:: action
-                        
-                        	Reply egress action
-                        	**type**\: :py:class:`CfmPmElrEgressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressActionEnum>`
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address of egress interface
-                        	**type**\: str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
                         
 
                         """
@@ -10024,26 +10024,19 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.action = None
                             self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
                             self.last_egress_id.parent = self
+                            self.mac_address = None
                             self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
                             self.next_egress_id.parent = self
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
                             self.port_id.parent = self
-                            self.action = None
-                            self.mac_address = None
 
 
                         class LastEgressId(object):
                             """
                             Last Egress ID
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
                             
                             .. attribute:: mac_address
                             
@@ -10051,6 +10044,13 @@ class Cfm(object):
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -10061,13 +10061,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-egress-id'
 
@@ -10078,10 +10078,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -10096,19 +10096,19 @@ class Cfm(object):
                             """
                             Next Egress ID
                             
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -10119,13 +10119,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:next-egress-id'
 
@@ -10136,10 +10136,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -10154,10 +10154,12 @@ class Cfm(object):
                             """
                             Port ID
                             
-                            .. attribute:: port_id_value
+                            .. attribute:: port_id
                             
-                            	Port ID (Current)
-                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            	Port ID (Deprecated)
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
                             .. attribute:: port_id_type
                             
@@ -10171,12 +10173,10 @@ class Cfm(object):
                             
                             	**range:** 0..255
                             
-                            .. attribute:: port_id
+                            .. attribute:: port_id_value
                             
-                            	Port ID (Deprecated)
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	Port ID (Current)
+                            	**type**\: :py:class:`PortIdValue <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
                             
 
@@ -10187,11 +10187,11 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
-                                self.port_id_value.parent = self
+                                self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id = None
+                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value.parent = self
 
 
                             class PortIdValue(object):
@@ -10202,11 +10202,6 @@ class Cfm(object):
                                 
                                 	PortIDFormat
                                 	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                
-                                .. attribute:: port_id_string
-                                
-                                	Port ID String
-                                	**type**\: str
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -10222,6 +10217,11 @@ class Cfm(object):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                .. attribute:: port_id_string
+                                
+                                	Port ID String
+                                	**type**\: str
+                                
                                 
 
                                 """
@@ -10232,14 +10232,14 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.port_id_format = None
-                                    self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
+                                    self.port_id_string = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
 
                                     return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id-value'
 
@@ -10253,13 +10253,13 @@ class Cfm(object):
                                     if self.port_id_format is not None:
                                         return True
 
-                                    if self.port_id_string is not None:
-                                        return True
-
                                     if self.port_id_mac is not None:
                                         return True
 
                                     if self.port_id_raw is not None:
+                                        return True
+
+                                    if self.port_id_string is not None:
                                         return True
 
                                     return False
@@ -10272,7 +10272,7 @@ class Cfm(object):
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:port-id'
 
@@ -10283,7 +10283,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.port_id_value is not None and self.port_id_value._has_data():
+                                if self.port_id is not None:
                                     return True
 
                                 if self.port_id_type is not None:
@@ -10292,7 +10292,7 @@ class Cfm(object):
                                 if self.port_id_type_value is not None:
                                     return True
 
-                                if self.port_id is not None:
+                                if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
                                 return False
@@ -10305,7 +10305,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:reply-egress'
 
@@ -10316,19 +10316,19 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.action is not None:
+                                return True
+
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
+                                return True
+
+                            if self.mac_address is not None:
                                 return True
 
                             if self.next_egress_id is not None and self.next_egress_id._has_data():
                                 return True
 
                             if self.port_id is not None and self.port_id._has_data():
-                                return True
-
-                            if self.action is not None:
-                                return True
-
-                            if self.mac_address is not None:
                                 return True
 
                             return False
@@ -10348,15 +10348,15 @@ class Cfm(object):
                         	Egress ID
                         	**type**\: :py:class:`EgressId <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
                         
-                        .. attribute:: last_hop_format
-                        
-                        	LastHopFormat
-                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
-                        
                         .. attribute:: host_name
                         
                         	Hostname
                         	**type**\: str
+                        
+                        .. attribute:: last_hop_format
+                        
+                        	LastHopFormat
+                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -10369,20 +10369,13 @@ class Cfm(object):
                             self.parent = None
                             self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
-                            self.last_hop_format = None
                             self.host_name = None
+                            self.last_hop_format = None
 
 
                         class EgressId(object):
                             """
                             Egress ID
-                            
-                            .. attribute:: unique_id
-                            
-                            	Unique ID
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
                             
                             .. attribute:: mac_address
                             
@@ -10390,6 +10383,13 @@ class Cfm(object):
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: unique_id
+                            
+                            	Unique ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
                             
                             
 
@@ -10400,13 +10400,13 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.unique_id = None
                                 self.mac_address = None
+                                self.unique_id = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                                 return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:egress-id'
 
@@ -10417,10 +10417,10 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.unique_id is not None:
+                                if self.mac_address is not None:
                                     return True
 
-                                if self.mac_address is not None:
+                                if self.unique_id is not None:
                                     return True
 
                                 return False
@@ -10433,7 +10433,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-hop'
 
@@ -10447,10 +10447,10 @@ class Cfm(object):
                             if self.egress_id is not None and self.egress_id._has_data():
                                 return True
 
-                            if self.last_hop_format is not None:
+                            if self.host_name is not None:
                                 return True
 
-                            if self.host_name is not None:
+                            if self.last_hop_format is not None:
                                 return True
 
                             return False
@@ -10502,7 +10502,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:organization-specific-tlv'
 
@@ -10563,7 +10563,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:unknown-tlv'
 
@@ -10590,7 +10590,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:exploratory-linktrace-reply'
 
@@ -10604,25 +10604,25 @@ class Cfm(object):
                         if self.header is not None and self.header._has_data():
                             return True
 
-                        if self.sender_id is not None and self.sender_id._has_data():
-                            return True
-
-                        if self.reply_ingress is not None and self.reply_ingress._has_data():
-                            return True
-
-                        if self.reply_egress is not None and self.reply_egress._has_data():
-                            return True
-
                         if self.last_hop is not None and self.last_hop._has_data():
-                            return True
-
-                        if self.raw_data is not None:
                             return True
 
                         if self.organization_specific_tlv is not None:
                             for child_ref in self.organization_specific_tlv:
                                 if child_ref._has_data():
                                     return True
+
+                        if self.raw_data is not None:
+                            return True
+
+                        if self.reply_egress is not None and self.reply_egress._has_data():
+                            return True
+
+                        if self.reply_ingress is not None and self.reply_ingress._has_data():
+                            return True
+
+                        if self.sender_id is not None and self.sender_id._has_data():
+                            return True
 
                         if self.unknown_tlv is not None:
                             for child_ref in self.unknown_tlv:
@@ -10639,17 +10639,17 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
-                    if self.mep_id is None:
-                        raise YPYDataValidationError('Key property mep_id is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
                     if self.transaction_id is None:
-                        raise YPYDataValidationError('Key property transaction_id is None')
+                        raise YPYModelError('Key property transaction_id is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-caches/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-cache[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-caches/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-cache[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -10661,33 +10661,33 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.transaction_id is not None:
                         return True
 
-                    if self.traceroute_information is not None and self.traceroute_information._has_data():
-                        return True
-
-                    if self.replies_dropped is not None:
-                        return True
+                    if self.exploratory_linktrace_reply is not None:
+                        for child_ref in self.exploratory_linktrace_reply:
+                            if child_ref._has_data():
+                                return True
 
                     if self.linktrace_reply is not None:
                         for child_ref in self.linktrace_reply:
                             if child_ref._has_data():
                                 return True
 
-                    if self.exploratory_linktrace_reply is not None:
-                        for child_ref in self.exploratory_linktrace_reply:
-                            if child_ref._has_data():
-                                return True
+                    if self.replies_dropped is not None:
+                        return True
+
+                    if self.traceroute_information is not None and self.traceroute_information._has_data():
+                        return True
 
                     return False
 
@@ -10753,10 +10753,12 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\: str
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\: str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -10765,107 +10767,15 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\: str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: statistics
-                
-                	MEP statistics
-                	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Statistics>`
                 
                 .. attribute:: ais_statistics
                 
                 	MEP AIS statistics
                 	**type**\: :py:class:`AisStatistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics>`
-                
-                .. attribute:: defects
-                
-                	Defects detected from peer MEPs
-                	**type**\: :py:class:`Defects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects>`
-                
-                .. attribute:: domain_xr
-                
-                	Maintenance domain name
-                	**type**\: str
-                
-                .. attribute:: service_xr
-                
-                	Service name
-                	**type**\: str
-                
-                .. attribute:: level
-                
-                	Maintenance level
-                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                
-                .. attribute:: mep_id_xr
-                
-                	MEP ID
-                	**type**\: int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: interface_xr
-                
-                	Interface
-                	**type**\: str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: interface_state
-                
-                	IM Interface state
-                	**type**\: str
-                
-                .. attribute:: interworking_state
-                
-                	Interface interworking state
-                	**type**\: :py:class:`CfmBagIwStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
-                
-                .. attribute:: stp_state
-                
-                	STP state
-                	**type**\: :py:class:`CfmBagStpStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
-                
-                .. attribute:: mep_direction
-                
-                	MEP facing direction
-                	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
-                
-                .. attribute:: mac_address
-                
-                	MAC address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: peer_meps_detected
-                
-                	Number of peer MEPs detected
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: peer_meps_with_errors_detected
-                
-                	Number of peer MEPs detected with errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_defect
-                
-                	Remote defect indicated
-                	**type**\: bool
-                
-                .. attribute:: fault_notification_state
-                
-                	Fault Notification Generation state
-                	**type**\: :py:class:`CfmPmMepFngStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
                 
                 .. attribute:: ccm_generation_enabled
                 
@@ -10882,24 +10792,31 @@ class Cfm(object):
                 	Offload status of CCM processing
                 	**type**\: :py:class:`CfmBagCcmOffloadEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
                 
-                .. attribute:: highest_defect
+                .. attribute:: cos
                 
-                	Highest\-priority defect present since last FNG reset
-                	**type**\: :py:class:`CfmPmMepDefectEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefectEnum>`
+                	CoS bits the MEP will use for sent packets, if configured
+                	**type**\: int
                 
-                .. attribute:: rdi_defect
+                	**range:** 0..255
                 
-                	A peer MEP RDI defect has been reported
+                .. attribute:: cross_connect_ccm_defect
+                
+                	A cross\-connect CCM error has been reported
                 	**type**\: bool
                 
-                .. attribute:: mac_status_defect
+                .. attribute:: defects
                 
-                	A peer MEP port or interface status error has been reported
-                	**type**\: bool
+                	Defects detected from peer MEPs
+                	**type**\: :py:class:`Defects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects>`
                 
-                .. attribute:: peer_mep_ccm_defect
+                .. attribute:: domain_xr
                 
-                	A peer MEP CCM error has been reported
+                	Maintenance domain name
+                	**type**\: str
+                
+                .. attribute:: efd_triggered
+                
+                	EFD triggered on the interface
                 	**type**\: bool
                 
                 .. attribute:: error_ccm_defect
@@ -10907,10 +10824,61 @@ class Cfm(object):
                 	A CCM error has been reported
                 	**type**\: bool
                 
-                .. attribute:: cross_connect_ccm_defect
+                .. attribute:: fault_notification_state
                 
-                	A cross\-connect CCM error has been reported
+                	Fault Notification Generation state
+                	**type**\: :py:class:`CfmPmMepFngStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
+                
+                .. attribute:: highest_defect
+                
+                	Highest\-priority defect present since last FNG reset
+                	**type**\: :py:class:`CfmPmMepDefectEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefectEnum>`
+                
+                .. attribute:: interface_state
+                
+                	IM Interface state
+                	**type**\: str
+                
+                .. attribute:: interface_xr
+                
+                	Interface
+                	**type**\: str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: interworking_state
+                
+                	Interface interworking state
+                	**type**\: :py:class:`CfmBagIwStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
+                
+                .. attribute:: level
+                
+                	Maintenance level
+                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                
+                .. attribute:: mac_address
+                
+                	MAC address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: mac_status_defect
+                
+                	A peer MEP port or interface status error has been reported
                 	**type**\: bool
+                
+                .. attribute:: mep_direction
+                
+                	MEP facing direction
+                	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                
+                .. attribute:: mep_id_xr
+                
+                	MEP ID
+                	**type**\: int
+                
+                	**range:** 0..65535
                 
                 .. attribute:: next_lbm_id
                 
@@ -10926,22 +10894,54 @@ class Cfm(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: cos
+                .. attribute:: peer_mep_ccm_defect
                 
-                	CoS bits the MEP will use for sent packets, if configured
+                	A peer MEP CCM error has been reported
+                	**type**\: bool
+                
+                .. attribute:: peer_meps_detected
+                
+                	Number of peer MEPs detected
                 	**type**\: int
                 
-                	**range:** 0..255
+                	**range:** 0..4294967295
                 
-                .. attribute:: efd_triggered
+                .. attribute:: peer_meps_with_errors_detected
                 
-                	EFD triggered on the interface
+                	Number of peer MEPs detected with errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: rdi_defect
+                
+                	A peer MEP RDI defect has been reported
                 	**type**\: bool
+                
+                .. attribute:: remote_defect
+                
+                	Remote defect indicated
+                	**type**\: bool
+                
+                .. attribute:: service_xr
+                
+                	Service name
+                	**type**\: str
                 
                 .. attribute:: standby
                 
                 	The MEP is on a standby bundle interface
                 	**type**\: bool
+                
+                .. attribute:: statistics
+                
+                	MEP statistics
+                	**type**\: :py:class:`Statistics <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Statistics>`
+                
+                .. attribute:: stp_state
+                
+                	STP state
+                	**type**\: :py:class:`CfmBagStpStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
                 
                 
 
@@ -10953,242 +10953,242 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.service = None
-                    self.mep_id = None
                     self.interface = None
-                    self.statistics = Cfm.Global.LocalMeps.LocalMep.Statistics()
-                    self.statistics.parent = self
+                    self.mep_id = None
+                    self.service = None
                     self.ais_statistics = Cfm.Global.LocalMeps.LocalMep.AisStatistics()
                     self.ais_statistics.parent = self
-                    self.defects = Cfm.Global.LocalMeps.LocalMep.Defects()
-                    self.defects.parent = self
-                    self.domain_xr = None
-                    self.service_xr = None
-                    self.level = None
-                    self.mep_id_xr = None
-                    self.interface_xr = None
-                    self.interface_state = None
-                    self.interworking_state = None
-                    self.stp_state = None
-                    self.mep_direction = None
-                    self.mac_address = None
-                    self.peer_meps_detected = None
-                    self.peer_meps_with_errors_detected = None
-                    self.remote_defect = None
-                    self.fault_notification_state = None
                     self.ccm_generation_enabled = None
                     self.ccm_interval = None
                     self.ccm_offload = None
-                    self.highest_defect = None
-                    self.rdi_defect = None
-                    self.mac_status_defect = None
-                    self.peer_mep_ccm_defect = None
-                    self.error_ccm_defect = None
+                    self.cos = None
                     self.cross_connect_ccm_defect = None
+                    self.defects = Cfm.Global.LocalMeps.LocalMep.Defects()
+                    self.defects.parent = self
+                    self.domain_xr = None
+                    self.efd_triggered = None
+                    self.error_ccm_defect = None
+                    self.fault_notification_state = None
+                    self.highest_defect = None
+                    self.interface_state = None
+                    self.interface_xr = None
+                    self.interworking_state = None
+                    self.level = None
+                    self.mac_address = None
+                    self.mac_status_defect = None
+                    self.mep_direction = None
+                    self.mep_id_xr = None
                     self.next_lbm_id = None
                     self.next_ltm_id = None
-                    self.cos = None
-                    self.efd_triggered = None
+                    self.peer_mep_ccm_defect = None
+                    self.peer_meps_detected = None
+                    self.peer_meps_with_errors_detected = None
+                    self.rdi_defect = None
+                    self.remote_defect = None
+                    self.service_xr = None
                     self.standby = None
+                    self.statistics = Cfm.Global.LocalMeps.LocalMep.Statistics()
+                    self.statistics.parent = self
+                    self.stp_state = None
 
 
                 class Statistics(object):
                     """
                     MEP statistics
                     
-                    .. attribute:: ccms_sent
+                    .. attribute:: ai_ss_received
                     
-                    	Number of CCMs sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_received
-                    
-                    	Number of CCMs received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_out_of_sequence
-                    
-                    	Number of CCMs received out\-of\-sequence
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ccms_discarded
-                    
-                    	Number of CCMs discarded because maximum MEPs limit was reached
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_ms_sent
-                    
-                    	Number of LBMs sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_sent
-                    
-                    	Number of LBRs sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_received
-                    
-                    	Number of LBRs received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_out_of_sequence
-                    
-                    	Number of LBRs received out\-of\-sequence
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_rs_bad_data
-                    
-                    	Number of LBRs received with non\-matching user\-specified data
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lb_ms_received
-                    
-                    	Number of LBMs received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lt_rs_received_unexpected
-                    
-                    	Number of unexpected LTRs received
-                    	**type**\: int
+                    	Number of AIS messages received
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ai_ss_sent
                     
                     	Number of AIS messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ai_ss_received
-                    
-                    	Number of AIS messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lc_ks_received
-                    
-                    	Number of LCK messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_ms_sent
-                    
-                    	Number of DMM messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_ms_received
-                    
-                    	Number of DMM messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_rs_sent
-                    
-                    	Number of DMR messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: dm_rs_received
-                    
-                    	Number of DMR messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_ms_sent
-                    
-                    	Number of SLM messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_ms_received
-                    
-                    	Number of SLM messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_rs_sent
-                    
-                    	Number of SLR messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sl_rs_received
-                    
-                    	Number of SLR messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_ms_sent
-                    
-                    	Number of LMM messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_ms_received
-                    
-                    	Number of LMM messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_rs_sent
-                    
-                    	Number of LMR messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: lm_rs_received
-                    
-                    	Number of LMR messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bn_ms_received
-                    
-                    	Number of BNM messages received
-                    	**type**\: int
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bn_ms_discarded
                     
                     	Number of BNM messages discarded
-                    	**type**\: int
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bn_ms_received
+                    
+                    	Number of BNM messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_discarded
+                    
+                    	Number of CCMs discarded because maximum MEPs limit was reached
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_out_of_sequence
+                    
+                    	Number of CCMs received out\-of\-sequence
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_received
+                    
+                    	Number of CCMs received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ccms_sent
+                    
+                    	Number of CCMs sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_ms_received
+                    
+                    	Number of DMM messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_ms_sent
+                    
+                    	Number of DMM messages sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_rs_received
+                    
+                    	Number of DMR messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: dm_rs_sent
+                    
+                    	Number of DMR messages sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_ms_received
+                    
+                    	Number of LBMs received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_ms_sent
+                    
+                    	Number of LBMs sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_bad_data
+                    
+                    	Number of LBRs received with non\-matching user\-specified data
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_out_of_sequence
+                    
+                    	Number of LBRs received out\-of\-sequence
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_received
+                    
+                    	Number of LBRs received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lb_rs_sent
+                    
+                    	Number of LBRs sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lc_ks_received
+                    
+                    	Number of LCK messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_ms_received
+                    
+                    	Number of LMM messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_ms_sent
+                    
+                    	Number of LMM messages sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_rs_received
+                    
+                    	Number of LMR messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lm_rs_sent
+                    
+                    	Number of LMR messages sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: lt_rs_received_unexpected
+                    
+                    	Number of unexpected LTRs received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_ms_received
+                    
+                    	Number of SLM messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_ms_sent
+                    
+                    	Number of SLM messages sent
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_rs_received
+                    
+                    	Number of SLR messages received
+                    	**type**\: long
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sl_rs_sent
+                    
+                    	Number of SLR messages sent
+                    	**type**\: long
                     
                     	**range:** 0..18446744073709551615
                     
@@ -11201,39 +11201,39 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ccms_sent = None
-                        self.ccms_received = None
-                        self.ccms_out_of_sequence = None
-                        self.ccms_discarded = None
-                        self.lb_ms_sent = None
-                        self.lb_rs_sent = None
-                        self.lb_rs_received = None
-                        self.lb_rs_out_of_sequence = None
-                        self.lb_rs_bad_data = None
-                        self.lb_ms_received = None
-                        self.lt_rs_received_unexpected = None
-                        self.ai_ss_sent = None
                         self.ai_ss_received = None
-                        self.lc_ks_received = None
-                        self.dm_ms_sent = None
-                        self.dm_ms_received = None
-                        self.dm_rs_sent = None
-                        self.dm_rs_received = None
-                        self.sl_ms_sent = None
-                        self.sl_ms_received = None
-                        self.sl_rs_sent = None
-                        self.sl_rs_received = None
-                        self.lm_ms_sent = None
-                        self.lm_ms_received = None
-                        self.lm_rs_sent = None
-                        self.lm_rs_received = None
-                        self.bn_ms_received = None
+                        self.ai_ss_sent = None
                         self.bn_ms_discarded = None
+                        self.bn_ms_received = None
+                        self.ccms_discarded = None
+                        self.ccms_out_of_sequence = None
+                        self.ccms_received = None
+                        self.ccms_sent = None
+                        self.dm_ms_received = None
+                        self.dm_ms_sent = None
+                        self.dm_rs_received = None
+                        self.dm_rs_sent = None
+                        self.lb_ms_received = None
+                        self.lb_ms_sent = None
+                        self.lb_rs_bad_data = None
+                        self.lb_rs_out_of_sequence = None
+                        self.lb_rs_received = None
+                        self.lb_rs_sent = None
+                        self.lc_ks_received = None
+                        self.lm_ms_received = None
+                        self.lm_ms_sent = None
+                        self.lm_rs_received = None
+                        self.lm_rs_sent = None
+                        self.lt_rs_received_unexpected = None
+                        self.sl_ms_received = None
+                        self.sl_ms_sent = None
+                        self.sl_rs_received = None
+                        self.sl_rs_sent = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
 
@@ -11244,88 +11244,88 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.ccms_sent is not None:
-                            return True
-
-                        if self.ccms_received is not None:
-                            return True
-
-                        if self.ccms_out_of_sequence is not None:
-                            return True
-
-                        if self.ccms_discarded is not None:
-                            return True
-
-                        if self.lb_ms_sent is not None:
-                            return True
-
-                        if self.lb_rs_sent is not None:
-                            return True
-
-                        if self.lb_rs_received is not None:
-                            return True
-
-                        if self.lb_rs_out_of_sequence is not None:
-                            return True
-
-                        if self.lb_rs_bad_data is not None:
-                            return True
-
-                        if self.lb_ms_received is not None:
-                            return True
-
-                        if self.lt_rs_received_unexpected is not None:
+                        if self.ai_ss_received is not None:
                             return True
 
                         if self.ai_ss_sent is not None:
                             return True
 
-                        if self.ai_ss_received is not None:
-                            return True
-
-                        if self.lc_ks_received is not None:
-                            return True
-
-                        if self.dm_ms_sent is not None:
-                            return True
-
-                        if self.dm_ms_received is not None:
-                            return True
-
-                        if self.dm_rs_sent is not None:
-                            return True
-
-                        if self.dm_rs_received is not None:
-                            return True
-
-                        if self.sl_ms_sent is not None:
-                            return True
-
-                        if self.sl_ms_received is not None:
-                            return True
-
-                        if self.sl_rs_sent is not None:
-                            return True
-
-                        if self.sl_rs_received is not None:
-                            return True
-
-                        if self.lm_ms_sent is not None:
-                            return True
-
-                        if self.lm_ms_received is not None:
-                            return True
-
-                        if self.lm_rs_sent is not None:
-                            return True
-
-                        if self.lm_rs_received is not None:
+                        if self.bn_ms_discarded is not None:
                             return True
 
                         if self.bn_ms_received is not None:
                             return True
 
-                        if self.bn_ms_discarded is not None:
+                        if self.ccms_discarded is not None:
+                            return True
+
+                        if self.ccms_out_of_sequence is not None:
+                            return True
+
+                        if self.ccms_received is not None:
+                            return True
+
+                        if self.ccms_sent is not None:
+                            return True
+
+                        if self.dm_ms_received is not None:
+                            return True
+
+                        if self.dm_ms_sent is not None:
+                            return True
+
+                        if self.dm_rs_received is not None:
+                            return True
+
+                        if self.dm_rs_sent is not None:
+                            return True
+
+                        if self.lb_ms_received is not None:
+                            return True
+
+                        if self.lb_ms_sent is not None:
+                            return True
+
+                        if self.lb_rs_bad_data is not None:
+                            return True
+
+                        if self.lb_rs_out_of_sequence is not None:
+                            return True
+
+                        if self.lb_rs_received is not None:
+                            return True
+
+                        if self.lb_rs_sent is not None:
+                            return True
+
+                        if self.lc_ks_received is not None:
+                            return True
+
+                        if self.lm_ms_received is not None:
+                            return True
+
+                        if self.lm_ms_sent is not None:
+                            return True
+
+                        if self.lm_rs_received is not None:
+                            return True
+
+                        if self.lm_rs_sent is not None:
+                            return True
+
+                        if self.lt_rs_received_unexpected is not None:
+                            return True
+
+                        if self.sl_ms_received is not None:
+                            return True
+
+                        if self.sl_ms_sent is not None:
+                            return True
+
+                        if self.sl_rs_received is not None:
+                            return True
+
+                        if self.sl_rs_sent is not None:
                             return True
 
                         return False
@@ -11340,35 +11340,10 @@ class Cfm(object):
                     """
                     MEP AIS statistics
                     
-                    .. attribute:: sending_start
-                    
-                    	Time elapsed since AIS sending started
-                    	**type**\: :py:class:`SendingStart <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart>`
-                    
-                    .. attribute:: receiving_start
-                    
-                    	Time elapsed since AIS receiving started
-                    	**type**\: :py:class:`ReceivingStart <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
-                    
-                    .. attribute:: level
-                    
-                    	AIS transmission level
-                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                    
                     .. attribute:: interval
                     
                     	AIS transmission interval
                     	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
-                    
-                    .. attribute:: sending_ais
-                    
-                    	Details of how AIS is being transmitted
-                    	**type**\: :py:class:`CfmPmAisTransmitEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmitEnum>`
-                    
-                    .. attribute:: receiving_ais
-                    
-                    	Details of how the signal is being received
-                    	**type**\: :py:class:`CfmPmAisReceiveEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceiveEnum>`
                     
                     .. attribute:: last_interval
                     
@@ -11382,6 +11357,31 @@ class Cfm(object):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: level
+                    
+                    	AIS transmission level
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    
+                    .. attribute:: receiving_ais
+                    
+                    	Details of how the signal is being received
+                    	**type**\: :py:class:`CfmPmAisReceiveEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceiveEnum>`
+                    
+                    .. attribute:: receiving_start
+                    
+                    	Time elapsed since AIS receiving started
+                    	**type**\: :py:class:`ReceivingStart <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
+                    
+                    .. attribute:: sending_ais
+                    
+                    	Details of how AIS is being transmitted
+                    	**type**\: :py:class:`CfmPmAisTransmitEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmitEnum>`
+                    
+                    .. attribute:: sending_start
+                    
+                    	Time elapsed since AIS sending started
+                    	**type**\: :py:class:`SendingStart <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart>`
+                    
                     
 
                     """
@@ -11391,32 +11391,32 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.sending_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart()
-                        self.sending_start.parent = self
-                        self.receiving_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
-                        self.receiving_start.parent = self
-                        self.level = None
                         self.interval = None
-                        self.sending_ais = None
-                        self.receiving_ais = None
                         self.last_interval = None
                         self.last_mac_address = None
+                        self.level = None
+                        self.receiving_ais = None
+                        self.receiving_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
+                        self.receiving_start.parent = self
+                        self.sending_ais = None
+                        self.sending_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart()
+                        self.sending_start.parent = self
 
 
                     class SendingStart(object):
                         """
                         Time elapsed since AIS sending started
                         
-                        .. attribute:: seconds
+                        .. attribute:: nanoseconds
                         
-                        	Seconds
+                        	Nanoseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: nanoseconds
+                        .. attribute:: seconds
                         
-                        	Nanoseconds
+                        	Seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -11430,13 +11430,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.seconds = None
                             self.nanoseconds = None
+                            self.seconds = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sending-start'
 
@@ -11447,10 +11447,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.seconds is not None:
+                            if self.nanoseconds is not None:
                                 return True
 
-                            if self.nanoseconds is not None:
+                            if self.seconds is not None:
                                 return True
 
                             return False
@@ -11465,16 +11465,16 @@ class Cfm(object):
                         """
                         Time elapsed since AIS receiving started
                         
-                        .. attribute:: seconds
+                        .. attribute:: nanoseconds
                         
-                        	Seconds
+                        	Nanoseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: nanoseconds
+                        .. attribute:: seconds
                         
-                        	Nanoseconds
+                        	Seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -11488,13 +11488,13 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.seconds = None
                             self.nanoseconds = None
+                            self.seconds = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:receiving-start'
 
@@ -11505,10 +11505,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.seconds is not None:
+                            if self.nanoseconds is not None:
                                 return True
 
-                            if self.nanoseconds is not None:
+                            if self.seconds is not None:
                                 return True
 
                             return False
@@ -11521,7 +11521,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ais-statistics'
 
@@ -11532,28 +11532,28 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.sending_start is not None and self.sending_start._has_data():
-                            return True
-
-                        if self.receiving_start is not None and self.receiving_start._has_data():
-                            return True
-
-                        if self.level is not None:
-                            return True
-
                         if self.interval is not None:
-                            return True
-
-                        if self.sending_ais is not None:
-                            return True
-
-                        if self.receiving_ais is not None:
                             return True
 
                         if self.last_interval is not None:
                             return True
 
                         if self.last_mac_address is not None:
+                            return True
+
+                        if self.level is not None:
+                            return True
+
+                        if self.receiving_ais is not None:
+                            return True
+
+                        if self.receiving_start is not None and self.receiving_start._has_data():
+                            return True
+
+                        if self.sending_ais is not None:
+                            return True
+
+                        if self.sending_start is not None and self.sending_start._has_data():
                             return True
 
                         return False
@@ -11568,40 +11568,14 @@ class Cfm(object):
                     """
                     Defects detected from peer MEPs
                     
-                    .. attribute:: remote_meps_defects
-                    
-                    	Defects detected from remote MEPs
-                    	**type**\: :py:class:`RemoteMepsDefects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
-                    
                     .. attribute:: ais_received
                     
                     	AIS or LCK received
                     	**type**\: bool
                     
-                    .. attribute:: peer_meps_that_timed_out
-                    
-                    	Number of peer MEPs that have timed out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: missing
-                    
-                    	Number of missing peer MEPs
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: auto_missing
                     
                     	Number of missing auto cross\-check MEPs
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unexpected
-                    
-                    	Number of unexpected peer MEPs
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -11611,10 +11585,36 @@ class Cfm(object):
                     	The local port or interface is down
                     	**type**\: bool
                     
+                    .. attribute:: missing
+                    
+                    	Number of missing peer MEPs
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: peer_meps_that_timed_out
+                    
+                    	Number of peer MEPs that have timed out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: peer_port_status
                     
                     	A peer port or interface is down
                     	**type**\: bool
+                    
+                    .. attribute:: remote_meps_defects
+                    
+                    	Defects detected from remote MEPs
+                    	**type**\: :py:class:`RemoteMepsDefects <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
+                    
+                    .. attribute:: unexpected
+                    
+                    	Number of unexpected peer MEPs
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -11625,24 +11625,24 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.ais_received = None
+                        self.auto_missing = None
+                        self.local_port_status = None
+                        self.missing = None
+                        self.peer_meps_that_timed_out = None
+                        self.peer_port_status = None
                         self.remote_meps_defects = Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
                         self.remote_meps_defects.parent = self
-                        self.ais_received = None
-                        self.peer_meps_that_timed_out = None
-                        self.missing = None
-                        self.auto_missing = None
                         self.unexpected = None
-                        self.local_port_status = None
-                        self.peer_port_status = None
 
 
                     class RemoteMepsDefects(object):
                         """
                         Defects detected from remote MEPs
                         
-                        .. attribute:: loss_threshold_exceeded
+                        .. attribute:: invalid_ccm_interval
                         
-                        	Timed out (loss threshold exceeded)
+                        	Invalid CCM interval
                         	**type**\: bool
                         
                         .. attribute:: invalid_level
@@ -11655,9 +11655,9 @@ class Cfm(object):
                         	Invalid MAID
                         	**type**\: bool
                         
-                        .. attribute:: invalid_ccm_interval
+                        .. attribute:: loss_threshold_exceeded
                         
-                        	Invalid CCM interval
+                        	Timed out (loss threshold exceeded)
                         	**type**\: bool
                         
                         .. attribute:: received_our_mac
@@ -11684,10 +11684,10 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.loss_threshold_exceeded = None
+                            self.invalid_ccm_interval = None
                             self.invalid_level = None
                             self.invalid_maid = None
-                            self.invalid_ccm_interval = None
+                            self.loss_threshold_exceeded = None
                             self.received_our_mac = None
                             self.received_our_mep_id = None
                             self.received_rdi = None
@@ -11695,7 +11695,7 @@ class Cfm(object):
                         @property
                         def _common_path(self):
                             if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                raise YPYModelError('parent is not set . Cannot derive path.')
 
                             return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:remote-meps-defects'
 
@@ -11706,7 +11706,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.loss_threshold_exceeded is not None:
+                            if self.invalid_ccm_interval is not None:
                                 return True
 
                             if self.invalid_level is not None:
@@ -11715,7 +11715,7 @@ class Cfm(object):
                             if self.invalid_maid is not None:
                                 return True
 
-                            if self.invalid_ccm_interval is not None:
+                            if self.loss_threshold_exceeded is not None:
                                 return True
 
                             if self.received_our_mac is not None:
@@ -11737,7 +11737,7 @@ class Cfm(object):
                     @property
                     def _common_path(self):
                         if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            raise YPYModelError('parent is not set . Cannot derive path.')
 
                         return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:defects'
 
@@ -11748,28 +11748,28 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
-                            return True
-
                         if self.ais_received is not None:
-                            return True
-
-                        if self.peer_meps_that_timed_out is not None:
-                            return True
-
-                        if self.missing is not None:
                             return True
 
                         if self.auto_missing is not None:
                             return True
 
-                        if self.unexpected is not None:
-                            return True
-
                         if self.local_port_status is not None:
                             return True
 
+                        if self.missing is not None:
+                            return True
+
+                        if self.peer_meps_that_timed_out is not None:
+                            return True
+
                         if self.peer_port_status is not None:
+                            return True
+
+                        if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
+                            return True
+
+                        if self.unexpected is not None:
                             return True
 
                         return False
@@ -11782,15 +11782,15 @@ class Cfm(object):
                 @property
                 def _common_path(self):
                     if self.domain is None:
-                        raise YPYDataValidationError('Key property domain is None')
-                    if self.service is None:
-                        raise YPYDataValidationError('Key property service is None')
-                    if self.mep_id is None:
-                        raise YPYDataValidationError('Key property mep_id is None')
+                        raise YPYModelError('Key property domain is None')
                     if self.interface is None:
-                        raise YPYDataValidationError('Key property interface is None')
+                        raise YPYModelError('Key property interface is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:local-meps/Cisco-IOS-XR-ethernet-cfm-oper:local-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:local-meps/Cisco-IOS-XR-ethernet-cfm-oper:local-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -11802,64 +11802,16 @@ class Cfm(object):
                     if self.domain is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.interface is not None:
-                        return True
-
-                    if self.statistics is not None and self.statistics._has_data():
+                    if self.service is not None:
                         return True
 
                     if self.ais_statistics is not None and self.ais_statistics._has_data():
-                        return True
-
-                    if self.defects is not None and self.defects._has_data():
-                        return True
-
-                    if self.domain_xr is not None:
-                        return True
-
-                    if self.service_xr is not None:
-                        return True
-
-                    if self.level is not None:
-                        return True
-
-                    if self.mep_id_xr is not None:
-                        return True
-
-                    if self.interface_xr is not None:
-                        return True
-
-                    if self.interface_state is not None:
-                        return True
-
-                    if self.interworking_state is not None:
-                        return True
-
-                    if self.stp_state is not None:
-                        return True
-
-                    if self.mep_direction is not None:
-                        return True
-
-                    if self.mac_address is not None:
-                        return True
-
-                    if self.peer_meps_detected is not None:
-                        return True
-
-                    if self.peer_meps_with_errors_detected is not None:
-                        return True
-
-                    if self.remote_defect is not None:
-                        return True
-
-                    if self.fault_notification_state is not None:
                         return True
 
                     if self.ccm_generation_enabled is not None:
@@ -11871,22 +11823,52 @@ class Cfm(object):
                     if self.ccm_offload is not None:
                         return True
 
-                    if self.highest_defect is not None:
+                    if self.cos is not None:
                         return True
 
-                    if self.rdi_defect is not None:
+                    if self.cross_connect_ccm_defect is not None:
                         return True
 
-                    if self.mac_status_defect is not None:
+                    if self.defects is not None and self.defects._has_data():
                         return True
 
-                    if self.peer_mep_ccm_defect is not None:
+                    if self.domain_xr is not None:
+                        return True
+
+                    if self.efd_triggered is not None:
                         return True
 
                     if self.error_ccm_defect is not None:
                         return True
 
-                    if self.cross_connect_ccm_defect is not None:
+                    if self.fault_notification_state is not None:
+                        return True
+
+                    if self.highest_defect is not None:
+                        return True
+
+                    if self.interface_state is not None:
+                        return True
+
+                    if self.interface_xr is not None:
+                        return True
+
+                    if self.interworking_state is not None:
+                        return True
+
+                    if self.level is not None:
+                        return True
+
+                    if self.mac_address is not None:
+                        return True
+
+                    if self.mac_status_defect is not None:
+                        return True
+
+                    if self.mep_direction is not None:
+                        return True
+
+                    if self.mep_id_xr is not None:
                         return True
 
                     if self.next_lbm_id is not None:
@@ -11895,13 +11877,31 @@ class Cfm(object):
                     if self.next_ltm_id is not None:
                         return True
 
-                    if self.cos is not None:
+                    if self.peer_mep_ccm_defect is not None:
                         return True
 
-                    if self.efd_triggered is not None:
+                    if self.peer_meps_detected is not None:
+                        return True
+
+                    if self.peer_meps_with_errors_detected is not None:
+                        return True
+
+                    if self.rdi_defect is not None:
+                        return True
+
+                    if self.remote_defect is not None:
+                        return True
+
+                    if self.service_xr is not None:
                         return True
 
                     if self.standby is not None:
+                        return True
+
+                    if self.statistics is not None and self.statistics._has_data():
+                        return True
+
+                    if self.stp_state is not None:
                         return True
 
                     return False
@@ -11947,25 +11947,25 @@ class Cfm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.global_configuration_errors is not None and self.global_configuration_errors._has_data():
+                return True
+
             if self.incomplete_traceroutes is not None and self.incomplete_traceroutes._has_data():
+                return True
+
+            if self.local_meps is not None and self.local_meps._has_data():
                 return True
 
             if self.maintenance_points is not None and self.maintenance_points._has_data():
                 return True
 
-            if self.peer_meps is not None and self.peer_meps._has_data():
-                return True
-
-            if self.global_configuration_errors is not None and self.global_configuration_errors._has_data():
-                return True
-
             if self.mep_configuration_errors is not None and self.mep_configuration_errors._has_data():
                 return True
 
-            if self.traceroute_caches is not None and self.traceroute_caches._has_data():
+            if self.peer_meps is not None and self.peer_meps._has_data():
                 return True
 
-            if self.local_meps is not None and self.local_meps._has_data():
+            if self.traceroute_caches is not None and self.traceroute_caches._has_data():
                 return True
 
             return False
@@ -11987,10 +11987,10 @@ class Cfm(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.nodes is not None and self.nodes._has_data():
+        if self.global_ is not None and self.global_._has_data():
             return True
 
-        if self.global_ is not None and self.global_._has_data():
+        if self.nodes is not None and self.nodes._has_data():
             return True
 
         return False

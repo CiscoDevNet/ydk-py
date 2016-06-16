@@ -20,7 +20,7 @@ from enum import Enum
 
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 
 
 
@@ -82,18 +82,6 @@ class RebootHistory(object):
             """
             Last Reboots
             
-            .. attribute:: no
-            
-            	Number count
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: time
-            
-            	Time of reboot
-            	**type**\: str
-            
             .. attribute:: cause_code
             
             	Cause code for reboot
@@ -101,9 +89,21 @@ class RebootHistory(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: no
+            
+            	Number count
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: reason
             
             	Reason for reboot
+            	**type**\: str
+            
+            .. attribute:: time
+            
+            	Time of reboot
             	**type**\: str
             
             
@@ -115,15 +115,15 @@ class RebootHistory(object):
 
             def __init__(self):
                 self.parent = None
-                self.no = None
-                self.time = None
                 self.cause_code = None
+                self.no = None
                 self.reason = None
+                self.time = None
 
             @property
             def _common_path(self):
                 if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    raise YPYModelError('parent is not set . Cannot derive path.')
 
                 return self.parent._common_path +'/Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history'
 
@@ -134,16 +134,16 @@ class RebootHistory(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.no is not None:
-                    return True
-
-                if self.time is not None:
-                    return True
-
                 if self.cause_code is not None:
                     return True
 
+                if self.no is not None:
+                    return True
+
                 if self.reason is not None:
+                    return True
+
+                if self.time is not None:
                     return True
 
                 return False
@@ -156,7 +156,7 @@ class RebootHistory(object):
         @property
         def _common_path(self):
             if self.node_name is None:
-                raise YPYDataValidationError('Key property node_name is None')
+                raise YPYModelError('Key property node_name is None')
 
             return '/Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history/Cisco-IOS-XR-linux-os-reboot-history-oper:node[Cisco-IOS-XR-linux-os-reboot-history-oper:node-name = ' + str(self.node_name) + ']'
 

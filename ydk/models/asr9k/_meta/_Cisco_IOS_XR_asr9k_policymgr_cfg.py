@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -165,17 +165,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.DomainName',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain name or regular expression.
-                ''',
-                'name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain-format name.
                 ''',
                 'format',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain name or regular expression.
+                ''',
+                'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -205,18 +205,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.Flow',
             False, 
             [
-            _MetaInfoClassMember('flow-key', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(SourceIP)|(DestinationIP)|(5Tuple)'], 
-                '''                Configure the flow-key parameters.
-                ''',
-                'flow_key',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=2),
             _MetaInfoClassMember('flow-cache', REFERENCE_CLASS, 'FlowCache' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache', 
                 [], [], 
                 '''                Configure the flow-cache parameters
                 ''',
                 'flow_cache',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('flow-key', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(SourceIP)|(DestinationIP)|(5Tuple)'], 
+                '''                Configure the flow-key parameters.
+                ''',
+                'flow_key',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=2),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'flow',
@@ -228,174 +228,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match',
             False, 
             [
-            _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match IPv4 DSCP.
+            _MetaInfoClassMember('atm-clp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Match ATM CLP bit.
                 ''',
-                'ipv4_dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match IPv6 DSCP.
-                ''',
-                'ipv6_dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match DSCP.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv4-precedence', REFERENCE_UNION, 'str' , None, None, 
+                'atm_clp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('atm-oam', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Match IPv4 precedence.
+                '''                Match ATM OAM.
                 ''',
-                'ipv4_precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match IPv4 precedence.
-                        ''',
-                        'ipv4_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match IPv4 precedence.
-                        ''',
-                        'ipv4_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('ipv6-precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Match IPv6 precedence.
-                ''',
-                'ipv6_precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match IPv6 precedence.
-                        ''',
-                        'ipv6_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match IPv6 precedence.
-                        ''',
-                        'ipv6_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Match precedence.
-                ''',
-                'precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match precedence.
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match precedence.
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Match QoS group.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match CoS.
-                ''',
-                'cos',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('inner-cos', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match inner CoS.
-                ''',
-                'inner_cos',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
-                '''                Match protocol.
-                ''',
-                'protocol',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=7),
-            _MetaInfoClassMember('ipv4-acl', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Match IPv4 ACL.
-                ''',
-                'ipv4_acl',
+                'atm_oam',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('ipv6-acl', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Match IPv6 ACL.
+            _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
+                [], ['(authenticated)|(unauthenticated)'], 
+                '''                Match authentication status.
                 ''',
-                'ipv6_acl',
+                'authen_status',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-topmost', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match MPLS experimental topmost label.
-                ''',
-                'mpls_experimental_topmost',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('mpls-experimental-imposition', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match MPLS experimental imposition label.
-                ''',
-                'mpls_experimental_imposition',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('discard-class', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match discard class.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match IPv4 packet length.
-                Should be value 0..65535 or range.
-                ''',
-                'ipv4_packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match IPv6 packet length. 
-                Should be value 0..65535 or range.
-                ''',
-                'ipv6_packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match packet length. 
-                Should be value 0..65535 or range.
-                ''',
-                'packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('mpls-disposition-ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match MPLS Label Disposition IPv4 access list.
-                ''',
-                'mpls_disposition_ipv4_access_list',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-disposition-ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match MPLS Label Disposition IPv6 access list.
-                ''',
-                'mpls_disposition_ipv6_access_list',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match VLAN ID.
-                ''',
-                'vlan',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('cac-admit', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Match CAC admitted.
@@ -408,11 +258,11 @@ _meta_table = {
                 ''',
                 'cac_unadmit',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match flow-tag. Should be value 1..63 or range.
+            _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match CoS.
                 ''',
-                'flow_tag',
+                'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-address-ipv4', REFERENCE_LIST, 'DestinationAddressIpv4' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4', 
                 [], [], 
@@ -426,6 +276,12 @@ _meta_table = {
                 ''',
                 'destination_address_ipv6',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('destination-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Match destination MAC address.
+                ''',
+                'destination_mac',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('destination-port', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match destination port. 
@@ -433,6 +289,42 @@ _meta_table = {
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('discard-class', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match discard class.
+                ''',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('domain-name', REFERENCE_LIST, 'DomainName' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.DomainName', 
+                [], [], 
+                '''                Match domain name.
+                ''',
+                'domain_name',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match DSCP.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('flow', REFERENCE_CLASS, 'Flow' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.Flow', 
+                [], [], 
+                '''                Match flow.
+                ''',
+                'flow',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match flow-tag. Should be value 1..63 or range.
+                ''',
+                'flow_tag',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Match FrameRelay DE bit.
+                ''',
+                'fr_de',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('fragment-type', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(first-fragment)|(is-fragment)|(last-fragment)'], 
                 '''                Match fragment type for a packet.
@@ -474,42 +366,155 @@ _meta_table = {
                 ''',
                 'icmpv6_type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-address-ipv4', REFERENCE_LIST, 'SourceAddressIpv4' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4', 
-                [], [], 
-                '''                Match source IPv4 address.
+            _MetaInfoClassMember('inner-cos', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match inner CoS.
                 ''',
-                'source_address_ipv4',
+                'inner_cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-address-ipv6', REFERENCE_LIST, 'SourceAddressIpv6' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6', 
-                [], [], 
-                '''                Match source IPv6 address.
-                ''',
-                'source_address_ipv6',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('inner-vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match source port. 
+                '''                Match inner VLAN ID.
+                ''',
+                'inner_vlan',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv4-acl', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Match IPv4 ACL.
+                ''',
+                'ipv4_acl',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match IPv4 DSCP.
+                ''',
+                'ipv4_dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match IPv4 packet length.
                 Should be value 0..65535 or range.
                 ''',
-                'source_port',
+                'ipv4_packet_length',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('tcp-flag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
-                '''                Match TCP flag.
-                ''',
-                'tcp_flag',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
-                [], ['(authenticated)|(unauthenticated)'], 
-                '''                Match authentication status.
-                ''',
-                'authen_status',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('domain-name', REFERENCE_LIST, 'DomainName' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.DomainName', 
+            _MetaInfoClassMember('ipv4-precedence', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                Match domain name.
+                '''                Match IPv4 precedence.
                 ''',
-                'domain_name',
+                'ipv4_precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match IPv4 precedence.
+                        ''',
+                        'ipv4_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match IPv4 precedence.
+                        ''',
+                        'ipv4_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('ipv6-acl', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Match IPv6 ACL.
+                ''',
+                'ipv6_acl',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match IPv6 DSCP.
+                ''',
+                'ipv6_dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match IPv6 packet length. 
+                Should be value 0..65535 or range.
+                ''',
+                'ipv6_packet_length',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv6-precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Match IPv6 precedence.
+                ''',
+                'ipv6_precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match IPv6 precedence.
+                        ''',
+                        'ipv6_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match IPv6 precedence.
+                        ''',
+                        'ipv6_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('mpls-disposition-ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match MPLS Label Disposition IPv4 access list.
+                ''',
+                'mpls_disposition_ipv4_access_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-disposition-ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match MPLS Label Disposition IPv6 access list.
+                ''',
+                'mpls_disposition_ipv6_access_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-imposition', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match MPLS experimental imposition label.
+                ''',
+                'mpls_experimental_imposition',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('mpls-experimental-topmost', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match MPLS experimental topmost label.
+                ''',
+                'mpls_experimental_topmost',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match packet length. 
+                Should be value 0..65535 or range.
+                ''',
+                'packet_length',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Match precedence.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match precedence.
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match precedence.
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
+                '''                Match protocol.
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=7),
+            _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Match QoS group.
+                ''',
+                'qos_group',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('service-name', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [(1, 32)], [], 
@@ -523,6 +528,37 @@ _meta_table = {
                 ''',
                 'service_name_regex',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('source-address-ipv4', REFERENCE_LIST, 'SourceAddressIpv4' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4', 
+                [], [], 
+                '''                Match source IPv4 address.
+                ''',
+                'source_address_ipv4',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('source-address-ipv6', REFERENCE_LIST, 'SourceAddressIpv6' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6', 
+                [], [], 
+                '''                Match source IPv6 address.
+                ''',
+                'source_address_ipv6',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('source-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Match source MAC address.
+                ''',
+                'source_mac',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match source port. 
+                Should be value 0..65535 or range.
+                ''',
+                'source_port',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('tcp-flag', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4095)], [], 
+                '''                Match TCP flag.
+                ''',
+                'tcp_flag',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('timer', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Match timer.
@@ -547,48 +583,12 @@ _meta_table = {
                 ''',
                 'user_name_regex',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Match source MAC address.
-                ''',
-                'source_mac',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('destination-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Match destination MAC address.
-                ''',
-                'destination_mac',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('inner-vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match inner VLAN ID.
+                '''                Match VLAN ID.
                 ''',
-                'inner_vlan',
+                'vlan',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('atm-clp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Match ATM CLP bit.
-                ''',
-                'atm_clp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('atm-oam', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Match ATM OAM.
-                ''',
-                'atm_oam',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('flow', REFERENCE_CLASS, 'Flow' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match.Flow', 
-                [], [], 
-                '''                Match flow.
-                ''',
-                'flow',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Match FrameRelay DE bit.
-                ''',
-                'fr_de',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'match',
@@ -692,17 +692,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain name or regular expression.
-                ''',
-                'name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain-format name.
                 ''',
                 'format',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain name or regular expression.
+                ''',
+                'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -715,174 +715,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.MatchNot',
             False, 
             [
-            _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match IPv4 DSCP.
+            _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
+                [], ['(authenticated)|(unauthenticated)'], 
+                '''                Match authentication status.
                 ''',
-                'ipv4_dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match IPv6 DSCP.
-                ''',
-                'ipv6_dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Match DSCP.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv4-precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Match IPv4 precedence.
-                ''',
-                'ipv4_precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match IPv4 precedence.
-                        ''',
-                        'ipv4_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match IPv4 precedence.
-                        ''',
-                        'ipv4_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('ipv6-precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Match IPv6 precedence.
-                ''',
-                'ipv6_precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match IPv6 precedence.
-                        ''',
-                        'ipv6_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match IPv6 precedence.
-                        ''',
-                        'ipv6_precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Match precedence.
-                ''',
-                'precedence',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
-                        '''                        Match precedence.
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
-                        '''                        Match precedence.
-                        ''',
-                        'precedence',
-                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-                ], max_elements=8),
-            _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Match QoS group.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match CoS.
-                ''',
-                'cos',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('inner-cos', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match inner CoS.
-                ''',
-                'inner_cos',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
-                '''                Match protocol.
-                ''',
-                'protocol',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=7),
-            _MetaInfoClassMember('ipv4-acl', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Match IPv4 ACL.
-                ''',
-                'ipv4_acl',
+                'authen_status',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('ipv6-acl', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Match IPv6 ACL.
-                ''',
-                'ipv6_acl',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-topmost', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match MPLS experimental topmost label.
-                ''',
-                'mpls_experimental_topmost',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('mpls-experimental-imposition', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match MPLS experimental imposition label.
-                ''',
-                'mpls_experimental_imposition',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('discard-class', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Match discard class.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match IPv4 packet length.
-                Should be value 0..65535 or range.
-                ''',
-                'ipv4_packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match IPv6 packet length. 
-                Should be value 0..65535 or range.
-                ''',
-                'ipv6_packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match packet length. 
-                Should be value 0..65535 or range.
-                ''',
-                'packet_length',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('mpls-disposition-ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match MPLS Label Disposition IPv4 access list.
-                ''',
-                'mpls_disposition_ipv4_access_list',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-disposition-ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match MPLS Label Disposition IPv6 access list.
-                ''',
-                'mpls_disposition_ipv6_access_list',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match VLAN ID.
-                ''',
-                'vlan',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('cac-admit', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Match CAC admitted.
@@ -895,11 +733,11 @@ _meta_table = {
                 ''',
                 'cac_unadmit',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
-                '''                Match flow-tag. Should be value 1..63 or range.
+            _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match CoS.
                 ''',
-                'flow_tag',
+                'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-address-ipv4', REFERENCE_LIST, 'DestinationAddressIpv4' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4', 
                 [], [], 
@@ -919,6 +757,30 @@ _meta_table = {
                 Should be value 0..65535 or range.
                 ''',
                 'destination_port',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('discard-class', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match discard class.
+                ''',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('domain-name', REFERENCE_LIST, 'DomainName' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName', 
+                [], [], 
+                '''                Match domain name.
+                ''',
+                'domain_name',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match DSCP.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match flow-tag. Should be value 1..63 or range.
+                ''',
+                'flow_tag',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('fragment-type', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(first-fragment)|(is-fragment)|(last-fragment)'], 
@@ -961,6 +823,162 @@ _meta_table = {
                 ''',
                 'icmpv6_type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('inner-cos', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match inner CoS.
+                ''',
+                'inner_cos',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv4-acl', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Match IPv4 ACL.
+                ''',
+                'ipv4_acl',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match IPv4 DSCP.
+                ''',
+                'ipv4_dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match IPv4 packet length.
+                Should be value 0..65535 or range.
+                ''',
+                'ipv4_packet_length',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv4-precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Match IPv4 precedence.
+                ''',
+                'ipv4_precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match IPv4 precedence.
+                        ''',
+                        'ipv4_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match IPv4 precedence.
+                        ''',
+                        'ipv4_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('ipv6-acl', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Match IPv6 ACL.
+                ''',
+                'ipv6_acl',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Match IPv6 DSCP.
+                ''',
+                'ipv6_dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match IPv6 packet length. 
+                Should be value 0..65535 or range.
+                ''',
+                'ipv6_packet_length',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ipv6-precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Match IPv6 precedence.
+                ''',
+                'ipv6_precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match IPv6 precedence.
+                        ''',
+                        'ipv6_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match IPv6 precedence.
+                        ''',
+                        'ipv6_precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('mpls-disposition-ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match MPLS Label Disposition IPv4 access list.
+                ''',
+                'mpls_disposition_ipv4_access_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-disposition-ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match MPLS Label Disposition IPv6 access list.
+                ''',
+                'mpls_disposition_ipv6_access_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-imposition', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match MPLS experimental imposition label.
+                ''',
+                'mpls_experimental_imposition',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('mpls-experimental-topmost', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Match MPLS experimental topmost label.
+                ''',
+                'mpls_experimental_topmost',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match packet length. 
+                Should be value 0..65535 or range.
+                ''',
+                'packet_length',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Match precedence.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, [
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
+                        [(0, 7)], [], 
+                        '''                        Match precedence.
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        '''                        Match precedence.
+                        ''',
+                        'precedence',
+                        'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+                ], max_elements=8),
+            _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
+                '''                Match protocol.
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=7),
+            _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Match QoS group.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('service-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match servicve name.
+                ''',
+                'service_name',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('service-name-regex', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Match servicve name regular expression.
+                ''',
+                'service_name_regex',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('source-address-ipv4', REFERENCE_LIST, 'SourceAddressIpv4' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4', 
                 [], [], 
                 '''                Match source IPv4 address.
@@ -986,30 +1004,6 @@ _meta_table = {
                 ''',
                 'tcp_flag',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
-                [], ['(authenticated)|(unauthenticated)'], 
-                '''                Match authentication status.
-                ''',
-                'authen_status',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('domain-name', REFERENCE_LIST, 'DomainName' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName', 
-                [], [], 
-                '''                Match domain name.
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('service-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match servicve name.
-                ''',
-                'service_name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('service-name-regex', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Match servicve name regular expression.
-                ''',
-                'service_name_regex',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('timer', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Match timer.
@@ -1034,6 +1028,12 @@ _meta_table = {
                 ''',
                 'user_name_regex',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match VLAN ID.
+                ''',
+                'vlan',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'match-not',
@@ -1045,29 +1045,35 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'ClassMapTypeEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'ClassMapTypeEnum', 
-                [], [], 
-                '''                Type of class-map.
-                ''',
-                'type',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
                 '''                Name of class-map.
                 ''',
                 'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'ClassMapTypeEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'ClassMapTypeEnum', 
+                [], [], 
+                '''                Type of class-map.
+                ''',
+                'type',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('class-map-mode-match-all', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match any match criteria.
+                ''',
+                'class_map_mode_match_all',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('class-map-mode-match-any', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Match all match criteria
                 ''',
                 'class_map_mode_match_any',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('class-map-mode-match-all', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Match any match criteria.
+                '''                Description for this policy-map.
                 ''',
-                'class_map_mode_match_all',
+                'description',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('match', REFERENCE_CLASS, 'Match' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.ClassMaps.ClassMap.Match', 
                 [], [], 
@@ -1080,12 +1086,6 @@ _meta_table = {
                 '''                Match not rules.
                 ''',
                 'match_not',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Description for this policy-map.
-                ''',
-                'description',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1115,17 +1115,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Dynamic template name.
-                ''',
-                'name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the AAA method list.
                 ''',
                 'aaa_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Dynamic template name.
+                ''',
+                'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1191,17 +1191,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Dynamic template name.
-                ''',
-                'name',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the AAA method list.
                 ''',
                 'aaa_list',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Dynamic template name.
+                ''',
+                'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1332,17 +1332,17 @@ _meta_table = {
                 ''',
                 'class_type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
-            _MetaInfoClassMember('class-execution-strategy', REFERENCE_ENUM_CLASS, 'ExecutionStrategyEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'ExecutionStrategyEnum', 
-                [], [], 
-                '''                Class execution strategy.
-                ''',
-                'class_execution_strategy',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('action-rule', REFERENCE_LIST, 'ActionRule' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule', 
                 [], [], 
                 '''                Action rule.
                 ''',
                 'action_rule',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('class-execution-strategy', REFERENCE_ENUM_CLASS, 'ExecutionStrategyEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'ExecutionStrategyEnum', 
+                [], [], 
+                '''                Class execution strategy.
+                ''',
+                'class_execution_strategy',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1361,6 +1361,12 @@ _meta_table = {
                 ''',
                 'event_type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class', 
+                [], [], 
+                '''                Class-map rule.
+                ''',
+                'class_',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('event-mode-match-all', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Execute all the matched classes.
@@ -1373,12 +1379,6 @@ _meta_table = {
                 ''',
                 'event_modematch_first',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class', 
-                [], [], 
-                '''                Class-map rule.
-                ''',
-                'class_',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'event',
@@ -1390,17 +1390,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Shape bandwidth value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
                 '''                Shape bandwidth units.
                 ''',
                 'unit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Shape bandwidth value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1413,17 +1413,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum bandwidth value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
                 '''                Minimum bandwidth units.
                 ''',
                 'unit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum bandwidth value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1436,17 +1436,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining bandwidth value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
                 '''                Remaining bandwidth units.
                 ''',
                 'unit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining bandwidth value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1459,17 +1459,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining bandwidth value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Remaining bandwidth units.
                 ''',
                 'unit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining bandwidth value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1482,17 +1482,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect',
             False, 
             [
-            _MetaInfoClassMember('threshold-min-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Minimum RED threshold value.
-                ''',
-                'threshold_min_value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
-            _MetaInfoClassMember('threshold-min-units', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-max-units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
-                '''                Minimum RED threshold units.
+                '''                Maximum RED threshold units.
                 ''',
-                'threshold_min_units',
+                'threshold_max_units',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('threshold-max-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1500,11 +1494,17 @@ _meta_table = {
                 ''',
                 'threshold_max_value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
-            _MetaInfoClassMember('threshold-max-units', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('threshold-min-units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
-                '''                Maximum RED threshold units.
+                '''                Minimum RED threshold units.
                 ''',
-                'threshold_max_units',
+                'threshold_min_units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('threshold-min-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Minimum RED threshold value.
+                ''',
+                'threshold_min_value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
@@ -1512,6 +1512,12 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('dei', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                DEI based WRED.
+                ''',
+                'dei',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('discard-class', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                WRED based on discard class.
@@ -1524,6 +1530,12 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('ecn', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                ECN based WRED.
+                ''',
+                'ecn',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-exp', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                MPLS Experimental value based WRED.
@@ -1549,18 +1561,6 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-asr9k-policymgr-cfg', False, max_elements=8),
                 ], max_elements=8),
-            _MetaInfoClassMember('dei', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                DEI based WRED.
-                ''',
-                'dei',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('ecn', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                ECN based WRED.
-                ''',
-                'ecn',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'random-detect',
@@ -1572,39 +1572,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Marks a packet by setting the DSCP in the ToS byte.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
-                The set qos-group is supported only on an ingress policy.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class on IPv4 or MPLS packets.
-                The discard-class can be used only in service policies 
-                that are attached in the ingress policy.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class.
-                ''',
-                'forward_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set DF bit.
-                ''',
-                'df',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the specific IEEE 802.1Q Layer 2 CoS value of an
@@ -1617,18 +1584,37 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the precedence value in the IP header.
+            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set DF bit.
                 ''',
-                'precedence',
+                'df',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
-                '''                Sets the experimental value of the MPLS packet top-most
-                labels.
+                '''                Sets the discard class on IPv4 or MPLS packets.
+                The discard-class can be used only in service policies 
+                that are attached in the ingress policy.
                 ''',
-                'mpls_experimental_top_most',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Marks a packet by setting the DSCP in the ToS byte.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the discard class.
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set FrameRelay DE bit.
+                ''',
+                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-experimental-imposition', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -1639,18 +1625,32 @@ _meta_table = {
                 ''',
                 'mpls_experimental_imposition',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the experimental value of the MPLS packet top-most
+                labels.
+                ''',
+                'mpls_experimental_top_most',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the precedence value in the IP header.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
+                The set qos-group is supported only on an ingress policy.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('srp-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the spatial reuse protocol priority value of an 
                 outgoing packet.
                 ''',
                 'srp_priority',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set FrameRelay DE bit.
-                ''',
-                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1663,17 +1663,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Rate value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)'], 
                 '''                Rate units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Rate value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1686,17 +1686,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak rate value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)'], 
                 '''                Peak rate units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak rate value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1709,17 +1709,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Burst value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Burst units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Burst value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1732,17 +1732,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak burst value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Peak burst units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak burst value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1755,39 +1755,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Marks a packet by setting the DSCP in the ToS byte.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
-                The set qos-group is supported only on an ingress policy.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class on IPv4 or MPLS packets.
-                The discard-class can be used only in service policies 
-                that are attached in the ingress policy.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class.
-                ''',
-                'forward_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set DF bit.
-                ''',
-                'df',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the specific IEEE 802.1Q Layer 2 CoS value of an
@@ -1800,18 +1767,37 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the precedence value in the IP header.
+            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set DF bit.
                 ''',
-                'precedence',
+                'df',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
-                '''                Sets the experimental value of the MPLS packet top-most
-                labels.
+                '''                Sets the discard class on IPv4 or MPLS packets.
+                The discard-class can be used only in service policies 
+                that are attached in the ingress policy.
                 ''',
-                'mpls_experimental_top_most',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Marks a packet by setting the DSCP in the ToS byte.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the discard class.
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set FrameRelay DE bit.
+                ''',
+                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-experimental-imposition', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -1822,18 +1808,32 @@ _meta_table = {
                 ''',
                 'mpls_experimental_imposition',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the experimental value of the MPLS packet top-most
+                labels.
+                ''',
+                'mpls_experimental_top_most',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the precedence value in the IP header.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
+                The set qos-group is supported only on an ingress policy.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('srp-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the spatial reuse protocol priority value of an 
                 outgoing packet.
                 ''',
                 'srp_priority',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set FrameRelay DE bit.
-                ''',
-                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1846,12 +1846,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction',
             False, 
             [
-            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Police action transmit.
-                ''',
-                'transmit',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('drop', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Police action drop.
@@ -1864,6 +1858,12 @@ _meta_table = {
                 ''',
                 'set',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Police action transmit.
+                ''',
+                'transmit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'conform-action',
@@ -1875,39 +1875,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Marks a packet by setting the DSCP in the ToS byte.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
-                The set qos-group is supported only on an ingress policy.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class on IPv4 or MPLS packets.
-                The discard-class can be used only in service policies 
-                that are attached in the ingress policy.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class.
-                ''',
-                'forward_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set DF bit.
-                ''',
-                'df',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the specific IEEE 802.1Q Layer 2 CoS value of an
@@ -1920,18 +1887,37 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the precedence value in the IP header.
+            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set DF bit.
                 ''',
-                'precedence',
+                'df',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
-                '''                Sets the experimental value of the MPLS packet top-most
-                labels.
+                '''                Sets the discard class on IPv4 or MPLS packets.
+                The discard-class can be used only in service policies 
+                that are attached in the ingress policy.
                 ''',
-                'mpls_experimental_top_most',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Marks a packet by setting the DSCP in the ToS byte.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the discard class.
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set FrameRelay DE bit.
+                ''',
+                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-experimental-imposition', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -1942,18 +1928,32 @@ _meta_table = {
                 ''',
                 'mpls_experimental_imposition',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the experimental value of the MPLS packet top-most
+                labels.
+                ''',
+                'mpls_experimental_top_most',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the precedence value in the IP header.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
+                The set qos-group is supported only on an ingress policy.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('srp-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the spatial reuse protocol priority value of an 
                 outgoing packet.
                 ''',
                 'srp_priority',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set FrameRelay DE bit.
-                ''',
-                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -1966,12 +1966,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction',
             False, 
             [
-            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Police action transmit.
-                ''',
-                'transmit',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('drop', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Police action drop.
@@ -1984,6 +1978,12 @@ _meta_table = {
                 ''',
                 'set',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Police action transmit.
+                ''',
+                'transmit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'exceed-action',
@@ -1995,39 +1995,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Marks a packet by setting the DSCP in the ToS byte.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
-                The set qos-group is supported only on an ingress policy.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class on IPv4 or MPLS packets.
-                The discard-class can be used only in service policies 
-                that are attached in the ingress policy.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class.
-                ''',
-                'forward_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set DF bit.
-                ''',
-                'df',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the specific IEEE 802.1Q Layer 2 CoS value of an
@@ -2040,18 +2007,37 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the precedence value in the IP header.
+            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set DF bit.
                 ''',
-                'precedence',
+                'df',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
-                '''                Sets the experimental value of the MPLS packet top-most
-                labels.
+                '''                Sets the discard class on IPv4 or MPLS packets.
+                The discard-class can be used only in service policies 
+                that are attached in the ingress policy.
                 ''',
-                'mpls_experimental_top_most',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Marks a packet by setting the DSCP in the ToS byte.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the discard class.
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set FrameRelay DE bit.
+                ''',
+                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-experimental-imposition', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -2062,18 +2048,32 @@ _meta_table = {
                 ''',
                 'mpls_experimental_imposition',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the experimental value of the MPLS packet top-most
+                labels.
+                ''',
+                'mpls_experimental_top_most',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the precedence value in the IP header.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
+                The set qos-group is supported only on an ingress policy.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('srp-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the spatial reuse protocol priority value of an 
                 outgoing packet.
                 ''',
                 'srp_priority',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set FrameRelay DE bit.
-                ''',
-                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2086,12 +2086,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction',
             False, 
             [
-            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Police action transmit.
-                ''',
-                'transmit',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('drop', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Police action drop.
@@ -2104,6 +2098,12 @@ _meta_table = {
                 ''',
                 'set',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('Transmit', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Police action transmit.
+                ''',
+                'transmit',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'violate-action',
@@ -2115,29 +2115,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police',
             False, 
             [
-            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate', 
-                [], [], 
-                '''                Rate configuration.
-                ''',
-                'rate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('peak-rate', REFERENCE_CLASS, 'PeakRate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate', 
-                [], [], 
-                '''                Peak rate configuration.
-                ''',
-                'peak_rate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('burst', REFERENCE_CLASS, 'Burst' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst', 
                 [], [], 
                 '''                Burst configuration.
                 ''',
                 'burst',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('peak-burst', REFERENCE_CLASS, 'PeakBurst' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst', 
-                [], [], 
-                '''                Peak burst configuration.
-                ''',
-                'peak_burst',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction', 
                 [], [], 
@@ -2152,6 +2134,24 @@ _meta_table = {
                 the rate limit.
                 ''',
                 'exceed_action',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('peak-burst', REFERENCE_CLASS, 'PeakBurst' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst', 
+                [], [], 
+                '''                Peak burst configuration.
+                ''',
+                'peak_burst',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('peak-rate', REFERENCE_CLASS, 'PeakRate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate', 
+                [], [], 
+                '''                Peak rate configuration.
+                ''',
+                'peak_rate',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate', 
+                [], [], 
+                '''                Rate configuration.
+                ''',
+                'rate',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction', 
                 [], [], 
@@ -2194,17 +2194,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Rate value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
                 '''                Rate units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Rate value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2217,17 +2217,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate',
             False, 
             [
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Rate value.
-                ''',
-                'value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
                 [], ['(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
                 '''                Rate units.
                 ''',
                 'units',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Rate value.
+                ''',
+                'value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2240,18 +2240,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal',
             False, 
             [
-            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate', 
-                [], [], 
-                '''                The rate allocated for all flows.
-                ''',
-                'rate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('flow-rate', REFERENCE_CLASS, 'FlowRate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate', 
-                [], [], 
-                '''                The rate allocated per flow.
-                ''',
-                'flow_rate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('flow-idle-timeout', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                The interval after which a flow is removed, 
@@ -2277,6 +2265,18 @@ _meta_table = {
                         'flow_idle_timeout',
                         'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
                 ]),
+            _MetaInfoClassMember('flow-rate', REFERENCE_CLASS, 'FlowRate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate', 
+                [], [], 
+                '''                The rate allocated per flow.
+                ''',
+                'flow_rate',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate', 
+                [], [], 
+                '''                The rate allocated for all flows.
+                ''',
+                'rate',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
             'cac-local',
@@ -2288,11 +2288,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams',
             False, 
             [
-            _MetaInfoClassMember('max-flow', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4096)], [], 
-                '''                Max simultaneous flows monitored per policy class
+            _MetaInfoClassMember('history', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Keep stats/metrics on box for so many intervals.
                 ''',
-                'max_flow',
+                'history',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('interval-duration', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2300,11 +2300,11 @@ _meta_table = {
                 ''',
                 'interval_duration',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('history', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Keep stats/metrics on box for so many intervals.
+            _MetaInfoClassMember('max-flow', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4096)], [], 
+                '''                Max simultaneous flows monitored per policy class
                 ''',
-                'history',
+                'max_flow',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2330,17 +2330,17 @@ _meta_table = {
                 ''',
                 'layer3',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nominal IP layer packet rate (in pps).
-                ''',
-                'packet',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('media', ATTRIBUTE, 'int' , None, None, 
                 [(1, 3000000000)], [], 
                 '''                Nominal data rate of the media flow (ip payload).
                 ''',
                 'media',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('packet', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nominal IP layer packet rate (in pps).
+                ''',
+                'packet',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2353,17 +2353,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket',
             False, 
             [
-            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Nominal size of the media-packet.
-                ''',
-                'size',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('count-in-layer3', ATTRIBUTE, 'int' , None, None, 
                 [(1, 64)], [], 
                 '''                Nominal number of media packets in an IP payload.
                 ''',
                 'count_in_layer3',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Nominal size of the media-packet.
+                ''',
+                'size',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2376,17 +2376,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr',
             False, 
             [
-            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate', 
-                [], [], 
-                '''                Nominal per-flow data rate.
-                ''',
-                'rate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('media-packet', REFERENCE_CLASS, 'MediaPacket' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket', 
                 [], [], 
                 '''                Media-packet structure.
                 ''',
                 'media_packet',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('rate', REFERENCE_CLASS, 'Rate' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate', 
+                [], [], 
+                '''                Nominal per-flow data rate.
+                ''',
+                'rate',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2399,17 +2399,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action',
             False, 
             [
-            _MetaInfoClassMember('syslog', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Syslog.
-                ''',
-                'syslog',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('snmp', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                SNMP.
                 ''',
                 'snmp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('syslog', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Syslog.
+                ''',
+                'syslog',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2452,17 +2452,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type', 
-                [], [], 
-                '''                Alarm type.
-                ''',
-                'type',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('severity', ATTRIBUTE, 'str' , None, None, 
                 [], ['(informational)|(notification)|(warning)|(error)|(critical)|(alert)|(emergency)'], 
                 '''                Severity of the alarm.
                 ''',
                 'severity',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type', 
+                [], [], 
+                '''                Alarm type.
+                ''',
+                'type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2516,17 +2516,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerType',
             False, 
             [
-            _MetaInfoClassMember('immediate', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Immediate trigger.
-                ''',
-                'immediate',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Trigger averaged over N intervals.
                 ''',
                 'average',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('immediate', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Immediate trigger.
+                ''',
+                'immediate',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2539,17 +2539,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold',
             False, 
             [
-            _MetaInfoClassMember('trigger-value', REFERENCE_CLASS, 'TriggerValue' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue', 
-                [], [], 
-                '''                Alarm trigger value settings.
-                ''',
-                'trigger_value',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('trigger-type', REFERENCE_CLASS, 'TriggerType' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerType', 
                 [], [], 
                 '''                Alarm trigger type settings.
                 ''',
                 'trigger_type',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('trigger-value', REFERENCE_CLASS, 'TriggerValue' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold.TriggerValue', 
+                [], [], 
+                '''                Alarm trigger value settings.
+                ''',
+                'trigger_value',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2562,12 +2562,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React',
             False, 
             [
-            _MetaInfoClassMember('descrition', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                String describing the react statement.
-                ''',
-                'descrition',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('action', REFERENCE_CLASS, 'Action' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action', 
                 [], [], 
                 '''                Action on alert.
@@ -2580,17 +2574,17 @@ _meta_table = {
                 ''',
                 'alarm',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('treshold', REFERENCE_CLASS, 'Treshold' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold', 
-                [], [], 
-                '''                Alarm threshold settings.
-                ''',
-                'treshold',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('criterion-delay-factor', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                React criterion delay factor.
                 ''',
                 'criterion_delay_factor',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('criterion-flow-count', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                React criterion flow count.
+                ''',
+                'criterion_flow_count',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('criterion-media-stop', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -2604,17 +2598,23 @@ _meta_table = {
                 ''',
                 'criterion_mrv',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('criterion-flow-count', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                React criterion flow count.
-                ''',
-                'criterion_flow_count',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('criterion-packet-rate', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                React criterion packet rate.
                 ''',
                 'criterion_packet_rate',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('descrition', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                String describing the react statement.
+                ''',
+                'descrition',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('treshold', REFERENCE_CLASS, 'Treshold' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Treshold', 
+                [], [], 
+                '''                Alarm threshold settings.
+                ''',
+                'treshold',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2627,12 +2627,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pbr.PbrForward.NextHop',
             False, 
             [
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF name.
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
@@ -2644,6 +2638,12 @@ _meta_table = {
                 '''                IPv6 address.
                 ''',
                 'ipv6_address',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name.
+                ''',
+                'vrf',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2686,39 +2686,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pbr.Set',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
-                '''                Marks a packet by setting the DSCP in the ToS byte.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
-                The set qos-group is supported only on an ingress policy.
-                ''',
-                'qos_group',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class on IPv4 or MPLS packets.
-                The discard-class can be used only in service policies 
-                that are attached in the ingress policy.
-                ''',
-                'discard_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the discard class.
-                ''',
-                'forward_class',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set DF bit.
-                ''',
-                'df',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the specific IEEE 802.1Q Layer 2 CoS value of an
@@ -2731,18 +2698,37 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Sets the precedence value in the IP header.
+            _MetaInfoClassMember('df', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set DF bit.
                 ''',
-                'precedence',
+                'df',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('discard-class', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
-                '''                Sets the experimental value of the MPLS packet top-most
-                labels.
+                '''                Sets the discard class on IPv4 or MPLS packets.
+                The discard-class can be used only in service policies 
+                that are attached in the ingress policy.
                 ''',
-                'mpls_experimental_top_most',
+                'discard_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                '''                Marks a packet by setting the DSCP in the ToS byte.
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the discard class.
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1)], [], 
+                '''                Set FrameRelay DE bit.
+                ''',
+                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('mpls-experimental-imposition', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
@@ -2753,18 +2739,32 @@ _meta_table = {
                 ''',
                 'mpls_experimental_imposition',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('mpls-experimental-top-most', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the experimental value of the MPLS packet top-most
+                labels.
+                ''',
+                'mpls_experimental_top_most',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 7)], [], 
+                '''                Sets the precedence value in the IP header.
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Sets the QoS group identifiers on IPv4 or MPLS packets.
+                The set qos-group is supported only on an ingress policy.
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('srp-priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 7)], [], 
                 '''                Sets the spatial reuse protocol priority value of an 
                 outgoing packet.
                 ''',
                 'srp_priority',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fr-de', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
-                '''                Set FrameRelay DE bit.
-                ''',
-                'fr_de',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2784,12 +2784,6 @@ _meta_table = {
                 ''',
                 'http_redirect',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('pbr-transmit', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Policy action PBR transmit.
-                ''',
-                'pbr_transmit',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('pbr-drop', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Policy action PBR drop.
@@ -2801,6 +2795,12 @@ _meta_table = {
                 '''                Policy action PBR forward.
                 ''',
                 'pbr_forward',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('pbr-transmit', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Policy action PBR transmit.
+                ''',
+                'pbr_transmit',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('set', REFERENCE_CLASS, 'Set' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pbr.Set', 
                 [], [], 
@@ -2831,11 +2831,41 @@ _meta_table = {
                 ''',
                 'class_type',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
-            _MetaInfoClassMember('shape', REFERENCE_CLASS, 'Shape' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape', 
+            _MetaInfoClassMember('bandwidth-remaining', REFERENCE_CLASS, 'BandwidthRemaining' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining', 
                 [], [], 
-                '''                Policy action shape.
+                '''                Policy action bandwidth remaining queue.
                 ''',
-                'shape',
+                'bandwidth_remaining',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('cac-local', REFERENCE_CLASS, 'CacLocal' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal', 
+                [], [], 
+                '''                Policy action CAC.
+                ''',
+                'cac_local',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('default-red', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Default random early detection
+                ''',
+                'default_red',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('flow-params', REFERENCE_CLASS, 'FlowParams' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams', 
+                [], [], 
+                '''                Policy flow monitoring action.
+                ''',
+                'flow_params',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('fragment', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Policy action fragment. Fragment name
+                ''',
+                'fragment',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('metrics-ipcbr', REFERENCE_CLASS, 'MetricsIpcbr' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr', 
+                [], [], 
+                '''                Policy IP-CBR metric action.
+                ''',
+                'metrics_ipcbr',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('min-bandwidth', REFERENCE_CLASS, 'MinBandwidth' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth', 
                 [], [], 
@@ -2843,17 +2873,17 @@ _meta_table = {
                 ''',
                 'min_bandwidth',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('bandwidth-remaining', REFERENCE_CLASS, 'BandwidthRemaining' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining', 
+            _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pbr', 
                 [], [], 
-                '''                Policy action bandwidth remaining queue.
+                '''                Policy action PBR.
                 ''',
-                'bandwidth_remaining',
+                'pbr',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('queue-limit', REFERENCE_CLASS, 'QueueLimit' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit', 
+            _MetaInfoClassMember('police', REFERENCE_CLASS, 'Police' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police', 
                 [], [], 
-                '''                Policy action queue limit.
+                '''                Configures traffic policing action.
                 ''',
-                'queue_limit',
+                'police',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('priority-level', ATTRIBUTE, 'int' , None, None, 
                 [(1, 7)], [], 
@@ -2861,11 +2891,11 @@ _meta_table = {
                 ''',
                 'priority_level',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('default-red', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('queue-limit', REFERENCE_CLASS, 'QueueLimit' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit', 
                 [], [], 
-                '''                Default random early detection
+                '''                Policy action queue limit.
                 ''',
-                'default_red',
+                'queue_limit',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('random-detect', REFERENCE_LIST, 'RandomDetect' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect', 
                 [], [], 
@@ -2875,53 +2905,11 @@ _meta_table = {
                 ''',
                 'random_detect',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('set', REFERENCE_CLASS, 'Set' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set', 
-                [], [], 
-                '''                Policy action packet marking.
-                ''',
-                'set',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('police', REFERENCE_CLASS, 'Police' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police', 
-                [], [], 
-                '''                Configures traffic policing action.
-                ''',
-                'police',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy', 
-                [], [], 
-                '''                Configure a child service policy.
-                ''',
-                'service_policy',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('cac-local', REFERENCE_CLASS, 'CacLocal' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal', 
-                [], [], 
-                '''                Policy action CAC.
-                ''',
-                'cac_local',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('flow-params', REFERENCE_CLASS, 'FlowParams' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams', 
-                [], [], 
-                '''                Policy flow monitoring action.
-                ''',
-                'flow_params',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('metrics-ipcbr', REFERENCE_CLASS, 'MetricsIpcbr' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr', 
-                [], [], 
-                '''                Policy IP-CBR metric action.
-                ''',
-                'metrics_ipcbr',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('react', REFERENCE_CLASS, 'React' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React', 
                 [], [], 
                 '''                Policy action react.
                 ''',
                 'react',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pbr', 
-                [], [], 
-                '''                Policy action PBR.
-                ''',
-                'pbr',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('service-fragment', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2930,11 +2918,23 @@ _meta_table = {
                 ''',
                 'service_fragment',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('fragment', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy', 
                 [], [], 
-                '''                Policy action fragment. Fragment name
+                '''                Configure a child service policy.
                 ''',
-                'fragment',
+                'service_policy',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('set', REFERENCE_CLASS, 'Set' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set', 
+                [], [], 
+                '''                Policy action packet marking.
+                ''',
+                'set',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
+            _MetaInfoClassMember('shape', REFERENCE_CLASS, 'Shape' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape', 
+                [], [], 
+                '''                Policy action shape.
+                ''',
+                'shape',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',
@@ -2947,18 +2947,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PolicyMapTypeEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyMapTypeEnum', 
-                [], [], 
-                '''                Type of policy-map.
-                ''',
-                'type',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
                 '''                Name of policy-map.
                 ''',
                 'name',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PolicyMapTypeEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyMapTypeEnum', 
+                [], [], 
+                '''                Type of policy-map.
+                ''',
+                'type',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', True),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Description for this policy-map.
+                ''',
+                'description',
+                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             _MetaInfoClassMember('event', REFERENCE_LIST, 'Event' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event', 
                 [], [], 
                 '''                Policy event.
@@ -2970,12 +2976,6 @@ _meta_table = {
                 '''                Class-map rule.
                 ''',
                 'policy_map_rule',
-                'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Description for this policy-map.
-                ''',
-                'description',
                 'Cisco-IOS-XR-asr9k-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-asr9k-policymgr-cfg',

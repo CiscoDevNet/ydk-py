@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,29 +18,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RebootHistory.Node.RebootHistory',
             False, 
             [
-            _MetaInfoClassMember('no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number count
-                ''',
-                'no',
-                'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
-            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Time of reboot
-                ''',
-                'time',
-                'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
             _MetaInfoClassMember('cause-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cause code for reboot
                 ''',
                 'cause_code',
                 'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
+            _MetaInfoClassMember('no', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number count
+                ''',
+                'no',
+                'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
             _MetaInfoClassMember('reason', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Reason for reboot
                 ''',
                 'reason',
+                'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
+            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time of reboot
+                ''',
+                'time',
                 'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
             ],
             'Cisco-IOS-XR-linux-os-reboot-history-oper',

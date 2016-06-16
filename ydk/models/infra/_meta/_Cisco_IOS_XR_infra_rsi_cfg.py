@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -37,17 +37,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.VpnId',
             False, 
             [
-            _MetaInfoClassMember('vpn-oui', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                OUI of VPNID OUI
-                ''',
-                'vpn_oui',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('vpn-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 16777215)], [], 
                 '''                Index of VPNID Index
                 ''',
                 'vpn_index',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('vpn-oui', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                OUI of VPNID OUI
+                ''',
+                'vpn_oui',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -60,12 +60,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs',
             False, 
             [
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
-                ''',
-                'as_xx',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                AS number
@@ -77,6 +71,12 @@ _meta_table = {
                 '''                AS number Index
                 ''',
                 'as_index',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
+                ''',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 1)], [], 
@@ -187,12 +187,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs',
             False, 
             [
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AS number
-                ''',
-                'as_xx',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                AS number
@@ -204,6 +198,12 @@ _meta_table = {
                 '''                AS number Index
                 ''',
                 'as_index',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AS number
+                ''',
+                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
                 [(0, 1)], [], 
@@ -314,17 +314,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy',
             False, 
             [
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Global to vrf import route policy
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('advertise-as-vpn', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable advertising imported paths to PEs
                 ''',
                 'advertise_as_vpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Global to vrf import route policy
+                ''',
+                'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -337,11 +337,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp',
             False, 
             [
-            _MetaInfoClassMember('import-route-targets', REFERENCE_CLASS, 'ImportRouteTargets' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets', 
+            _MetaInfoClassMember('export-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Import Route targets
+                '''                Route policy for export filtering
                 ''',
-                'import_route_targets',
+                'export_route_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('export-route-targets', REFERENCE_CLASS, 'ExportRouteTargets' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets', 
                 [], [], 
@@ -355,17 +355,17 @@ _meta_table = {
                 ''',
                 'global_to_vrf_import_route_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('export-route-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Route policy for export filtering
-                ''',
-                'export_route_policy',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('import-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Route policy for import filtering
                 ''',
                 'import_route_policy',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-route-targets', REFERENCE_CLASS, 'ImportRouteTargets' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets', 
+                [], [], 
+                '''                Import Route targets
+                ''',
+                'import_route_targets',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('vrf-to-global-export-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -402,6 +402,12 @@ _meta_table = {
                 ''',
                 'topology_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
+            _MetaInfoClassMember('bgp', REFERENCE_CLASS, 'Bgp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp', 
+                [], [], 
+                '''                BGP AF VRF config
+                ''',
+                'bgp',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                VRF configuration for a particular address
@@ -409,12 +415,6 @@ _meta_table = {
                 ''',
                 'create',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('bgp', REFERENCE_CLASS, 'Bgp' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp', 
-                [], [], 
-                '''                BGP AF VRF config
-                ''',
-                'bgp',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
             'af',
@@ -449,17 +449,35 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('vpn-id', REFERENCE_CLASS, 'VpnId' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.VpnId', 
+            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs', 
                 [], [], 
-                '''                VPN-ID for the VRF
+                '''                VRF address family configuration
                 ''',
-                'vpn_id',
+                'afs',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                VRF global configuration
+                ''',
+                'create',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 244)], [], 
+                '''                A textual description of the VRF
+                ''',
+                'description',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('fallback-vrf', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Fallback VRF
                 ''',
                 'fallback_vrf',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('mode-big', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configuration enable of big VRF
+                ''',
+                'mode_big',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('remote-route-filter-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -468,29 +486,11 @@ _meta_table = {
                 ''',
                 'remote_route_filter_disable',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('create', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('vpn-id', REFERENCE_CLASS, 'VpnId' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.VpnId', 
                 [], [], 
-                '''                VRF global configuration
+                '''                VPN-ID for the VRF
                 ''',
-                'create',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('mode-big', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configuration enable of big VRF
-                ''',
-                'mode_big',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 244)], [], 
-                '''                A textual description of the VRF
-                ''',
-                'description',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs', 
-                [], [], 
-                '''                VRF address family configuration
-                ''',
-                'afs',
+                'vpn_id',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -659,17 +659,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Interfaces.Interface.InterfaceGroup',
             False, 
             [
-            _MetaInfoClassMember('group-names', REFERENCE_CLASS, 'GroupNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.InterfaceGroup.GroupNames', 
-                [], [], 
-                '''                Set of group name under an interface
-                ''',
-                'group_names',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable SRLG interface group submode
                 ''',
                 'enable',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('group-names', REFERENCE_CLASS, 'GroupNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.InterfaceGroup.GroupNames', 
+                [], [], 
+                '''                Set of group name under an interface
+                ''',
+                'group_names',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -688,17 +688,17 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
                 'srlg_priority',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -768,6 +768,12 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable SRLG interface
+                ''',
+                'enable',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('include-optical', REFERENCE_CLASS, 'IncludeOptical' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.IncludeOptical', 
                 [], [], 
                 '''                Include optical configuration for an interface
@@ -780,23 +786,17 @@ _meta_table = {
                 ''',
                 'interface_group',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('values', REFERENCE_CLASS, 'Values' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.Values', 
-                [], [], 
-                '''                SRLG Value configuration for an interface
-                ''',
-                'values',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('interface-srlg-names', REFERENCE_CLASS, 'InterfaceSrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.InterfaceSrlgNames', 
                 [], [], 
                 '''                SRLG Name configuration for an interface
                 ''',
                 'interface_srlg_names',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('values', REFERENCE_CLASS, 'Values' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces.Interface.Values', 
                 [], [], 
-                '''                Enable SRLG interface
+                '''                SRLG Value configuration for an interface
                 ''',
-                'enable',
+                'values',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -872,17 +872,17 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
                 'srlg_priority',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -918,17 +918,17 @@ _meta_table = {
                 ''',
                 'group_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('group-values', REFERENCE_CLASS, 'GroupValues' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Groups.Group.GroupValues', 
-                [], [], 
-                '''                Set of SRLG values configured under a group
-                ''',
-                'group_values',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable SRLG group
                 ''',
                 'enable',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('group-values', REFERENCE_CLASS, 'GroupValues' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Groups.Group.GroupValues', 
+                [], [], 
+                '''                Set of SRLG values configured under a group
+                ''',
+                'group_values',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -964,17 +964,17 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                SRLG value
-                ''',
-                'srlg_value',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
                 'srlg_priority',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                SRLG value
+                ''',
+                'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -1010,18 +1010,18 @@ _meta_table = {
                 ''',
                 'inherit_node_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable SRLG inherit node
+                ''',
+                'enable',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('inherit-node-values', REFERENCE_CLASS, 'InheritNodeValues' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.InheritNodes.InheritNode.InheritNodeValues', 
                 [], [], 
                 '''                Set of SRLG values configured under an inherit
                 node
                 ''',
                 'inherit_node_values',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable SRLG inherit node
-                ''',
-                'enable',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -1051,17 +1051,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces', 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Set of interfaces configured with SRLG
+                '''                Enable SRLG
                 ''',
-                'interfaces',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('srlg-names', REFERENCE_CLASS, 'SrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.SrlgNames', 
-                [], [], 
-                '''                Set of SRLG name configuration
-                ''',
-                'srlg_names',
+                'enable',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('groups', REFERENCE_CLASS, 'Groups' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Groups', 
                 [], [], 
@@ -1075,11 +1069,17 @@ _meta_table = {
                 ''',
                 'inherit_nodes',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.Interfaces', 
                 [], [], 
-                '''                Enable SRLG
+                '''                Set of interfaces configured with SRLG
                 ''',
-                'enable',
+                'interfaces',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('srlg-names', REFERENCE_CLASS, 'SrlgNames' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'Srlg.SrlgNames', 
+                [], [], 
+                '''                Set of SRLG name configuration
+                ''',
+                'srlg_names',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
@@ -1132,17 +1132,17 @@ _meta_table = {
                 ''',
                 'vrf_group_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfGroups.VrfGroup.Vrfs', 
-                [], [], 
-                '''                Set of VRFs configured under a VRF group
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable VRF group
                 ''',
                 'enable',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfGroups.VrfGroup.Vrfs', 
+                [], [], 
+                '''                Set of VRFs configured under a VRF group
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',

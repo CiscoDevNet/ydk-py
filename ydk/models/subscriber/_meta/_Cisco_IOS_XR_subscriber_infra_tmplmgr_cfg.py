@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -18,12 +18,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
-                '''                Session Name
-                ''',
-                'session_name',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
@@ -36,6 +30,12 @@ _meta_table = {
                 '''                Enable port level traffic mirroring
                 ''',
                 'port_level_enable',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 79)], [], 
+                '''                Session Name
+                ''',
+                'session_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -54,12 +54,11 @@ _meta_table = {
                 ''',
                 'session_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', True),
-            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
-                '''                Mirror a specified number of bytes from start of
-                packet
+            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ACL matching for traffic mirroring
                 ''',
-                'mirror_first',
+                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('attachment', REFERENCE_CLASS, 'Attachment' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment', 
                 [], [], 
@@ -67,17 +66,18 @@ _meta_table = {
                 ''',
                 'attachment',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10000)], [], 
+                '''                Mirror a specified number of bytes from start of
+                packet
+                ''',
+                'mirror_first',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
                 'mirror_interval',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ACL matching for traffic mirroring
-                ''',
-                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -114,13 +114,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Outbound packets.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -132,6 +125,13 @@ _meta_table = {
                 '''                Not supported (Leave unspecified).
                 ''',
                 'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Outbound packets.
+                ''',
+                'name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -150,14 +150,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Inbound packets NOTE: This parameter is
-                mandatory if 'CommonACLName' is not specified.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -170,6 +162,14 @@ _meta_table = {
                 ''',
                 'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Inbound packets NOTE: This parameter is
+                mandatory if 'CommonACLName' is not specified.
+                ''',
+                'name',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
             'inbound',
@@ -181,19 +181,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter',
             False, 
             [
-            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound', 
-                [], [], 
-                '''                IPv4 Packet filter to be applied to outbound
-                packets
-                ''',
-                'outbound',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('inbound', REFERENCE_CLASS, 'Inbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound', 
                 [], [], 
                 '''                IPv4 Packet filter to be applied to inbound
                 packets
                 ''',
                 'inbound',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound', 
+                [], [], 
+                '''                IPv4 Packet filter to be applied to outbound
+                packets
+                ''',
+                'outbound',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -212,6 +212,12 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
@@ -219,12 +225,6 @@ _meta_table = {
                 'CommonACLName' is not specified.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -243,18 +243,18 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
                 Outbound packets.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -292,6 +292,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Ipv4Network',
             False, 
             [
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(68, 65535)], [], 
+                '''                The IP Maximum Transmission Unit
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
+            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if enabled, FALSE if disabled
+                ''',
+                'rpf',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Enable IP processing without an explicit
@@ -299,23 +311,11 @@ _meta_table = {
                 ''',
                 'unnumbered',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(68, 65535)], [], 
-                '''                The IP Maximum Transmission Unit
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if enabled, FALSE if disabled
                 ''',
                 'unreachables',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE if enabled, FALSE if disabled
-                ''',
-                'rpf',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-subscriber-cfg',
@@ -398,17 +398,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix',
             False, 
             [
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                IPv6 framed prefix length
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                IPV6 framed prefix address
                 ''',
                 'prefix',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                IPv6 framed prefix length
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -461,30 +461,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Ipv6Neighbor',
             False, 
             [
-            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix', 
-                [], [], 
-                '''                Set the IPv6 framed ipv6 prefix for a
-                subscriber interface 
-                ''',
-                'framed_prefix',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('duplicate-address-detection', REFERENCE_CLASS, 'DuplicateAddressDetection' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection', 
                 [], [], 
                 '''                Duplicate Address Detection (DAD)
                 ''',
                 'duplicate_address_detection',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial', 
+            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix', 
                 [], [], 
-                '''                IPv6 ND RA Initial
+                '''                Set the IPv6 framed ipv6 prefix for a
+                subscriber interface 
                 ''',
-                'ra_initial',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
-                [], [], 
-                '''                IPv6 ND RA HopLimit
-                ''',
-                'ra_hop_limit',
+                'framed_prefix',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('framed-prefix-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -500,6 +488,19 @@ _meta_table = {
                 ''',
                 'managed_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 3600000)], [], 
+                '''                Set advertised NS retransmission interval in
+                milliseconds
+                ''',
+                'ns_interval',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                NUD enable
+                ''',
+                'nud_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('other-config', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Host to use stateful protocol for non-address
@@ -507,17 +508,17 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
-                '''                Start RA on ipv6-enable config
+                '''                IPv6 ND RA HopLimit
                 ''',
-                'start_ra_on_ipv6_enable',
+                'ra_hop_limit',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial', 
                 [], [], 
-                '''                NUD enable
+                '''                IPv6 ND RA Initial
                 ''',
-                'nud_enable',
+                'ra_initial',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-interval', ATTRIBUTE, 'int' , None, None, 
                 [(3, 1800)], [], 
@@ -533,23 +534,11 @@ _meta_table = {
                 ''',
                 'ra_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
-                [], [], 
-                '''                RA Router Preference
-                ''',
-                'router_preference',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable suppress IPv6 router advertisement
                 ''',
                 'ra_suppress',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable RA unicast Flag
-                ''',
-                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress-mtu', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -557,11 +546,11 @@ _meta_table = {
                 ''',
                 'ra_suppress_mtu',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Suppress cache learning flag
+                '''                Enable RA unicast Flag
                 ''',
-                'suppress_cache_learning',
+                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('reachable-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 3600000)], [], 
@@ -570,12 +559,23 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 3600000)], [], 
-                '''                Set advertised NS retransmission interval in
-                milliseconds
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
+                [], [], 
+                '''                RA Router Preference
                 ''',
-                'ns_interval',
+                'router_preference',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Start RA on ipv6-enable config
+                ''',
+                'start_ra_on_ipv6_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Suppress cache learning flag
+                ''',
+                'suppress_cache_learning',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -611,23 +611,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Dhcpv6',
             False, 
             [
-            _MetaInfoClassMember('delegated-prefix', REFERENCE_CLASS, 'DelegatedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix', 
-                [], [], 
-                '''                The prefix to be used for Prefix Delegation
-                ''',
-                'delegated_prefix',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
-            _MetaInfoClassMember('dns-ipv6address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Dns IPv6 Address
-                ''',
-                'dns_ipv6address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('address-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                The pool to be used for Address assignment
                 ''',
                 'address_pool',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The class to be used for proxy/server profile
+                ''',
+                'class_',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('delegated-prefix', REFERENCE_CLASS, 'DelegatedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix', 
+                [], [], 
+                '''                The prefix to be used for Prefix Delegation
+                ''',
+                'delegated_prefix',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('delegated-prefix-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -635,11 +635,11 @@ _meta_table = {
                 ''',
                 'delegated_prefix_pool',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
-            _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The class to be used for proxy/server profile
+            _MetaInfoClassMember('dns-ipv6address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Dns IPv6 Address
                 ''',
-                'class_',
+                'dns_ipv6address',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('stateful-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
@@ -698,23 +698,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -729,14 +726,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -749,23 +749,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -780,14 +777,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -829,17 +829,17 @@ _meta_table = {
                 ''',
                 'aal',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
-                [], [], 
-                '''                Specify encapsulation type
-                ''',
-                'encapsulation',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                ATM cell tax to L2 overhead
                 ''',
                 'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
                 [(-63, 63)], [], 
@@ -876,13 +876,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy', 
-                [], [], 
-                '''                Service policy to be applied in ingress/egress
-                direction
-                ''',
-                'service_policy',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.Account', 
                 [], [], 
                 '''                QoS L2 overhead accounting
@@ -894,6 +887,13 @@ _meta_table = {
                 '''                QoS to be applied in egress direction
                 ''',
                 'output',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -912,18 +912,18 @@ _meta_table = {
                 ''',
                 'template_name',
                 'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', True),
-            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.SpanMonitorSessions', 
+            _MetaInfoClassMember('dhcpv6', REFERENCE_CLASS, 'Dhcpv6' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Dhcpv6', 
                 [], [], 
-                '''                Monitor Session container for this template
+                '''                Interface dhcpv6 configuration data
                 ''',
-                'span_monitor_sessions',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Assign the interface to a VRF 
+                'dhcpv6',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4Network', 
+                [], [], 
+                '''                Interface IPv4 Network configuration data
                 ''',
-                'vrf',
-                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
+                'ipv4_network',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv4-packet-filter', REFERENCE_CLASS, 'Ipv4PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter', 
                 [], [], 
                 '''                IPv4 Packet Filtering configuration for the
@@ -931,6 +931,18 @@ _meta_table = {
                 ''',
                 'ipv4_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_neighbor',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Network', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_network',
+                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv6-packet-filter', REFERENCE_CLASS, 'Ipv6PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter', 
                 [], [], 
                 '''                IPv6 Packet Filtering configuration for the
@@ -938,30 +950,6 @@ _meta_table = {
                 ''',
                 'ipv6_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv4Network', 
-                [], [], 
-                '''                Interface IPv4 Network configuration data
-                ''',
-                'ipv4_network',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Network', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_network',
-                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Ipv6Neighbor', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_neighbor',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('dhcpv6', REFERENCE_CLASS, 'Dhcpv6' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Dhcpv6', 
-                [], [], 
-                '''                Interface dhcpv6 configuration data
-                ''',
-                'dhcpv6',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Pbr', 
                 [], [], 
                 '''                Dynamic Template PBR configuration
@@ -974,6 +962,18 @@ _meta_table = {
                 ''',
                 'qos',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.SpanMonitorSessions', 
+                [], [], 
+                '''                Monitor Session container for this template
+                ''',
+                'span_monitor_sessions',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Assign the interface to a VRF 
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg',
             'ppp',
@@ -1002,12 +1002,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
-                '''                Session Name
-                ''',
-                'session_name',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
@@ -1020,6 +1014,12 @@ _meta_table = {
                 '''                Enable port level traffic mirroring
                 ''',
                 'port_level_enable',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 79)], [], 
+                '''                Session Name
+                ''',
+                'session_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -1038,12 +1038,11 @@ _meta_table = {
                 ''',
                 'session_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', True),
-            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
-                '''                Mirror a specified number of bytes from start of
-                packet
+            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ACL matching for traffic mirroring
                 ''',
-                'mirror_first',
+                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('attachment', REFERENCE_CLASS, 'Attachment' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment', 
                 [], [], 
@@ -1051,17 +1050,18 @@ _meta_table = {
                 ''',
                 'attachment',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10000)], [], 
+                '''                Mirror a specified number of bytes from start of
+                packet
+                ''',
+                'mirror_first',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
                 'mirror_interval',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ACL matching for traffic mirroring
-                ''',
-                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -1098,13 +1098,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Outbound packets.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -1116,6 +1109,13 @@ _meta_table = {
                 '''                Not supported (Leave unspecified).
                 ''',
                 'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Outbound packets.
+                ''',
+                'name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -1134,14 +1134,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Inbound packets NOTE: This parameter is
-                mandatory if 'CommonACLName' is not specified.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -1154,6 +1146,14 @@ _meta_table = {
                 ''',
                 'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Inbound packets NOTE: This parameter is
+                mandatory if 'CommonACLName' is not specified.
+                ''',
+                'name',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
             'inbound',
@@ -1165,19 +1165,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter',
             False, 
             [
-            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound', 
-                [], [], 
-                '''                IPv4 Packet filter to be applied to outbound
-                packets
-                ''',
-                'outbound',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('inbound', REFERENCE_CLASS, 'Inbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound', 
                 [], [], 
                 '''                IPv4 Packet filter to be applied to inbound
                 packets
                 ''',
                 'inbound',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound', 
+                [], [], 
+                '''                IPv4 Packet filter to be applied to outbound
+                packets
+                ''',
+                'outbound',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -1196,6 +1196,12 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
@@ -1203,12 +1209,6 @@ _meta_table = {
                 'CommonACLName' is not specified.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -1227,18 +1227,18 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
                 Outbound packets.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -1276,6 +1276,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network',
             False, 
             [
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(68, 65535)], [], 
+                '''                The IP Maximum Transmission Unit
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
+            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if enabled, FALSE if disabled
+                ''',
+                'rpf',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Enable IP processing without an explicit
@@ -1283,23 +1295,11 @@ _meta_table = {
                 ''',
                 'unnumbered',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(68, 65535)], [], 
-                '''                The IP Maximum Transmission Unit
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if enabled, FALSE if disabled
                 ''',
                 'unreachables',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE if enabled, FALSE if disabled
-                ''',
-                'rpf',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-subscriber-cfg',
@@ -1382,17 +1382,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix',
             False, 
             [
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                IPv6 framed prefix length
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                IPV6 framed prefix address
                 ''',
                 'prefix',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                IPv6 framed prefix length
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -1445,30 +1445,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor',
             False, 
             [
-            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix', 
-                [], [], 
-                '''                Set the IPv6 framed ipv6 prefix for a
-                subscriber interface 
-                ''',
-                'framed_prefix',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('duplicate-address-detection', REFERENCE_CLASS, 'DuplicateAddressDetection' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection', 
                 [], [], 
                 '''                Duplicate Address Detection (DAD)
                 ''',
                 'duplicate_address_detection',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial', 
+            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix', 
                 [], [], 
-                '''                IPv6 ND RA Initial
+                '''                Set the IPv6 framed ipv6 prefix for a
+                subscriber interface 
                 ''',
-                'ra_initial',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
-                [], [], 
-                '''                IPv6 ND RA HopLimit
-                ''',
-                'ra_hop_limit',
+                'framed_prefix',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('framed-prefix-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1484,6 +1472,19 @@ _meta_table = {
                 ''',
                 'managed_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 3600000)], [], 
+                '''                Set advertised NS retransmission interval in
+                milliseconds
+                ''',
+                'ns_interval',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                NUD enable
+                ''',
+                'nud_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('other-config', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Host to use stateful protocol for non-address
@@ -1491,17 +1492,17 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
-                '''                Start RA on ipv6-enable config
+                '''                IPv6 ND RA HopLimit
                 ''',
-                'start_ra_on_ipv6_enable',
+                'ra_hop_limit',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial', 
                 [], [], 
-                '''                NUD enable
+                '''                IPv6 ND RA Initial
                 ''',
-                'nud_enable',
+                'ra_initial',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-interval', ATTRIBUTE, 'int' , None, None, 
                 [(3, 1800)], [], 
@@ -1517,23 +1518,11 @@ _meta_table = {
                 ''',
                 'ra_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
-                [], [], 
-                '''                RA Router Preference
-                ''',
-                'router_preference',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable suppress IPv6 router advertisement
                 ''',
                 'ra_suppress',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable RA unicast Flag
-                ''',
-                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress-mtu', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1541,11 +1530,11 @@ _meta_table = {
                 ''',
                 'ra_suppress_mtu',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Suppress cache learning flag
+                '''                Enable RA unicast Flag
                 ''',
-                'suppress_cache_learning',
+                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('reachable-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 3600000)], [], 
@@ -1554,12 +1543,23 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 3600000)], [], 
-                '''                Set advertised NS retransmission interval in
-                milliseconds
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
+                [], [], 
+                '''                RA Router Preference
                 ''',
-                'ns_interval',
+                'router_preference',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Start RA on ipv6-enable config
+                ''',
+                'start_ra_on_ipv6_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Suppress cache learning flag
+                ''',
+                'suppress_cache_learning',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -1595,23 +1595,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6',
             False, 
             [
-            _MetaInfoClassMember('delegated-prefix', REFERENCE_CLASS, 'DelegatedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix', 
-                [], [], 
-                '''                The prefix to be used for Prefix Delegation
-                ''',
-                'delegated_prefix',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
-            _MetaInfoClassMember('dns-ipv6address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Dns IPv6 Address
-                ''',
-                'dns_ipv6address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('address-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                The pool to be used for Address assignment
                 ''',
                 'address_pool',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The class to be used for proxy/server profile
+                ''',
+                'class_',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('delegated-prefix', REFERENCE_CLASS, 'DelegatedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix', 
+                [], [], 
+                '''                The prefix to be used for Prefix Delegation
+                ''',
+                'delegated_prefix',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('delegated-prefix-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1619,11 +1619,11 @@ _meta_table = {
                 ''',
                 'delegated_prefix_pool',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
-            _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The class to be used for proxy/server profile
+            _MetaInfoClassMember('dns-ipv6address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Dns IPv6 Address
                 ''',
-                'class_',
+                'dns_ipv6address',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('stateful-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
@@ -1682,23 +1682,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1713,14 +1710,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -1733,23 +1733,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1764,14 +1761,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -1813,17 +1813,17 @@ _meta_table = {
                 ''',
                 'aal',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
-                [], [], 
-                '''                Specify encapsulation type
-                ''',
-                'encapsulation',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                ATM cell tax to L2 overhead
                 ''',
                 'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
                 [(-63, 63)], [], 
@@ -1860,13 +1860,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy', 
-                [], [], 
-                '''                Service policy to be applied in ingress/egress
-                direction
-                ''',
-                'service_policy',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account', 
                 [], [], 
                 '''                QoS L2 overhead accounting
@@ -1878,6 +1871,13 @@ _meta_table = {
                 '''                QoS to be applied in egress direction
                 ''',
                 'output',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -1896,18 +1896,18 @@ _meta_table = {
                 ''',
                 'template_name',
                 'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', True),
-            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions', 
+            _MetaInfoClassMember('dhcpv6', REFERENCE_CLASS, 'Dhcpv6' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6', 
                 [], [], 
-                '''                Monitor Session container for this template
+                '''                Interface dhcpv6 configuration data
                 ''',
-                'span_monitor_sessions',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Assign the interface to a VRF 
+                'dhcpv6',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network', 
+                [], [], 
+                '''                Interface IPv4 Network configuration data
                 ''',
-                'vrf',
-                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
+                'ipv4_network',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv4-packet-filter', REFERENCE_CLASS, 'Ipv4PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter', 
                 [], [], 
                 '''                IPv4 Packet Filtering configuration for the
@@ -1915,6 +1915,18 @@ _meta_table = {
                 ''',
                 'ipv4_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_neighbor',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_network',
+                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv6-packet-filter', REFERENCE_CLASS, 'Ipv6PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter', 
                 [], [], 
                 '''                IPv6 Packet Filtering configuration for the
@@ -1922,30 +1934,6 @@ _meta_table = {
                 ''',
                 'ipv6_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network', 
-                [], [], 
-                '''                Interface IPv4 Network configuration data
-                ''',
-                'ipv4_network',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_network',
-                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_neighbor',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('dhcpv6', REFERENCE_CLASS, 'Dhcpv6' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6', 
-                [], [], 
-                '''                Interface dhcpv6 configuration data
-                ''',
-                'dhcpv6',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Pbr', 
                 [], [], 
                 '''                Dynamic Template PBR configuration
@@ -1958,6 +1946,18 @@ _meta_table = {
                 ''',
                 'qos',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions', 
+                [], [], 
+                '''                Monitor Session container for this template
+                ''',
+                'span_monitor_sessions',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Assign the interface to a VRF 
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg',
             'ip-subscriber',
@@ -1986,12 +1986,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
-                '''                Session Name
-                ''',
-                'session_name',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
@@ -2004,6 +1998,12 @@ _meta_table = {
                 '''                Enable port level traffic mirroring
                 ''',
                 'port_level_enable',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 79)], [], 
+                '''                Session Name
+                ''',
+                'session_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -2022,12 +2022,11 @@ _meta_table = {
                 ''',
                 'session_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', True),
-            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
-                '''                Mirror a specified number of bytes from start of
-                packet
+            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ACL matching for traffic mirroring
                 ''',
-                'mirror_first',
+                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('attachment', REFERENCE_CLASS, 'Attachment' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment', 
                 [], [], 
@@ -2035,17 +2034,18 @@ _meta_table = {
                 ''',
                 'attachment',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
+                [(1, 10000)], [], 
+                '''                Mirror a specified number of bytes from start of
+                packet
+                ''',
+                'mirror_first',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
                 'mirror_interval',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('acl', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ACL matching for traffic mirroring
-                ''',
-                'acl',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg',
@@ -2082,13 +2082,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Outbound packets.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -2100,6 +2093,13 @@ _meta_table = {
                 '''                Not supported (Leave unspecified).
                 ''',
                 'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Outbound packets.
+                ''',
+                'name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -2118,14 +2118,6 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                IPv4 Packet Filter Name to be applied to
-                Inbound packets NOTE: This parameter is
-                mandatory if 'CommonACLName' is not specified.
-                ''',
-                'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('hardware-count', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Not supported (Leave unspecified).
@@ -2138,6 +2130,14 @@ _meta_table = {
                 ''',
                 'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                IPv4 Packet Filter Name to be applied to
+                Inbound packets NOTE: This parameter is
+                mandatory if 'CommonACLName' is not specified.
+                ''',
+                'name',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
             'inbound',
@@ -2149,19 +2149,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter',
             False, 
             [
-            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound', 
-                [], [], 
-                '''                IPv4 Packet filter to be applied to outbound
-                packets
-                ''',
-                'outbound',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('inbound', REFERENCE_CLASS, 'Inbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound', 
                 [], [], 
                 '''                IPv4 Packet filter to be applied to inbound
                 packets
                 ''',
                 'inbound',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('outbound', REFERENCE_CLASS, 'Outbound' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound', 
+                [], [], 
+                '''                IPv4 Packet filter to be applied to outbound
+                packets
+                ''',
+                'outbound',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -2180,6 +2180,12 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
@@ -2187,12 +2193,6 @@ _meta_table = {
                 'CommonACLName' is not specified.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -2211,18 +2211,18 @@ _meta_table = {
                 ''',
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Not supported (Leave unspecified).
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                IPv6 Packet Filter Name to be applied to
                 Outbound packets.
                 ''',
                 'name',
-                'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('interface-statistics', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'interface_statistics',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-subscriber-cfg',
@@ -2260,6 +2260,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network',
             False, 
             [
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(68, 65535)], [], 
+                '''                The IP Maximum Transmission Unit
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
+            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if enabled, FALSE if disabled
+                ''',
+                'rpf',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Enable IP processing without an explicit
@@ -2267,23 +2279,11 @@ _meta_table = {
                 ''',
                 'unnumbered',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(68, 65535)], [], 
-                '''                The IP Maximum Transmission Unit
-                ''',
-                'mtu',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if enabled, FALSE if disabled
                 ''',
                 'unreachables',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('rpf', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE if enabled, FALSE if disabled
-                ''',
-                'rpf',
                 'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ma-subscriber-cfg',
@@ -2366,17 +2366,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix',
             False, 
             [
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
-                '''                IPv6 framed prefix length
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                IPV6 framed prefix address
                 ''',
                 'prefix',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 128)], [], 
+                '''                IPv6 framed prefix length
+                ''',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -2429,30 +2429,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor',
             False, 
             [
-            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix', 
-                [], [], 
-                '''                Set the IPv6 framed ipv6 prefix for a
-                subscriber interface 
-                ''',
-                'framed_prefix',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('duplicate-address-detection', REFERENCE_CLASS, 'DuplicateAddressDetection' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection', 
                 [], [], 
                 '''                Duplicate Address Detection (DAD)
                 ''',
                 'duplicate_address_detection',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial', 
+            _MetaInfoClassMember('framed-prefix', REFERENCE_CLASS, 'FramedPrefix' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix', 
                 [], [], 
-                '''                IPv6 ND RA Initial
+                '''                Set the IPv6 framed ipv6 prefix for a
+                subscriber interface 
                 ''',
-                'ra_initial',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
-                [], [], 
-                '''                IPv6 ND RA HopLimit
-                ''',
-                'ra_hop_limit',
+                'framed_prefix',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('framed-prefix-pool', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -2468,6 +2456,19 @@ _meta_table = {
                 ''',
                 'managed_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 3600000)], [], 
+                '''                Set advertised NS retransmission interval in
+                milliseconds
+                ''',
+                'ns_interval',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                NUD enable
+                ''',
+                'nud_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('other-config', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Host to use stateful protocol for non-address
@@ -2475,17 +2476,17 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
-                '''                Start RA on ipv6-enable config
+                '''                IPv6 ND RA HopLimit
                 ''',
-                'start_ra_on_ipv6_enable',
+                'ra_hop_limit',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('nud-enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-initial', REFERENCE_CLASS, 'RaInitial' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial', 
                 [], [], 
-                '''                NUD enable
+                '''                IPv6 ND RA Initial
                 ''',
-                'nud_enable',
+                'ra_initial',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-interval', ATTRIBUTE, 'int' , None, None, 
                 [(3, 1800)], [], 
@@ -2501,23 +2502,11 @@ _meta_table = {
                 ''',
                 'ra_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
-                [], [], 
-                '''                RA Router Preference
-                ''',
-                'router_preference',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable suppress IPv6 router advertisement
                 ''',
                 'ra_suppress',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable RA unicast Flag
-                ''',
-                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('ra-suppress-mtu', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -2525,11 +2514,11 @@ _meta_table = {
                 ''',
                 'ra_suppress_mtu',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('ra-unicast', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Suppress cache learning flag
+                '''                Enable RA unicast Flag
                 ''',
-                'suppress_cache_learning',
+                'ra_unicast',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('reachable-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 3600000)], [], 
@@ -2538,12 +2527,23 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 3600000)], [], 
-                '''                Set advertised NS retransmission interval in
-                milliseconds
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
+                [], [], 
+                '''                RA Router Preference
                 ''',
-                'ns_interval',
+                'router_preference',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('start-ra-on-ipv6-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Start RA on ipv6-enable config
+                ''',
+                'start_ra_on_ipv6_enable',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('suppress-cache-learning', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Suppress cache learning flag
+                ''',
+                'suppress_cache_learning',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-subscriber-cfg',
@@ -2596,23 +2596,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2627,14 +2624,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -2647,23 +2647,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output',
             False, 
             [
-            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of policy-map
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
                 ''',
-                'policy_name',
+                'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the SPI
-                ''',
-                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2678,14 +2675,17 @@ _meta_table = {
                 ''',
                 'merge_id',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                TRUE for account stats enabled for
-                service-policy applied on dynamic template.
-                Note: account stats not supported for
-                subscriber type 'ppp' and 'ipsubscriber'.
+                '''                Name of policy-map
                 ''',
-                'account_stats',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -2727,17 +2727,17 @@ _meta_table = {
                 ''',
                 'aal',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
-                [], [], 
-                '''                Specify encapsulation type
-                ''',
-                'encapsulation',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                ATM cell tax to L2 overhead
                 ''',
                 'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
                 [(-63, 63)], [], 
@@ -2774,13 +2774,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy', 
-                [], [], 
-                '''                Service policy to be applied in ingress/egress
-                direction
-                ''',
-                'service_policy',
-                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account', 
                 [], [], 
                 '''                QoS L2 overhead accounting
@@ -2792,6 +2785,13 @@ _meta_table = {
                 '''                QoS to be applied in egress direction
                 ''',
                 'output',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
             'Cisco-IOS-XR-qos-ma-cfg',
@@ -2810,18 +2810,12 @@ _meta_table = {
                 ''',
                 'template_name',
                 'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', True),
-            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions', 
+            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network', 
                 [], [], 
-                '''                Monitor Session container for this template
+                '''                Interface IPv4 Network configuration data
                 ''',
-                'span_monitor_sessions',
-                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Assign the interface to a VRF 
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
+                'ipv4_network',
+                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv4-packet-filter', REFERENCE_CLASS, 'Ipv4PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter', 
                 [], [], 
                 '''                IPv4 Packet Filtering configuration for the
@@ -2829,6 +2823,18 @@ _meta_table = {
                 ''',
                 'ipv4_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_neighbor',
+                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
+            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network', 
+                [], [], 
+                '''                Interface IPv6 Network configuration data
+                ''',
+                'ipv6_network',
+                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
             _MetaInfoClassMember('ipv6-packet-filter', REFERENCE_CLASS, 'Ipv6PacketFilter' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter', 
                 [], [], 
                 '''                IPv6 Packet Filtering configuration for the
@@ -2836,24 +2842,6 @@ _meta_table = {
                 ''',
                 'ipv6_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv4-network', REFERENCE_CLASS, 'Ipv4Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network', 
-                [], [], 
-                '''                Interface IPv4 Network configuration data
-                ''',
-                'ipv4_network',
-                'Cisco-IOS-XR-ipv4-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-network', REFERENCE_CLASS, 'Ipv6Network' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_network',
-                'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('ipv6-neighbor', REFERENCE_CLASS, 'Ipv6Neighbor' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor', 
-                [], [], 
-                '''                Interface IPv6 Network configuration data
-                ''',
-                'ipv6_neighbor',
-                'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
             _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Pbr', 
                 [], [], 
                 '''                Dynamic Template PBR configuration
@@ -2866,6 +2854,18 @@ _meta_table = {
                 ''',
                 'qos',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions', 
+                [], [], 
+                '''                Monitor Session container for this template
+                ''',
+                'span_monitor_sessions',
+                'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Assign the interface to a VRF 
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-infra-rsi-subscriber-cfg', False),
             ],
             'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg',
             'subscriber-service',
@@ -2894,17 +2894,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate',
             False, 
             [
-            _MetaInfoClassMember('ppps', REFERENCE_CLASS, 'Ppps' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps', 
-                [], [], 
-                '''                Templates of the PPP Type
-                ''',
-                'ppps',
-                'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', False),
             _MetaInfoClassMember('ip-subscribers', REFERENCE_CLASS, 'IpSubscribers' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers', 
                 [], [], 
                 '''                The IP Subscriber Template Table
                 ''',
                 'ip_subscribers',
+                'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', False),
+            _MetaInfoClassMember('ppps', REFERENCE_CLASS, 'Ppps' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps', 
+                [], [], 
+                '''                Templates of the PPP Type
+                ''',
+                'ppps',
                 'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg', False),
             _MetaInfoClassMember('subscriber-services', REFERENCE_CLASS, 'SubscriberServices' , 'ydk.models.subscriber.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices', 
                 [], [], 

@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -32,6 +32,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232',
             False, 
             [
+            _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Inbound/Outbound baud rate in bps
+                ''',
+                'baud_rate',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('data-bits', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of databits
@@ -44,29 +50,17 @@ _meta_table = {
                 ''',
                 'exec_disabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Framing error count
+                ''',
+                'framing_error_count',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('hardware-flow-control-status', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Hardware flow control status
                 ''',
                 'hardware_flow_control_status',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Parity status
-                ''',
-                'parity_status',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Inbound/Outbound baud rate in bps
-                ''',
-                'baud_rate',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of stopbits
-                ''',
-                'stop_bits',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('overrun-error-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -74,17 +68,23 @@ _meta_table = {
                 ''',
                 'overrun_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Framing error count
-                ''',
-                'framing_error_count',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-error-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Parity error count
                 ''',
                 'parity_error_count',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Parity status
+                ''',
+                'parity_status',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of stopbits
+                ''',
+                'stop_bits',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -97,23 +97,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics',
             False, 
             [
-            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Terminal length
+                '''                Absolute timeout period
                 ''',
-                'terminal_length',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Line width
-                ''',
-                'terminal_width',
+                'absolute_timeout',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('async-interface', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Usable as async interface
                 ''',
                 'async_interface',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                DNS resolution enabled
+                ''',
+                'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
                 [(-128, 127)], [], 
@@ -127,11 +127,11 @@ _meta_table = {
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                DNS resolution enabled
+            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                TTY idle time
                 ''',
-                'domain_lookup_enabled',
+                'idle_time',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('motd-banner-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -145,23 +145,23 @@ _meta_table = {
                 ''',
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Terminal length
+                ''',
+                'terminal_length',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Terminal type
                 ''',
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Absolute timeout period
+                '''                Line width
                 ''',
-                'absolute_timeout',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                TTY idle time
-                ''',
-                'idle_time',
+                'terminal_width',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -208,17 +208,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics',
             False, 
             [
-            _MetaInfoClassMember('rs232', REFERENCE_CLASS, 'Rs232' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232', 
+            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa', 
                 [], [], 
-                '''                RS232 statistics of console line
+                '''                AAA related statistics
                 ''',
-                'rs232',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics', 
-                [], [], 
-                '''                General statistics of line
-                ''',
-                'general_statistics',
+                'aaa',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec', 
                 [], [], 
@@ -226,11 +220,17 @@ _meta_table = {
                 ''',
                 'exec_',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa', 
+            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics', 
                 [], [], 
-                '''                AAA related statistics
+                '''                General statistics of line
                 ''',
-                'aaa',
+                'general_statistics',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('rs232', REFERENCE_CLASS, 'Rs232' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232', 
+                [], [], 
+                '''                RS232 statistics of console line
+                ''',
+                'rs232',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -260,17 +260,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
-                [], [], 
-                '''                application running of on the tty line
-                ''',
-                'operation',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
+                [], [], 
+                '''                application running of on the tty line
+                ''',
+                'operation',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -283,18 +283,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State',
             False, 
             [
+            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General', 
+                [], [], 
+                '''                General information
+                ''',
+                'general',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('template', REFERENCE_CLASS, 'Template' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template', 
                 [], [], 
                 '''                Information related to template applied to the
                 line
                 ''',
                 'template',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General', 
-                [], [], 
-                '''                General information
-                ''',
-                'general',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -307,11 +307,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput',
             False, 
             [
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
-                [], [], 
-                '''                Choose transport protocols
+            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Not used
                 ''',
-                'select',
+                'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
@@ -325,11 +325,11 @@ _meta_table = {
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Not used
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
+                [], [], 
+                '''                Choose transport protocols
                 ''',
-                'none',
+                'select',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -342,12 +342,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration',
             False, 
             [
-            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput', 
+            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Protocols to use when connecting to the
-                terminal server
+                '''                ACL for inbound traffic
                 ''',
-                'transport_input',
+                'acl_in',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('acl-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -355,11 +354,12 @@ _meta_table = {
                 ''',
                 'acl_out',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput', 
                 [], [], 
-                '''                ACL for inbound traffic
+                '''                Protocols to use when connecting to the
+                terminal server
                 ''',
-                'acl_in',
+                'transport_input',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -389,6 +389,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine',
             False, 
             [
+            _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration', 
+                [], [], 
+                '''                Configuration information of the line
+                ''',
+                'configuration',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('console-statistics', REFERENCE_CLASS, 'ConsoleStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics', 
                 [], [], 
                 '''                Statistics of the console line
@@ -400,12 +406,6 @@ _meta_table = {
                 '''                Line state information
                 ''',
                 'state',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration', 
-                [], [], 
-                '''                Configuration information of the line
-                ''',
-                'configuration',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -458,17 +458,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.VtyStatistics.Connection',
             False, 
             [
-            _MetaInfoClassMember('incoming-host-address', ATTRIBUTE, 'str' , None, None, 
-                [(0, 46)], [], 
-                '''                Incoming host address(max)
-                ''',
-                'incoming_host_address',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('host-address-family', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Incoming host address family
                 ''',
                 'host_address_family',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('incoming-host-address', ATTRIBUTE, 'str' , None, None, 
+                [(0, 46)], [], 
+                '''                Incoming host address(max)
+                ''',
+                'incoming_host_address',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -487,23 +487,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics',
             False, 
             [
-            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Terminal length
+                '''                Absolute timeout period
                 ''',
-                'terminal_length',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Line width
-                ''',
-                'terminal_width',
+                'absolute_timeout',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('async-interface', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Usable as async interface
                 ''',
                 'async_interface',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                DNS resolution enabled
+                ''',
+                'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
                 [(-128, 127)], [], 
@@ -517,11 +517,11 @@ _meta_table = {
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                DNS resolution enabled
+            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                TTY idle time
                 ''',
-                'domain_lookup_enabled',
+                'idle_time',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('motd-banner-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -535,23 +535,23 @@ _meta_table = {
                 ''',
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Terminal length
+                ''',
+                'terminal_length',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Terminal type
                 ''',
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Absolute timeout period
+                '''                Line width
                 ''',
-                'absolute_timeout',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                TTY idle time
-                ''',
-                'idle_time',
+                'terminal_width',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -598,17 +598,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.VtyStatistics',
             False, 
             [
+            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Aaa', 
+                [], [], 
+                '''                AAA related statistics
+                ''',
+                'aaa',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('connection', REFERENCE_CLASS, 'Connection' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Connection', 
                 [], [], 
                 '''                Connection related statistics
                 ''',
                 'connection',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics', 
-                [], [], 
-                '''                General statistics of line
-                ''',
-                'general_statistics',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Exec', 
                 [], [], 
@@ -616,11 +616,11 @@ _meta_table = {
                 ''',
                 'exec_',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Aaa', 
+            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics', 
                 [], [], 
-                '''                AAA related statistics
+                '''                General statistics of line
                 ''',
-                'aaa',
+                'general_statistics',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -650,17 +650,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
-                [], [], 
-                '''                application running of on the tty line
-                ''',
-                'operation',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
+                [], [], 
+                '''                application running of on the tty line
+                ''',
+                'operation',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -673,18 +673,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.State',
             False, 
             [
+            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.State.General', 
+                [], [], 
+                '''                General information
+                ''',
+                'general',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('template', REFERENCE_CLASS, 'Template' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.State.Template', 
                 [], [], 
                 '''                Information related to template applied to the
                 line
                 ''',
                 'template',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.State.General', 
-                [], [], 
-                '''                General information
-                ''',
-                'general',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -697,11 +697,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput',
             False, 
             [
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
-                [], [], 
-                '''                Choose transport protocols
+            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Not used
                 ''',
-                'select',
+                'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
@@ -715,11 +715,11 @@ _meta_table = {
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Not used
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
+                [], [], 
+                '''                Choose transport protocols
                 ''',
-                'none',
+                'select',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -732,12 +732,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration',
             False, 
             [
-            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput', 
+            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Protocols to use when connecting to the
-                terminal server
+                '''                ACL for inbound traffic
                 ''',
-                'transport_input',
+                'acl_in',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('acl-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -745,11 +744,12 @@ _meta_table = {
                 ''',
                 'acl_out',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput', 
                 [], [], 
-                '''                ACL for inbound traffic
+                '''                Protocols to use when connecting to the
+                terminal server
                 ''',
-                'acl_in',
+                'transport_input',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -779,7 +779,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAfIdBase_Identity' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'HostAfIdBase_Identity', 
+            _MetaInfoClassMember('af-name', REFERENCE_IDENTITY_CLASS, 'HostAfIdBaseIdentity' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'HostAfIdBaseIdentity', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -808,17 +808,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.Sessions.OutgoingConnection',
             False, 
             [
-            _MetaInfoClassMember('host-address', REFERENCE_CLASS, 'HostAddress' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress', 
-                [], [], 
-                '''                Host address
-                ''',
-                'host_address',
-                'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('connection-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Connection ID [1-20]
                 ''',
                 'connection_id',
+                'Cisco-IOS-XR-tty-management-oper', False),
+            _MetaInfoClassMember('host-address', REFERENCE_CLASS, 'HostAddress' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress', 
+                [], [], 
+                '''                Host address
+                ''',
+                'host_address',
                 'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -826,11 +826,12 @@ _meta_table = {
                 ''',
                 'host_name',
                 'Cisco-IOS-XR-tty-management-oper', False),
-            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'TransportServiceEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'TransportServiceEnum', 
-                [], [], 
-                '''                Session transport protocol
+            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Elapsed time since session was suspended (in
+                seconds)
                 ''',
-                'transport_protocol',
+                'idle_time',
                 'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('is-last-active-session', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -838,12 +839,11 @@ _meta_table = {
                 ''',
                 'is_last_active_session',
                 'Cisco-IOS-XR-tty-management-oper', False),
-            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Elapsed time since session was suspended (in
-                seconds)
+            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'TransportServiceEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'TransportServiceEnum', 
+                [], [], 
+                '''                Session transport protocol
                 ''',
-                'idle_time',
+                'transport_protocol',
                 'Cisco-IOS-XR-tty-management-oper', False),
             ],
             'Cisco-IOS-XR-tty-management-oper',
@@ -879,18 +879,6 @@ _meta_table = {
                 ''',
                 'line_number',
                 'Cisco-IOS-XR-tty-server-oper', True),
-            _MetaInfoClassMember('vty-statistics', REFERENCE_CLASS, 'VtyStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics', 
-                [], [], 
-                '''                Statistics of the VTY line
-                ''',
-                'vty_statistics',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.State', 
-                [], [], 
-                '''                Line state information
-                ''',
-                'state',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.Configuration', 
                 [], [], 
                 '''                Configuration information of the line
@@ -903,6 +891,18 @@ _meta_table = {
                 ''',
                 'sessions',
                 'Cisco-IOS-XR-tty-management-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.State', 
+                [], [], 
+                '''                Line state information
+                ''',
+                'state',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('vty-statistics', REFERENCE_CLASS, 'VtyStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics', 
+                [], [], 
+                '''                Statistics of the VTY line
+                ''',
+                'vty_statistics',
+                'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
             'vty-line',
@@ -931,6 +931,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232',
             False, 
             [
+            _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Inbound/Outbound baud rate in bps
+                ''',
+                'baud_rate',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('data-bits', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of databits
@@ -943,29 +949,17 @@ _meta_table = {
                 ''',
                 'exec_disabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Framing error count
+                ''',
+                'framing_error_count',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('hardware-flow-control-status', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Hardware flow control status
                 ''',
                 'hardware_flow_control_status',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Parity status
-                ''',
-                'parity_status',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Inbound/Outbound baud rate in bps
-                ''',
-                'baud_rate',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of stopbits
-                ''',
-                'stop_bits',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('overrun-error-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -973,17 +967,23 @@ _meta_table = {
                 ''',
                 'overrun_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Framing error count
-                ''',
-                'framing_error_count',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-error-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Parity error count
                 ''',
                 'parity_error_count',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Parity status
+                ''',
+                'parity_status',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of stopbits
+                ''',
+                'stop_bits',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -996,23 +996,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics',
             False, 
             [
-            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Terminal length
+                '''                Absolute timeout period
                 ''',
-                'terminal_length',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Line width
-                ''',
-                'terminal_width',
+                'absolute_timeout',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('async-interface', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Usable as async interface
                 ''',
                 'async_interface',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                DNS resolution enabled
+                ''',
+                'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
                 [(-128, 127)], [], 
@@ -1026,11 +1026,11 @@ _meta_table = {
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('domain-lookup-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                DNS resolution enabled
+            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                TTY idle time
                 ''',
-                'domain_lookup_enabled',
+                'idle_time',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('motd-banner-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1044,23 +1044,23 @@ _meta_table = {
                 ''',
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Terminal length
+                ''',
+                'terminal_length',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Terminal type
                 ''',
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Absolute timeout period
+                '''                Line width
                 ''',
-                'absolute_timeout',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                TTY idle time
-                ''',
-                'idle_time',
+                'terminal_width',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1107,17 +1107,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics',
             False, 
             [
-            _MetaInfoClassMember('rs232', REFERENCE_CLASS, 'Rs232' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232', 
+            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa', 
                 [], [], 
-                '''                RS232 statistics of console line
+                '''                AAA related statistics
                 ''',
-                'rs232',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics', 
-                [], [], 
-                '''                General statistics of line
-                ''',
-                'general_statistics',
+                'aaa',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec', 
                 [], [], 
@@ -1125,11 +1119,17 @@ _meta_table = {
                 ''',
                 'exec_',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa', 
+            _MetaInfoClassMember('general-statistics', REFERENCE_CLASS, 'GeneralStatistics' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics', 
                 [], [], 
-                '''                AAA related statistics
+                '''                General statistics of line
                 ''',
-                'aaa',
+                'general_statistics',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('rs232', REFERENCE_CLASS, 'Rs232' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232', 
+                [], [], 
+                '''                RS232 statistics of console line
+                ''',
+                'rs232',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1159,17 +1159,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
-                [], [], 
-                '''                application running of on the tty line
-                ''',
-                'operation',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
+                [], [], 
+                '''                application running of on the tty line
+                ''',
+                'operation',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1182,18 +1182,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State',
             False, 
             [
+            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General', 
+                [], [], 
+                '''                General information
+                ''',
+                'general',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('template', REFERENCE_CLASS, 'Template' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template', 
                 [], [], 
                 '''                Information related to template applied to the
                 line
                 ''',
                 'template',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General', 
-                [], [], 
-                '''                General information
-                ''',
-                'general',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1206,11 +1206,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput',
             False, 
             [
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
-                [], [], 
-                '''                Choose transport protocols
+            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Not used
                 ''',
-                'select',
+                'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
@@ -1224,11 +1224,11 @@ _meta_table = {
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Not used
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
+                [], [], 
+                '''                Choose transport protocols
                 ''',
-                'none',
+                'select',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1241,12 +1241,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration',
             False, 
             [
-            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput', 
+            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Protocols to use when connecting to the
-                terminal server
+                '''                ACL for inbound traffic
                 ''',
-                'transport_input',
+                'acl_in',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('acl-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1254,11 +1253,12 @@ _meta_table = {
                 ''',
                 'acl_out',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput', 
                 [], [], 
-                '''                ACL for inbound traffic
+                '''                Protocols to use when connecting to the
+                terminal server
                 ''',
-                'acl_in',
+                'transport_input',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1294,17 +1294,17 @@ _meta_table = {
                 ''',
                 'auxiliary_statistics',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State', 
-                [], [], 
-                '''                Line state information
-                ''',
-                'state',
-                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration', 
                 [], [], 
                 '''                Configuration information of the line
                 ''',
                 'configuration',
+                'Cisco-IOS-XR-tty-server-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State', 
+                [], [], 
+                '''                Line state information
+                ''',
+                'state',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',
@@ -1357,6 +1357,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty',
             False, 
             [
+            _MetaInfoClassMember('auxiliary-nodes', REFERENCE_CLASS, 'AuxiliaryNodes' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes', 
+                [], [], 
+                '''                List of Nodes attached with an auxiliary line
+                ''',
+                'auxiliary_nodes',
+                'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('console-nodes', REFERENCE_CLASS, 'ConsoleNodes' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes', 
                 [], [], 
                 '''                List of Nodes for console
@@ -1368,12 +1374,6 @@ _meta_table = {
                 '''                List of VTY lines
                 ''',
                 'vty_lines',
-                'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('auxiliary-nodes', REFERENCE_CLASS, 'AuxiliaryNodes' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes', 
-                [], [], 
-                '''                List of Nodes attached with an auxiliary line
-                ''',
-                'auxiliary_nodes',
                 'Cisco-IOS-XR-tty-server-oper', False),
             ],
             'Cisco-IOS-XR-tty-server-oper',

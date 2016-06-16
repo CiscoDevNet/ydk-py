@@ -10,7 +10,7 @@ from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaI
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
-from ydk.errors import YPYError, YPYDataValidationError
+from ydk.errors import YPYError, YPYModelError
 from ydk.models import _yang_ns
 
 _meta_table = {
@@ -181,17 +181,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Snmp.TrapRateLimit',
             False, 
             [
-            _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(2, 60)], [], 
-                '''                Trap rate limit sliding window size
-                ''',
-                'window_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-window-traps', ATTRIBUTE, 'int' , None, None, 
                 [(0, 300)], [], 
                 '''                Max number of traps to send in window time
                 ''',
                 'max_window_traps',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
+                [(2, 60)], [], 
+                '''                Trap rate limit sliding window size
+                ''',
+                'window_size',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -221,17 +221,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Distribute',
             False, 
             [
-            _MetaInfoClassMember('throttle', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600)], [], 
-                '''                Seconds
-                ''',
-                'throttle',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Instance ID
                 ''',
                 'instance_id',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('throttle', ATTRIBUTE, 'int' , None, None, 
+                [(1, 3600)], [], 
+                '''                Seconds
+                ''',
+                'throttle',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -244,17 +244,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId',
             False, 
             [
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
-                [], [], 
-                '''                Primary domain ID type
-                ''',
-                'domain_id_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('domain-id-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Primary domain ID value
                 ''',
                 'domain_id_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
+                [], [], 
+                '''                Primary domain ID type
+                ''',
+                'domain_id_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -267,17 +267,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId',
             False, 
             [
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
-                [], [], 
-                '''                Secondary domain ID type
-                ''',
-                'domain_id_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('domain-id-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Secondary domain ID value
                 ''',
                 'domain_id_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
+                [], [], 
+                '''                Secondary domain ID type
+                ''',
+                'domain_id_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -461,33 +461,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Queue',
             False, 
             [
-            _MetaInfoClassMember('dispatch-rate-limited-flush', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('dispatch-incoming', ATTRIBUTE, 'int' , None, None, 
                 [(30, 3000)], [], 
-                '''                Maximum number of continuous rate-limited LSAs
-                processed for FLUSH
+                '''                Maximum number of continuous incoming
+                packet-related events processed
                 ''',
-                'dispatch_rate_limited_flush',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('limit-high', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
-                '''                Hello events are dropped when incoming event
-                queue exceeds this
-                ''',
-                'limit_high',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dispatch-spf-lsa-limit', ATTRIBUTE, 'int' , None, None, 
-                [(30, 3000)], [], 
-                '''                Maximum number of continuous summary or
-                external LSAs processed
-                ''',
-                'dispatch_spf_lsa_limit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('limit-low', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
-                '''                DBDs/Updates are dropped when incoming event
-                queue exceeds this
-                ''',
-                'limit_low',
+                'dispatch_incoming',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dispatch-rate-limited', ATTRIBUTE, 'int' , None, None, 
                 [(30, 3000)], [], 
@@ -496,19 +475,40 @@ _meta_table = {
                 ''',
                 'dispatch_rate_limited',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('dispatch-rate-limited-flush', ATTRIBUTE, 'int' , None, None, 
+                [(30, 3000)], [], 
+                '''                Maximum number of continuous rate-limited LSAs
+                processed for FLUSH
+                ''',
+                'dispatch_rate_limited_flush',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('dispatch-spf-lsa-limit', ATTRIBUTE, 'int' , None, None, 
+                [(30, 3000)], [], 
+                '''                Maximum number of continuous summary or
+                external LSAs processed
+                ''',
+                'dispatch_spf_lsa_limit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('limit-high', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 30000)], [], 
+                '''                Hello events are dropped when incoming event
+                queue exceeds this
+                ''',
+                'limit_high',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('limit-low', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 30000)], [], 
+                '''                DBDs/Updates are dropped when incoming event
+                queue exceeds this
+                ''',
+                'limit_low',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('limit-medium', ATTRIBUTE, 'int' , None, None, 
                 [(1000, 30000)], [], 
                 '''                LSA ACKs are dropped when incoming event queue
                 exceeds this
                 ''',
                 'limit_medium',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dispatch-incoming', ATTRIBUTE, 'int' , None, None, 
-                [(30, 3000)], [], 
-                '''                Maximum number of continuous incoming
-                packet-related events processed
-                ''',
-                'dispatch_incoming',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -521,19 +521,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -541,6 +541,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -556,19 +563,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -581,19 +581,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -601,6 +601,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -616,19 +623,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -641,19 +641,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -661,6 +661,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -676,19 +683,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -701,6 +701,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways',
             False, 
             [
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Override external-lsa metric with max-metric
+                value
+                ''',
+                'external_lsa',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
+                ''',
+                'external_lsa_maximum_metric',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Set maximum metric for stub links in
@@ -721,20 +735,6 @@ _meta_table = {
                 16711680)
                 ''',
                 'summary_lsa_maximum_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
-                ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -747,19 +747,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -767,6 +767,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -782,19 +789,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -807,6 +807,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxMetric',
             False, 
             [
+            _MetaInfoClassMember('max-metric-always', REFERENCE_CLASS, 'MaxMetricAlways' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways', 
+                [], [], 
+                '''                Set maximum metric always configuration
+                ''',
+                'max_metric_always',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric-no-abr-off', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Block ABR-disable mode entry while in
+                max-metric mode
+                ''',
+                'max_metric_no_abr_off',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric-on-proc-migration', REFERENCE_CLASS, 'MaxMetricOnProcMigration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration', 
+                [], [], 
+                '''                Set maximum metric on-proc-migration
+                configuration
+                ''',
+                'max_metric_on_proc_migration',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-metric-on-proc-restart', REFERENCE_CLASS, 'MaxMetricOnProcRestart' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart', 
                 [], [], 
                 '''                Set maximum metric on-proc-restart
@@ -820,31 +840,11 @@ _meta_table = {
                 ''',
                 'max_metric_on_startup',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-on-proc-migration', REFERENCE_CLASS, 'MaxMetricOnProcMigration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration', 
-                [], [], 
-                '''                Set maximum metric on-proc-migration
-                configuration
-                ''',
-                'max_metric_on_proc_migration',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-always', REFERENCE_CLASS, 'MaxMetricAlways' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways', 
-                [], [], 
-                '''                Set maximum metric always configuration
-                ''',
-                'max_metric_always',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-metric-on-switchover', REFERENCE_CLASS, 'MaxMetricOnSwitchover' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover', 
                 [], [], 
                 '''                Set maximum metric on-switchover configuration
                 ''',
                 'max_metric_on_switchover',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-no-abr-off', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Block ABR-disable mode entry while in
-                max-metric mode
-                ''',
-                'max_metric_no_abr_off',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -857,38 +857,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Nsf',
             False, 
             [
-            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(90, 1800)], [], 
-                '''                Maximum route lifetime following restart in
-                seconds
-                ''',
-                'lifetime',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
-                [], [], 
-                '''                Enable IETF Non Stop Forwarding
-                ''',
-                'ietf',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
-                [], [], 
-                '''                Disable helper support role for IETF Non Stop
-                Forwarding
-                ''',
-                'ietf_support_role',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsfEnum', 
                 [], [], 
                 '''                Enable Cisco Non Stop Forwarding
                 ''',
                 'cisco',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(90, 3600)], [], 
-                '''                Minimum interval between Non Stop Forwarding
-                restarts in seconds
-                ''',
-                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('flush-delay-time', ATTRIBUTE, 'int' , None, None, 
                 [(1, 3600)], [], 
@@ -897,11 +870,38 @@ _meta_table = {
                 ''',
                 'flush_delay_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
+                [], [], 
+                '''                Enable IETF Non Stop Forwarding
+                ''',
+                'ietf',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ietf-strict-lsa-checking', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable Strict LSA checking of IETF NSF
                 ''',
                 'ietf_strict_lsa_checking',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
+                [], [], 
+                '''                Disable helper support role for IETF Non Stop
+                Forwarding
+                ''',
+                'ietf_support_role',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(90, 3600)], [], 
+                '''                Minimum interval between Non Stop Forwarding
+                restarts in seconds
+                ''',
+                'interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(90, 1800)], [], 
+                '''                Maximum route lifetime following restart in
+                seconds
+                ''',
+                'lifetime',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -960,12 +960,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -978,6 +972,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1060,11 +1060,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -1073,11 +1073,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1206,19 +1206,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1231,17 +1231,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1323,6 +1323,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -1335,27 +1356,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -1367,6 +1367,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -1378,13 +1385,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1444,24 +1444,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope',
             False, 
             [
-            _MetaInfoClassMember('srgb', REFERENCE_CLASS, 'Srgb' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication', 
                 [], [], 
-                '''                Segment Routing Global Block configuration
+                '''                Authentication
                 ''',
-                'srgb',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd', 
                 [], [], 
@@ -1469,120 +1456,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
-                [], [], 
-                '''                segment-routing configuration Applicable only in
-                Default VRF
-                ''',
-                'segment_routing',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1597,6 +1481,62 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -1604,12 +1544,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -1618,23 +1596,45 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing configuration Applicable only in
+                Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('srgb', REFERENCE_CLASS, 'Srgb' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb', 
+                [], [], 
+                '''                Segment Routing Global Block configuration
+                ''',
+                'srgb',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1647,6 +1647,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip',
             False, 
             [
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -1660,18 +1673,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -1684,11 +1685,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -1696,30 +1697,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -1732,6 +1720,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1751,6 +1751,19 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -1764,18 +1777,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -1788,11 +1789,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -1800,30 +1801,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -1837,6 +1825,18 @@ _meta_table = {
                 ''',
                 'ospfnssa_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'application-or-isis-or-ospf',
@@ -1848,13 +1848,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Bgp',
             False, 
             [
-            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                OSPF or ISIS process name or protocol name:
-                bgp, eigrp, connected
-                ''',
-                'instance_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                First half of BGP AS number in XX.YY format.
@@ -1873,6 +1866,26 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                OSPF or ISIS process name or protocol name:
+                bgp, eigrp, connected
+                ''',
+                'instance_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -1886,18 +1899,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -1910,11 +1911,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -1922,30 +1923,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -1958,6 +1946,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -1970,13 +1970,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp',
             False, 
             [
-            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                OSPF or ISIS process name or protocol name:
-                bgp, eigrp, connected
-                ''',
-                'instance_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                First half of BGP AS number in XX.YY format.
@@ -1986,6 +1979,26 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                OSPF or ISIS process name or protocol name:
+                bgp, eigrp, connected
+                ''',
+                'instance_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -1999,18 +2012,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -2023,11 +2024,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -2035,30 +2036,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -2071,6 +2059,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2089,13 +2089,6 @@ _meta_table = {
                 ''',
                 'protocol_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip', REFERENCE_CLASS, 'ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip', 
-                [], [], 
-                '''                connected or static or dagr or subscriber or
-                mobile or rip
-                ''',
-                'connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('application-or-isis-or-ospf', REFERENCE_LIST, 'ApplicationOrIsisOrOspf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf', 
                 [], [], 
                 '''                application or isis or ospf
@@ -2107,6 +2100,13 @@ _meta_table = {
                 '''                bgp
                 ''',
                 'bgp',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip', REFERENCE_CLASS, 'ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip', 
+                [], [], 
+                '''                connected or static or dagr or subscriber or
+                mobile or rip
+                ''',
+                'connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp', REFERENCE_LIST, 'Eigrp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp', 
                 [], [], 
@@ -2192,11 +2192,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MaxLsa',
             False, 
             [
+            _MetaInfoClassMember('max-lsa-ignore-count', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967294)], [], 
+                '''                Set count on how many times adjacencies can be
+                suppressed
+                ''',
+                'max_lsa_ignore_count',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa-ignore-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 35791394)], [], 
+                '''                Set time during which all adjacencies are
+                suppressed
+                ''',
+                'max_lsa_ignore_time',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-lsa-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967294)], [], 
                 '''                Set maximum number of non self-generated LSAs
                 ''',
                 'max_lsa_limit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa-reset-time', ATTRIBUTE, 'int' , None, None, 
+                [(2, 71582788)], [], 
+                '''                Set number of minutes after which ignore-count
+                is reset to zero
+                ''',
+                'max_lsa_reset_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-lsa-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(1, 100)], [], 
@@ -2212,27 +2233,6 @@ _meta_table = {
                 ''',
                 'max_lsa_warning_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-ignore-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 35791394)], [], 
-                '''                Set time during which all adjacencies are
-                suppressed
-                ''',
-                'max_lsa_ignore_time',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-ignore-count', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967294)], [], 
-                '''                Set count on how many times adjacencies can be
-                suppressed
-                ''',
-                'max_lsa_ignore_count',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-reset-time', ATTRIBUTE, 'int' , None, None, 
-                [(2, 71582788)], [], 
-                '''                Set number of minutes after which ignore-count
-                is reset to zero
-                ''',
-                'max_lsa_reset_time',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'max-lsa',
@@ -2244,18 +2244,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AutoCost',
             False, 
             [
-            _MetaInfoClassMember('disable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Disabling auto costing
-                ''',
-                'disable',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967)], [], 
                 '''                The reference bandwidth in terms of Mbits per
                 second
                 ''',
                 'bandwidth',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Disabling auto costing
+                ''',
+                'disable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2268,17 +2268,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable',
             False, 
             [
-            _MetaInfoClassMember('variance', ATTRIBUTE, 'int' , None, None, 
-                [(101, 10000)], [], 
-                '''                Value of variance
-                ''',
-                'variance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('prefix-list-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the Prefix List
                 ''',
                 'prefix_list_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('variance', ATTRIBUTE, 'int' , None, None, 
+                [(101, 10000)], [], 
+                '''                Value of variance
+                ''',
+                'variance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2326,18 +2326,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Ucmp',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_CLASS, 'Enable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable', 
-                [], [], 
-                '''                UCMP feature enable configuration
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('delay-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 5000)], [], 
                 '''                Delay in msecs between primary SPF and UCMP
                 computation
                 ''',
                 'delay_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('enable', REFERENCE_CLASS, 'Enable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable', 
+                [], [], 
+                '''                UCMP feature enable configuration
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces', 
                 [], [], 
@@ -2415,12 +2415,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix',
             False, 
             [
-            _MetaInfoClassMember('tiebreakers', REFERENCE_CLASS, 'Tiebreakers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers', 
-                [], [], 
-                '''                Fast-reroute tiebreakers configurations
-                ''',
-                'tiebreakers',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('load-sharing-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable load sharing between multiple backups
@@ -2433,6 +2427,12 @@ _meta_table = {
                 command
                 ''',
                 'priority',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tiebreakers', REFERENCE_CLASS, 'Tiebreakers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers', 
+                [], [], 
+                '''                Fast-reroute tiebreakers configurations
+                ''',
+                'tiebreakers',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2492,17 +2492,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask',
             False, 
             [
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP summary prefix
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Summary netmask
                 ''',
                 'netmask',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP summary prefix
+                ''',
+                'prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('not-advertise', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2588,17 +2588,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes',
             False, 
             [
-            _MetaInfoClassMember('summary-prefix-data', REFERENCE_CLASS, 'SummaryPrefixData' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData', 
+            _MetaInfoClassMember('netmask', REFERENCE_LIST, 'Netmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask', 
                 [], [], 
-                '''                Data container.
+                '''                keys: netmask
                 ''',
-                'summary_prefix_data',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-and-netmask', REFERENCE_LIST, 'PrefixAndNetmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask', 
-                [], [], 
-                '''                keys: prefix, netmask
-                ''',
-                'prefix_and_netmask',
+                'netmask',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('prefix', REFERENCE_LIST, 'Prefix' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Prefix', 
                 [], [], 
@@ -2606,11 +2600,17 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('netmask', REFERENCE_LIST, 'Netmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask', 
+            _MetaInfoClassMember('prefix-and-netmask', REFERENCE_LIST, 'PrefixAndNetmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask', 
                 [], [], 
-                '''                keys: netmask
+                '''                keys: prefix, netmask
                 ''',
-                'netmask',
+                'prefix_and_netmask',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-prefix-data', REFERENCE_CLASS, 'SummaryPrefixData' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData', 
+                [], [], 
+                '''                Data container.
+                ''',
+                'summary_prefix_data',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2688,11 +2688,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance',
             False, 
             [
-            _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                Distance for intra-area routes
+                '''                Distance for external type 5 and type 7 routes
                 ''',
-                'intra_area',
+                'external_routes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('inter-area', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
@@ -2700,11 +2700,11 @@ _meta_table = {
                 ''',
                 'inter_area',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                Distance for external type 5 and type 7 routes
+                '''                Distance for intra-area routes
                 ''',
-                'external_routes',
+                'intra_area',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2729,17 +2729,17 @@ _meta_table = {
                 ''',
                 'wildcard',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distance', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Administrative distance
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Access Control List name
                 ''',
                 'access_list_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distance', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Administrative distance
+                ''',
+                'distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2770,11 +2770,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Distance',
             False, 
             [
-            _MetaInfoClassMember('ospf-distance', REFERENCE_CLASS, 'OspfDistance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance', 
-                [], [], 
-                '''                OSPF distance configuration
+            _MetaInfoClassMember('admin-distance', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Define an administrative distance
                 ''',
-                'ospf_distance',
+                'admin_distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ip-distances', REFERENCE_CLASS, 'IpDistances' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances', 
                 [], [], 
@@ -2783,11 +2783,11 @@ _meta_table = {
                 ''',
                 'ip_distances',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('admin-distance', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Define an administrative distance
+            _MetaInfoClassMember('ospf-distance', REFERENCE_CLASS, 'OspfDistance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance', 
+                [], [], 
+                '''                OSPF distance configuration
                 ''',
-                'admin_distance',
+                'ospf_distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2870,11 +2870,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -2883,11 +2883,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -2936,23 +2936,17 @@ _meta_table = {
                 ''',
                 'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal', 
                 [], [], 
                 '''                Interval after which a neighbor is declared dead
                 ''',
                 'dead_interval_minimal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -2966,6 +2960,12 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3065,11 +3065,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -3078,11 +3078,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3119,24 +3119,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope',
             False, 
             [
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Address of the remote sham-link endpoint
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint.
-                Enter an IP Address
+                '''                Address of the local sham-link endpoint
                 ''',
-                'source',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication', 
+                [], [], 
+                '''                Authentication
+                ''',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -3144,29 +3143,17 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication', 
+            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
                 [], [], 
-                '''                Authentication
+                '''                Interval after which a neighbor is declared dead
                 ''',
-                'authentication',
+                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Interval between HELLO packets in seconds
                 ''',
                 'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
-                [], [], 
-                '''                Interval after which a neighbor is declared dead
-                ''',
-                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -3180,6 +3167,19 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Address of the local sham-link endpoint.
+                Enter an IP Address
+                ''',
+                'source',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3232,12 +3232,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -3250,6 +3244,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3332,11 +3332,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -3345,11 +3345,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3478,19 +3478,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3503,17 +3503,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3595,6 +3595,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -3607,27 +3628,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -3639,6 +3639,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -3650,13 +3657,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3716,18 +3716,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope',
             False, 
             [
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd', 
                 [], [], 
@@ -3735,99 +3728,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3842,6 +3753,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -3849,12 +3809,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -3863,23 +3861,25 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -3892,18 +3892,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                SID value
-                ''',
-                'sid_value',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('explicit-null', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Force Penultimate Hop To Send Explicit-Null
                 Label
                 ''',
                 'explicit_null',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                SID value
+                ''',
+                'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
@@ -3945,12 +3945,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -3963,6 +3957,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4045,11 +4045,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -4058,11 +4058,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4191,19 +4191,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4216,17 +4216,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4308,6 +4308,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -4320,27 +4341,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -4352,6 +4352,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -4363,13 +4370,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4388,18 +4388,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -4413,6 +4401,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4496,24 +4496,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication', 
                 [], [], 
-                '''                Prefix SID
+                '''                Authentication
                 ''',
-                'prefix_sid',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd', 
                 [], [], 
@@ -4521,105 +4508,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4634,6 +4533,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -4641,12 +4589,62 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid', 
+                [], [], 
+                '''                Prefix SID
+                ''',
+                'prefix_sid',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -4655,29 +4653,31 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF flood reduction
-                ''',
-                'flood_reduction',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security', 
+                [], [], 
+                '''                Container class for security related
+                configuration parameters
+                ''',
+                'security',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4800,11 +4800,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -4813,11 +4813,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4836,18 +4836,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -4861,6 +4849,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -4944,12 +4944,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -4957,48 +4956,11 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
+                '''                Interface fallback cost
                 ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5013,6 +4975,44 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time in seconds between retransmitting lost link
@@ -5020,17 +5020,17 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5106,17 +5106,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa',
             False, 
             [
-            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                No redistribution into this NSSA area
-                ''',
-                'no_redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Originate Type 7 default into NSSA area
                 ''',
                 'default_info_originate',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
+                [], [], 
+                '''                OSPF External metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                No redistribution into this NSSA area
+                ''',
+                'no_redistribution',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-summary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5129,12 +5135,6 @@ _meta_table = {
                 '''                OSPF default metric
                 ''',
                 'nssa_def_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                OSPF External metric type
-                ''',
-                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5153,17 +5153,12 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes', 
+            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges', 
                 [], [], 
-                '''                Virtual Link scope configurations
+                '''                Summarize routes matching address/mask (border
+                routers only)
                 ''',
-                'virtual_link_scopes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes', 
-                [], [], 
-                '''                Sham Link scope configurations
-                ''',
-                'sham_link_scopes',
+                'area_ranges',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('area-scope', REFERENCE_CLASS, 'AreaScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope', 
                 [], [], 
@@ -5171,11 +5166,26 @@ _meta_table = {
                 ''',
                 'area_scope',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes', 
-                [], [], 
-                '''                Name scope configurations
+            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Set the summary default-cost of a NSSA/stub
+                area
                 ''',
-                'name_scopes',
+                'default_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure an OSPF area to run MPLS Traffic
+                Engineering
+                ''',
+                'mpls_traffic_eng',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('multi-area-interface-scopes', REFERENCE_CLASS, 'MultiAreaInterfaceScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes', 
                 [], [], 
@@ -5183,12 +5193,11 @@ _meta_table = {
                 ''',
                 'multi_area_interface_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges', 
+            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes', 
                 [], [], 
-                '''                Summarize routes matching address/mask (border
-                routers only)
+                '''                Name scope configurations
                 ''',
-                'area_ranges',
+                'name_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nssa', REFERENCE_CLASS, 'Nssa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa', 
                 [], [], 
@@ -5203,13 +5212,6 @@ _meta_table = {
                 ''',
                 'route_policy_in',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Set the summary default-cost of a NSSA/stub
-                area
-                ''',
-                'default_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Configure a route policy for outbound type-3
@@ -5217,33 +5219,11 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Specify the area as a stub area (send summary
-                LSA stub area)
+                '''                Enable routing on an IP network
                 ''',
-                'stub',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure an OSPF area to run MPLS Traffic
-                Engineering
-                ''',
-                'mpls_traffic_eng',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
+                'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
@@ -5252,11 +5232,31 @@ _meta_table = {
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes', 
                 [], [], 
-                '''                Enable routing on an IP network
+                '''                Sham Link scope configurations
                 ''',
-                'running',
+                'sham_link_scopes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify the area as a stub area (send summary
+                LSA stub area)
+                ''',
+                'stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes', 
+                [], [], 
+                '''                Virtual Link scope configurations
+                ''',
+                'virtual_link_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5339,11 +5339,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -5352,11 +5352,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5405,23 +5405,17 @@ _meta_table = {
                 ''',
                 'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal', 
                 [], [], 
                 '''                Interval after which a neighbor is declared dead
                 ''',
                 'dead_interval_minimal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -5435,6 +5429,12 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5534,11 +5534,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -5547,11 +5547,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5588,24 +5588,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope',
             False, 
             [
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Address of the remote sham-link endpoint
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint.
-                Enter an IP Address
+                '''                Address of the local sham-link endpoint
                 ''',
-                'source',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication', 
+                [], [], 
+                '''                Authentication
+                ''',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -5613,29 +5612,17 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication', 
+            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
                 [], [], 
-                '''                Authentication
+                '''                Interval after which a neighbor is declared dead
                 ''',
-                'authentication',
+                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Interval between HELLO packets in seconds
                 ''',
                 'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
-                [], [], 
-                '''                Interval after which a neighbor is declared dead
-                ''',
-                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -5649,6 +5636,19 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Address of the local sham-link endpoint.
+                Enter an IP Address
+                ''',
+                'source',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5701,12 +5701,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -5719,6 +5713,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5801,11 +5801,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -5814,11 +5814,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5947,19 +5947,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -5972,17 +5972,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6064,6 +6064,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -6076,27 +6097,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -6108,6 +6108,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -6119,13 +6126,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6185,18 +6185,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope',
             False, 
             [
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd', 
                 [], [], 
@@ -6204,99 +6197,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6311,6 +6222,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -6318,12 +6278,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -6332,23 +6330,25 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6361,18 +6361,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                SID value
-                ''',
-                'sid_value',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('explicit-null', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Force Penultimate Hop To Send Explicit-Null
                 Label
                 ''',
                 'explicit_null',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                SID value
+                ''',
+                'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
@@ -6414,12 +6414,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -6432,6 +6426,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6514,11 +6514,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -6527,11 +6527,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6660,19 +6660,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6685,17 +6685,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6777,6 +6777,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -6789,27 +6810,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -6821,6 +6821,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -6832,13 +6839,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6857,18 +6857,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -6882,6 +6870,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -6965,24 +6965,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication', 
                 [], [], 
-                '''                Prefix SID
+                '''                Authentication
                 ''',
-                'prefix_sid',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd', 
                 [], [], 
@@ -6990,105 +6977,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7103,6 +7002,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -7110,12 +7058,62 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid', 
+                [], [], 
+                '''                Prefix SID
+                ''',
+                'prefix_sid',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -7124,29 +7122,31 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF flood reduction
-                ''',
-                'flood_reduction',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security', 
+                [], [], 
+                '''                Container class for security related
+                configuration parameters
+                ''',
+                'security',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7269,11 +7269,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -7282,11 +7282,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7305,18 +7305,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -7330,6 +7318,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7413,12 +7413,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -7426,48 +7425,11 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
+                '''                Interface fallback cost
                 ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7482,6 +7444,44 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time in seconds between retransmitting lost link
@@ -7489,17 +7489,17 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7575,17 +7575,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa',
             False, 
             [
-            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                No redistribution into this NSSA area
-                ''',
-                'no_redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Originate Type 7 default into NSSA area
                 ''',
                 'default_info_originate',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
+                [], [], 
+                '''                OSPF External metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                No redistribution into this NSSA area
+                ''',
+                'no_redistribution',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-summary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7598,12 +7604,6 @@ _meta_table = {
                 '''                OSPF default metric
                 ''',
                 'nssa_def_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                OSPF External metric type
-                ''',
-                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7622,17 +7622,12 @@ _meta_table = {
                 ''',
                 'area_id',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes', 
+            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges', 
                 [], [], 
-                '''                Virtual Link scope configurations
+                '''                Summarize routes matching address/mask (border
+                routers only)
                 ''',
-                'virtual_link_scopes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes', 
-                [], [], 
-                '''                Sham Link scope configurations
-                ''',
-                'sham_link_scopes',
+                'area_ranges',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('area-scope', REFERENCE_CLASS, 'AreaScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope', 
                 [], [], 
@@ -7640,11 +7635,26 @@ _meta_table = {
                 ''',
                 'area_scope',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes', 
-                [], [], 
-                '''                Name scope configurations
+            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Set the summary default-cost of a NSSA/stub
+                area
                 ''',
-                'name_scopes',
+                'default_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure an OSPF area to run MPLS Traffic
+                Engineering
+                ''',
+                'mpls_traffic_eng',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('multi-area-interface-scopes', REFERENCE_CLASS, 'MultiAreaInterfaceScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes', 
                 [], [], 
@@ -7652,12 +7662,11 @@ _meta_table = {
                 ''',
                 'multi_area_interface_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges', 
+            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes', 
                 [], [], 
-                '''                Summarize routes matching address/mask (border
-                routers only)
+                '''                Name scope configurations
                 ''',
-                'area_ranges',
+                'name_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nssa', REFERENCE_CLASS, 'Nssa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa', 
                 [], [], 
@@ -7672,13 +7681,6 @@ _meta_table = {
                 ''',
                 'route_policy_in',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Set the summary default-cost of a NSSA/stub
-                area
-                ''',
-                'default_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Configure a route policy for outbound type-3
@@ -7686,33 +7688,11 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Specify the area as a stub area (send summary
-                LSA stub area)
+                '''                Enable routing on an IP network
                 ''',
-                'stub',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure an OSPF area to run MPLS Traffic
-                Engineering
-                ''',
-                'mpls_traffic_eng',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
+                'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
@@ -7721,11 +7701,31 @@ _meta_table = {
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes', 
                 [], [], 
-                '''                Enable routing on an IP network
+                '''                Sham Link scope configurations
                 ''',
-                'running',
+                'sham_link_scopes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify the area as a stub area (send summary
+                LSA stub area)
+                ''',
+                'stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes', 
+                [], [], 
+                '''                Virtual Link scope configurations
+                ''',
+                'virtual_link_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7761,18 +7761,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer',
             False, 
             [
-            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
-                '''                Number of milliseconds before first SPF run
-                ''',
-                'initial_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('backoff-increment', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
                 '''                Number of milliseconds delay between
                 successive SPF runs
                 ''',
                 'backoff_increment',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600000)], [], 
+                '''                Number of milliseconds before first SPF run
+                ''',
+                'initial_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
@@ -7792,19 +7792,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer',
             False, 
             [
-            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600000)], [], 
-                '''                Number of milliseconds before generating first
-                LSA
-                ''',
-                'initial_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('backoff-increment', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
                 '''                Number of milliseconds delay between
                 successive LSA builds
                 ''',
                 'backoff_increment',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 600000)], [], 
+                '''                Number of milliseconds before generating first
+                LSA
+                ''',
+                'initial_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
@@ -7824,25 +7824,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Timers',
             False, 
             [
-            _MetaInfoClassMember('spf-timer', REFERENCE_CLASS, 'SpfTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer', 
-                [], [], 
-                '''                OSPF SPF timers (in milliseconds)
-                ''',
-                'spf_timer',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-generation-timer', REFERENCE_CLASS, 'LsaGenerationTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer', 
-                [], [], 
-                '''                OSPF LSA timers (in milliseconds)
-                ''',
-                'lsa_generation_timer',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-pacing-flood', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
-                '''                Seconds between group of LSAs being refreshed
-                or maxaged
-                ''',
-                'lsa_pacing_flood',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('fast-reroute-timer', ATTRIBUTE, 'int' , None, None, 
                 [(50, 600000)], [], 
                 '''                Number of ms between end of SPF and start of
@@ -7850,12 +7831,11 @@ _meta_table = {
                 ''',
                 'fast_reroute_timer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-refresh', ATTRIBUTE, 'int' , None, None, 
-                [(1800, 2700)], [], 
-                '''                How often self-originated LSAs should be
-                refreshed
+            _MetaInfoClassMember('lsa-generation-timer', REFERENCE_CLASS, 'LsaGenerationTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer', 
+                [], [], 
+                '''                OSPF LSA timers (in milliseconds)
                 ''',
-                'lsa_refresh',
+                'lsa_generation_timer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('lsa-group-pacing', ATTRIBUTE, 'int' , None, None, 
                 [(10, 1800)], [], 
@@ -7870,6 +7850,26 @@ _meta_table = {
                 milliseconds between accepting the same LSA)
                 ''',
                 'lsa_min_arrival',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lsa-pacing-flood', ATTRIBUTE, 'int' , None, None, 
+                [(5, 100)], [], 
+                '''                Seconds between group of LSAs being refreshed
+                or maxaged
+                ''',
+                'lsa_pacing_flood',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lsa-refresh', ATTRIBUTE, 'int' , None, None, 
+                [(1800, 2700)], [], 
+                '''                How often self-originated LSAs should be
+                refreshed
+                ''',
+                'lsa_refresh',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('spf-timer', REFERENCE_CLASS, 'SpfTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer', 
+                [], [], 
+                '''                OSPF SPF timers (in milliseconds)
+                ''',
+                'spf_timer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -7888,35 +7888,47 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.DomainId', 
+            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
                 [], [], 
-                '''                OSPF Domain ID
+                '''                Log changes in adjacency state
                 ''',
-                'domain_id',
+                'adjacency_changes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('vrf-start', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('adjacency-stagger', REFERENCE_CLASS, 'AdjacencyStagger' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger', 
                 [], [], 
-                '''                Start OSPF VRF configuration
+                '''                Staggering OSPF adjacency bring up
                 ''',
-                'vrf_start',
+                'adjacency_stagger',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('snmp-trap-enabled', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('af', REFERENCE_CLASS, 'Af' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Af', 
                 [], [], 
-                '''                Enable/disable OSPF SNMP trap
+                '''                OSPF address family
                 ''',
-                'snmp_trap_enabled',
+                'af',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('domain-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                32 bit Domain tag value
-                ''',
-                'domain_tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('vrf-lite', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('area-addresses', REFERENCE_CLASS, 'AreaAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses', 
                 [], [], 
-                '''                VRF lite capability
+                '''                Area configuration
                 ''',
-                'vrf_lite',
+                'area_addresses',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('auto-cost', REFERENCE_CLASS, 'AutoCost' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AutoCost', 
+                [], [], 
+                '''                Controls automatic cost based on bandwidth
+                ''',
+                'auto_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('default-information', REFERENCE_CLASS, 'DefaultInformation' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation', 
+                [], [], 
+                '''                Control distribution of default information
+                ''',
+                'default_information',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777214)], [], 
+                '''                Set default metric of redistributed routes
+                ''',
+                'default_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('disable-dn-bit-check', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -7924,17 +7936,61 @@ _meta_table = {
                 ''',
                 'disable_dn_bit_check',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('microloop', REFERENCE_CLASS, 'Microloop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Microloop', 
+            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Distance', 
                 [], [], 
-                '''                Microloop configuration
+                '''                Administrative distance configuration
                 ''',
-                'microloop',
+                'distance',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.DomainId', 
+                [], [], 
+                '''                OSPF Domain ID
+                ''',
+                'domain_id',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('domain-tag', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                32 bit Domain tag value
+                ''',
+                'domain_tag',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.FastReroute', 
+                [], [], 
+                '''                Fast-reroute instance scoped parameters
+                ''',
+                'fast_reroute',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ignore-mospf', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Ignore MOSPF (Type 6) LSAs
                 ''',
                 'ignore_mospf',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa', REFERENCE_CLASS, 'MaxLsa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxLsa', 
+                [], [], 
+                '''                Set max-lsa configuration
+                ''',
+                'max_lsa',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric', REFERENCE_CLASS, 'MaxMetric' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric', 
+                [], [], 
+                '''                Set maximum metric configuration
+                ''',
+                'max_metric',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('maximum-interfaces', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Max number of interfaces allowed to be
+                configured
+                ''',
+                'maximum_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
+                [(1, 64)], [], 
+                '''                Forward packets over multiple paths (number of
+                paths)
+                ''',
+                'maximum_paths',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-redistribute-prefix', REFERENCE_CLASS, 'MaximumRedistributePrefix' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix', 
                 [], [], 
@@ -7943,56 +7999,11 @@ _meta_table = {
                 ''',
                 'maximum_redistribute_prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-information', REFERENCE_CLASS, 'DefaultInformation' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation', 
+            _MetaInfoClassMember('microloop', REFERENCE_CLASS, 'Microloop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Microloop', 
                 [], [], 
-                '''                Control distribution of default information
+                '''                Microloop configuration
                 ''',
-                'default_information',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('af', REFERENCE_CLASS, 'Af' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Af', 
-                [], [], 
-                '''                OSPF address family
-                ''',
-                'af',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('queue', REFERENCE_CLASS, 'Queue' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Queue', 
-                [], [], 
-                '''                Adjust OSPF input queue sizes and processing
-                quantums
-                ''',
-                'queue',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Router ID for this OSPF process. Enter an IP
-                Address.
-                ''',
-                'router_id',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type7', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Prefer type7 externals over type5
-                ''',
-                'type7',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric', REFERENCE_CLASS, 'MaxMetric' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxMetric', 
-                [], [], 
-                '''                Set maximum metric configuration
-                ''',
-                'max_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('snmp-context', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                OSPF SNMP context configuration
-                ''',
-                'snmp_context',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('maximum-interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Max number of interfaces allowed to be
-                configured
-                ''',
-                'maximum_interfaces',
+                'microloop',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-opaque', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -8006,11 +8017,49 @@ _meta_table = {
                 ''',
                 'nsf',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('outgoing-route-updates', REFERENCE_CLASS, 'OutgoingRouteUpdates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates', 
+                [], [], 
+                '''                Filter outgoing routing updates
+                ''',
+                'outgoing_route_updates',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('process-scope', REFERENCE_CLASS, 'ProcessScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.ProcessScope', 
                 [], [], 
                 '''                Process scope configuration
                 ''',
                 'process_scope',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('queue', REFERENCE_CLASS, 'Queue' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Queue', 
+                [], [], 
+                '''                Adjust OSPF input queue sizes and processing
+                quantums
+                ''',
+                'queue',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('redistribution', REFERENCE_CLASS, 'Redistribution' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution', 
+                [], [], 
+                '''                Redistribute configurations
+                ''',
+                'redistribution',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Router ID for this OSPF process. Enter an IP
+                Address.
+                ''',
+                'router_id',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('snmp-context', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OSPF SNMP context configuration
+                ''',
+                'snmp_context',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('snmp-trap-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable OSPF SNMP trap
+                ''',
+                'snmp_trap_enabled',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('spf-prefix-priority', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -8019,78 +8068,11 @@ _meta_table = {
                 ''',
                 'spf_prefix_priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('redistribution', REFERENCE_CLASS, 'Redistribution' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Redistribution', 
-                [], [], 
-                '''                Redistribute configurations
-                ''',
-                'redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('adjacency-stagger', REFERENCE_CLASS, 'AdjacencyStagger' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger', 
-                [], [], 
-                '''                Staggering OSPF adjacency bring up
-                ''',
-                'adjacency_stagger',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa', REFERENCE_CLASS, 'MaxLsa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.MaxLsa', 
-                [], [], 
-                '''                Set max-lsa configuration
-                ''',
-                'max_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('auto-cost', REFERENCE_CLASS, 'AutoCost' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AutoCost', 
-                [], [], 
-                '''                Controls automatic cost based on bandwidth
-                ''',
-                'auto_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ucmp', REFERENCE_CLASS, 'Ucmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Ucmp', 
-                [], [], 
-                '''                Unequal Cost Multi-ptah configuration
-                ''',
-                'ucmp',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
-                '''                Forward packets over multiple paths (number of
-                paths)
-                ''',
-                'maximum_paths',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.FastReroute', 
-                [], [], 
-                '''                Fast-reroute instance scoped parameters
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-prefixes', REFERENCE_CLASS, 'SummaryPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes', 
                 [], [], 
                 '''                Configure IP prefix summary
                 ''',
                 'summary_prefixes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
-                [], [], 
-                '''                Log changes in adjacency state
-                ''',
-                'adjacency_changes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('outgoing-route-updates', REFERENCE_CLASS, 'OutgoingRouteUpdates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates', 
-                [], [], 
-                '''                Filter outgoing routing updates
-                ''',
-                'outgoing_route_updates',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Distance', 
-                [], [], 
-                '''                Administrative distance configuration
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-addresses', REFERENCE_CLASS, 'AreaAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses', 
-                [], [], 
-                '''                Area configuration
-                ''',
-                'area_addresses',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Timers', 
                 [], [], 
@@ -8098,11 +8080,29 @@ _meta_table = {
                 ''',
                 'timers',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
-                '''                Set default metric of redistributed routes
+            _MetaInfoClassMember('type7', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Prefer type7 externals over type5
                 ''',
-                'default_metric',
+                'type7',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ucmp', REFERENCE_CLASS, 'Ucmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs.Vrf.Ucmp', 
+                [], [], 
+                '''                Unequal Cost Multi-ptah configuration
+                ''',
+                'ucmp',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('vrf-lite', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                VRF lite capability
+                ''',
+                'vrf_lite',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('vrf-start', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Start OSPF VRF configuration
+                ''',
+                'vrf_start',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8145,17 +8145,17 @@ _meta_table = {
                 ''',
                 'prefix_list',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('track-ip-frr', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable the Tracking of IP-Frr Convergence
-                ''',
-                'track_ip_frr',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('track-external-routes', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable the monitoring of External routes
                 ''',
                 'track_external_routes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('track-ip-frr', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable the Tracking of IP-Frr Convergence
+                ''',
+                'track_ip_frr',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('track-summary-routes', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -8198,12 +8198,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.SegmentRouting',
             False, 
             [
-            _MetaInfoClassMember('sr-prefer', REFERENCE_CLASS, 'SrPrefer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer', 
+            _MetaInfoClassMember('prefix-sid-map-advertise-local', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Prefer segment routing labels over LDP
-                labels
+                '''                Enable advertisement of local SRMS entries
                 ''',
-                'sr_prefer',
+                'prefix_sid_map_advertise_local',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('prefix-sid-map-receive-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -8211,11 +8210,12 @@ _meta_table = {
                 ''',
                 'prefix_sid_map_receive_disable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-sid-map-advertise-local', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('sr-prefer', REFERENCE_CLASS, 'SrPrefer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer', 
                 [], [], 
-                '''                Enable advertisement of local SRMS entries
+                '''                Prefer segment routing labels over LDP
+                labels
                 ''',
-                'prefix_sid_map_advertise_local',
+                'sr_prefer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8253,14 +8253,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Mpls',
             False, 
             [
-            _MetaInfoClassMember('mpls-router-id', REFERENCE_CLASS, 'MplsRouterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId', 
+            _MetaInfoClassMember('autoroute-exclude', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                MPLS-TE stable loopback address for this
-                OSPF process.Enter either as IP Address or
-                Interface name, but not both. Unused field
-                must be nil
+                '''                Exclude IP destinations from using TE
+                tunnels
                 ''',
-                'mpls_router_id',
+                'autoroute_exclude',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('igp-intact', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -8274,18 +8272,20 @@ _meta_table = {
                 ''',
                 'ldp_sync_update',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mpls-router-id', REFERENCE_CLASS, 'MplsRouterId' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId', 
+                [], [], 
+                '''                MPLS-TE stable loopback address for this
+                OSPF process.Enter either as IP Address or
+                Interface name, but not both. Unused field
+                must be nil
+                ''',
+                'mpls_router_id',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('multicast-intact', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable multicast-intact mode in OSPF
                 ''',
                 'multicast_intact',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('autoroute-exclude', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exclude IP destinations from using TE
-                tunnels
-                ''',
-                'autoroute_exclude',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8429,33 +8429,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Queue',
             False, 
             [
-            _MetaInfoClassMember('dispatch-rate-limited-flush', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('dispatch-incoming', ATTRIBUTE, 'int' , None, None, 
                 [(30, 3000)], [], 
-                '''                Maximum number of continuous rate-limited LSAs
-                processed for FLUSH
+                '''                Maximum number of continuous incoming
+                packet-related events processed
                 ''',
-                'dispatch_rate_limited_flush',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('limit-high', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
-                '''                Hello events are dropped when incoming event
-                queue exceeds this
-                ''',
-                'limit_high',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dispatch-spf-lsa-limit', ATTRIBUTE, 'int' , None, None, 
-                [(30, 3000)], [], 
-                '''                Maximum number of continuous summary or
-                external LSAs processed
-                ''',
-                'dispatch_spf_lsa_limit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('limit-low', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
-                '''                DBDs/Updates are dropped when incoming event
-                queue exceeds this
-                ''',
-                'limit_low',
+                'dispatch_incoming',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dispatch-rate-limited', ATTRIBUTE, 'int' , None, None, 
                 [(30, 3000)], [], 
@@ -8464,19 +8443,40 @@ _meta_table = {
                 ''',
                 'dispatch_rate_limited',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('dispatch-rate-limited-flush', ATTRIBUTE, 'int' , None, None, 
+                [(30, 3000)], [], 
+                '''                Maximum number of continuous rate-limited LSAs
+                processed for FLUSH
+                ''',
+                'dispatch_rate_limited_flush',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('dispatch-spf-lsa-limit', ATTRIBUTE, 'int' , None, None, 
+                [(30, 3000)], [], 
+                '''                Maximum number of continuous summary or
+                external LSAs processed
+                ''',
+                'dispatch_spf_lsa_limit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('limit-high', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 30000)], [], 
+                '''                Hello events are dropped when incoming event
+                queue exceeds this
+                ''',
+                'limit_high',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('limit-low', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 30000)], [], 
+                '''                DBDs/Updates are dropped when incoming event
+                queue exceeds this
+                ''',
+                'limit_low',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('limit-medium', ATTRIBUTE, 'int' , None, None, 
                 [(1000, 30000)], [], 
                 '''                LSA ACKs are dropped when incoming event queue
                 exceeds this
                 ''',
                 'limit_medium',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dispatch-incoming', ATTRIBUTE, 'int' , None, None, 
-                [(30, 3000)], [], 
-                '''                Maximum number of continuous incoming
-                packet-related events processed
-                ''',
-                'dispatch_incoming',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8489,19 +8489,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8509,6 +8509,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8524,19 +8531,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8549,19 +8549,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8569,6 +8569,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8584,19 +8591,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8609,19 +8609,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8629,6 +8629,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8644,19 +8651,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8669,6 +8669,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways',
             False, 
             [
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Override external-lsa metric with max-metric
+                value
+                ''',
+                'external_lsa',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
+                ''',
+                'external_lsa_maximum_metric',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Set maximum metric for stub links in
@@ -8689,20 +8703,6 @@ _meta_table = {
                 16711680)
                 ''',
                 'summary_lsa_maximum_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
-                ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8715,19 +8715,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover',
             False, 
             [
-            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Let BGP decide when to originate router-LSA
-                with normal metric
+                '''                Override external-lsa metric with max-metric
+                value
                 ''',
-                'wait_for_bgp',
+                'external_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
-                '''                Time in seconds to originate router-LSA with
-                max-metric
+            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Overriding metric in external-LSAs (default
+                16711680)
                 ''',
-                'startup_max',
+                'external_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('include-stub', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8735,6 +8735,13 @@ _meta_table = {
                 router-LSAs
                 ''',
                 'include_stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('startup-max', ATTRIBUTE, 'int' , None, None, 
+                [(5, 86400)], [], 
+                '''                Time in seconds to originate router-LSA with
+                max-metric
+                ''',
+                'startup_max',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8750,19 +8757,12 @@ _meta_table = {
                 ''',
                 'summary_lsa_maximum_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Override external-lsa metric with max-metric
-                value
+                '''                Let BGP decide when to originate router-LSA
+                with normal metric
                 ''',
-                'external_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-lsa-maximum-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Overriding metric in external-LSAs (default
-                16711680)
-                ''',
-                'external_lsa_maximum_metric',
+                'wait_for_bgp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8775,6 +8775,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxMetric',
             False, 
             [
+            _MetaInfoClassMember('max-metric-always', REFERENCE_CLASS, 'MaxMetricAlways' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways', 
+                [], [], 
+                '''                Set maximum metric always configuration
+                ''',
+                'max_metric_always',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric-no-abr-off', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Block ABR-disable mode entry while in
+                max-metric mode
+                ''',
+                'max_metric_no_abr_off',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric-on-proc-migration', REFERENCE_CLASS, 'MaxMetricOnProcMigration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration', 
+                [], [], 
+                '''                Set maximum metric on-proc-migration
+                configuration
+                ''',
+                'max_metric_on_proc_migration',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-metric-on-proc-restart', REFERENCE_CLASS, 'MaxMetricOnProcRestart' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart', 
                 [], [], 
                 '''                Set maximum metric on-proc-restart
@@ -8788,31 +8808,11 @@ _meta_table = {
                 ''',
                 'max_metric_on_startup',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-on-proc-migration', REFERENCE_CLASS, 'MaxMetricOnProcMigration' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration', 
-                [], [], 
-                '''                Set maximum metric on-proc-migration
-                configuration
-                ''',
-                'max_metric_on_proc_migration',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-always', REFERENCE_CLASS, 'MaxMetricAlways' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways', 
-                [], [], 
-                '''                Set maximum metric always configuration
-                ''',
-                'max_metric_always',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-metric-on-switchover', REFERENCE_CLASS, 'MaxMetricOnSwitchover' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover', 
                 [], [], 
                 '''                Set maximum metric on-switchover configuration
                 ''',
                 'max_metric_on_switchover',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric-no-abr-off', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Block ABR-disable mode entry while in
-                max-metric mode
-                ''',
-                'max_metric_no_abr_off',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8825,38 +8825,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Nsf',
             False, 
             [
-            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(90, 1800)], [], 
-                '''                Maximum route lifetime following restart in
-                seconds
-                ''',
-                'lifetime',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
-                [], [], 
-                '''                Enable IETF Non Stop Forwarding
-                ''',
-                'ietf',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
-                [], [], 
-                '''                Disable helper support role for IETF Non Stop
-                Forwarding
-                ''',
-                'ietf_support_role',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsfEnum', 
                 [], [], 
                 '''                Enable Cisco Non Stop Forwarding
                 ''',
                 'cisco',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(90, 3600)], [], 
-                '''                Minimum interval between Non Stop Forwarding
-                restarts in seconds
-                ''',
-                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('flush-delay-time', ATTRIBUTE, 'int' , None, None, 
                 [(1, 3600)], [], 
@@ -8865,11 +8838,38 @@ _meta_table = {
                 ''',
                 'flush_delay_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
+                [], [], 
+                '''                Enable IETF Non Stop Forwarding
+                ''',
+                'ietf',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ietf-strict-lsa-checking', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable Strict LSA checking of IETF NSF
                 ''',
                 'ietf_strict_lsa_checking',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
+                [], [], 
+                '''                Disable helper support role for IETF Non Stop
+                Forwarding
+                ''',
+                'ietf_support_role',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(90, 3600)], [], 
+                '''                Minimum interval between Non Stop Forwarding
+                restarts in seconds
+                ''',
+                'interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(90, 1800)], [], 
+                '''                Maximum route lifetime following restart in
+                seconds
+                ''',
+                'lifetime',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -8928,12 +8928,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -8946,6 +8940,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9028,11 +9028,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -9041,11 +9041,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9174,19 +9174,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9199,17 +9199,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9291,6 +9291,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -9303,27 +9324,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -9335,6 +9335,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -9346,13 +9353,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9412,24 +9412,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope',
             False, 
             [
-            _MetaInfoClassMember('srgb', REFERENCE_CLASS, 'Srgb' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication', 
                 [], [], 
-                '''                Segment Routing Global Block configuration
+                '''                Authentication
                 ''',
-                'srgb',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd', 
                 [], [], 
@@ -9437,120 +9424,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
-                [], [], 
-                '''                segment-routing configuration Applicable only in
-                Default VRF
-                ''',
-                'segment_routing',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9565,6 +9449,62 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -9572,12 +9512,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -9586,23 +9564,45 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing configuration Applicable only in
+                Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('srgb', REFERENCE_CLASS, 'Srgb' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb', 
+                [], [], 
+                '''                Segment Routing Global Block configuration
+                ''',
+                'srgb',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9615,6 +9615,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip',
             False, 
             [
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -9628,18 +9641,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -9652,11 +9653,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -9664,30 +9665,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -9700,6 +9688,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9719,6 +9719,19 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -9732,18 +9745,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -9756,11 +9757,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -9768,30 +9769,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -9805,6 +9793,18 @@ _meta_table = {
                 ''',
                 'ospfnssa_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'application-or-isis-or-ospf',
@@ -9816,13 +9816,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Bgp',
             False, 
             [
-            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                OSPF or ISIS process name or protocol name:
-                bgp, eigrp, connected
-                ''',
-                'instance_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                First half of BGP AS number in XX.YY format.
@@ -9841,6 +9834,26 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                OSPF or ISIS process name or protocol name:
+                bgp, eigrp, connected
+                ''',
+                'instance_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -9854,18 +9867,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -9878,11 +9879,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -9890,30 +9891,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -9926,6 +9914,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -9938,13 +9938,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp',
             False, 
             [
-            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                OSPF or ISIS process name or protocol name:
-                bgp, eigrp, connected
-                ''',
-                'instance_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                First half of BGP AS number in XX.YY format.
@@ -9954,6 +9947,26 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                OSPF or ISIS process name or protocol name:
+                bgp, eigrp, connected
+                ''',
+                'instance_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve Metric and Metric Type of BGP
+                Default Route
+                ''',
+                'bgp_preserve_default_info',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Preserve MED of BGP routes
+                ''',
+                'bgp_preserve_med',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('classful', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Disallow subnetting
@@ -9967,18 +9980,6 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Set tag for routes redistributed into OSPF
-                ''',
-                'tag',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                Set OSPF External metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
@@ -9991,11 +9992,11 @@ _meta_table = {
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
-                '''                OSPF_Internal route type
+                '''                Set OSPF External metric type
                 ''',
-                'ospf_internal',
+                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
@@ -10003,30 +10004,17 @@ _meta_table = {
                 ''',
                 'ospf_external',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ospf-internal', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                OSPF_Internal route type
+                ''',
+                'ospf_internal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Routing policy name
-                ''',
-                'route_policy_name',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-med', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve MED of BGP routes
-                ''',
-                'bgp_preserve_med',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('bgp-preserve-default-info', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Preserve Metric and Metric Type of BGP
-                Default Route
-                ''',
-                'bgp_preserve_default_info',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
@@ -10039,6 +10027,18 @@ _meta_table = {
                 '''                Only redistribute to NSSA areas
                 ''',
                 'ospfnssa_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Routing policy name
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Set tag for routes redistributed into OSPF
+                ''',
+                'tag',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10057,13 +10057,6 @@ _meta_table = {
                 ''',
                 'protocol_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip', REFERENCE_CLASS, 'ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip', 
-                [], [], 
-                '''                connected or static or dagr or subscriber or
-                mobile or rip
-                ''',
-                'connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('application-or-isis-or-ospf', REFERENCE_LIST, 'ApplicationOrIsisOrOspf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf', 
                 [], [], 
                 '''                application or isis or ospf
@@ -10075,6 +10068,13 @@ _meta_table = {
                 '''                bgp
                 ''',
                 'bgp',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip', REFERENCE_CLASS, 'ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip', 
+                [], [], 
+                '''                connected or static or dagr or subscriber or
+                mobile or rip
+                ''',
+                'connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('eigrp', REFERENCE_LIST, 'Eigrp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp', 
                 [], [], 
@@ -10160,11 +10160,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MaxLsa',
             False, 
             [
+            _MetaInfoClassMember('max-lsa-ignore-count', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967294)], [], 
+                '''                Set count on how many times adjacencies can be
+                suppressed
+                ''',
+                'max_lsa_ignore_count',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa-ignore-time', ATTRIBUTE, 'int' , None, None, 
+                [(1, 35791394)], [], 
+                '''                Set time during which all adjacencies are
+                suppressed
+                ''',
+                'max_lsa_ignore_time',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-lsa-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967294)], [], 
                 '''                Set maximum number of non self-generated LSAs
                 ''',
                 'max_lsa_limit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa-reset-time', ATTRIBUTE, 'int' , None, None, 
+                [(2, 71582788)], [], 
+                '''                Set number of minutes after which ignore-count
+                is reset to zero
+                ''',
+                'max_lsa_reset_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-lsa-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(1, 100)], [], 
@@ -10180,27 +10201,6 @@ _meta_table = {
                 ''',
                 'max_lsa_warning_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-ignore-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 35791394)], [], 
-                '''                Set time during which all adjacencies are
-                suppressed
-                ''',
-                'max_lsa_ignore_time',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-ignore-count', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967294)], [], 
-                '''                Set count on how many times adjacencies can be
-                suppressed
-                ''',
-                'max_lsa_ignore_count',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa-reset-time', ATTRIBUTE, 'int' , None, None, 
-                [(2, 71582788)], [], 
-                '''                Set number of minutes after which ignore-count
-                is reset to zero
-                ''',
-                'max_lsa_reset_time',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'max-lsa',
@@ -10212,18 +10212,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AutoCost',
             False, 
             [
-            _MetaInfoClassMember('disable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Disabling auto costing
-                ''',
-                'disable',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967)], [], 
                 '''                The reference bandwidth in terms of Mbits per
                 second
                 ''',
                 'bandwidth',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Disabling auto costing
+                ''',
+                'disable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10236,17 +10236,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Ucmp.Enable',
             False, 
             [
-            _MetaInfoClassMember('variance', ATTRIBUTE, 'int' , None, None, 
-                [(101, 10000)], [], 
-                '''                Value of variance
-                ''',
-                'variance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('prefix-list-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the Prefix List
                 ''',
                 'prefix_list_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('variance', ATTRIBUTE, 'int' , None, None, 
+                [(101, 10000)], [], 
+                '''                Value of variance
+                ''',
+                'variance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10294,18 +10294,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Ucmp',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_CLASS, 'Enable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Ucmp.Enable', 
-                [], [], 
-                '''                UCMP feature enable configuration
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('delay-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 5000)], [], 
                 '''                Delay in msecs between primary SPF and UCMP
                 computation
                 ''',
                 'delay_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('enable', REFERENCE_CLASS, 'Enable' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Ucmp.Enable', 
+                [], [], 
+                '''                UCMP feature enable configuration
+                ''',
+                'enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces', 
                 [], [], 
@@ -10383,12 +10383,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix',
             False, 
             [
-            _MetaInfoClassMember('tiebreakers', REFERENCE_CLASS, 'Tiebreakers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers', 
-                [], [], 
-                '''                Fast-reroute tiebreakers configurations
-                ''',
-                'tiebreakers',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('load-sharing-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Disable load sharing between multiple backups
@@ -10401,6 +10395,12 @@ _meta_table = {
                 command
                 ''',
                 'priority',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tiebreakers', REFERENCE_CLASS, 'Tiebreakers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers', 
+                [], [], 
+                '''                Fast-reroute tiebreakers configurations
+                ''',
+                'tiebreakers',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10460,17 +10460,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask',
             False, 
             [
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP summary prefix
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Summary netmask
                 ''',
                 'netmask',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP summary prefix
+                ''',
+                'prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('not-advertise', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -10556,17 +10556,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.SummaryPrefixes',
             False, 
             [
-            _MetaInfoClassMember('summary-prefix-data', REFERENCE_CLASS, 'SummaryPrefixData' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData', 
+            _MetaInfoClassMember('netmask', REFERENCE_LIST, 'Netmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask', 
                 [], [], 
-                '''                Data container.
+                '''                keys: netmask
                 ''',
-                'summary_prefix_data',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-and-netmask', REFERENCE_LIST, 'PrefixAndNetmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask', 
-                [], [], 
-                '''                keys: prefix, netmask
-                ''',
-                'prefix_and_netmask',
+                'netmask',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('prefix', REFERENCE_LIST, 'Prefix' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Prefix', 
                 [], [], 
@@ -10574,11 +10568,17 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('netmask', REFERENCE_LIST, 'Netmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask', 
+            _MetaInfoClassMember('prefix-and-netmask', REFERENCE_LIST, 'PrefixAndNetmask' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask', 
                 [], [], 
-                '''                keys: netmask
+                '''                keys: prefix, netmask
                 ''',
-                'netmask',
+                'prefix_and_netmask',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-prefix-data', REFERENCE_CLASS, 'SummaryPrefixData' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData', 
+                [], [], 
+                '''                Data container.
+                ''',
+                'summary_prefix_data',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10656,11 +10656,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance',
             False, 
             [
-            _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                Distance for intra-area routes
+                '''                Distance for external type 5 and type 7 routes
                 ''',
-                'intra_area',
+                'external_routes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('inter-area', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
@@ -10668,11 +10668,11 @@ _meta_table = {
                 ''',
                 'inter_area',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                Distance for external type 5 and type 7 routes
+                '''                Distance for intra-area routes
                 ''',
-                'external_routes',
+                'intra_area',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10697,17 +10697,17 @@ _meta_table = {
                 ''',
                 'wildcard',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distance', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Administrative distance
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Access Control List name
                 ''',
                 'access_list_name',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distance', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Administrative distance
+                ''',
+                'distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10738,11 +10738,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Distance',
             False, 
             [
-            _MetaInfoClassMember('ospf-distance', REFERENCE_CLASS, 'OspfDistance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance', 
-                [], [], 
-                '''                OSPF distance configuration
+            _MetaInfoClassMember('admin-distance', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                Define an administrative distance
                 ''',
-                'ospf_distance',
+                'admin_distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ip-distances', REFERENCE_CLASS, 'IpDistances' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Distance.IpDistances', 
                 [], [], 
@@ -10751,11 +10751,11 @@ _meta_table = {
                 ''',
                 'ip_distances',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('admin-distance', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Define an administrative distance
+            _MetaInfoClassMember('ospf-distance', REFERENCE_CLASS, 'OspfDistance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance', 
+                [], [], 
+                '''                OSPF distance configuration
                 ''',
-                'admin_distance',
+                'ospf_distance',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10838,11 +10838,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -10851,11 +10851,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -10904,23 +10904,17 @@ _meta_table = {
                 ''',
                 'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal', 
                 [], [], 
                 '''                Interval after which a neighbor is declared dead
                 ''',
                 'dead_interval_minimal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -10934,6 +10928,12 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11033,11 +11033,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -11046,11 +11046,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11087,24 +11087,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope',
             False, 
             [
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Address of the remote sham-link endpoint
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint.
-                Enter an IP Address
+                '''                Address of the local sham-link endpoint
                 ''',
-                'source',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication', 
+                [], [], 
+                '''                Authentication
+                ''',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -11112,29 +11111,17 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication', 
+            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
                 [], [], 
-                '''                Authentication
+                '''                Interval after which a neighbor is declared dead
                 ''',
-                'authentication',
+                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Interval between HELLO packets in seconds
                 ''',
                 'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
-                [], [], 
-                '''                Interval after which a neighbor is declared dead
-                ''',
-                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -11148,6 +11135,19 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Address of the local sham-link endpoint.
+                Enter an IP Address
+                ''',
+                'source',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11200,12 +11200,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -11218,6 +11212,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11300,11 +11300,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -11313,11 +11313,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11446,19 +11446,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11471,17 +11471,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11563,6 +11563,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -11575,27 +11596,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -11607,6 +11607,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -11618,13 +11625,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11684,18 +11684,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope',
             False, 
             [
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd', 
                 [], [], 
@@ -11703,99 +11696,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -11810,6 +11721,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -11817,12 +11777,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -11831,23 +11829,25 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -11860,18 +11860,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                SID value
-                ''',
-                'sid_value',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('explicit-null', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Force Penultimate Hop To Send Explicit-Null
                 Label
                 ''',
                 'explicit_null',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                SID value
+                ''',
+                'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
@@ -11913,12 +11913,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -11931,6 +11925,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12013,11 +12013,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -12026,11 +12026,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12159,19 +12159,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12184,17 +12184,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12276,6 +12276,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -12288,27 +12309,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -12320,6 +12320,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -12331,13 +12338,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12356,18 +12356,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -12381,6 +12369,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12464,24 +12464,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication', 
                 [], [], 
-                '''                Prefix SID
+                '''                Authentication
                 ''',
-                'prefix_sid',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd', 
                 [], [], 
@@ -12489,105 +12476,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -12602,6 +12501,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -12609,12 +12557,62 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid', 
+                [], [], 
+                '''                Prefix SID
+                ''',
+                'prefix_sid',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -12623,29 +12621,31 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF flood reduction
-                ''',
-                'flood_reduction',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security', 
+                [], [], 
+                '''                Container class for security related
+                configuration parameters
+                ''',
+                'security',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12768,11 +12768,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -12781,11 +12781,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12804,18 +12804,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -12829,6 +12817,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -12912,12 +12912,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -12925,48 +12924,11 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
+                '''                Interface fallback cost
                 ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -12981,6 +12943,44 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time in seconds between retransmitting lost link
@@ -12988,17 +12988,17 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13074,17 +13074,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa',
             False, 
             [
-            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                No redistribution into this NSSA area
-                ''',
-                'no_redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Originate Type 7 default into NSSA area
                 ''',
                 'default_info_originate',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
+                [], [], 
+                '''                OSPF External metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                No redistribution into this NSSA area
+                ''',
+                'no_redistribution',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-summary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -13097,12 +13103,6 @@ _meta_table = {
                 '''                OSPF default metric
                 ''',
                 'nssa_def_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                OSPF External metric type
-                ''',
-                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13121,17 +13121,12 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes', 
+            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges', 
                 [], [], 
-                '''                Virtual Link scope configurations
+                '''                Summarize routes matching address/mask (border
+                routers only)
                 ''',
-                'virtual_link_scopes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes', 
-                [], [], 
-                '''                Sham Link scope configurations
-                ''',
-                'sham_link_scopes',
+                'area_ranges',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('area-scope', REFERENCE_CLASS, 'AreaScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope', 
                 [], [], 
@@ -13139,11 +13134,26 @@ _meta_table = {
                 ''',
                 'area_scope',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes', 
-                [], [], 
-                '''                Name scope configurations
+            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Set the summary default-cost of a NSSA/stub
+                area
                 ''',
-                'name_scopes',
+                'default_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure an OSPF area to run MPLS Traffic
+                Engineering
+                ''',
+                'mpls_traffic_eng',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('multi-area-interface-scopes', REFERENCE_CLASS, 'MultiAreaInterfaceScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes', 
                 [], [], 
@@ -13151,12 +13161,11 @@ _meta_table = {
                 ''',
                 'multi_area_interface_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges', 
+            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes', 
                 [], [], 
-                '''                Summarize routes matching address/mask (border
-                routers only)
+                '''                Name scope configurations
                 ''',
-                'area_ranges',
+                'name_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nssa', REFERENCE_CLASS, 'Nssa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa', 
                 [], [], 
@@ -13171,13 +13180,6 @@ _meta_table = {
                 ''',
                 'route_policy_in',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Set the summary default-cost of a NSSA/stub
-                area
-                ''',
-                'default_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Configure a route policy for outbound type-3
@@ -13185,33 +13187,11 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Specify the area as a stub area (send summary
-                LSA stub area)
+                '''                Enable routing on an IP network
                 ''',
-                'stub',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure an OSPF area to run MPLS Traffic
-                Engineering
-                ''',
-                'mpls_traffic_eng',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
+                'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
@@ -13220,11 +13200,31 @@ _meta_table = {
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes', 
                 [], [], 
-                '''                Enable routing on an IP network
+                '''                Sham Link scope configurations
                 ''',
-                'running',
+                'sham_link_scopes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify the area as a stub area (send summary
+                LSA stub area)
+                ''',
+                'stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes', 
+                [], [], 
+                '''                Virtual Link scope configurations
+                ''',
+                'virtual_link_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13307,11 +13307,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -13320,11 +13320,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13373,23 +13373,17 @@ _meta_table = {
                 ''',
                 'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal', 
                 [], [], 
                 '''                Interval after which a neighbor is declared dead
                 ''',
                 'dead_interval_minimal',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -13403,6 +13397,12 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13502,11 +13502,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -13515,11 +13515,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13556,24 +13556,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope',
             False, 
             [
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Address of the remote sham-link endpoint
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Address of the local sham-link endpoint.
-                Enter an IP Address
+                '''                Address of the local sham-link endpoint
                 ''',
-                'source',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', True),
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication', 
+                [], [], 
+                '''                Authentication
+                ''',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -13581,29 +13580,17 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication', 
+            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
                 [], [], 
-                '''                Authentication
+                '''                Interval after which a neighbor is declared dead
                 ''',
-                'authentication',
+                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Interval between HELLO packets in seconds
                 ''',
                 'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('dead-interval-minimal', REFERENCE_CLASS, 'DeadIntervalMinimal' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal', 
-                [], [], 
-                '''                Interval after which a neighbor is declared dead
-                ''',
-                'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -13617,6 +13604,19 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Address of the local sham-link endpoint.
+                Enter an IP Address
+                ''',
+                'source',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13669,12 +13669,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -13687,6 +13681,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13769,11 +13769,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -13782,11 +13782,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13915,19 +13915,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -13940,17 +13940,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14032,6 +14032,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -14044,27 +14065,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -14076,6 +14076,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -14087,13 +14094,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14153,18 +14153,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope',
             False, 
             [
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd', 
                 [], [], 
@@ -14172,99 +14165,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -14279,6 +14190,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -14286,12 +14246,50 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -14300,23 +14298,25 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security', 
                 [], [], 
-                '''                Enable/Disable OSPF flood reduction
+                '''                Container class for security related
+                configuration parameters
                 ''',
-                'flood_reduction',
+                'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
-                '''                Interface fallback cost
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
                 ''',
-                'cost_fallback',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14329,18 +14329,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                SID value
-                ''',
-                'sid_value',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('explicit-null', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Force Penultimate Hop To Send Explicit-Null
                 Label
                 ''',
                 'explicit_null',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                SID value
+                ''',
+                'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
@@ -14382,12 +14382,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd',
             False, 
             [
-            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
-                '''                Hello interval for BFD sessions created by OSPF
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
                 [(2, 50)], [], 
                 '''                Detection multiplier for BFD sessions created
@@ -14400,6 +14394,12 @@ _meta_table = {
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
                 'fast_detect_mode',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
+                [(3, 30000)], [], 
+                '''                Hello interval for BFD sessions created by OSPF
+                ''',
+                'interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14482,11 +14482,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -14495,11 +14495,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14628,19 +14628,19 @@ _meta_table = {
                 ''',
                 'candidate_interfaces',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix or UCMP exclude
                 interface configuration
                 ''',
                 'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14653,17 +14653,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
-                [], [], 
-                '''                Enable/Disable remote LFA computation
-                ''',
-                'tunnel',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 4294967295)], [], 
                 '''                Maximum path cost to remote LFA
                 ''',
                 'maximum_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
+                [], [], 
+                '''                Enable/Disable remote LFA computation
+                ''',
+                'tunnel',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14745,6 +14745,27 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix',
             False, 
             [
+            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix candidate
+                interface configuration
+                ''',
+                'candidate_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
+                [], [], 
+                '''                Fast-reroute per-link/per-prefix or UCMP exclude
+                interface configuration
+                ''',
+                'exclude_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only interfaces on the candidate list as a
+                backup path
+                ''',
+                'fast_reroute_use_candidate_only',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa', 
                 [], [], 
                 '''                Remote LFA configuration
@@ -14757,27 +14778,6 @@ _meta_table = {
                 ''',
                 'topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('candidate-interfaces', REFERENCE_CLASS, 'CandidateInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix candidate
-                interface configuration
-                ''',
-                'candidate_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-use-candidate-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use only interfaces on the candidate list as a
-                backup path
-                ''',
-                'fast_reroute_use_candidate_only',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('exclude-interfaces', REFERENCE_CLASS, 'ExcludeInterfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces', 
-                [], [], 
-                '''                Fast-reroute per-link/per-prefix or UCMP exclude
-                interface configuration
-                ''',
-                'exclude_interfaces',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'per-prefix',
@@ -14789,6 +14789,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute',
             False, 
             [
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
+                [], [], 
+                '''                Enable/Disable Fast-reroute per-link or
+                per-prefix
+                ''',
+                'fast_reroute_enable',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('per-link', REFERENCE_CLASS, 'PerLink' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink', 
                 [], [], 
                 '''                Fast-reroute per-link configuration
@@ -14800,13 +14807,6 @@ _meta_table = {
                 '''                Fast-reroute per-prefix configuration
                 ''',
                 'per_prefix',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
-                [], [], 
-                '''                Enable/Disable Fast-reroute per-link or
-                per-prefix
-                ''',
-                'fast_reroute_enable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14825,18 +14825,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -14850,6 +14838,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -14933,24 +14933,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication', 
                 [], [], 
-                '''                Prefix SID
+                '''                Authentication
                 ''',
-                'prefix_sid',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList', 
-                [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
-                ''',
-                'distribute_list',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface cost
-                ''',
-                'cost',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd', 
                 [], [], 
@@ -14958,105 +14945,17 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
-                ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
-                ''',
-                'ldp_sync_igp_shortcuts',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS LDP Auto Config
-                ''',
-                'ldp_auto_config',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security', 
-                [], [], 
-                '''                Container class for security related
-                configuration parameters
-                ''',
-                'security',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute', 
-                [], [], 
-                '''                Fast-reroute configuration
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
-                [], [], 
-                '''                Type of attached network
-                ''',
-                'network_type',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
+                '''                Interface cost
                 ''',
-                'hello_interval',
+                'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable advertising loopback as a stub
-                network
+                '''                Interface fallback cost
                 ''',
-                'loopback_stub_network',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable prefix suppression for secondary
-                addresses
-                ''',
-                'prefix_suppression_secondary',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF demand circuit
-                ''',
-                'demand_circuit',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable MPLS LDP sync
-                ''',
-                'ldp_sync',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -15071,6 +14970,55 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('demand-circuit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF demand circuit
+                ''',
+                'demand_circuit',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute', 
+                [], [], 
+                '''                Fast-reroute configuration
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable OSPF flood reduction
+                ''',
+                'flood_reduction',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-auto-config', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS LDP Auto Config
+                ''',
+                'ldp_auto_config',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync
+                ''',
+                'ldp_sync',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ldp-sync-igp-shortcuts', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable MPLS LDP sync for igp-shortcuts
+                ''',
+                'ldp_sync_igp_shortcuts',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('link-down-fast-detect', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable/Disable registration for early interface
@@ -15078,12 +15026,62 @@ _meta_table = {
                 ''',
                 'link_down_fast_detect',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+            _MetaInfoClassMember('loopback-stub-network', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                segment-routing forwarding configuration
-                Applicableonly in Default VRF
+                '''                Enable/Disable advertising loopback as a stub
+                network
                 ''',
-                'segment_routing_forwarding',
+                'loopback_stub_network',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
+                [], [], 
+                '''                Type of attached network
+                ''',
+                'network_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid', 
+                [], [], 
+                '''                Prefix SID
+                ''',
+                'prefix_sid',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('prefix-suppression-secondary', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable prefix suppression for secondary
+                addresses
+                ''',
+                'prefix_suppression_secondary',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Router priority for DR and BDR election
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -15092,29 +15090,31 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Router priority for DR and BDR election
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('flood-reduction', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable OSPF flood reduction
-                ''',
-                'flood_reduction',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('security', REFERENCE_CLASS, 'Security' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security', 
+                [], [], 
+                '''                Container class for security related
+                configuration parameters
+                ''',
+                'security',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
+                [], [], 
+                '''                segment-routing forwarding configuration
+                Applicableonly in Default VRF
+                ''',
+                'segment_routing_forwarding',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15237,11 +15237,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
-                [], [], 
-                '''                Authentication type
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Authentication key configuration
                 ''',
-                'type',
+                'key',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('message-digest-keies', REFERENCE_CLASS, 'MessageDigestKeies' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies', 
                 [], [], 
@@ -15250,11 +15250,11 @@ _meta_table = {
                 ''',
                 'message_digest_keies',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Authentication key configuration
+            _MetaInfoClassMember('type', REFERENCE_CLASS, 'Type' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type', 
+                [], [], 
+                '''                Authentication type
                 ''',
-                'key',
+                'type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15273,18 +15273,6 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                OSPF priority of non-broadcast neighbor
-                ''',
-                'priority',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                OSPF dead router poll-interval in seconds
-                ''',
-                'poll_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                OSPF cost for point-to-multipoint neighbor
@@ -15298,6 +15286,18 @@ _meta_table = {
                 point-to-multipoint
                 ''',
                 'database_filter',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                OSPF dead router poll-interval in seconds
+                ''',
+                'poll_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                OSPF priority of non-broadcast neighbor
+                ''',
+                'priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15381,12 +15381,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
                 [], [], 
-                '''                Filter networks intalled to RIB (disable as ACL
-                name means filtering is disabled)
+                '''                Authentication
                 ''',
-                'distribute_list',
+                'authentication',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -15394,48 +15393,11 @@ _meta_table = {
                 ''',
                 'cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
                 [], [], 
-                '''                Enable/Disable ignoring of MTU in DBD packets
+                '''                Interface fallback cost
                 ''',
-                'mtu_ignore',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication', 
-                [], [], 
-                '''                Authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
-                [], [], 
-                '''                Neighbor router configuration information
-                ''',
-                'neighbors',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interval between HELLO packets in seconds
-                ''',
-                'hello_interval',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When enabled, prevent sending HELLO packets over
-                link
-                ''',
-                'passive',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Number of seconds to delay transmission of LSAs
-                ''',
-                'transmit_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(576, 10000)], [], 
-                '''                Customize size of OSPF packets upto MTU
-                ''',
-                'packet_size',
+                'cost_fallback',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('database-filter', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -15450,6 +15412,44 @@ _meta_table = {
                 ''',
                 'dead_interval_minimal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distribute-list', REFERENCE_CLASS, 'DistributeList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList', 
+                [], [], 
+                '''                Filter networks intalled to RIB (disable as ACL
+                name means filtering is disabled)
+                ''',
+                'distribute_list',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interval between HELLO packets in seconds
+                ''',
+                'hello_interval',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mtu-ignore', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable ignoring of MTU in DBD packets
+                ''',
+                'mtu_ignore',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('neighbors', REFERENCE_CLASS, 'Neighbors' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors', 
+                [], [], 
+                '''                Neighbor router configuration information
+                ''',
+                'neighbors',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
+                [(576, 10000)], [], 
+                '''                Customize size of OSPF packets upto MTU
+                ''',
+                'packet_size',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('passive', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When enabled, prevent sending HELLO packets over
+                link
+                ''',
+                'passive',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
                 '''                Time in seconds between retransmitting lost link
@@ -15457,17 +15457,17 @@ _meta_table = {
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('cost-fallback', REFERENCE_CLASS, 'CostFallback' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback', 
-                [], [], 
-                '''                Interface fallback cost
-                ''',
-                'cost_fallback',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Number of seconds to delay transmission of LSAs
+                ''',
+                'transmit_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15543,17 +15543,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa',
             False, 
             [
-            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                No redistribution into this NSSA area
-                ''',
-                'no_redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('default-info-originate', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Originate Type 7 default into NSSA area
                 ''',
                 'default_info_originate',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
+                [], [], 
+                '''                OSPF External metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('no-redistribution', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                No redistribution into this NSSA area
+                ''',
+                'no_redistribution',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-summary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -15566,12 +15572,6 @@ _meta_table = {
                 '''                OSPF default metric
                 ''',
                 'nssa_def_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
-                [], [], 
-                '''                OSPF External metric type
-                ''',
-                'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15590,17 +15590,12 @@ _meta_table = {
                 ''',
                 'area_id',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes', 
+            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges', 
                 [], [], 
-                '''                Virtual Link scope configurations
+                '''                Summarize routes matching address/mask (border
+                routers only)
                 ''',
-                'virtual_link_scopes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes', 
-                [], [], 
-                '''                Sham Link scope configurations
-                ''',
-                'sham_link_scopes',
+                'area_ranges',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('area-scope', REFERENCE_CLASS, 'AreaScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope', 
                 [], [], 
@@ -15608,11 +15603,26 @@ _meta_table = {
                 ''',
                 'area_scope',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes', 
-                [], [], 
-                '''                Name scope configurations
+            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777215)], [], 
+                '''                Set the summary default-cost of a NSSA/stub
+                area
                 ''',
-                'name_scopes',
+                'default_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                intra-area prefixes out of this area as external
+                ''',
+                'external_out',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure an OSPF area to run MPLS Traffic
+                Engineering
+                ''',
+                'mpls_traffic_eng',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('multi-area-interface-scopes', REFERENCE_CLASS, 'MultiAreaInterfaceScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes', 
                 [], [], 
@@ -15620,12 +15630,11 @@ _meta_table = {
                 ''',
                 'multi_area_interface_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-ranges', REFERENCE_CLASS, 'AreaRanges' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges', 
+            _MetaInfoClassMember('name-scopes', REFERENCE_CLASS, 'NameScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes', 
                 [], [], 
-                '''                Summarize routes matching address/mask (border
-                routers only)
+                '''                Name scope configurations
                 ''',
-                'area_ranges',
+                'name_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nssa', REFERENCE_CLASS, 'Nssa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa', 
                 [], [], 
@@ -15640,13 +15649,6 @@ _meta_table = {
                 ''',
                 'route_policy_in',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777215)], [], 
-                '''                Set the summary default-cost of a NSSA/stub
-                area
-                ''',
-                'default_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('route-policy-out', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Configure a route policy for outbound type-3
@@ -15654,33 +15656,11 @@ _meta_table = {
                 ''',
                 'route_policy_out',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Specify the area as a stub area (send summary
-                LSA stub area)
+                '''                Enable routing on an IP network
                 ''',
-                'stub',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mpls-traffic-eng', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure an OSPF area to run MPLS Traffic
-                Engineering
-                ''',
-                'mpls_traffic_eng',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('external-out', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                intra-area prefixes out of this area as external
-                ''',
-                'external_out',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable/Disable an OSPF area to advertise
-                external prefixes into this area as summary
-                ''',
-                'summary_in',
+                'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
@@ -15689,11 +15669,31 @@ _meta_table = {
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('sham-link-scopes', REFERENCE_CLASS, 'ShamLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes', 
                 [], [], 
-                '''                Enable routing on an IP network
+                '''                Sham Link scope configurations
                 ''',
-                'running',
+                'sham_link_scopes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('stub', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Specify the area as a stub area (send summary
+                LSA stub area)
+                ''',
+                'stub',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('summary-in', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/Disable an OSPF area to advertise
+                external prefixes into this area as summary
+                ''',
+                'summary_in',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('virtual-link-scopes', REFERENCE_CLASS, 'VirtualLinkScopes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes', 
+                [], [], 
+                '''                Virtual Link scope configurations
+                ''',
+                'virtual_link_scopes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -15729,18 +15729,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer',
             False, 
             [
-            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
-                '''                Number of milliseconds before first SPF run
-                ''',
-                'initial_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('backoff-increment', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
                 '''                Number of milliseconds delay between
                 successive SPF runs
                 ''',
                 'backoff_increment',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 600000)], [], 
+                '''                Number of milliseconds before first SPF run
+                ''',
+                'initial_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
@@ -15760,19 +15760,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer',
             False, 
             [
-            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600000)], [], 
-                '''                Number of milliseconds before generating first
-                LSA
-                ''',
-                'initial_delay',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('backoff-increment', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
                 '''                Number of milliseconds delay between
                 successive LSA builds
                 ''',
                 'backoff_increment',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
+                [(0, 600000)], [], 
+                '''                Number of milliseconds before generating first
+                LSA
+                ''',
+                'initial_delay',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('max-delay', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600000)], [], 
@@ -15792,25 +15792,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Timers',
             False, 
             [
-            _MetaInfoClassMember('spf-timer', REFERENCE_CLASS, 'SpfTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer', 
-                [], [], 
-                '''                OSPF SPF timers (in milliseconds)
-                ''',
-                'spf_timer',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-generation-timer', REFERENCE_CLASS, 'LsaGenerationTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer', 
-                [], [], 
-                '''                OSPF LSA timers (in milliseconds)
-                ''',
-                'lsa_generation_timer',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-pacing-flood', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
-                '''                Seconds between group of LSAs being refreshed
-                or maxaged
-                ''',
-                'lsa_pacing_flood',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('fast-reroute-timer', ATTRIBUTE, 'int' , None, None, 
                 [(50, 600000)], [], 
                 '''                Number of ms between end of SPF and start of
@@ -15818,12 +15799,11 @@ _meta_table = {
                 ''',
                 'fast_reroute_timer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('lsa-refresh', ATTRIBUTE, 'int' , None, None, 
-                [(1800, 2700)], [], 
-                '''                How often self-originated LSAs should be
-                refreshed
+            _MetaInfoClassMember('lsa-generation-timer', REFERENCE_CLASS, 'LsaGenerationTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer', 
+                [], [], 
+                '''                OSPF LSA timers (in milliseconds)
                 ''',
-                'lsa_refresh',
+                'lsa_generation_timer',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('lsa-group-pacing', ATTRIBUTE, 'int' , None, None, 
                 [(10, 1800)], [], 
@@ -15839,6 +15819,26 @@ _meta_table = {
                 ''',
                 'lsa_min_arrival',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lsa-pacing-flood', ATTRIBUTE, 'int' , None, None, 
+                [(5, 100)], [], 
+                '''                Seconds between group of LSAs being refreshed
+                or maxaged
+                ''',
+                'lsa_pacing_flood',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('lsa-refresh', ATTRIBUTE, 'int' , None, None, 
+                [(1800, 2700)], [], 
+                '''                How often self-originated LSAs should be
+                refreshed
+                ''',
+                'lsa_refresh',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('spf-timer', REFERENCE_CLASS, 'SpfTimer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer', 
+                [], [], 
+                '''                OSPF SPF timers (in milliseconds)
+                ''',
+                'spf_timer',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'timers',
@@ -15850,35 +15850,91 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf',
             False, 
             [
-            _MetaInfoClassMember('monitor-convergence', REFERENCE_CLASS, 'MonitorConvergence' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MonitorConvergence', 
+            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
                 [], [], 
-                '''                Enable convergence monitoring
+                '''                Log changes in adjacency state
                 ''',
-                'monitor_convergence',
+                'adjacency_changes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_CLASS, 'SegmentRouting' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SegmentRouting', 
+            _MetaInfoClassMember('adjacency-stagger', REFERENCE_CLASS, 'AdjacencyStagger' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AdjacencyStagger', 
                 [], [], 
-                '''                Segment Routing instance scoped parameters
+                '''                Staggering OSPF adjacency bring up
                 ''',
-                'segment_routing',
+                'adjacency_stagger',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('mpls', REFERENCE_CLASS, 'Mpls' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Mpls', 
+            _MetaInfoClassMember('af', REFERENCE_CLASS, 'Af' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Af', 
                 [], [], 
-                '''                Configure MPLS routing protocol parameters
+                '''                OSPF address family
                 ''',
-                'mpls',
+                'af',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('microloop', REFERENCE_CLASS, 'Microloop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Microloop', 
+            _MetaInfoClassMember('area-addresses', REFERENCE_CLASS, 'AreaAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses', 
                 [], [], 
-                '''                Microloop configuration
+                '''                Area configuration
                 ''',
-                'microloop',
+                'area_addresses',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('auto-cost', REFERENCE_CLASS, 'AutoCost' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AutoCost', 
+                [], [], 
+                '''                Controls automatic cost based on bandwidth
+                ''',
+                'auto_cost',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('default-information', REFERENCE_CLASS, 'DefaultInformation' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.DefaultInformation', 
+                [], [], 
+                '''                Control distribution of default information
+                ''',
+                'default_information',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
+                [(1, 16777214)], [], 
+                '''                Set default metric of redistributed routes
+                ''',
+                'default_metric',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Distance', 
+                [], [], 
+                '''                Administrative distance configuration
+                ''',
+                'distance',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.FastReroute', 
+                [], [], 
+                '''                Fast-reroute instance scoped parameters
+                ''',
+                'fast_reroute',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('ignore-mospf', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Ignore MOSPF (Type 6) LSAs
                 ''',
                 'ignore_mospf',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-lsa', REFERENCE_CLASS, 'MaxLsa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxLsa', 
+                [], [], 
+                '''                Set max-lsa configuration
+                ''',
+                'max_lsa',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('max-metric', REFERENCE_CLASS, 'MaxMetric' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric', 
+                [], [], 
+                '''                Set maximum metric configuration
+                ''',
+                'max_metric',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('maximum-interfaces', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Max number of interfaces allowed to be
+                configured
+                ''',
+                'maximum_interfaces',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
+                [(1, 64)], [], 
+                '''                Forward packets over multiple paths (number of
+                paths)
+                ''',
+                'maximum_paths',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('maximum-redistribute-prefix', REFERENCE_CLASS, 'MaximumRedistributePrefix' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix', 
                 [], [], 
@@ -15887,56 +15943,23 @@ _meta_table = {
                 ''',
                 'maximum_redistribute_prefix',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-information', REFERENCE_CLASS, 'DefaultInformation' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.DefaultInformation', 
+            _MetaInfoClassMember('microloop', REFERENCE_CLASS, 'Microloop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Microloop', 
                 [], [], 
-                '''                Control distribution of default information
+                '''                Microloop configuration
                 ''',
-                'default_information',
+                'microloop',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('af', REFERENCE_CLASS, 'Af' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Af', 
+            _MetaInfoClassMember('monitor-convergence', REFERENCE_CLASS, 'MonitorConvergence' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MonitorConvergence', 
                 [], [], 
-                '''                OSPF address family
+                '''                Enable convergence monitoring
                 ''',
-                'af',
+                'monitor_convergence',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('queue', REFERENCE_CLASS, 'Queue' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Queue', 
+            _MetaInfoClassMember('mpls', REFERENCE_CLASS, 'Mpls' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Mpls', 
                 [], [], 
-                '''                Adjust OSPF input queue sizes and processing
-                quantums
+                '''                Configure MPLS routing protocol parameters
                 ''',
-                'queue',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Router ID for this OSPF process. Enter an IP
-                Address.
-                ''',
-                'router_id',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type7', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Prefer type7 externals over type5
-                ''',
-                'type7',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-metric', REFERENCE_CLASS, 'MaxMetric' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxMetric', 
-                [], [], 
-                '''                Set maximum metric configuration
-                ''',
-                'max_metric',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('snmp-context', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                OSPF SNMP context configuration
-                ''',
-                'snmp_context',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('maximum-interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Max number of interfaces allowed to be
-                configured
-                ''',
-                'maximum_interfaces',
+                'mpls',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('no-opaque', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -15950,11 +15973,49 @@ _meta_table = {
                 ''',
                 'nsf',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('outgoing-route-updates', REFERENCE_CLASS, 'OutgoingRouteUpdates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates', 
+                [], [], 
+                '''                Filter outgoing routing updates
+                ''',
+                'outgoing_route_updates',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('process-scope', REFERENCE_CLASS, 'ProcessScope' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.ProcessScope', 
                 [], [], 
                 '''                Process scope configuration
                 ''',
                 'process_scope',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('queue', REFERENCE_CLASS, 'Queue' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Queue', 
+                [], [], 
+                '''                Adjust OSPF input queue sizes and processing
+                quantums
+                ''',
+                'queue',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('redistribution', REFERENCE_CLASS, 'Redistribution' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution', 
+                [], [], 
+                '''                Redistribute configurations
+                ''',
+                'redistribution',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Router ID for this OSPF process. Enter an IP
+                Address.
+                ''',
+                'router_id',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('segment-routing', REFERENCE_CLASS, 'SegmentRouting' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SegmentRouting', 
+                [], [], 
+                '''                Segment Routing instance scoped parameters
+                ''',
+                'segment_routing',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('snmp-context', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OSPF SNMP context configuration
+                ''',
+                'snmp_context',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('spf-prefix-priority', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -15963,78 +16024,11 @@ _meta_table = {
                 ''',
                 'spf_prefix_priority',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('redistribution', REFERENCE_CLASS, 'Redistribution' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Redistribution', 
-                [], [], 
-                '''                Redistribute configurations
-                ''',
-                'redistribution',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('adjacency-stagger', REFERENCE_CLASS, 'AdjacencyStagger' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AdjacencyStagger', 
-                [], [], 
-                '''                Staggering OSPF adjacency bring up
-                ''',
-                'adjacency_stagger',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('max-lsa', REFERENCE_CLASS, 'MaxLsa' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.MaxLsa', 
-                [], [], 
-                '''                Set max-lsa configuration
-                ''',
-                'max_lsa',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('auto-cost', REFERENCE_CLASS, 'AutoCost' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AutoCost', 
-                [], [], 
-                '''                Controls automatic cost based on bandwidth
-                ''',
-                'auto_cost',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ucmp', REFERENCE_CLASS, 'Ucmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Ucmp', 
-                [], [], 
-                '''                Unequal Cost Multi-ptah configuration
-                ''',
-                'ucmp',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
-                '''                Forward packets over multiple paths (number of
-                paths)
-                ''',
-                'maximum_paths',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.FastReroute', 
-                [], [], 
-                '''                Fast-reroute instance scoped parameters
-                ''',
-                'fast_reroute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('summary-prefixes', REFERENCE_CLASS, 'SummaryPrefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.SummaryPrefixes', 
                 [], [], 
                 '''                Configure IP prefix summary
                 ''',
                 'summary_prefixes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
-                [], [], 
-                '''                Log changes in adjacency state
-                ''',
-                'adjacency_changes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('outgoing-route-updates', REFERENCE_CLASS, 'OutgoingRouteUpdates' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates', 
-                [], [], 
-                '''                Filter outgoing routing updates
-                ''',
-                'outgoing_route_updates',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Distance', 
-                [], [], 
-                '''                Administrative distance configuration
-                ''',
-                'distance',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('area-addresses', REFERENCE_CLASS, 'AreaAddresses' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.AreaAddresses', 
-                [], [], 
-                '''                Area configuration
-                ''',
-                'area_addresses',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('timers', REFERENCE_CLASS, 'Timers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Timers', 
                 [], [], 
@@ -16042,11 +16036,17 @@ _meta_table = {
                 ''',
                 'timers',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
-                '''                Set default metric of redistributed routes
+            _MetaInfoClassMember('type7', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Prefer type7 externals over type5
                 ''',
-                'default_metric',
+                'type7',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('ucmp', REFERENCE_CLASS, 'Ucmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf.Ucmp', 
+                [], [], 
+                '''                Unequal Cost Multi-ptah configuration
+                ''',
+                'ucmp',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -16065,35 +16065,17 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('snmp', REFERENCE_CLASS, 'Snmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Snmp', 
-                [], [], 
-                '''                OSPF SNMP configuration
-                ''',
-                'snmp',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('distribute', REFERENCE_CLASS, 'Distribute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Distribute', 
-                [], [], 
-                '''                Enable distribution of LSAs into BGP
-                ''',
-                'distribute',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs', 
-                [], [], 
-                '''                VRF related configuration
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.DefaultVrf', 
                 [], [], 
                 '''                Default VRF related configuration
                 ''',
                 'default_vrf',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('start', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('distribute', REFERENCE_CLASS, 'Distribute' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Distribute', 
                 [], [], 
-                '''                Start OSPF configuration
+                '''                Enable distribution of LSAs into BGP
                 ''',
-                'start',
+                'distribute',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'NsrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'NsrEnum', 
                 [], [], 
@@ -16112,6 +16094,24 @@ _meta_table = {
                 '''                Enable routing on an IP network
                 ''',
                 'running',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('snmp', REFERENCE_CLASS, 'Snmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Snmp', 
+                [], [], 
+                '''                OSPF SNMP configuration
+                ''',
+                'snmp',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('start', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Start OSPF configuration
+                ''',
+                'start',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Vrfs', 
+                [], [], 
+                '''                VRF related configuration
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
@@ -16159,17 +16159,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf',
             False, 
             [
-            _MetaInfoClassMember('processes', REFERENCE_CLASS, 'Processes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes', 
-                [], [], 
-                '''                Process related configuration
-                ''',
-                'processes',
-                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Global', 
                 [], [], 
                 '''                OSPF global configuration data
                 ''',
                 'global_',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('processes', REFERENCE_CLASS, 'Processes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes', 
+                [], [], 
+                '''                Process related configuration
+                ''',
+                'processes',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
