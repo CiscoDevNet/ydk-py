@@ -1,7 +1,7 @@
 .. image::  https://travis-ci.org/CiscoDevNet/ydk-py.svg?branch=master
     :target: https://travis-ci.org/CiscoDevNet/ydk-py
 
-.. contents::
+.. contents:: Table of Contents
 
 Getting Started
 ===============
