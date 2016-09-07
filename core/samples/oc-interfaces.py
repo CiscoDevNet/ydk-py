@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #  ----------------------------------------------------------------
 # Copyright 2016 Cisco Systems
 #
@@ -27,7 +28,7 @@ from ydk.types import Empty, DELETE, Decimal64
 from ydk.services import CRUDService
 import logging
 
-from samples.session_mgr import establish_session, init_logging
+from session_mgr import establish_session, init_logging
 from ydk.models.openconfig.openconfig_interfaces import Interfaces
 from ydk.errors import YPYError
 
